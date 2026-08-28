@@ -3,11 +3,21 @@
 Read `README.md` first — it explains the repository layout and the data model.
 This file covers how to work in the repo, not what's in it.
 
+## Project scope
+
+Build a gamified mobile prototype for learning tarot reading, including
+content management and social systems, following established language-learning
+app conventions: a linear unit path, short repeated exercise formats, streaks,
+and social features.
+
+A second goal runs alongside the first: developing a working practice for
+collaborating with Claude across design and coding tools.
+
 ## Orientation
 
-Lunadeck is a Duolingo-style tarot learning app. The content model lives in
-`data/` as CSVs, the feature specs live in `specs/`, and the art lives in
-`assets/`.
+Lunadeck is a gamified tarot learning app built around a linear lesson path.
+The content model lives in `data/` as CSVs, the feature specs live in `specs/`,
+and the art lives in `assets/`.
 
 Before answering questions about curriculum structure, exercise formats, or card
 content, read the relevant CSV rather than inferring from filenames. The tables

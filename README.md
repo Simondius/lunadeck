@@ -1,6 +1,6 @@
 # Lunadeck
 
-A Duolingo-style mobile app for learning tarot reading. Learners work through a
+A gamified mobile app for learning tarot reading. Learners work through a
 structured path of short exercises, building recognition of all 78 cards, their
 symbols, and their meanings.
 

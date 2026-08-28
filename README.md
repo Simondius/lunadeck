@@ -25,7 +25,8 @@ assets/     card art and symbol art
   misc/           deck box lid
 specs/      feature specs (PDF) and the global UX style guide
 scripts/    Python utilities that generated the derived art and data,
-            plus copy-assets.mjs which mirrors assets/ into public/
+            check_data.py which validates data/, and copy-assets.mjs which
+            mirrors assets/ into public/
 docs/       decision records
 ```
 
@@ -141,6 +142,13 @@ Eight formats appear in the curriculum:
 Each format has its own locked spec. Cross-cutting interaction rules that apply
 to all formats live in `specs/UX_Style_Guide.md`, not in individual format specs.
 
+A curriculum node is not always one screen. `cards_to_recall_count` grows to 6
+on the later nodes of a section, while every format renders a single target, so
+a node expands into one or more *instances* of its format, played back to back
+— a six-card Major/Minor sort is six sorts, an eight-card unit recap is three
+Board Matching boards. `lib/rounds.js` does that expansion; see
+`docs/decisions/0002`.
+
 ---
 
 ## The units
@@ -177,6 +185,11 @@ master changes, regenerate rather than editing the crop by hand.
 CSVs are the source of truth for content. Edit them directly and let the diff
 carry the review — don't regenerate a whole file if you're changing a few rows,
 as that produces an unreadable diff.
+
+Run `python scripts/check_data.py` after editing anything in `data/`. It checks
+the integrity rules in `CLAUDE.md` — play order, node IDs, format codes, card
+references, unit counts and completion estimates — and exits non-zero on the
+first set of failures.
 
 Card art is binary and doesn't diff. Replacing masters frequently will grow the
 repository, so if art iteration becomes routine, move `assets/` to Git LFS.

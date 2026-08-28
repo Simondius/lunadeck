@@ -50,12 +50,17 @@ hand-edit a crop.
 
 ## Data integrity
 
+`python scripts/check_data.py` enforces everything below, plus a few rules the
+app depends on. Run it before opening a pull request that touches `data/`.
+
 When editing `data/data_curriculum_nodes.csv`:
 
 - `global_play_order` must stay contiguous and unique
 - `node_id` must match its unit, section, and node numbers
 - every `card_key` in `cards_involved` must exist in `data_tarot_cards_base.csv`
 - `format_code` must be one of A1, A2, A3, A4, A5, A7, B, C
+- `cards_involved` must not repeat a card — a repeat renders two identical
+  options in one grid, which the learner cannot answer
 - if node counts change, update the matching row in `data_unit_metadata.csv`
   (`standard_node_count`, `throwback_node_count`, `total_node_count`, and the
   three completion time estimates)

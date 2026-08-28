@@ -5,6 +5,10 @@ import { ImageOption, TextOption, Inspector, Footer, gridClass } from "./options
 
 // Format A — Match to Grid. One fixed reference, 2-4 candidates, select then
 // confirm, retry until correct. A wrong pick never ends the round.
+//
+// The same component serves the card variants (A1/A2/A3) and the symbol ones
+// (A4/A5/A7) — they differ only in what sits on each side of the screen, which
+// is exactly the split the Format Bible describes as "layout shapes."
 export default function FormatA({ round, meta, onAdvance, onHintReady }) {
   const [selected, setSelected] = useState(null);
   const [eliminated, setEliminated] = useState([]);
@@ -13,7 +17,8 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
   const [inspecting, setInspecting] = useState(null);
 
   const items = round.candidates.items;
-  const isImages = round.candidates.type === "image";
+  const candidateType = round.candidates.type;
+  const isImages = candidateType === "image" || candidateType === "symbol";
 
   function check() {
     if (!selected) return;
@@ -65,6 +70,7 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
             <ImageOption
               key={option.key}
               option={option}
+              variant={candidateType === "symbol" ? "symbol" : "card"}
               state={stateFor(option)}
               onSelect={() => setSelected(option.key)}
               onInspect={() => setInspecting(option)}
@@ -103,6 +109,12 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
 
 // The fixed reference is never selectable. Text panels scroll internally
 // rather than truncating; image panels are inspect-only.
+//
+// Neither a symbol reference (A4/A5) nor a symbol candidate (A7) carries its
+// own name. The Bible pairs symbol icons with a "Category: Name" label, but
+// the Style Guide's Section 4 rule — a candidate never shows the identity
+// that would give the answer away — outranks it on both of those screens,
+// where naming the icon *is* the question.
 function Reference({ reference, onInspect }) {
   if (reference.type === "card") {
     return (
@@ -116,6 +128,29 @@ function Reference({ reference, onInspect }) {
           <img src={reference.image} alt={reference.label} />
         </button>
         <p className="reference-name">{reference.label}</p>
+      </div>
+    );
+  }
+
+  if (reference.type === "symbol") {
+    return (
+      <div className="reference-card">
+        <button
+          type="button"
+          className="reference-symbol"
+          onClick={() => onInspect(reference)}
+          aria-label="Inspect this symbol"
+        >
+          <img src={reference.image} alt="" />
+        </button>
+      </div>
+    );
+  }
+
+  if (reference.type === "label") {
+    return (
+      <div className="anchor anchor-label">
+        <p>{reference.text}</p>
       </div>
     );
   }

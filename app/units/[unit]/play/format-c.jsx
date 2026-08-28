@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { seededShuffle } from "@/lib/rounds";
 import { Footer } from "./options";
 
 // Format C — Board Matching. No fixed reference and no Continue button
-// anywhere, including at completion. Tapping a left tile selects it; tapping a
+// anywhere, including at completion. A node listing more than 3 cards is split
+// into several boards upstream in lib/rounds.js, so this component only ever
+// renders a 2- or 3-row board. Tapping a left tile selects it; tapping a
 // right tile evaluates immediately. Wrong tiles flash and return to
 // selectable rather than being disabled. Matched pairs are removed, leaving
 // the gap — no reflow.
@@ -14,9 +16,11 @@ export default function FormatC({ round, meta, onAdvance }) {
   const [matched, setMatched] = useState([]);
   const [wrongPair, setWrongPair] = useState(null);
 
-  const rightOrder = seededShuffle(
-    round.pairs.map((p) => p.key),
-    `${round.pairs.length}-right`
+  // Seeded per board, not per board size — otherwise every 3-row board in the
+  // curriculum would shuffle to the same order.
+  const rightOrder = useMemo(
+    () => seededShuffle(round.pairs.map((p) => p.key), `${round.seed}-right`),
+    [round]
   );
 
   const complete = matched.length === round.pairs.length;
@@ -89,12 +93,6 @@ export default function FormatC({ round, meta, onAdvance }) {
           })}
         </div>
       </div>
-
-      {round.overflow ? (
-        <p className="spec-note">
-          Curriculum lists {round.overflow} cards; the board caps at 3 rows per spec.
-        </p>
-      ) : null}
 
       {complete ? (
         <div className="reveal">

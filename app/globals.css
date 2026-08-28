@@ -366,6 +366,30 @@ a {
 
 .reference-art img { display: block; max-height: 33dvh; width: auto; }
 
+/* Symbol icons are squarer than card art and carry no name label — naming
+   the icon is the question on every screen that shows one. */
+.reference-symbol {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  /* Symbol art is a gold glyph printed on an opaque white plate, so the tile
+     takes the plate's own colour rather than sitting it on a dark panel. */
+  background: #fff;
+  overflow: hidden;
+  cursor: zoom-in;
+  line-height: 0;
+}
+
+.reference-symbol img {
+  display: block;
+  width: auto;
+  height: 22dvh;
+  max-height: 176px;
+  aspect-ratio: 1 / 1;
+}
+
 .donor-art {
   display: block;
   margin: 0 auto;
@@ -392,6 +416,20 @@ a {
   border: 1px solid var(--line);
   border-radius: 12px;
   margin-bottom: 18px;
+}
+
+.anchor-label {
+  display: block;
+  text-align: center;
+  max-height: none;
+}
+
+.anchor-label p {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  color: var(--gold);
 }
 
 .anchor-prose { display: block; }
@@ -431,7 +469,15 @@ a {
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-4 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: 1fr 1fr; }
-.grid-3 > :nth-child(3) { grid-column: 1 / -1; width: calc(50% - 6px); margin: 0 auto; }
+/* 3 image options: two on the first row, one centred below. Text options are
+   full-width rows in every count, so this must not catch them — halving the
+   third row would break the Style Guide's equal-size rule (Section 1). */
+.grid-3 > .option-image:nth-child(3),
+.grid-3 > .option-symbol:nth-child(3) {
+  grid-column: 1 / -1;
+  width: calc(50% - 6px);
+  margin: 0 auto;
+}
 
 .option {
   position: relative;
@@ -454,6 +500,19 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.option-symbol {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+}
+
+.option-symbol img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
   pointer-events: none;
 }

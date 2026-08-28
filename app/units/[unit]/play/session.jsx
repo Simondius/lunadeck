@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FormatA from "./format-a";
@@ -10,24 +10,47 @@ import { Footer } from "./options";
 
 const FORMATS = { A: FormatA, B: FormatB, C: FormatC };
 
+// A node can expand into several instances of its format — a six-card sort is
+// six sorts, an eight-card recap is three boards. The session plays them back
+// to back; the node is what the curriculum counts, the instance is what the
+// learner sees.
+function toSteps(nodes) {
+  const steps = [];
+  nodes.forEach((node, nodeIndex) => {
+    if (!node.playable) {
+      steps.push({ node, nodeIndex, round: null, instance: 0, instanceCount: 1 });
+      return;
+    }
+    node.instances.forEach((round, instance) => {
+      steps.push({
+        node,
+        nodeIndex,
+        round,
+        instance,
+        instanceCount: node.instances.length,
+      });
+    });
+  });
+  return steps;
+}
+
 export default function Session({ unitNumber, unitName, nodes }) {
+  const steps = useMemo(() => toSteps(nodes), [nodes]);
   const [index, setIndex] = useState(0);
   const [hintHandler, setHintHandler] = useState(null);
   const router = useRouter();
 
-  const node = nodes[index];
+  const step = steps[index];
 
-  // On the last node, advancing leaves the lesson rather than sticking.
+  // On the last step, advancing leaves the lesson rather than sticking.
   const advance = useCallback(() => {
     setHintHandler(null);
-    setIndex((i) => {
-      if (i >= nodes.length - 1) {
-        router.push(`/units/${unitNumber}`);
-        return i;
-      }
-      return i + 1;
-    });
-  }, [nodes.length, router, unitNumber]);
+    if (index >= steps.length - 1) {
+      router.push(`/units/${unitNumber}`);
+      return;
+    }
+    setIndex(index + 1);
+  }, [index, steps.length, router, unitNumber]);
 
   // Only Format A supplies a hint; B and C leave the control disabled, which
   // the Format Bible flags as an open question rather than settled behaviour.
@@ -35,15 +58,20 @@ export default function Session({ unitNumber, unitName, nodes }) {
     setHintHandler(() => handler);
   }, []);
 
-  if (!node) return null;
+  if (!step) return null;
 
-  const Format = node.playable ? FORMATS[node.round.kind] : null;
-  const progress = (index / nodes.length) * 100;
-  const meta = `${unitName} · ${node.nodeId} · ${node.formatCode}${
-    node.distractorTier && node.distractorTier !== "n/a"
-      ? ` · ${node.distractorTier}`
-      : ""
-  }`;
+  const { node, round, instance, instanceCount } = step;
+  const Format = round ? FORMATS[round.kind] : null;
+  const progress = (index / steps.length) * 100;
+  const meta = [
+    unitName,
+    node.nodeId,
+    node.formatCode,
+    node.distractorTier && node.distractorTier !== "n/a" ? node.distractorTier : null,
+    instanceCount > 1 ? `${instance + 1} of ${instanceCount}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <main className="session">
@@ -66,8 +94,8 @@ export default function Session({ unitNumber, unitName, nodes }) {
 
       {Format ? (
         <Format
-          key={node.nodeId}
-          round={node.round}
+          key={`${node.nodeId}-${instance}`}
+          round={round}
           meta={meta}
           onAdvance={advance}
           onHintReady={onHintReady}
@@ -78,16 +106,11 @@ export default function Session({ unitNumber, unitName, nodes }) {
             <p className="unbuilt-code">{node.formatCode}</p>
             <p className="unbuilt-name">{node.formatName}</p>
             <p className="unbuilt-note">
-              Spec and curriculum data disagree on this format&rsquo;s direction.
-              Not built yet.
+              This node has no renderable round. Check the curriculum row against
+              the format builders in <code>lib/rounds.js</code>.
             </p>
           </div>
-          <Footer
-            label="Skip"
-            disabled={false}
-            onClick={advance}
-            meta={meta}
-          />
+          <Footer label="Skip" disabled={false} onClick={advance} meta={meta} />
         </>
       )}
     </main>

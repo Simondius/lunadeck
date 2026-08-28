@@ -6,7 +6,9 @@ const LONG_PRESS_MS = 400;
 
 // Tap selects. Press and hold opens the image full screen; releasing returns
 // without changing the selection. A quick tap never triggers inspect.
-export function ImageOption({ option, state, onSelect, onInspect }) {
+// `variant` picks the tile shape: "card" keeps the deck's portrait ratio,
+// "symbol" the squarer icon tile the Format Bible calls for.
+export function ImageOption({ option, state, onSelect, onInspect, variant = "card" }) {
   const timer = useRef(null);
   const longPressed = useRef(false);
 
@@ -30,7 +32,7 @@ export function ImageOption({ option, state, onSelect, onInspect }) {
   return (
     <button
       type="button"
-      className={`option option-image is-${state}`}
+      className={`option option-${variant === "symbol" ? "symbol" : "image"} is-${state}`}
       onPointerDown={start}
       onPointerUp={end}
       onPointerLeave={() => clearTimeout(timer.current)}

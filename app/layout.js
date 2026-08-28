@@ -1,4 +1,5 @@
 import "./globals.css";
+import TabBar from "@/components/tabbar";
 
 export const metadata = {
   title: "Lunadeck",
@@ -20,7 +21,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <TabBar />
+      </body>
     </html>
   );
 }

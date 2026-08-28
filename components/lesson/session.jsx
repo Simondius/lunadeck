@@ -7,13 +7,15 @@ import FormatA from "./format-a";
 import FormatB from "./format-b";
 import FormatC from "./format-c";
 import { Footer } from "./options";
+import { useProgress } from "@/components/use-progress";
+import { completeNode, spendHint, hintsLeft, sectionKey } from "@/lib/progress";
 
 const FORMATS = { A: FormatA, B: FormatB, C: FormatC };
 
 // A node can expand into several instances of its format — a six-card sort is
 // six sorts, an eight-card recap is three boards. The session plays them back
-// to back; the node is what the curriculum counts, the instance is what the
-// learner sees.
+// to back; the node is what the curriculum counts and what progress records,
+// the instance is what the learner sees and what the progress bar ticks.
 function toSteps(nodes) {
   const steps = [];
   nodes.forEach((node, nodeIndex) => {
@@ -34,23 +36,35 @@ function toSteps(nodes) {
   return steps;
 }
 
-export default function Session({ unitNumber, unitName, nodes }) {
+export default function Session({ unitNumber, unitName, section, nodes }) {
   const steps = useMemo(() => toSteps(nodes), [nodes]);
   const [index, setIndex] = useState(0);
   const [hintHandler, setHintHandler] = useState(null);
   const router = useRouter();
 
-  const step = steps[index];
+  const progress = useProgress();
+  const key = sectionKey(unitNumber, section.section);
+  const hints = hintsLeft(progress, key);
 
-  // On the last step, advancing leaves the lesson rather than sticking.
+  const step = steps[index];
+  const backHref = `/units/${unitNumber}`;
+
   const advance = useCallback(() => {
     setHintHandler(null);
-    if (index >= steps.length - 1) {
-      router.push(`/units/${unitNumber}`);
+    const current = steps[index];
+    const next = steps[index + 1];
+
+    // A node is complete once its last instance is answered — not per instance.
+    if (current && (!next || next.nodeIndex !== current.nodeIndex)) {
+      completeNode(current.node.nodeId);
+    }
+
+    if (!next) {
+      router.push(backHref);
       return;
     }
     setIndex(index + 1);
-  }, [index, steps.length, router, unitNumber]);
+  }, [index, steps, router, backHref]);
 
   // Only Format A supplies a hint; B and C leave the control disabled, which
   // the Format Bible flags as an open question rather than settled behaviour.
@@ -58,37 +72,49 @@ export default function Session({ unitNumber, unitName, nodes }) {
     setHintHandler(() => handler);
   }, []);
 
+  const useHint = useCallback(() => {
+    if (!hintHandler || hints <= 0) return;
+    spendHint(key);
+    hintHandler();
+  }, [hintHandler, hints, key]);
+
   if (!step) return null;
 
   const { node, round, instance, instanceCount } = step;
   const Format = round ? FORMATS[round.kind] : null;
-  const progress = (index / steps.length) * 100;
   const meta = [
-    unitName,
     node.nodeId,
-    node.formatCode,
     node.distractorTier && node.distractorTier !== "n/a" ? node.distractorTier : null,
     instanceCount > 1 ? `${instance + 1} of ${instanceCount}` : null,
   ]
     .filter(Boolean)
     .join(" · ");
+  const formatLine = `${node.formatCode} · ${node.formatName}`;
+  const hintable = Boolean(hintHandler) && hints > 0;
 
   return (
     <main className="session">
       <div className="topbar">
-        <Link className="quit" href={`/units/${unitNumber}`} aria-label="Leave lesson">
+        <Link className="quit" href={backHref} aria-label="Leave lesson">
           ✕
         </Link>
-        <div className="progress" role="progressbar" aria-valuenow={Math.round(progress)}>
-          <div className="progress-fill" style={{ width: `${progress}%` }} />
-        </div>
-        <button
-          className="hint"
-          onClick={() => hintHandler?.()}
-          disabled={!hintHandler}
-          type="button"
+        <div
+          className="progress"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={steps.length}
+          aria-valuenow={index}
+          aria-label={`Step ${index + 1} of ${steps.length}`}
         >
-          Hint
+          {steps.map((s, i) => (
+            <span
+              key={`${s.node.nodeId}-${s.instance}`}
+              className={i < index ? "is-done" : undefined}
+            />
+          ))}
+        </div>
+        <button className="hint" onClick={useHint} disabled={!hintable} type="button">
+          HINT · {hints}
         </button>
       </div>
 
@@ -97,19 +123,18 @@ export default function Session({ unitNumber, unitName, nodes }) {
           key={`${node.nodeId}-${instance}`}
           round={round}
           meta={meta}
+          formatLine={formatLine}
           onAdvance={advance}
           onHintReady={onHintReady}
         />
       ) : (
         <>
-          <div className="unbuilt">
-            <p className="unbuilt-code">{node.formatCode}</p>
-            <p className="unbuilt-name">{node.formatName}</p>
-            <p className="unbuilt-note">
-              This node has no renderable round. Check the curriculum row against
-              the format builders in <code>lib/rounds.js</code>.
-            </p>
-          </div>
+          <span className="format-line">{formatLine}</span>
+          <p className="prompt">Nothing to play here yet.</p>
+          <p className="spec-note">
+            This node has no renderable round. Check the curriculum row against
+            the format builders in lib/rounds.js.
+          </p>
           <Footer label="Skip" disabled={false} onClick={advance} meta={meta} />
         </>
       )}

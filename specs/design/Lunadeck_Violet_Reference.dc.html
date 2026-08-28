@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f0eee9;font-family:Inter,system-ui,sans-serif}
+a{color:#2a78d6}a:hover{color:#1b5aa8}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 Inter,system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Inter,system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#15131f;border:1px solid rgba(0,0,0,.12);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 Inter,system-ui,sans-serif;color:rgba(0,0,0,.5)}
+</style></helmet>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">The rest of the app in the violet system — the two new tabs, the three symbol formats, and the unit recap</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="3a"><div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Deck tab — collection completeness</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:26px 22px 96px;overflow:hidden">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+<h1 style="font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:600;letter-spacing:-0.03em;margin:0">Your deck</h1>
+<span style="font-family:Fraunces,Georgia,serif;font-size:22px;color:#8f52c4">32<span style="color:#7f8aa8;font-size:15px"> / 78</span></span>
+</div>
+<p style="font-size:13px;line-height:1.55;color:#a49cb8;margin:0 0 16px">Forty-six still to meet. Tap any card you know to reread its meaning.</p>
+<div style="display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap">
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 12px;border-radius:999px;background:#8f52c4;color:#f7f2ff">ALL 32</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,237,227,.14);color:#a49cb8">MAJORS 13</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,237,227,.14);color:#a49cb8">CUPS 9</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,237,227,.14);color:#a49cb8">WANDS 6</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,237,227,.14);color:#a49cb8">SWORDS 4</span>
+</div>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid rgba(143,82,196,.28)">MAJOR ARCANA · 13 OF 22</h2>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:24px">
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_01_magician_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_02_high_priestess_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_03_empress_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_04_emperor_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_05_hierophant_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_06_lovers_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">07</span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_08_strength_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_09_hermit_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">10</span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_11_justice_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">12</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">13</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">14</span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_15_devil_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">16</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">17</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">18</span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/major_19_sun_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+</div>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid rgba(143,82,196,.28)">CUPS · 9 OF 14</h2>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:11px">
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_02_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">3</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">4</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">5</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">6</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">7</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">8</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">9</span>
+<span style="aspect-ratio:1;border-radius:50%;border:1px dashed rgba(242,237,227,.14);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#4d5468">10</span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_knight_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_queen_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.55)"><img src="../../assets/cards/circle/minor_cups_king_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:#0c0a14;padding:14px 20px 16px;border-top:1px solid rgba(242,237,227,.07);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center">
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;border:2px solid #7f8aa8"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">PATH</span></div>
+<div><span style="display:block;width:12px;height:16px;margin:0 auto 4px;border-radius:2px;border:1.5px solid #8f52c4"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#8f52c4">DECK</span></div>
+<div><span style="display:block;width:13px;height:13px;margin:1px auto 6px;border:1.5px solid #7f8aa8;transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">TRIALS</span></div>
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;background:linear-gradient(120deg,#7f8aa8 50%,transparent 50%)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DRAW</span></div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="3b"><div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Daily draw</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="position:absolute;inset:0;background:radial-gradient(110% 55% at 50% 8%,rgba(143,82,196,.18),transparent 70%)"></div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(1px 1px at 50px 150px,rgba(242,237,227,.28),transparent),radial-gradient(1.5px 1.5px at 350px 260px,rgba(143,82,196,.5),transparent),radial-gradient(1px 1px at 90px 700px,rgba(242,237,227,.22),transparent)"></div>
+<div style="position:relative;height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:28px 22px 96px;overflow:hidden">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px">
+<h1 style="font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:600;letter-spacing:-0.03em;margin:0">Tonight's draw</h1>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#7f8aa8">28 AUG</span>
+</div>
+<div style="text-align:center;margin-bottom:20px">
+<div style="width:196px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.5),0 22px 55px rgba(0,0,0,.65),0 0 70px rgba(143,82,196,.22)"><img src="../../assets/cards/master/major_18_moon_MASTER.png" alt="The Moon" style="width:100%;display:block"></div>
+<p style="font-family:Fraunces,Georgia,serif;font-size:23px;font-weight:600;margin:16px 0 4px;letter-spacing:-0.02em">The Moon</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8f52c4;margin:0">UPRIGHT · PLANET: MOON · NOT YET TAUGHT</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:20px">
+<span style="font-size:12.5px;background:rgba(143,82,196,.12);border:1px solid rgba(143,82,196,.3);border-radius:999px;padding:5px 12px">dreams</span>
+<span style="font-size:12.5px;background:rgba(143,82,196,.12);border:1px solid rgba(143,82,196,.3);border-radius:999px;padding:5px 12px">sensitivity</span>
+<span style="font-size:12.5px;background:rgba(143,82,196,.12);border:1px solid rgba(143,82,196,.3);border-radius:999px;padding:5px 12px">inner reality</span>
+<span style="font-size:12.5px;background:rgba(143,82,196,.12);border:1px solid rgba(143,82,196,.3);border-radius:999px;padding:5px 12px">magic</span>
+<span style="font-size:12.5px;background:rgba(143,82,196,.12);border:1px solid rgba(143,82,196,.3);border-radius:999px;padding:5px 12px">mystery</span>
+</div>
+<div style="padding:18px;border-radius:14px;background:linear-gradient(140deg,#181423,#100e1a);border:1px solid rgba(242,237,227,.1);margin-bottom:16px">
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8f52c4;margin-bottom:8px">SIT WITH IT</span>
+<p style="margin:0;font-family:Fraunces,Georgia,serif;font-size:17px;line-height:1.45;letter-spacing:-0.01em">What did you notice today that you couldn't quite explain?</p>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:1px solid rgba(242,237,227,.09)">
+<span style="width:34px;height:34px;border-radius:50%;background:rgba(143,82,196,.15);border:1px solid rgba(143,82,196,.4);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">12</span>
+<span style="font-size:12.5px;line-height:1.5;color:#a49cb8">Twelve nights unbroken. Draw again tomorrow after sunset.</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:#0c0a14;padding:14px 20px 16px;border-top:1px solid rgba(242,237,227,.07);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center">
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;border:2px solid #7f8aa8"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">PATH</span></div>
+<div><span style="display:block;width:12px;height:16px;margin:0 auto 4px;border-radius:2px;border:1.5px solid #7f8aa8"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DECK</span></div>
+<div><span style="display:block;width:13px;height:13px;margin:1px auto 6px;border:1.5px solid #7f8aa8;transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">TRIALS</span></div>
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;background:linear-gradient(120deg,#8f52c4 50%,transparent 50%)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#8f52c4">DRAW</span></div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="3c"><div class="dv-olabel"><a class="dv-oid" href="#3c">3c</a>A4 — symbol identification</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="border:1px solid rgba(242,237,227,.16);border-radius:999px;color:#a49cb8;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 11px">HINT · 3</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">A4 · SYMBOL IDENTIFICATION</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 20px;line-height:1.2">Which symbol is this?</p>
+<div style="text-align:center;margin-bottom:22px">
+<span style="display:inline-block;padding:10px;border-radius:20px;background:linear-gradient(140deg,rgba(143,82,196,.18),rgba(12,10,20,0));border:1px solid rgba(143,82,196,.35)">
+<span style="display:block;width:168px;height:168px;border-radius:14px;background:#fff;overflow:hidden"><img src="../../assets/symbols/Planet_uranus_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"></span>
+</span>
+</div>
+<div style="display:grid;gap:10px">
+<div style="border-radius:12px;background:rgba(242,237,227,.03);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:15px;font-size:13.5px">Zodiac Sign: Virgo</div>
+<div style="border-radius:12px;background:rgba(143,82,196,.14);box-shadow:0 0 0 2px #8f52c4;padding:15px;font-size:13.5px;font-weight:500">Planet: Uranus</div>
+<div style="border-radius:12px;background:rgba(242,237,227,.03);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:15px;font-size:13.5px">Element: Water</div>
+<div style="border-radius:12px;background:rgba(242,237,227,.02);box-shadow:0 0 0 1px rgba(242,237,227,.06);padding:15px;font-size:13.5px;opacity:.32;position:relative">Suit: Cups<span style="position:absolute;top:11px;right:12px;width:20px;height:20px;border-radius:50%;background:#d9605f;color:#fff;font-size:11px;display:grid;place-items:center">✕</span></div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Check</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:10px 0 0">U1-S1-N3 · A4 · EASY</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="3d"><div class="dv-olabel"><a class="dv-oid" href="#3d">3d</a>A7 — symbol selection from label</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="border:1px solid rgba(242,237,227,.16);border-radius:999px;color:#a49cb8;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 11px">HINT · 3</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">A7 · SYMBOL SELECTION FROM LABEL</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px;line-height:1.2">Which icon is this symbol?</p>
+<div style="text-align:center;padding:22px 16px;border-radius:14px;background:linear-gradient(140deg,rgba(143,82,196,.16),rgba(12,10,20,0));border:1px solid rgba(143,82,196,.35);margin-bottom:20px">
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;color:#a08cc0;margin-bottom:8px">PLANET</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:28px;letter-spacing:-0.02em;color:#c9a6f0">Uranus</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<span style="aspect-ratio:1;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 0 0 1px rgba(242,237,227,.14)"><img src="../../assets/symbols/Zodiac_virgo_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"></span>
+<span style="aspect-ratio:1;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 0 0 2px #8f52c4,0 8px 24px rgba(143,82,196,.28)"><img src="../../assets/symbols/Planet_uranus_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"></span>
+<span style="aspect-ratio:1;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 0 0 1px rgba(242,237,227,.14)"><img src="../../assets/symbols/Element_water_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"></span>
+<span style="position:relative;aspect-ratio:1;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 0 0 1px rgba(242,237,227,.08);opacity:.32;filter:grayscale(1)"><img src="../../assets/symbols/Suit_cups_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"><span style="position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:#d9605f;color:#fff;font-size:12px;display:grid;place-items:center">✕</span></span>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#5f6880;margin:16px 0 0;text-align:center">ICONS STAY UNNAMED — NAMING ONE IS THE ANSWER</p>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Check</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:10px 0 0">U1-S1-N3 · A7 · EASY</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="3e"><div class="dv-olabel"><a class="dv-oid" href="#3e">3e</a>A5 — symbol meaning match, solved</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="border:1px solid rgba(242,237,227,.1);border-radius:999px;color:#5f6880;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 11px">HINT · 1</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">A5 · SYMBOL MEANING MATCH</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px;line-height:1.2">Which meaning belongs to this symbol?</p>
+<div style="text-align:center;margin-bottom:20px">
+<span style="display:inline-block;padding:9px;border-radius:18px;background:linear-gradient(140deg,rgba(143,82,196,.18),rgba(12,10,20,0));border:1px solid rgba(143,82,196,.35)">
+<span style="display:block;width:144px;height:144px;border-radius:12px;background:#fff;overflow:hidden"><img src="../../assets/symbols/Planet_venus_MASTER.png" alt="" style="width:100%;height:100%;object-fit:contain;display:block"></span>
+</span>
+</div>
+<div style="display:grid;gap:10px">
+<div style="border-radius:12px;background:rgba(242,237,227,.03);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:15px;font-size:13.5px;line-height:1.5;opacity:.55">nonconformist energy</div>
+<div style="position:relative;border-radius:12px;background:rgba(107,191,123,.1);box-shadow:0 0 0 2px #6bbf7b;padding:15px 40px 15px 15px;font-size:13.5px;line-height:1.5">connection and well-being expressed through relationship<span style="position:absolute;top:13px;right:13px;width:20px;height:20px;border-radius:50%;background:#6bbf7b;color:#0c0a14;font-size:11px;display:grid;place-items:center">✓</span></div>
+<div style="border-radius:12px;background:rgba(242,237,227,.03);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:15px;font-size:13.5px;line-height:1.5;opacity:.55">attentive discernment</div>
+</div>
+<div style="margin-top:20px;padding:18px;border-radius:14px;background:linear-gradient(140deg,rgba(143,82,196,.16),rgba(12,10,20,0));border:1px solid rgba(143,82,196,.42)">
+<div style="display:flex;align-items:baseline;gap:9px;margin-bottom:8px"><strong style="font-family:Fraunces,Georgia,serif;font-size:18px;color:#c9a6f0;font-weight:600">Planet: Venus</strong><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:#a08cc0">+3 XP</span></div>
+<span style="display:block;font-size:13px;line-height:1.6;color:#a49cb8">love · pleasure · beauty · harmony · connection and well-being expressed through relationship</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Next</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:10px 0 0">U1-S5-N3 · A5 · EASY</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="3f"><div class="dv-olabel"><a class="dv-oid" href="#3f">3f</a>Unit recap — unit complete, next unit unlocked</div>
+<div class="dv-card" style="width:420px;height:900px;position:relative;background:#0c0a14">
+<div style="position:absolute;inset:0;background:radial-gradient(120% 55% at 50% 10%,rgba(143,82,196,.2),transparent 70%)"></div>
+<div style="position:relative;height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:52px 24px 130px;text-align:center;overflow:hidden">
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:#8f52c4;margin-bottom:12px">UNIT 1 COMPLETE</span>
+<h2 style="font-family:Fraunces,Georgia,serif;font-size:33px;font-weight:600;letter-spacing:-0.03em;margin:0 0 10px;line-height:1.12">Instant Classics,<br>all eight</h2>
+<p style="font-size:13.5px;line-height:1.6;color:#a49cb8;margin:0 auto 26px;max-width:30ch">Fifty-seven exercises, four misses, eighty-one minutes. Three boards cleared in the recap.</p>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px">
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/minor_cups_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/major_01_magician_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/minor_wands_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/major_03_empress_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/major_04_emperor_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/minor_pentacles_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.6),0 0 18px rgba(143,82,196,.2)"><img src="../../assets/cards/circle/major_06_lovers_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px">
+<div style="padding:14px 8px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.08)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px">14</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8;margin-top:3px">NIGHTS</span></div>
+<div style="padding:14px 8px;border-radius:12px;background:rgba(143,82,196,.1);border:1px solid rgba(143,82,196,.35)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px;color:#c9a6f0">8/78</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#a08cc0;margin-top:3px">CARDS</span></div>
+<div style="padding:14px 8px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.08)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px">+171</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8;margin-top:3px">XP</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:linear-gradient(120deg,#1a1526,#100e1a);border:1px solid rgba(143,82,196,.3);text-align:left">
+<span style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 1px rgba(143,82,196,.5)"><img src="../../assets/cards/circle/minor_swords_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8f52c4;margin-bottom:3px">UNIT 2 UNLOCKED</span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">Completing the Court</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">8 cards · 59 exercises · ~88 min</span></span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px 22px;background:linear-gradient(to top,#0c0a14 70%,transparent);display:flex;flex-direction:column;gap:10px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Start Unit 2</div>
+<div style="text-align:center;padding:13px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#a49cb8">BACK TO PATH</div>
+</div>
+</div></div>
+
+</div>
+<p class="dv-next">Try next: "code handoff for all of this" · "add the Trials tab" · "show a wrong-answer state for <a class="dv-oid" href="#3d">3d</a>"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Elevated — same structure, richer surface. Progress, streak, collection and a tab bar added; palette kept but colder and higher-contrast</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a"><div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Home — constellation path</div>
+<div class="dv-card" style="width:420px;height:840px;position:relative;background:#0c0a14">
+<div style="position:absolute;inset:0;background-image:radial-gradient(1px 1px at 24px 60px,rgba(242,237,227,.35),transparent),radial-gradient(1px 1px at 320px 140px,rgba(242,237,227,.28),transparent),radial-gradient(1.5px 1.5px at 90px 300px,rgba(143,82,196,.4),transparent),radial-gradient(1px 1px at 380px 420px,rgba(242,237,227,.22),transparent),radial-gradient(1px 1px at 60px 520px,rgba(242,237,227,.3),transparent),radial-gradient(1.5px 1.5px at 280px 660px,rgba(143,82,196,.3),transparent),radial-gradient(1px 1px at 150px 760px,rgba(242,237,227,.22),transparent);pointer-events:none"></div>
+<div style="position:relative;height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:26px 20px 0;overflow:hidden">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:22px">
+<div>
+<h1 style="font-family:Fraunces,Georgia,serif;font-weight:600;font-size:30px;letter-spacing:-0.03em;margin:0">Luna<span style="color:#8f52c4">deck</span></h1>
+<p style="margin:6px 0 0;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#7f8aa8">31 of 78 cards known</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+<div style="display:flex;align-items:center;gap:7px;border:1px solid rgba(143,82,196,.34);border-radius:999px;padding:5px 11px"><span style="width:7px;height:7px;border-radius:50%;background:#8f52c4;box-shadow:0 0 8px #8f52c4"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">12 nights</span></div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">Daily draw ready</span>
+</div>
+</div>
+<div style="height:2px;background:rgba(242,237,227,.08);border-radius:2px;overflow:hidden;margin-bottom:4px"><div style="width:40%;height:100%;background:linear-gradient(to right,#6e3a9e,#8f52c4)"></div></div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8;margin:0 0 20px">UNIT 4 · SECTION 3 · 231 of 574 exercises</p>
+
+<div style="position:relative">
+<div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:repeating-linear-gradient(to bottom,rgba(242,237,227,.22) 0 3px,transparent 3px 9px)"></div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding-right:46px">
+<div style="position:relative;width:84px;height:84px;border-radius:50%;background:conic-gradient(#8f52c4 0 100%,rgba(242,237,227,.1) 0);padding:3px;box-sizing:border-box;flex:none;box-shadow:0 0 22px rgba(143,82,196,.18)">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<span style="position:absolute;bottom:-2px;right:-2px;width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center;border:2px solid #0c0a14">✓</span>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8f52c4">UNIT 1</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:1px 0 3px">Instant Classics</span>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">57 / 57 · 8 cards</span>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding-left:46px;flex-direction:row-reverse;text-align:right">
+<div style="position:relative;width:84px;height:84px;border-radius:50%;background:conic-gradient(#8f52c4 0 100%,rgba(242,237,227,.1) 0);padding:3px;box-sizing:border-box;flex:none">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box"><img src="../../assets/cards/circle/minor_swords_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<span style="position:absolute;bottom:-2px;left:-2px;width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center;border:2px solid #0c0a14">✓</span>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8f52c4">UNIT 2</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:1px 0 3px">Completing the Court</span>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">59 / 59 · 8 cards</span>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding-right:46px">
+<div style="position:relative;width:84px;height:84px;border-radius:50%;background:conic-gradient(#8f52c4 0 100%,rgba(242,237,227,.1) 0);padding:3px;box-sizing:border-box;flex:none">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box"><img src="../../assets/cards/circle/minor_wands_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<span style="position:absolute;bottom:-2px;right:-2px;width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center;border:2px solid #0c0a14">✓</span>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8f52c4">UNIT 3</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:1px 0 3px">The Royal Court</span>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">60 / 60 · 8 cards</span>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding-left:46px;flex-direction:row-reverse;text-align:right">
+<div style="position:relative;width:96px;height:96px;border-radius:50%;background:conic-gradient(#8f52c4 0 38%,rgba(242,237,227,.12) 38% 100%);padding:4px;box-sizing:border-box;flex:none;box-shadow:0 0 32px rgba(143,82,196,.28)">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box"><img src="../../assets/cards/circle/minor_swords_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8f52c4">UNIT 4 · IN PLAY</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-0.015em;margin:1px 0 4px">Turning Points</span>
+<span style="display:block;font-size:12px;line-height:1.45;color:#a49cb8;max-width:22ch;margin-bottom:8px">Cards about motion, change, and consequence</span>
+<span style="display:inline-block;background:#8f52c4;color:#f7f2ff;font-size:13px;font-weight:500;padding:9px 18px;border-radius:999px">Continue · 22 min</span>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding-right:46px;opacity:0.42">
+<div style="width:84px;height:84px;border-radius:50%;background:rgba(242,237,227,.1);padding:3px;box-sizing:border-box;flex:none">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box;filter:grayscale(1)"><img src="../../assets/cards/circle/major_15_devil_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#7f8aa8">UNIT 5 · LOCKED</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:1px 0 3px">Big Swings</span>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">Unit 4 complete</span>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:14px;padding-left:46px;flex-direction:row-reverse;text-align:right;opacity:0.28">
+<div style="width:84px;height:84px;border-radius:50%;background:rgba(242,237,227,.1);padding:3px;box-sizing:border-box;flex:none">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#201b2e;border:2px solid #0c0a14;box-sizing:border-box;filter:grayscale(1)"><img src="../../assets/cards/circle/minor_cups_02_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#7f8aa8">UNIT 6 · LOCKED</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:1px 0 3px">The Cups Story</span>
+</div>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 62%,rgba(12,10,20,0));padding:14px 20px 16px;border-top:1px solid rgba(242,237,227,.07);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center">
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;border:2px solid #8f52c4"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#8f52c4">PATH</span></div>
+<div><span style="display:block;width:12px;height:16px;margin:0 auto 4px;border-radius:2px;border:1.5px solid #7f8aa8"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DECK</span></div>
+<div><span style="display:block;width:13px;height:13px;margin:1px auto 6px;border:1.5px solid #7f8aa8;transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">TRIALS</span></div>
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;background:linear-gradient(120deg,#7f8aa8 50%,transparent 50%)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DRAW</span></div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2b"><div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Home — editorial list, elevated</div>
+<div class="dv-card" style="width:420px;height:840px;position:relative;background:#0c0a14">
+<div style="position:relative;height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:26px 0 96px;overflow:hidden">
+<div style="padding:0 22px 18px">
+<div style="display:flex;align-items:baseline;justify-content:space-between">
+<h1 style="font-family:Fraunces,Georgia,serif;font-weight:600;font-size:32px;letter-spacing:-0.03em;margin:0">Luna<span style="color:#8f52c4">deck</span></h1>
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">12 nights</span>
+</div>
+<p style="margin:10px 0 0;font-size:13px;line-height:1.55;color:#a49cb8;max-width:34ch">Seventy-eight cards, learned in order. You know thirty-one.</p>
+<div style="display:flex;gap:3px;margin-top:14px">
+<span style="flex:1;height:5px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:5px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:5px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:5px;border-radius:1px;background:linear-gradient(to right,#8f52c4 38%,rgba(242,237,227,.1) 38%)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span><span style="flex:1;height:5px;border-radius:1px;background:rgba(242,237,227,.1)"></span>
+</div>
+</div>
+
+<div style="padding:20px 22px;background:linear-gradient(120deg,#1a1526,#0f0c18);border-top:1px solid rgba(143,82,196,.3);border-bottom:1px solid rgba(143,82,196,.3);display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center">
+<div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:5px">NOW PLAYING · UNIT 4</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:25px;font-weight:600;letter-spacing:-0.02em;line-height:1.15">Turning Points</span>
+<span style="display:block;font-size:12.5px;line-height:1.5;color:#a49cb8;margin:6px 0 12px">Section 3 of 8 · Knight of Swords next</span>
+<span style="display:inline-block;background:#8f52c4;color:#f7f2ff;font-size:13px;font-weight:500;padding:10px 20px;border-radius:8px">Continue lesson</span>
+</div>
+<div style="width:74px;height:74px;border-radius:50%;background:conic-gradient(#8f52c4 0 38%,rgba(242,237,227,.12) 38% 100%);padding:3px;box-sizing:border-box">
+<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid #0f0c18;box-sizing:border-box"><img src="../../assets/cards/circle/minor_swords_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+</div>
+
+<div style="padding:6px 22px 0">
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(242,237,227,.07)">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#8f52c4;text-align:right;letter-spacing:-0.03em">1</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">Instant Classics</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">8 cards · complete</span></span>
+<span style="width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center">✓</span>
+</div>
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(242,237,227,.07)">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#8f52c4;text-align:right;letter-spacing:-0.03em">2</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">Completing the Court</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">8 cards · complete</span></span>
+<span style="width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center">✓</span>
+</div>
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(242,237,227,.07)">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#8f52c4;text-align:right;letter-spacing:-0.03em">3</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">The Royal Court</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">8 cards · complete</span></span>
+<span style="width:22px;height:22px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:12px;font-weight:600;display:grid;place-items:center">✓</span>
+</div>
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(242,237,227,.07);opacity:0.45">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#7f8aa8;text-align:right;letter-spacing:-0.03em">5</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">Big Swings</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">The deck's most dramatic images</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">LOCKED</span>
+</div>
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(242,237,227,.07);opacity:0.45">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#7f8aa8;text-align:right;letter-spacing:-0.03em">6</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">The Cups Story</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">One suit, start to finish</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">LOCKED</span>
+</div>
+<div style="display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:16px 0;opacity:0.3">
+<span style="font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;color:#7f8aa8;text-align:right;letter-spacing:-0.03em">7</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:600">Wands in Motion</span><span style="display:block;font-size:12px;color:#7f8aa8;margin-top:2px">Passion and momentum</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">LOCKED</span>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:#0c0a14;padding:14px 20px 16px;border-top:1px solid rgba(242,237,227,.07);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center">
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;border:2px solid #8f52c4"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#8f52c4">PATH</span></div>
+<div><span style="display:block;width:12px;height:16px;margin:0 auto 4px;border-radius:2px;border:1.5px solid #7f8aa8"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DECK</span></div>
+<div><span style="display:block;width:13px;height:13px;margin:1px auto 6px;border:1.5px solid #7f8aa8;transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">TRIALS</span></div>
+<div><span style="display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;background:linear-gradient(120deg,#7f8aa8 50%,transparent 50%)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8">DRAW</span></div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2c"><div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Unit detail — sections as chapters</div>
+<div class="dv-card" style="width:420px;height:840px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:24px 22px 96px;overflow:hidden">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f8aa8;display:inline-block;margin-bottom:20px">← PATH</span>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:6px">UNIT 1 · 8 SECTIONS</span>
+<h1 style="font-family:Fraunces,Georgia,serif;font-size:31px;font-weight:600;letter-spacing:-0.03em;margin:0 0 10px;line-height:1.1">Instant Classics</h1>
+<p style="font-size:13.5px;line-height:1.6;color:#a49cb8;margin:0 0 18px">The archetypes and suit-starters that need almost no explanation: The Fool, The Magician, The Empress, The Emperor, The Lovers, plus the first Ace from three suits.</p>
+<div style="display:flex;gap:6px;margin-bottom:18px;overflow:hidden">
+<img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(143,82,196,.4)">
+<img src="../../assets/cards/circle/major_01_magician_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(143,82,196,.4)">
+<img src="../../assets/cards/circle/major_03_empress_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(143,82,196,.4)">
+<img src="../../assets/cards/circle/major_04_emperor_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(143,82,196,.4)">
+<img src="../../assets/cards/circle/major_06_lovers_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(242,237,227,.12);filter:grayscale(1);opacity:.5">
+<img src="../../assets/cards/circle/minor_cups_ace_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(242,237,227,.12);filter:grayscale(1);opacity:.5">
+<img src="../../assets/cards/circle/minor_wands_ace_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(242,237,227,.12);filter:grayscale(1);opacity:.5">
+<img src="../../assets/cards/circle/minor_pentacles_ace_circle.png" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(242,237,227,.12);filter:grayscale(1);opacity:.5">
+</div>
+<div style="display:flex;gap:24px;padding:14px 0;border-top:1px solid rgba(242,237,227,.09);border-bottom:1px solid rgba(242,237,227,.09);margin-bottom:20px">
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;color:#f2ede3">4/8</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#7f8aa8;margin-top:2px">SECTIONS</span></span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;color:#f2ede3">28</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#7f8aa8;margin-top:2px">EXERCISES LEFT</span></span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;color:#f2ede3">~43</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#7f8aa8;margin-top:2px">MINUTES</span></span>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.07)">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">S1</span>
+<span><span style="display:block;font-size:13.5px;font-weight:500">The Fool</span><span style="display:block;font-size:11.5px;color:#7f8aa8;margin-top:1px">7 exercises · keywords, meanings, symbol</span></span>
+<span style="width:20px;height:20px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:11px;display:grid;place-items:center">✓</span>
+</div>
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.07)">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">S2</span>
+<span><span style="display:block;font-size:13.5px;font-weight:500">Ace of Cups</span><span style="display:block;font-size:11.5px;color:#7f8aa8;margin-top:1px">7 exercises · first suit symbol</span></span>
+<span style="width:20px;height:20px;border-radius:50%;background:#8f52c4;color:#f7f2ff;font-size:11px;display:grid;place-items:center">✓</span>
+</div>
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:15px 14px;border-radius:12px;background:linear-gradient(120deg,#1a1526,#12101c);border:1px solid rgba(143,82,196,.42)">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">S5</span>
+<span><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:16px;font-weight:600">The Empress</span><span style="display:block;font-size:11.5px;color:#a49cb8;margin-top:2px">3 of 7 done · Board Matching next</span>
+<span style="display:block;height:3px;border-radius:2px;background:rgba(242,237,227,.1);margin-top:9px"><span style="display:block;width:43%;height:100%;border-radius:2px;background:#8f52c4"></span></span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8f52c4">PLAY</span>
+</div>
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:12px;background:rgba(242,237,227,.02);border:1px solid rgba(242,237,227,.06);opacity:.5">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f8aa8">S6</span>
+<span><span style="display:block;font-size:13.5px;font-weight:500">The Emperor</span><span style="display:block;font-size:11.5px;color:#7f8aa8;margin-top:1px">7 exercises</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">LOCKED</span>
+</div>
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:12px;background:rgba(143,82,196,.05);border:1px dashed rgba(143,82,196,.35);opacity:.6">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8f52c4">R</span>
+<span><span style="display:block;font-size:13.5px;font-weight:500">Unit recap</span><span style="display:block;font-size:11.5px;color:#7f8aa8;margin-top:1px">3 boards · all 8 cards</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7f8aa8">LOCKED</span>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px 20px;background:linear-gradient(to top,#0c0a14 70%,transparent)">
+<div style="text-align:center;padding:15px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Resume Section 5</div>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2d"><div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Format A1 — keywords → card art</div>
+<div class="dv-card" style="width:420px;height:1070px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="border:1px solid rgba(242,237,227,.16);border-radius:999px;color:#a49cb8;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 11px">HINT · 2</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">A1 · CHOOSE CARD FROM KEYWORDS</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px;line-height:1.2">Which card fits these keywords?</p>
+<div style="display:flex;flex-wrap:wrap;gap:7px;padding:16px;background:linear-gradient(140deg,#181423,#100e1a);border:1px solid rgba(143,82,196,.22);border-radius:14px;margin-bottom:20px">
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">exploration</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">levity</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">nonconformity</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">intuition</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">speed</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">play</span>
+<span style="font-size:13px;background:rgba(143,82,196,.12);color:#f2ede3;border:1px solid rgba(143,82,196,.28);border-radius:999px;padding:5px 12px">spontaneity</span>
+</div>
+<div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+<div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:100/171;box-shadow:0 0 0 2px #8f52c4,0 10px 28px rgba(143,82,196,.22)"><img src="../../assets/cards/master/major_00_fool_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:8px 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.92),transparent);color:#f2ede3">THE FOOL</span></div>
+<div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:100/171;box-shadow:0 0 0 1px rgba(242,237,227,.14)"><img src="../../assets/cards/master/major_01_magician_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:8px 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.92),transparent);color:#f2ede3">THE MAGICIAN</span></div>
+<div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:100/171;box-shadow:0 0 0 1px rgba(242,237,227,.08);opacity:.3;filter:grayscale(1)"><img src="../../assets/cards/master/major_03_empress_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:8px 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.92),transparent);color:#f2ede3">THE EMPRESS</span></div>
+<div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:100/171;box-shadow:0 0 0 1px rgba(242,237,227,.14)"><img src="../../assets/cards/master/major_04_emperor_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:8px 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.92),transparent);color:#f2ede3">THE EMPEROR</span></div>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#5f6880;margin:14px 0 0;text-align:center">TAP TO CHOOSE · HOLD TO INSPECT</p>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Check</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:10px 0 0">U1-S1-N1 · EASY</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2e"><div class="dv-olabel"><a class="dv-oid" href="#2e">2e</a>True/False + reveal (correct)</div>
+<div class="dv-card" style="width:420px;height:840px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="border:1px solid rgba(242,237,227,.1);border-radius:999px;color:#5f6880;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 11px">HINT · 0</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">B · TRUE / FALSE</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 18px;line-height:1.2">Does this statement belong to this card?</p>
+<div style="display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:start;margin-bottom:20px">
+<div style="border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.3),0 12px 30px rgba(0,0,0,.5)"><img src="../../assets/cards/master/major_00_fool_MASTER.png" alt="The Fool" style="width:100%;display:block"></div>
+<div>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:18px;font-weight:600;margin-bottom:10px">The Fool</span>
+<div style="padding:14px;background:linear-gradient(140deg,#181423,#100e1a);border:1px solid rgba(242,237,227,.1);border-radius:12px;font-size:14px;line-height:1.55">Trusts that the path appears once you take the step</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="border-radius:12px;background:rgba(107,191,123,.1);box-shadow:0 0 0 2px #6bbf7b;padding:18px;font-size:16px;font-weight:500;text-align:center;position:relative">True<span style="position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:#6bbf7b;color:#0c0a14;font-size:12px;font-weight:600;display:grid;place-items:center">✓</span></div>
+<div style="border-radius:12px;background:rgba(242,237,227,.02);box-shadow:0 0 0 1px rgba(242,237,227,.08);padding:18px;font-size:16px;font-weight:500;text-align:center;opacity:.45">False</div>
+</div>
+<div style="margin-top:20px;padding:18px;border-radius:14px;background:linear-gradient(140deg,rgba(107,191,123,.12),rgba(12,10,20,0));border:1px solid rgba(107,191,123,.4)">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span style="width:20px;height:20px;border-radius:50%;background:#6bbf7b;color:#0c0a14;font-size:11px;display:grid;place-items:center">✓</span><strong style="font-family:Fraunces,Georgia,serif;font-size:17px;color:#8fd49c;font-weight:600">Correct</strong><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8fd49c">+3 XP</span></div>
+<span style="display:block;font-size:13px;line-height:1.6;color:#a49cb8">That statement belongs to this card. Card zero marks both a start and an end — chaos as the driving force behind exploration.</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Next</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:10px 0 0">U1-S1-N6 · B</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2f"><div class="dv-olabel"><a class="dv-oid" href="#2f">2f</a>Board matching</div>
+<div class="dv-card" style="width:420px;height:1150px;position:relative;background:#0c0a14">
+<div style="height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:22px 20px 130px;overflow:hidden">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:22px">
+<span style="color:#7f8aa8;font-size:17px;line-height:1">✕</span>
+<div style="display:flex;gap:3px">
+<span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:#8f52c4"></span><span style="flex:1;height:4px;border-radius:1px;background:rgba(242,237,227,.12)"></span>
+</div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#8f52c4">2 LEFT</span>
+</div>
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;color:#8f52c4;margin-bottom:7px">C · BOARD MATCHING</span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-0.02em;margin:0 0 6px;line-height:1.2">Match each card to its meaning.</p>
+<p style="font-size:12.5px;color:#7f8aa8;margin:0 0 18px">Tap a card, then tap its meaning.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:100/150;box-shadow:0 0 0 2px #8f52c4,0 8px 22px rgba(143,82,196,.2)"><img src="../../assets/cards/master/minor_cups_ace_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:7px 4px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.94),transparent)">ACE OF CUPS</span></div>
+<div style="border-radius:10px;overflow:hidden;position:relative;aspect-ratio:100/150;box-shadow:0 0 0 1px rgba(242,237,227,.12)"><img src="../../assets/cards/master/minor_wands_ace_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:7px 4px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.08em;text-align:center;background:linear-gradient(to top,rgba(8,6,14,.94),transparent)">ACE OF WANDS</span></div>
+<div style="aspect-ratio:100/150;border-radius:10px;border:1px dashed rgba(242,237,227,.07)"></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="aspect-ratio:100/150;border-radius:10px;background:linear-gradient(140deg,#181423,#100e1a);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:12px;font-size:11.5px;line-height:1.5;color:#e6e0d4">Emotion, joy and a new beginning — the cup filled to overflowing at the start of a feeling.</div>
+<div style="aspect-ratio:100/150;border-radius:10px;border:1px dashed rgba(143,82,196,.28);background:rgba(143,82,196,.05);display:grid;place-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:rgba(143,82,196,.6)">MATCHED</span></div>
+<div style="aspect-ratio:100/150;border-radius:10px;background:linear-gradient(140deg,#181423,#100e1a);box-shadow:0 0 0 1px rgba(242,237,227,.1);padding:12px;font-size:11.5px;line-height:1.5;color:#e6e0d4">A new beginning: saying yes, and starting the project before the whole path is visible.</div>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#0c0a14 66%,transparent);padding:20px">
+<p style="text-align:center;font-size:13px;color:#7f8aa8;margin:0;padding:15px">Match all pairs to continue</p>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#5f6880;margin:6px 0 0">U1-S8-N7 · C · BOARD 1 OF 3</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="2g"><div class="dv-olabel"><a class="dv-oid" href="#2g">2g</a>Section complete — streak and cards earned</div>
+<div class="dv-card" style="width:420px;height:840px;position:relative;background:#0c0a14">
+<div style="position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 12%,rgba(143,82,196,.16),transparent 70%)"></div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(1px 1px at 40px 120px,rgba(242,237,227,.3),transparent),radial-gradient(1.5px 1.5px at 340px 200px,rgba(143,82,196,.4),transparent),radial-gradient(1px 1px at 120px 620px,rgba(242,237,227,.25),transparent),radial-gradient(1px 1px at 300px 700px,rgba(242,237,227,.2),transparent)"></div>
+<div style="position:relative;height:100%;box-sizing:border-box;color:#f2ede3;font-family:Inter,sans-serif;padding:56px 26px 120px;text-align:center;overflow:hidden">
+<span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:#8f52c4;margin-bottom:12px">SECTION 5 COMPLETE</span>
+<h2 style="font-family:Fraunces,Georgia,serif;font-size:34px;font-weight:600;letter-spacing:-0.03em;margin:0 0 10px;line-height:1.1">The Empress<br>is yours</h2>
+<p style="font-size:13.5px;line-height:1.6;color:#a49cb8;margin:0 auto 26px;max-width:28ch">Seven exercises, one miss. She joins the thirty-one cards you can already name.</p>
+<div style="width:172px;margin:0 auto 26px;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(143,82,196,.45),0 20px 50px rgba(0,0,0,.6),0 0 60px rgba(143,82,196,.18)"><img src="../../assets/cards/master/major_03_empress_MASTER.png" alt="The Empress" style="width:100%;display:block"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:22px">
+<div style="padding:14px 8px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.08)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px">13</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8;margin-top:3px">NIGHTS</span></div>
+<div style="padding:14px 8px;border-radius:12px;background:rgba(143,82,196,.08);border:1px solid rgba(143,82,196,.3)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px;color:#8f52c4">32/78</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#6e3a9e;margin-top:3px">CARDS</span></div>
+<div style="padding:14px 8px;border-radius:12px;background:rgba(242,237,227,.03);border:1px solid rgba(242,237,227,.08)"><span style="display:block;font-family:Fraunces,Georgia,serif;font-size:22px">+21</span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#7f8aa8;margin-top:3px">XP</span></div>
+</div>
+<div style="display:flex;justify-content:center;gap:5px">
+<span style="width:22px;height:5px;border-radius:2px;background:#8f52c4"></span><span style="width:22px;height:5px;border-radius:2px;background:#8f52c4"></span><span style="width:22px;height:5px;border-radius:2px;background:#8f52c4"></span><span style="width:22px;height:5px;border-radius:2px;background:#8f52c4"></span><span style="width:22px;height:5px;border-radius:2px;background:#8f52c4"></span><span style="width:22px;height:5px;border-radius:2px;background:rgba(242,237,227,.12)"></span><span style="width:22px;height:5px;border-radius:2px;background:rgba(242,237,227,.12)"></span><span style="width:22px;height:5px;border-radius:2px;background:rgba(242,237,227,.12)"></span>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7f8aa8;margin:10px 0 0">UNIT 1 · 5 OF 8 SECTIONS</p>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px 22px;background:linear-gradient(to top,#0c0a14 70%,transparent);display:flex;flex-direction:column;gap:10px">
+<div style="text-align:center;padding:16px;border-radius:10px;background:#8f52c4;color:#f7f2ff;font-size:15px;font-weight:500">Next section</div>
+<div style="text-align:center;padding:13px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#a49cb8">READ HER FULL MEANING</div>
+</div>
+</div></div>
+
+</div>
+<p class="dv-next">Try next: "take <a class="dv-oid" href="#2b">2b</a>'s now-playing card into <a class="dv-oid" href="#2a">2a</a>" · "cooler, less gold" · "show the Deck tab and Daily Draw screens"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Lunadeck as it stands today — recreated from <code>main</code> (app/globals.css, app/page.js, the three format components)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Home — the unit path (app/page.js)</div>
+<div class="dv-card" style="width:420px">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:32px 20px 72px">
+<div style="margin-bottom:40px">
+<h1 style="font-family:Fraunces,Georgia,serif;font-weight:600;font-size:34px;letter-spacing:-0.02em;margin:0;color:#f0ebe1">Luna<span style="color:#e3b25c">deck</span></h1>
+<p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#8b83a6;max-width:30ch">Seventy-eight cards, learned in order. 10 units, 574 exercises.</p>
+</div>
+<ol style="list-style:none;margin:0;padding:0;position:relative">
+<div style="position:absolute;left:33px;top:12px;bottom:12px;width:1px;background:linear-gradient(to bottom,transparent,#352f4d 8%,#352f4d 92%,transparent)"></div>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 1</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Instant Classics</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">Cards that click before you even know what tarot means</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">57 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~86 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_swords_ace_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 2</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Completing the Court</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">The last of the obvious majors, then your first full royal family</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">59 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~88 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_wands_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 3</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">The Royal Court</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">Meeting everyone else who sits on a throne</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">60 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~90 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_swords_page_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 4</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Turning Points</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">Cards about motion, change, and consequence</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">59 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~88 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/major_15_devil_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 5</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Big Swings</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">The deck's most dramatic, unmistakable images</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">59 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~88 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_cups_02_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 6</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">The Cups Story</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">One suit, start to finish</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">60 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~90 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/major_02_high_priestess_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 7</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Wands in Motion</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">Passion and momentum, plus one deeper mind</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">59 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~88 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_wands_09_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 8</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Grounding Down</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">Where energy meets the material world</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">59 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~88 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_pentacles_08_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 9</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">Sharpening the Mind</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">The Pentacles suit wraps up as Swords gets serious</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">60 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~90 min</span></span>
+</span></div></li>
+<li><div style="position:relative;display:grid;grid-template-columns:68px 1fr;gap:16px;align-items:start;padding:14px 0">
+<span style="width:68px;height:68px;border-radius:50%;background:#2a2440;border:1px solid #352f4d;overflow:hidden;position:relative;z-index:1"><img src="../../assets/cards/circle/minor_swords_08_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span style="padding-top:6px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#e3b25c;text-transform:uppercase">Unit 10</span>
+<span style="display:block;font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:2px 0 4px">The Deep End</span>
+<span style="display:block;font-size:13px;line-height:1.5;color:#8b83a6;margin:0 0 8px">The most abstract cards in the deck, saved for last</span>
+<span style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">6 cards</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">45 nodes</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">~68 min</span></span>
+</span></div></li>
+</ol>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Unit detail — Unit 1, Section 1 (app/units/[unit]/page.js)</div>
+<div class="dv-card" style="width:420px">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:32px 20px 72px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9e93ce;display:inline-block;margin-bottom:24px">← All units</span>
+<h1 style="font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:600;letter-spacing:-0.02em;margin:0 0 8px">Instant Classics</h1>
+<p style="font-size:14px;line-height:1.6;color:#8b83a6;margin:0 0 28px">The archetypes and suit-starters that need almost no explanation: The Fool, The Magician, The Empress, The Emperor, The Lovers, plus the first Ace from three suits.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9e93ce"><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">8 sections</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">5 major</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">3 minor</span><span style="border:1px solid #352f4d;border-radius:999px;padding:3px 9px">Cups (1/3)</span></div>
+<div style="display:block;text-align:center;margin:22px 0 4px;padding:14px;border-radius:12px;background:#e3b25c;color:#15131f;font-size:15px;font-weight:500">Start lesson</div>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#e3b25c;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid #352f4d">Section 1 — 7 nodes</h2>
+<ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A1 · Choose Card From Keywords</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N1<br>easy</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A2 · Choose Meaning From Card</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N2<br>easy</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A7 · Symbol Selection From Label</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N3<br>easy</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A2 · Choose Meaning From Card</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N4<br>easy</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A3 · Major/Minor Arcana ID</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N5<br>n/a</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">B · True/False Talking Point</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N6<br>n/a</span></li>
+<li style="display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;background:#1e1a2c;border:1px solid #352f4d;border-radius:10px;padding:10px 12px">
+<span style="width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2a2440"><img src="../../assets/cards/circle/major_00_fool_circle.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+<span><span style="display:block;font-size:13px;font-weight:500">The Fool</span><span style="display:block;font-size:12px;color:#8b83a6;margin-top:1px">A2 · Choose Meaning From Card</span></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e93ce;text-align:right;line-height:1.5">U1-S1-N7<br>easy</span></li>
+</ol>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1c"><div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Format A1 — keywords → card art (U1-S1-N1)</div>
+<div class="dv-card" style="width:420px;height:990px;position:relative">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:20px 20px 140px;height:100%;box-sizing:border-box">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:24px">
+<span style="color:#8b83a6;font-size:18px;line-height:1">✕</span>
+<div style="height:8px;border-radius:999px;background:#2a2440;overflow:hidden"><div style="height:100%;width:14%;background:#e3b25c"></div></div>
+<span style="border:1px solid #352f4d;border-radius:999px;color:#9e93ce;font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px">Hint</span>
+</div>
+<p style="font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:0 0 16px">Which card fits these keywords?</p>
+<div style="display:flex;flex-wrap:wrap;gap:7px;max-height:112px;overflow-y:auto;padding:14px;background:#1e1a2c;border:1px solid #352f4d;border-radius:12px;margin-bottom:18px">
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">exploration</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">levity</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">nonconformity</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">intuition</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">speed</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">play</span>
+<span style="font-size:13px;background:#2a2440;border-radius:999px;padding:5px 11px">spontaneity</span>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.04em;color:#8b83a6;margin:0 0 10px;text-align:center">Tap to choose · Hold to inspect</p>
+<div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+<div style="position:relative;border:2px solid #e3b25c;border-radius:12px;background:#1e1a2c;overflow:hidden;aspect-ratio:100/171"><img src="../../assets/cards/master/major_00_fool_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:6px 4px;font-size:11px;background:rgba(12,10,20,0.82);text-align:center">The Fool</span></div>
+<div style="position:relative;border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;overflow:hidden;aspect-ratio:100/171"><img src="../../assets/cards/master/major_01_magician_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:6px 4px;font-size:11px;background:rgba(12,10,20,0.82);text-align:center">The Magician</span></div>
+<div style="position:relative;border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;overflow:hidden;aspect-ratio:100/171;opacity:0.34;filter:grayscale(1)"><img src="../../assets/cards/master/major_03_empress_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:6px 4px;font-size:11px;background:rgba(12,10,20,0.82);text-align:center">The Empress</span><span style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#d9605f;color:#fff">✕</span></div>
+<div style="position:relative;border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;overflow:hidden;aspect-ratio:100/171"><img src="../../assets/cards/master/major_04_emperor_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:6px 4px;font-size:11px;background:rgba(12,10,20,0.82);text-align:center">The Emperor</span></div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#15131f 68%,transparent);padding:20px">
+<div style="display:block;width:100%;max-width:380px;margin:0 auto;text-align:center;padding:15px;border-radius:12px;background:#e3b25c;color:#15131f;font-family:Inter,sans-serif;font-size:15px;font-weight:500">Check</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b83a6;margin:9px 0 0">Instant Classics · U1-S1-N1 · A1 · easy</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1d"><div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Format B — True/False, answered wrong (U1-S1-N6)</div>
+<div class="dv-card" style="width:420px;height:800px;position:relative">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:20px 20px 140px;height:100%;box-sizing:border-box">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:24px">
+<span style="color:#8b83a6;font-size:18px;line-height:1">✕</span>
+<div style="height:8px;border-radius:999px;background:#2a2440;overflow:hidden"><div style="height:100%;width:71%;background:#e3b25c"></div></div>
+<span style="border:1px solid #352f4d;border-radius:999px;color:#9e93ce;font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;opacity:0.3">Hint</span>
+</div>
+<p style="font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:0 0 16px">Does this statement belong to this card?</p>
+<div style="text-align:center;margin-bottom:18px">
+<span style="display:inline-block;border:1px solid #352f4d;border-radius:12px;background:#1e1a2c;overflow:hidden"><img src="../../assets/cards/master/major_00_fool_MASTER.png" alt="The Fool" style="display:block;height:210px;width:auto"></span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:16px;margin:9px 0 0">The Fool</p>
+</div>
+<div style="padding:16px;background:#1e1a2c;border:1px solid #352f4d;border-radius:12px;font-size:14px;line-height:1.6;margin-bottom:18px">Trusts that the path appears once you take the step</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="border:2px solid #6bbf7b;border-radius:12px;background:#1e1a2c;padding:17px;font-size:16px;font-weight:500;text-align:center;position:relative">True<span style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#6bbf7b;color:#15131f">✓</span></div>
+<div style="border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;padding:17px;font-size:16px;font-weight:500;text-align:center;position:relative;opacity:0.34;filter:grayscale(1)">False<span style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#d9605f;color:#fff">✕</span></div>
+</div>
+<div style="margin-top:18px;padding:16px;border-radius:12px;background:#1e1a2c;border:1px solid #6b3a3f;display:flex;flex-direction:column;gap:7px">
+<strong style="font-family:Fraunces,Georgia,serif;font-size:17px;color:#e59a99;font-weight:600">Not this time</strong>
+<span style="font-size:13px;line-height:1.6;color:#8b83a6">That statement belongs to this card.</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#15131f 68%,transparent);padding:20px">
+<div style="display:block;width:100%;max-width:380px;margin:0 auto;text-align:center;padding:15px;border-radius:12px;background:#e3b25c;color:#15131f;font-size:15px;font-weight:500">Next</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b83a6;margin:9px 0 0">Instant Classics · U1-S1-N6 · B</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1e"><div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>Format C — board matching, one pair matched</div>
+<div class="dv-card" style="width:420px;height:1100px;position:relative">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:20px 20px 140px;height:100%;box-sizing:border-box">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:24px">
+<span style="color:#8b83a6;font-size:18px;line-height:1">✕</span>
+<div style="height:8px;border-radius:999px;background:#2a2440;overflow:hidden"><div style="height:100%;width:88%;background:#e3b25c"></div></div>
+<span style="border:1px solid #352f4d;border-radius:999px;color:#9e93ce;font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;opacity:0.3">Hint</span>
+</div>
+<p style="font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:0 0 16px">Match each card to its meaning.</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.04em;color:#8b83a6;margin:0 0 10px;text-align:center">Tap a card, then tap its meaning · 2 left</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="border:2px solid #e3b25c;border-radius:10px;background:#1e1a2c;overflow:hidden;position:relative;aspect-ratio:100/150"><img src="../../assets/cards/master/minor_cups_ace_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:5px 3px;font-size:10px;background:rgba(12,10,20,0.84);text-align:center">Ace of Cups</span></div>
+<div style="border:2px solid #352f4d;border-radius:10px;background:#1e1a2c;overflow:hidden;position:relative;aspect-ratio:100/150"><img src="../../assets/cards/master/minor_wands_ace_MASTER.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:0;right:0;bottom:0;padding:5px 3px;font-size:10px;background:rgba(12,10,20,0.84);text-align:center">Ace of Wands</span></div>
+<div style="border:2px solid #352f4d;border-radius:10px;background:#1e1a2c;overflow:hidden;position:relative;aspect-ratio:100/150;visibility:hidden"></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="border:2px solid #352f4d;border-radius:10px;background:#1e1a2c;aspect-ratio:100/150;padding:10px;font-size:11px;line-height:1.45;overflow-y:auto">Emotion, joy and a new beginning — the cup filled to overflowing at the start of a feeling.</div>
+<div style="border:2px solid #352f4d;border-radius:10px;background:#1e1a2c;aspect-ratio:100/150;visibility:hidden"></div>
+<div style="border:2px solid #352f4d;border-radius:10px;background:#1e1a2c;aspect-ratio:100/150;padding:10px;font-size:11px;line-height:1.45;overflow-y:auto">A new beginning: saying yes, and starting the project before the whole path is visible.</div>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#15131f 68%,transparent);padding:20px">
+<p style="text-align:center;font-size:13px;color:#8b83a6;margin:0;padding:15px">Match all pairs to continue</p>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b83a6;margin:9px 0 0">Instant Classics · U1-S8-N7 · C · 1 of 3</p>
+</div>
+</div></div>
+
+<div class="dv-opt" id="1f"><div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>Format A2 — text options, solved, with reveal</div>
+<div class="dv-card" style="width:420px;height:940px;position:relative">
+<div style="background:#15131f;color:#f0ebe1;font-family:Inter,sans-serif;padding:20px 20px 140px;height:100%;box-sizing:border-box">
+<div style="display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:24px">
+<span style="color:#8b83a6;font-size:18px;line-height:1">✕</span>
+<div style="height:8px;border-radius:999px;background:#2a2440;overflow:hidden"><div style="height:100%;width:28%;background:#e3b25c"></div></div>
+<span style="border:1px solid #352f4d;border-radius:999px;color:#9e93ce;font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;opacity:0.3">Hint</span>
+</div>
+<p style="font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:0 0 16px">Which reading notes belong to this card?</p>
+<div style="text-align:center;margin-bottom:18px">
+<span style="display:inline-block;border:1px solid #352f4d;border-radius:12px;background:#1e1a2c;overflow:hidden"><img src="../../assets/cards/master/major_00_fool_MASTER.png" alt="The Fool" style="display:block;height:190px;width:auto"></span>
+<p style="font-family:Fraunces,Georgia,serif;font-size:16px;margin:9px 0 0">The Fool</p>
+</div>
+<div style="display:grid;gap:12px">
+<div style="position:relative;border:2px solid #6bbf7b;border-radius:12px;background:#1e1a2c;text-align:left;padding:14px 34px 14px 14px;font-size:13px;line-height:1.55">Travels light, takes chances with levity · On the edge of the precipice, but calm rather than afraid of the void · Trusts that the path appears once you take the step<span style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#6bbf7b;color:#15131f">✓</span></div>
+<div style="position:relative;border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;text-align:left;padding:14px 34px 14px 14px;font-size:13px;line-height:1.55;opacity:0.6">Introspection and productive solitude · Analysis before action · The lantern that lights only the next step</div>
+<div style="position:relative;border:2px solid #352f4d;border-radius:12px;background:#1e1a2c;text-align:left;padding:14px 34px 14px 14px;font-size:13px;line-height:1.55;opacity:0.34;filter:grayscale(1)">Faith and the search for spirituality · Finding the right distance · The message that comes from the spiritual world<span style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#d9605f;color:#fff">✕</span></div>
+</div>
+<div style="margin-top:18px;padding:16px;border-radius:12px;background:#1e1a2c;border:1px solid #3d5c43;display:flex;flex-direction:column;gap:7px">
+<strong style="font-family:Fraunces,Georgia,serif;font-size:17px;color:#8fd49c;font-weight:600">The Fool</strong>
+<span style="font-size:13px;line-height:1.6;color:#8b83a6">Card zero is both first and last: chaos as the driving force behind exploration, and the willingness to take chances with levity.</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#15131f 68%,transparent);padding:20px">
+<div style="display:block;width:100%;max-width:380px;margin:0 auto;text-align:center;padding:15px;border-radius:12px;background:#e3b25c;color:#15131f;font-size:15px;font-weight:500">Next</div>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b83a6;margin:9px 0 0">Instant Classics · U1-S1-N4 · A2 · near_context</p>
+</div>
+</div></div>
+
+</div>
+<p class="dv-next">This turn is the baseline only — no redesign yet. Next: a celestial-map home and an elevated editorial list, both with per-unit progress, streak, collection and a bottom tab bar.</p>
+</section>
+</x-dc>
+</body>
+</html>

@@ -22,3 +22,6 @@ build/
 # Editor
 .vscode/
 .idea/
+
+# Mirrored from assets/ by scripts/copy-assets.mjs
+public/assets/

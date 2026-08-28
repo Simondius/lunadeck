@@ -13,6 +13,9 @@ reviewable as line diffs in pull requests.
 ## Repository layout
 
 ```
+app/        Next.js App Router — the prototype UI
+lib/        CSV parsing and data access
+public/     static files served by Next (assets/ is mirrored in here)
 data/       13 CSVs — the entire content model (see below)
 assets/     card art and symbol art
   cards/master/   78 full card images, one per card
@@ -21,10 +24,32 @@ assets/     card art and symbol art
   symbols/        30 symbol images (zodiac, planets, elements, suits)
   misc/           deck box lid
 specs/      feature specs (PDF) and the global UX style guide
-scripts/    Python utilities that generated the derived art and data
-app/        application code
+scripts/    Python utilities that generated the derived art and data,
+            plus copy-assets.mjs which mirrors assets/ into public/
 docs/       decision records
 ```
+
+---
+
+## Running the app
+
+Requires Node.js 18 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open http://localhost:3000.
+
+The CSVs are read from disk on the server at build time, so no data ships to
+the browser — only rendered output does. Editing a CSV and reloading shows the
+change immediately in dev.
+
+Next only serves static files from `public/`, but the art lives in `assets/` so
+it sits next to the data it belongs to. `scripts/copy-assets.mjs` mirrors
+`assets/` into `public/assets/` before dev and build. `public/assets/` is
+gitignored — `assets/` remains the single source of truth.
 
 ---
 

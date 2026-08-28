@@ -11,7 +11,7 @@ import { Footer } from "./options";
 // right tile evaluates immediately. Wrong tiles flash and return to
 // selectable rather than being disabled. Matched pairs are removed, leaving
 // the gap — no reflow.
-export default function FormatC({ round, meta, onAdvance }) {
+export default function FormatC({ round, meta, formatLine, onAdvance }) {
   const [selectedLeft, setSelectedLeft] = useState(null);
   const [matched, setMatched] = useState([]);
   const [wrongPair, setWrongPair] = useState(null);
@@ -55,6 +55,7 @@ export default function FormatC({ round, meta, onAdvance }) {
 
   return (
     <>
+      <span className="format-line">{formatLine}</span>
       <p className="prompt">{round.prompt}</p>
       <p className="gesture-hint">
         Tap a card, then tap its meaning · {round.pairs.length - matched.length} left

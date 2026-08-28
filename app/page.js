@@ -1,47 +1,36 @@
-import Link from "next/link";
-import { getUnits } from "@/lib/data";
+import { getUnits, getSections, getUnitNodeIds } from "@/lib/data";
+import PathScreen from "@/components/path-screen";
 
+// The curriculum shape is read on the server; progress is read in the browser.
+// The two meet in PathScreen, which counts one against the other.
 export default async function Home() {
   const units = await getUnits();
-  const totalNodes = units.reduce((sum, u) => sum + u.nodeCount, 0);
 
-  return (
-    <main className="shell">
-      <header className="masthead">
-        <h1 className="wordmark">
-          Luna<span className="moon">deck</span>
-        </h1>
-        <p className="standfirst">
-          Seventy-eight cards, learned in order. {units.length} units,{" "}
-          {totalNodes} exercises.
-        </p>
-      </header>
-
-      <ol className="path">
-        {units.map((unit) => (
-          <li key={unit.number}>
-            <Link className="stop" href={`/units/${unit.number}`}>
-              <span className="stop-art">
-                {unit.icon ? <img src={unit.icon} alt="" /> : null}
-              </span>
-              <span className="stop-body">
-                <span className="stop-index">Unit {unit.number}</span>
-                <span className="stop-name" style={{ display: "block" }}>
-                  {unit.name}
-                </span>
-                <span className="stop-tagline" style={{ display: "block" }}>
-                  {unit.tagline}
-                </span>
-                <span className="meta">
-                  <span>{unit.cardCount} cards</span>
-                  <span>{unit.nodeCount} nodes</span>
-                  <span>~{unit.minutesTypical} min</span>
-                </span>
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ol>
-    </main>
+  const withNodes = await Promise.all(
+    units.map(async (unit) => {
+      const [nodeIds, sections] = await Promise.all([
+        getUnitNodeIds(unit.number),
+        getSections(unit.number),
+      ]);
+      return {
+        number: unit.number,
+        name: unit.name,
+        tagline: unit.tagline,
+        icon: unit.icon,
+        cardCount: unit.cardCount,
+        nodeCount: unit.nodeCount,
+        unlockRequirement: unit.unlockRequirement,
+        nodeIds,
+        sections: sections.map((s) => ({
+          section: s.section,
+          cardKey: s.cardKey,
+          nodeIds: s.nodeIds,
+        })),
+      };
+    })
   );
+
+  const totalNodes = withNodes.reduce((sum, u) => sum + u.nodeIds.length, 0);
+
+  return <PathScreen units={withNodes} totalNodes={totalNodes} />;
 }

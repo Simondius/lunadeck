@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ImageOption, TextOption, Inspector, Footer, gridClass } from "./options";
+import { XP_PER_NODE } from "@/lib/progress";
 
 // Format A — Match to Grid. One fixed reference, 2-4 candidates, select then
 // confirm, retry until correct. A wrong pick never ends the round.
@@ -9,7 +10,7 @@ import { ImageOption, TextOption, Inspector, Footer, gridClass } from "./options
 // The same component serves the card variants (A1/A2/A3) and the symbol ones
 // (A4/A5/A7) — they differ only in what sits on each side of the screen, which
 // is exactly the split the Format Bible describes as "layout shapes."
-export default function FormatA({ round, meta, onAdvance, onHintReady }) {
+export default function FormatA({ round, meta, formatLine, onAdvance, onHintReady }) {
   const [selected, setSelected] = useState(null);
   const [eliminated, setEliminated] = useState([]);
   const [solved, setSolved] = useState(false);
@@ -28,7 +29,7 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
       setShake(true);
       setEliminated((prev) => [...prev, selected]);
       setSelected(null);
-      setTimeout(() => setShake(false), 400);
+      setTimeout(() => setShake(false), 380);
     }
   }
 
@@ -56,13 +57,10 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
 
   return (
     <>
+      <span className="format-line">{formatLine}</span>
       <p className="prompt">{round.prompt}</p>
 
       <Reference reference={round.reference} onInspect={setInspecting} />
-
-      {isImages ? (
-        <p className="gesture-hint">Tap to choose · Hold to inspect</p>
-      ) : null}
 
       <div className={`${gridClass(items.length)}${shake ? " is-shaking" : ""}`}>
         {items.map((option) =>
@@ -86,9 +84,18 @@ export default function FormatA({ round, meta, onAdvance, onHintReady }) {
         )}
       </div>
 
+      {/* The gesture hint sits below the grid so the prompt and the candidates
+          stay adjacent. */}
+      {isImages ? (
+        <p className="gesture-hint">TAP TO CHOOSE · HOLD TO INSPECT</p>
+      ) : null}
+
       {solved ? (
-        <div className="reveal">
-          <strong>{round.revealTitle}</strong>
+        <div className={round.tone === "symbol" ? "reveal is-symbol" : "reveal"}>
+          <div className="reveal-head">
+            <strong>{round.revealTitle}</strong>
+            <span className="reveal-xp">+{XP_PER_NODE} XP</span>
+          </div>
           <span>{round.revealBody}</span>
         </div>
       ) : null}
@@ -150,7 +157,8 @@ function Reference({ reference, onInspect }) {
   if (reference.type === "label") {
     return (
       <div className="anchor anchor-label">
-        <p>{reference.text}</p>
+        <span className="anchor-type">{reference.category}</span>
+        <p>{reference.name}</p>
       </div>
     );
   }

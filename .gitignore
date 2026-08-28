@@ -25,3 +25,6 @@ build/
 
 # Mirrored from assets/ by scripts/copy-assets.mjs
 public/assets/
+
+# Claude Design export — copied into specs/, safe to delete
+design_handoff_lunadeck_violet/

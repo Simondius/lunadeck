@@ -1,0 +1,22 @@
+birth_number,card_key,card_name
+1,major_01_magician,The Magician
+2,major_02_high_priestess,The High Priestess
+3,major_03_empress,The Empress
+4,major_04_emperor,The Emperor
+5,major_05_hierophant,The Hierophant
+6,major_06_lovers,The Lovers
+7,major_07_chariot,The Chariot
+8,major_08_strength,Strength
+9,major_09_hermit,The Hermit
+10,major_10_wheel_of_fortune,The Wheel of Fortune
+11,major_11_justice,Justice
+12,major_12_hanged_man,The Hanged Man
+13,major_13_death,Death
+14,major_14_temperance,Temperance
+15,major_15_devil,The Devil
+16,major_16_tower,The Tower
+17,major_17_star,The Star
+18,major_18_moon,The Moon
+19,major_19_sun,The Sun
+20,major_20_judgment,Judgment
+21,major_21_world,The World

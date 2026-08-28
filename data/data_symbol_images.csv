@@ -1,0 +1,31 @@
+symbol_type,symbol_name,image_file
+Planet,Mercury,Planet_mercury_MASTER.png
+Planet,Moon,Planet_moon_MASTER.png
+Planet,Venus,Planet_venus_MASTER.png
+Planet,Jupiter,Planet_jupiter_MASTER.png
+Planet,Mars,Planet_mars_MASTER.png
+Planet,Sun,Planet_sun_MASTER.png
+Planet,Saturn,Planet_saturn_MASTER.png
+Planet,Uranus,Planet_uranus_MASTER.png
+Planet,Pluto,Planet_pluto_MASTER.png
+Planet,Neptune,Planet_neptune_MASTER.png
+Zodiac Sign,Aries,Zodiac_aries_MASTER.png
+Zodiac Sign,Taurus,Zodiac_taurus_MASTER.png
+Zodiac Sign,Gemini,Zodiac_gemini_MASTER.png
+Zodiac Sign,Cancer,Zodiac_cancer_MASTER.png
+Zodiac Sign,Leo,Zodiac_leo_MASTER.png
+Zodiac Sign,Virgo,Zodiac_virgo_MASTER.png
+Zodiac Sign,Libra,Zodiac_libra_MASTER.png
+Zodiac Sign,Scorpio,Zodiac_scorpio_MASTER.png
+Zodiac Sign,Sagittarius,Zodiac_sagittarius_MASTER.png
+Zodiac Sign,Capricorn,Zodiac_capricorn_MASTER.png
+Zodiac Sign,Aquarius,Zodiac_aquarius_MASTER.png
+Zodiac Sign,Pisces,Zodiac_pisces_MASTER.png
+Element,Fire,Element_fire_MASTER.png
+Element,Water,Element_water_MASTER.png
+Element,Air,Element_air_MASTER.png
+Element,Earth,Element_earth_MASTER.png
+Suit,Wands,Suit_wands_MASTER.png
+Suit,Cups,Suit_cups_MASTER.png
+Suit,Swords,Suit_swords_MASTER.png
+Suit,Pentacles,Suit_pentacles_MASTER.png

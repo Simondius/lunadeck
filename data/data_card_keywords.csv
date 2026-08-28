@@ -1,0 +1,308 @@
+card_key,card_name,keyword_order,keyword,source
+major_00_fool,The Fool,1,exploration,guidebook
+major_00_fool,The Fool,2,levity,guidebook
+major_00_fool,The Fool,3,nonconformity,guidebook
+major_00_fool,The Fool,4,intuition,guidebook
+major_00_fool,The Fool,5,speed,guidebook
+major_00_fool,The Fool,6,play,guidebook
+major_00_fool,The Fool,7,spontaneity,guidebook
+major_01_magician,The Magician,1,shrewdness,guidebook
+major_01_magician,The Magician,2,intelligence,guidebook
+major_01_magician,The Magician,3,personal ability,guidebook
+major_01_magician,The Magician,4,skill,guidebook
+major_01_magician,The Magician,5,communication,guidebook
+major_02_high_priestess,The High Priestess,1,imagination,guidebook
+major_02_high_priestess,The High Priestess,2,reception,guidebook
+major_02_high_priestess,The High Priestess,3,sensitivity,guidebook
+major_02_high_priestess,The High Priestess,4,listening,guidebook
+major_02_high_priestess,The High Priestess,5,magic,guidebook
+major_03_empress,The Empress,1,creation,guidebook
+major_03_empress,The Empress,2,nourishment,guidebook
+major_03_empress,The Empress,3,life,guidebook
+major_03_empress,The Empress,4,love,guidebook
+major_03_empress,The Empress,5,harmony,guidebook
+major_03_empress,The Empress,6,beauty,guidebook
+major_03_empress,The Empress,7,in a relationship,guidebook
+major_04_emperor,The Emperor,1,action,guidebook
+major_04_emperor,The Emperor,2,personal limits,guidebook
+major_04_emperor,The Emperor,3,sprouting,guidebook
+major_04_emperor,The Emperor,4,life force,guidebook
+major_04_emperor,The Emperor,5,leadership,guidebook
+major_05_hierophant,The Hierophant,1,faith,guidebook
+major_05_hierophant,The Hierophant,2,search for spirituality,guidebook
+major_05_hierophant,The Hierophant,3,the right distance,guidebook
+major_05_hierophant,The Hierophant,4,the message that comes from the spiritual world,guidebook
+major_06_lovers,The Lovers,1,choice,guidebook
+major_06_lovers,The Lovers,2,variety,guidebook
+major_06_lovers,The Lovers,3,possibility,guidebook
+major_06_lovers,The Lovers,4,choosing with the heart,guidebook
+major_06_lovers,The Lovers,5,partnership,guidebook
+major_07_chariot,The Chariot,1,emotions,guidebook
+major_07_chariot,The Chariot,2,movement,guidebook
+major_07_chariot,The Chariot,3,ambition,guidebook
+major_07_chariot,The Chariot,4,success,guidebook
+major_07_chariot,The Chariot,5,focus,guidebook
+major_08_strength,Strength,1,kindness,guidebook
+major_08_strength,Strength,2,creative action,guidebook
+major_08_strength,Strength,3,balanced strength,guidebook
+major_08_strength,Strength,4,awareness,guidebook
+major_09_hermit,The Hermit,1,introspection,guidebook
+major_09_hermit,The Hermit,2,productive solitude,guidebook
+major_09_hermit,The Hermit,3,analysis,guidebook
+major_09_hermit,The Hermit,4,the discovery of the inner world,guidebook
+major_09_hermit,The Hermit,5,lantern,guidebook
+major_09_hermit,The Hermit,6,wisdom,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,1,synchronicity,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,2,opportunity,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,3,luck,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,4,destiny,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,5,everything is connected,guidebook
+major_10_wheel_of_fortune,The Wheel of Fortune,6,cycles,guidebook
+major_11_justice,Justice,1,beauty,guidebook
+major_11_justice,Justice,2,harmony,guidebook
+major_11_justice,Justice,3,sense of justice,guidebook
+major_11_justice,Justice,4,responsibility,guidebook
+major_11_justice,Justice,5,sense of reality,guidebook
+major_12_hanged_man,The Hanged Man,1,pause,guidebook
+major_12_hanged_man,The Hanged Man,2,abandon,guidebook
+major_12_hanged_man,The Hanged Man,3,following the flow,guidebook
+major_12_hanged_man,The Hanged Man,4,sacrificing something to get something better,guidebook
+major_13_death,Death,1,mystery,guidebook
+major_13_death,Death,2,magic,guidebook
+major_13_death,Death,3,depth,guidebook
+major_13_death,Death,4,the sickle,guidebook
+major_13_death,Death,5,cutting dry branches,guidebook
+major_13_death,Death,6,life,guidebook
+major_14_temperance,Temperance,1,exploration,guidebook
+major_14_temperance,Temperance,2,alchemy,guidebook
+major_14_temperance,Temperance,3,finding the right balance in opposites,guidebook
+major_15_devil,The Devil,1,break from dependence,guidebook
+major_15_devil,The Devil,2,visceral force,guidebook
+major_15_devil,The Devil,3,freedom,guidebook
+major_15_devil,The Devil,4,codependence,guidebook
+major_16_tower,The Tower,1,unexpected transformation,guidebook
+major_16_tower,The Tower,2,destruction,guidebook
+major_16_tower,The Tower,3,breaking from old schemes,guidebook
+major_17_star,The Star,1,community,guidebook
+major_17_star,The Star,2,nonconformity,guidebook
+major_17_star,The Star,3,hope,guidebook
+major_17_star,The Star,4,nature,guidebook
+major_18_moon,The Moon,1,dreams,guidebook
+major_18_moon,The Moon,2,sensitivity,guidebook
+major_18_moon,The Moon,3,inner reality,guidebook
+major_18_moon,The Moon,4,feminine,guidebook
+major_18_moon,The Moon,5,magic,guidebook
+major_18_moon,The Moon,6,mystery,guidebook
+major_19_sun,The Sun,1,truth,guidebook
+major_19_sun,The Sun,2,light,guidebook
+major_19_sun,The Sun,3,success,guidebook
+major_19_sun,The Sun,4,true self,guidebook
+major_20_judgment,Judgment,1,vocation,guidebook
+major_20_judgment,Judgment,2,healing,guidebook
+major_20_judgment,Judgment,3,rebirth,guidebook
+major_21_world,The World,1,achieved objective,guidebook
+major_21_world,The World,2,conclusion of a cycle,guidebook
+major_21_world,The World,3,exploration,guidebook
+minor_wands_ace,Ace of Wands,1,new beginning,guidebook
+minor_wands_ace,Ace of Wands,2,saying yes,guidebook
+minor_wands_ace,Ace of Wands,3,starting a new project,guidebook
+minor_wands_02,Two of Wands,1,choice,guidebook
+minor_wands_02,Two of Wands,2,focused energy,guidebook
+minor_wands_02,Two of Wands,3,overall vision,guidebook
+minor_wands_02,Two of Wands,4,effective action,guidebook
+minor_wands_03,Three of Wands,1,discovery,guidebook
+minor_wands_03,Three of Wands,2,exploration,guidebook
+minor_wands_03,Three of Wands,3,vision,guidebook
+minor_wands_03,Three of Wands,4,a project that is fulfilled,guidebook
+minor_wands_04,Four of Wands,1,stability,guidebook
+minor_wands_04,Four of Wands,2,celebration,guidebook
+minor_wands_04,Four of Wands,3,encounter of opposites,guidebook
+minor_wands_05,Five of Wands,1,creation through difficulty,guidebook
+minor_wands_05,Five of Wands,2,inner conflict,guidebook
+minor_wands_05,Five of Wands,3,contrasting impulses,guidebook
+minor_wands_06,Six of Wands,1,victory,guidebook
+minor_wands_06,Six of Wands,2,personal pride,guidebook
+minor_wands_06,Six of Wands,3,fairness,guidebook
+minor_wands_06,Six of Wands,4,celebration of success,guidebook
+minor_wands_07,Seven of Wands,1,courage,guidebook
+minor_wands_07,Seven of Wands,2,showing our nature,guidebook
+minor_wands_07,Seven of Wands,3,valorous action,guidebook
+minor_wands_08,Eight of Wands,1,synchronicity,guidebook
+minor_wands_08,Eight of Wands,2,a message arriving,guidebook
+minor_wands_08,Eight of Wands,3,resolution,guidebook
+minor_wands_08,Eight of Wands,4,readiness,guidebook
+minor_wands_09,Nine of Wands,1,refuge,guidebook
+minor_wands_09,Nine of Wands,2,recovery,guidebook
+minor_wands_09,Nine of Wands,3,break,guidebook
+minor_wands_09,Nine of Wands,4,regaining strength,guidebook
+minor_wands_10,Ten of Wands,1,recognizing limits,guidebook
+minor_wands_10,Ten of Wands,2,being aware of overload,guidebook
+minor_wands_10,Ten of Wands,3,not exaggerating,guidebook
+minor_wands_page,Page of Wands,1,exploration,guidebook
+minor_wands_page,Page of Wands,2,enthusiasm,guidebook
+minor_wands_page,Page of Wands,3,spontaneity,guidebook
+minor_wands_knight,Knight of Wands,1,speed of action,guidebook
+minor_wands_knight,Knight of Wands,2,responsiveness,guidebook
+minor_wands_knight,Knight of Wands,3,impulsiveness,guidebook
+minor_wands_queen,Queen of Wands,1,sensuality,guidebook
+minor_wands_queen,Queen of Wands,2,confidence,guidebook
+minor_wands_queen,Queen of Wands,3,personal power,guidebook
+minor_wands_queen,Queen of Wands,4,artistic creation,guidebook
+minor_wands_king,King of Wands,1,leadership,guidebook
+minor_wands_king,King of Wands,2,charisma,guidebook
+minor_wands_king,King of Wands,3,ability to lead,guidebook
+minor_cups_ace,Ace of Cups,1,emotion,guidebook
+minor_cups_ace,Ace of Cups,2,joy,guidebook
+minor_cups_ace,Ace of Cups,3,new beginning,guidebook
+minor_cups_ace,Ace of Cups,4,fertility,guidebook
+minor_cups_ace,Ace of Cups,5,abundance,guidebook
+minor_cups_02,Two of Cups,1,meeting,guidebook
+minor_cups_02,Two of Cups,2,relationship,guidebook
+minor_cups_02,Two of Cups,3,falling in love,guidebook
+minor_cups_02,Two of Cups,4,emotional exchange,guidebook
+minor_cups_03,Three of Cups,1,sharing with a group,guidebook
+minor_cups_03,Three of Cups,2,affinity,guidebook
+minor_cups_03,Three of Cups,3,shared ideal,guidebook
+minor_cups_03,Three of Cups,4,empathic communication,guidebook
+minor_cups_04,Four of Cups,1,inner reflection,guidebook
+minor_cups_04,Four of Cups,2,excessive closure,guidebook
+minor_cups_04,Four of Cups,3,apathy,guidebook
+minor_cups_04,Four of Cups,4,loss of interest in the present,guidebook
+minor_cups_05,Five of Cups,1,loss,guidebook
+minor_cups_05,Five of Cups,2,sadness,guidebook
+minor_cups_05,Five of Cups,3,need to linger on something we no longer have,guidebook
+minor_cups_06,Six of Cups,1,nostalgia,guidebook
+minor_cups_06,Six of Cups,2,childhood,guidebook
+minor_cups_06,Six of Cups,3,memories of a happy past,guidebook
+minor_cups_06,Six of Cups,4,return to the past,guidebook
+minor_cups_07,Seven of Cups,1,illusion,guidebook
+minor_cups_07,Seven of Cups,2,choice,guidebook
+minor_cups_07,Seven of Cups,3,daydreaming,guidebook
+minor_cups_07,Seven of Cups,4,strength of desire,guidebook
+minor_cups_08,Eight of Cups,1,leaving certainty behind,guidebook
+minor_cups_08,Eight of Cups,2,exploration,guidebook
+minor_cups_08,Eight of Cups,3,entering unknown territory,guidebook
+minor_cups_09,Nine of Cups,1,fulfilled desire,guidebook
+minor_cups_09,Nine of Cups,2,waiting happily,guidebook
+minor_cups_10,Ten of Cups,1,emotional satisfaction,guidebook
+minor_cups_10,Ten of Cups,2,joy,guidebook
+minor_cups_10,Ten of Cups,3,daily happiness,guidebook
+minor_cups_page,Page of Cups,1,falling in love,guidebook
+minor_cups_page,Page of Cups,2,blossoming love,guidebook
+minor_cups_page,Page of Cups,3,openness of the heart,guidebook
+minor_cups_knight,Knight of Cups,1,romantic love,guidebook
+minor_cups_knight,Knight of Cups,2,great passion,guidebook
+minor_cups_knight,Knight of Cups,3,instability,guidebook
+minor_cups_knight,Knight of Cups,4,artistic temperament,guidebook
+minor_swords_02,Two of Swords,1,inner search,guidebook
+minor_swords_02,Two of Swords,2,harmony,guidebook
+minor_swords_02,Two of Swords,3,individual thought,guidebook
+minor_swords_02,Two of Swords,4,recollection,guidebook
+minor_swords_03,Three of Swords,1,break,guidebook
+minor_swords_03,Three of Swords,2,separation,guidebook
+minor_swords_03,Three of Swords,3,difficulty,guidebook
+minor_swords_03,Three of Swords,4,possibility of integration,guidebook
+minor_swords_03,Three of Swords,5,awareness,guidebook
+minor_swords_04,Four of Swords,1,recovery of energy,guidebook
+minor_swords_04,Four of Swords,2,rest,guidebook
+minor_swords_04,Four of Swords,3,awareness,guidebook
+minor_swords_04,Four of Swords,4,compromise,guidebook
+minor_swords_04,Four of Swords,5,meditation,guidebook
+minor_swords_05,Five of Swords,1,victory and defeat,guidebook
+minor_swords_05,Five of Swords,2,challenge,guidebook
+minor_swords_05,Five of Swords,3,break from convention,guidebook
+minor_swords_05,Five of Swords,4,crisis,guidebook
+minor_swords_05,Five of Swords,5,maintaining hope,guidebook
+minor_swords_06,Six of Swords,1,transition,guidebook
+minor_swords_06,Six of Swords,2,journey,guidebook
+minor_swords_06,Six of Swords,3,openness,guidebook
+minor_swords_06,Six of Swords,4,change of perspective,guidebook
+minor_swords_07,Seven of Swords,1,acting in secret,guidebook
+minor_swords_07,Seven of Swords,2,cunning,guidebook
+minor_swords_07,Seven of Swords,3,intelligence,guidebook
+minor_swords_07,Seven of Swords,4,inner communication,guidebook
+minor_swords_08,Eight of Swords,1,overthinking,guidebook
+minor_swords_08,Eight of Swords,2,inner obstruction we cause ourselves,guidebook
+minor_swords_08,Eight of Swords,3,need to lighten up,guidebook
+minor_swords_09,Nine of Swords,1,nightmare,guidebook
+minor_swords_09,Nine of Swords,2,passion vs. rationality,guidebook
+minor_swords_09,Nine of Swords,3,need to take stock of the situation,guidebook
+minor_swords_10,Ten of Swords,1,end,guidebook
+minor_swords_10,Ten of Swords,2,end of a cycle,guidebook
+minor_swords_10,Ten of Swords,3,conclusion,guidebook
+minor_swords_page,Page of Swords,1,thought,guidebook
+minor_swords_page,Page of Swords,2,speed,guidebook
+minor_swords_page,Page of Swords,3,the mind,guidebook
+minor_swords_page,Page of Swords,4,arriving message,guidebook
+minor_swords_knight,Knight of Swords,1,mental quickness,guidebook
+minor_swords_knight,Knight of Swords,2,intelligence,guidebook
+minor_swords_knight,Knight of Swords,3,the thinker,guidebook
+minor_swords_queen,Queen of Swords,1,irony,guidebook
+minor_swords_queen,Queen of Swords,2,clear vision,guidebook
+minor_swords_queen,Queen of Swords,3,wisdom,guidebook
+minor_swords_queen,Queen of Swords,4,intellectual honesty,guidebook
+minor_swords_king,King of Swords,1,overall vision,guidebook
+minor_swords_king,King of Swords,2,alternative solutions,guidebook
+minor_swords_king,King of Swords,3,strategy,guidebook
+minor_pentacles_ace,Ace of Pentacles,1,seed,guidebook
+minor_pentacles_ace,Ace of Pentacles,2,planning,guidebook
+minor_pentacles_ace,Ace of Pentacles,3,beginning linked to the world of material goods,guidebook
+minor_pentacles_02,Two of Pentacles,1,daily balance,guidebook
+minor_pentacles_02,Two of Pentacles,2,ability to juggle,guidebook
+minor_pentacles_02,Two of Pentacles,3,small chores,guidebook
+minor_pentacles_03,Three of Pentacles,1,teamwork,guidebook
+minor_pentacles_03,Three of Pentacles,2,focus,guidebook
+minor_pentacles_03,Three of Pentacles,3,construction,guidebook
+minor_pentacles_03,Three of Pentacles,4,and working toward a common project,guidebook
+minor_pentacles_04,Four of Pentacles,1,personal structure,guidebook
+minor_pentacles_04,Four of Pentacles,2,protection,guidebook
+minor_pentacles_04,Four of Pentacles,3,possible rigidity,guidebook
+minor_pentacles_05,Five of Pentacles,1,difficulty,guidebook
+minor_pentacles_05,Five of Pentacles,2,misery,guidebook
+minor_pentacles_05,Five of Pentacles,3,need to ask for help,guidebook
+minor_pentacles_06,Six of Pentacles,1,generosity,guidebook
+minor_pentacles_06,Six of Pentacles,2,exchange,guidebook
+minor_pentacles_06,Six of Pentacles,3,need,guidebook
+minor_pentacles_06,Six of Pentacles,4,ability to receive,guidebook
+minor_pentacles_07,Seven of Pentacles,1,waiting,guidebook
+minor_pentacles_07,Seven of Pentacles,2,gestation,guidebook
+minor_pentacles_07,Seven of Pentacles,3,pause that brings nourishment,guidebook
+minor_pentacles_08,Eight of Pentacles,1,study,guidebook
+minor_pentacles_08,Eight of Pentacles,2,attention to detail,guidebook
+minor_pentacles_08,Eight of Pentacles,3,ability to concentrate,guidebook
+minor_pentacles_08,Eight of Pentacles,4,apprentice,guidebook
+minor_pentacles_09,Nine of Pentacles,1,independence,guidebook
+minor_pentacles_09,Nine of Pentacles,2,enjoying the fruits of one's labor,guidebook
+minor_pentacles_09,Nine of Pentacles,3,abundance,guidebook
+minor_pentacles_09,Nine of Pentacles,4,refinement,guidebook
+minor_pentacles_10,Ten of Pentacles,1,wealth,guidebook
+minor_pentacles_10,Ten of Pentacles,2,abundance,guidebook
+minor_pentacles_10,Ten of Pentacles,3,generosity,guidebook
+minor_pentacles_10,Ten of Pentacles,4,wonder in everyday life,guidebook
+minor_pentacles_page,Page of Pentacles,1,student,guidebook
+minor_pentacles_page,Page of Pentacles,2,apprentice,guidebook
+minor_pentacles_page,Page of Pentacles,3,creative process,guidebook
+minor_pentacles_page,Page of Pentacles,4,curiosity,guidebook
+minor_pentacles_knight,Knight of Pentacles,1,determination,guidebook
+minor_pentacles_knight,Knight of Pentacles,2,dedication,guidebook
+minor_pentacles_knight,Knight of Pentacles,3,perseverance,guidebook
+minor_pentacles_knight,Knight of Pentacles,4,willpower,guidebook
+minor_pentacles_queen,Queen of Pentacles,1,nurturing,guidebook
+minor_pentacles_queen,Queen of Pentacles,2,creative capacity,guidebook
+minor_pentacles_queen,Queen of Pentacles,3,self-care,guidebook
+minor_pentacles_queen,Queen of Pentacles,4,sensory,guidebook
+minor_pentacles_king,King of Pentacles,1,innate generosity,guidebook
+minor_pentacles_king,King of Pentacles,2,abundance,guidebook
+minor_pentacles_king,King of Pentacles,3,personal satisfaction,guidebook
+minor_pentacles_king,King of Pentacles,4,charisma,guidebook
+minor_cups_king,King of Cups,1,power of imagination,guidebook
+minor_cups_king,King of Cups,2,listening,guidebook
+minor_cups_king,King of Cups,3,healing,guidebook
+minor_cups_queen,Queen of Cups,1,unconditional love,proposed
+minor_cups_queen,Queen of Cups,2,sensitivity,proposed
+minor_cups_queen,Queen of Cups,3,empathy,proposed
+minor_cups_queen,Queen of Cups,4,emotional healing,proposed
+minor_swords_ace,Ace of Swords,1,clarity,proposed
+minor_swords_ace,Ace of Swords,2,illumination,proposed
+minor_swords_ace,Ace of Swords,3,discernment,proposed
+minor_swords_ace,Ace of Swords,4,truth,proposed

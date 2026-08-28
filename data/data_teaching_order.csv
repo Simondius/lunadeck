@@ -1,0 +1,79 @@
+teaching_order,card_key,card_name,arcana_type
+1,major_00_fool,The Fool,major
+2,minor_cups_ace,Ace of Cups,minor
+3,major_01_magician,The Magician,major
+4,minor_wands_ace,Ace of Wands,minor
+5,major_03_empress,The Empress,major
+6,major_04_emperor,The Emperor,major
+7,minor_pentacles_ace,Ace of Pentacles,minor
+8,major_06_lovers,The Lovers,major
+9,minor_swords_ace,Ace of Swords,minor
+10,major_08_strength,Strength,major
+11,major_11_justice,Justice,major
+12,major_19_sun,The Sun,major
+13,minor_cups_page,Page of Cups,minor
+14,minor_cups_knight,Knight of Cups,minor
+15,minor_cups_queen,Queen of Cups,minor
+16,minor_cups_king,King of Cups,minor
+17,minor_wands_page,Page of Wands,minor
+18,minor_wands_knight,Knight of Wands,minor
+19,minor_wands_queen,Queen of Wands,minor
+20,minor_wands_king,King of Wands,minor
+21,minor_pentacles_page,Page of Pentacles,minor
+22,minor_pentacles_knight,Knight of Pentacles,minor
+23,minor_pentacles_queen,Queen of Pentacles,minor
+24,minor_pentacles_king,King of Pentacles,minor
+25,minor_swords_page,Page of Swords,minor
+26,minor_swords_knight,Knight of Swords,minor
+27,minor_swords_queen,Queen of Swords,minor
+28,minor_swords_king,King of Swords,minor
+29,major_07_chariot,The Chariot,major
+30,major_09_hermit,The Hermit,major
+31,major_10_wheel_of_fortune,The Wheel of Fortune,major
+32,major_13_death,Death,major
+33,major_15_devil,The Devil,major
+34,major_16_tower,The Tower,major
+35,major_17_star,The Star,major
+36,major_21_world,The World,major
+37,minor_swords_03,Three of Swords,minor
+38,minor_cups_10,Ten of Cups,minor
+39,minor_swords_10,Ten of Swords,minor
+40,minor_pentacles_10,Ten of Pentacles,minor
+41,minor_cups_02,Two of Cups,minor
+42,minor_cups_03,Three of Cups,minor
+43,minor_cups_04,Four of Cups,minor
+44,minor_cups_05,Five of Cups,minor
+45,minor_cups_06,Six of Cups,minor
+46,minor_cups_07,Seven of Cups,minor
+47,minor_cups_08,Eight of Cups,minor
+48,minor_cups_09,Nine of Cups,minor
+49,major_02_high_priestess,The High Priestess,major
+50,minor_wands_02,Two of Wands,minor
+51,minor_wands_03,Three of Wands,minor
+52,minor_wands_04,Four of Wands,minor
+53,minor_wands_05,Five of Wands,minor
+54,minor_wands_06,Six of Wands,minor
+55,minor_wands_07,Seven of Wands,minor
+56,minor_wands_08,Eight of Wands,minor
+57,minor_wands_09,Nine of Wands,minor
+58,minor_wands_10,Ten of Wands,minor
+59,minor_pentacles_02,Two of Pentacles,minor
+60,minor_pentacles_03,Three of Pentacles,minor
+61,minor_pentacles_04,Four of Pentacles,minor
+62,minor_pentacles_05,Five of Pentacles,minor
+63,minor_pentacles_06,Six of Pentacles,minor
+64,minor_pentacles_07,Seven of Pentacles,minor
+65,minor_pentacles_08,Eight of Pentacles,minor
+66,minor_pentacles_09,Nine of Pentacles,minor
+67,major_05_hierophant,The Hierophant,major
+68,minor_swords_02,Two of Swords,minor
+69,minor_swords_04,Four of Swords,minor
+70,minor_swords_05,Five of Swords,minor
+71,minor_swords_06,Six of Swords,minor
+72,minor_swords_07,Seven of Swords,minor
+73,minor_swords_08,Eight of Swords,minor
+74,minor_swords_09,Nine of Swords,minor
+75,major_12_hanged_man,The Hanged Man,major
+76,major_14_temperance,Temperance,major
+77,major_18_moon,The Moon,major
+78,major_20_judgment,Judgment,major

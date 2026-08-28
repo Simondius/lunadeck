@@ -1,0 +1,79 @@
+card_key,arcana_type,suit,rank,card_name,image_file
+major_00_fool,major,,0,The Fool,major_00_fool_MASTER.png
+major_01_magician,major,,1,The Magician,major_01_magician_MASTER.png
+major_02_high_priestess,major,,2,The High Priestess,major_02_high_priestess_MASTER.png
+major_03_empress,major,,3,The Empress,major_03_empress_MASTER.png
+major_04_emperor,major,,4,The Emperor,major_04_emperor_MASTER.png
+major_05_hierophant,major,,5,The Hierophant,major_05_hierophant_MASTER.png
+major_06_lovers,major,,6,The Lovers,major_06_lovers_MASTER.png
+major_07_chariot,major,,7,The Chariot,major_07_chariot_MASTER.png
+major_08_strength,major,,8,Strength,major_08_strength_MASTER.png
+major_09_hermit,major,,9,The Hermit,major_09_hermit_MASTER.png
+major_10_wheel_of_fortune,major,,10,The Wheel of Fortune,major_10_wheel_of_fortune_MASTER.png
+major_11_justice,major,,11,Justice,major_11_justice_MASTER.png
+major_12_hanged_man,major,,12,The Hanged Man,major_12_hanged_man_MASTER.png
+major_13_death,major,,13,Death,major_13_death_MASTER.png
+major_14_temperance,major,,14,Temperance,major_14_temperance_MASTER.png
+major_15_devil,major,,15,The Devil,major_15_devil_MASTER.png
+major_16_tower,major,,16,The Tower,major_16_tower_MASTER.png
+major_17_star,major,,17,The Star,major_17_star_MASTER.png
+major_18_moon,major,,18,The Moon,major_18_moon_MASTER.png
+major_19_sun,major,,19,The Sun,major_19_sun_MASTER.png
+major_20_judgment,major,,20,Judgment,major_20_judgment_MASTER.png
+major_21_world,major,,21,The World,major_21_world_MASTER.png
+minor_wands_ace,minor,Wands,Ace,Ace of Wands,minor_wands_ace_MASTER.png
+minor_wands_02,minor,Wands,Two,Two of Wands,minor_wands_02_MASTER.png
+minor_wands_03,minor,Wands,Three,Three of Wands,minor_wands_03_MASTER.png
+minor_wands_04,minor,Wands,Four,Four of Wands,minor_wands_04_MASTER.png
+minor_wands_05,minor,Wands,Five,Five of Wands,minor_wands_05_MASTER.png
+minor_wands_06,minor,Wands,Six,Six of Wands,minor_wands_06_MASTER.png
+minor_wands_07,minor,Wands,Seven,Seven of Wands,minor_wands_07_MASTER.png
+minor_wands_08,minor,Wands,Eight,Eight of Wands,minor_wands_08_MASTER.png
+minor_wands_09,minor,Wands,Nine,Nine of Wands,minor_wands_09_MASTER.png
+minor_wands_10,minor,Wands,Ten,Ten of Wands,minor_wands_10_MASTER.png
+minor_wands_page,minor,Wands,Page,Page of Wands,minor_wands_page_MASTER.png
+minor_wands_knight,minor,Wands,Knight,Knight of Wands,minor_wands_knight_MASTER.png
+minor_wands_queen,minor,Wands,Queen,Queen of Wands,minor_wands_queen_MASTER.png
+minor_wands_king,minor,Wands,King,King of Wands,minor_wands_king_MASTER.png
+minor_cups_ace,minor,Cups,Ace,Ace of Cups,minor_cups_ace_MASTER.png
+minor_cups_02,minor,Cups,Two,Two of Cups,minor_cups_02_MASTER.png
+minor_cups_03,minor,Cups,Three,Three of Cups,minor_cups_03_MASTER.png
+minor_cups_04,minor,Cups,Four,Four of Cups,minor_cups_04_MASTER.png
+minor_cups_05,minor,Cups,Five,Five of Cups,minor_cups_05_MASTER.png
+minor_cups_06,minor,Cups,Six,Six of Cups,minor_cups_06_MASTER.png
+minor_cups_07,minor,Cups,Seven,Seven of Cups,minor_cups_07_MASTER.png
+minor_cups_08,minor,Cups,Eight,Eight of Cups,minor_cups_08_MASTER.png
+minor_cups_09,minor,Cups,Nine,Nine of Cups,minor_cups_09_MASTER.png
+minor_cups_10,minor,Cups,Ten,Ten of Cups,minor_cups_10_MASTER.png
+minor_cups_page,minor,Cups,Page,Page of Cups,minor_cups_page_MASTER.png
+minor_cups_knight,minor,Cups,Knight,Knight of Cups,minor_cups_knight_MASTER.png
+minor_cups_queen,minor,Cups,Queen,Queen of Cups,minor_cups_queen_MASTER.png
+minor_cups_king,minor,Cups,King,King of Cups,minor_cups_king_MASTER.png
+minor_swords_ace,minor,Swords,Ace,Ace of Swords,minor_swords_ace_MASTER.png
+minor_swords_02,minor,Swords,Two,Two of Swords,minor_swords_02_MASTER.png
+minor_swords_03,minor,Swords,Three,Three of Swords,minor_swords_03_MASTER.png
+minor_swords_04,minor,Swords,Four,Four of Swords,minor_swords_04_MASTER.png
+minor_swords_05,minor,Swords,Five,Five of Swords,minor_swords_05_MASTER.png
+minor_swords_06,minor,Swords,Six,Six of Swords,minor_swords_06_MASTER.png
+minor_swords_07,minor,Swords,Seven,Seven of Swords,minor_swords_07_MASTER.png
+minor_swords_08,minor,Swords,Eight,Eight of Swords,minor_swords_08_MASTER.png
+minor_swords_09,minor,Swords,Nine,Nine of Swords,minor_swords_09_MASTER.png
+minor_swords_10,minor,Swords,Ten,Ten of Swords,minor_swords_10_MASTER.png
+minor_swords_page,minor,Swords,Page,Page of Swords,minor_swords_page_MASTER.png
+minor_swords_knight,minor,Swords,Knight,Knight of Swords,minor_swords_knight_MASTER.png
+minor_swords_queen,minor,Swords,Queen,Queen of Swords,minor_swords_queen_MASTER.png
+minor_swords_king,minor,Swords,King,King of Swords,minor_swords_king_MASTER.png
+minor_pentacles_ace,minor,Pentacles,Ace,Ace of Pentacles,minor_pentacles_ace_MASTER.png
+minor_pentacles_02,minor,Pentacles,Two,Two of Pentacles,minor_pentacles_02_MASTER.png
+minor_pentacles_03,minor,Pentacles,Three,Three of Pentacles,minor_pentacles_03_MASTER.png
+minor_pentacles_04,minor,Pentacles,Four,Four of Pentacles,minor_pentacles_04_MASTER.png
+minor_pentacles_05,minor,Pentacles,Five,Five of Pentacles,minor_pentacles_05_MASTER.png
+minor_pentacles_06,minor,Pentacles,Six,Six of Pentacles,minor_pentacles_06_MASTER.png
+minor_pentacles_07,minor,Pentacles,Seven,Seven of Pentacles,minor_pentacles_07_MASTER.png
+minor_pentacles_08,minor,Pentacles,Eight,Eight of Pentacles,minor_pentacles_08_MASTER.png
+minor_pentacles_09,minor,Pentacles,Nine,Nine of Pentacles,minor_pentacles_09_MASTER.png
+minor_pentacles_10,minor,Pentacles,Ten,Ten of Pentacles,minor_pentacles_10_MASTER.png
+minor_pentacles_page,minor,Pentacles,Page,Page of Pentacles,minor_pentacles_page_MASTER.png
+minor_pentacles_knight,minor,Pentacles,Knight,Knight of Pentacles,minor_pentacles_knight_MASTER.png
+minor_pentacles_queen,minor,Pentacles,Queen,Queen of Pentacles,minor_pentacles_queen_MASTER.png
+minor_pentacles_king,minor,Pentacles,King,King of Pentacles,minor_pentacles_king_MASTER.png

@@ -1,0 +1,6 @@
+# CSVs are the reviewable source of truth — always treat as text
+*.csv text eol=lf diff
+
+# Binary assets
+*.png binary
+*.pdf binary

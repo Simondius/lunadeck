@@ -1,0 +1,23 @@
+card_key,symbol_type,symbol
+major_00_fool,Planet,Uranus
+major_01_magician,Planet,Mercury
+major_02_high_priestess,Planet,Moon
+major_03_empress,Planet,Venus
+major_04_emperor,Zodiac Sign,Aries
+major_05_hierophant,Zodiac Sign,Taurus
+major_06_lovers,Zodiac Sign,Gemini
+major_07_chariot,Zodiac Sign,Cancer
+major_08_strength,Zodiac Sign,Leo
+major_09_hermit,Zodiac Sign,Virgo
+major_10_wheel_of_fortune,Planet,Jupiter
+major_11_justice,Zodiac Sign,Libra
+major_12_hanged_man,Planet,Neptune
+major_13_death,Zodiac Sign,Scorpio
+major_14_temperance,Zodiac Sign,Sagittarius
+major_15_devil,Zodiac Sign,Capricorn
+major_16_tower,Planet,Mars
+major_17_star,Zodiac Sign,Aquarius
+major_18_moon,Zodiac Sign,Pisces
+major_19_sun,Planet,Sun
+major_20_judgment,Planet,Pluto
+major_21_world,Planet,Saturn

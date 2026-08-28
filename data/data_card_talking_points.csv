@@ -1,0 +1,346 @@
+card_key,card_name,note_order,reading_note
+major_00_fool,The Fool,1,Beginning and ending in one — a fresh cycle starting right after one just closed
+major_00_fool,The Fool,2,"Travels light, takes chances with levity"
+major_00_fool,The Fool,3,"On the edge of the precipice, but calm rather than afraid of the void"
+major_00_fool,The Fool,4,Trusts that the path appears once you take the step
+major_00_fool,The Fool,5,"Approaches life with a beginner's mind — curious, unguarded, unjaded"
+major_00_fool,The Fool,6,"Nonconformist, revolutionary energy — willing to go against convention"
+major_00_fool,The Fool,7,Says yes to the unknown instead of playing it safe
+major_01_magician,The Magician,1,Sees with more than the eyes — perceives both the visible and the invisible
+major_01_magician,The Magician,2,You already have everything you need; success is about using the resources at hand
+major_01_magician,The Magician,3,Magic hides in ordinary things — available only to those who know how to look
+major_01_magician,The Magician,4,"Sharp, quick-witted intelligence; can view a situation from multiple angles at once"
+major_01_magician,The Magician,5,"A gift for communication — the right words, spoken or written, at the right moment"
+major_01_magician,The Magician,6,"Reminds you it's time to act on an idea, not just have it"
+major_02_high_priestess,The High Priestess,1,Lives on the threshold — between the seen and unseen worlds
+major_02_high_priestess,The High Priestess,2,"Her power is in receiving and being, not in acting"
+major_02_high_priestess,The High Priestess,3,Deep listening — she absorbs what others carry and reflects it back transformed
+major_02_high_priestess,The High Priestess,4,Trust the vision or feeling that comes without explanation
+major_02_high_priestess,The High Priestess,5,"A quiet, reflected light rather than a blazing one — like the moon catching the sun's rays"
+major_02_high_priestess,The High Priestess,6,Offers protection and care from a place of stillness
+major_02_high_priestess,The High Priestess,7,Signals it's time to turn inward before doing anything outward
+major_03_empress,The Empress,1,"Mother Earth energy — fertility, abundance, life growing in every direction"
+major_03_empress,The Empress,2,"Something is ready to be born — a child, a project, an idea taking shape"
+major_03_empress,The Empress,3,"Creation before form — raw, generative chaos that hasn't settled yet"
+major_03_empress,The Empress,4,"Nourish, protect, and grow whatever you're tending"
+major_03_empress,The Empress,5,A reminder to love and care for yourself first
+major_03_empress,The Empress,6,"Pleasure, beauty, and the body are not indulgences — they're part of the message"
+major_03_empress,The Empress,7,"Abundance that comes from allowing things to flourish, not forcing them"
+major_04_emperor,The Emperor,1,Ready to act the instant the moment calls for it — no hesitation
+major_04_emperor,The Emperor,2,Sets clear boundaries and claims space without apology
+major_04_emperor,The Emperor,3,Gives shape and order to what was still raw potential
+major_04_emperor,The Emperor,4,"Leadership through decisive, immediate action"
+major_04_emperor,The Emperor,5,Spring's life force — breaking through and pushing forward
+major_04_emperor,The Emperor,6,"A spark-first, think-later instinct; leads with action"
+major_05_hierophant,The Hierophant,1,A bridge between the everyday and the sacred
+major_05_hierophant,The Hierophant,2,"When reality feels shaky, lean on faith or tradition to steady it"
+major_05_hierophant,The Hierophant,3,"The message arrives through a mentor, teacher, or trusted structure"
+major_05_hierophant,The Hierophant,4,Spiritual truth doesn't have to abandon the pleasures of daily life
+major_05_hierophant,The Hierophant,5,"Holding something divine within an ordinary, grounded life"
+major_06_lovers,The Lovers,1,A real choice stands in front of you — has every angle actually been weighed?
+major_06_lovers,The Lovers,2,"Two paths, both valid — the challenge is choosing, not lacking options"
+major_06_lovers,The Lovers,3,"Choosing with the heart, not just the head"
+major_06_lovers,The Lovers,4,"Holding the masculine and feminine, or two sides of yourself, in balance"
+major_06_lovers,The Lovers,5,"A partnership or union that asks you to listen to more than one voice — body, mind, and spirit"
+major_07_chariot,The Chariot,1,Determined forward motion — ambition finally in gear
+major_07_chariot,The Chariot,2,"Pulled by two forces that need aligning, not fighting, to move you forward"
+major_07_chariot,The Chariot,3,Success comes from uniting intuition with rational drive
+major_07_chariot,The Chariot,4,"Emotion is the fuel, not the obstacle, for this journey"
+major_07_chariot,The Chariot,5,"A strong start — this is initiating energy, not sustaining energy"
+major_08_strength,Strength,1,"Real strength is gentle — it comes from the heart, not force"
+major_08_strength,Strength,2,Taming the wilder instincts with calm rather than domination
+major_08_strength,Strength,3,"Courage means acting honestly, not acting fearlessly"
+major_08_strength,Strength,4,Generosity and warmth are forms of power too
+major_08_strength,Strength,5,"Connection and relating to others, not standing above them"
+major_09_hermit,The Hermit,1,"Solitude here is productive, not lonely"
+major_09_hermit,The Hermit,2,A lantern lighting the path one careful step at a time — no need to see the whole road
+major_09_hermit,The Hermit,3,Time to withdraw and look inward before moving again
+major_09_hermit,The Hermit,4,Attention to small details reveals the bigger picture
+major_09_hermit,The Hermit,5,"The search itself — quiet, patient introspection — is the point"
+major_10_wheel_of_fortune,The Wheel of Fortune,1,"What goes up comes around — nothing here is permanent, high or low"
+major_10_wheel_of_fortune,The Wheel of Fortune,2,A turning point; you're at a hinge between one cycle ending and another beginning
+major_10_wheel_of_fortune,The Wheel of Fortune,3,Fortune and misfortune are both just transitions to learn from
+major_10_wheel_of_fortune,The Wheel of Fortune,4,"Stay balanced at the center, even as things spin around you"
+major_10_wheel_of_fortune,The Wheel of Fortune,5,Everything is connected — small choices shape what the wheel brings back
+major_11_justice,Justice,1,"A mirror moment — an honest, unflinching look at yourself"
+major_11_justice,Justice,2,"Acting because it's simply right, not because a rulebook says so"
+major_11_justice,Justice,3,"Responsibility and fairness, driven by the heart rather than obligation"
+major_11_justice,Justice,4,"Seeking balance, harmony, and beauty in how things are resolved"
+major_11_justice,Justice,5,Cause and effect are catching up — reap what's been sown
+major_12_hanged_man,The Hanged Man,1,"Suspended, upside down, but calm — not suffering, just paused"
+major_12_hanged_man,The Hanged Man,2,"A new perspective comes from surrendering, not struggling"
+major_12_hanged_man,The Hanged Man,3,Pause and let go instead of forcing the next move
+major_12_hanged_man,The Hanged Man,4,Meditative stillness that deepens awareness
+major_12_hanged_man,The Hanged Man,5,Sometimes you sacrifice something now to gain something better later
+major_13_death,Death,1,Not an ending — a transformation that clears the way for new life
+major_13_death,Death,2,"What no longer has life in it needs to be released, like dead leaves feeding the roots"
+major_13_death,Death,3,Endings free up room for something essential to grow
+major_13_death,Death,4,"Intense, magnetic, and a little uncomfortable — real change usually is"
+major_13_death,Death,5,Look beneath the surface for what actually needs to go
+major_14_temperance,Temperance,1,The journey matters more than the destination right now
+major_14_temperance,Temperance,2,"Blending different, even opposing, ingredients into something greater than either alone"
+major_14_temperance,Temperance,3,Patience and experience refine raw experience into wisdom
+major_14_temperance,Temperance,4,Moderation — finding the right balance rather than swinging to extremes
+major_14_temperance,Temperance,5,Broadening your view by mixing new experiences in
+major_15_devil,The Devil,1,Not purely bad — it's misunderstood more than any other card
+major_15_devil,The Devil,2,"The chains look tight, but they're actually loose enough to remove"
+major_15_devil,The Devil,3,"Freedom is a responsibility you already hold, whether you use it or not"
+major_15_devil,The Devil,4,"A visceral, primal pull worth acknowledging rather than denying"
+major_15_devil,The Devil,5,Ask what dependency or habit is really keeping you stuck
+major_16_tower,The Tower,1,"Sudden, unexpected change — the lightning strike moment"
+major_16_tower,The Tower,2,What falls apart was already unstable; the collapse just makes it visible
+major_16_tower,The Tower,3,The point isn't the falling — it's knowing how to fall
+major_16_tower,The Tower,4,Resisting the change costs more than flowing with it
+major_16_tower,The Tower,5,"Clears the way for a freer view beyond old, rigid thinking"
+major_16_tower,The Tower,6,Sometimes disruption is the only way to break stagnation
+major_17_star,The Star,1,Hope returning after the storm — light visible at the end of the tunnel
+major_17_star,The Star,2,An act of giving that seems small but nourishes something larger
+major_17_star,The Star,3,"Renewal comes through shared, communal feeling, not isolation"
+major_17_star,The Star,4,"Staying open and receptive to life, rather than guarded"
+major_17_star,The Star,5,A quietly nonconformist light — hope that doesn't need everyone else's approval
+major_18_moon,The Moon,1,"What's hidden becomes visible in the dark, if you're willing to look"
+major_18_moon,The Moon,2,Trust intuition and dreams over what's plainly stated
+major_18_moon,The Moon,3,Facing the shadow side is part of becoming whole
+major_18_moon,The Moon,4,A cycle is repeating — notice the pattern before it repeats again
+major_18_moon,The Moon,5,The everyday and the spiritual aren't separate; they're two sides of the same coin
+major_19_sun,The Sun,1,"Pure, uncomplicated joy — like a child's optimism"
+major_19_sun,The Sun,2,True self-expression; showing your real nature without apology
+major_19_sun,The Sun,3,"Warmth, success, and vitality radiating outward"
+major_19_sun,The Sun,4,Even the Sun can burn — don't let confidence tip into self-centeredness
+major_19_sun,The Sun,5,Sometimes the wisest move is to step back and simply watch things unfold
+major_20_judgment,Judgment,1,A calling being answered — your true vocation coming into focus
+major_20_judgment,Judgment,2,Rebirth requires passing through an ending first
+major_20_judgment,Judgment,3,"Letting go of what no longer belongs to you, to make room for healing"
+major_20_judgment,Judgment,4,A reckoning — reviewing the past honestly before moving forward
+major_20_judgment,Judgment,5,"Your voice, finally ready to be used"
+major_21_world,The World,1,A full cycle completed — the circle closes
+major_21_world,The World,2,Achievement and wholeness; everything has come together
+major_21_world,The World,3,"Don't linger too long in the comfort of ""done"" — a new journey is already calling"
+major_21_world,The World,4,Completion that clears the way for the next beginning
+major_21_world,The World,5,Closure that comes from cutting away what's no longer needed
+minor_wands_ace,Ace of Wands,1,"A new, passionate spark — the ""yes"" moment for a fresh start"
+minor_wands_ace,Ace of Wands,2,"The first step of something bigger, not the whole journey yet"
+minor_wands_ace,Ace of Wands,3,Protect this early spark; it's easy to let it fizzle out
+minor_wands_ace,Ace of Wands,4,Say yes to the adventure calling you
+minor_wands_ace,Ace of Wands,5,"Raw creative energy, ready to be aimed at something"
+minor_wands_02,Two of Wands,1,A choice between staying close to home or reaching further out
+minor_wands_02,Two of Wands,2,Survey the whole situation before committing to a direction
+minor_wands_02,Two of Wands,3,Restless energy looking for the right target
+minor_wands_02,Two of Wands,4,"Planning the next move, not just acting on impulse"
+minor_wands_03,Three of Wands,1,The plan is coming into focus — you can finally see where this is going
+minor_wands_03,Three of Wands,2,"Standing at the threshold, glimpsing what's possible if you keep going"
+minor_wands_03,Three of Wands,3,Courage now opens the door to real discovery
+minor_wands_03,Three of Wands,4,Momentum building after the early uncertainty
+minor_wands_04,Four of Wands,1,A moment worth celebrating — plans finally coming into the light
+minor_wands_04,Four of Wands,2,Stability that comes from opposites meeting in the middle
+minor_wands_04,Four of Wands,3,"A gathering, homecoming, or milestone worth marking"
+minor_wands_04,Four of Wands,4,Warmth and welcome after effort — enjoy this one
+minor_wands_05,Five of Wands,1,Friction and competing voices — the conflict itself can spark creativity
+minor_wands_05,Five of Wands,2,Feeling boxed in creatively? Look inward for the way through
+minor_wands_05,Five of Wands,3,Tension between standing out and fitting in
+minor_wands_05,Five of Wands,4,Turn the conflict into fuel rather than letting it stall you
+minor_wands_06,Six of Wands,1,"A hard-won victory — enjoy it, but don't get too comfortable"
+minor_wands_06,Six of Wands,2,"Recognition and success earned fairly, not at anyone else's expense"
+minor_wands_06,Six of Wands,3,Confidence radiating outward after a win
+minor_wands_06,Six of Wands,4,Good fortune following genuine effort
+minor_wands_07,Seven of Wands,1,Holding your ground — this is not the moment to back down
+minor_wands_07,Seven of Wands,2,"Standing up for what you believe, even under pressure"
+minor_wands_07,Seven of Wands,3,"Courage to show your true position, even if it's the unpopular one"
+minor_wands_07,Seven of Wands,4,"Defending what matters, one stance at a time"
+minor_wands_08,Eight of Wands,1,A message or answer is finally on its way
+minor_wands_08,Eight of Wands,2,Things that were stuck start moving fast now
+minor_wands_08,Eight of Wands,3,"Right place, right time — timing is on your side"
+minor_wands_08,Eight of Wands,4,"Clear, direct communication cutting through delay"
+minor_wands_09,Nine of Wands,1,Wounded but not out — resting just long enough to go again
+minor_wands_09,Nine of Wands,2,A pause to regroup before the final push
+minor_wands_09,Nine of Wands,3,Resilience built from what's already been survived
+minor_wands_09,Nine of Wands,4,Finding an unlikely refuge to recover your strength
+minor_wands_10,Ten of Wands,1,Carrying more than one person should — time to put some of it down
+minor_wands_10,Ten of Wands,2,Recognizing your limits instead of pushing past all of them
+minor_wands_10,Ten of Wands,3,Delegate; you don't have to do everything yourself
+minor_wands_10,Ten of Wands,4,"Success achieved, but at the cost of feeling overloaded"
+minor_wands_page,Page of Wands,1,Childlike enthusiasm for a brand-new idea
+minor_wands_page,Page of Wands,2,"Curiosity leading the way, fear not invited"
+minor_wands_page,Page of Wands,3,A message or spark of inspiration worth following immediately
+minor_wands_page,Page of Wands,4,"Ready to leap into something unexpected, purely out of excitement"
+minor_wands_knight,Knight of Wands,1,"Acts first, thinks later — impulsive but never boring"
+minor_wands_knight,Knight of Wands,2,"A burst of energy that may burn out fast, so use it while it's hot"
+minor_wands_knight,Knight of Wands,3,Seeks out risk rather than waiting for it to arrive
+minor_wands_knight,Knight of Wands,4,"Sudden, unexpected movement or change on the horizon"
+minor_wands_queen,Queen of Wands,1,"Radiant, magnetic confidence — impossible not to notice"
+minor_wands_queen,Queen of Wands,2,Knows exactly what she wants and isn't shy about pursuing it
+minor_wands_queen,Queen of Wands,3,"Creative power used openly, not hidden away"
+minor_wands_queen,Queen of Wands,4,Charisma paired with ambition and follow-through
+minor_wands_king,King of Wands,1,Leadership that makes everyone around them feel more capable
+minor_wands_king,King of Wands,2,"Passionate fire, but grounded and steady rather than reckless"
+minor_wands_king,King of Wands,3,"Charisma used in service of a shared goal, not just personal glory"
+minor_wands_king,King of Wands,4,"A warm, sustaining presence rather than a flash in the pan"
+minor_cups_ace,Ace of Cups,1,"A new emotional beginning — infatuation, wonder, or an open heart"
+minor_cups_ace,Ace of Cups,2,"Feelings need to flow, not be bottled up and left still"
+minor_cups_ace,Ace of Cups,3,"Love and connection arriving in a fresh, uncomplicated way"
+minor_cups_ace,Ace of Cups,4,The start of something that touches you emotionally
+minor_cups_02,Two of Cups,1,A meeting of hearts — mutual attraction and discovery
+minor_cups_02,Two of Cups,2,Early-stage connection; still getting to know each other
+minor_cups_02,Two of Cups,3,Applies to more than romance — falling for a project or place counts too
+minor_cups_02,Two of Cups,4,An emotional exchange that feels reciprocal
+minor_cups_03,Three of Cups,1,Celebrating with your people — friendship and shared joy
+minor_cups_03,Three of Cups,2,"Abundance that comes from community, not solitude"
+minor_cups_03,Three of Cups,3,Finding others who instantly speak your language
+minor_cups_03,Three of Cups,4,A good moment to plan and create together
+minor_cups_04,Four of Cups,1,"Something new is being offered, but you might be too lost in your head to notice"
+minor_cups_04,Four of Cups,2,Nostalgia or daydreaming pulling focus from the present
+minor_cups_04,Four of Cups,3,Emotional stagnation — restlessness without action
+minor_cups_04,Four of Cups,4,Check whether you're dwelling on the past instead of receiving what's here now
+minor_cups_05,Five of Cups,1,"Grieving what's spilled, while missing what's still standing behind you"
+minor_cups_05,Five of Cups,2,"Loss that deserves to be felt, not rushed past"
+minor_cups_05,Five of Cups,3,Not everything is gone — something whole remains if you turn around
+minor_cups_05,Five of Cups,4,Turning regret into awareness rather than staying stuck in it
+minor_cups_06,Six of Cups,1,"Sweet nostalgia — childhood, old friends, simpler times"
+minor_cups_06,Six of Cups,2,Something from the past worth bringing back into the present
+minor_cups_06,Six of Cups,3,Innocence and warmth resurfacing
+minor_cups_06,Six of Cups,4,Reconnecting with what once made you happy
+minor_cups_07,Seven of Cups,1,Tempting options everywhere — but not all of them are what they appear
+minor_cups_07,Seven of Cups,2,Illusion versus reality; look twice before choosing
+minor_cups_07,Seven of Cups,3,Too many desires pulling in different directions at once
+minor_cups_07,Seven of Cups,4,"Dream freely, but choose with clear eyes"
+minor_cups_08,Eight of Cups,1,Walking away from something that looks fine but no longer feels right
+minor_cups_08,Eight of Cups,2,"Leaving certainty behind on purpose, even without knowing what's next"
+minor_cups_08,Eight of Cups,3,A stagnant chapter that needs closing before a new one opens
+minor_cups_08,Eight of Cups,4,Choosing the unknown over staying stuck
+minor_cups_09,Nine of Cups,1,Wishes coming true — contentment and fulfillment
+minor_cups_09,Nine of Cups,2,Something good you've been hoping for is close at hand
+minor_cups_09,Nine of Cups,3,Emotional fullness — a genuinely happy moment
+minor_cups_09,Nine of Cups,4,"Savoring anticipation, knowing it's about to pay off"
+minor_cups_10,Ten of Cups,1,"Lasting happiness — the kind that feels settled, not fleeting"
+minor_cups_10,Ten of Cups,2,"Everything finally in its place, emotionally speaking"
+minor_cups_10,Ten of Cups,3,Peace that radiates outward to the people around you
+minor_cups_10,Ten of Cups,4,A happy family or home moment worth simply enjoying
+minor_cups_page,Page of Cups,1,"Falling in love — with a person, an idea, or a new possibility"
+minor_cups_page,Page of Cups,2,"Imagination paired with real feeling, not just fantasy"
+minor_cups_page,Page of Cups,3,"An innocent, open-hearted new beginning"
+minor_cups_page,Page of Cups,4,A dreamy message or invitation arriving
+minor_cups_knight,Knight of Cups,1,Romantic and artistic — leading with heart and imagination
+minor_cups_knight,Knight of Cups,2,"Gentle, warm, and genuinely caring, if a little unpredictable"
+minor_cups_knight,Knight of Cups,3,Pursuing something (or someone) out of love and inspiration
+minor_cups_knight,Knight of Cups,4,Passion that can flare bright and fade fast — enjoy it while it lasts
+minor_cups_queen,Queen of Cups,1,Unconditional love and deep empathy
+minor_cups_queen,Queen of Cups,2,Healing through listening rather than fixing
+minor_cups_queen,Queen of Cups,3,Sees past people's surface straight to who they really are
+minor_cups_queen,Queen of Cups,4,Unshaken by others' judgment because she trusts her own perception
+minor_cups_king,King of Cups,1,"Emotional stability — feelings held steady, not suppressed"
+minor_cups_king,King of Cups,2,Listening that actually heals the other person
+minor_cups_king,King of Cups,3,"Imagination as strength, as long as it stays grounded"
+minor_cups_king,King of Cups,4,"Calm mastery over emotion, used to support others"
+minor_swords_ace,Ace of Swords,1,Sudden clarity — the fog lifts and the truth is obvious
+minor_swords_ace,Ace of Swords,2,Cutting away the unnecessary to get to what actually matters
+minor_swords_ace,Ace of Swords,3,"Seeing a situation exactly as it is, without emotional static"
+minor_swords_ace,Ace of Swords,4,Truth separated cleanly from deception
+minor_swords_02,Two of Swords,1,A decision being avoided — the truth is known but not yet faced
+minor_swords_02,Two of Swords,2,Pausing to find inner balance before choosing
+minor_swords_02,Two of Swords,3,"Blindfolded, but the answer is already inside if you're honest with yourself"
+minor_swords_02,Two of Swords,4,"Peace comes first, then the choice becomes clear"
+minor_swords_03,Three of Swords,1,"Heartbreak that's real, but necessary to move through, not around"
+minor_swords_03,Three of Swords,2,Pain acknowledged honestly heals faster than pain denied
+minor_swords_03,Three of Swords,3,A wound that has to open before it can actually close
+minor_swords_03,Three of Swords,4,Facing hurt with compassion instead of avoidance
+minor_swords_04,Four of Swords,1,"Rest is the actual next step, not another push forward"
+minor_swords_04,Four of Swords,2,Healing time after a hard stretch — take it
+minor_swords_04,Four of Swords,3,Compromise reached after the storm has passed
+minor_swords_04,Four of Swords,4,Quiet reflection restoring inner balance
+minor_swords_05,Five of Swords,1,Winning at a cost that might not be worth it
+minor_swords_05,Five of Swords,2,Conflict that leaves both sides bruised — worth asking if it was necessary
+minor_swords_05,Five of Swords,3,"Even in defeat, don't lose hope for something better"
+minor_swords_05,Five of Swords,4,"Standing apart from convention, even if it invites pushback"
+minor_swords_06,Six of Swords,1,Moving from troubled waters toward calmer ground
+minor_swords_06,Six of Swords,2,"Trust is what makes the journey possible, not just effort"
+minor_swords_06,Six of Swords,3,Leaving an old way of thinking behind for a new outlook
+minor_swords_06,Six of Swords,4,"Slow, steady transition rather than a sudden leap"
+minor_swords_07,Seven of Swords,1,Playing it close to the chest — not every card needs to be shown yet
+minor_swords_07,Seven of Swords,2,"Clever, resourceful thinking that works quietly rather than loudly"
+minor_swords_07,Seven of Swords,3,Timing matters more than speed here; wait for the right moment
+minor_swords_07,Seven of Swords,4,"A bit of strategic secrecy, not necessarily deception"
+minor_swords_08,Eight of Swords,1,"Trapped by your own thoughts, not by anything actually outside you"
+minor_swords_08,Eight of Swords,2,Overthinking has become the obstacle itself
+minor_swords_08,Eight of Swords,3,The blindfold is self-imposed and can be removed
+minor_swords_08,Eight of Swords,4,Freedom is closer than it feels — the limitation is mostly mental
+minor_swords_09,Nine of Swords,1,"Anxiety and worst-case thinking, often worse than reality"
+minor_swords_09,Nine of Swords,2,A sleepless night's fears rarely survive the morning light
+minor_swords_09,Nine of Swords,3,"Mind and heart in conflict, both talking at once"
+minor_swords_09,Nine of Swords,4,"Time to step back and reassess objectively, without the panic"
+minor_swords_10,Ten of Swords,1,"Rock bottom — but also, unmistakably, the end of the cycle"
+minor_swords_10,Ten of Swords,2,Nothing left to lose means nothing left holding you back
+minor_swords_10,Ten of Swords,3,A hard ending clears the way for a genuinely new dawn
+minor_swords_10,Ten of Swords,4,The worst has already happened; what follows is lighter
+minor_swords_page,Page of Swords,1,An unexpected message or piece of news is on its way
+minor_swords_page,Page of Swords,2,"Sharp, quick-thinking curiosity — always asking questions"
+minor_swords_page,Page of Swords,3,"Passionate about learning, but needs to stay grounded, not just in the head"
+minor_swords_page,Page of Swords,4,Watch for mental overload — even a quick mind needs rest
+minor_swords_knight,Knight of Swords,1,"Moving fast, driven by both ideas and passion — a combustible combination"
+minor_swords_knight,Knight of Swords,2,Ask whether this is a clear strategy or just being swept along
+minor_swords_knight,Knight of Swords,3,"Focused on the goal, but risking tunnel vision on the way there"
+minor_swords_knight,Knight of Swords,4,"Bold, direct action fueled by conviction"
+minor_swords_queen,Queen of Swords,1,"Turns raw emotion into clear, honest thought"
+minor_swords_queen,Queen of Swords,2,"Wisdom earned through hard experience, not theory"
+minor_swords_queen,Queen of Swords,3,Sees through illusion straight to what's actually true
+minor_swords_queen,Queen of Swords,4,"Direct and unsentimental, but not unkind"
+minor_swords_queen,Queen of Swords,5,Knows exactly what to cut away and what to protect
+minor_swords_king,King of Swords,1,A clear-headed strategist who sees solutions others miss
+minor_swords_king,King of Swords,2,"Detachment, not coldness, is what makes the judgment sound"
+minor_swords_king,King of Swords,3,Rising above the situation for a wider view before deciding
+minor_swords_king,King of Swords,4,"Worth seeking (or being) the calm, rational voice in the room"
+minor_pentacles_ace,Ace of Pentacles,1,"A tangible new opportunity — work, money, or a solid new start"
+minor_pentacles_ace,Ace of Pentacles,2,"Like a seed underground, breaking through takes time and patience"
+minor_pentacles_ace,Ace of Pentacles,3,Self-care and healthy boundaries are part of this new foundation
+minor_pentacles_ace,Ace of Pentacles,4,The opportunity is offered; seizing it is up to you
+minor_pentacles_02,Two of Pentacles,1,Juggling multiple responsibilities without dropping any of them
+minor_pentacles_02,Two of Pentacles,2,"Balance between work and play, not sacrificing one for the other"
+minor_pentacles_02,Two of Pentacles,3,Flexibility and good timing keep everything moving
+minor_pentacles_02,Two of Pentacles,4,Finding rhythm in the daily back-and-forth
+minor_pentacles_03,Three of Pentacles,1,"Steady, focused effort turning a plan into something real"
+minor_pentacles_03,Three of Pentacles,2,Teamwork — different skills combining toward one result
+minor_pentacles_03,Three of Pentacles,3,"Discipline and follow-through, not just inspiration"
+minor_pentacles_03,Three of Pentacles,4,Building something meant to last
+minor_pentacles_04,Four of Pentacles,1,Holding tight to what you've built — sometimes too tight
+minor_pentacles_04,Four of Pentacles,2,"Security and boundaries, but watch for rigidity creeping in"
+minor_pentacles_04,Four of Pentacles,3,"A solid foundation is worth protecting, but not worth hiding behind forever"
+minor_pentacles_04,Four of Pentacles,4,Time to loosen the grip and let a little in
+minor_pentacles_05,Five of Pentacles,1,"Hard times, but you don't have to face them alone"
+minor_pentacles_05,Five of Pentacles,2,"Asking for help is the move, not a failure"
+minor_pentacles_05,Five of Pentacles,3,Scarcity that feels bigger than it is when faced in isolation
+minor_pentacles_05,Five of Pentacles,4,Unexpected resources often show up once you're honest about the need
+minor_pentacles_06,Six of Pentacles,1,Generosity flowing in one direction — check whether it's balanced
+minor_pentacles_06,Six of Pentacles,2,"Are you the one giving, or the one who needs to receive right now?"
+minor_pentacles_06,Six of Pentacles,3,"An exchange of resources, help, or support"
+minor_pentacles_06,Six of Pentacles,4,"Abundance shared freely, without keeping score"
+minor_pentacles_07,Seven of Pentacles,1,"Patience — the seeds are planted, now it's time to wait"
+minor_pentacles_07,Seven of Pentacles,2,"Reward is coming, but only after the work has had time to mature"
+minor_pentacles_07,Seven of Pentacles,3,Resisting the urge to rush what needs its own timeline
+minor_pentacles_07,Seven of Pentacles,4,"Trust the process, even when growth isn't visible yet"
+minor_pentacles_08,Eight of Pentacles,1,"Mastery built through daily practice, one careful repetition at a time"
+minor_pentacles_08,Eight of Pentacles,2,"The apprentice mindset — still learning, fully committed"
+minor_pentacles_08,Eight of Pentacles,3,Attention to detail without losing sight of the bigger goal
+minor_pentacles_08,Eight of Pentacles,4,"Skill that comes from showing up consistently, not shortcuts"
+minor_pentacles_09,Nine of Pentacles,1,"Enjoying the fruits of your own labor, independently earned"
+minor_pentacles_09,Nine of Pentacles,2,"A quiet, well-deserved moment of rest and refinement"
+minor_pentacles_09,Nine of Pentacles,3,"Self-sufficiency that feels good, not lonely"
+minor_pentacles_09,Nine of Pentacles,4,Beauty and abundance built from your own consistent care
+minor_pentacles_10,Ten of Pentacles,1,"Lasting wealth — the kind built across a family or a lifetime, not overnight"
+minor_pentacles_10,Ten of Pentacles,2,"Gratitude for what's already here, not just what's still wanted"
+minor_pentacles_10,Ten of Pentacles,3,"A sense of belonging and legacy, not just material comfort"
+minor_pentacles_10,Ten of Pentacles,4,"Stability that extends beyond just yourself, to home and family"
+minor_pentacles_page,Page of Pentacles,1,A student mindset — genuinely curious about something new
+minor_pentacles_page,Page of Pentacles,2,Enjoying the process of learning more than rushing to the result
+minor_pentacles_page,Page of Pentacles,3,"Careful, detail-oriented dedication to a new skill"
+minor_pentacles_page,Page of Pentacles,4,Patience paired with real intellectual curiosity
+minor_pentacles_knight,Knight of Pentacles,1,"Slow, steady, and completely dedicated to the task at hand"
+minor_pentacles_knight,Knight of Pentacles,2,Willpower and consistency over flash or speed
+minor_pentacles_knight,Knight of Pentacles,3,Might be so focused on one thing that everything else falls away
+minor_pentacles_knight,Knight of Pentacles,4,"The tortoise's pace, but the tortoise usually finishes"
+minor_pentacles_queen,Queen of Pentacles,1,"Practical nurturing — care that shows up as real, useful help"
+minor_pentacles_queen,Queen of Pentacles,2,"Grounded, sensory presence; fully in her body and the physical world"
+minor_pentacles_queen,Queen of Pentacles,3,"Self-care as a form of strength, not indulgence"
+minor_pentacles_queen,Queen of Pentacles,4,"Solving problems with what's actually available, right here and now"
+minor_pentacles_king,King of Pentacles,1,"Success that's been earned through real, sustained effort"
+minor_pentacles_king,King of Pentacles,2,Generosity that flows naturally from genuine abundance
+minor_pentacles_king,King of Pentacles,3,Stability and rootedness at the core of this achievement
+minor_pentacles_king,King of Pentacles,4,Leadership grounded in having actually done the work

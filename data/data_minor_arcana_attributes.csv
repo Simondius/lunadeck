@@ -1,0 +1,57 @@
+card_key,suit,rank_tier,top_left_glyph,top_right_glyph,banner_text
+minor_wands_ace,Wands,Ace,Aries · Leo,Sagittarius,Wands
+minor_wands_02,Wands,Numbered,Mars,Aries,Wands
+minor_wands_03,Wands,Numbered,Sun,Aries,Wands
+minor_wands_04,Wands,Numbered,Venus,Aries,Wands
+minor_wands_05,Wands,Numbered,Saturn,Leo,Wands
+minor_wands_06,Wands,Numbered,Jupiter,Leo,Wands
+minor_wands_07,Wands,Numbered,Mars,Leo,Wands
+minor_wands_08,Wands,Numbered,Mercury,Sagittarius,Wands
+minor_wands_09,Wands,Numbered,Moon,Sagittarius,Wands
+minor_wands_10,Wands,Numbered,Saturn,Sagittarius,Wands
+minor_wands_page,Wands,Court,Air,Fire,Page of Wands
+minor_wands_knight,Wands,Court,Fire,Fire,Knight of Wands
+minor_wands_queen,Wands,Court,Water,Fire,Queen of Wands
+minor_wands_king,Wands,Court,Earth,Fire,King of Wands
+minor_cups_ace,Cups,Ace,Cancer · Scorpio,Pisces,Cups
+minor_cups_02,Cups,Numbered,Venus,Cancer,Cups
+minor_cups_03,Cups,Numbered,Mercury,Cancer,Cups
+minor_cups_04,Cups,Numbered,Moon,Cancer,Cups
+minor_cups_05,Cups,Numbered,Mars,Scorpio,Cups
+minor_cups_06,Cups,Numbered,Sun,Scorpio,Cups
+minor_cups_07,Cups,Numbered,Venus,Scorpio,Cups
+minor_cups_08,Cups,Numbered,Saturn,Pisces,Cups
+minor_cups_09,Cups,Numbered,Jupiter,Pisces,Cups
+minor_cups_10,Cups,Numbered,Mars,Pisces,Cups
+minor_cups_page,Cups,Court,Air,Water,Page of Cups
+minor_cups_knight,Cups,Court,Fire,Water,Knight of Cups
+minor_cups_queen,Cups,Court,Water,Water,Queen of Cups
+minor_cups_king,Cups,Court,Earth,Water,King of Cups
+minor_swords_ace,Swords,Ace,Gemini · Libra,Aquarius,Swords
+minor_swords_02,Swords,Numbered,Moon,Libra,Swords
+minor_swords_03,Swords,Numbered,Saturn,Libra,Swords
+minor_swords_04,Swords,Numbered,Jupiter,Libra,Swords
+minor_swords_05,Swords,Numbered,Venus,Aquarius,Swords
+minor_swords_06,Swords,Numbered,Mercury,Aquarius,Swords
+minor_swords_07,Swords,Numbered,Moon,Aquarius,Swords
+minor_swords_08,Swords,Numbered,Jupiter,Gemini,Swords
+minor_swords_09,Swords,Numbered,Mars,Gemini,Swords
+minor_swords_10,Swords,Numbered,Sun,Gemini,Swords
+minor_swords_page,Swords,Court,Air,Air,Page of Swords
+minor_swords_knight,Swords,Court,Fire,Air,Knight of Swords
+minor_swords_queen,Swords,Court,Water,Air,Queen of Swords
+minor_swords_king,Swords,Court,Earth,Air,King of Swords
+minor_pentacles_ace,Pentacles,Ace,Taurus · Virgo,Capricorn,Pentacles
+minor_pentacles_02,Pentacles,Numbered,Jupiter,Capricorn,Pentacles
+minor_pentacles_03,Pentacles,Numbered,Mars,Capricorn,Pentacles
+minor_pentacles_04,Pentacles,Numbered,Sun,Capricorn,Pentacles
+minor_pentacles_05,Pentacles,Numbered,Mercury,Taurus,Pentacles
+minor_pentacles_06,Pentacles,Numbered,Moon,Taurus,Pentacles
+minor_pentacles_07,Pentacles,Numbered,Saturn,Taurus,Pentacles
+minor_pentacles_08,Pentacles,Numbered,Sun,Virgo,Pentacles
+minor_pentacles_09,Pentacles,Numbered,Venus,Virgo,Pentacles
+minor_pentacles_10,Pentacles,Numbered,Mercury,Virgo,Pentacles
+minor_pentacles_page,Pentacles,Court,Air,Earth,Page of Pentacles
+minor_pentacles_knight,Pentacles,Court,Fire,Earth,Knight of Pentacles
+minor_pentacles_queen,Pentacles,Court,Water,Earth,Queen of Pentacles
+minor_pentacles_king,Pentacles,Court,Earth,Earth,King of Pentacles

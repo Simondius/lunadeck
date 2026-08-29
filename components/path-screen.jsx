@@ -133,15 +133,16 @@ export default function PathScreen({ entries, totalNodes }) {
 
           return (
             <section key={`u${unit.unit}`}>
-              {/* A chapter break in the scroll, not a card sitting on top of
-                  it. The eyebrow carries the unit's number, its progress and
-                  the way out to the guidebook; the name below folds the unit.
-                  The tagline is gone from here — it is already on the guidebook
-                  page, and on the path it was a third line for the Guidebook
-                  button to float against. */}
+              {/* A title card for the stretch of path below it, centred over
+                  the same axis the sections wind around — left-aligned, it read
+                  as a caption that had come loose from the page.
+                  The unit's number is not repeated here: the masthead already
+                  says which unit you are in, and saying it again 40px lower was
+                  the stutter. The name is the unit's identity; the eyebrow
+                  carries progress and the way out to the guidebook. */}
               <div className="trail-unit">
                 <p className="trail-unit-index">
-                  Unit {unit.unit} · {unitDone}/{rows.length} ·{" "}
+                  {unitDone} of {rows.length} ·{" "}
                   <Link className="trail-guide" href={`/units/${unit.unit}`}>
                     Guidebook
                   </Link>

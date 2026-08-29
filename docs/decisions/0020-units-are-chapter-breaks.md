@@ -18,7 +18,8 @@ three-line block, so the button floated.
 ## Decision
 
 **The banner is a chapter break, not a card.** No panel, no border: an eyebrow
-line, the unit's name, and a hairline rule under it. The panel implied the unit
+line, the unit's name, and a hairline rule under it, centred over the axis the
+sections wind around. The panel implied the unit
 was an object sitting on the path; it is a heading in a scroll.
 
 The tagline is gone from the path. It still exists, on the unit's guidebook
@@ -70,3 +71,17 @@ That is the remaining upstream job. The avatar crops carry it too — all 78 —
 but nothing in the app renders an avatar yet, and that script's manual override
 boxes are hand-tuned per card, so regenerating them blind would be churn
 against art nobody is looking at.
+
+## Amended, same day
+
+Left-aligned, it still read wrong — a caption that had come loose from the
+page, sitting above a path that is centred. It is now centred on the same axis
+as the section nodes, and measures identical to them: name centre 720px against
+node centre 720px at desktop, 195 against 195 on a phone.
+
+The unit's number came out of the eyebrow at the same time. The masthead
+already says which unit you are in, and repeating it 40px lower was the stutter
+that made the whole block feel busy; the name is the unit's identity, and the
+eyebrow now carries only progress and the guidebook. The first heading also
+gained room under the overall progress bar, which is 2px of full-width rule and
+stacked into a stripe with the heading's own.

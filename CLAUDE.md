@@ -41,6 +41,11 @@ table keyed on `card_key`, not as extra columns on an existing one.
 meanings come from the source guidebook. If something is missing, flag the gap
 rather than writing plausible filler.
 
+**Restart the dev server after editing `data/`.** `lib/data.js` parses each CSV
+once per process — a section's play page wants eleven of them, times 92 sections
+— so an edit will not show up on a refresh. Stop `npm run dev` and start it
+again.
+
 **Don't regenerate CSVs wholesale.** Edit the rows that need changing. A
 rewritten file produces a diff nobody can review.
 

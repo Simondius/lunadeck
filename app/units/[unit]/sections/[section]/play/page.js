@@ -5,6 +5,7 @@ import {
   getSections,
   getSession,
   getCardNames,
+  getCardIntro,
   circleForKey,
 } from "@/lib/data";
 import { masterForKey } from "@/lib/rounds";
@@ -41,6 +42,19 @@ export default async function PlayPage({ params }) {
 
   const nodes = await getSession(unit.number, section.section);
   const nextUnit = units.find((u) => u.number === unit.number + 1) ?? null;
+
+  // The teaching step. A standard section introduces one card, so it shows
+  // that card; a recap has no new card and shows what the unit taught instead.
+  const card = await getCardIntro(section.kind === "standard" ? section.cardKey : null);
+  const intro = card
+    ? { card }
+    : {
+        cards: unit.cardKeys.map((key) => ({
+          key,
+          name: names.get(key) ?? key,
+          image: circleForKey(key),
+        })),
+      };
 
   // A recap or cumulative review closes the unit; a standard section hands the
   // learner one card and points at the next section.
@@ -97,6 +111,7 @@ export default async function PlayPage({ params }) {
       section={section}
       nodes={nodes}
       completion={completion}
+      intro={intro}
     />
   );
 }

@@ -1404,6 +1404,57 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 6px;
 }
 
+/* --- mistake-review bridge ------------------------------------------ */
+/* A calm checkpoint, not a penalty: two cards mid-turn, in accent outline —
+   deliberately unlike the red shake of a wrong answer and unlike the glow of
+   the completion screen. */
+.bridge-glyph {
+  position: relative;
+  width: 60px;
+  height: 74px;
+  margin: 0 auto 22px;
+}
+
+.bridge-glyph::before,
+.bridge-glyph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent-a45);
+  background: rgba(143, 82, 196, 0.06);
+}
+
+.bridge-glyph::before { transform: rotate(-10deg) translateX(-5px); }
+
+.bridge-glyph::after {
+  transform: rotate(9deg) translateX(5px);
+  border-color: var(--accent);
+  background: rgba(143, 82, 196, 0.14);
+}
+
+/* The X on the bridge, which has no lesson topbar of its own. */
+.bridge-quit {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.complete { position: relative; }
+
+/* The bridge reuses the completion layout but has no card or scoreboard to
+   fill the middle, so it centres on the viewport instead of stacking from
+   the top and leaving a hole. */
+.complete.is-bridge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 24px;
+}
+
 /* The face-down deck is a button before it is a card. */
 button.draw-art {
   display: block;

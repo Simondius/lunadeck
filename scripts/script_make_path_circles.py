@@ -14,15 +14,11 @@ CSV_PATH = ROOT / "data" / "data_tarot_cards_base.csv"
 OUT_SIZE = 512          # final circular PNG diameter (px), transparent outside circle
 SUPERSAMPLE = 4         # antialiasing factor for the circle mask
 
-# Every master export carries a white bleed strip down its right edge, 24-27px
-# of the 840px width (measured across all 78). A square crop at the full width
-# takes the strip with it, and the circle mask leaves it showing as a white arc
-# on the right of every node on the path. 813 is 840 less the widest strip, so
-# the crop clears it on every card and loses at most 3px of art on the
-# narrowest. See docs/decisions/0019 — the real fix is re-exporting the
-# masters; this keeps the derived art clean until that happens.
-CARD_BLEED = 27
-CROP_SIDE = 840 - CARD_BLEED
+# The crop is a square of the master's own width. It used to be a hardcoded
+# 840, then 813 to dodge the white export border; 0019 removed that border at
+# the source and left the files at widths from 813 to 924, so a fixed number is
+# now wrong in both directions — it would clip the right off the wide ones and
+# overrun the narrow ones. Ask each file.
 
 def subject_top(arr):
     """Find the y-pixel where the card's main subject starts, scanning a
@@ -51,12 +47,13 @@ def subject_top(arr):
 def crop_box(im):
     arr = np.array(im.convert("RGB")).astype(float) / 255.0
     h, w, _ = arr.shape
+    side = min(w, h)
     st = subject_top(arr)
     top = st - 50
     top = max(int(h * 0.055), top)
-    top = min(top, h - CROP_SIDE - int(h * 0.145))
-    top = int(top)
-    return (0, top, CROP_SIDE, top + CROP_SIDE)
+    top = min(top, h - side - int(h * 0.145))
+    top = max(0, int(top))
+    return (0, top, side, top + side)
 
 
 def make_circle(src_path, out_path):

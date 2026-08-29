@@ -1,7 +1,10 @@
-# 0020 — Units are chapter breaks, and they get names not labels
+# 0022 — Units are chapter breaks, and they get names not labels
 
 **Date:** 2026-08-29
 **Status:** Accepted
+
+> Renumbered from 0020: Simon's 0020 landed the same day and took the number
+> first from his branch's point of view. Nothing about this decision changed.
 
 ## Context
 
@@ -54,9 +57,9 @@ directions:
 Only the `unit_name` field changed; taglines and intro copy are untouched, and
 `check_data.py` passes.
 
-## The circles, closing 0019
+## The circles, closing 0021
 
-`0019` said a CSS crop could not reach the derived circle art and left
+`0021` said a CSS crop could not reach the derived circle art and left
 re-exporting to later. Looking at the path made that untenable — every node
 wore a white arc down its right side, on the screen the app opens to.
 
@@ -66,8 +69,12 @@ sandbox it was first written in, so it runs from a clone. All 78 circles
 regenerated: none has a white edge, verified by sampling the rightmost visible
 pixels of each.
 
-The masters themselves still carry the bleed and the app still crops it in CSS.
-That is the remaining upstream job. The avatar crops carry it too — all 78 —
+**Since superseded from the other direction.** The masters no longer carry the
+bleed at all — 0019 trimmed it at the source hours later — so the circles here
+were cut from art that has since been replaced, and have been regenerated again
+from the trimmed files. The script no longer hardcodes a width either: 0019
+left the masters at anything from 813 to 924 wide, so it crops a square of each
+file's own width. The avatar crops carry it too — all 78 —
 but nothing in the app renders an avatar yet, and that script's manual override
 boxes are hand-tuned per card, so regenerating them blind would be churn
 against art nobody is looking at.

@@ -1,7 +1,20 @@
-# 0019 — The card masters carry a white bleed strip, cropped at render
+# 0021 — The white bleed, worked around at render
 
 **Date:** 2026-08-29
-**Status:** Accepted
+**Status:** Superseded by 0019, on the same day
+
+> Renumbered from 0019. Simon and I were writing about the same white strip
+> from opposite ends at the same time, and both took the next free number;
+> his is the one that fixed it, so his keeps 0019 and this moved to 0021.
+>
+> **The workaround described here is gone.** 0019 trimmed the border off the
+> masters at the source, which is what this record said should happen, so the
+> `object-position: left center` crop has been removed — with the border gone
+> it would have taken the whole of 0020's shape correction off one side of the
+> art. What the rule does now is normalise shape, not hide a border.
+>
+> Kept because the *findings* still hold: the measurements of the strip, and
+> the three layout faults on the meaning screen that shipped alongside it.
 
 ## Context
 

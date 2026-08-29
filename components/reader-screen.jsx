@@ -20,7 +20,10 @@ function promptFor(card, reversed) {
     : `What does ${card.name} ask of you today?`;
 }
 
-export default function DrawScreen({ deck }) {
+// The Reader tab. Today it is the nightly draw plus a placeholder for the
+// character who will eventually answer questions — that part is deliberately
+// inert rather than faked, so nobody mistakes it for something that works.
+export default function ReaderScreen({ deck }) {
   const progress = useProgress();
   const day = today();
 
@@ -33,16 +36,16 @@ export default function DrawScreen({ deck }) {
       new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long" })
     );
   }, []);
+
   const already = drawnToday(progress, day);
 
   const known = new Set();
-  // Deck order is teaching order enough for a preview window; the real signal
-  // is which sections are finished, which the path already computes.
   for (const section of deck.sections ?? []) {
     if (section.cardKey && isSectionComplete(progress, section.nodeIds)) {
       known.add(section.cardKey);
     }
   }
+
   // The unit the learner is actually in — the first section they haven't
   // finished. Reading it off the first unknown card in deck order would jump
   // around, since deck order is the printed deck, not the teaching order.
@@ -65,18 +68,51 @@ export default function DrawScreen({ deck }) {
         seed: day,
       });
 
+  return (
+    <main className="shell starfield">
+      <div className="masthead">
+        <h1 className="unit-title">The reader</h1>
+        <span className="standfirst">{date}</span>
+      </div>
+
+      <div className="reader-portrait">
+        <img src="/assets/misc/reader_placeholder.webp" alt="" />
+      </div>
+
+      <p className="unit-intro">
+        Someone to read with. For now they deal you a card a night — one day
+        you&rsquo;ll be able to ask them things.
+      </p>
+
+      <div className="prompt-card">
+        <span className="prompt-card-label">Ask the reader</span>
+        <p>&ldquo;What should I be paying attention to this week?&rdquo;</p>
+      </div>
+      <button className="action" type="button" disabled>
+        Ask a question
+      </button>
+      <p className="footer-meta">Not built yet — the reader can&rsquo;t answer</p>
+
+      <p className="suit-head reader-divider">Tonight&rsquo;s draw</p>
+
+      <Draw
+        result={result}
+        already={already}
+        known={known}
+        day={day}
+        progress={progress}
+      />
+    </main>
+  );
+}
+
+function Draw({ result, already, known, day, progress }) {
   if (!result || !result.card) {
     return (
-      <main className="shell starfield">
-        <div className="masthead">
-          <h1 className="unit-title">Tonight&rsquo;s draw</h1>
-          <span className="standfirst">{date}</span>
-        </div>
-        <p className="unit-intro">
-          Every card seen, both ways up. There is nothing left to draw — the
-          deck is yours.
-        </p>
-      </main>
+      <p className="unit-intro">
+        Every card seen, both ways up. There is nothing left to draw — the deck
+        is yours.
+      </p>
     );
   }
 
@@ -84,12 +120,10 @@ export default function DrawScreen({ deck }) {
 
   if (!already) {
     return (
-      <main className="shell starfield">
-        <div className="masthead">
-          <h1 className="unit-title">Tonight&rsquo;s draw</h1>
-          <span className="standfirst">{date}</span>
-        </div>
-        <p className="unit-intro">One card, once a night. Turn it when you&rsquo;re ready.</p>
+      <>
+        <p className="unit-intro">
+          One card, once a night. Turn it when you&rsquo;re ready.
+        </p>
         {/* The deck itself is the control. A footer .action here would sit
             under the fixed tab bar, which owns bottom:0 on every tab. */}
         <button
@@ -101,17 +135,12 @@ export default function DrawScreen({ deck }) {
           <img src="/assets/misc/deck_box_lid_MASTER.png" alt="" />
         </button>
         <p className="gesture-hint">Tap the deck to draw</p>
-      </main>
+      </>
     );
   }
 
   return (
-    <main className="shell starfield">
-      <div className="masthead">
-        <h1 className="unit-title">Tonight&rsquo;s draw</h1>
-        <span className="standfirst">{date}</span>
-      </div>
-
+    <>
       <div className="draw-art">
         <img
           src={card.master}
@@ -158,6 +187,6 @@ export default function DrawScreen({ deck }) {
       </div>
 
       <p className="footer-meta">Your next card is ready tomorrow</p>
-    </main>
+    </>
   );
 }

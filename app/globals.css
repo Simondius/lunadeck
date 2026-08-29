@@ -1649,20 +1649,38 @@ button.draw-art {
 
 .deck-count b { color: var(--accent); font-weight: 600; }
 
-/* The deck tab opens a card's meaning in the existing inspector overlay,
-   which was only ever built to show art and a name. */
-.inspector-text {
-  max-width: 34ch;
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--muted-warm);
-  text-align: center;
+/* Deck slots link through to a card's full entry. */
+a.slot { display: block; }
+
+/* Reading notes and symbol meanings — short lines, one idea each, so they read
+   as a list rather than a paragraph. */
+.notes {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
 }
 
-/* Deck slots are buttons once they open something. */
-button.slot { padding: 0; border: none; cursor: pointer; font: inherit; }
-button.slot.is-empty { cursor: default; }
+.notes li {
+  position: relative;
+  padding: 0 0 0 18px;
+  margin-bottom: 9px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted-warm);
+}
+
+.notes li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-a45);
+}
+
+.card-page-section { margin-top: 26px; }
 
 .debug-row b { color: var(--accent); font-weight: 400; }
 .debug-row i { color: var(--muted-warm); font-style: normal; font-family: var(--body); font-size: 12px; }

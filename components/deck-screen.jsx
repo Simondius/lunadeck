@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useProgress } from "@/components/use-progress";
 import { isSectionComplete } from "@/lib/progress";
@@ -19,7 +20,6 @@ function knownKeys(progress, sections) {
 export default function DeckScreen({ groups, sections }) {
   const progress = useProgress();
   const [filter, setFilter] = useState("all");
-  const [open, setOpen] = useState(null);
 
   const known = useMemo(() => knownKeys(progress, sections), [progress, sections]);
   const total = groups.reduce((n, g) => n + g.cards.length, 0);
@@ -44,7 +44,7 @@ export default function DeckScreen({ groups, sections }) {
       <p className="standfirst">
         {known.size === 0
           ? "Finish a section and its card lands here"
-          : "Tap a card you know to read it again"}
+          : "Tap a card you know to read it in full"}
       </p>
 
       <div className="filters">
@@ -70,15 +70,14 @@ export default function DeckScreen({ groups, sections }) {
           <div className="collection">
             {group.cards.map((card) =>
               known.has(card.key) ? (
-                <button
+                <Link
                   key={card.key}
-                  type="button"
                   className="slot"
-                  onClick={() => setOpen(card)}
+                  href={`/deck/${card.key}`}
                   aria-label={card.name}
                 >
                   <img src={card.circle} alt="" />
-                </button>
+                </Link>
               ) : (
                 <span
                   key={card.key}
@@ -93,16 +92,6 @@ export default function DeckScreen({ groups, sections }) {
         </section>
       ))}
 
-      {open ? (
-        <div className="inspector" onClick={() => setOpen(null)}>
-          <img src={open.master} alt={open.name} />
-          <p className="inspector-name">{open.name}</p>
-          <p className="inspector-text">{open.meaning}</p>
-          <button className="inspector-close" onClick={() => setOpen(null)}>
-            Close
-          </button>
-        </div>
-      ) : null}
     </main>
   );
 }

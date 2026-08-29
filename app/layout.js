@@ -22,8 +22,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
-        <TabBar />
+        {/* On a wide window this becomes the device frame; below 900px it is
+            an inert wrapper. See "desktop framing" in globals.css. */}
+        <div className="app-frame">
+          {children}
+          <TabBar />
+        </div>
       </body>
     </html>
   );

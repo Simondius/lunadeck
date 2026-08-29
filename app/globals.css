@@ -248,7 +248,18 @@ a { color: inherit; text-decoration: none; }
 /* Unit banner, inline in the scroll rather than pinned. */
 .trail-unit {
   margin: 40px 0 26px;
-  text-align: center;
+  text-align: left;
+}
+
+/* Progress on the left, the Guidebook on the right, on a line of their own.
+   A control needs a baseline to sit on; against a stack of text it just
+   hovers. */
+.trail-unit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
 }
 
 /* The first heading sits under the overall progress bar, which reads as a
@@ -262,13 +273,13 @@ a { color: inherit; text-decoration: none; }
   display: block;
   width: 100%;
   position: relative;
-  padding: 0 26px 9px;
+  padding: 0 26px 9px 0;
   background: none;
   border: none;
   border-bottom: 1px solid var(--accent-a30);
   color: inherit;
   font: inherit;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -294,7 +305,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 9.5px;
   letter-spacing: 0.16em;
   color: var(--accent);
-  margin: 0 0 5px;
 }
 
 .trail-unit-name {
@@ -305,16 +315,26 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.015em;
 }
 
-/* Part of the eyebrow line, not a button floating beside the heading. It is
-   the quietest way out of the path and it should look like one. */
+/* A button again, but a quiet one, and now it has the end of its own row to
+   sit at rather than the middle of a text block. */
 .trail-guide {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  line-height: 1;
   color: var(--accent-bright);
   text-decoration: none;
-  border-bottom: 1px solid var(--accent-a30);
-  padding-bottom: 1px;
+  border: 1px solid var(--accent-a30);
+  border-radius: 999px;
+  padding: 6px 11px;
+  transition: border-color 140ms ease, background 140ms ease;
 }
 
-.trail-guide:hover { border-bottom-color: var(--accent-bright); }
+.trail-guide:hover {
+  border-color: var(--accent-bright);
+  background: var(--accent-a12);
+}
 
 /* A section. --x is set per node to wind the trail down the screen. */
 .trail-step {

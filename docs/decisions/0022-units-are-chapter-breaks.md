@@ -92,3 +92,22 @@ that made the whole block feel busy; the name is the unit's identity, and the
 eyebrow now carries only progress and the guidebook. The first heading also
 gained room under the overall progress bar, which is 2px of full-width rule and
 stacked into a stripe with the heading's own.
+
+## Amended again
+
+Centring lasted one screenshot. Tia preferred it anchored left, and she is
+right for a reason worth writing down: the eyebrow, the name and the rule are
+three left-aligned things in a column, and centring only the first two made the
+rule look like it belonged to something else. The path being centred does not
+oblige its headings to be — a chapter heading in a book is not centred over the
+paragraph.
+
+So: left again, in **two rows**. Progress and the Guidebook share the top row,
+the name and the fold chevron share the second. That is the actual fix to the
+original complaint — the button floated because a three-line text block gave it
+nothing to line up with, not because it was a button. Given a row of its own it
+can be a button again, which is what it should look like: it leaves the path.
+
+Each control now has a baseline: the pill sits at the end of the eyebrow row,
+the chevron centres on the name (measured, 191 against 192 at desktop). Banner
+62px.

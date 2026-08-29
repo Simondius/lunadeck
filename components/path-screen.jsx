@@ -133,20 +133,22 @@ export default function PathScreen({ entries, totalNodes }) {
 
           return (
             <section key={`u${unit.unit}`}>
-              {/* A title card for the stretch of path below it, centred over
-                  the same axis the sections wind around — left-aligned, it read
-                  as a caption that had come loose from the page.
+              {/* Two rows, both anchored left. Progress and the Guidebook
+                  button share the top one; the name and the fold chevron share
+                  the second. That gives each control a line of its own to sit
+                  on, which is what the original three-line block denied them —
+                  the button floated because nothing lined up with it.
                   The unit's number is not repeated here: the masthead already
-                  says which unit you are in, and saying it again 40px lower was
-                  the stutter. The name is the unit's identity; the eyebrow
-                  carries progress and the way out to the guidebook. */}
+                  says which unit you are in. */}
               <div className="trail-unit">
-                <p className="trail-unit-index">
-                  {unitDone} of {rows.length} ·{" "}
+                <div className="trail-unit-top">
+                  <span className="trail-unit-index">
+                    {unitDone} of {rows.length}
+                  </span>
                   <Link className="trail-guide" href={`/units/${unit.unit}`}>
                     Guidebook
                   </Link>
-                </p>
+                </div>
                 <button
                   type="button"
                   className="trail-unit-toggle"

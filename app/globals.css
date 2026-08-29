@@ -424,7 +424,9 @@ a { color: inherit; text-decoration: none; }
 
 .trail-step.is-recap .trail-tick { transform: rotate(-45deg); right: -8px; bottom: -8px; }
 
-/* The one in play: larger, lit, with a callout above it. */
+/* The one in play: larger and lit. It carries no "Start" label — the size,
+   the ring and the glow say it, and all three are static styling, so it still
+   reads when prefers-reduced-motion stops the pulse. */
 .trail-step.is-current .trail-node {
   width: 90px;
   height: 90px;
@@ -439,17 +441,6 @@ a { color: inherit; text-decoration: none; }
 @keyframes haloPulse {
   0%, 100% { box-shadow: 0 0 0 3px var(--accent), 0 0 30px rgba(143, 82, 196, 0.32); }
   50% { box-shadow: 0 0 0 3px var(--accent), 0 0 46px rgba(143, 82, 196, 0.55); }
-}
-
-.trail-callout {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.16em;
-  color: var(--accent-ink);
-  background: var(--accent);
-  border-radius: 999px;
-  padding: 5px 12px;
-  margin-bottom: 9px;
 }
 
 /* Locked: no card identity, so the path doesn't spoil what's coming. */

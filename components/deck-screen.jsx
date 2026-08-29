@@ -43,8 +43,8 @@ export default function DeckScreen({ groups, sections }) {
 
       <p className="standfirst">
         {known.size === 0
-          ? "Finish a section and its card lands here"
-          : "Tap a card you know to read it in full"}
+          ? "Tap any card to meet it — or start its lesson from there"
+          : "Tap a card you know to read it in full, or any other to go and learn it"}
       </p>
 
       <div className="filters">
@@ -68,26 +68,24 @@ export default function DeckScreen({ groups, sections }) {
             {group.cards.length}
           </p>
           <div className="collection">
-            {group.cards.map((card) =>
-              known.has(card.key) ? (
-                <Link
-                  key={card.key}
-                  className="slot"
-                  href={`/deck/${card.key}`}
-                  aria-label={card.name}
-                >
-                  <img src={card.circle} alt="" />
-                </Link>
-              ) : (
-                <span
-                  key={card.key}
-                  className="slot is-empty"
-                  title={`${card.name} — not learned yet`}
-                >
-                  {card.short}
-                </span>
-              )
-            )}
+            {/* Every card opens, learned or not. Hiding the art here was
+                protecting nothing — the path shows the same circles, greyed,
+                for sections nobody has reached — and it left a learner who
+                came looking for one particular card facing a grid of numbers.
+                Unlearned cards are greyed the way the path greys them, and
+                lead to an entry that says where the card is taught. */}
+            {group.cards.map((card) => (
+              <Link
+                key={card.key}
+                className={known.has(card.key) ? "slot" : "slot is-locked"}
+                href={`/deck/${card.key}`}
+                aria-label={
+                  known.has(card.key) ? card.name : `${card.name} — not learned yet`
+                }
+              >
+                <img src={card.circle} alt="" />
+              </Link>
+            ))}
           </div>
         </section>
       ))}

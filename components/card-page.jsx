@@ -25,18 +25,23 @@ export default function CardPage({ card, nodeIds, lesson }) {
         <span className="unit-eyebrow">Not yours yet</span>
         <h1 className="unit-title">A card you haven&rsquo;t met</h1>
         <p className="unit-intro">
-          Finish the section that teaches this card and its full entry opens
-          here — what its symbol means, the guidebook&rsquo;s reading of it, and
-          the notes for reading it in a spread.
+          Its full entry opens here once you finish the section that teaches it
+          — what its symbol means, the guidebook&rsquo;s reading of it, and the
+          notes for reading it in a spread. You don&rsquo;t have to wait for the
+          path to reach it.
         </p>
-        {/* Where it lives. The unit guidebook answered this a whole unit at a
-            time, in a list of dashes; the card you tapped is a better place to
-            ask it. No link: the path unlocks in order, and a route straight
-            into a future section would walk around that. */}
+        {/* A way in, not just an address. Someone who pulled this card this
+            morning should not have to play forty sections to find out what it
+            means. The path keeps its order as the recommendation; the deck is
+            the other door. The section is named so a jump is a jump you can
+            see yourself making. */}
         {lesson ? (
-          <p className="card-lesson-where">
-            Taught in {lesson.unitName} · Section {lesson.section}
-          </p>
+          <Link className="card-lesson" href={lesson.href}>
+            Learn this card now
+            <span>
+              {lesson.unitName} · Section {lesson.section}
+            </span>
+          </Link>
         ) : null}
       </main>
     );

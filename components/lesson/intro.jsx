@@ -45,7 +45,8 @@ export default function Intro({ intro, unitNumber, unitName, sectionLabel, onSta
             </div>
           ) : null}
 
-          <p className="unit-intro">{intro.card.meaning}</p>
+          {/* One line, not the whole entry — see getCardIntro. */}
+          <p className="unit-intro">{intro.card.opener}</p>
         </>
       ) : (
         <>

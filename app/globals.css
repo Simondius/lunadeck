@@ -122,27 +122,65 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Streak pill, top right of the masthead. */
+/* The streak earns its corner: a real flame, the count in display type, and a
+   label under it, rather than a chip that reads as a stray tag. */
 .streak {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   align-items: center;
-  gap: 7px;
+  column-gap: 9px;
+  padding: 10px 14px 9px;
   border: 1px solid var(--accent-a30);
-  border-radius: 999px;
-  padding: 5px 11px;
+  border-radius: 16px;
+  background: linear-gradient(140deg, rgba(143, 82, 196, 0.14), rgba(12, 10, 20, 0));
+  text-align: left;
+}
+
+.streak-flame { grid-row: 1 / 3; }
+
+.streak-count {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--parchment);
+}
+
+.streak-label {
   font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent-bright);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
 }
 
 /* Was a plain dot; Spec_Meta_Hygiene_Systems 7.2 asks for a flame. The glow
    is a drop-shadow rather than a box-shadow so it follows the silhouette
    instead of boxing it. */
 .streak-flame {
-  width: 11px;
-  height: 13px;
+  width: 26px;
+  height: 31px;
   flex: none;
   fill: var(--accent);
-  filter: drop-shadow(0 0 6px var(--accent));
+  filter: drop-shadow(0 0 7px var(--accent-a45));
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  /* Mostly still. Every few seconds it leans and a cooler, gas-blue lick runs
+     through it — the way a real flame catches. Killed outright by the
+     prefers-reduced-motion rule at the end of this file. */
+  animation: flameFlicker 7s ease-in-out infinite;
+}
+
+@keyframes flameFlicker {
+  0%, 58% { fill: var(--accent); transform: scale(1, 1); }
+  62% { fill: #7b7ce8; transform: scale(0.97, 1.06); }
+  66% { fill: var(--accent-bright); transform: scale(1.02, 0.98); }
+  70% { fill: #5aa6ef; transform: scale(0.98, 1.04); }
+  74% { fill: var(--accent); transform: scale(1, 1); }
+  86% { fill: var(--accent); transform: scale(1.01, 1.02); }
+  100% { fill: var(--accent); transform: scale(1, 1); }
 }
 
 /* Curriculum progress bar under the masthead. */
@@ -192,7 +230,39 @@ a { color: inherit; text-decoration: none; }
   text-align: left;
 }
 
-.trail li:first-child .trail-unit { margin-top: 6px; }
+.trail > section:first-child .trail-unit { margin-top: 6px; }
+
+/* The banner folds its unit away. The Guidebook link sits outside the button
+   rather than inside it — one interactive element must not nest in another. */
+.trail-unit-toggle {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 0 26px 0 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trail-chevron {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -6px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 160ms ease;
+}
+
+.trail-chevron.is-shut { transform: rotate(-45deg); margin-top: -2px; }
+
+.trail-steps { list-style: none; margin: 0; padding: 0; }
 
 .trail-unit-index {
   display: block;
@@ -371,7 +441,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
 }
 
-.trail-step.is-locked .trail-label { color: var(--faint); }
+.trail-step.is-locked .trail-label { color: var(--muted); }
 
 .trail-sub {
   display: block;

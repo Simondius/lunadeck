@@ -21,6 +21,12 @@
   --accent-a30: rgba(143, 82, 196, 0.3);
   --accent-a45: rgba(143, 82, 196, 0.45);
 
+  /* Canonical card shape. 61 of 78 masters are exactly 813x1456 and a 62nd
+     matches their ratio; the other 16 are stray export sizes. Every full
+     card renders to this ratio so the card box never changes shape between
+     screens. See UX_Style_Guide §10. */
+  --card-ratio: 813 / 1456;
+
   --parchment: #f2ede3;
   --muted: #7f8aa8;        /* cooler than the old #8b83a6 */
   --muted-warm: #a49cb8;
@@ -1519,6 +1525,7 @@ div.reference-art, div.reference-symbol { cursor: default; }
 
 .complete-card {
   width: 172px;
+  aspect-ratio: var(--card-ratio);
   margin: 0 auto 26px;
   border-radius: 14px;
   overflow: hidden;
@@ -1528,7 +1535,12 @@ div.reference-art, div.reference-symbol { cursor: default; }
     0 0 60px rgba(143, 82, 196, 0.18);
 }
 
-.complete-card img { width: 100%; display: block; }
+.complete-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .earned {
   display: grid;

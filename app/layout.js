@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
         {/* On a wide window this becomes the device frame; below 900px it is
             an inert wrapper. See "desktop framing" in globals.css. */}
         <div className="app-frame">
-          {children}
+          {/* The scroller sits inside the frame, never is the frame — see
+              "desktop framing" in globals.css. */}
+          <div className="app-scroll">{children}</div>
           <TabBar />
         </div>
       </body>

@@ -1415,22 +1415,33 @@ a { color: inherit; text-decoration: none; }
     background: #06050b;
   }
 
+  /* The frame is the containing block for position:fixed, so it must not also
+     be the scroll container. A fixed element whose containing block is a
+     transformed ancestor resolves against that ancestor's padding box — which
+     for a scrolling element includes its scrolled content, so the tab bar,
+     lesson footer and resume button all scrolled away with the page. The
+     inner .app-scroll does the scrolling; the frame just holds the shape. */
   .app-frame {
     position: relative;
     transform: translateZ(0);
     width: 428px;
     height: min(940px, 94dvh);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     background: var(--ink);
     border-radius: 30px;
     box-shadow:
       0 0 0 1px rgba(242, 237, 227, 0.09),
       0 40px 100px rgba(0, 0, 0, 0.65);
+  }
+
+  .app-scroll {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
     scrollbar-width: none;
   }
 
-  .app-frame::-webkit-scrollbar { display: none; }
+  .app-scroll::-webkit-scrollbar { display: none; }
 
   /* 100dvh is the window, not the frame, so full-height screens would
      overflow it. */

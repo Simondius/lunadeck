@@ -13,12 +13,28 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
-const { getSession, getUnits } = await import(
+const { getSession, getUnits, getCardNames } = await import(
   pathToFileURL(path.join(root, "lib/data.js")).href
 );
 
+const names = await getCardNames();
 const problems = [];
+const notes = [];
 const assets = new Set();
+
+// UX Style Guide Section 4: a candidate must never carry the identity that
+// answers the question, even when the same name is shown on the fixed
+// reference above it. This missed 82 A2 nodes until someone played the course
+// and spotted "The Fool stands at…" sitting under a card labelled The Fool.
+const SHARED_WORDS = new Set(["the", "of", "a", "and"]);
+
+function namesCard(text, cardName) {
+  if (!cardName || !text) return false;
+  return cardName
+    .split(/[^A-Za-z]+/)
+    .filter((w) => w && !SHARED_WORDS.has(w.toLowerCase()))
+    .some((w) => new RegExp(`\\b${w}\\b`, "i").test(text));
+}
 let nodeCount = 0;
 let instanceCount = 0;
 const byFormat = {};
@@ -73,6 +89,9 @@ function checkA(round, where) {
   for (const option of round.candidates.items) {
     if (round.candidates.type === "text") {
       if (!String(option.text || "").trim()) fail(where, `empty text option ${option.key}`);
+      if (namesCard(option.text, names.get(option.key))) {
+        fail(where, `option names its own card (${names.get(option.key)})`);
+      }
     } else {
       asset(option.image, `${where} option ${option.key}`);
     }
@@ -90,6 +109,9 @@ function checkA(round, where) {
 function checkB(round, where) {
   asset(round.image, `${where} card`);
   if (!String(round.statement || "").trim()) fail(where, "empty statement");
+  if (namesCard(round.statement, round.cardName)) {
+    fail(where, `statement names the card it is shown with (${round.cardName})`);
+  }
   if (round.isTrue && round.donor) fail(where, "a true round has a donor");
   if (!round.isTrue && !round.donor) fail(where, "a false round has no donor");
   if (round.donor) {
@@ -108,6 +130,14 @@ function checkC(round, where) {
   for (const pair of round.pairs) {
     asset(pair.image, `${where} tile ${pair.key}`);
     if (!String(pair.text || "").trim()) fail(where, `empty meaning for ${pair.key}`);
+    // Reported, not failed. A board's text is description_anonymized, of which
+    // there is exactly one per card — nothing to select between — and the
+    // remaining hits are ordinary words that happen to be a card's name
+    // ("Fortune and misfortune…" for The Wheel of Fortune). Fixing them means
+    // editing guidebook prose, which is a content decision, not a code one.
+    if (namesCard(pair.text, names.get(pair.key))) {
+      notes.push(`${where}: board text contains "${names.get(pair.key)}"`);
+    }
     if (!pair.name) fail(where, `unnamed tile ${pair.key}`);
   }
   if (!round.seed) fail(where, "no board seed — the right column would not shuffle per board");
@@ -136,6 +166,12 @@ console.log(`${nodeCount} nodes -> ${instanceCount} instances`);
 console.log("instances by format:", byFormat);
 console.log(`true/false balance: ${trueRounds} / ${falseRounds}`);
 console.log(`${assets.size} distinct assets referenced, all present`);
+
+if (notes.length) {
+  console.log(`\n${notes.length} board text(s) contain their card's name — content, not code:`);
+  for (const note of notes.slice(0, 5)) console.log("  " + note);
+  if (notes.length > 5) console.log(`  …and ${notes.length - 5} more`);
+}
 
 if (problems.length) {
   console.log(`\n${problems.length} problem(s):\n`);

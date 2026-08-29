@@ -41,6 +41,39 @@ The full condensed description still arrives, in the reveal after answering.
 So the section now reads: opener at the teaching screen → recognise it at node
 2 → full description in the reveal → collated talking points at node 4.
 
+## And immediately after: the options were naming their own cards
+
+The first version of this shipped openers taken from `description_condensed`,
+which name the card — "**The Fool** stands at both the start and end of the
+journey" — sitting directly beneath a reference card labelled *The Fool*. The
+question answered itself by string match.
+
+That breaks UX Style Guide Section 4, a rule quoted in `0003` while deciding
+how to label the symbol formats: a candidate must never carry the identity that
+answers the question, even when the same name appears on the fixed reference
+above it.
+
+An audit across every round found three separate leaks:
+
+- **A2, 82 nodes.** Options named their own card outright. Fixed: the meaning
+  options now come from `description_anonymized`, which exists for precisely
+  this — "This character stands at both the start and end of a journey" — and
+  the talking-point options at node 4 now prefer notes that stay quiet about
+  the card.
+- **Format B, 2 rounds.** A talking point naming the card it was shown beside
+  ("Even the Sun can burn", against The Sun) makes a True round trivial. Cards
+  carry four to seven notes, so a quiet one is selected instead.
+- **Format C, 30 board texts.** Reported, not fixed. A board's text is
+  `description_anonymized`, of which there is exactly one per card — nothing to
+  select between — and what remains are ordinary words that happen to be a
+  card's name: "Fortune and misfortune are simply transitions" for The Wheel of
+  Fortune, "Sitting between life and death" for Death. Removing them means
+  editing guidebook prose, which is a content decision. `scripts/check_rounds.mjs`
+  now lists them on every run so they stay visible.
+
+The checker enforces the rule for every text candidate and every True/False
+statement, so this cannot come back silently.
+
 ## Consequences
 
 `0002`'s rule — the data wins over the Bible — no longer holds unqualified. The

@@ -2,13 +2,27 @@ import csv
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
-SRC_DIR = "/mnt/project"
-OUT_DIR = "/home/claude/circles"
-CSV_PATH = "/mnt/project/data_tarot_cards_base.csv"
+# Repo-relative, so the script runs from a clone rather than from the sandbox
+# it was first written in. Run it from the repo root.
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SRC_DIR = ROOT / "assets" / "cards" / "master"
+OUT_DIR = ROOT / "assets" / "cards" / "circle"
+CSV_PATH = ROOT / "data" / "data_tarot_cards_base.csv"
 
 OUT_SIZE = 512          # final circular PNG diameter (px), transparent outside circle
 SUPERSAMPLE = 4         # antialiasing factor for the circle mask
-CROP_SIDE = 840         # square crop side taken from the 840x1456 source (source width)
+
+# Every master export carries a white bleed strip down its right edge, 24-27px
+# of the 840px width (measured across all 78). A square crop at the full width
+# takes the strip with it, and the circle mask leaves it showing as a white arc
+# on the right of every node on the path. 813 is 840 less the widest strip, so
+# the crop clears it on every card and loses at most 3px of art on the
+# narrowest. See docs/decisions/0019 — the real fix is re-exporting the
+# masters; this keeps the derived art clean until that happens.
+CARD_BLEED = 27
+CROP_SIDE = 840 - CARD_BLEED
 
 def subject_top(arr):
     """Find the y-pixel where the card's main subject starts, scanning a
@@ -42,7 +56,7 @@ def crop_box(im):
     top = max(int(h * 0.055), top)
     top = min(top, h - CROP_SIDE - int(h * 0.145))
     top = int(top)
-    return (0, top, w, top + CROP_SIDE)
+    return (0, top, CROP_SIDE, top + CROP_SIDE)
 
 
 def make_circle(src_path, out_path):
@@ -70,8 +84,8 @@ def main():
     for row in rows:
         card_key = row["card_key"]
         image_file = row["image_file"]
-        src = f"{SRC_DIR}/{image_file}"
-        out = f"{OUT_DIR}/{card_key}_circle.png"
+        src = SRC_DIR / image_file
+        out = OUT_DIR / f"{card_key}_circle.png"
         make_circle(src, out)
     print("Done.")
 

@@ -133,7 +133,19 @@ export default function PathScreen({ entries, totalNodes }) {
 
           return (
             <section key={`u${unit.unit}`}>
+              {/* A chapter break in the scroll, not a card sitting on top of
+                  it. The eyebrow carries the unit's number, its progress and
+                  the way out to the guidebook; the name below folds the unit.
+                  The tagline is gone from here — it is already on the guidebook
+                  page, and on the path it was a third line for the Guidebook
+                  button to float against. */}
               <div className="trail-unit">
+                <p className="trail-unit-index">
+                  Unit {unit.unit} · {unitDone}/{rows.length} ·{" "}
+                  <Link className="trail-guide" href={`/units/${unit.unit}`}>
+                    Guidebook
+                  </Link>
+                </p>
                 <button
                   type="button"
                   className="trail-unit-toggle"
@@ -141,19 +153,12 @@ export default function PathScreen({ entries, totalNodes }) {
                   aria-expanded={!shut}
                   aria-controls={`unit-${unit.unit}-sections`}
                 >
-                  <span className="trail-unit-index">
-                    Unit {unit.unit} · {unitDone}/{rows.length}
-                  </span>
                   <span className="trail-unit-name">{unit.name}</span>
-                  <span className="trail-unit-tagline">{unit.tagline}</span>
                   <span
                     className={shut ? "trail-chevron is-shut" : "trail-chevron"}
                     aria-hidden="true"
                   />
                 </button>
-                <Link className="trail-guide" href={`/units/${unit.unit}`}>
-                  Guidebook
-                </Link>
               </div>
 
               <ol className="trail-steps" id={`unit-${unit.unit}-sections`} hidden={shut}>

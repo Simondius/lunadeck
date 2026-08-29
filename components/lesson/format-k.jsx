@@ -98,13 +98,17 @@ export default function FormatK({ round, meta, formatLine, onAdvance, onHintRead
 
       {checked ? (
         <div className={perfect ? "reveal" : "reveal is-miss"}>
+          {/* The verdict reads on its own. "All of them" only made sense
+              against the miss state, which a learner who got it right has
+              never seen — and the count still has a place to live, in the
+              slot the XP badge leaves empty. */}
           <div className="reveal-head">
-            <strong>
+            <strong>{perfect ? "Correct" : "Not this time"}</strong>
+            <span className="reveal-xp">
               {perfect
-                ? "All of them"
+                ? `+${XP_PER_NODE} XP`
                 : `${found} of ${round.correctCount}`}
-            </strong>
-            {perfect ? <span className="reveal-xp">+{XP_PER_NODE} XP</span> : null}
+            </span>
           </div>
           <span>{round.revealBody}</span>
         </div>

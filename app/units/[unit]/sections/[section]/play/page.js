@@ -1,5 +1,13 @@
 import { notFound } from "next/navigation";
-import { getUnit, getUnits, getSections, getSession } from "@/lib/data";
+import {
+  getUnit,
+  getUnits,
+  getSections,
+  getSession,
+  getCardNames,
+  circleForKey,
+} from "@/lib/data";
+import { masterForKey } from "@/lib/rounds";
 import Session from "@/components/lesson/session";
 
 // A lesson is one section — seven or eight nodes — not a whole unit. That is
@@ -20,12 +28,63 @@ export default async function PlayPage({ params }) {
   const unit = await getUnit(unitParam);
   if (!unit) notFound();
 
-  const sections = await getSections(unit.number);
+  const [sections, names, units] = await Promise.all([
+    getSections(unit.number),
+    getCardNames(),
+    getUnits(),
+  ]);
+
   const wanted = decodeURIComponent(sectionParam);
-  const section = sections.find((s) => s.section === wanted);
-  if (!section) notFound();
+  const index = sections.findIndex((s) => s.section === wanted);
+  if (index === -1) notFound();
+  const section = sections[index];
 
   const nodes = await getSession(unit.number, section.section);
+  const nextUnit = units.find((u) => u.number === unit.number + 1) ?? null;
+
+  // A recap or cumulative review closes the unit; a standard section hands the
+  // learner one card and points at the next section.
+  const kind = section.kind === "standard" ? "section" : "unit";
+
+  const completion = {
+    kind,
+    unitNumber: unit.number,
+    unitName: unit.name,
+    sectionLabel:
+      section.kind === "recap"
+        ? "Recap"
+        : section.kind === "cumulative"
+          ? "Review"
+          : `Section ${section.section}`,
+    card:
+      kind === "section" && section.cardKey
+        ? {
+            key: section.cardKey,
+            name: names.get(section.cardKey) ?? section.cardName,
+            image: masterForKey(section.cardKey),
+          }
+        : null,
+    unitCards: unit.cardKeys.map((key) => ({
+      key,
+      name: names.get(key) ?? key,
+      image: circleForKey(key),
+    })),
+    nextUnit: nextUnit
+      ? {
+          number: nextUnit.number,
+          name: nextUnit.name,
+          icon: nextUnit.icon,
+          cardCount: nextUnit.cardCount,
+          nodeCount: nextUnit.nodeCount,
+        }
+      : null,
+    nextSection: sections[index + 1]?.section ?? null,
+    sections: sections.map((s) => ({
+      section: s.section,
+      cardKey: s.cardKey,
+      nodeIds: s.nodeIds,
+    })),
+  };
 
   return (
     <Session
@@ -33,6 +92,7 @@ export default async function PlayPage({ params }) {
       unitName={unit.name}
       section={section}
       nodes={nodes}
+      completion={completion}
     />
   );
 }

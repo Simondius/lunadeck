@@ -25,6 +25,8 @@ export default function FormatB({ round, meta, formatLine, onAdvance }) {
     setAnswered(true);
   }
 
+  const resolve = () => onAdvance({ missed: !wasRight });
+
   if (showingDonor && round.donor) {
     return (
       <>
@@ -35,7 +37,7 @@ export default function FormatB({ round, meta, formatLine, onAdvance }) {
           <p className="reference-name">{round.donor.name}</p>
         </div>
         <div className="statement statement-donor">{round.donor.statement}</div>
-        <Footer label="Next" disabled={false} onClick={onAdvance} meta={meta} />
+        <Footer label="Next" disabled={false} onClick={resolve} meta={meta} />
       </>
     );
   }
@@ -110,7 +112,7 @@ export default function FormatB({ round, meta, formatLine, onAdvance }) {
           answered
             ? needsDonorScreen
               ? () => setShowingDonor(true)
-              : onAdvance
+              : resolve
             : confirm
         }
         meta={meta}

@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FormatA from "./format-a";
 import FormatB from "./format-b";
 import FormatC from "./format-c";
 import { Footer } from "./options";
+import Complete from "./complete";
 import { useProgress } from "@/components/use-progress";
 import { completeNode, spendHint, hintsLeft, sectionKey } from "@/lib/progress";
 
@@ -36,10 +37,15 @@ function toSteps(nodes) {
   return steps;
 }
 
-export default function Session({ unitNumber, unitName, section, nodes }) {
+export default function Session({ unitNumber, unitName, section, nodes, completion }) {
   const steps = useMemo(() => toSteps(nodes), [nodes]);
   const [index, setIndex] = useState(0);
+  const [finished, setFinished] = useState(false);
   const [hintHandler, setHintHandler] = useState(null);
+  // Which nodes were missed on their first attempt. A ref, not state — it is
+  // written during advance and read on the next line, and re-rendering on it
+  // would only make the closure stale.
+  const missed = useRef(new Set());
   const router = useRouter();
 
   const progress = useProgress();
@@ -49,22 +55,31 @@ export default function Session({ unitNumber, unitName, section, nodes }) {
   const step = steps[index];
   const backHref = `/units/${unitNumber}`;
 
-  const advance = useCallback(() => {
-    setHintHandler(null);
-    const current = steps[index];
-    const next = steps[index + 1];
+  const advance = useCallback(
+    (result) => {
+      setHintHandler(null);
+      const current = steps[index];
+      const next = steps[index + 1];
 
-    // A node is complete once its last instance is answered — not per instance.
-    if (current && (!next || next.nodeIndex !== current.nodeIndex)) {
-      completeNode(current.node.nodeId);
-    }
+      // A node with several instances counts as missed if any one of them was.
+      if (current && result?.missed) missed.current.add(current.node.nodeId);
 
-    if (!next) {
-      router.push(backHref);
-      return;
-    }
-    setIndex(index + 1);
-  }, [index, steps, router, backHref]);
+      // A node is complete once its last instance is answered — not per instance.
+      if (current && (!next || next.nodeIndex !== current.nodeIndex)) {
+        completeNode(current.node.nodeId, {
+          missed: missed.current.has(current.node.nodeId),
+        });
+      }
+
+      if (!next) {
+        if (completion) setFinished(true);
+        else router.push(backHref);
+        return;
+      }
+      setIndex(index + 1);
+    },
+    [index, steps, completion, router, backHref]
+  );
 
   // Only Format A supplies a hint; B and C leave the control disabled, which
   // the Format Bible flags as an open question rather than settled behaviour.
@@ -77,6 +92,15 @@ export default function Session({ unitNumber, unitName, section, nodes }) {
     spendHint(key);
     hintHandler();
   }, [hintHandler, hints, key]);
+
+  if (finished && completion) {
+    return (
+      <Complete
+        completion={completion}
+        nodeIds={nodes.map((n) => n.nodeId)}
+      />
+    );
+  }
 
   if (!step) return null;
 

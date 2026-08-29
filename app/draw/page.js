@@ -1,12 +1,7 @@
-export default function DrawPage() {
-  return (
-    <main className="shell">
-      <span className="unit-eyebrow">Daily draw</span>
-      <h1 className="unit-title">One card a night</h1>
-      <p className="unit-intro">
-        Keeps the streak alive without curriculum progress. Designed, not built
-        yet — see Spec_Daily_Draw_Tab.
-      </p>
-    </main>
-  );
+import { getDrawDeck, getAllSections } from "@/lib/data";
+import DrawScreen from "@/components/draw-screen";
+
+export default async function DrawPage() {
+  const [cards, sections] = await Promise.all([getDrawDeck(), getAllSections()]);
+  return <DrawScreen deck={{ cards, sections }} />;
 }

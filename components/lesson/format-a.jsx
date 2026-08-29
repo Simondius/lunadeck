@@ -13,6 +13,10 @@ import { XP_PER_NODE } from "@/lib/progress";
 export default function FormatA({ round, meta, formatLine, onAdvance, onHintReady }) {
   const [selected, setSelected] = useState(null);
   const [eliminated, setEliminated] = useState([]);
+  // Options the hint removed, tracked apart from wrong guesses: taking a hint
+  // and then answering correctly is not a miss, and must not queue the round
+  // for review.
+  const [hinted, setHinted] = useState([]);
   const [solved, setSolved] = useState(false);
   const [shake, setShake] = useState(false);
   const [inspecting, setInspecting] = useState(null);
@@ -40,11 +44,12 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
     );
     if (!candidate) return;
     setEliminated((prev) => [...prev, candidate.key]);
+    setHinted((prev) => [...prev, candidate.key]);
     if (selected === candidate.key) setSelected(null);
   }
 
   useEffect(() => {
-    onHintReady(solved ? null : () => hint);
+    onHintReady(solved ? null : hint);
   }, [solved, eliminated, selected, onHintReady]);
 
   function stateFor(option) {
@@ -72,6 +77,7 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
               state={stateFor(option)}
               onSelect={() => setSelected(option.key)}
               onInspect={() => setInspecting(option)}
+              onRelease={() => setInspecting(null)}
             />
           ) : (
             <TextOption
@@ -107,7 +113,11 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
       <Footer
         label={solved ? "Next" : "Check"}
         disabled={!solved && !selected}
-        onClick={solved ? () => onAdvance({ missed: eliminated.length > 0 }) : check}
+        onClick={
+          solved
+            ? () => onAdvance({ missed: eliminated.length > hinted.length })
+            : check
+        }
         meta={meta}
       />
     </>

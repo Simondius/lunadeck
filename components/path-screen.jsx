@@ -129,6 +129,12 @@ export default function PathScreen({ entries, totalNodes }) {
       <div className="trail">
         {groups.map(({ unit, sections: rows }) => {
           const shut = collapsed.has(unit.unit);
+          // The unit you are actually in gets its one-line description. Names
+          // went image-led in 0022 — "Cutting Air" does not tell you it is the
+          // Swords suit — and removing the guidebook in 0023 left that sentence
+          // with nowhere to render. Here, and only for the unit in play, it is
+          // context rather than the clutter it was when every unit carried one.
+          const inPlay = rows.includes(currentSection);
           const unitDone = rows.filter((s) => isSectionComplete(progress, s.nodeIds)).length;
 
           return (
@@ -156,6 +162,9 @@ export default function PathScreen({ entries, totalNodes }) {
                     aria-hidden="true"
                   />
                 </button>
+                {inPlay && unit.tagline ? (
+                  <p className="trail-unit-tagline">{unit.tagline}</p>
+                ) : null}
               </div>
 
               <ol className="trail-steps" id={`unit-${unit.unit}-sections`} hidden={shut}>

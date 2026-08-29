@@ -48,7 +48,9 @@ unit. Flagged rather than silently followed, per `CLAUDE.md`: the spec was
 written before the path carried the sections inline, and a unit-level table of
 contents is redundant once the path *is* the table of contents.
 
-**`unit_intro_copy` is now unread by the app.** It is the one thing the
+**`unit_intro_copy` is now unread by the app.** *(Closed the same day: the
+unit's one-line tagline renders under the name of the unit currently in play,
+and only that one. Context where you are, silence for the other nine.)* It is the one thing the
 guidebook held that nothing else does — the sentence explaining that "Cutting
 Air" means the Swords suit turning hard. The names went image-led the same day
 (`0022`), so that sentence matters more than it did, not less, and it currently

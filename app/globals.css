@@ -101,17 +101,6 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 22px;
 }
 
-.wordmark {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 30px;
-  letter-spacing: -0.03em;
-  margin: 0;
-  color: var(--parchment);
-}
-
-.wordmark .moon { color: var(--accent); }
-
 .standfirst {
   margin: 6px 0 0;
   font-family: var(--mono);
@@ -195,7 +184,34 @@ a { color: inherit; text-decoration: none; }
   86%, 100% { fill: var(--accent-bright); }
 }
 
-/* Curriculum progress bar under the masthead. */
+/* The path's header. Deliberately not a masthead: a line saying where you are,
+   the streak, and the progress bar under both. */
+.statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.statusbar-where {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.statusbar-count {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* Curriculum progress bar under the status line. */
 .overall {
   height: 2px;
   background: rgba(242, 237, 227, 0.08);
@@ -209,12 +225,7 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to right, var(--accent-dim), var(--accent));
 }
 
-.overall-note {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--muted);
-  margin: 0 0 20px;
-}
+.overall { margin-bottom: 22px; }
 
 /* --- the path ------------------------------------------------------- */
 /* One continuous scroll of every section in the curriculum, with each unit's
@@ -1626,11 +1637,6 @@ a { color: inherit; text-decoration: none; }
 /* A screen carrying the fixed .start button has to clear it as well as the
    tab bar, or its last row hides underneath. */
 .shell.has-action { padding-bottom: calc(var(--tabbar) + 104px); }
-
-/* .standfirst carries `margin: 0 0 20px` for the deck tab, where it sits
-   above the filter row. Inside the masthead that reads as a gap under the
-   wordmark, so it takes its top margin back here. */
-.masthead .standfirst { margin: 6px 0 0; }
 
 /* Node-level detail moved off the unit page; this is the debug view it
    moved to. Deliberately plain — it is a diagnostic, not a screen. */

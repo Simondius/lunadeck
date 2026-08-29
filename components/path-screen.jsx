@@ -70,7 +70,6 @@ export default function PathScreen({ entries, totalNodes }) {
     (sum, s) => sum + countComplete(progress, s.nodeIds),
     0
   );
-  const known = sections.filter((s, i) => s.cardKey && done[i]).length;
   const currentSection = sections[current];
 
   const toggle = (unit) =>
@@ -84,12 +83,21 @@ export default function PathScreen({ entries, totalNodes }) {
 
   return (
     <main className="shell starfield">
-      <header className="masthead">
+      {/* No wordmark. This is the screen people open every day — it should be
+          about where they are, not about the brand, and the tab bar and page
+          title already say which app this is. */}
+      <header className="statusbar">
         <div>
-          <h1 className="wordmark">
-            Luna<span className="moon">deck</span>
-          </h1>
-          <p className="standfirst">{known} of 78 cards known</p>
+          <span className="statusbar-where">
+            Unit {currentSection?.unit ?? 1} · {label(currentSection)}
+          </span>
+          {/* Exercises, not "cards known". A card counted as known still has a
+              median of ten more encounters ahead of it, so that word overstated
+              by about 60% — and it only reached 78 at 99% of the way through,
+              making it a coarser copy of this number. */}
+          <span className="statusbar-count">
+            {completedNodes} of {totalNodes} exercises
+          </span>
         </div>
 
         {/* Flame and number only. Labelled as one element so a screen reader
@@ -117,10 +125,6 @@ export default function PathScreen({ entries, totalNodes }) {
           style={{ width: totalNodes ? `${(completedNodes / totalNodes) * 100}%` : "0%" }}
         />
       </div>
-      <p className="overall-note">
-        Unit {currentSection?.unit ?? 1} · {label(currentSection)} ·{" "}
-        {completedNodes} of {totalNodes} exercises
-      </p>
 
       <div className="trail">
         {groups.map(({ unit, sections: rows }) => {

@@ -106,6 +106,28 @@ function checkA(round, where) {
   }
 }
 
+function checkK(round, where) {
+  if (!round.chips?.length) return fail(where, "no keyword chips");
+  const correct = round.chips.filter((c) => c.correct);
+  if (correct.length === 0) fail(where, "no correct keyword to find");
+  if (correct.length !== round.correctCount)
+    fail(where, `correctCount says ${round.correctCount}, chips say ${correct.length}`);
+  const texts = round.chips.map((c) => c.text.toLowerCase());
+  if (new Set(texts).size !== texts.length)
+    fail(where, "the same keyword appears twice in the pool");
+  // 31 keywords in the deck belong to more than one card, so a distractor can
+  // silently be a genuine keyword of the target. That would mark a right
+  // answer wrong.
+  const own = new Set(correct.map((c) => c.text.toLowerCase()));
+  for (const chip of round.chips) {
+    if (!chip.correct && own.has(chip.text.toLowerCase()))
+      fail(where, `"${chip.text}" is marked wrong but is one of the card's own keywords`);
+  }
+  if (round.chips.length - correct.length !== 5)
+    fail(where, `${round.chips.length - correct.length} distractors (expected 5)`);
+  checkReference(round.reference, where);
+}
+
 function checkB(round, where) {
   asset(round.image, `${where} card`);
   if (!String(round.statement || "").trim()) fail(where, "empty statement");
@@ -157,6 +179,7 @@ for (const unit of await getUnits()) {
       if (round.kind === "A") checkA(round, where);
       else if (round.kind === "B") checkB(round, where);
       else if (round.kind === "C") checkC(round, where);
+      else if (round.kind === "K") checkK(round, where);
       else fail(where, `unknown round kind ${round.kind}`);
     });
   }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import FormatA from "./format-a";
 import FormatB from "./format-b";
 import FormatC from "./format-c";
+import FormatK from "./format-k";
 import Intro from "./intro";
 import Bridge from "./bridge";
 import Complete from "./complete";
@@ -12,7 +13,7 @@ import { Footer } from "./options";
 import { useProgress } from "@/components/use-progress";
 import { completeSection, hintsLeft, sectionKey } from "@/lib/progress";
 
-const FORMATS = { A: FormatA, B: FormatB, C: FormatC };
+const FORMATS = { A: FormatA, B: FormatB, C: FormatC, K: FormatK };
 
 // Never leave the learner on a screen with no exit.
 function Stranded({ href, message }) {
@@ -203,7 +204,7 @@ export default function Session({
   // above the prompt says where you are rather than which format this is.
   const formatLine = reviewing
     ? `Second look · Review ${reviewIndex + 1} of ${queue.length}`
-    : `${node.formatCode} · ${node.formatName}`;
+    : `${node.formatCode} · ${round?.formatName ?? node.formatName}`;
 
   const hintable = Boolean(hintHandler) && hintsRemaining > 0;
 

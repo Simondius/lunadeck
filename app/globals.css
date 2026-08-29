@@ -1058,6 +1058,69 @@ a { color: inherit; text-decoration: none; }
 
 .statement-donor { border-color: var(--accent-a45); margin-top: 18px; }
 
+/* The keyword picker has to hold the card and a dozen chips on one screen, so
+   its card sits smaller than one you're being asked to read detail from. */
+.reference-card.is-compact { margin-bottom: 14px; }
+.reference-card.is-compact .reference-art { width: 128px; margin: 0 auto; }
+.reference-card.is-compact .reference-art img { max-height: none; }
+.reference-card.is-compact .reference-name { font-size: 16px; margin-top: 8px; }
+
+/* --- keyword picker (Format K) --------------------------------------- */
+/* The one multi-select round. Chips rather than rows, because the question is
+   "which of these fit" and the eye needs to hold the whole set at once. */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.chip {
+  font-family: var(--body);
+  font-size: 13.5px;
+  color: var(--parchment);
+  background: rgba(242, 237, 227, 0.04);
+  border: 1px solid rgba(242, 237, 227, 0.16);
+  border-radius: 999px;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: background 130ms ease, border-color 130ms ease, opacity 130ms ease;
+}
+
+.chip.is-selected {
+  background: var(--accent-a12);
+  border-color: var(--accent);
+  color: var(--accent-bright);
+}
+
+/* After Check: what you got, what you shouldn't have, what you missed. */
+.chip.is-correct {
+  background: rgba(107, 191, 123, 0.14);
+  border-color: var(--good);
+  color: var(--good-text);
+}
+
+.chip.is-wrong {
+  background: rgba(217, 96, 95, 0.12);
+  border-color: var(--bad);
+  color: var(--bad-text);
+  text-decoration: line-through;
+}
+
+.chip.is-missed {
+  border-style: dashed;
+  border-color: var(--good);
+  color: var(--good-text);
+}
+
+.chip.is-removed {
+  opacity: 0.28;
+  text-decoration: line-through;
+  cursor: default;
+}
+
 /* --- candidate grids ------------------------------------------------ */
 
 .grid { display: grid; gap: 12px; }

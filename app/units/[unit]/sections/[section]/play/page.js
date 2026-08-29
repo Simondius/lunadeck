@@ -62,6 +62,23 @@ export default async function PlayPage({ params }) {
     if (shown.length) card.keywords = shown;
   }
 
+  // Teaching arrives just before the thing it teaches, not all at once up
+  // front. The intro screen covers the keywords and the keyword round asks for
+  // exactly those; the meaning is the next thing the section asks for that the
+  // learner has not been shown, so it gets its own beat immediately before
+  // that round. Only where this really is a first meeting: a review section
+  // re-serving a card the learner already met needs no teaching.
+  if (card?.opener && section.kind === "standard") {
+    // Matched on the round's answerKey, not the node: the node shape that
+    // reaches the client carries no card key, only the round does.
+    const first = nodes.find((node) =>
+      node.instances?.some(
+        (round) => round.teaches === "meaning" && round.answerKey === section.cardKey
+      )
+    );
+    if (first) first.teach = { name: card.name, image: card.image, body: card.opener };
+  }
+
   const intro = card
     ? { card }
     : {

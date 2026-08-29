@@ -7,6 +7,7 @@ import FormatB from "./format-b";
 import FormatC from "./format-c";
 import FormatK from "./format-k";
 import Intro from "./intro";
+import Teach from "./teach";
 import Bridge from "./bridge";
 import Complete from "./complete";
 import { Footer } from "./options";
@@ -42,6 +43,19 @@ function toSteps(nodes) {
     if (!node.playable) {
       steps.push({ node, nodeIndex, round: null, instance: 0, instanceCount: 1 });
       return;
+    }
+    // A teaching beat sits in front of the node that needs it. It is not a
+    // node: no XP, nothing to miss, never queued for review — a screen you
+    // pass through, like the section intro.
+    if (node.teach) {
+      steps.push({
+        node,
+        nodeIndex,
+        teach: node.teach,
+        round: null,
+        instance: 0,
+        instanceCount: 1,
+      });
     }
     node.instances.forEach((round, instance) => {
       steps.push({
@@ -206,6 +220,9 @@ export default function Session({
     ? `Second look · Review ${reviewIndex + 1} of ${queue.length}`
     : `${node.formatCode} · ${round?.formatName ?? node.formatName}`;
 
+  // A teaching beat borrows its node's id for the footer but not its format
+  // line — the line names what the screen is, and this screen is not A2.
+
   const hintable = Boolean(hintHandler) && hintsRemaining > 0;
 
   return (
@@ -231,7 +248,9 @@ export default function Session({
         </button>
       </div>
 
-      {Format ? (
+      {step.teach ? (
+        <Teach teach={step.teach} meta={meta} onDone={advance} />
+      ) : Format ? (
         <Format
           key={`${reviewing ? "review" : "play"}-${node.nodeId}-${instance}`}
           round={round}

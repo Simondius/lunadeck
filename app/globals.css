@@ -245,37 +245,38 @@ a { color: inherit; text-decoration: none; }
   position: relative;
 }
 
-/* Unit banner, inline in the scroll rather than pinned. */
+/* Unit banner, inline in the scroll rather than pinned — and the whole panel
+   is the control that folds the unit, so it is styled as one thing you press
+   rather than a box with controls loose inside it. */
 .trail-unit {
+  display: block;
+  width: 100%;
+  position: relative;
   margin: 40px 0 26px;
+  padding: 14px 42px 15px 16px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--accent-a30);
+  color: inherit;
+  font: inherit;
   text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, transform 90ms ease;
 }
+
+.trail-unit:hover { border-color: var(--accent-a45); }
+.trail-unit:active { transform: scale(0.994); }
+.trail-unit.is-shut { background: none; }
 
 /* The first heading sits under the overall progress bar, which reads as a
    rule of its own. It needs room or the two stack into a stripe. */
 .trail > section:first-child .trail-unit { margin-top: 20px; }
 
-/* The name folds its unit away, and the rule under it is the chapter break.
-   The Guidebook link lives in the eyebrow above rather than inside this
-   button — one interactive element must not nest in another. */
-.trail-unit-toggle {
-  display: block;
-  width: 100%;
-  position: relative;
-  padding: 0 26px 9px 0;
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--accent-a30);
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
+/* Centred on the panel now, not on one line inside it. */
 .trail-chevron {
   position: absolute;
-  right: 4px;
-  top: 40%;
+  right: 18px;
+  top: 50%;
   width: 8px;
   height: 8px;
   margin-top: -6px;
@@ -290,21 +291,12 @@ a { color: inherit; text-decoration: none; }
 .trail-steps { list-style: none; margin: 0; padding: 0; }
 
 .trail-unit-index {
+  display: block;
   font-family: var(--mono);
   font-size: 9.5px;
   letter-spacing: 0.16em;
   color: var(--accent);
-}
-
-/* Only ever on the unit in play, so it is one line of context rather than ten
-   lines of blurb down the scroll. Sits under the chapter rule, introducing the
-   stretch of path below it. */
-.trail-unit-tagline {
-  margin: 9px 0 0;
-  font-size: 12px;
-  line-height: 1.45;
-  color: var(--muted);
-  text-wrap: pretty;
+  margin-bottom: 5px;
 }
 
 .trail-unit-name {

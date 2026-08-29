@@ -129,43 +129,33 @@ export default function PathScreen({ entries, totalNodes }) {
       <div className="trail">
         {groups.map(({ unit, sections: rows }) => {
           const shut = collapsed.has(unit.unit);
-          // The unit you are actually in gets its one-line description. Names
-          // went image-led in 0022 — "Cutting Air" does not tell you it is the
-          // Swords suit — and removing the guidebook in 0023 left that sentence
-          // with nowhere to render. Here, and only for the unit in play, it is
-          // context rather than the clutter it was when every unit carried one.
-          const inPlay = rows.includes(currentSection);
           const unitDone = rows.filter((s) => isSectionComplete(progress, s.nodeIds)).length;
 
           return (
             <section key={`u${unit.unit}`}>
-              {/* Progress, then the name with its fold chevron. The Guidebook
-                  button that used to sit up here is gone with the page it
-                  opened — a card's own entry in the deck answers "what is this
-                  and where does it come from" better than a unit-at-a-time
-                  list could. The unit's number is not repeated here: the
-                  masthead already says which unit you are in. */}
-              <div className="trail-unit">
-                <p className="trail-unit-index">
+              {/* The whole heading is the button. It could not be, while a
+                  Guidebook link sat inside it — one interactive element must
+                  not nest in another — so the panel had to come apart into a
+                  row of controls, and it stopped reading as a thing you press.
+                  With the link gone (0023) the panel can be a single control
+                  again, which is what it always looked like it was.
+
+                  No description here: it belongs to a unit, not to the stretch
+                  of path below it, and every unit carrying one turned the
+                  scroll into a wall of blurb. */}
+              <button
+                type="button"
+                className={shut ? "trail-unit is-shut" : "trail-unit"}
+                onClick={() => toggle(unit.unit)}
+                aria-expanded={!shut}
+                aria-controls={`unit-${unit.unit}-sections`}
+              >
+                <span className="trail-unit-index">
                   {unitDone} of {rows.length}
-                </p>
-                <button
-                  type="button"
-                  className="trail-unit-toggle"
-                  onClick={() => toggle(unit.unit)}
-                  aria-expanded={!shut}
-                  aria-controls={`unit-${unit.unit}-sections`}
-                >
-                  <span className="trail-unit-name">{unit.name}</span>
-                  <span
-                    className={shut ? "trail-chevron is-shut" : "trail-chevron"}
-                    aria-hidden="true"
-                  />
-                </button>
-                {inPlay && unit.tagline ? (
-                  <p className="trail-unit-tagline">{unit.tagline}</p>
-                ) : null}
-              </div>
+                </span>
+                <span className="trail-unit-name">{unit.name}</span>
+                <span className="trail-chevron" aria-hidden="true" />
+              </button>
 
               <ol className="trail-steps" id={`unit-${unit.unit}-sections`} hidden={shut}>
                 {rows.map((entry) => {

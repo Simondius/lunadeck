@@ -111,3 +111,25 @@ can be a button again, which is what it should look like: it leaves the path.
 Each control now has a baseline: the pill sits at the end of the eyebrow row,
 the chevron centres on the name (measured, 191 against 192 at desktop). Banner
 62px.
+
+## Amended a third time, and settled
+
+Back to a contained panel — and this time the whole panel is the button.
+
+That was never possible before. A Guidebook link lived inside the heading, one
+interactive element cannot nest in another, so the panel had to come apart into
+a row of separate controls, and the moment it did it stopped reading as a thing
+you press. Removing the guidebook (`0023`) is what unlocked it. Every step in
+between — bare heading, centred, left in two rows — was working around a
+constraint that no longer exists.
+
+So: one `<button>`, panel background, accent border, the progress line and the
+name inside it, the chevron centred on the panel rather than on a line within
+it. It brightens on hover and takes a 0.6% press. Tapping anywhere in it folds
+the unit.
+
+**And no description.** It went out in `0015`, came back in `0042` for the unit
+in play only, and is out again — Tia's call both times, and the second time
+convinced her too. `unit_tagline` and `unit_intro_copy` are now unrendered
+anywhere. The data stays; if a units overview or the Reader ever wants a
+sentence about a unit, it is there.

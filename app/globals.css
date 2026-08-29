@@ -129,82 +129,87 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   align-items: center;
-  column-gap: 9px;
-  padding: 10px 14px 9px;
+  justify-items: start;
+  align-content: center;
+  column-gap: 10px;
+  padding: 9px 15px;
   border: 1px solid var(--accent-a30);
   border-radius: 16px;
   background: linear-gradient(140deg, rgba(143, 82, 196, 0.14), rgba(12, 10, 20, 0));
   text-align: left;
 }
 
-.streak-flame { grid-row: 1 / 3; }
+.streak-flame { grid-row: 1 / 3; align-self: center; }
 
 .streak-count {
+  align-self: end;
   font-family: var(--display);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   color: var(--parchment);
 }
 
 .streak-label {
+  align-self: start;
   font-family: var(--mono);
   font-size: 9.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
-/* Was a plain dot; Spec_Meta_Hygiene_Systems 7.2 asks for a flame. The glow
-   is a drop-shadow rather than a box-shadow so it follows the silhouette
-   instead of boxing it. */
 .streak-flame {
-  width: 26px;
-  height: 31px;
+  width: 34px;
+  height: 40px;
   flex: none;
-  fill: var(--accent);
   transform-box: fill-box;
   transform-origin: bottom center;
-  /* Mostly still, then it catches: the flame leans, runs gas-blue, and its
-     glow goes with it before settling back to violet. The glow matters — a
-     colour change on a 26px silhouette alone is easy to miss, but the halo
-     around it is not. Killed outright by the prefers-reduced-motion rule at
-     the end of this file. */
-  animation: flameFlicker 4.5s ease-in-out infinite;
+  /* Mostly still, then it catches: the flame leans, its core runs gas-blue and
+     the body cools with it, and the glow goes too. The glow matters — a colour
+     change on the silhouette alone is easy to miss, the halo around it is not.
+     Killed outright by the prefers-reduced-motion rule at the end of this
+     file. */
+  animation: flameLean 4.5s ease-in-out infinite;
 }
 
-@keyframes flameFlicker {
-  0%, 46% {
-    fill: var(--accent);
-    filter: drop-shadow(0 0 7px var(--accent-a45));
-    transform: scale(1, 1);
-  }
-  53% {
-    fill: #8f7ce8;
-    filter: drop-shadow(0 0 10px rgba(123, 124, 232, 0.55));
-    transform: scale(0.95, 1.09);
-  }
-  60% {
-    fill: #4f9df2;
-    filter: drop-shadow(0 0 15px rgba(79, 157, 242, 0.75));
-    transform: scale(1.04, 0.96);
-  }
-  67% {
-    fill: #6fb6f7;
-    filter: drop-shadow(0 0 13px rgba(111, 182, 247, 0.6));
-    transform: scale(0.97, 1.06);
-  }
-  76% {
-    fill: var(--accent-bright);
-    filter: drop-shadow(0 0 9px var(--accent-a45));
-    transform: scale(1.01, 0.99);
-  }
-  86%, 100% {
-    fill: var(--accent);
-    filter: drop-shadow(0 0 7px var(--accent-a45));
-    transform: scale(1, 1);
-  }
+.streak-flame .flame-body {
+  fill: var(--accent);
+  animation: flameBody 4.5s ease-in-out infinite;
+}
+
+/* The hottest part, so it is the first to run blue and the last to settle. */
+.streak-flame .flame-core {
+  fill: var(--accent-bright);
+  animation: flameCore 4.5s ease-in-out infinite;
+}
+
+@keyframes flameLean {
+  0%, 46% { transform: scale(1, 1); filter: drop-shadow(0 0 8px var(--accent-a45)); }
+  53% { transform: scale(0.95, 1.09); filter: drop-shadow(0 0 11px rgba(123, 124, 232, 0.55)); }
+  60% { transform: scale(1.04, 0.96); filter: drop-shadow(0 0 17px rgba(79, 157, 242, 0.75)); }
+  67% { transform: scale(0.97, 1.06); filter: drop-shadow(0 0 14px rgba(111, 182, 247, 0.6)); }
+  76% { transform: scale(1.01, 0.99); filter: drop-shadow(0 0 10px var(--accent-a45)); }
+  86%, 100% { transform: scale(1, 1); filter: drop-shadow(0 0 8px var(--accent-a45)); }
+}
+
+@keyframes flameBody {
+  0%, 46% { fill: var(--accent); }
+  53% { fill: #8f7ce8; }
+  60% { fill: #5aa6ef; }
+  67% { fill: #7ab4f2; }
+  76% { fill: var(--accent-bright); }
+  86%, 100% { fill: var(--accent); }
+}
+
+@keyframes flameCore {
+  0%, 46% { fill: var(--accent-bright); }
+  53% { fill: #cfe2ff; }
+  60% { fill: #a9d4ff; }
+  67% { fill: #d6ecff; }
+  76% { fill: #efe6ff; }
+  86%, 100% { fill: var(--accent-bright); }
 }
 
 /* Curriculum progress bar under the masthead. */

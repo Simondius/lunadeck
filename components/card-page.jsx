@@ -11,7 +11,7 @@ import { isSectionComplete } from "@/lib/progress";
 // pull a few cards and half-read them: the full guidebook entry, what the
 // card's symbol actually means, and the reading notes. Nothing here is
 // summarised or rewritten; it is the source text, laid out in depth order.
-export default function CardPage({ card, nodeIds }) {
+export default function CardPage({ card, nodeIds, lesson }) {
   const progress = useProgress();
   const known = nodeIds.length > 0 && isSectionComplete(progress, nodeIds);
   const seenReversed = progress.reversedCardKeys.includes(card.key);
@@ -29,6 +29,15 @@ export default function CardPage({ card, nodeIds }) {
           here — what its symbol means, the guidebook&rsquo;s reading of it, and
           the notes for reading it in a spread.
         </p>
+        {/* Where it lives. The unit guidebook answered this a whole unit at a
+            time, in a list of dashes; the card you tapped is a better place to
+            ask it. No link: the path unlocks in order, and a route straight
+            into a future section would walk around that. */}
+        {lesson ? (
+          <p className="card-lesson-where">
+            Taught in {lesson.unitName} · Section {lesson.section}
+          </p>
+        ) : null}
       </main>
     );
   }
@@ -79,6 +88,19 @@ export default function CardPage({ card, nodeIds }) {
             ))}
           </ul>
         </>
+      ) : null}
+
+      {/* Back into the lesson that taught it. Replaying a finished section is
+          already possible from the path, so this is a shortcut rather than a
+          new power — and it is what the deck was missing: a card that knows
+          where it came from. */}
+      {lesson ? (
+        <Link className="card-lesson" href={lesson.href}>
+          Play this card&rsquo;s lesson again
+          <span>
+            {lesson.unitName} · Section {lesson.section}
+          </span>
+        </Link>
       ) : null}
 
       {/* The shadow side arrives only once you've actually pulled it reversed —

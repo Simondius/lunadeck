@@ -12,9 +12,26 @@ export default async function Card({ params }) {
   const [card, sections] = await Promise.all([getCardPage(cardKey), getAllSections()]);
   if (!card) notFound();
 
-  // Which section teaches this card — the client needs it to know whether the
-  // learner has earned the entry yet.
+  // Which section teaches this card. The client needs it twice over: to know
+  // whether the entry has been earned, and to say where the card lives — the
+  // job the unit guidebook used to do, done per card, on the card you asked
+  // about.
   const section = sections.find((s) => s.cardKey === cardKey) ?? null;
 
-  return <CardPage card={card} nodeIds={section?.nodeIds ?? []} />;
+  return (
+    <CardPage
+      card={card}
+      nodeIds={section?.nodeIds ?? []}
+      lesson={
+        section
+          ? {
+              unit: section.unit,
+              unitName: section.unitName,
+              section: section.section,
+              href: `/units/${section.unit}/sections/${section.section}/play`,
+            }
+          : null
+      }
+    />
+  );
 }

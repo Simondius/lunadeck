@@ -133,22 +133,16 @@ export default function PathScreen({ entries, totalNodes }) {
 
           return (
             <section key={`u${unit.unit}`}>
-              {/* Two rows, both anchored left. Progress and the Guidebook
-                  button share the top one; the name and the fold chevron share
-                  the second. That gives each control a line of its own to sit
-                  on, which is what the original three-line block denied them —
-                  the button floated because nothing lined up with it.
-                  The unit's number is not repeated here: the masthead already
-                  says which unit you are in. */}
+              {/* Progress, then the name with its fold chevron. The Guidebook
+                  button that used to sit up here is gone with the page it
+                  opened — a card's own entry in the deck answers "what is this
+                  and where does it come from" better than a unit-at-a-time
+                  list could. The unit's number is not repeated here: the
+                  masthead already says which unit you are in. */}
               <div className="trail-unit">
-                <div className="trail-unit-top">
-                  <span className="trail-unit-index">
-                    {unitDone} of {rows.length}
-                  </span>
-                  <Link className="trail-guide" href={`/units/${unit.unit}`}>
-                    Guidebook
-                  </Link>
-                </div>
+                <p className="trail-unit-index">
+                  {unitDone} of {rows.length}
+                </p>
                 <button
                   type="button"
                   className="trail-unit-toggle"

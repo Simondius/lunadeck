@@ -18,8 +18,8 @@ export default async function DebugPage({ params }) {
 
   return (
     <main className="shell">
-      <Link className="backlink" href={`/units/${unit.number}`}>
-        ← {unit.name}
+      <Link className="backlink" href="/">
+        ← Path
       </Link>
       <span className="unit-eyebrow">Debug · {nodes.length} nodes</span>
       <h1 className="unit-title">Curriculum rows</h1>

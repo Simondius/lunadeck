@@ -251,17 +251,6 @@ a { color: inherit; text-decoration: none; }
   text-align: left;
 }
 
-/* Progress on the left, the Guidebook on the right, on a line of their own.
-   A control needs a baseline to sit on; against a stack of text it just
-   hovers. */
-.trail-unit-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 7px;
-}
-
 /* The first heading sits under the overall progress bar, which reads as a
    rule of its own. It needs room or the two stack into a stripe. */
 .trail > section:first-child .trail-unit { margin-top: 20px; }
@@ -313,27 +302,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.015em;
-}
-
-/* A button again, but a quiet one, and now it has the end of its own row to
-   sit at rather than the middle of a text block. */
-.trail-guide {
-  flex: none;
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  color: var(--accent-bright);
-  text-decoration: none;
-  border: 1px solid var(--accent-a30);
-  border-radius: 999px;
-  padding: 6px 11px;
-  transition: border-color 140ms ease, background 140ms ease;
-}
-
-.trail-guide:hover {
-  border-color: var(--accent-bright);
-  background: var(--accent-a12);
 }
 
 /* A section. --x is set per node to wind the trail down the screen. */
@@ -640,18 +608,6 @@ a { color: inherit; text-decoration: none; }
    detail moves inside the section row's subtitle. */
 .sections { display: flex; flex-direction: column; gap: 8px; }
 
-.section-row {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 13px 14px;
-  border-radius: 12px;
-  background: rgba(242, 237, 227, 0.03);
-  border: 1px solid rgba(242, 237, 227, 0.07);
-}
-
-.section-id { font-family: var(--mono); font-size: 11px; color: var(--accent); }
 .section-card { display: block; font-size: 13.5px; font-weight: 500; }
 
 .section-note {
@@ -659,26 +615,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 11.5px;
   color: var(--muted);
   margin-top: 1px;
-}
-
-.section-row.is-current {
-  padding: 15px 14px;
-  background: var(--panel);
-  border-color: var(--accent-a45);
-}
-
-.section-row.is-current .section-card {
-  font-family: var(--display);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.section-row.is-locked { opacity: 0.5; }
-.section-row.is-locked .section-id { color: var(--muted); }
-
-.section-row.is-recap {
-  background: rgba(143, 82, 196, 0.05);
-  border: 1px dashed var(--accent-a30);
 }
 
 .section-bar {
@@ -695,9 +631,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: 2px;
   background: var(--accent);
 }
-
-.section-state { font-family: var(--mono); font-size: 10px; color: var(--muted); }
-.section-state.is-play { color: var(--accent); }
 
 .tick {
   width: 20px;
@@ -1752,32 +1685,40 @@ div.reference-art, div.reference-symbol { cursor: default; }
    so it needs none of the room a fixed lesson footer reserves. */
 .session.is-intro { padding-bottom: 40px; }
 
-/* --- guidebook ------------------------------------------------------- */
-/* Read-only list of what a unit covers. A card's name is withheld until its
-   section is finished, matching the path: the card is what the section gives
-   you. */
-
-.guide-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+/* A card knows which lesson taught it. This is the route the unit guidebook
+   used to be, rebuilt where it belongs: on the card, not a unit at a time. */
+.card-lesson {
+  display: block;
+  margin: 26px 0 6px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--accent-a30);
+  color: var(--accent-bright);
+  text-decoration: none;
+  font-size: 14px;
+  transition: border-color 140ms ease;
 }
 
-.guide-row {
-  display: grid;
-  grid-template-columns: 52px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 11px 4px;
-  border-bottom: 1px solid var(--line);
+.card-lesson:hover { border-color: var(--accent-bright); }
+
+.card-lesson span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
 }
 
-.guide-row:last-child { border-bottom: none; }
-.guide-row .section-card { color: var(--muted); }
-.guide-row.is-done .section-card { color: var(--parchment); }
+/* The same answer for a card you have not earned: where it lives, no way in. */
+.card-lesson-where {
+  margin: 18px 0 0;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
 
 /* --- implementation additions ---------------------------------------- */
 /* Classes the markup needs that the handoff stylesheet doesn't define, kept

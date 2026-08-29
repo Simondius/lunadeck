@@ -675,7 +675,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--accent);
-  margin: 0;
+  margin: 0 0 14px;
 }
 
 .prompt-card {
@@ -1551,8 +1551,21 @@ button.draw-art {
 /* A reversed pull rotates the whole card, the way a real deck would. */
 .draw-art img.is-reversed { transform: rotate(180deg); }
 
-/* Keyword chips are centred on the draw screen, left-packed in a lesson. */
-.anchor.is-centred { justify-content: center; }
+/* Keyword chips are centred on the draw screen, left-packed in a lesson.
+   The two panels do different jobs, so they are spaced differently. A lesson's
+   anchor is a dense reference the learner scans against a grid, and the Style
+   Guide has it cap its height and scroll internally rather than truncate. On
+   the draw there is nothing to scan against and no grid competing for the
+   space, so it sizes to its content and the chips get room. */
+.anchor.is-centred {
+  justify-content: center;
+  max-height: none;
+  overflow: visible;
+  padding: 18px;
+  gap: 10px;
+}
+
+.anchor.is-centred .keyword { padding: 7px 14px; }
 
 /* Deck header count: known in accent over the total in muted. */
 .deck-count {

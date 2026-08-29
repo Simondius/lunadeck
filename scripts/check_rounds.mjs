@@ -16,6 +16,11 @@ const root = process.cwd();
 const { getSession, getUnits, getCardNames } = await import(
   pathToFileURL(path.join(root, "lib/data.js")).href
 );
+// The same packer the rounds use, so this asserts the real rule rather than a
+// second copy of it that can drift.
+const { fitsTwoRows } = await import(
+  pathToFileURL(path.join(root, "lib/rounds.js")).href
+);
 
 const names = await getCardNames();
 const problems = [];
@@ -123,8 +128,16 @@ function checkK(round, where) {
     if (!chip.correct && own.has(chip.text.toLowerCase()))
       fail(where, `"${chip.text}" is marked wrong but is one of the card's own keywords`);
   }
-  if (round.chips.length - correct.length !== 5)
-    fail(where, `${round.chips.length - correct.length} distractors (expected 5)`);
+  if (correct.length > 3)
+    fail(where, `${correct.length} keywords asked for (the core set is at most 3)`);
+  const distractors = round.chips.length - correct.length;
+  if (distractors < 2 || distractors > correct.length + 1)
+    fail(where, `${distractors} distractors (want 2 to ${correct.length + 1})`);
+  // The set has to land inside two lines on the narrowest phone. The packer
+  // trims until it does; this is the assertion that it worked, and the alarm
+  // if the chip styling ever outgrows the estimate the packer uses.
+  if (!fitsTwoRows(round.chips.map((c) => c.text), round.compact))
+    fail(where, `chips spill past two lines: ${round.chips.map((c) => c.text).join(", ")}`);
   checkReference(round.reference, where);
 }
 

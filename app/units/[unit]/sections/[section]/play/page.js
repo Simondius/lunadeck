@@ -46,6 +46,22 @@ export default async function PlayPage({ params }) {
   // The teaching step. A standard section introduces one card, so it shows
   // that card; a recap has no new card and shows what the unit taught instead.
   const card = await getCardIntro(section.kind === "standard" ? section.cardKey : null);
+
+  // The screen says "you'll be quizzed on them next", so it has to show what
+  // the quiz actually asks for. The keyword round trims its own set to fit two
+  // lines, which can drop one below the intro's default core, so the intro
+  // follows the round rather than guessing at it. Order stays the CSV's.
+  const keywordRound = nodes
+    .flatMap((node) => node.instances)
+    .find((round) => round.kind === "K");
+  if (card && keywordRound) {
+    const asked = new Set(
+      keywordRound.chips.filter((chip) => chip.correct).map((chip) => chip.text)
+    );
+    const shown = card.keywords.filter((word) => asked.has(word));
+    if (shown.length) card.keywords = shown;
+  }
+
   const intro = card
     ? { card }
     : {

@@ -72,7 +72,7 @@ export default function FormatK({ round, meta, formatLine, onAdvance, onHintRead
         <p className="reference-name">{round.reference.label}</p>
       </div>
 
-      <div className="chips">
+      <div className={round.compact ? "chips is-compact" : "chips"}>
         {round.chips.map((chip) => {
           const state = stateFor(chip);
           return (

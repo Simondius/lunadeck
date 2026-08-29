@@ -1106,6 +1106,14 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent-bright);
 }
 
+/* A few minor-arcana cards keep whole clauses as keywords. Those rounds step
+   down a size rather than spill onto a third line — lib/rounds.js decides, and
+   check_rounds.mjs asserts the result. */
+.chips.is-compact .chip {
+  font-size: 12px;
+  padding: 8px 11px;
+}
+
 /* After Check: what you got, what you shouldn't have, what you missed. */
 .chip.is-correct {
   background: rgba(107, 191, 123, 0.14);

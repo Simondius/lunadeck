@@ -8,7 +8,8 @@ import Link from "next/link";
 // labelled "first exposure" and it is a multiple-choice question, so the
 // learner's first encounter with a card was a guess, and the meaning only
 // appeared in the reveal afterwards. This shows the card first: its art, its
-// symbol, its keywords and what it means. Then the section tests it.
+// name and its keywords — and says plainly that the keywords are what comes
+// back. Then the section tests it.
 //
 // Every string here already exists in data/ — nothing about a card is authored
 // in the app, per CLAUDE.md.
@@ -33,7 +34,6 @@ export default function Intro({ intro, unitNumber, unitName, sectionLabel, onSta
             <img src={intro.card.image} alt={intro.card.name} />
           </div>
           <p className="draw-name">{intro.card.name}</p>
-          {intro.card.symbol ? <p className="draw-line">{intro.card.symbol}</p> : null}
 
           {intro.card.keywords.length ? (
             <div className="anchor is-centred">
@@ -45,8 +45,11 @@ export default function Intro({ intro, unitNumber, unitName, sectionLabel, onSta
             </div>
           ) : null}
 
-          {/* One line, not the whole entry — see getCardIntro. */}
-          <p className="unit-intro">{intro.card.opener}</p>
+          {/* The screen ends on what the next few minutes will ask for rather
+              than on more to read. The symbol and the opening line are still on
+              the card's own page in the deck, for whenever the learner goes
+              looking; a first meeting doesn't need them. */}
+          <p className="remember">Remember these — you'll be quizzed on them next.</p>
         </>
       ) : (
         <>

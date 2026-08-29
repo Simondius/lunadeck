@@ -571,6 +571,17 @@ a { color: inherit; text-decoration: none; }
   text-wrap: pretty;
 }
 
+/* The teaching screen's closing line. Accent rather than body grey, because
+   it is an instruction about what happens next, not more to read. */
+.remember {
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--accent);
+  margin: 0 0 18px;
+  text-wrap: pretty;
+}
+
 /* Row of the unit's eight cards; unknown ones are desaturated. */
 .card-row { display: flex; gap: 6px; margin-bottom: 18px; }
 

@@ -163,7 +163,6 @@ export default function PathScreen({ entries, totalNodes }) {
 
                   const body = (
                     <>
-                      {isCurrent ? <span className="trail-callout">Start</span> : null}
                       <span className="trail-node">
                         {entry.image ? <img src={entry.image} alt="" /> : null}
                         {isDone ? (

@@ -43,6 +43,26 @@ element pins to the frame, so what you see on desktop is what a phone gets.
 `.session` and `.complete` get `min-height: 0` inside the frame, since `100dvh`
 measures the window and would otherwise overflow it.
 
+## Correction, same day
+
+The first version of this made the frame both the containing block *and* the
+scroll container, which broke every fixed element it was supposed to preview.
+A `position: fixed` element whose containing block is a transformed ancestor
+resolves against that ancestor's padding box — and for a scrolling element that
+box includes the scrolled content, so the tab bar, the lesson footer and the
+unit page's resume button all scrolled away with the page instead of staying
+put. Measured: scrolling 700px moved the tab bar 293px up into the middle of
+the content.
+
+The two roles are now separated. `.app-frame` keeps the transform and the
+shape at `overflow: hidden`; an inner `.app-scroll` does the scrolling. Fixed
+descendants still resolve against the frame, which no longer moves. Verified
+pinned at full scroll on all three: tab bar at the frame's bottom, resume
+button 74px above it (`--tabbar`), lesson footer at the bottom with the tab bar
+suppressed.
+
+Below 900px both wrappers are inert and the document scrolls as before.
+
 ## Consequences
 
 This is a preview affordance, not a desktop design. The app is still mobile —

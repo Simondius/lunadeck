@@ -111,6 +111,25 @@ function checkA(round, where) {
   }
 }
 
+// A round that quizzes a card's own content has to say what it assumes the
+// learner was shown, or the play page cannot put a teaching beat in front of
+// it and the section quizzes material nobody taught. That is how the symbol
+// formats went three decisions with no teaching at all (0018) — nothing failed,
+// the screen just quietly asked for something the course had stopped showing.
+//
+// A3 is the one exemption: it tests a category, not the card's content.
+const TEACHLESS = new Set(["A3"]);
+
+function checkTeaches(round, node, where) {
+  if (TEACHLESS.has(node.formatCode)) return;
+  if (!round.teaches) {
+    fail(where, "declares no needs() topic — the play page cannot teach it");
+    return;
+  }
+  if (!round.teachesFor?.length)
+    fail(where, `needs("${round.teaches}") names no cards`);
+}
+
 function checkK(round, where) {
   if (!round.chips?.length) return fail(where, "no keyword chips");
   const correct = round.chips.filter((c) => c.correct);
@@ -189,6 +208,7 @@ for (const unit of await getUnits()) {
     node.instances.forEach((round, i) => {
       instanceCount++;
       const where = `${node.nodeId} ${node.formatCode} #${i + 1}`;
+      checkTeaches(round, node, where);
       if (round.kind === "A") checkA(round, where);
       else if (round.kind === "B") checkB(round, where);
       else if (round.kind === "C") checkC(round, where);

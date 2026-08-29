@@ -965,9 +965,38 @@ a { color: inherit; text-decoration: none; }
 
 .reference-art img { display: block; width: 100%; max-height: 33dvh; }
 
-/* The teaching beat reuses the frame but has nothing to open, so it doesn't
-   claim to. */
-div.reference-art { cursor: default; }
+/* The teaching beat reuses these frames but has nothing to open, so it
+   doesn't claim to. */
+div.reference-art, div.reference-symbol { cursor: default; }
+
+/* Reading notes and symbol phrases, listed rather than run together — the
+   round that follows joins them into a sentence, and a beat that matched it
+   word for word would be a copying exercise. */
+.teach-list {
+  margin: 0 0 18px;
+  padding: 0 0 0 18px;
+  list-style: none;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted-warm);
+  text-wrap: pretty;
+}
+
+.teach-list li {
+  position: relative;
+  margin-bottom: 7px;
+}
+
+.teach-list li::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 9px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
 
 /* Symbol art is a glyph on an opaque white plate, so the plate keeps its
    own colour and the accent sits in the frame around it. */

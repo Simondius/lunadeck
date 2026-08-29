@@ -47,16 +47,9 @@ function toSteps(nodes) {
     // A teaching beat sits in front of the node that needs it. It is not a
     // node: no XP, nothing to miss, never queued for review — a screen you
     // pass through, like the section intro.
-    if (node.teach) {
-      steps.push({
-        node,
-        nodeIndex,
-        teach: node.teach,
-        round: null,
-        instance: 0,
-        instanceCount: 1,
-      });
-    }
+    (node.teach ?? []).forEach((teach) => {
+      steps.push({ node, nodeIndex, teach, round: null, instance: 0, instanceCount: 1 });
+    });
     node.instances.forEach((round, instance) => {
       steps.push({
         node,
@@ -249,7 +242,7 @@ export default function Session({
       </div>
 
       {step.teach ? (
-        <Teach teach={step.teach} meta={meta} onDone={advance} />
+        <Teach key={`teach-${node.nodeId}-${step.teach.topic}`} teach={step.teach} meta={meta} onDone={advance} />
       ) : Format ? (
         <Format
           key={`${reviewing ? "review" : "play"}-${node.nodeId}-${instance}`}

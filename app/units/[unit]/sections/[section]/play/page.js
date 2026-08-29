@@ -6,6 +6,7 @@ import {
   getSession,
   getCardNames,
   getCardIntro,
+  getCardPage,
   circleForKey,
 } from "@/lib/data";
 import { masterForKey } from "@/lib/rounds";
@@ -22,6 +23,49 @@ export async function generateStaticParams() {
     }
   }
   return params;
+}
+
+// One beat per kind of thing a section can be the first to ask about. Every
+// string comes from data/ — selected or split, never written (CLAUDE.md).
+function teachingBeat(topic, card, page) {
+  if (topic === "meaning") {
+    if (!card.opener) return null;
+    return {
+      topic,
+      eyebrow: "New meaning",
+      title: "What it means",
+      art: { kind: "card", image: card.image, label: card.name },
+      body: card.opener,
+    };
+  }
+
+  if (topic === "notes") {
+    const points = page?.points ?? [];
+    if (points.length === 0) return null;
+    return {
+      topic,
+      eyebrow: "New reading notes",
+      title: "How it reads",
+      art: { kind: "card", image: card.image, label: card.name },
+      // A list, where the round that follows joins them into a sentence: the
+      // same notes, not the same shape, so the answer isn't a matched string.
+      items: points.slice(0, 3),
+    };
+  }
+
+  if (topic === "symbol") {
+    const symbol = page?.symbol;
+    if (!symbol?.image) return null;
+    return {
+      topic,
+      eyebrow: "New symbol",
+      title: "Its symbol",
+      art: { kind: "symbol", image: symbol.image, label: symbol.label },
+      items: symbol.phrases.slice(0, 4),
+    };
+  }
+
+  return null;
 }
 
 export default async function PlayPage({ params }) {
@@ -63,20 +107,33 @@ export default async function PlayPage({ params }) {
   }
 
   // Teaching arrives just before the thing it teaches, not all at once up
-  // front. The intro screen covers the keywords and the keyword round asks for
-  // exactly those; the meaning is the next thing the section asks for that the
-  // learner has not been shown, so it gets its own beat immediately before
-  // that round. Only where this really is a first meeting: a review section
-  // re-serving a card the learner already met needs no teaching.
-  if (card?.opener && section.kind === "standard") {
-    // Matched on the round's answerKey, not the node: the node shape that
-    // reaches the client carries no card key, only the round does.
-    const first = nodes.find((node) =>
-      node.instances?.some(
-        (round) => round.teaches === "meaning" && round.answerKey === section.cardKey
-      )
-    );
-    if (first) first.teach = { name: card.name, image: card.image, body: card.opener };
+  // front. Every round declares what it assumes the learner has been shown
+  // (lib/rounds.js `needs`); this walks the section in order and drops a beat
+  // in front of the first round that assumes something about this card the
+  // section hasn't shown yet.
+  //
+  // Only in the section that introduces the card. A review section re-serving
+  // a card the learner already met is not a first meeting, and a recap has no
+  // new card at all.
+  if (card && section.kind === "standard") {
+    const teaching = await getCardPage(section.cardKey);
+    // The intro screen is the keywords beat; it has already run by the time
+    // any of this plays.
+    const taught = new Set(["keywords"]);
+
+    for (const node of nodes) {
+      for (const round of node.instances ?? []) {
+        const topic = round.teaches;
+        if (!topic || taught.has(topic)) continue;
+        // Matched on the round's own card list, not the node's: the node shape
+        // that reaches the client carries no card key, only the round does.
+        if (!round.teachesFor?.includes(section.cardKey)) continue;
+        const beat = teachingBeat(topic, card, teaching);
+        if (!beat) continue;
+        taught.add(topic);
+        node.teach = [...(node.teach ?? []), beat];
+      }
+    }
   }
 
   const intro = card

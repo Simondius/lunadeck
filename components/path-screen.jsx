@@ -92,12 +92,16 @@ export default function PathScreen({ entries, totalNodes }) {
           <p className="standfirst">{known} of 78 cards known</p>
         </div>
 
-        <div className="streak">
+        {/* Flame and number only. Labelled as one element so a screen reader
+            still hears "3 day streak" rather than a bare number beside a
+            decorative flame. */}
+        <div
+          className="streak"
+          role="img"
+          aria-label={`${progress.streakDays} day streak`}
+        >
           <Flame />
           <span className="streak-count">{progress.streakDays}</span>
-          <span className="streak-label">
-            day{progress.streakDays === 1 ? "" : "s"}
-          </span>
         </div>
       </header>
 

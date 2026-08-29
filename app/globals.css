@@ -125,39 +125,22 @@ a { color: inherit; text-decoration: none; }
 /* The streak earns its corner: a real flame, the count in display type, and a
    label under it, rather than a chip that reads as a stray tag. */
 .streak {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  display: flex;
   align-items: center;
-  justify-items: start;
-  align-content: center;
-  column-gap: 10px;
-  padding: 9px 15px;
+  gap: 10px;
+  padding: 9px 16px;
   border: 1px solid var(--accent-a30);
   border-radius: 16px;
   background: linear-gradient(140deg, rgba(143, 82, 196, 0.14), rgba(12, 10, 20, 0));
   text-align: left;
 }
 
-.streak-flame { grid-row: 1 / 3; align-self: center; }
-
 .streak-count {
-  align-self: end;
   font-family: var(--display);
   font-size: 28px;
   font-weight: 600;
   line-height: 1;
   color: var(--parchment);
-}
-
-.streak-label {
-  align-self: start;
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 4px;
 }
 
 .streak-flame {

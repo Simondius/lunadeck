@@ -7,8 +7,10 @@ import { usePathname } from "next/navigation";
 const TABS = [
   { href: "/", label: "PATH", glyph: "" },
   { href: "/deck", label: "DECK", glyph: " is-deck" },
-  { href: "/trials", label: "TRIALS", glyph: " is-trials" },
-  { href: "/draw", label: "DRAW", glyph: " is-draw" },
+  // The nightly draw lives inside the Reader, so there is no separate Draw
+  // tab. Trials is gone until the Challenge tab is actually wanted; its spec
+  // is still in specs/ when it is.
+  { href: "/reader", label: "READER", glyph: " is-draw" },
 ];
 
 export default function TabBar() {

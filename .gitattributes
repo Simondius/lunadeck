@@ -3,4 +3,5 @@
 
 # Binary assets
 *.png binary
+*.webp binary
 *.pdf binary

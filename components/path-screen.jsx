@@ -2,7 +2,18 @@
 
 import Link from "next/link";
 import { useProgress } from "@/components/use-progress";
-import { countComplete, isSectionComplete, today } from "@/lib/progress";
+import { countComplete, isSectionComplete } from "@/lib/progress";
+
+// Spec_Meta_Hygiene_Systems 7.2 calls for a flame-and-count chip; the violet
+// handoff drew a plain dot instead. Inline rather than an icon file, so it
+// takes its colour and glow from the stylesheet like every other glyph here.
+function Flame() {
+  return (
+    <svg className="streak-flame" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13 2c0 3.4-4.2 4.6-4.2 8.6a3 3 0 0 0 6 0c0-1.4-.7-2.2-.7-3.3 1.8 1.3 3.2 3.4 3.2 5.9a6.3 6.3 0 0 1-12.6 0C4.7 7.6 11 6.6 13 2Z" />
+    </svg>
+  );
+}
 
 // Minutes left, at the curriculum's own "typical" pace of 90s per node.
 function minutesFor(nodeCount) {
@@ -43,8 +54,6 @@ export default function PathScreen({ units, totalNodes }) {
     unit?.sections.find((s) => !isSectionComplete(progress, s.nodeIds)) ??
     unit?.sections.at(-1);
 
-  const drawReady = progress.lastDrawDate !== today();
-
   return (
     <main className="shell starfield">
       <header className="masthead">
@@ -58,12 +67,9 @@ export default function PathScreen({ units, totalNodes }) {
         </div>
         <div className="masthead-aside">
           <span className="streak">
-            <span className="streak-dot" aria-hidden="true" />
+            <Flame />
             {progress.streakDays} day{progress.streakDays === 1 ? "" : "s"}
           </span>
-          <p className="standfirst">
-            {drawReady ? "Daily draw ready" : "Drawn for today"}
-          </p>
         </div>
       </header>
 

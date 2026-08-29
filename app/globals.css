@@ -670,9 +670,28 @@ a { color: inherit; text-decoration: none; }
 
 /* --- deck tab ------------------------------------------------------- */
 
-.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+/* The filters are a control; the standfirst above them is a sentence. They
+   were sharing a gap of nothing.
+
+   One row that scrolls rather than six chips wrapping onto two — a stranded
+   "Pentacles" under the others read as clutter, and the row is short enough
+   that the last chip peeking off the edge is affordance enough. */
+.filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 20px -20px 24px;
+  padding: 0 20px;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+
 
 .filter {
+  flex: none;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
@@ -700,14 +719,35 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--accent-a30);
 }
 
+/* Four across rather than five: the names have to fit under them, and a card
+   nobody can name is not a collection, it is wallpaper. */
 .collection {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 11px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px 10px;
+  margin-bottom: 26px;
 }
 
+.card-slot {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.slot-name {
+  display: block;
+  margin-top: 7px;
+  font-size: 10.5px;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--muted-warm);
+  text-wrap: balance;
+}
+
+.card-slot.is-locked .slot-name { color: var(--faint); }
+
 .slot {
+  display: block;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -719,12 +759,12 @@ a { color: inherit; text-decoration: none; }
 /* Not learned yet: the same treatment the path gives a section it has not
    reached, so the two screens agree about what "you haven't met this" looks
    like. */
-.slot.is-locked {
+.card-slot.is-locked .slot {
   box-shadow: 0 0 0 1px rgba(242, 237, 227, 0.1);
   opacity: 0.72;
 }
 
-.slot.is-locked img { filter: grayscale(1) brightness(0.55); }
+.card-slot.is-locked .slot img { filter: grayscale(1) brightness(0.55); }
 
 /* --- the reader ----------------------------------------------------- */
 

@@ -43,8 +43,8 @@ export default function DeckScreen({ groups, sections }) {
 
       <p className="standfirst">
         {known.size === 0
-          ? "Tap any card to meet it — or start its lesson from there"
-          : "Tap a card you know to read it in full, or any other to go and learn it"}
+          ? "Tap any card to go and learn it"
+          : "Tap any card — read it, or go and learn it"}
       </p>
 
       <div className="filters">
@@ -77,13 +77,13 @@ export default function DeckScreen({ groups, sections }) {
             {group.cards.map((card) => (
               <Link
                 key={card.key}
-                className={known.has(card.key) ? "slot" : "slot is-locked"}
+                className={known.has(card.key) ? "card-slot" : "card-slot is-locked"}
                 href={`/deck/${card.key}`}
-                aria-label={
-                  known.has(card.key) ? card.name : `${card.name} — not learned yet`
-                }
               >
-                <img src={card.circle} alt="" />
+                <span className="slot">
+                  <img src={card.circle} alt="" />
+                </span>
+                <span className="slot-name">{card.name}</span>
               </Link>
             ))}
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { seededShuffle } from "@/lib/rounds";
 import { Footer } from "./options";
 
@@ -17,13 +17,23 @@ export default function FormatC({ round, meta, formatLine, onAdvance }) {
   const [wrongPair, setWrongPair] = useState(null);
   // The Bible logs every wrong attempt on a board, not just the first.
   const [wrongCount, setWrongCount] = useState(0);
+  const resetTimer = useRef(null);
 
   // Seeded per board, not per board size — otherwise every 3-row board in the
   // curriculum would shuffle to the same order.
-  const rightOrder = useMemo(
-    () => seededShuffle(round.pairs.map((p) => p.key), `${round.seed}-right`),
-    [round]
-  );
+  // A plain Fisher-Yates lands on the identity permutation half the time at 2
+  // rows and one time in six at 3 — and an identity board is solvable straight
+  // down the column without reading anything. Re-seed until it isn't.
+  const rightOrder = useMemo(() => {
+    const keys = round.pairs.map((p) => p.key);
+    if (keys.length < 2) return keys;
+    for (let attempt = 0; attempt < 8; attempt++) {
+      const order = seededShuffle(keys, `${round.seed}-right-${attempt}`);
+      if (order.some((key, i) => key !== keys[i])) return order;
+    }
+    // Vanishingly unlikely; rotating by one is still not the identity.
+    return [...keys.slice(1), keys[0]];
+  }, [round]);
 
   const complete = matched.length === round.pairs.length;
 
@@ -36,12 +46,16 @@ export default function FormatC({ round, meta, formatLine, onAdvance }) {
     } else {
       setWrongPair({ left: selectedLeft, right: key });
       setWrongCount((n) => n + 1);
-      setTimeout(() => {
+      // Held so a later selection isn't cancelled by an older round's timer.
+      clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => {
         setWrongPair(null);
         setSelectedLeft(null);
       }, 500);
     }
   }
+
+  useEffect(() => () => clearTimeout(resetTimer.current), []);
 
   function leftState(key) {
     if (matched.includes(key)) return "matched";

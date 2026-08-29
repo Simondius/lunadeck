@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useProgress } from "@/components/use-progress";
 import {
   isSectionComplete,
@@ -22,6 +23,16 @@ function promptFor(card, reversed) {
 export default function DrawScreen({ deck }) {
   const progress = useProgress();
   const day = today();
+
+  // Rendered after mount only: toLocaleDateString runs in the server's timezone
+  // during SSR and the browser's on hydration, which differ either side of
+  // midnight and mismatch.
+  const [date, setDate] = useState("");
+  useEffect(() => {
+    setDate(
+      new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long" })
+    );
+  }, []);
   const already = drawnToday(progress, day);
 
   const known = new Set();
@@ -32,8 +43,13 @@ export default function DrawScreen({ deck }) {
       known.add(section.cardKey);
     }
   }
-  const currentUnit =
-    deck.cards.find((c) => !known.has(c.key))?.unit ?? deck.cards.at(-1)?.unit ?? 1;
+  // The unit the learner is actually in — the first section they haven't
+  // finished. Reading it off the first unknown card in deck order would jump
+  // around, since deck order is the printed deck, not the teaching order.
+  const pending = (deck.sections ?? []).find(
+    (section) => !isSectionComplete(progress, section.nodeIds)
+  );
+  const currentUnit = pending?.unit ?? 1;
 
   const result = already
     ? {
@@ -48,11 +64,6 @@ export default function DrawScreen({ deck }) {
         currentUnit,
         seed: day,
       });
-
-  const date = new Date().toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-  });
 
   if (!result || !result.card) {
     return (

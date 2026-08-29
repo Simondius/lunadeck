@@ -8,12 +8,28 @@ const LONG_PRESS_MS = 400;
 // without changing the selection. A quick tap never triggers inspect.
 // `variant` picks the tile shape: "card" keeps the deck's portrait ratio,
 // "symbol" the squarer icon tile the Format Bible calls for.
-export function ImageOption({ option, state, onSelect, onInspect, variant = "card" }) {
+export function ImageOption({
+  option,
+  state,
+  onSelect,
+  onInspect,
+  onRelease,
+  variant = "card",
+}) {
   const timer = useRef(null);
   const longPressed = useRef(false);
 
-  function start() {
+  function start(event) {
     longPressed.current = false;
+    // Without capture the inspector opens under the cursor mid-press, and a
+    // mouse pointerup hit-tests to the overlay instead of this button — so the
+    // overlay closes itself the instant you let go. Touch gets implicit
+    // capture; mouse and pen do not.
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      // Not fatal — worst case the old hit-testing behaviour returns.
+    }
     timer.current = setTimeout(() => {
       longPressed.current = true;
       onInspect();
@@ -22,9 +38,12 @@ export function ImageOption({ option, state, onSelect, onInspect, variant = "car
 
   function end() {
     clearTimeout(timer.current);
-    if (!longPressed.current && state !== "eliminated" && state !== "locked") {
-      onSelect();
+    if (longPressed.current) {
+      // Releasing the press returns to the board, per the Style Guide.
+      onRelease?.();
+      return;
     }
+    if (state !== "eliminated" && state !== "locked") onSelect();
   }
 
   useEffect(() => () => clearTimeout(timer.current), []);

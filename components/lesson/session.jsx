@@ -13,6 +13,23 @@ import { completeSection, hintsLeft, sectionKey } from "@/lib/progress";
 
 const FORMATS = { A: FormatA, B: FormatB, C: FormatC };
 
+// Never leave the learner on a screen with no exit.
+function Stranded({ href, message }) {
+  return (
+    <main className="session">
+      <div className="topbar">
+        <Link className="quit" href={href} aria-label="Leave lesson">
+          ✕
+        </Link>
+      </div>
+      <p className="prompt">{message}</p>
+      <Link className="action" href={href}>
+        Back to the unit
+      </Link>
+    </main>
+  );
+}
+
 // A node can expand into several instances of its format — a six-card sort is
 // six sorts, an eight-card recap is three boards. The session plays them back
 // to back; the node is what the curriculum counts and what progress records,
@@ -55,6 +72,9 @@ export default function Session({ unitNumber, unitName, section, nodes, completi
 
   const progress = useProgress();
   const key = sectionKey(unitNumber, section.section);
+  // The ✕ during play goes to the Path per Spec_MainPath 7.4; a stranded
+  // screen is a fault, so it points back at the unit the learner came from.
+  const backHref = `/units/${unitNumber}`;
   const hintsRemaining = Math.max(0, hintsLeft(progress, key) - hintsUsed);
 
   const commit = useCallback(() => {
@@ -127,13 +147,23 @@ export default function Session({ unitNumber, unitName, section, nodes, completi
     );
   }
 
-  if (phase === "complete" && completion) {
-    return <Complete completion={completion} nodeIds={nodes.map((n) => n.nodeId)} />;
+  if (phase === "complete") {
+    // Falling through here would re-render the last played step and loop the
+    // learner back around through the bridge forever.
+    return completion ? (
+      <Complete completion={completion} nodeIds={nodes.map((n) => n.nodeId)} />
+    ) : (
+      <Stranded href={backHref} message="Lesson finished." />
+    );
   }
 
   const reviewing = phase === "review";
   const step = reviewing ? steps[queue[reviewIndex]] : steps[index];
-  if (!step) return null;
+  if (!step) {
+    // The tab bar is suppressed on /play, so a bare `return null` would leave a
+    // blank screen with no navigation at all.
+    return <Stranded href={backHref} message="There is nothing to play here." />;
+  }
 
   const { node, round, instance, instanceCount } = step;
   const Format = round ? FORMATS[round.kind] : null;

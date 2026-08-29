@@ -12,9 +12,13 @@ function minutesFor(nodeCount) {
 export default function PathScreen({ units, totalNodes }) {
   const progress = useProgress();
 
+  // Counted against the nodes that actually exist, not unit_metadata's
+  // total_node_count — one stale cell there would leave a finished unit
+  // permanently incomplete and lock every unit after it.
   const rows = units.map((unit) => {
+    const total = unit.nodeIds.length;
     const done = countComplete(progress, unit.nodeIds);
-    return { ...unit, done, complete: done === unit.nodeCount };
+    return { ...unit, total, done, complete: total > 0 && done === total };
   });
 
   // The first unit that isn't finished is the one in play; everything after it
@@ -33,7 +37,8 @@ export default function PathScreen({ units, totalNodes }) {
     }
   }
 
-  const unit = rows[current];
+  const unit = rows[current] ?? null;
+  if (!unit) return null;
   const activeSection =
     unit?.sections.find((s) => !isSectionComplete(progress, s.nodeIds)) ??
     unit?.sections.at(-1);
@@ -71,7 +76,7 @@ export default function PathScreen({ units, totalNodes }) {
       >
         <div
           className="overall-fill"
-          style={{ width: `${(completedNodes / totalNodes) * 100}%` }}
+          style={{ width: totalNodes ? `${(completedNodes / totalNodes) * 100}%` : "0%" }}
         />
       </div>
       <p className="overall-note">
@@ -84,7 +89,7 @@ export default function PathScreen({ units, totalNodes }) {
           const state =
             row.complete ? "is-done" : index === current ? "is-current" : index < current ? "is-done" : "is-locked";
           const locked = state === "is-locked";
-          const ratio = row.nodeCount ? row.done / row.nodeCount : 0;
+          const ratio = row.total ? row.done / row.total : 0;
 
           const body = (
             <>
@@ -106,12 +111,12 @@ export default function PathScreen({ units, totalNodes }) {
                 <span className="stop-meta">
                   {locked
                     ? row.unlockRequirement
-                    : `${row.done} / ${row.nodeCount} · ${row.cardCount} cards`}
+                    : `${row.done} / ${row.total} · ${row.cardCount} cards`}
                 </span>
                 {index === current && !row.complete ? (
                   <span className="stop-cta">
                     {row.done ? "Continue" : "Start"} ·{" "}
-                    {minutesFor(row.nodeCount - row.done)} min
+                    {minutesFor(row.total - row.done)} min
                   </span>
                 ) : null}
               </span>

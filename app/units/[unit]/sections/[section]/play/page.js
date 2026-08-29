@@ -88,6 +88,10 @@ export default async function PlayPage({ params }) {
 
   return (
     <Session
+      // The completion screen links straight to the next section. Keying on
+      // the section guarantees a fresh state machine rather than relying on the
+      // router to remount a subtree whose only changed segment is a param.
+      key={`${unit.number}-${section.section}`}
       unitNumber={unit.number}
       unitName={unit.name}
       section={section}

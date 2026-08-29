@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test"
+    "test": "node --test && node scripts/check_rounds.mjs"
   },
   "dependencies": {
     "next": "^16.3.3",

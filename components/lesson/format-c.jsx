@@ -15,6 +15,8 @@ export default function FormatC({ round, meta, formatLine, onAdvance }) {
   const [selectedLeft, setSelectedLeft] = useState(null);
   const [matched, setMatched] = useState([]);
   const [wrongPair, setWrongPair] = useState(null);
+  // The Bible logs every wrong attempt on a board, not just the first.
+  const [wrongCount, setWrongCount] = useState(0);
 
   // Seeded per board, not per board size — otherwise every 3-row board in the
   // curriculum would shuffle to the same order.
@@ -33,6 +35,7 @@ export default function FormatC({ round, meta, formatLine, onAdvance }) {
       setSelectedLeft(null);
     } else {
       setWrongPair({ left: selectedLeft, right: key });
+      setWrongCount((n) => n + 1);
       setTimeout(() => {
         setWrongPair(null);
         setSelectedLeft(null);
@@ -105,7 +108,7 @@ export default function FormatC({ round, meta, formatLine, onAdvance }) {
       <Footer
         label={complete ? "Next" : null}
         disabled={!complete}
-        onClick={onAdvance}
+        onClick={() => onAdvance({ missed: wrongCount > 0 })}
         meta={meta}
       />
     </>

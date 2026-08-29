@@ -107,7 +107,7 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
       <Footer
         label={solved ? "Next" : "Check"}
         disabled={!solved && !selected}
-        onClick={solved ? onAdvance : check}
+        onClick={solved ? () => onAdvance({ missed: eliminated.length > 0 }) : check}
         meta={meta}
       />
     </>

@@ -1404,5 +1404,49 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 6px;
 }
 
+/* The face-down deck is a button before it is a card. */
+button.draw-art {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* The draw is a centred composition — card, name and line share one axis.
+   The prose underneath stays left-aligned so it reads as text. */
+.draw-name, .draw-line { text-align: center; }
+
+/* A reversed pull rotates the whole card, the way a real deck would. */
+.draw-art img.is-reversed { transform: rotate(180deg); }
+
+/* Keyword chips are centred on the draw screen, left-packed in a lesson. */
+.anchor.is-centred { justify-content: center; }
+
+/* Deck header count: known in accent over the total in muted. */
+.deck-count {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.deck-count b { color: var(--accent); font-weight: 600; }
+
+/* The deck tab opens a card's meaning in the existing inspector overlay,
+   which was only ever built to show art and a name. */
+.inspector-text {
+  max-width: 34ch;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted-warm);
+  text-align: center;
+}
+
+/* Deck slots are buttons once they open something. */
+button.slot { padding: 0; border: none; cursor: pointer; font: inherit; }
+button.slot.is-empty { cursor: default; }
+
 .debug-row b { color: var(--accent); font-weight: 400; }
 .debug-row i { color: var(--muted-warm); font-style: normal; font-family: var(--body); font-size: 12px; }

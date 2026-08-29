@@ -5,6 +5,7 @@ import Link from "next/link";
 import FormatA from "./format-a";
 import FormatB from "./format-b";
 import FormatC from "./format-c";
+import Intro from "./intro";
 import Bridge from "./bridge";
 import Complete from "./complete";
 import { Footer } from "./options";
@@ -54,13 +55,20 @@ function toSteps(nodes) {
   return steps;
 }
 
-export default function Session({ unitNumber, unitName, section, nodes, completion }) {
+export default function Session({
+  unitNumber,
+  unitName,
+  section,
+  nodes,
+  completion,
+  intro,
+}) {
   const steps = useMemo(() => toSteps(nodes), [nodes]);
 
-  // play → bridge → review → complete. Nothing is written to the store until
-  // the section is finished: Spec_MainPath 7.4 says a section is either fully
-  // completed, review queue included, or it didn't happen.
-  const [phase, setPhase] = useState("play");
+  // intro → play → bridge → review → complete. Nothing is written to the store
+  // until the section is finished: Spec_MainPath 7.4 says a section is either
+  // fully completed, review queue included, or it didn't happen.
+  const [phase, setPhase] = useState(intro ? "intro" : "play");
   const [index, setIndex] = useState(0);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [hintHandler, setHintHandler] = useState(null);
@@ -133,6 +141,18 @@ export default function Session({ unitNumber, unitName, section, nodes, completi
     },
     [phase, reviewIndex, queue, steps, index, commit]
   );
+
+  if (phase === "intro") {
+    return (
+      <Intro
+        intro={intro}
+        unitNumber={unitNumber}
+        unitName={unitName}
+        sectionLabel={completion?.sectionLabel ?? `Section ${section.section}`}
+        onStart={() => setPhase("play")}
+      />
+    );
+  }
 
   if (phase === "bridge") {
     return (

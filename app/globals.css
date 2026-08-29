@@ -167,93 +167,130 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* --- the path ------------------------------------------------------- */
+/* One continuous scroll of every section in the curriculum, with each unit's
+   banner inline before its first section — Spec_MainPath Section 3. The units
+   are chapter headings; the sections are the path. */
 
-.path {
+.trail {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 40px;
   position: relative;
 }
 
-/* Dotted spine, now centred so stops can alternate sides. */
-.path::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(242, 237, 227, 0.22) 0 3px,
-    transparent 3px 9px
-  );
-}
-
-.stop {
-  position: relative;
+/* Unit banner, inline in the scroll rather than pinned. */
+.trail-unit {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 0 0 22px;
+  gap: 12px;
+  margin: 34px 0 26px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--accent-a30);
+  text-align: left;
 }
 
-/* Every second stop mirrors to the right of the spine. */
-.path li:nth-child(even) .stop {
-  flex-direction: row-reverse;
-  text-align: right;
+.trail li:first-child .trail-unit { margin-top: 6px; }
+
+.trail-unit-index {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 4px;
 }
 
-/* The art sits on one edge and the body on the other, so each stop keeps to
-   its own half and the dotted spine runs down the gap between them. Without
-   this the body starts immediately after the art and the spine is drawn
-   straight through every title and tagline. */
-.stop-body { flex: 0 0 48%; }
+.trail-unit-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
 
-/* Progress ring. Set --p (0-1) per unit; the conic-gradient is the ring. */
-.stop-art {
-  --p: 0;
-  position: relative;
-  width: 84px;
-  height: 84px;
+.trail-unit-tagline {
+  display: block;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.trail-guide {
   flex: none;
-  border-radius: 50%;
-  padding: 3px;
-  background: conic-gradient(
-    var(--accent) 0 calc(var(--p) * 100%),
-    rgba(242, 237, 227, 0.1) calc(var(--p) * 100%) 100%
-  );
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--accent-bright);
+  border: 1px solid var(--accent-a30);
+  border-radius: 999px;
+  padding: 6px 11px;
 }
 
-.stop-art img {
+/* A section. --x is set per node to wind the trail down the screen. */
+.trail-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 11px 0;
+  transform: translateX(var(--x, 0px));
+}
+
+.trail-node {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--raised);
+  box-shadow: inset 0 0 0 1px rgba(242, 237, 227, 0.08);
+  overflow: hidden;
+}
+
+.trail-node img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
   display: block;
-  border: 2px solid var(--ink);
-  background: var(--raised);
 }
 
-/* The unit currently in play is larger and lit. */
-.stop.is-current .stop-art {
-  width: 96px;
-  height: 96px;
-  padding: 4px;
-  box-shadow: 0 0 32px rgba(143, 82, 196, 0.28);
+/* A recap covers a whole unit rather than one card, so it is a diamond
+   instead of a circle — legible at a glance while scrolling. */
+.trail-step.is-recap .trail-node {
+  border-radius: 12px;
+  transform: rotate(45deg);
+  width: 62px;
+  height: 62px;
 }
 
-.stop.is-done .stop-art { box-shadow: 0 0 22px rgba(143, 82, 196, 0.18); }
-.stop.is-locked { opacity: 0.42; }
-.stop.is-locked .stop-art { background: rgba(242, 237, 227, 0.1); }
-.stop.is-locked .stop-art img { filter: grayscale(1); }
+.trail-step.is-recap .trail-glyph { transform: rotate(-45deg); }
 
-/* Completion tick, bottom outer corner of the ring. */
-.stop-tick {
+.trail-lock {
+  width: 22px;
+  height: 22px;
+  fill: var(--faint);
+}
+
+.trail-step.is-recap .trail-lock { transform: rotate(-45deg); }
+
+/* The one in play needs no glyph — the fill and the halo are the signal. */
+.trail-step.is-current .trail-node {
+  background: linear-gradient(140deg, var(--accent), var(--accent-dim));
+}
+
+/* Completed. */
+.trail-step.is-done .trail-node {
+  box-shadow: 0 0 0 2px var(--accent), 0 0 20px rgba(143, 82, 196, 0.22);
+}
+
+.trail-tick {
   position: absolute;
-  bottom: -2px;
   right: -2px;
+  bottom: -2px;
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -266,61 +303,65 @@ a { color: inherit; text-decoration: none; }
   border: 2px solid var(--ink);
 }
 
-.path li:nth-child(even) .stop-tick { right: auto; left: -2px; }
+.trail-step.is-recap .trail-tick { transform: rotate(-45deg); right: -8px; bottom: -8px; }
 
-/* Spacing inside a stop follows the design's own scale (4 / 6 / 7 / 10 / 14).
-   As written the eyebrow, title, tagline and meta were 1-8px apart and the CTA
-   had no top margin at all, so the button sat flush against the meta line. */
-.stop-index {
-  display: block;
+/* The one in play: larger, lit, with a callout above it. */
+.trail-step.is-current .trail-node {
+  width: 90px;
+  height: 90px;
+  box-shadow:
+    0 0 0 3px var(--accent),
+    0 0 34px rgba(143, 82, 196, 0.4);
+  animation: haloPulse 2.6s ease-in-out infinite;
+}
+
+.trail-step.is-current.is-recap .trail-node { width: 76px; height: 76px; }
+
+@keyframes haloPulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--accent), 0 0 30px rgba(143, 82, 196, 0.32); }
+  50% { box-shadow: 0 0 0 3px var(--accent), 0 0 46px rgba(143, 82, 196, 0.55); }
+}
+
+.trail-callout {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-
-.stop-name {
-  display: block;
-  font-family: var(--display);
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin: 0 0 6px;
-}
-
-.stop.is-current .stop-name {
-  font-size: 22px;
-  letter-spacing: -0.015em;
-  margin-bottom: 7px;
-}
-
-.stop-tagline {
-  display: block;
-  font-size: 12px;
-  line-height: 1.45;
-  color: var(--muted-warm);
-  max-width: 22ch;
-  margin-bottom: 10px;
-}
-
-.stop-meta {
-  display: block;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--muted);
-}
-
-/* Inline continue button on the current stop. */
-.stop-cta {
-  display: inline-block;
-  margin-top: 14px;
-  background: var(--accent);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
   color: var(--accent-ink);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 9px 18px;
+  background: var(--accent);
   border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 9px;
+}
+
+/* Locked: no card identity, so the path doesn't spoil what's coming. */
+.trail-step.is-locked .trail-node { background: rgba(242, 237, 227, 0.05); }
+.trail-step.is-locked { opacity: 0.5; }
+
+.trail-label {
+  display: block;
+  margin-top: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 15ch;
+}
+
+.trail-step.is-current .trail-label {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.trail-step.is-locked .trail-label { color: var(--faint); }
+
+.trail-sub {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: center;
 }
 
 /* Old pill row, kept for any view still rendering it. */
@@ -1451,6 +1492,37 @@ a { color: inherit; text-decoration: none; }
   .app-frame .session,
   .app-frame .complete { min-height: 0; }
 }
+
+/* The teaching screen scrolls its own content and puts its action at the end,
+   so it needs none of the room a fixed lesson footer reserves. */
+.session.is-intro { padding-bottom: 40px; }
+
+/* --- guidebook ------------------------------------------------------- */
+/* Read-only list of what a unit covers. A card's name is withheld until its
+   section is finished, matching the path: the card is what the section gives
+   you. */
+
+.guide-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guide-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-row:last-child { border-bottom: none; }
+.guide-row .section-card { color: var(--muted); }
+.guide-row.is-done .section-card { color: var(--parchment); }
 
 /* --- implementation additions ---------------------------------------- */
 /* Classes the markup needs that the handoff stylesheet doesn't define, kept

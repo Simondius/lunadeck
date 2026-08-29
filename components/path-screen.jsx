@@ -5,8 +5,8 @@ import { useProgress } from "@/components/use-progress";
 import { countComplete, isSectionComplete } from "@/lib/progress";
 
 // Spec_Meta_Hygiene_Systems 7.2 calls for a flame-and-count chip; the violet
-// handoff drew a plain dot instead. Inline rather than an icon file, so it
-// takes its colour and glow from the stylesheet like every other glyph here.
+// handoff drew a plain dot. Inline rather than an icon file, so it takes its
+// colour and glow from the stylesheet like every other glyph here.
 function Flame() {
   return (
     <svg className="streak-flame" viewBox="0 0 24 24" aria-hidden="true">
@@ -15,44 +15,42 @@ function Flame() {
   );
 }
 
-// Minutes left, at the curriculum's own "typical" pace of 90s per node.
-function minutesFor(nodeCount) {
-  return Math.max(1, Math.round((nodeCount * 90) / 60));
+function Lock() {
+  return (
+    <svg className="trail-lock" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17 9V7a5 5 0 0 0-10 0v2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-8-2a3 3 0 0 1 6 0v2H9V7Z" />
+    </svg>
+  );
 }
 
-export default function PathScreen({ units, totalNodes }) {
+// The trail winds rather than running straight down. Eight offsets, cycled by
+// position, which reads as a path without needing any geometry.
+const WIND = [0, 40, 62, 40, 0, -40, -62, -40];
+
+function label(section) {
+  if (section.kind === "recap") return "Recap";
+  if (section.kind === "cumulative") return "Review";
+  return `S${section.section}`;
+}
+
+export default function PathScreen({ entries, totalNodes }) {
   const progress = useProgress();
 
-  // Counted against the nodes that actually exist, not unit_metadata's
-  // total_node_count — one stale cell there would leave a finished unit
-  // permanently incomplete and lock every unit after it.
-  const rows = units.map((unit) => {
-    const total = unit.nodeIds.length;
-    const done = countComplete(progress, unit.nodeIds);
-    return { ...unit, total, done, complete: total > 0 && done === total };
-  });
+  const sections = entries.filter((e) => e.type === "section");
+  const done = sections.map((s) => isSectionComplete(progress, s.nodeIds));
+  // The first unfinished section is the one in play; everything after is
+  // locked, which is what makes finishing one promote the next.
+  const currentIndex = done.indexOf(false);
+  const current = currentIndex === -1 ? sections.length - 1 : currentIndex;
 
-  // The first unit that isn't finished is the one in play; everything after it
-  // is locked, exactly as finishing a recap promotes the next unit.
-  const currentIndex = rows.findIndex((u) => !u.complete);
-  const current = currentIndex === -1 ? rows.length - 1 : currentIndex;
+  const completedNodes = sections.reduce(
+    (sum, s) => sum + countComplete(progress, s.nodeIds),
+    0
+  );
+  const known = sections.filter((s, i) => s.cardKey && done[i]).length;
+  const currentSection = sections[current];
 
-  const completedNodes = rows.reduce((sum, u) => sum + u.done, 0);
-
-  const knownCards = new Set();
-  for (const unit of units) {
-    for (const section of unit.sections) {
-      if (section.cardKey && isSectionComplete(progress, section.nodeIds)) {
-        knownCards.add(section.cardKey);
-      }
-    }
-  }
-
-  const unit = rows[current] ?? null;
-  if (!unit) return null;
-  const activeSection =
-    unit?.sections.find((s) => !isSectionComplete(progress, s.nodeIds)) ??
-    unit?.sections.at(-1);
+  let sectionIndex = -1;
 
   return (
     <main className="shell starfield">
@@ -61,9 +59,7 @@ export default function PathScreen({ units, totalNodes }) {
           <h1 className="wordmark">
             Luna<span className="moon">deck</span>
           </h1>
-          <p className="standfirst">
-            {knownCards.size} of 78 cards known
-          </p>
+          <p className="standfirst">{known} of 78 cards known</p>
         </div>
         <div className="masthead-aside">
           <span className="streak">
@@ -86,55 +82,86 @@ export default function PathScreen({ units, totalNodes }) {
         />
       </div>
       <p className="overall-note">
-        Unit {unit.number} · Section {activeSection?.section ?? "1"} ·{" "}
+        Unit {currentSection?.unit ?? 1} · {label(currentSection ?? {})} ·{" "}
         {completedNodes} of {totalNodes} exercises
       </p>
 
-      <ol className="path">
-        {rows.map((row, index) => {
-          const state =
-            row.complete ? "is-done" : index === current ? "is-current" : index < current ? "is-done" : "is-locked";
-          const locked = state === "is-locked";
-          const ratio = row.total ? row.done / row.total : 0;
+      <ol className="trail">
+        {entries.map((entry) => {
+          if (entry.type === "unit") {
+            return (
+              <li key={`u${entry.unit}`}>
+                <div className="trail-unit">
+                  <span>
+                    <span className="trail-unit-index">Unit {entry.unit}</span>
+                    <span className="trail-unit-name">{entry.name}</span>
+                    <span className="trail-unit-tagline">{entry.tagline}</span>
+                  </span>
+                  <Link className="trail-guide" href={`/units/${entry.unit}`}>
+                    Guidebook
+                  </Link>
+                </div>
+              </li>
+            );
+          }
+
+          sectionIndex += 1;
+          const i = sectionIndex;
+          const isDone = done[i];
+          const isCurrent = i === current && !isDone;
+          const locked = !isDone && !isCurrent;
+          const classes = ["trail-step"];
+          if (entry.kind !== "standard") classes.push("is-recap");
+          if (isDone) classes.push("is-done");
+          if (isCurrent) classes.push("is-current");
+          if (locked) classes.push("is-locked");
 
           const body = (
             <>
-              <span className="stop-art" style={{ "--p": ratio }}>
-                {row.icon ? <img src={row.icon} alt="" /> : null}
-                {row.complete ? (
-                  <span className="stop-tick" aria-hidden="true">
+              {isCurrent ? <span className="trail-callout">Start</span> : null}
+              <span className="trail-node">
+                {/* Only a finished section shows its card. The card is what
+                    the section gives you, so the path doesn't hand it over
+                    early — Spec_MainPath 3.2. */}
+                {isDone && entry.image ? (
+                  <img src={entry.image} alt="" />
+                ) : locked ? (
+                  <Lock />
+                ) : null}
+                {isDone ? (
+                  <span className="trail-tick" aria-hidden="true">
                     ✓
                   </span>
                 ) : null}
               </span>
-              <span className="stop-body">
-                <span className="stop-index">
-                  Unit {row.number}
-                  {index === current && !row.complete ? " · in play" : ""}
+              {isDone || isCurrent ? (
+                <span className="trail-label">
+                  {entry.cardName ?? `Unit ${entry.unit} ${label(entry)}`}
                 </span>
-                <span className="stop-name">{row.name}</span>
-                <span className="stop-tagline">{row.tagline}</span>
-                <span className="stop-meta">
-                  {locked
-                    ? row.unlockRequirement
-                    : `${row.done} / ${row.total} · ${row.cardCount} cards`}
-                </span>
-                {index === current && !row.complete ? (
-                  <span className="stop-cta">
-                    {row.done ? "Continue" : "Start"} ·{" "}
-                    {minutesFor(row.total - row.done)} min
-                  </span>
-                ) : null}
-              </span>
+              ) : null}
+              <span className="trail-sub">{label(entry)}</span>
             </>
           );
 
+          const href = `/units/${entry.unit}/sections/${encodeURIComponent(
+            entry.section
+          )}/play`;
+
           return (
-            <li key={row.number}>
+            <li key={`${entry.unit}-${entry.section}`}>
               {locked ? (
-                <span className={`stop ${state}`}>{body}</span>
+                <span
+                  className={classes.join(" ")}
+                  style={{ "--x": `${WIND[i % WIND.length]}px` }}
+                >
+                  {body}
+                </span>
               ) : (
-                <Link className={`stop ${state}`} href={`/units/${row.number}`}>
+                <Link
+                  className={classes.join(" ")}
+                  href={href}
+                  style={{ "--x": `${WIND[i % WIND.length]}px` }}
+                >
                   {body}
                 </Link>
               )}

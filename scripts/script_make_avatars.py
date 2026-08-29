@@ -33,7 +33,7 @@ OVERRIDES = {
     "minor_pentacles_queen": (260, 150, 560, 450),
     "minor_swords_02": (245, 330, 545, 630),
     "minor_swords_05": (245, 350, 545, 650),
-    "minor_swords_06": (515, 565, 815, 865),
+    "minor_swords_06": (513, 565, 813, 865),  # shifted 2px left: master trimmed to 813 wide
     "minor_swords_09": (450, 505, 750, 805),
     "minor_swords_10": (35, 950, 375, 1290),           # reclining figure, head at bottom-left
     "minor_wands_04": (235, 350, 535, 650),

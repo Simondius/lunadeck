@@ -370,3 +370,49 @@ adding a concrete minimum once real device targets are picked, so a
 format with an unusually tight layout (e.g. many stacked elements above
 the art) has a hard floor to fall back to rather than shrinking
 indefinitely.
+
+
+## 10. Card Shape Consistency (2026-08-29)
+
+Sibling to §9. That rule governs how *large* card art is drawn; this one
+governs its *shape*. They do not conflict: a card still fills the largest
+space its layout allows, it simply keeps a constant shape while doing so.
+
+The master art is not dimensionally consistent. Of 78 masters, 61 are exactly
+813x1456 and a 62nd matches their ratio of 0.5584 within 0.25%. The
+remaining 16 are stray export sizes running as wide as 0.7037
+(`minor_cups_06`, 924x1316), which is 25.7% squatter than the deck norm.
+Their heights (1316, 1400, 1428, 1344, 1372, 1260) suggest a separate export
+batch rather than drift.
+
+Because `.complete-card` fixes width and lets height follow the file, those
+16 rendered visibly shorter — 245px against the deck's 308px — and every
+element below the card shifted up with them. On a lesson flow that pages
+through one card after another, the card box changed shape and the layout
+flinched.
+
+- **Full card art renders at a single canonical ratio on every screen that
+  shows it.** The ratio lives in one place, the `--card-ratio` token in
+  `globals.css`, currently `813 / 1456`. A screen showing a full card sets
+  `aspect-ratio: var(--card-ratio)` on the card frame and `object-fit: cover`
+  on the image. No screen should let a card's own file dimensions decide the
+  shape of its frame.
+- **The art on disk is not altered to fit.** Normalising the files would mean
+  cropping up to 20% off an illustration, squashing it, or padding it back
+  out — all destructive, and all to solve what is a presentation problem.
+  The 16 outliers are therefore cropped at display time only, by roughly 22px
+  a side at 172px wide. Re-exporting them at the canonical size would remove
+  even that, and is the preferred long-term fix.
+- **This rule is about full card art**, not the derived `circle` and `avatar`
+  crops, which are square by construction and already consistent.
+
+Open items:
+
+- `.reference-art` still sizes cards by `width: 100%` with `max-height: 33dvh`
+  and no `object-fit`. When that cap binds, the image is *distorted* rather
+  than cropped — a pre-existing bug, independent of the outliers, and not
+  fixed here because the screens using it were not reviewed. It should adopt
+  the same token.
+- The canonical ratio is currently inherited from whatever the 62-card
+  majority happens to be, rather than chosen. If the deck is ever re-exported,
+  that is the moment to pick it deliberately.

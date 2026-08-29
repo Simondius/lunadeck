@@ -63,6 +63,21 @@ reached from a unit's inline banner: intro copy, the cards it covers, progress,
 and a list of its sections. Card names stay hidden there until their section is
 done, matching the path.
 
+## Revised, same day: locked nodes show their art
+
+The rule above — no card identity on a locked node — was followed literally and
+produced 85 identical dark circles down the path. Visually that is its own
+problem, and the spoiler it was protecting is thin: each unit's guidebook
+already lists the cards it covers, and the deck shows all 78 slots.
+
+Locked nodes now carry their card's art, desaturated and dimmed, with the lock
+kept as a corner badge so the state still reads at a glance. Recap and
+cumulative nodes have no single card, so they wear their unit's icon.
+
+The card's **name** is still withheld until the section is finished. That keeps
+the part of the rule that was doing real work — the path doesn't read as a
+labelled index of the deck — while giving it something to look at.
+
 ## Consequences
 
 The teaching step is untimed and unscored — it is not a node, so it awards no

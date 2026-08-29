@@ -120,17 +120,22 @@ export default function PathScreen({ entries, totalNodes }) {
             <>
               {isCurrent ? <span className="trail-callout">Start</span> : null}
               <span className="trail-node">
-                {/* Only a finished section shows its card. The card is what
-                    the section gives you, so the path doesn't hand it over
-                    early — Spec_MainPath 3.2. */}
-                {isDone && entry.image ? (
-                  <img src={entry.image} alt="" />
-                ) : locked ? (
-                  <Lock />
-                ) : null}
+                {/* Every node carries its art. Spec_MainPath 3.2 hides card
+                    identity on locked nodes, but a path of 85 identical dark
+                    circles is its own problem — and the deck and each unit's
+                    guidebook already list what a unit covers, so there is
+                    little left to spoil. Locked art is desaturated and dimmed,
+                    with the lock kept as a corner badge so the state still
+                    reads at a glance. */}
+                {entry.image ? <img src={entry.image} alt="" /> : null}
                 {isDone ? (
                   <span className="trail-tick" aria-hidden="true">
                     ✓
+                  </span>
+                ) : null}
+                {locked ? (
+                  <span className="trail-locked-badge" aria-hidden="true">
+                    <Lock />
                   </span>
                 ) : null}
               </span>

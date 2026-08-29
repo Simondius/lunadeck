@@ -65,7 +65,7 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
       <span className="format-line">{formatLine}</span>
       <p className="prompt">{round.prompt}</p>
 
-      <Reference reference={round.reference} onInspect={setInspecting} />
+      <Reference reference={round.reference} onInspect={setInspecting} compact={!isImages} />
 
       <div className={`${gridClass(items.length)}${shake ? " is-shaking" : ""}`}>
         {items.map((option) =>
@@ -132,10 +132,17 @@ export default function FormatA({ round, meta, formatLine, onAdvance, onHintRead
 // the Style Guide's Section 4 rule — a candidate never shows the identity
 // that would give the answer away — outranks it on both of those screens,
 // where naming the icon *is* the question.
-function Reference({ reference, onInspect }) {
+// `compact` shrinks the reference when the candidates are text. Four sentences
+// need most of the screen, and at the full size the fourth one sat behind the
+// fixed footer — visible only as a ghost through its gradient, which is how a
+// learner ends up not knowing there was a fourth option. Image candidates keep
+// the big reference: there the two are being compared to each other.
+function Reference({ reference, onInspect, compact }) {
+  const frame = compact ? "reference-card is-compact" : "reference-card";
+
   if (reference.type === "card") {
     return (
-      <div className="reference-card">
+      <div className={frame}>
         <button
           type="button"
           className="reference-art"
@@ -151,7 +158,7 @@ function Reference({ reference, onInspect }) {
 
   if (reference.type === "symbol") {
     return (
-      <div className="reference-card">
+      <div className={frame}>
         <button
           type="button"
           className="reference-symbol"

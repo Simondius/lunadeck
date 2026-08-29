@@ -954,6 +954,7 @@ a { color: inherit; text-decoration: none; }
 
 .reference-art {
   display: block;
+  margin-inline: auto;
   padding: 0;
   border: none;
   border-radius: 10px;
@@ -964,6 +965,19 @@ a { color: inherit; text-decoration: none; }
 }
 
 .reference-art img { display: block; width: 100%; max-height: 33dvh; }
+
+/* Every one of the 78 card masters carries a white bleed strip down its right
+   edge — 24 to 27px of an 840px-wide export, measured across the set. Rounded
+   by the frame it sits in, it reads as a rendering fault: the card looks cut
+   off. Cropped here rather than by rewriting the artist's files, at the widest
+   strip found, which costs at most 3px of real art on the narrowest ones.
+   The source exports are worth fixing properly; the derived circle crops carry
+   the same strip and this rule cannot reach those. */
+img[src*="/cards/master/"] {
+  aspect-ratio: 813 / 1456;
+  object-fit: cover;
+  object-position: left center;
+}
 
 /* The teaching beat reuses these frames but has nothing to open, so it
    doesn't claim to. */
@@ -1416,7 +1430,12 @@ div.reference-art, div.reference-symbol { cursor: default; }
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, var(--ink) 66%, transparent);
+  /* Opaque up to just above the button, then a short fade. At 66% the fade
+     began level with the button's own top edge, so a fourth option scrolled
+     underneath showed through it as ghost text behind the label — the screen
+     read as broken rather than as scrollable. The fade still says "there is
+     more below"; it just does it above the button instead of behind it. */
+  background: linear-gradient(to top, var(--ink) 82%, transparent);
   padding: 20px;
 }
 

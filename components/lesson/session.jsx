@@ -1,15 +1,15 @@
 "use client";
 
 import { useCallback, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FormatA from "./format-a";
 import FormatB from "./format-b";
 import FormatC from "./format-c";
-import { Footer } from "./options";
+import Bridge from "./bridge";
 import Complete from "./complete";
+import { Footer } from "./options";
 import { useProgress } from "@/components/use-progress";
-import { completeNode, spendHint, hintsLeft, sectionKey } from "@/lib/progress";
+import { completeSection, hintsLeft, sectionKey } from "@/lib/progress";
 
 const FORMATS = { A: FormatA, B: FormatB, C: FormatC };
 
@@ -39,73 +39,108 @@ function toSteps(nodes) {
 
 export default function Session({ unitNumber, unitName, section, nodes, completion }) {
   const steps = useMemo(() => toSteps(nodes), [nodes]);
+
+  // play → bridge → review → complete. Nothing is written to the store until
+  // the section is finished: Spec_MainPath 7.4 says a section is either fully
+  // completed, review queue included, or it didn't happen.
+  const [phase, setPhase] = useState("play");
   const [index, setIndex] = useState(0);
-  const [finished, setFinished] = useState(false);
+  const [reviewIndex, setReviewIndex] = useState(0);
   const [hintHandler, setHintHandler] = useState(null);
-  // Which nodes were missed on their first attempt. A ref, not state — it is
-  // written during advance and read on the next line, and re-rendering on it
-  // would only make the closure stale.
-  const missed = useRef(new Set());
-  const router = useRouter();
+  const [hintsUsed, setHintsUsed] = useState(0);
+
+  // Step indices missed on their first attempt, in the order they were missed.
+  const [queue, setQueue] = useState([]);
+  const missedNodes = useRef(new Set());
 
   const progress = useProgress();
   const key = sectionKey(unitNumber, section.section);
-  const hints = hintsLeft(progress, key);
+  const hintsRemaining = Math.max(0, hintsLeft(progress, key) - hintsUsed);
 
-  const step = steps[index];
-  const backHref = `/units/${unitNumber}`;
+  const commit = useCallback(() => {
+    completeSection({
+      nodeIds: nodes.map((n) => n.nodeId),
+      missedNodeIds: [...missedNodes.current],
+      hintsUsed,
+      sectionKey: key,
+    });
+  }, [nodes, hintsUsed, key]);
 
-  const advance = useCallback(
-    (result) => {
-      setHintHandler(null);
-      const current = steps[index];
-      const next = steps[index + 1];
-
-      // A node with several instances counts as missed if any one of them was.
-      if (current && result?.missed) missed.current.add(current.node.nodeId);
-
-      // A node is complete once its last instance is answered — not per instance.
-      if (current && (!next || next.nodeIndex !== current.nodeIndex)) {
-        completeNode(current.node.nodeId, {
-          missed: missed.current.has(current.node.nodeId),
-        });
-      }
-
-      if (!next) {
-        if (completion) setFinished(true);
-        else router.push(backHref);
-        return;
-      }
-      setIndex(index + 1);
-    },
-    [index, steps, completion, router, backHref]
-  );
-
-  // Only Format A supplies a hint; B and C leave the control disabled, which
-  // the Format Bible flags as an open question rather than settled behaviour.
   const onHintReady = useCallback((handler) => {
     setHintHandler(() => handler);
   }, []);
 
   const useHint = useCallback(() => {
-    if (!hintHandler || hints <= 0) return;
-    spendHint(key);
+    if (!hintHandler || hintsRemaining <= 0) return;
+    setHintsUsed((n) => n + 1);
     hintHandler();
-  }, [hintHandler, hints, key]);
+  }, [hintHandler, hintsRemaining]);
 
-  if (finished && completion) {
+  const advance = useCallback(
+    (result) => {
+      setHintHandler(null);
+
+      if (phase === "review") {
+        if (reviewIndex >= queue.length - 1) {
+          commit();
+          setPhase("complete");
+        } else {
+          setReviewIndex(reviewIndex + 1);
+        }
+        return;
+      }
+
+      const current = steps[index];
+      // A node with several instances counts as missed if any one of them was.
+      if (current && result?.missed) {
+        missedNodes.current.add(current.node.nodeId);
+        setQueue((q) => (q.includes(index) ? q : [...q, index]));
+      }
+
+      if (index >= steps.length - 1) {
+        // The queue is evaluated once, at the end of the run — not per node.
+        const missedHere =
+          result?.missed && !queue.includes(index) ? queue.length + 1 : queue.length;
+        if (missedHere > 0) {
+          setPhase("bridge");
+        } else {
+          commit();
+          setPhase("complete");
+        }
+        return;
+      }
+      setIndex(index + 1);
+    },
+    [phase, reviewIndex, queue, steps, index, commit]
+  );
+
+  if (phase === "bridge") {
     return (
-      <Complete
-        completion={completion}
-        nodeIds={nodes.map((n) => n.nodeId)}
+      <Bridge
+        count={queue.length}
+        subject={section.cardName || unitName}
+        onReview={() => {
+          setReviewIndex(0);
+          setPhase("review");
+        }}
       />
     );
   }
 
+  if (phase === "complete" && completion) {
+    return <Complete completion={completion} nodeIds={nodes.map((n) => n.nodeId)} />;
+  }
+
+  const reviewing = phase === "review";
+  const step = reviewing ? steps[queue[reviewIndex]] : steps[index];
   if (!step) return null;
 
   const { node, round, instance, instanceCount } = step;
   const Format = round ? FORMATS[round.kind] : null;
+
+  const ticks = reviewing ? queue.length : steps.length;
+  const filled = reviewing ? reviewIndex : index;
+
   const meta = [
     node.nodeId,
     node.distractorTier && node.distractorTier !== "n/a" ? node.distractorTier : null,
@@ -113,38 +148,41 @@ export default function Session({ unitNumber, unitName, section, nodes, completi
   ]
     .filter(Boolean)
     .join(" · ");
-  const formatLine = `${node.formatCode} · ${node.formatName}`;
-  const hintable = Boolean(hintHandler) && hints > 0;
+
+  // Each replayed exercise is re-served in its own real format, so the line
+  // above the prompt says where you are rather than which format this is.
+  const formatLine = reviewing
+    ? `Second look · Review ${reviewIndex + 1} of ${queue.length}`
+    : `${node.formatCode} · ${node.formatName}`;
+
+  const hintable = Boolean(hintHandler) && hintsRemaining > 0;
 
   return (
     <main className="session">
       <div className="topbar">
-        <Link className="quit" href={backHref} aria-label="Leave lesson">
+        <Link className="quit" href="/" aria-label="Leave lesson">
           ✕
         </Link>
         <div
           className="progress"
           role="progressbar"
           aria-valuemin={0}
-          aria-valuemax={steps.length}
-          aria-valuenow={index}
-          aria-label={`Step ${index + 1} of ${steps.length}`}
+          aria-valuemax={ticks}
+          aria-valuenow={filled}
+          aria-label={`Step ${filled + 1} of ${ticks}`}
         >
-          {steps.map((s, i) => (
-            <span
-              key={`${s.node.nodeId}-${s.instance}`}
-              className={i < index ? "is-done" : undefined}
-            />
+          {Array.from({ length: ticks }, (_, i) => (
+            <span key={i} className={i < filled ? "is-done" : undefined} />
           ))}
         </div>
         <button className="hint" onClick={useHint} disabled={!hintable} type="button">
-          HINT · {hints}
+          HINT · {hintsRemaining}
         </button>
       </div>
 
       {Format ? (
         <Format
-          key={`${node.nodeId}-${instance}`}
+          key={`${reviewing ? "review" : "play"}-${node.nodeId}-${instance}`}
           round={round}
           meta={meta}
           formatLine={formatLine}

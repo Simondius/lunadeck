@@ -73,8 +73,10 @@ export default function Complete({ completion, nodeIds }) {
           <>
             {firstTry} of {total} right first time.
             {missed > 0
-              ? ` The ${missed === 1 ? "one" : missed} you missed will come back around.`
-              : " A clean run."}
+              ? ` ${card?.name ?? "It"} is in your deck now — the ${
+                  missed === 1 ? "question" : "questions"
+                } you missed will come back around soon.`
+              : " Every one, first try."}
           </>
         )}
       </p>

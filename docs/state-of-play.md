@@ -16,10 +16,14 @@ because it gets believed.
 Update this section when you start and when you stop. It is the cheapest way to
 stop two people rebuilding the same thing.
 
-| who | what | since |
+| who | what | status |
 | --- | --- | --- |
-| Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | 30 Aug |
+| Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | **Claimed**, starting when he is back — 30 Aug, away a couple of hours from midday |
 | Tia + Claude | Free — say what you are taking | — |
+
+*Claimed* means nobody's hands are on it yet but it is spoken for: don't build
+it, do feel free to work anywhere else. *In progress* means someone is actively
+in those files right now.
 
 ## Before you start
 

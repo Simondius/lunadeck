@@ -1890,3 +1890,86 @@ a.slot { display: block; }
 
 .debug-row b { color: var(--accent); font-weight: 400; }
 .debug-row i { color: var(--muted-warm); font-style: normal; font-family: var(--body); font-size: 12px; }
+
+/* --- dev console ------------------------------------------------------ */
+/* A debug-only overlay (stripped in production, see app/layout.js). Grey and
+   monospace on purpose — it should read as tooling bolted onto the app, never
+   as part of it. Positioned with custom properties rather than inline
+   left/top so drag updates are one style write, not a re-render of rules. */
+
+.dev-console {
+  position: fixed;
+  left: var(--dc-x);
+  top: var(--dc-y);
+  z-index: 9999;
+}
+
+.dev-console-fab {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #38383f;
+  color: #e4e4ea;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: grab;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  touch-action: none;
+  user-select: none;
+}
+
+.dev-console-fab:active {
+  cursor: grabbing;
+}
+
+.dev-console-menu {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  min-width: 168px;
+  padding: 8px;
+  background: #232328;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dev-console-group + .dev-console-group {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dev-console-group-label {
+  display: block;
+  padding: 4px 8px 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a9aa2;
+}
+
+.dev-console-action {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: #e4e4ea;
+  font-family: var(--body);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-console-action:hover,
+.dev-console-action:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}

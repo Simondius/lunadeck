@@ -30,19 +30,42 @@ const MENU = [
   },
 ];
 
+// The button is 52px; onPointerMove already keeps a drag inside
+// [0, innerWidth - FAB_INSET]. Everything else that produces a position has
+// to pass through clamp() for the same guarantee.
+const FAB_INSET = 56;
+
+// Both of these are read at a moment when the window may report zero
+// dimensions — a background tab, a pane that has not been laid out yet. Left
+// ungrounded, `innerWidth - 76` is then -76, which is a real position, off
+// the top-left of the screen, and it gets persisted. The console is then
+// invisible forever, on every later load, at any window size.
+function clamp({ x, y }) {
+  const maxX = Math.max(0, (window.innerWidth || 0) - FAB_INSET);
+  const maxY = Math.max(0, (window.innerHeight || 0) - FAB_INSET);
+  return {
+    x: Math.min(Math.max(0, x), maxX),
+    y: Math.min(Math.max(0, y), maxY),
+  };
+}
+
 function defaultPosition() {
   if (typeof window === "undefined") return { x: 24, y: 24 };
   // Bottom-right, clear of the tab bar.
-  return { x: window.innerWidth - 76, y: window.innerHeight - 170 };
+  return clamp({ x: window.innerWidth - 76, y: window.innerHeight - 170 });
 }
 
+// A remembered spot is clamped too, not just trusted. It may have been saved
+// at a window size this one is smaller than, or saved before the window had a
+// size at all — either way the console has to come back on screen rather than
+// stay lost with no way to reach the control that would move it.
 function loadPosition() {
   if (typeof window === "undefined") return defaultPosition();
   try {
     const raw = window.localStorage.getItem(POSITION_KEY);
     const parsed = raw ? JSON.parse(raw) : null;
-    if (typeof parsed?.x === "number" && typeof parsed?.y === "number") {
-      return parsed;
+    if (Number.isFinite(parsed?.x) && Number.isFinite(parsed?.y)) {
+      return clamp(parsed);
     }
   } catch {
     // Blocked or corrupt storage — fall through to the default spot.
@@ -90,12 +113,9 @@ export default function DevConsole({ allNodeIds = [] }) {
     const dy = event.clientY - drag.current.startY;
     if (!drag.current.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
     drag.current.moved = true;
-    const maxX = window.innerWidth - 56;
-    const maxY = window.innerHeight - 56;
-    setPosition({
-      x: Math.min(Math.max(0, drag.current.originX + dx), maxX),
-      y: Math.min(Math.max(0, drag.current.originY + dy), maxY),
-    });
+    setPosition(
+      clamp({ x: drag.current.originX + dx, y: drag.current.originY + dy })
+    );
   };
 
   const endDrag = () => {

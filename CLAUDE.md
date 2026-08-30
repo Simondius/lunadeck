@@ -66,6 +66,11 @@ once per process — a section's play page wants eleven of them, times 92 sectio
 — so an edit will not show up on a refresh. Stop `npm run dev` and start it
 again.
 
+**Work on a branch and open a pull request**, never straight to `main` — the
+description is where the reasoning goes, and it is how the other person reviews
+without reading the diff cold. `docs/state-of-play.md` covers the rest of the
+environment: commit-email privacy, the Windows/Linux split, line endings.
+
 **Don't regenerate CSVs wholesale.** Edit the rows that need changing. A
 rewritten file produces a diff nobody can review.
 

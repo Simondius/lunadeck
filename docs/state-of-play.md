@@ -120,6 +120,40 @@ nothing. A section played out of order from the deck counts identically.
   the need. The 78 avatar crops still carry the old white bleed, but nothing
   renders an avatar yet.
 
+## The working environment
+
+Written down because every one of these cost somebody an hour on 28–30 Aug, and
+none of it is discoverable from the code.
+
+**Commits are rejected if they carry a real email address.** GitHub's email
+privacy returns `GH007`. Author as the account's `@users.noreply.github.com`
+address — Tia's is `218612961+LousyBones@users.noreply.github.com`.
+
+**Work on a branch and open a pull request.** Not straight to `main`, even for a
+one-line change: the PR description is where the reasoning lives, and it is how
+the other person reviews without reading the diff cold.
+
+**Line endings are CRLF locally against an LF repo,** with `core.autocrlf=true`
+set. Don't "fix" the resulting diffs.
+
+**A Claude session's shell may not be the machine the app runs on.** On Tia's
+setup it is a Linux VM with the repo folder mounted, while `node_modules` is a
+Windows install carrying only `@next/swc-win32-x64-msvc`. So from that shell:
+reading, searching, editing, the Python art scripts (PIL and numpy are there)
+all work — but `npm install`, `next dev` and `next build` do not, and a dev
+server started there binds to a localhost the browser cannot reach. Run the app
+from PowerShell on the Windows side; to verify a build, copy the source to a
+cloud container and build it there.
+
+**`public/assets` is a mirror,** refreshed by `scripts/copy-assets.mjs` on
+`predev`/`prebuild`. Regenerate art in `assets/` and test without re-running it
+and you are looking at the old files.
+
+**Stale git lock files.** If a pull half-completes with `Operation not
+permitted`, look for `.git/index.lock` and `.git/objects/maintenance.lock`. A
+sandbox without delete permission leaves them behind and every later git command
+fails oddly.
+
 ## Checks
 
 `npm test` runs the logic tests and `scripts/check_rounds.mjs`, which builds all

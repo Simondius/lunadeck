@@ -19,7 +19,7 @@ stop two people rebuilding the same thing.
 | who | what | status |
 | --- | --- | --- |
 | Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | **Claimed**, starting when he is back — 30 Aug, away a couple of hours from midday |
-| Tia + Claude | Free — say what you are taking | — |
+| Tia + Claude | The Reader tab — the daily three plus a reader that answers open questions, grounded on the real card rows | **In review** — 30 Aug, [#50](https://github.com/LousyBones/lunadeck/pull/50). Needs a key and a real question before merge |
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
 it, do feel free to work anywhere else. *In progress* means someone is actively
@@ -87,6 +87,19 @@ jump is visible as a jump. The full entry stays gated on finishing the section.
 masthead. This deviates from `Spec_MainPath` §2 deliberately: that spec predates
 the path carrying its sections inline.
 
+**The reader answers; the path teaches** (`0025`). The Reader tab is one
+feature in two beats. The nightly three is the ritual — three cards, named, with
+two of the deck's own keywords each and nothing interpreted. Asking a question
+is what buys an interpretation: `app/api/reading/` pulls three fresh cards and
+calls Claude with the guidebook rows for exactly those cards as the only
+permitted source for what they mean. Generated prose, sourced substance — the
+path teaches these cards and the reader must not contradict it. This is the
+first part of the app that needs a server and a key; see the environment note
+below. Reader pulls deliberately do not feed `drawnCardKeys`, and the daily
+draw deliberately does not touch `streakDays` — whether a draw should credit
+the app's streak is a cross-tab call `Spec_Daily_Draw_Tab` §10 puts outside
+this feature, and it is still open.
+
 **A section commits atomically.** Progress is held in memory during play and
 written once at the end, after the mistake-review queue. Abandoning saves
 nothing. A section played out of order from the deck counts identically.
@@ -133,6 +146,12 @@ address — Tia's is `218612961+LousyBones@users.noreply.github.com`.
 one-line change: the PR description is where the reasoning lives, and it is how
 the other person reviews without reading the diff cold.
 
+**The Reader tab needs `ANTHROPIC_API_KEY` in `.env.local`.** Nothing else in
+the app does. Copy `.env.local.example`, add a key, and restart `npm run dev` —
+Next reads env files at startup, so a refresh will not pick one up. Without a
+key the tab still loads and the nightly three still deals; asking a question
+returns a 503 and the screen says so in plain words.
+
 **Line endings are CRLF locally against an LF repo,** with `core.autocrlf=true`
 set. Don't "fix" the resulting diffs.
 
@@ -169,6 +188,10 @@ changed.
 
 ## Open questions
 
+- **The reader has been asked one real question, by a machine.** It held: 210
+  words, 8.8s, every claim traceable to a sourced row (`0025`). What is still
+  unmeasured is whether it holds for *your* question — a bad question, a vague
+  one, a heavy one, the same question twice. That needs a person.
 - **Nobody has played a full unit as a learner.** A machine has, which only
   proves nothing crashes. Every real fix on 29 Aug came from Tia playing two
   nodes of section 1. Still the highest-value hour available.
@@ -208,5 +231,6 @@ Spaced repetition (misses are recorded but never re-served); accounts and real
 persistence (progress is per-browser); the fuller Daily Draw from `0007`; the
 Challenge tab, which needs the friend graph first; Format A6, reversed meanings;
 a real desktop layout rather than a phone in the middle of the screen; and
-deployment — static export is verified working at 195 pages, but nothing is
-hosted and `lunadeck.app` needs DNS.
+deployment — static export was verified at 195 pages, but that predates
+`app/api/reading/`, which is a Node route and cannot be statically exported
+(`0025`); nothing is hosted either way and `lunadeck.app` needs DNS.

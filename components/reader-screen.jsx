@@ -1,192 +1,264 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useProgress } from "@/components/use-progress";
 import {
   isSectionComplete,
   today,
-  recordDraw,
+  recordDailyDraw,
   drawnToday,
+  recordReading,
+  clearReading,
 } from "@/lib/progress";
-import { pickDraw } from "@/lib/draw";
+import { pickDailyDraw } from "@/lib/draw";
+import { MAX_QUESTION } from "@/lib/reading";
 
-// Placeholder copy — the handoff flags the journal prompt as not final. One
-// line per keyword slot so it at least reads as though it noticed the card.
-function promptFor(card, reversed) {
-  if (reversed) return `Where might ${card.name.toLowerCase()} be overplayed right now?`;
-  const first = card.keywords[0];
-  return first
-    ? `Where did ${first.toLowerCase()} show up for you today?`
-    : `What does ${card.name} ask of you today?`;
-}
-
-// The Reader tab. Today it is the nightly draw plus a placeholder for the
-// character who will eventually answer questions — that part is deliberately
-// inert rather than faked, so nobody mistakes it for something that works.
+// The Reader tab: one feature in two beats.
+//
+// The nightly three is the ritual — the cards, named, and nothing interpreted.
+// Asking is what buys an interpretation, and the reader pulls three fresh
+// cards for it. That split is the whole design: the draw is the habit, the
+// question is the reading. See docs/decisions/0025.
+//
+// Nothing on this screen teaches. The path teaches; this tab answers. Which is
+// why the nightly three shows the guidebook's own keywords and stops there,
+// rather than growing a second lesson inside a tab that isn't one.
 export default function ReaderScreen({ deck }) {
   const progress = useProgress();
   const day = today();
 
-  // Rendered after mount only: toLocaleDateString runs in the server's timezone
-  // during SSR and the browser's on hydration, which differ either side of
-  // midnight and mismatch.
-  const [date, setDate] = useState("");
-  useEffect(() => {
-    setDate(
-      new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long" })
-    );
-  }, []);
+  const dealt = drawnToday(progress, day);
+  const byKey = new Map(deck.cards.map((card) => [card.key, card]));
 
-  const already = drawnToday(progress, day);
+  return (
+    <main className={`shell starfield${dealt ? " is-seated" : ""}`}>
+      <div className="masthead">
+        <h1 className="unit-title">The reader</h1>
+      </div>
 
-  const known = new Set();
-  for (const section of deck.sections ?? []) {
-    if (section.cardKey && isSectionComplete(progress, section.nodeIds)) {
-      known.add(section.cardKey);
-    }
-  }
+      <div className={`reader-portrait${dealt ? " is-compact" : ""}`}>
+        <img src="/assets/misc/reader_placeholder.webp" alt="" />
+      </div>
 
+      {dealt ? (
+        <DealtSpread dealt={dealt} byKey={byKey} />
+      ) : (
+        <DealPrompt deck={deck} progress={progress} day={day} />
+      )}
+
+      {dealt ? <AskTheReader progress={progress} day={day} /> : null}
+    </main>
+  );
+}
+
+// --- the nightly three --------------------------------------------------
+
+function DealPrompt({ deck, progress, day }) {
   // The unit the learner is actually in — the first section they haven't
   // finished. Reading it off the first unknown card in deck order would jump
   // around, since deck order is the printed deck, not the teaching order.
   const pending = (deck.sections ?? []).find(
     (section) => !isSectionComplete(progress, section.nodeIds)
   );
-  const currentUnit = pending?.unit ?? 1;
 
-  const result = already
-    ? {
-        card: deck.cards.find((c) => c.key === already.cardKey),
-        reversed: already.reversed,
-      }
-    : pickDraw({
-        cards: deck.cards,
-        knownKeys: [...known],
-        drawnKeys: progress.drawnCardKeys,
-        reversedKeys: progress.reversedCardKeys,
-        currentUnit,
-        seed: day,
-      });
+  const known = [];
+  for (const section of deck.sections ?? []) {
+    if (section.cardKey && isSectionComplete(progress, section.nodeIds)) {
+      known.push(section.cardKey);
+    }
+  }
+
+  const deal = () => {
+    const spread = pickDailyDraw({
+      cards: deck.cards,
+      knownKeys: known,
+      drawnKeys: progress.drawnCardKeys,
+      reversedKeys: progress.reversedCardKeys,
+      currentUnit: pending?.unit ?? 1,
+      seed: day,
+    });
+    recordDailyDraw({
+      cards: spread.map(({ card, reversed }) => ({ cardKey: card.key, reversed })),
+      day,
+    });
+  };
 
   return (
-    <main className="shell starfield">
-      <div className="masthead">
-        <h1 className="unit-title">The reader</h1>
-        <span className="standfirst">{date}</span>
-      </div>
-
-      <div className="reader-portrait">
-        <img src="/assets/misc/reader_placeholder.webp" alt="" />
-      </div>
-
+    <>
       <p className="unit-intro">
-        Someone to read with. For now they deal you a card a night — one day
-        you&rsquo;ll be able to ask them things.
+        Sit down. Three cards to start, then ask me what you came to ask.
       </p>
 
-      <div className="prompt-card">
-        <span className="prompt-card-label">Ask the reader</span>
-        <p>&ldquo;What should I be paying attention to this week?&rdquo;</p>
-      </div>
-      <button className="action" type="button" disabled>
-        Ask a question
+      {/* The deck itself is the control. A footer .action here would sit
+          under the fixed tab bar, which owns bottom:0 on every tab. */}
+      <button
+        type="button"
+        className="draw-art"
+        onClick={deal}
+        aria-label="Deal today's three cards"
+      >
+        <img src="/assets/misc/deck_box_lid_MASTER.png" alt="" />
       </button>
-      <p className="footer-meta">Not built yet — the reader can&rsquo;t answer</p>
-
-      <p className="suit-head reader-divider">Tonight&rsquo;s draw</p>
-
-      <Draw
-        result={result}
-        already={already}
-        known={known}
-        day={day}
-        progress={progress}
-      />
-    </main>
+      <p className="gesture-hint">Tap the deck for today&rsquo;s three</p>
+    </>
   );
 }
 
-function Draw({ result, already, known, day, progress }) {
-  if (!result || !result.card) {
-    return (
-      <p className="unit-intro">
-        Every card seen, both ways up. There is nothing left to draw — the deck
-        is yours.
-      </p>
-    );
-  }
+function DealtSpread({ dealt, byKey }) {
+  const cards = dealt.cards
+    .map(({ cardKey, reversed }) => ({ card: byKey.get(cardKey), reversed }))
+    .filter((entry) => entry.card);
 
-  const { card, reversed } = result;
+  return (
+    <>
+      <p className="suit-head reader-divider">Today&rsquo;s three</p>
 
-  if (!already) {
-    return (
-      <>
-        <p className="unit-intro">
-          One card, once a night. Turn it when you&rsquo;re ready.
-        </p>
-        {/* The deck itself is the control. A footer .action here would sit
-            under the fixed tab bar, which owns bottom:0 on every tab. */}
-        <button
-          type="button"
-          className="draw-art"
-          onClick={() => recordDraw({ cardKey: card.key, reversed, day })}
-          aria-label="Draw tonight's card"
-        >
-          <img src="/assets/misc/deck_box_lid_MASTER.png" alt="" />
-        </button>
-        <p className="gesture-hint">Tap the deck to draw</p>
-      </>
-    );
+      <div className="spread">
+        {cards.map(({ card, reversed }) => (
+          <figure key={card.key} className="spread-card">
+            <div className="spread-art">
+              <img
+                src={card.master}
+                alt={card.name}
+                className={reversed ? "is-reversed" : undefined}
+              />
+            </div>
+            <figcaption>
+              <span className="spread-name">{card.name}</span>
+              <span className="spread-line">{reversed ? "Reversed" : "Upright"}</span>
+              {/* Two of the deck's own words, under the card they belong to.
+                  A shared chip cloud was tried first: it cost 238px, pushed
+                  the question box below the fold, and detached each keyword
+                  from its card. No meaning, no prompt, no exercise — the tab
+                  is not a lesson, and the Deck tab opens every card in full. */}
+              <span className="spread-keywords">
+                {card.keywords.slice(0, 2).join(" · ")}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </>
+  );
+}
+
+// --- asking -------------------------------------------------------------
+
+function AskTheReader({ progress, day }) {
+  const [question, setQuestion] = useState("");
+  const [asking, setAsking] = useState(false);
+  const [error, setError] = useState(null);
+
+  const reading = progress.lastReading;
+  const trimmed = question.trim();
+
+  async function ask(event) {
+    event.preventDefault();
+    if (!trimmed || asking) return;
+
+    setAsking(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/reading", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: trimmed }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data?.error ?? "The reader couldn't answer.");
+        return;
+      }
+      recordReading({
+        question: data.question,
+        cards: data.cards,
+        reading: data.reading,
+        day,
+      });
+      setQuestion("");
+    } catch {
+      setError("Couldn't reach the reader. Check the dev server is still running.");
+    } finally {
+      setAsking(false);
+    }
   }
 
   return (
     <>
-      <div className="draw-art">
-        <img
-          src={card.master}
-          alt={card.name}
-          className={reversed ? "is-reversed" : undefined}
+      <p className="suit-head reader-divider">Ask the reader</p>
+
+      {reading ? <Reading reading={reading} /> : null}
+
+      <form onSubmit={ask}>
+        <label className="sr-only" htmlFor="reader-question">
+          Your question
+        </label>
+        <textarea
+          id="reader-question"
+          className="ask-field"
+          rows={3}
+          value={question}
+          maxLength={MAX_QUESTION}
+          disabled={asking}
+          placeholder={
+            reading ? "Ask something else…" : "What should I be paying attention to?"
+          }
+          onChange={(event) => setQuestion(event.target.value)}
         />
+
+        {error ? <p className="ask-error">{error}</p> : null}
+
+        <button className="action" type="submit" disabled={!trimmed || asking}>
+          {asking ? "The reader is considering…" : "Ask"}
+        </button>
+      </form>
+
+      <p className="footer-meta">
+        Each question draws three new cards. Ask as many as you like.
+      </p>
+    </>
+  );
+}
+
+function Reading({ reading }) {
+  return (
+    <div className="reading">
+      <div className="prompt-card">
+        <span className="prompt-card-label">You asked</span>
+        <p>{reading.question}</p>
       </div>
 
-      <p className="draw-name">{card.name}</p>
-      <p className="draw-line">
-        {reversed ? "Reversed" : "Upright"}
-        {card.symbol ? ` · ${card.symbol}` : ""}
-        {known.has(card.key) ? "" : " · Not yet taught"}
-      </p>
-
-      <div className="anchor is-centred">
-        {card.keywords.map((word) => (
-          <span key={word} className="keyword">
-            {word}
-          </span>
+      <div className="spread">
+        {reading.cards.map((card) => (
+          <figure key={`${card.key}-${card.position}`} className="spread-card">
+            <div className="spread-art">
+              <img
+                src={card.master}
+                alt={card.name}
+                className={card.reversed ? "is-reversed" : undefined}
+              />
+            </div>
+            <figcaption>
+              <span className="spread-position">{card.position}</span>
+              <span className="spread-name">{card.name}</span>
+              <span className="spread-line">{card.reversed ? "Reversed" : "Upright"}</span>
+            </figcaption>
+          </figure>
         ))}
       </div>
 
-      <p className="unit-intro">{reversed ? card.reversed : card.meaning}</p>
+      {reading.reading
+        .split(/\n+/)
+        .filter(Boolean)
+        .map((paragraph, i) => (
+          <p key={i} className="reading-body">
+            {paragraph}
+          </p>
+        ))}
 
-      <div className="prompt-card">
-        <span className="prompt-card-label">Sit with this</span>
-        <p>{promptFor(card, reversed)}</p>
-      </div>
-
-      <div className="stats">
-        <div>
-          <span className="stat-value">{progress.streakDays}</span>
-          <span className="stat-label">Night streak</span>
-        </div>
-        <div>
-          <span className="stat-value">{progress.drawnCardKeys.length}</span>
-          <span className="stat-label">Cards drawn</span>
-        </div>
-        <div>
-          <span className="stat-value">{progress.reversedCardKeys.length}</span>
-          <span className="stat-label">Seen reversed</span>
-        </div>
-      </div>
-
-      <p className="footer-meta">Your next card is ready tomorrow</p>
-    </>
+      <button className="action-quiet" type="button" onClick={() => clearReading()}>
+        Clear this reading
+      </button>
+    </div>
   );
 }

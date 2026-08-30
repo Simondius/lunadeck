@@ -769,8 +769,17 @@ a { color: inherit; text-decoration: none; }
 
 .reader-portrait img { width: 100%; display: block; }
 
-/* Separates the nightly draw from the reader above it. */
+/* Once the three are dealt, the reader stops being the subject of the screen
+   and the cards and the question box take over. Measured, not decorative:
+   at full size the Ask button landed at y=850 on a 375x812 frame, behind the
+   63px tab bar — the one control the whole tab exists for. */
+.reader-portrait.is-compact { width: 110px; margin-bottom: 14px; }
+
+/* Separates a section of the tab from the one above it. */
 .reader-divider { margin-top: 30px; }
+
+/* Tighter once the screen is carrying two sections rather than one. */
+.is-seated .reader-divider { margin-top: 12px; }
 
 /* --- daily draw ----------------------------------------------------- */
 
@@ -1972,4 +1981,143 @@ a.slot { display: block; }
 .dev-console-action:hover,
 .dev-console-action:focus-visible {
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- the reader's spreads ------------------------------------------- */
+
+/* Three cards abreast. Each frame is fixed to the canonical ratio rather
+   than letting the file decide, per UX_Style_Guide §10 — with three side by
+   side, the 16 stray export sizes would leave a visibly ragged row. */
+.spread {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.spread-card { margin: 0; min-width: 0; }
+
+.spread-art {
+  aspect-ratio: var(--card-ratio);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--accent-a45),
+    0 14px 34px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(143, 82, 196, 0.16);
+}
+
+.spread-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spread-art img.is-reversed { transform: rotate(180deg); }
+
+.spread-card figcaption {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* The reader's own framing for the slot. Only a question spread has one —
+   the nightly three are just three cards. */
+.spread-position {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+
+.spread-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 12.5px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  /* Two lines held open for every card, so a one-line name doesn't shorten
+     its column and stagger the row. UX_Style_Guide §3. */
+  min-height: 2.5em;
+}
+
+.spread-line {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* The deck's own keywords, tied to their card. Two lines held open for the
+   same reason .spread-name holds two: a short pair must not shorten its
+   column and stagger the row. UX_Style_Guide §3. */
+.spread-keywords {
+  display: block;
+  font-family: var(--body);
+  font-size: 10px;
+  line-height: 1.35;
+  color: var(--faint);
+  margin-top: 5px;
+  min-height: 2.7em;
+}
+
+/* --- asking ---------------------------------------------------------- */
+
+.ask-field {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.5;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+.ask-field::placeholder { color: var(--faint); }
+.ask-field:focus { outline: none; border-color: var(--accent-a45); }
+.ask-field:disabled { opacity: 0.55; }
+
+.ask-error {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--bad-text);
+  margin: 0 0 12px;
+}
+
+.reading { margin-bottom: 24px; }
+
+.reading-body {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--parchment);
+  margin: 0 0 14px;
+}
+
+/* Visible to a screen reader, not to the eye. The question field carries a
+   placeholder rather than a visible label; the label still has to exist. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -13,6 +13,26 @@ and social features.
 A second goal runs alongside the first: developing a working practice for
 collaborating with Claude across design and coding tools.
 
+## Working alongside someone else
+
+**Two people work in this repo, each with their own Claude, and neither session
+can see the other's context.** On 29 Aug that cost us: both agents fixed the same
+white border on the card art from opposite ends within three hours, both claimed
+decision numbers 0019 and 0020, and one fix silently turned the other into a bug.
+
+So, before starting:
+
+1. **Read `docs/state-of-play.md`.** It is the shared brief — where the app is,
+   what is decided, what is open, and who is working on what right now. Update
+   the "In flight" table when you start and when you stop.
+2. **Read `main`'s recent log.** The other party may have merged since your last
+   session, whatever your own history says.
+3. **Check the highest number in `docs/decisions/`** before claiming one.
+
+And when you finish: if you changed something structural, change the paragraph
+in `docs/state-of-play.md` that describes it, in the same PR. A stale
+orientation file is worse than none, because it gets believed.
+
 ## Orientation
 
 Lunadeck is a gamified tarot learning app built around a linear lesson path.

@@ -23,7 +23,9 @@ export default function TabBar() {
   const pathname = usePathname() ?? "/";
 
   // The lesson screen is full-bleed; the bar would sit over its footer.
-  if (pathname.includes("/play")) return null;
+  // v2 is exempted — its drag section has no fixed footer to collide with,
+  // and Simon wants the bar reachable while iterating on it.
+  if (pathname.includes("/play") && !pathname.startsWith("/v2")) return null;
 
   return (
     <nav className="tabbar" aria-label="Sections">

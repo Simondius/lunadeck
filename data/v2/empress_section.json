@@ -1,0 +1,914 @@
+{
+  "cardKey": "major_03_empress",
+  "cardName": "The Empress",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "n1-r1",
+          "words": [
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n1-r2",
+          "words": [
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n1-r3",
+          "words": [
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "n2-r1",
+          "words": [
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r2",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r3",
+          "words": [
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r4",
+          "words": [
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "n3-r1",
+          "words": [
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "destruction",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r2",
+          "words": [
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "neglect",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r3",
+          "words": [
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "decay",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r4",
+          "words": [
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "indifference",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r5",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "discord",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r6",
+          "words": [
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "ugliness",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r7",
+          "words": [
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "alone",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "n4-r1",
+          "words": [
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r2",
+          "words": [
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "green",
+              "correct": false
+            },
+            {
+              "text": "Friday",
+              "correct": false
+            },
+            {
+              "text": "pineapple",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r3",
+          "words": [
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "Monday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r4",
+          "words": [
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r5",
+          "words": [
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "n5-r1",
+          "words": [
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "abandon",
+              "correct": false
+            },
+            {
+              "text": "dreams",
+              "correct": false
+            },
+            {
+              "text": "overthinking",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r2",
+          "words": [
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "pause",
+              "correct": false
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            },
+            {
+              "text": "feminine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r3",
+          "words": [
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": true
+            },
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "following the flow",
+              "correct": false
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            },
+            {
+              "text": "magic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r4",
+          "words": [
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "need to lighten up",
+              "correct": false
+            },
+            {
+              "text": "inner reality",
+              "correct": false
+            },
+            {
+              "text": "sacrificing something to get something better",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "n6-r1",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "inner obstruction we cause ourselves",
+              "correct": false
+            },
+            {
+              "text": "dreams",
+              "correct": false
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r2",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            },
+            {
+              "text": "pause",
+              "correct": false
+            },
+            {
+              "text": "feminine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r3",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": false
+            },
+            {
+              "text": "abandon",
+              "correct": false
+            },
+            {
+              "text": "inner reality",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r4",
+          "words": [
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "overthinking",
+              "correct": false
+            },
+            {
+              "text": "following the flow",
+              "correct": false
+            },
+            {
+              "text": "need to lighten up",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "n7-r1",
+          "type": "cloze",
+          "text": "Card three follows the private {b1} of the Two with {b2} itself, and the Empress is {b3} incarnate.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "reflection"
+            },
+            {
+              "key": "b2",
+              "answer": "creation"
+            },
+            {
+              "key": "b3",
+              "answer": "Mother Earth"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "Tuesday",
+            "purple"
+          ]
+        },
+        {
+          "id": "n7-r2",
+          "type": "cloze",
+          "text": "...giving life to a child, a project, or an {b1}, and reminding us to nurture ourselves as {b2} as we nurture others. {b3}, her ruling planet, brings pleasure...",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "idea"
+            },
+            {
+              "key": "b2",
+              "answer": "generously"
+            },
+            {
+              "key": "b3",
+              "answer": "Venus"
+            }
+          ],
+          "distractors": [
+            "teacup",
+            "banana",
+            "ladder"
+          ]
+        },
+        {
+          "id": "n7-r3",
+          "type": "cloze",
+          "text": "...brings pleasure, bodily {b1}, and the {b2} that comes from within, echoed in the crown of stars and ripened wheat framing her {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "wellbeing"
+            },
+            {
+              "key": "b2",
+              "answer": "glow"
+            },
+            {
+              "key": "b3",
+              "answer": "throne"
+            }
+          ],
+          "distractors": [
+            "elephant",
+            "Wednesday",
+            "dreams"
+          ]
+        },
+        {
+          "id": "n7-r4",
+          "type": "cloze",
+          "text": "Card three follows the private {b1} of the Two with {b2} itself, and the Empress is {b3} incarnate. ...giving life to a child, a project, or an {b4}, and reminding us to nurture ourselves as {b5} as we nurture others. {b6}, her ruling planet, brings pleasure, bodily {b7}, and the {b8} that comes from within, echoed in the crown of stars and ripened wheat framing her {b9}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "reflection"
+            },
+            {
+              "key": "b2",
+              "answer": "creation"
+            },
+            {
+              "key": "b3",
+              "answer": "Mother Earth"
+            },
+            {
+              "key": "b4",
+              "answer": "idea"
+            },
+            {
+              "key": "b5",
+              "answer": "generously"
+            },
+            {
+              "key": "b6",
+              "answer": "Venus"
+            },
+            {
+              "key": "b7",
+              "answer": "wellbeing"
+            },
+            {
+              "key": "b8",
+              "answer": "glow"
+            },
+            {
+              "key": "b9",
+              "answer": "throne"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "teacup",
+            "dreams",
+            "pause"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-8",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "cloze",
+          "text": "Mother Earth energy \u2014 fertility, {b1}, life growing in every direction",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "abundance"
+            }
+          ],
+          "distractors": [
+            "Wednesday"
+          ]
+        },
+        {
+          "id": "n8-r2",
+          "type": "cloze",
+          "text": "Something is ready to be {b1} \u2014 a child, a project, an idea taking shape",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "born"
+            }
+          ],
+          "distractors": [
+            "broccoli"
+          ]
+        },
+        {
+          "id": "n8-r3",
+          "type": "cloze",
+          "text": "Creation before form \u2014 raw, generative {b1} that hasn't settled yet",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "chaos"
+            }
+          ],
+          "distractors": [
+            "umbrella"
+          ]
+        },
+        {
+          "id": "n8-r4",
+          "type": "cloze",
+          "text": "{b1}, protect, and grow whatever you're tending",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Nourish"
+            }
+          ],
+          "distractors": [
+            "bicycle"
+          ]
+        },
+        {
+          "id": "n8-r5",
+          "type": "cloze",
+          "text": "A reminder to love and {b1} for yourself first",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "care"
+            }
+          ],
+          "distractors": [
+            "abandon"
+          ]
+        },
+        {
+          "id": "n8-r6",
+          "type": "cloze",
+          "text": "Pleasure, beauty, and the body are not indulgences \u2014 they're part of the {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "message"
+            }
+          ],
+          "distractors": [
+            "overthinking"
+          ]
+        },
+        {
+          "id": "n8-r7",
+          "type": "cloze",
+          "text": "Abundance that comes from allowing things to {b1}, not forcing them",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "flourish"
+            }
+          ],
+          "distractors": [
+            "pause"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-9",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Fertility and abundance growing everywhere",
+          "options": [
+            "Fertility and abundance growing everywhere",
+            "Grows fourteen new hobbies by Tuesday",
+            "Scarcity and stillness in every direction",
+            "Hidden things surface if you look"
+          ]
+        },
+        {
+          "id": "n9-r2",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Something new is ready to be born",
+          "options": [
+            "Something new is ready to be born",
+            "Gives birth to a fully formed opinion",
+            "Nothing new happens for a very long time",
+            "Suspended, calm, not suffering"
+          ]
+        },
+        {
+          "id": "n9-r3",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Raw, generative chaos before it takes form",
+          "options": [
+            "Raw, generative chaos before it takes form",
+            "Chaos so raw it needs its own zip code",
+            "Order and structure before anything begins",
+            "The blindfold is self-imposed and removable"
+          ]
+        },
+        {
+          "id": "n9-r4",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Nourish and grow whatever you are tending",
+          "options": [
+            "Nourish and grow whatever you are tending",
+            "Waters the plants with actual lemonade",
+            "Best left alone, untouched, unattended",
+            "A new view comes from surrender, not struggle"
+          ]
+        },
+        {
+          "id": "n9-r5",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A reminder to care for yourself first",
+          "options": [
+            "A reminder to care for yourself first",
+            "A reminder to email everyone back at once",
+            "Put everyone else first, no matter what",
+            "Overthinking has become the obstacle itself"
+          ]
+        },
+        {
+          "id": "n9-r6",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Pleasure and beauty are part of the message",
+          "options": [
+            "Pleasure and beauty are part of the message",
+            "Beauty measured strictly in cake slices",
+            "Pleasure is a distraction to avoid",
+            "A pattern is repeating, notice it in time"
+          ]
+        },
+        {
+          "id": "n9-r7",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Abundance comes from letting things flourish",
+          "options": [
+            "Abundance comes from letting things flourish",
+            "Abundance arrives by winning the lottery",
+            "Abundance only comes from forcing growth",
+            "Pause and let go instead of forcing it"
+          ]
+        }
+      ]
+    }
+  ]
+}

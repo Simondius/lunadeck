@@ -18,18 +18,8 @@ stop two people rebuilding the same thing.
 
 | who | what | status |
 | --- | --- | --- |
-| Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | **Claimed**, merging in the morning — see the warning below before you do |
+| Simon | An alternative curriculum, reachable via dev console → Path → Content → v2. Grew overnight (31 Aug) from one section to five — Fool, Lovers, Magician, Empress, Emperor — and from two round shapes to five (keyword, zone, cloze, choice, tilematch); see [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md). Followed same day by a live morning playtest pass — node reorder, real drag-target/touch bugs fixed, choice round switched to drag-onto-card, dev console gained skip-without-completing controls, and the path screen got chunky per-type icons + a tappable companion card per section; see [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md). **Merged into `main`** 31 Aug, rebased onto #52/#53 first — the collision points Tia flagged (`app/globals.css`'s end-of-file additions, `dev-console.jsx`'s `clamp()`) were reconciled by hand; `lib/progress.js` and `tabbar.jsx` merged clean since v2 never touches either | **Done** — 31 Aug |
 | Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
-
-> **Simon, read this before you merge.** `main` moved a long way on the evening
-> of 30 Aug and the morning of 31 Aug: 37 commits across #52 and #53. If your
-> branch is based on the `main` you last saw, rebase before merging rather than
-> after. The parts most likely to collide with an alternative curriculum are
-> `lib/progress.js` (new fields: `dailyDraw`, `lastReading`, `displayName`, and
-> `knownCardKeys` moved in from `deck-screen.jsx`), `components/tabbar.jsx`
-> (three tabs became five) and `app/globals.css` (large additions at the end).
-> `components/dev-console.jsx` changed too, in #52 — one function, `clamp()`.
-> Decisions 0025 to 0034 carry the reasoning for all of it.
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
 it, do feel free to work anywhere else. *In progress* means someone is actively
@@ -210,6 +200,40 @@ so the account model is worth settling before either is built for real.
 **A section commits atomically.** Progress is held in memory during play and
 written once at the end, after the mistake-review queue. Abandoning saves
 nothing. A section played out of order from the deck counts identically.
+
+**v2 exists as a sandbox, not a second curriculum yet** (`0037`). `app/v2` is
+reached from the dev console (Path → Content → v2) rather than the tab bar,
+and every section in it is bespoke, not built on `lib/rounds.js`'s
+node/instance/format model: no hints, no XP. Content lives in
+`data/v2/*_section.json`, not `data/data_curriculum_nodes.csv`, and
+`components/lesson-v2/*` is new code, not a fork of `components/lesson/*`.
+Nothing here calls `completeSection` — v2 has no node ids to collide with
+v1's, so nothing is written to `lunadeck.progress.v1` at all. The moment v2
+wants to persist anything (XP, a resume point, unlock state), that's a real
+design question, not a default to fall into.
+
+**Five sections now, five round shapes** (`0035`, built overnight 31 Aug,
+uncommitted — Simon hasn't play-tested it yet): Fool, Lovers, Magician,
+Empress, Emperor, routed at `/v2/play/<section-slug>/<node number>` via
+`data/v2/sections.js`. Keyword pairs and zone (drag onto part of the card
+art) already existed; cloze (drag words into blanks), choice (tap one of
+four), and tilematch (pair an image with its meaning, appended to every
+zone node) are new, dispatched by `round.type` in `node-session.jsx` the
+same way zone always was. `app/v2/page.js` reuses v1's own trail styling
+(`components/path-screen.jsx`'s `.trail-*` classes) instead of the old
+placeholder box-per-node list.
+
+**A node does have its own mistake-review queue**, unlike the rest of v2
+(`0038`). Each node is a fixed sequence of rounds played start to finish by
+`NodeSession` (`components/lesson-v2/node-session.jsx`); every round player
+(`RoundPlayer`, `ZoneRoundPlayer`, `ClozeRoundPlayer`, `ChoiceRoundPlayer`,
+`TileMatchPlayer`) plays one round and reports `{missed}` on completion
+without knowing what happens next. `NodeSession` queues anything missed and
+replays it once at the end of that same node — never re-teaching the
+tutorial on a replay, and never queuing a second-look round a second time.
+It's also section-aware now: a node passes `sectionSlug` and `nextSection`
+so the last node in a section can hand off into the next card's first node,
+not just increment a number.
 
 ---
 

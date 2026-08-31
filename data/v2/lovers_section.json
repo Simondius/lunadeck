@@ -1,0 +1,977 @@
+{
+  "cardKey": "major_06_lovers",
+  "cardName": "The Lovers",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "n1-r1",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "woman",
+              "name": "Woman",
+              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "rects": [
+                {
+                  "x0": 0.185,
+                  "y0": 0.529,
+                  "x1": 0.504,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "man",
+              "name": "Man",
+              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "rects": [
+                {
+                  "x0": 0.48,
+                  "y0": 0.529,
+                  "x1": 0.787,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "angel_wings",
+              "name": "Angel wings",
+              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "rects": [
+                {
+                  "x0": 0.172,
+                  "y0": 0.151,
+                  "x1": 0.824,
+                  "y1": 0.536
+                }
+              ]
+            },
+            {
+              "key": "gemini",
+              "name": "Gemini",
+              "text": "Gemini: a mind that questions, weighs, and wants to see every angle of the choice.",
+              "rects": [
+                {
+                  "x0": 0.394,
+                  "y0": 0.096,
+                  "x1": 0.59,
+                  "y1": 0.165
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n1-r2",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "woman",
+              "name": "Woman",
+              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "rects": [
+                {
+                  "x0": 0.185,
+                  "y0": 0.529,
+                  "x1": 0.504,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "man",
+              "name": "Man",
+              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "rects": [
+                {
+                  "x0": 0.48,
+                  "y0": 0.529,
+                  "x1": 0.787,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "angel_wings",
+              "name": "Angel wings",
+              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "rects": [
+                {
+                  "x0": 0.172,
+                  "y0": 0.151,
+                  "x1": 0.824,
+                  "y1": 0.536
+                }
+              ]
+            },
+            {
+              "key": "gemini",
+              "name": "Gemini",
+              "text": "Gemini: a mind that questions, weighs, and wants to see every angle of the choice.",
+              "rects": [
+                {
+                  "x0": 0.394,
+                  "y0": 0.096,
+                  "x1": 0.59,
+                  "y1": 0.165
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n1-r3",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "woman",
+              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_woman.png"
+            },
+            {
+              "key": "man",
+              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_man.png"
+            },
+            {
+              "key": "angel_wings",
+              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_angel_wings.png"
+            },
+            {
+              "key": "gemini",
+              "text": "Gemini: a mind that questions, weighs, and wants to see every angle of the choice.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_gemini.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "n2-r1",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n2-r2",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r3",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "n3-r1",
+          "words": [
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r2",
+          "words": [
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r3",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "n4-r1",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "obligation",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r2",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "sameness",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r3",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "dead end",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r4",
+          "words": [
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "cold logic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r5",
+          "words": [
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "solitude",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "n5-r1",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r2",
+          "words": [
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            },
+            {
+              "text": "green",
+              "correct": false
+            },
+            {
+              "text": "Friday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r3",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "pineapple",
+              "correct": false
+            },
+            {
+              "text": "Monday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r4",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "n6-r1",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "exploration",
+              "correct": false
+            },
+            {
+              "text": "destruction",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r2",
+          "words": [
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "reception",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": false
+            },
+            {
+              "text": "unexpected transformation",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r3",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            },
+            {
+              "text": "nonconformity",
+              "correct": false
+            },
+            {
+              "text": "breaking from old schemes",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r4",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "listening",
+              "correct": false
+            },
+            {
+              "text": "intuition",
+              "correct": false
+            },
+            {
+              "text": "magic",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "n7-r1",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "speed",
+              "correct": false
+            },
+            {
+              "text": "play",
+              "correct": false
+            },
+            {
+              "text": "spontaneity",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r2",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            },
+            {
+              "text": "magic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r3",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": false
+            },
+            {
+              "text": "nonconformity",
+              "correct": false
+            },
+            {
+              "text": "intuition",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r4",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "destruction",
+              "correct": false
+            },
+            {
+              "text": "unexpected transformation",
+              "correct": false
+            },
+            {
+              "text": "breaking from old schemes",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-8",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "cloze",
+          "text": "{b1}'s communicative, inquisitive mind, ruled by {b2} and tied to {b3}, sets the tone for the Lovers.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Gemini"
+            },
+            {
+              "key": "b2",
+              "answer": "Mercury"
+            },
+            {
+              "key": "b3",
+              "answer": "Air"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "Tuesday",
+            "purple"
+          ]
+        },
+        {
+          "id": "n8-r2",
+          "type": "cloze",
+          "text": "The card usually shows two figures beneath a watching {b1}, forming a {b2} of body, mind, and {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "angel"
+            },
+            {
+              "key": "b2",
+              "answer": "triangle"
+            },
+            {
+              "key": "b3",
+              "answer": "spirit"
+            }
+          ],
+          "distractors": [
+            "teacup",
+            "banana",
+            "ladder"
+          ]
+        },
+        {
+          "id": "n8-r3",
+          "type": "cloze",
+          "text": "It centers on a {b1} in the road: have you {b2} every part of the {b3}?",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "fork"
+            },
+            {
+              "key": "b2",
+              "answer": "weighed"
+            },
+            {
+              "key": "b3",
+              "answer": "decision"
+            }
+          ],
+          "distractors": [
+            "elephant",
+            "Wednesday",
+            "exploration"
+          ]
+        },
+        {
+          "id": "n8-r4",
+          "type": "cloze",
+          "text": "True {b1} comes from listening to all three {b2} together, not from the {b3} alone.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "choice"
+            },
+            {
+              "key": "b2",
+              "answer": "voices"
+            },
+            {
+              "key": "b3",
+              "answer": "heart"
+            }
+          ],
+          "distractors": [
+            "spaghetti",
+            "reception",
+            "unstable"
+          ]
+        },
+        {
+          "id": "n8-r5",
+          "type": "cloze",
+          "text": "{b1}'s communicative, inquisitive mind, ruled by {b2} and tied to {b3}, sets the tone for the Lovers. The card usually shows two figures beneath a watching {b4}, forming a {b5} of body, mind, and {b6}. It centers on a {b7} in the road: have you {b8} every part of the {b9}? True {b10} comes from listening to all three {b11} together, not from the {b12} alone.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Gemini"
+            },
+            {
+              "key": "b2",
+              "answer": "Mercury"
+            },
+            {
+              "key": "b3",
+              "answer": "Air"
+            },
+            {
+              "key": "b4",
+              "answer": "angel"
+            },
+            {
+              "key": "b5",
+              "answer": "triangle"
+            },
+            {
+              "key": "b6",
+              "answer": "spirit"
+            },
+            {
+              "key": "b7",
+              "answer": "fork"
+            },
+            {
+              "key": "b8",
+              "answer": "weighed"
+            },
+            {
+              "key": "b9",
+              "answer": "decision"
+            },
+            {
+              "key": "b10",
+              "answer": "choice"
+            },
+            {
+              "key": "b11",
+              "answer": "voices"
+            },
+            {
+              "key": "b12",
+              "answer": "heart"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "teacup",
+            "exploration",
+            "reception"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-9",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "cloze",
+          "text": "A real choice stands in front of you \u2014 has every angle actually been {b1}?",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "weighed"
+            }
+          ],
+          "distractors": [
+            "banana"
+          ]
+        },
+        {
+          "id": "n9-r2",
+          "type": "cloze",
+          "text": "Two paths, both valid \u2014 the challenge is {b1}, not lacking options",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "choosing"
+            }
+          ],
+          "distractors": [
+            "Tuesday"
+          ]
+        },
+        {
+          "id": "n9-r3",
+          "type": "cloze",
+          "text": "Choosing with the {b1}, not just the head",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "heart"
+            }
+          ],
+          "distractors": [
+            "elephant"
+          ]
+        },
+        {
+          "id": "n9-r4",
+          "type": "cloze",
+          "text": "Holding the masculine and feminine, or two sides of yourself, in {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "balance"
+            }
+          ],
+          "distractors": [
+            "reception"
+          ]
+        },
+        {
+          "id": "n9-r5",
+          "type": "cloze",
+          "text": "A {b1} or union that asks you to listen to more than one voice \u2014 body, mind, and spirit",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "partnership"
+            }
+          ],
+          "distractors": [
+            "exploration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-10",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A real choice, has every angle been weighed",
+          "options": [
+            "A real choice, has every angle been weighed",
+            "A real choice between two identical socks",
+            "No real choice, only one obvious path",
+            "Trusts a path appears the moment you step"
+          ]
+        },
+        {
+          "id": "n10-r2",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Two valid paths, the challenge is choosing",
+          "options": [
+            "Two valid paths, the challenge is choosing",
+            "Fourteen valid paths, all equally silly",
+            "Only one path exists, no choosing needed",
+            "What falls apart was already unstable"
+          ]
+        },
+        {
+          "id": "n10-r3",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Choosing with the heart, not just the head",
+          "options": [
+            "Choosing with the heart, not just the head",
+            "Choosing entirely by coin flip instead",
+            "Choosing only with cold, careful logic",
+            "Power comes from receiving, not acting"
+          ]
+        },
+        {
+          "id": "n10-r4",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Holding two sides of yourself in balance",
+          "options": [
+            "Holding two sides of yourself in balance",
+            "Holding fourteen sides, none in balance",
+            "One side wins out completely, always",
+            "A sudden, unexpected lightning-strike moment"
+          ]
+        },
+        {
+          "id": "n10-r5",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A partnership that asks you to listen well",
+          "options": [
+            "A partnership that asks you to listen well",
+            "A partnership that requires zero listening",
+            "A solo journey, no partner required",
+            "Nonconformist, glad to break convention"
+          ]
+        }
+      ]
+    }
+  ]
+}

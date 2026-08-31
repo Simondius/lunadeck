@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { unlockAll, reset } from "@/lib/progress";
+import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
 
 // A floating, draggable debug overlay — deliberately styled as tooling, not
 // app UI, so it never reads as part of Lunadeck itself. Menu items are
@@ -17,14 +18,39 @@ const POSITION_KEY = "lunadeck.devconsole.pos.v1";
 const MENU = [
   {
     group: "Path",
-    actions: [
+    subgroups: [
       {
-        label: "Unlock all",
-        run: (allNodeIds) => unlockAll(allNodeIds),
+        label: "Progress",
+        actions: [
+          {
+            label: "Unlock all",
+            run: (allNodeIds) => unlockAll(allNodeIds),
+          },
+          {
+            label: "Reset",
+            run: () => reset(),
+          },
+        ],
       },
       {
-        label: "Reset",
-        run: () => reset(),
+        label: "Content",
+        actions: [
+          {
+            label: "v1",
+            run: () => {
+              window.location.href = "/";
+            },
+          },
+          {
+            label: "v2",
+            // A plain navigation, not a store mutation — everything else here
+            // runs a function against progress. v2 lives outside the tab bar
+            // (app/v2), so this is the only door to it.
+            run: () => {
+              window.location.href = "/v2";
+            },
+          },
+        ],
       },
     ],
   },
@@ -100,11 +126,17 @@ export default function DevConsole({ allNodeIds = [] }) {
   // first client tick, same pattern as useProgress.
   const [position, setPosition] = useState(null);
   const [open, setOpen] = useState(false);
+  // Non-null only while a NodeSession is mounted somewhere - see
+  // lib/dev-console-bridge.js. The < > buttons only render then; there's
+  // nothing to skip through on any other screen.
+  const [skip, setSkip] = useState(null);
   const drag = useRef(null);
 
   useEffect(() => {
     setPosition(loadPosition());
   }, []);
+
+  useEffect(() => subscribeNodeSkip(setSkip), []);
 
   useEffect(() => {
     if (!position) return;
@@ -159,20 +191,35 @@ export default function DevConsole({ allNodeIds = [] }) {
           {MENU.map((group) => (
             <div key={group.group} className="dev-console-group">
               <span className="dev-console-group-label">{group.group}</span>
-              {group.actions.map((action) => (
-                <button
-                  key={action.label}
-                  type="button"
-                  role="menuitem"
-                  className="dev-console-action"
-                  onClick={() => runAction(action)}
-                >
-                  {action.label}
-                </button>
+              {group.subgroups.map((subgroup) => (
+                <div key={subgroup.label} className="dev-console-subgroup">
+                  <span className="dev-console-subgroup-label">{subgroup.label}</span>
+                  {subgroup.actions.map((action) => (
+                    <button
+                      key={action.label}
+                      type="button"
+                      role="menuitem"
+                      className="dev-console-action"
+                      onClick={() => runAction(action)}
+                    >
+                      {action.label}
+                    </button>
+                  ))}
+                </div>
               ))}
             </div>
           ))}
         </div>
+      ) : null}
+      {skip ? (
+        <button
+          type="button"
+          className="dev-console-skip is-prev"
+          aria-label="Previous segment"
+          onClick={() => skip.onPrev()}
+        >
+          ‹
+        </button>
       ) : null}
       <button
         type="button"
@@ -187,6 +234,16 @@ export default function DevConsole({ allNodeIds = [] }) {
       >
         DEV
       </button>
+      {skip ? (
+        <button
+          type="button"
+          className="dev-console-skip is-next"
+          aria-label="Next segment"
+          onClick={() => skip.onNext()}
+        >
+          ›
+        </button>
+      ) : null}
     </div>
   );
 }

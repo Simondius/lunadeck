@@ -19,7 +19,7 @@ import { MAX_CARDS, MAX_QUESTION } from "@/lib/live-reading";
 // The flow, and the order matters because each step only makes sense once the
 // one before it is done:
 //
-//   idle      start a reading
+//   idle      start a reading, which opens the camera straight away
 //   scanning  scan cards one at a time, say when you have finished
 //   ready     the spread, an optional question, ask for the interpretation
 //   reading   the takeaway, the cards, then ask more / scan more / share / end
@@ -93,7 +93,17 @@ export default function GuideScreen({ deck = [] }) {
   if (!live) {
     return (
       <Shell>
-        <Opening onStart={() => session.start()} />
+        <Opening
+          onStart={() => {
+            // Straight into the camera. "Start reading" has already said what
+            // is about to happen, so a screen whose only content is a button
+            // saying "Scan a card" is a step that asks the same question
+            // twice. Cancelling out of the scanner still lands on the
+            // gathering screen, which is where that button earns its place.
+            session.start();
+            setScanning(true);
+          }}
+        />
       </Shell>
     );
   }

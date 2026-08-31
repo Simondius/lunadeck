@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 const TABS = [
   { href: "/", label: "PATH", glyph: "" },
   { href: "/deck", label: "DECK", glyph: " is-deck" },
-  { href: "/guide", label: "GUIDE", glyph: " is-guide" },
+  { href: "/guide", label: "GUIDE", glyph: " is-guide", primary: true },
   // The daily draw lives inside this tab, so there is no separate Draw tab.
   // Trials is gone until the Challenge tab is actually wanted; its spec is
   // still in specs/ when it is.
@@ -41,7 +41,11 @@ export default function TabBar() {
         return (
           <Link
             key={tab.href}
-            className={active ? "tab is-active" : "tab"}
+            className={
+              ["tab", active ? "is-active" : "", tab.primary ? "is-primary" : ""]
+                .filter(Boolean)
+                .join(" ")
+            }
             href={tab.href}
             aria-current={active ? "page" : undefined}
           >

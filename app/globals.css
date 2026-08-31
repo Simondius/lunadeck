@@ -560,6 +560,41 @@ a { color: inherit; text-decoration: none; }
   transform: rotate(45deg);
 }
 
+/* The middle tab, raised.
+
+   Guide is the one tab you open with a deck already in your hands, so it gets
+   the primary-action treatment the middle slot usually carries: a filled disc
+   lifted clear of the bar.
+
+   The lift is done with a negative top margin rather than a transform or
+   absolute positioning, and the numbers are chosen so the box contributes
+   exactly what it did before: -26 + 44 = 18px, the same as every other
+   .tab-icon. That matters because the labels were only just brought onto one
+   line, and a raised tab that shifted its own label down would undo it. */
+.tab.is-primary .tab-icon {
+  width: 44px;
+  height: 44px;
+  margin: -26px auto 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow:
+    0 6px 18px rgba(143, 82, 196, 0.42),
+    0 0 0 1px rgba(242, 237, 227, 0.08);
+}
+
+/* Bigger inside a 44px disc than it can be sitting on its own in an 18px box,
+   and stroked to match: at 1.5px the diamond looked thin against the fill. */
+.tab.is-primary .tab-glyph.is-guide {
+  width: 13px;
+  height: 13px;
+  border-width: 2px;
+}
+
+/* The disc is accent whether or not the tab is current, so the label carries
+   the active state on its own here. */
+.tab.is-primary.is-active .tab-icon { box-shadow: 0 6px 22px rgba(143, 82, 196, 0.6); }
+
 /* --- unit detail ---------------------------------------------------- */
 
 .backlink {

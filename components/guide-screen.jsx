@@ -83,8 +83,8 @@ export default function GuideScreen({ deck = [] }) {
   if (!mounted) {
     return (
       <Shell>
-        <div className="guide-hero">
-          <p className="reader-intro">Loading&hellip;</p>
+        <div className="guide-open">
+          <p className="guide-open-line">Loading&hellip;</p>
         </div>
       </Shell>
     );
@@ -164,17 +164,49 @@ function Shell({ children }) {
   );
 }
 
+// What the tab actually asks of you, in the order it asks. The screen used to
+// be a portrait, one sentence and a button, with about 350px of nothing under
+// it; the flow here is unusual enough — put the cards down yourself, then
+// photograph them — that saying so is better use of that space than padding.
+const STEPS = [
+  { n: "1", label: "Pull", hint: "Your deck, your spread, however you lay it out" },
+  { n: "2", label: "Scan", hint: "Point the camera at each card as you turn it" },
+  { n: "3", label: "Read", hint: "One reading of the whole spread, then ask about it" },
+];
+
 function Opening({ onStart }) {
   return (
-    <div className="guide-hero">
-      <div className="reader-portrait">
-        <img src="/assets/misc/reader.webp" alt="" />
+    <div className="guide-open">
+      {/* Bleeds past the shell's own padding to the frame edges, and fades out
+          at the bottom rather than ending on a hard edge, so the heading sits
+          on the picture instead of under it. */}
+      <div className="guide-hero">
+        <img src="/assets/misc/guide_hands.webp" alt="" />
+        <h2 className="guide-hero-title">
+          Read with
+          <br />
+          your own deck
+        </h2>
       </div>
 
-      <p className="reader-intro">
-        Reading with your own deck? Pull as you normally would, scan each card,
-        and I&rsquo;ll tell you what they say together.
+      <p className="guide-open-line">
+        Pull as you normally would. I&rsquo;ll tell you what the cards say
+        together.
       </p>
+
+      <ol className="guide-steps">
+        {STEPS.map((step) => (
+          <li key={step.n} className="guide-step-row">
+            <span className="guide-step-n" aria-hidden="true">
+              {step.n}
+            </span>
+            <span className="guide-step-text">
+              <span className="guide-step-label">{step.label}</span>
+              <span className="guide-step-note">{step.hint}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
 
       <button className="action" type="button" onClick={onStart}>
         Start reading

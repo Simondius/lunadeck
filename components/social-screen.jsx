@@ -203,7 +203,11 @@ function ProfileCard({ name, known, totalCards, pathPercent, streak }) {
           <dt>Path</dt>
           <dd>
             {pathPercent}
-            <span>%</span>
+            {/* Its own class because the sibling stat's "/ 78" gets its gap
+                from a literal space in the text, and this one had none at all:
+                a 12px mono percent sign against a 24px display digit was
+                touching it. */}
+            <span className="stat-unit">%</span>
           </dd>
         </div>
         {/* The flame comes with it rather than the word "days": it is the same

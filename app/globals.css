@@ -3768,6 +3768,11 @@ body.is-revealing { overflow: hidden; }
   letter-spacing: 0;
 }
 
+/* A unit, not a word: about half the word space the sibling stat gets from
+   the literal space in its "/ 78", which is enough to stop the percent sign
+   touching the digit without letting it drift off the number it belongs to. */
+.profile-stats dd .stat-unit { margin-left: 2.5px; }
+
 .feed { margin-bottom: 26px; }
 
 /* The heading rule carries the section's action on its right. Baseline-aligned

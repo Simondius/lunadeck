@@ -129,7 +129,7 @@ function Greeting({ deck, progress, day }) {
       <div className="statusrule" />
 
     <div className="reader-greeting">
-      {/* The deck itself, not a person. The character moved to the Mentor
+      {/* The deck itself, not a person. The character moved to the Guide
           tab; this screen is about the cards. */}
       <div className="reader-portrait is-deckfront">
         <img src="/assets/misc/deck_box_lid_MASTER.png" alt="" />

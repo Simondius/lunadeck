@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { jsonSchemaOutputFormat } from "@anthropic-ai/sdk/helpers/json-schema";
 import { getReaderDeck } from "@/lib/data";
+import { bad, missingKeyResponse, anthropicErrorResponse } from "@/lib/api-errors";
 import {
   pullSpread,
   spreadFromKeys,
@@ -23,19 +24,8 @@ export const dynamic = "force-dynamic";
 // thinking, not a target — nothing here should approach it.
 const MAX_TOKENS = 4000;
 
-function bad(message, status = 400) {
-  return Response.json({ error: message }, { status });
-}
-
 export async function POST(request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    // Said plainly rather than as a 500: on this project the cause is almost
-    // always a missing .env.local, and the fix belongs in the message.
-    return bad(
-      "No API key. Set ANTHROPIC_API_KEY in .env.local and restart the dev server.",
-      503
-    );
-  }
+  if (!process.env.ANTHROPIC_API_KEY) return missingKeyResponse();
 
   let body;
   try {
@@ -100,29 +90,10 @@ export async function POST(request) {
       ],
     });
   } catch (error) {
-    if (error instanceof Anthropic.AuthenticationError) {
-      return bad("The API key was rejected. Check ANTHROPIC_API_KEY in .env.local.", 502);
-    }
-    if (error instanceof Anthropic.RateLimitError) {
-      return bad("Too many readings at once. Try again shortly.", 429);
-    }
-    if (error instanceof Anthropic.APIError) {
-      // The API's own message is the useful part and a bare status code is
-      // not: the first live call this route ever made failed on an empty
-      // credit balance, and "couldn't answer (400)" sent us looking at the
-      // request. Log it whole, and pass the setup-shaped ones through — they
-      // name a thing the person running the app can actually go and fix.
-      console.error("[reader] Anthropic API error", error.status, error.message);
-
-      const detail = error.error?.error?.message ?? "";
-      if (/credit balance|billing|quota/i.test(detail)) {
-        return bad(`The account is out of credit. ${detail}`, 502);
-      }
-      return bad(
-        `The reading failed (${error.status}). Check the dev server log for the reason.`,
-        502
-      );
-    }
+    // Anything that is not an API error is a bug in here, and should crash
+    // rather than be reported to the reader as a failed reading.
+    const response = anthropicErrorResponse(error, "reader");
+    if (response) return response;
     throw error;
   }
 

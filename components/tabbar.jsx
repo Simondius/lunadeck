@@ -15,7 +15,7 @@ const TABS = [
   // the route stays /reader because renaming it would churn every link for a
   // string nobody sees in an app shell.
   { href: "/reader", label: "READING", glyph: " is-draw" },
-  { href: "/mentor", label: "MENTOR", glyph: " is-mentor" },
+  { href: "/guide", label: "GUIDE", glyph: " is-guide" },
   { href: "/social", label: "SOCIAL", glyph: " is-social" },
 ];
 

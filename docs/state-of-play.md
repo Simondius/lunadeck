@@ -20,6 +20,7 @@ stop two people rebuilding the same thing.
 | --- | --- | --- |
 | Simon | An alternative curriculum, reachable via dev console → Path → Content → v2. Grew overnight (31 Aug) from one section to five — Fool, Lovers, Magician, Empress, Emperor — and from two round shapes to five (keyword, zone, cloze, choice, tilematch); see [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md). Followed same day by a live morning playtest pass — node reorder, real drag-target/touch bugs fixed, choice round switched to drag-onto-card, dev console gained skip-without-completing controls, and the path screen got chunky per-type icons + a tappable companion card per section; see [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md). **Merged into `main`** 31 Aug, rebased onto #52/#53 first — the collision points Tia flagged (`app/globals.css`'s end-of-file additions, `dev-console.jsx`'s `clamp()`) were reconciled by hand; `lib/progress.js` and `tabbar.jsx` merged clean since v2 never touches either | **Done** — 31 Aug |
 | Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
+| Tia + Claude | The **Guide** tab: Mentor renamed and given a job, a live reading with a physical deck. Camera scan with a confirm step, variable-length spread, follow-up questions, share UI (drawn, not wired), session end. See [`0042`](decisions/0042-the-guide-reads-your-own-deck.md) | **Merged** 31 Aug — #59 |
 | Claude | Review of Simon's v2 (#54), which neither Tia nor Simon can read as code. Two passes: [`0039`](decisions/0039-two-fixes-from-reviewing-v2.md) fixed a broken tile asset and a stale node count, [`0040`](decisions/0040-fixed-overlays-measure-the-frame-not-the-window.md) fixed all three v2 drag overlays landing hundreds of px off above 900px. Two things left open deliberately, both judgement calls rather than defects: `v2-fool-section-nodes` is fully merged but Simon merged `main` into it after #54 landed and kept his own `dev-console.jsx`, so **that branch has lost #52's fix** — new work should branch from `main`, not continue there. And tilematch's detail images carry `alt=""`; the round tests visual recognition, so no honest alt text exists and it needs a spec answer, not an attribute | **Merged** 31 Aug — #55, #56 |
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
@@ -89,15 +90,34 @@ masthead. This deviates from `Spec_MainPath` §2 deliberately: that spec predate
 the path carrying its sections inline.
 
 **The reader answers; the path teaches** (`0025`, `0026`, `0032`). Five tabs
-now: Path, Deck, Reading, Mentor, Social.
+now: Path, Deck, Reading, Guide, Social.
 
-The character moved out of Reading and into **Mentor**, which holds the art and
-a line saying it is not built, and nothing else. Reading carries no notion of a
-person any more — not the portrait and not the strings — and its image is the
-deck's own front. The route is still `/reader` and so are the class names,
-deliberately: renaming is churn for strings nobody sees. `SYSTEM_PROMPT` still
-opens "You are the reader", which is the model's persona rather than a name
-anyone reads, and is left alone until Mentor has a job.
+The character moved out of Reading and into what is now **Guide** (`0042`),
+which has a job: reading the cards you pull from a real deck. Reading carries no
+notion of a person any more — not the portrait and not the strings — and its
+image is the deck's own front. The route is still `/reader` and so are the class
+names, deliberately: renaming is churn for strings nobody sees. `SYSTEM_PROMPT`
+still opens "You are the reader", which is the model's persona rather than a
+name anyone reads, and is now shared by both tabs on purpose.
+
+**Guide is the one surface the app does not deal for.** You pull physically, scan
+each card, say when you have finished, and get one reading of however many cards
+are on the table; then you can ask follow-up questions, scan more (which throws
+the old reading away, because a reading of five cards is not a reading of six),
+share it, or end the session. Two things are deliberately not real: **card
+recognition**, which has no vision model behind it and so asks you to confirm a
+guess rather than asserting one, and **sharing**, which is drawn and disabled.
+The camera itself is real, and needs `localhost` or HTTPS to open.
+
+Its session lives in its own `lunadeck.guide.v1` key, not in `lib/progress.js`.
+Nothing in a reading is earned, and a reading someone did with their own deck
+should not be able to corrupt the record of what they have learned.
+
+The reader's **voice rules and safety block are one definition**, exported from
+`lib/reading.js` and composed into both prompts. Tia needed three rounds to get
+this prose to stop sounding machine-written; a second reader with a private copy
+of those rules would undo that in one tab only, which is the hardest kind of
+regression to spot.
 
 Reading is one screen that arrives in order. A status bar and a rule anchor the
 top, borrowed from the path so the two read as the same app; then the deck

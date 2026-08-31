@@ -60,6 +60,13 @@ const MENU = [
 // room inside its box.
 const FAB_INSET = 56;
 
+// The skip controls hang outside the FAB — 40px wide plus an 8px margin on
+// each side, per .dev-console-skip. They are positioned against the console
+// rather than carrying their own coordinates, so clamping the console alone
+// is not enough: at either edge one wing lands off the frame. Measured at
+// left: -48 with the console parked at x: 0.
+const SKIP_WING = 48;
+
 // The box a position is measured against — and it is NOT the viewport.
 //
 // The console is `position: fixed`, but it lives inside `.app-frame`, which
@@ -86,10 +93,14 @@ function frameBox() {
   };
 }
 
-function clamp({ x, y }) {
+// `wings` is the room needed either side of the FAB for whatever is attached
+// to it. Zero when nothing is.
+function clamp({ x, y }, wings = 0) {
   const { width, height } = frameBox();
+  const minX = wings;
+  const maxX = Math.max(minX, width - FAB_INSET - wings);
   return {
-    x: Math.min(Math.max(0, x), Math.max(0, width - FAB_INSET)),
+    x: Math.min(Math.max(minX, x), maxX),
     y: Math.min(Math.max(0, y), Math.max(0, height - FAB_INSET)),
   };
 }
@@ -132,11 +143,26 @@ export default function DevConsole({ allNodeIds = [] }) {
   const [skip, setSkip] = useState(null);
   const drag = useRef(null);
 
+  // Room the console has to leave for its wings right now.
+  const wings = skip ? SKIP_WING : 0;
+
   useEffect(() => {
     setPosition(loadPosition());
   }, []);
 
   useEffect(() => subscribeNodeSkip(setSkip), []);
+
+  // The skip controls appear when a node session mounts, which can be long
+  // after the console was parked. Re-clamp so neither wing hangs off the
+  // frame — and return the same object when nothing moves, so React bails out
+  // instead of looping.
+  useEffect(() => {
+    setPosition((current) => {
+      if (!current) return current;
+      const next = clamp(current, wings);
+      return next.x === current.x && next.y === current.y ? current : next;
+    });
+  }, [wings]);
 
   useEffect(() => {
     if (!position) return;
@@ -167,7 +193,7 @@ export default function DevConsole({ allNodeIds = [] }) {
     if (!drag.current.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
     drag.current.moved = true;
     setPosition(
-      clamp({ x: drag.current.originX + dx, y: drag.current.originY + dy })
+      clamp({ x: drag.current.originX + dx, y: drag.current.originY + dy }, wings)
     );
   };
 

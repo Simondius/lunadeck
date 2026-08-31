@@ -30,35 +30,56 @@ const MENU = [
   },
 ];
 
-// The button is 52px; onPointerMove already keeps a drag inside
-// [0, innerWidth - FAB_INSET]. Everything else that produces a position has
-// to pass through clamp() for the same guarantee.
+// The button is 52px; every position it can be given has to leave that much
+// room inside its box.
 const FAB_INSET = 56;
 
-// Both of these are read at a moment when the window may report zero
-// dimensions — a background tab, a pane that has not been laid out yet. Left
-// ungrounded, `innerWidth - 76` is then -76, which is a real position, off
-// the top-left of the screen, and it gets persisted. The console is then
-// invisible forever, on every later load, at any window size.
-function clamp({ x, y }) {
-  const maxX = Math.max(0, (window.innerWidth || 0) - FAB_INSET);
-  const maxY = Math.max(0, (window.innerHeight || 0) - FAB_INSET);
+// The box a position is measured against — and it is NOT the viewport.
+//
+// The console is `position: fixed`, but it lives inside `.app-frame`, which
+// carries a transform. Any non-`none` transform makes that element the
+// containing block for fixed descendants, so `left: 1074px` means 1074px from
+// the frame's left edge, not the window's. On a wide desktop window the frame
+// is a centred phone about 428px across, so clamping against `innerWidth`
+// permits an x of ~1094 that renders ~360px off the right of the screen —
+// which is exactly how the console went missing.
+//
+// The frame placement is deliberate (see app/layout.js): the console pins to
+// the device illusion rather than floating in the browser chrome around it.
+// So measure the frame, not the window.
+function frameBox() {
+  const frame = document.querySelector(".app-frame");
+  const rect = frame?.getBoundingClientRect();
+  // Falls back to the window if the frame is missing or has not been laid out
+  // yet. Zero is guarded either way: a window reporting no dimensions — a
+  // background tab, a pane mid-init — would otherwise yield a negative
+  // default that gets persisted and never recovers.
   return {
-    x: Math.min(Math.max(0, x), maxX),
-    y: Math.min(Math.max(0, y), maxY),
+    width: rect?.width || window.innerWidth || 0,
+    height: rect?.height || window.innerHeight || 0,
+  };
+}
+
+function clamp({ x, y }) {
+  const { width, height } = frameBox();
+  return {
+    x: Math.min(Math.max(0, x), Math.max(0, width - FAB_INSET)),
+    y: Math.min(Math.max(0, y), Math.max(0, height - FAB_INSET)),
   };
 }
 
 function defaultPosition() {
   if (typeof window === "undefined") return { x: 24, y: 24 };
-  // Bottom-right, clear of the tab bar.
-  return clamp({ x: window.innerWidth - 76, y: window.innerHeight - 170 });
+  const { width, height } = frameBox();
+  // Bottom-right of the frame, clear of the tab bar.
+  return clamp({ x: width - 76, y: height - 170 });
 }
 
 // A remembered spot is clamped too, not just trusted. It may have been saved
-// at a window size this one is smaller than, or saved before the window had a
-// size at all — either way the console has to come back on screen rather than
-// stay lost with no way to reach the control that would move it.
+// against a bigger frame, or at a window width where the frame was the whole
+// screen, or before anything had a size at all — either way the console has to
+// come back on screen rather than stay lost with no way to reach the one
+// control that would move it.
 function loadPosition() {
   if (typeof window === "undefined") return defaultPosition();
   try {

@@ -1457,6 +1457,16 @@ div.reference-art, div.reference-symbol { cursor: default; }
   transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(0.5);
 }
 
+/* cloze-round-player.jsx's leftover distractors, once the round's fully
+   answered - each fades out on its own transition-delay (set inline, per
+   chip, 0.5s apart) so they clear the board one at a time rather than all
+   at once, as the Continue button fades in. */
+.drag-chip.is-fading-out {
+  transition: opacity 400ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* choice-round-player.jsx's options are full sentences, not keywords — same
    wrap-at-a-fixed-width treatment as .zone-chip's phrases, as a modifier
    rather than a second component, since the drag/reject logic is identical
@@ -1597,6 +1607,11 @@ div.reference-art, div.reference-symbol { cursor: default; }
   display: flex;
   flex-direction: column;
   padding-bottom: 22px;
+  /* Only cloze-round-player.jsx's own absolutely-positioned children
+     (.cloze-bg, .cloze-continue) actually need this as their anchor -
+     harmless to set on every drag-lesson screen, since position:relative
+     changes nothing for a screen with no absolutely-positioned descendants. */
+  position: relative;
 }
 
 /* Reserves the tab bar's own height at the bottom (it's position:fixed, so
@@ -1675,6 +1690,62 @@ div.reference-art, div.reference-symbol { cursor: default; }
 }
 
 /* --- cloze-round-player.jsx ------------------------------------------ */
+
+/* Greyed, full-bleed - atmosphere behind the whole exercise, matching the
+   swipe round's own background treatment (app/globals.css's .swipe-bg).
+   Absolutely positioned against .session.is-drag-lesson's own
+   position:relative, siblings of .topbar/.drag-layout rather than inside
+   either, so they sit behind everything without disturbing that layout. */
+.cloze-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1) brightness(0.85);
+  z-index: 0;
+}
+
+.cloze-bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 14, 0.74);
+  z-index: 0;
+}
+
+/* .topbar and .drag-layout aren't positioned themselves, so they'd
+   otherwise paint at the same stacking level as the background above and
+   the order in the DOM would decide it by luck. Lifting them onto their
+   own layer keeps them above it regardless. */
+.session.is-drag-lesson > .topbar,
+.session.is-drag-lesson > .drag-layout {
+  position: relative;
+  z-index: 1;
+}
+
+/* The small reference card is now a real button (tap to view the card
+   full-size via Inspector) - reset back to looking like the plain card
+   display it always was, not a generic button. */
+.reference-card.cloze-reference-card {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Anchored to the bottom of the screen once the round's answered, rather
+   than sitting inline in the chip row wherever the centering spacers
+   happened to land it. */
+.cloze-continue {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: calc(var(--tabbar, 74px) + 14px);
+  width: auto;
+  max-width: none;
+  z-index: 2;
+}
 
 .cloze-sentence {
   font-family: var(--display);
@@ -1758,13 +1829,36 @@ div.reference-art, div.reference-symbol { cursor: default; }
     rgba(242, 237, 227, 0.55) 55%,
     rgba(242, 237, 227, 0) 100%
   );
-  animation: shimmer-sweep 700ms ease;
+  animation: shimmer-sweep var(--shimmer-duration, 700ms) ease;
   pointer-events: none;
 }
 
 @keyframes shimmer-sweep {
   from { left: -60%; }
   to { left: 115%; }
+}
+
+/* The sentence's own completion shimmer (cloze-round-player.jsx, once every
+   blank is filled) - bigger and brighter than the per-word/per-card sweep
+   above, and on its own slower keyframe, since this one has to read clearly
+   across a whole multi-line paragraph, not one small chip. */
+.cloze-sentence.is-shimmering::after {
+  left: -90%;
+  width: 75%;
+  background: linear-gradient(
+    115deg,
+    rgba(242, 237, 227, 0) 0%,
+    rgba(242, 237, 227, 0.75) 35%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(242, 237, 227, 0.75) 65%,
+    rgba(242, 237, 227, 0) 100%
+  );
+  animation-name: shimmer-sweep-wide;
+}
+
+@keyframes shimmer-sweep-wide {
+  from { left: -90%; }
+  to { left: 130%; }
 }
 
 /* choice-round-player.jsx now drags onto the card like every other round
@@ -1837,6 +1931,224 @@ div.reference-art, div.reference-symbol { cursor: default; }
   animation: choice-option-shake 460ms ease;
 }
 
+/* --- swipe-round-player.jsx --------------------------------------------- */
+/* "Does it match?" - full-bleed greyscale card art, one phrase chip at a
+   time, swipe or tap tick/cross. No .drag-layout here: the art needs the
+   whole screen behind it, not a card-sized reference block. */
+
+.session.is-swipe-lesson {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 22px;
+}
+
+.swipe-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  /* Undoes .session's own 20px side padding so the art runs to the frame's
+     edges, and adds the tab bar's own height back as bottom clearance
+     since .session's 22px override (matching .is-drag-lesson) doesn't
+     otherwise know the fixed tab bar is there. */
+  margin: 0 -20px calc(var(--tabbar, 74px) - 22px) -20px;
+}
+
+.swipe-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Shown in full colour - Simon's call after seeing the spec's own
+     greyscale version rendered. The scrim below still carries the whole
+     legibility job now, without a desaturation filter's contrast boost to
+     lean on. */
+  filter: contrast(1.05) brightness(1.05);
+}
+
+.swipe-bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 6, 14, 0.75) 0%,
+    rgba(8, 6, 14, 0.15) 30%,
+    rgba(8, 6, 14, 0.15) 65%,
+    rgba(8, 6, 14, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.swipe-chip {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(calc(-50% + var(--dx, 0px)), -50%) rotate(var(--rot, 0deg));
+  /* Started at min(78%, 320px), went to a quarter of that, then Simon
+     doubled it back up from there - min(39%, 160px) is where that lands.
+     Padding/font scaled with it, off the same legible-floor reasoning as
+     the quarter pass rather than a strict proportional scale-up. */
+  width: min(39%, 160px);
+  aspect-ratio: 5 / 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: none;
+  border-radius: 11px;
+  /* A soft radial highlight instead of a flat fill, plus the inset
+     shadows below - together the "light embossing" read Simon asked for,
+     like old card stock catching the light rather than a flat sticker. */
+  background: radial-gradient(circle at 50% 32%, #f7f2e4 0%, var(--parchment) 75%);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(184, 148, 88, 0.4);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.swipe-chip.is-dragging {
+  cursor: grabbing;
+}
+
+.swipe-chip:not(.is-dragging) {
+  transition: transform 220ms ease;
+}
+
+/* The green/red wash as the chip crosses the commit threshold - a plain
+   tinted overlay above the parchment surface, not a background-color swap,
+   so the card itself never changes color, only what's laid over it. */
+.swipe-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--wash-color, transparent);
+  opacity: var(--wash-opacity, 0);
+  pointer-events: none;
+}
+
+/* The wrong-swipe flash - a red pulse over the same pseudo-element the
+   drag wash uses, run as a plain CSS animation (toggled by resolve() via
+   classList) rather than through the wash custom properties, since this
+   one runs on its own timeline independent of drag state. */
+.swipe-chip.is-wrong::after {
+  animation: swipe-wrong-flash 480ms ease;
+}
+
+@keyframes swipe-wrong-flash {
+  0%,
+  100% {
+    background: var(--bad);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 0.3;
+  }
+}
+
+/* Gold/silver dust from a correct swipe - see spawnBurst() in
+   swipe-round-player.jsx, which positions and animates each one; this is
+   only the look. */
+.swipe-spark {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.swipe-spark.is-gold {
+  background: #f0c869;
+  box-shadow: 0 0 8px 2px rgba(240, 200, 105, 0.75);
+}
+
+.swipe-spark.is-silver {
+  background: #e6e6ee;
+  box-shadow: 0 0 8px 2px rgba(230, 230, 238, 0.7);
+}
+
+/* Centered and directly under the card, not spread to the screen's own
+   edges - Simon's call so the tick/cross pairing reads as one obvious
+   control, not two separate buttons that happen to share a row. */
+.swipe-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Coloured at rest, not just once dragged past the commit threshold -
+   Simon's call so which side is which is obvious before anyone touches
+   the card, not something they discover mid-drag. */
+.swipe-control {
+  pointer-events: auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.swipe-control.is-tick {
+  background: var(--good);
+  color: #0d1a10;
+  box-shadow: 0 6px 18px rgba(107, 191, 123, 0.35);
+}
+
+.swipe-control.is-cross {
+  background: var(--bad);
+  color: #250c0c;
+  box-shadow: 0 6px 18px rgba(217, 96, 95, 0.35);
+}
+
+.swipe-control.is-active {
+  transform: scale(1.2);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+.swipe-continue {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 28px;
+  width: auto;
+  max-width: none;
+  z-index: 4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swipe-chip {
+    transition: opacity 200ms ease;
+  }
+}
+
 /* v2's own card size and name placement — scoped past the shared
    .reference-card.is-compact rules (used by v1's format-k.jsx) via the extra
    .drag-reference-card class, so this doesn't move v1's card at all. */
@@ -1855,9 +2167,10 @@ div.reference-art, div.reference-symbol { cursor: default; }
    166px, per Simon's call, so the sentence reads as the actual center of
    the screen. Needs all four classes to out-specificity the 166px rule
    above - three classes alone loses that fight and the width silently
-   never applies. */
+   never applies. Bumped 50% bigger from its original 83px (to 125px) for
+   readability, per Simon's live call after playtesting. */
 .reference-card.is-compact.drag-reference-card.cloze-reference-card .reference-art {
-  width: 83px;
+  width: 125px;
 }
 
 /* choice-round-player.jsx's options are full sentences (see .drag-chip.is-long)
@@ -3189,6 +3502,14 @@ a.slot { display: block; }
 .v2-shape-oct {
   border-radius: 0;
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+/* "Does it match?" swipe rounds — added after the first icon pass, so its
+   own outer silhouette (a plain rounded square, distinct radius from
+   .v2-shape-square's 20px) rather than a rotated/clipped one, kept simple
+   since the tick/cross glyph itself already carries the round's identity. */
+.v2-shape-swipe {
+  border-radius: 14px;
 }
 
 /* Glare arc — the "glossy coin" read from Simon's reference screenshot,

@@ -12,7 +12,7 @@
             {
               "key": "ram",
               "name": "Ram",
-              "text": "The ram carries Aries into the throne room \u2014 instinct and courage made solid.",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
               "rects": [
                 {
                   "x0": 0.16,
@@ -25,7 +25,7 @@
             {
               "key": "aries",
               "name": "Aries",
-              "text": "Aries: the spark of pure life force \u2014 acts before it thinks.",
+              "text": "Aries: the spark of pure life force — acts before it thinks.",
               "rects": [
                 {
                   "x0": 0.406,
@@ -44,7 +44,7 @@
             {
               "key": "ram",
               "name": "Ram",
-              "text": "The ram carries Aries into the throne room \u2014 instinct and courage made solid.",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
               "rects": [
                 {
                   "x0": 0.16,
@@ -57,7 +57,7 @@
             {
               "key": "aries",
               "name": "Aries",
-              "text": "Aries: the spark of pure life force \u2014 acts before it thinks.",
+              "text": "Aries: the spark of pure life force — acts before it thinks.",
               "rects": [
                 {
                   "x0": 0.406,
@@ -75,12 +75,12 @@
           "pairs": [
             {
               "key": "ram",
-              "text": "The ram carries Aries into the throne room \u2014 instinct and courage made solid.",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
               "image": "/assets/cards/cardelements/major_04_emperor_element_ram.png"
             },
             {
               "key": "aries",
-              "text": "Aries: the spark of pure life force \u2014 acts before it thinks.",
+              "text": "Aries: the spark of pure life force — acts before it thinks.",
               "image": "/assets/cards/cardelements/major_04_emperor_element_aries.png"
             }
           ]
@@ -610,6 +610,139 @@
       ]
     },
     {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Acts the instant the moment calls",
+              "isMatch": true
+            },
+            {
+              "text": "Sets clear boundaries without apology",
+              "isMatch": true
+            },
+            {
+              "text": "Gives shape to raw potential",
+              "isMatch": true
+            },
+            {
+              "text": "Ready to act, shaping creative chaos",
+              "isMatch": true
+            },
+            {
+              "text": "Waits for a calendar invite first",
+              "isMatch": false
+            },
+            {
+              "text": "Sets boundaries, then forgets where they are",
+              "isMatch": false
+            },
+            {
+              "text": "Alphabetizes the chaos, for fun",
+              "isMatch": false
+            },
+            {
+              "text": "Leads by sending seventeen follow-up emails",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Leads through decisive action",
+              "isMatch": true
+            },
+            {
+              "text": "Life force breaking through",
+              "isMatch": true
+            },
+            {
+              "text": "Spark-first instinct, leads with action",
+              "isMatch": true
+            },
+            {
+              "text": "Claims his own space without hesitation",
+              "isMatch": true
+            },
+            {
+              "text": "Waits patiently for the perfect conditions",
+              "isMatch": false
+            },
+            {
+              "text": "Boundaries shift depending on who's watching",
+              "isMatch": false
+            },
+            {
+              "text": "Leaves raw potential as it is",
+              "isMatch": false
+            },
+            {
+              "text": "Leads only after months of deliberation",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Paired with Aries, springtime urgency",
+              "isMatch": true
+            },
+            {
+              "text": "Ruled by Mars's spark, pure momentum",
+              "isMatch": true
+            },
+            {
+              "text": "Sets clear boundaries without apology",
+              "isMatch": true
+            },
+            {
+              "text": "Life force breaking through",
+              "isMatch": true
+            },
+            {
+              "text": "Time to turn inward, before acting",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "Power comes from receiving, not acting",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "A quiet, reflected light, not blazing",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "Pause and let go, instead of forcing",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "node-8",
       "rounds": [
         {
@@ -777,7 +910,7 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Ready to act the instant the moment calls for it \u2014 no {b1}",
+          "text": "Ready to act the instant the moment calls for it — no {b1}",
           "blanks": [
             {
               "key": "b1",
@@ -833,7 +966,7 @@
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "Spring's {b1} \u2014 breaking through and pushing forward",
+          "text": "Spring's {b1} — breaking through and pushing forward",
           "blanks": [
             {
               "key": "b1",

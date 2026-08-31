@@ -7,6 +7,7 @@ import ZoneRoundPlayer from "./zone-round-player";
 import ClozeRoundPlayer from "./cloze-round-player";
 import ChoiceRoundPlayer from "./choice-round-player";
 import TileMatchPlayer from "./tile-match-player";
+import SwipeRoundPlayer from "./swipe-round-player";
 import { registerNodeSkip } from "@/lib/dev-console-bridge";
 
 // One player component per round.type. No "type" at all is the original
@@ -18,6 +19,7 @@ const PLAYERS = {
   cloze: ClozeRoundPlayer,
   choice: ChoiceRoundPlayer,
   tilematch: TileMatchPlayer,
+  swipe: SwipeRoundPlayer,
 };
 
 // Sequences a node's rounds, then — if any were missed — bridges into a

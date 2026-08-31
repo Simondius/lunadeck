@@ -12,7 +12,7 @@
             {
               "key": "woman",
               "name": "Woman",
-              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
               "rects": [
                 {
                   "x0": 0.185,
@@ -25,7 +25,7 @@
             {
               "key": "man",
               "name": "Man",
-              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
               "rects": [
                 {
                   "x0": 0.48,
@@ -38,7 +38,7 @@
             {
               "key": "angel_wings",
               "name": "Angel wings",
-              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
               "rects": [
                 {
                   "x0": 0.172,
@@ -70,7 +70,7 @@
             {
               "key": "woman",
               "name": "Woman",
-              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
               "rects": [
                 {
                   "x0": 0.185,
@@ -83,7 +83,7 @@
             {
               "key": "man",
               "name": "Man",
-              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
               "rects": [
                 {
                   "x0": 0.48,
@@ -96,7 +96,7 @@
             {
               "key": "angel_wings",
               "name": "Angel wings",
-              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
               "rects": [
                 {
                   "x0": 0.172,
@@ -127,17 +127,17 @@
           "pairs": [
             {
               "key": "woman",
-              "text": "She is one half of the choice \u2014 the feminine voice in the triangle.",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
               "image": "/assets/cards/cardelements/major_06_lovers_element_woman.png"
             },
             {
               "key": "man",
-              "text": "He is the other half \u2014 the masculine voice, meeting her as an equal.",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
               "image": "/assets/cards/cardelements/major_06_lovers_element_man.png"
             },
             {
               "key": "angel_wings",
-              "text": "The angel above is the third voice \u2014 true choice means listening to it too, not just the heart.",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
               "image": "/assets/cards/cardelements/major_06_lovers_element_angel_wings.png"
             },
             {
@@ -672,6 +672,139 @@
       ]
     },
     {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "A real choice, every angle weighed",
+              "isMatch": true
+            },
+            {
+              "text": "Two paths, the challenge is choosing",
+              "isMatch": true
+            },
+            {
+              "text": "Choosing with the heart, not the head",
+              "isMatch": true
+            },
+            {
+              "text": "Two figures stand beneath a watching angel",
+              "isMatch": true
+            },
+            {
+              "text": "A choice between two identical socks",
+              "isMatch": false
+            },
+            {
+              "text": "Fourteen valid paths, all equally silly",
+              "isMatch": false
+            },
+            {
+              "text": "Choosing by coin flip instead",
+              "isMatch": false
+            },
+            {
+              "text": "Holding fourteen sides, none in balance",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Two sides of you, held in balance",
+              "isMatch": true
+            },
+            {
+              "text": "A partnership built on real listening",
+              "isMatch": true
+            },
+            {
+              "text": "Gemini's mind, ruled by Mercury, sets the tone",
+              "isMatch": true
+            },
+            {
+              "text": "A triangle of body, mind, and spirit",
+              "isMatch": true
+            },
+            {
+              "text": "Only one path, no real choice",
+              "isMatch": false
+            },
+            {
+              "text": "One path exists, no choosing needed",
+              "isMatch": false
+            },
+            {
+              "text": "Choosing only with cold, careful logic",
+              "isMatch": false
+            },
+            {
+              "text": "One side wins out, always",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "True choice means listening to all three voices",
+              "isMatch": true
+            },
+            {
+              "text": "A real choice, every angle weighed",
+              "isMatch": true
+            },
+            {
+              "text": "A partnership built on real listening",
+              "isMatch": true
+            },
+            {
+              "text": "Two paths, the challenge is choosing",
+              "isMatch": true
+            },
+            {
+              "text": "Trusts a path appears when you step",
+              "isMatch": false,
+              "_source": "The Fool"
+            },
+            {
+              "text": "What falls apart was already unstable",
+              "isMatch": false,
+              "_source": "The Tower"
+            },
+            {
+              "text": "Power comes from receiving, not acting",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "A sudden, unexpected lightning-strike moment",
+              "isMatch": false,
+              "_source": "The Tower"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "node-8",
       "rounds": [
         {
@@ -839,7 +972,7 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "A real choice stands in front of you \u2014 has every angle actually been {b1}?",
+          "text": "A real choice stands in front of you — has every angle actually been {b1}?",
           "blanks": [
             {
               "key": "b1",
@@ -853,7 +986,7 @@
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "Two paths, both valid \u2014 the challenge is {b1}, not lacking options",
+          "text": "Two paths, both valid — the challenge is {b1}, not lacking options",
           "blanks": [
             {
               "key": "b1",
@@ -895,7 +1028,7 @@
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "A {b1} or union that asks you to listen to more than one voice \u2014 body, mind, and spirit",
+          "text": "A {b1} or union that asks you to listen to more than one voice — body, mind, and spirit",
           "blanks": [
             {
               "key": "b1",

@@ -969,6 +969,139 @@
       ]
     },
     {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "One cycle ends, the next begins",
+              "isMatch": true
+            },
+            {
+              "text": "Travels light, takes chances anyway",
+              "isMatch": true
+            },
+            {
+              "text": "Calm at the cliff edge, unafraid to fall",
+              "isMatch": true
+            },
+            {
+              "text": "Trusts a path appears when you step",
+              "isMatch": true
+            },
+            {
+              "text": "Packs fourteen suitcases just in case",
+              "isMatch": false
+            },
+            {
+              "text": "Waits for GPS before a single step",
+              "isMatch": false
+            },
+            {
+              "text": "Wears socks with sandals to prove a point",
+              "isMatch": false
+            },
+            {
+              "text": "Says no to everything, always",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Meets life with a curious beginner's mind",
+              "isMatch": true
+            },
+            {
+              "text": "Nonconformist, glad to break convention",
+              "isMatch": true
+            },
+            {
+              "text": "Standing where one journey ends, the next begins",
+              "isMatch": true
+            },
+            {
+              "text": "Ruled by Uranus, quick and unconventional",
+              "isMatch": true
+            },
+            {
+              "text": "Waits for the safest possible moment to move",
+              "isMatch": false
+            },
+            {
+              "text": "Refuses to go near the edge at all",
+              "isMatch": false
+            },
+            {
+              "text": "Approaches life with caution and suspicion",
+              "isMatch": false
+            },
+            {
+              "text": "Follows every rule exactly as it's written",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Steps off the edge without waiting to be certain",
+              "isMatch": true
+            },
+            {
+              "text": "Every departure reads as invitation, not risk",
+              "isMatch": true
+            },
+            {
+              "text": "Says yes to the unknown, not playing it safe",
+              "isMatch": true
+            },
+            {
+              "text": "Trusts a path appears when you step",
+              "isMatch": true
+            },
+            {
+              "text": "A bridge between the everyday and the sacred",
+              "isMatch": false,
+              "_source": "The Hierophant"
+            },
+            {
+              "text": "Solitude here is productive, not lonely",
+              "isMatch": false,
+              "_source": "The Hermit"
+            },
+            {
+              "text": "The chains are looser than they look",
+              "isMatch": false,
+              "_source": "The Devil"
+            },
+            {
+              "text": "Freedom is a responsibility you already hold",
+              "isMatch": false,
+              "_source": "The Devil"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "node-8",
       "rounds": [
         {

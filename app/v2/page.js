@@ -33,6 +33,9 @@ const LABELS = {
     "Find the elements",
     "Trickier confusables",
     "Spontaneity mastery",
+    "Does it match?",
+    "Trickier matches",
+    "Hardest matches",
     "Fill in the blank: description",
     "Fill in the blank: readings",
     "Pick the true reading",
@@ -45,6 +48,9 @@ const LABELS = {
     "Obvious wrong answers",
     "Real-word confusables",
     "Final mastery",
+    "Does it match?",
+    "Trickier matches",
+    "Hardest matches",
     "Fill in the blank: description",
     "Fill in the blank: readings",
     "Pick the true reading",
@@ -57,6 +63,9 @@ const LABELS = {
     "Obvious wrong answers",
     "Real-word confusables",
     "Final mastery",
+    "Does it match?",
+    "Trickier matches",
+    "Hardest matches",
     "Fill in the blank: description",
     "Fill in the blank: readings",
     "Pick the true reading",
@@ -71,6 +80,9 @@ const LABELS = {
     "Obvious wrong answers",
     "Real-word confusables",
     "Final mastery",
+    "Does it match?",
+    "Trickier matches",
+    "Hardest matches",
     "Fill in the blank: description",
     "Fill in the blank: readings",
     "Pick the true reading",
@@ -83,6 +95,9 @@ const LABELS = {
     "Obvious wrong answers",
     "Real-word confusables",
     "Final mastery",
+    "Does it match?",
+    "Trickier matches",
+    "Hardest matches",
     "Fill in the blank: description",
     "Fill in the blank: readings",
     "Pick the true reading",
@@ -118,8 +133,9 @@ function peaksForSection(startIndex, nodeCount) {
 // overwritten every frame instead of centering anything.
 const COMPANION_HEIGHT = 108 * (1456 / 813);
 
-// The v2 path's index. Dev-only, reachable from the dev console
-// (components/dev-console.jsx), not from the tab bar. Reuses v1's own trail
+// v2's own path index - the app's default landing page now (app/page.js
+// re-exports this), with the original curriculum moved to /v1, reachable
+// from the dev console (components/dev-console.jsx). Reuses v1's own trail
 // styling (components/path-screen.jsx, .trail-* in globals.css) rather than
 // the placeholder bordered-<div> list this replaces — see
 // docs/decisions/0035 for why: five sections' worth of nodes need to read
@@ -145,9 +161,14 @@ export default function V2Path() {
         if (!peakEl || !containerEl) continue;
         const peakRect = peakEl.getBoundingClientRect();
         const containerRect = containerEl.getBoundingClientRect();
-        // Centers the companion card on the peak node's own icon.
-        next[key] =
-          peakRect.top - containerRect.top + peakRect.height / 2 - COMPANION_HEIGHT / 2;
+        // Centers the companion card on the peak node's own icon - clamped to
+        // never go negative, since a peak that close to the top of its
+        // section would otherwise push the card up past .v2-section-trail's
+        // own top edge and over the section's header button above it.
+        next[key] = Math.max(
+          4,
+          peakRect.top - containerRect.top + peakRect.height / 2 - COMPANION_HEIGHT / 2
+        );
       }
       setCompanionTop(next);
     }
@@ -169,9 +190,9 @@ export default function V2Path() {
     <main className="shell starfield">
       <header className="statusbar">
         <div>
-          <span className="statusbar-where">Alternative path (v2)</span>
+          <span className="statusbar-where">The Path</span>
           <span className="statusbar-count">
-            Experimental — dev console only. See docs/draft-alt-path-fool-section.md.
+            The old curriculum lives on at dev console → Path → Content → v1.
           </span>
         </div>
       </header>

@@ -3,6 +3,7 @@
 import { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import TutorialGhost from "./tutorial-ghost";
+import { Inspector } from "@/components/lesson/options";
 import { masterForKey, seededShuffle } from "@/lib/rounds";
 
 // Same brief chip-reject timing as drag-chip.jsx/zone-chip.jsx; the blank
@@ -11,6 +12,7 @@ const CHIP_REJECT_MS = 180;
 const BLANK_REJECT_MS = 460;
 const CONTINUE_FADE_MS = 500;
 const SHIMMER_MS = 700;
+const SENTENCE_SHIMMER_MS = 1400;
 // A node's closing round can recap every sentence before it into one long
 // paragraph (Fool node 8's does, at 12 blanks) - far more than the 1-3 a
 // normal round asks for. Past this many blanks, the card comes off screen
@@ -54,7 +56,7 @@ function bankWords(round) {
 // round has several distinct drop targets in one sentence. forwardRef so the
 // tutorial demo (round 1 only) can grab the real chip it needs to animate.
 const BankChip = forwardRef(function BankChip(
-  { word, blankRefs, disabled, onAccepted, onRejected },
+  { word, blankRefs, disabled, fadingDelay, onAccepted, onRejected },
   ref
 ) {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -86,7 +88,10 @@ const BankChip = forwardRef(function BankChip(
     let hitKey = null;
     let hitEl = null;
     for (const [key, el] of blankRefs.current.entries()) {
-      if (!el) continue;
+      // A filled blank isn't a valid target at all, not a wrong one - it
+      // has to behave exactly like nothing was there, no reject animation,
+      // no missed count. Once a blank has an answer, it stays taken.
+      if (!el || el.classList.contains("is-filled")) continue;
       const r = el.getBoundingClientRect();
       if (
         event.clientX >= r.left - BLANK_HIT_PADDING &&
@@ -127,8 +132,12 @@ const BankChip = forwardRef(function BankChip(
     <button
       ref={ref}
       type="button"
-      className={`chip drag-chip is-${status}`}
-      style={{ "--dx": `${offset.x}px`, "--dy": `${offset.y}px` }}
+      className={`chip drag-chip is-${status}${fadingDelay != null ? " is-fading-out" : ""}`}
+      style={{
+        "--dx": `${offset.x}px`,
+        "--dy": `${offset.y}px`,
+        transitionDelay: fadingDelay != null ? `${fadingDelay}s` : undefined,
+      }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={resolve}
@@ -161,8 +170,10 @@ export default function ClozeRoundPlayer({
   // Same rule as every other round type: the tutorial only plays when the
   // round is marked for it, and never on a second-look replay.
   const [phase, setPhase] = useState(round.tutorial && !secondLook ? "demo" : "live");
+  const [inspecting, setInspecting] = useState(false);
   const blankRefs = useRef(new Map());
   const cardArtRef = useRef(null);
+  const sentenceRef = useRef(null);
   const demoChipRef = useRef(null);
   const skipResolverRef = useRef(null);
   const continueRef = useRef(null);
@@ -194,16 +205,22 @@ export default function ClozeRoundPlayer({
   useLayoutEffect(() => {
     if (stage === "ready") {
       animateSkippable(continueRef.current, [{ opacity: 0 }, { opacity: 1 }], CONTINUE_FADE_MS);
+      // The sentence's own reward, distinct from each word's individual
+      // shimmer as it lands - a sweep across the whole completed sentence
+      // at the moment the round's actually won, timed to match the 0.5s
+      // the leftover words take to fade out alongside it.
+      shimmer(sentenceRef.current, SENTENCE_SHIMMER_MS);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage]);
 
-  function shimmer(el) {
+  function shimmer(el, duration = SHIMMER_MS) {
     if (!el) return;
     el.classList.remove("is-shimmering");
     void el.offsetWidth;
     el.classList.add("is-shimmering");
-    window.setTimeout(() => el.classList.remove("is-shimmering"), SHIMMER_MS);
+    el.style.setProperty("--shimmer-duration", `${duration}ms`);
+    window.setTimeout(() => el.classList.remove("is-shimmering"), duration);
   }
 
   function handleAccepted(word) {
@@ -249,21 +266,32 @@ export default function ClozeRoundPlayer({
         </div>
       </div>
 
+      {/* Greyed, full-bleed - atmosphere behind the exercise, distinct from
+          the small tappable thumbnail below (which stays full-colour, for
+          whoever taps it to actually look at the card). */}
+      <img className="cloze-bg" src={masterForKey(cardKey)} alt="" aria-hidden="true" />
+      <div className="cloze-bg-scrim" aria-hidden="true" />
+
       <div className="drag-layout">
         {isRecap ? null : (
           <>
-            <div className="reference-card is-compact drag-reference-card cloze-reference-card">
+            <button
+              type="button"
+              className="reference-card is-compact drag-reference-card cloze-reference-card"
+              onClick={() => setInspecting(true)}
+              aria-label={`View ${cardName} full size`}
+            >
               <p className="reference-name">{cardName}</p>
               <div ref={cardArtRef} className="reference-art">
                 <img src={masterForKey(cardKey)} alt={cardName} />
               </div>
-            </div>
+            </button>
 
             <div className="drag-layout-spacer" aria-hidden="true" />
           </>
         )}
 
-        <p className={isRecap ? "cloze-sentence is-recap" : "cloze-sentence"}>
+        <p ref={sentenceRef} className={isRecap ? "cloze-sentence is-recap" : "cloze-sentence"}>
           {tokens.map((token, i) =>
             token.type === "text" ? (
               <span key={i}>{token.value}</span>
@@ -285,34 +313,40 @@ export default function ClozeRoundPlayer({
         <div className="drag-layout-spacer" aria-hidden="true" />
 
         <div className="chips drag-chips">
-          {bank.map((word) => (
+          {bank.map((word, i) => (
             <BankChip
               key={word.listKey}
               ref={demoWord?.listKey === word.listKey ? demoChipRef : undefined}
               word={word}
               blankRefs={blankRefs}
               disabled={stage !== "playing"}
+              fadingDelay={stage === "ready" ? i * 0.5 : null}
               onAccepted={handleAccepted}
               onRejected={() => {
                 missedRef.current = true;
               }}
             />
           ))}
-          {stage === "ready" ? (
-            <button
-              ref={continueRef}
-              type="button"
-              className="action"
-              style={{ opacity: 0 }}
-              onClick={() => onDone({ missed: missedRef.current })}
-            >
-              Continue
-            </button>
-          ) : null}
         </div>
 
         <div className="drag-layout-spacer" aria-hidden="true" />
       </div>
+
+      {stage === "ready" ? (
+        <button
+          ref={continueRef}
+          type="button"
+          className="action cloze-continue"
+          style={{ opacity: 0 }}
+          onClick={() => onDone({ missed: missedRef.current })}
+        >
+          Continue
+        </button>
+      ) : null}
+
+      {inspecting ? (
+        <Inspector item={{ image: masterForKey(cardKey), label: cardName }} onClose={() => setInspecting(false)} />
+      ) : null}
 
       {phase === "demo" && demoWord && demoBlank ? (
         <TutorialGhost

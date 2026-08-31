@@ -15,6 +15,7 @@ export function shapeForNode(node) {
   if (r0?.type === "zone") return "hex";      // card element matching
   if (r0?.type === "cloze") return "square";  // missing words
   if (r0?.type === "choice") return "oct";    // reading notes matching
+  if (r0?.type === "swipe") return "swipe";   // does it match?
   return "circle";                             // plain keyword rounds
 }
 
@@ -76,6 +77,30 @@ export function V2NodeIcon({ shape, variant }) {
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
+        />
+      </svg>
+    );
+  }
+
+  if (shape === "swipe") {
+    // does it match? — a tick chip and a cross chip, side by side
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1" y="3" width="10" height="18" rx="3" fill="currentColor" />
+        <path
+          d="M3.4 12 L5.7 14.3 L9.4 9.6"
+          stroke="var(--ink)"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <rect x="13" y="3" width="10" height="18" rx="3" fill="currentColor" opacity="0.55" />
+        <path
+          d="M15.6 8.6 L20.4 15.4 M20.4 8.6 L15.6 15.4"
+          stroke="var(--ink)"
+          strokeWidth="2.6"
+          strokeLinecap="round"
         />
       </svg>
     );

@@ -593,6 +593,139 @@
       ]
     },
     {
+      "id": "node-10",
+      "rounds": [
+        {
+          "id": "n7-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Fertility and abundance growing everywhere",
+              "isMatch": true
+            },
+            {
+              "text": "Something new, ready to be born",
+              "isMatch": true
+            },
+            {
+              "text": "Raw chaos, before it takes form",
+              "isMatch": true
+            },
+            {
+              "text": "Mother Earth incarnate, giving life",
+              "isMatch": true
+            },
+            {
+              "text": "Grows fourteen new hobbies by Tuesday",
+              "isMatch": false
+            },
+            {
+              "text": "Gives birth to a fully formed opinion",
+              "isMatch": false
+            },
+            {
+              "text": "Chaos so raw it has its own zip code",
+              "isMatch": false
+            },
+            {
+              "text": "Waters the plants with actual lemonade",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Nourish whatever you are tending",
+              "isMatch": true
+            },
+            {
+              "text": "A reminder to care for yourself first",
+              "isMatch": true
+            },
+            {
+              "text": "Pleasure and beauty are part of it",
+              "isMatch": true
+            },
+            {
+              "text": "Nurture yourself as generously as others",
+              "isMatch": true
+            },
+            {
+              "text": "Scarcity and stillness in every direction",
+              "isMatch": false
+            },
+            {
+              "text": "Nothing new happens for a long time",
+              "isMatch": false
+            },
+            {
+              "text": "Order and structure before anything begins",
+              "isMatch": false
+            },
+            {
+              "text": "Best left alone, untouched, unattended",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Abundance comes from letting it flourish",
+              "isMatch": true
+            },
+            {
+              "text": "Venus brings pleasure and bodily wellbeing",
+              "isMatch": true
+            },
+            {
+              "text": "A glow that comes from within",
+              "isMatch": true
+            },
+            {
+              "text": "Fertility and abundance growing everywhere",
+              "isMatch": true
+            },
+            {
+              "text": "Hidden things surface if you look",
+              "isMatch": false,
+              "_source": "The Moon"
+            },
+            {
+              "text": "Suspended, calm, not suffering",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            },
+            {
+              "text": "The blindfold is self-imposed and removable",
+              "isMatch": false,
+              "_source": "Eight of Swords"
+            },
+            {
+              "text": "A new view comes from surrender",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "node-7",
       "rounds": [
         {
@@ -724,7 +857,7 @@
         {
           "id": "n8-r1",
           "type": "cloze",
-          "text": "Mother Earth energy \u2014 fertility, {b1}, life growing in every direction",
+          "text": "Mother Earth energy — fertility, {b1}, life growing in every direction",
           "blanks": [
             {
               "key": "b1",
@@ -738,7 +871,7 @@
         {
           "id": "n8-r2",
           "type": "cloze",
-          "text": "Something is ready to be {b1} \u2014 a child, a project, an idea taking shape",
+          "text": "Something is ready to be {b1} — a child, a project, an idea taking shape",
           "blanks": [
             {
               "key": "b1",
@@ -752,7 +885,7 @@
         {
           "id": "n8-r3",
           "type": "cloze",
-          "text": "Creation before form \u2014 raw, generative {b1} that hasn't settled yet",
+          "text": "Creation before form — raw, generative {b1} that hasn't settled yet",
           "blanks": [
             {
               "key": "b1",
@@ -794,7 +927,7 @@
         {
           "id": "n8-r6",
           "type": "cloze",
-          "text": "Pleasure, beauty, and the body are not indulgences \u2014 they're part of the {b1}",
+          "text": "Pleasure, beauty, and the body are not indulgences — they're part of the {b1}",
           "blanks": [
             {
               "key": "b1",

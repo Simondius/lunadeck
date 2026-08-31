@@ -12,7 +12,7 @@
             {
               "key": "raised_wand",
               "name": "Raised wand",
-              "text": "The wand echoes the healer's staff \u2014 the skill was always there, just waiting to be used.",
+              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
               "rects": [
                 {
                   "x0": 0.16,
@@ -44,7 +44,7 @@
             {
               "key": "raised_wand",
               "name": "Raised wand",
-              "text": "The wand echoes the healer's staff \u2014 the skill was always there, just waiting to be used.",
+              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
               "rects": [
                 {
                   "x0": 0.16,
@@ -75,7 +75,7 @@
           "pairs": [
             {
               "key": "raised_wand",
-              "text": "The wand echoes the healer's staff \u2014 the skill was always there, just waiting to be used.",
+              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
               "image": "/assets/cards/cardelements/major_01_magician_element_raised_wand.png"
             },
             {
@@ -610,6 +610,139 @@
       ]
     },
     {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Sees more than the eyes take in",
+              "isMatch": true
+            },
+            {
+              "text": "Success comes from resources at hand",
+              "isMatch": true
+            },
+            {
+              "text": "Magic hides in the ordinary",
+              "isMatch": true
+            },
+            {
+              "text": "Sees beyond what's visible",
+              "isMatch": true
+            },
+            {
+              "text": "Has X-ray vision from a cereal box",
+              "isMatch": false
+            },
+            {
+              "text": "Orders every tool online first",
+              "isMatch": false
+            },
+            {
+              "text": "Magic only works with a shop-bought wand",
+              "isMatch": false
+            },
+            {
+              "text": "Views everything from one angle",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Views one thing from many angles",
+              "isMatch": true
+            },
+            {
+              "text": "The right words land at the right time",
+              "isMatch": true
+            },
+            {
+              "text": "Time to act, not just have the idea",
+              "isMatch": true
+            },
+            {
+              "text": "Mercury lends sharp wit and many angles",
+              "isMatch": true
+            },
+            {
+              "text": "Only trusts what the eyes show",
+              "isMatch": false
+            },
+            {
+              "text": "Success needs resources you lack",
+              "isMatch": false
+            },
+            {
+              "text": "Magic only appears in rare, dramatic moments",
+              "isMatch": false
+            },
+            {
+              "text": "Commits fully before seeing every angle",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "The staff recalls the healer's caduceus",
+              "isMatch": true
+            },
+            {
+              "text": "The tools he needs are already close",
+              "isMatch": true
+            },
+            {
+              "text": "Sees more than the eyes take in",
+              "isMatch": true
+            },
+            {
+              "text": "The right words land at the right time",
+              "isMatch": true
+            },
+            {
+              "text": "Hidden things surface if you look",
+              "isMatch": false,
+              "_source": "The Moon"
+            },
+            {
+              "text": "Sacrifice now, gain more later",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            },
+            {
+              "text": "The blindfold is self-imposed and removable",
+              "isMatch": false,
+              "_source": "Eight of Swords"
+            },
+            {
+              "text": "Pause, let go instead of forcing",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "node-8",
       "rounds": [
         {
@@ -777,7 +910,7 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Sees with more than the eyes \u2014 perceives both the visible and the {b1}",
+          "text": "Sees with more than the eyes — perceives both the visible and the {b1}",
           "blanks": [
             {
               "key": "b1",
@@ -805,7 +938,7 @@
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "Magic hides in {b1} things \u2014 available only to those who know how to look",
+          "text": "Magic hides in {b1} things — available only to those who know how to look",
           "blanks": [
             {
               "key": "b1",
@@ -833,7 +966,7 @@
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "A gift for {b1} \u2014 the right words, spoken or written, at the right moment",
+          "text": "A gift for {b1} — the right words, spoken or written, at the right moment",
           "blanks": [
             {
               "key": "b1",

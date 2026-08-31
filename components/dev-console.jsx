@@ -36,18 +36,12 @@ const MENU = [
         label: "Content",
         actions: [
           {
-            label: "v1",
+            // v2 is the default curriculum now (Simon's call, 31 Aug) — the
+            // tab bar's own Path tab already goes there. This is the only
+            // door back to the original curriculum, moved to /v1.
+            label: "v1 (old curriculum)",
             run: () => {
-              window.location.href = "/";
-            },
-          },
-          {
-            label: "v2",
-            // A plain navigation, not a store mutation — everything else here
-            // runs a function against progress. v2 lives outside the tab bar
-            // (app/v2), so this is the only door to it.
-            run: () => {
-              window.location.href = "/v2";
+              window.location.href = "/v1";
             },
           },
         ],

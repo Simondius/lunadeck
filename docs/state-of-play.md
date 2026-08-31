@@ -18,12 +18,12 @@ stop two people rebuilding the same thing.
 
 | who | what | status |
 | --- | --- | --- |
-| Simon | An alternative curriculum, reachable via dev console → Path → Content → v2. Grew overnight (31 Aug) from one section to five — Fool, Lovers, Magician, Empress, Emperor — and from two round shapes to five (keyword, zone, cloze, choice, tilematch); see [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md). Followed same day by a live morning playtest pass — node reorder, real drag-target/touch bugs fixed, choice round switched to drag-onto-card, dev console gained skip-without-completing controls, and the path screen got chunky per-type icons + a tappable companion card per section; see [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md). **Merged into `main`** 31 Aug, rebased onto #52/#53 first — the collision points Tia flagged (`app/globals.css`'s end-of-file additions, `dev-console.jsx`'s `clamp()`) were reconciled by hand; `lib/progress.js` and `tabbar.jsx` merged clean since v2 never touches either | **Done** — 31 Aug |
+| Simon | An alternative curriculum that grew overnight (31 Aug) from one section to five, gained a live morning playtest pass, then a sixth round type ("Does it match?" — swipe/tap true-or-false on a card's own reading notes) and, biggest change yet: **v2 is now the default at `/`**, with the original curriculum moved to `/v1` behind the dev console. See [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md), [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md), [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0045`](decisions/0045-v2-becomes-the-default-and-gets-a-swipe-round.md). This branch (`v2-fool-section-nodes`) had drifted from `main` since #54 landed — this merge folds `main`'s own review fixes (`0039`–`0041` below) back in, including the `dev-console.jsx` `clamp()` wing that this branch had dropped | **Merged into `main`** — 31 Aug |
 | Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
 | Tia + Claude | The **Guide** tab: Mentor renamed and given a job, a live reading with a physical deck. Camera scan, variable-length spread, follow-up questions, share UI (drawn, not wired), session end. See [`0042`](decisions/0042-the-guide-reads-your-own-deck.md) | **Merged** 31 Aug — #59 |
 | Tia + Claude | Card recognition made real: the scan identifies the card and its orientation off the deck's printed banners, against the 78 keys. See [`0043`](decisions/0043-the-scanner-actually-reads-the-card.md) | **Merged** 31 Aug — #60 |
 | Tia + Claude | Guide opening screen rebuilt on a photograph of hands and a fanned deck, with the flow stated as three steps. See [`0044`](decisions/0044-the-guide-opens-on-a-photograph.md) | **Merged** 31 Aug — #61 |
-| Claude | Review of Simon's v2 (#54), which neither Tia nor Simon can read as code. Two passes: [`0039`](decisions/0039-two-fixes-from-reviewing-v2.md) fixed a broken tile asset and a stale node count, [`0040`](decisions/0040-fixed-overlays-measure-the-frame-not-the-window.md) fixed all three v2 drag overlays landing hundreds of px off above 900px. Two things left open deliberately, both judgement calls rather than defects: `v2-fool-section-nodes` is fully merged but Simon merged `main` into it after #54 landed and kept his own `dev-console.jsx`, so **that branch has lost #52's fix** — new work should branch from `main`, not continue there. And tilematch's detail images carry `alt=""`; the round tests visual recognition, so no honest alt text exists and it needs a spec answer, not an attribute | **Merged** 31 Aug — #55, #56 |
+| Claude | Review of Simon's v2 (#54), which neither Tia nor Simon can read as code. Two passes: [`0039`](decisions/0039-two-fixes-from-reviewing-v2.md) fixed a broken tile asset and a stale node count, [`0040`](decisions/0040-fixed-overlays-measure-the-frame-not-the-window.md) fixed all three v2 drag overlays landing hundreds of px off above 900px. One thing left open deliberately, a judgement call rather than a defect: tilematch's detail images carry `alt=""`; the round tests visual recognition, so no honest alt text exists and it needs a spec answer, not an attribute. (The other open item, `v2-fool-section-nodes` having lost #52's fix, was resolved when that branch merged `main` back in and became the row above) | **Merged** 31 Aug — #55, #56 |
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
 it, do feel free to work anywhere else. *In progress* means someone is actively
@@ -232,19 +232,23 @@ so the account model is worth settling before either is built for real.
 written once at the end, after the mistake-review queue. Abandoning saves
 nothing. A section played out of order from the deck counts identically.
 
-**v2 exists as a sandbox, not a second curriculum yet** (`0037`). `app/v2` is
-reached from the dev console (Path → Content → v2) rather than the tab bar,
-and every section in it is bespoke, not built on `lib/rounds.js`'s
-node/instance/format model: no hints, no XP. Content lives in
-`data/v2/*_section.json`, not `data/data_curriculum_nodes.csv`, and
-`components/lesson-v2/*` is new code, not a fork of `components/lesson/*`.
-Nothing here calls `completeSection` — v2 has no node ids to collide with
-v1's, so nothing is written to `lunadeck.progress.v1` at all. The moment v2
-wants to persist anything (XP, a resume point, unlock state), that's a real
-design question, not a default to fall into.
+**v2 is the default curriculum now, not a sandbox anymore** (`0037`, `0045`).
+It was reachable only from the dev console as of `0037`'s own writing; as of
+`0045` (31 Aug) it's what `/` renders, and the tab bar's Path tab goes there
+like any other tab. The original curriculum moved to `/v1`, still reachable
+from the dev console's Content menu, for whoever needs it. v2 itself is
+still bespoke, not built on `lib/rounds.js`'s node/instance/format model: no
+hints, no XP. Content lives in `data/v2/*_section.json`, not
+`data/data_curriculum_nodes.csv`, and `components/lesson-v2/*` is new code,
+not a fork of `components/lesson/*`. Nothing here calls `completeSection` —
+v2 has no node ids to collide with v1's, so nothing is written to
+`lunadeck.progress.v1` at all. The moment v2 wants to persist anything (XP,
+a resume point, unlock state), that's a real design question, not a default
+to fall into — and now that it's the front door, a real question sooner
+rather than later.
 
 **Five sections now, five round shapes** (`0035`, built overnight 31 Aug,
-uncommitted — Simon hasn't play-tested it yet): Fool, Lovers, Magician,
+merged and playtested): Fool, Lovers, Magician,
 Empress, Emperor, routed at `/v2/play/<section-slug>/<node number>` via
 `data/v2/sections.js`. Keyword pairs and zone (drag onto part of the card
 art) already existed; cloze (drag words into blanks), choice (tap one of

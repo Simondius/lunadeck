@@ -251,6 +251,17 @@ breakpoint,** so desktop framing is never active in it. Layout checked only
 there is checked at one width and one shape. Resize past 900 before believing a
 full-height screen works.
 
+**And its other half: `getBoundingClientRect` is not `left` on a fixed
+element.** The rect is in viewport coordinates; `left` is measured from the
+containing block, which above 900px is `.app-frame` rather than the window. So
+measuring a target and assigning the number straight to a fixed overlay puts it
+out by the frame's own offset, 361px at a 1150px window, which for a 428px
+frame is usually off the edge entirely. Use **`placeFixed`** from
+`lib/fixed-position.js`; it finds the real containing block and subtracts it,
+and returns zero when there isn't one, so the phone case is untouched. Four
+bugs so far: the dev console twice (`0032`, `0033`), the reveal overlay
+(`0030`), and all three v2 drag overlays (`0040`).
+
 
 - **A silent hole is the failure mode here.** The symbol formats quizzed a symbol
   the intro had stopped showing, for three decisions, and nothing broke. The path

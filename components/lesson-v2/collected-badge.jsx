@@ -2,6 +2,8 @@
 
 import { useLayoutEffect, useRef } from "react";
 
+import { placeFixed } from "@/lib/fixed-position";
+
 // Resting spots run down the left of the card, not around it — at full
 // legible size (see REST_SCALE below) a slot on the card's right or over a
 // corner would overlap the art. Up to 6 rows, stacked top to bottom from the
@@ -41,10 +43,7 @@ export default function CollectedBadge({ text, startRect, slotIndex, cardRef }) 
     const startCenterY = startRect.top + startRect.height / 2;
 
     badge.style.position = "fixed";
-    badge.style.left = `${startRect.left}px`;
-    badge.style.top = `${startRect.top}px`;
-    badge.style.width = `${startRect.width}px`;
-    badge.style.height = `${startRect.height}px`;
+    placeFixed(badge, startRect);
 
     // transform-origin stays centre (the default), so translating the box's
     // centre onto the anchor keeps the badge centred on it at any scale.
@@ -71,9 +70,7 @@ export default function CollectedBadge({ text, startRect, slotIndex, cardRef }) 
       const angle = (Math.atan2(pathDy, pathDx) * 180) / Math.PI;
 
       trail.style.position = "fixed";
-      trail.style.left = `${startCenterX}px`;
-      trail.style.top = `${startCenterY}px`;
-      trail.style.width = `${length}px`;
+      placeFixed(trail, { left: startCenterX, top: startCenterY, width: length });
       trail.style.transformOrigin = "0 50%";
       trail.style.transform = `rotate(${angle}deg)`;
 

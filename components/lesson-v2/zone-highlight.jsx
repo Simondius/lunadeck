@@ -2,6 +2,8 @@
 
 import { useLayoutEffect, useRef } from "react";
 
+import { placeFixed } from "@/lib/fixed-position";
+
 // Linger at full size/opacity, then shrink to nothing over the zone's own
 // centre — Simon's spec, split evenly.
 const HOLD_MS = 500;
@@ -29,10 +31,7 @@ export default function ZoneHighlight({ rects, cardRef }) {
       const width = (rect.x1 - rect.x0) * cardRect.width;
       const height = (rect.y1 - rect.y0) * cardRect.height;
 
-      el.style.left = `${left}px`;
-      el.style.top = `${top}px`;
-      el.style.width = `${width}px`;
-      el.style.height = `${height}px`;
+      placeFixed(el, { left, top, width, height });
 
       el.animate(
         [

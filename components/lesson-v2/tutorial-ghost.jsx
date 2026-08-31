@@ -2,6 +2,8 @@
 
 import { useLayoutEffect, useRef } from "react";
 
+import { placeFixed } from "@/lib/fixed-position";
+
 // Slowed to roughly a third of the original pace (1400ms) so the drag reads
 // as a deliberate demonstration rather than a blur — Simon's call after the
 // first pass played too fast to actually teach the gesture.
@@ -64,10 +66,7 @@ export default function TutorialGhost({ chipRef, cardRef, targetRect, targetRef,
         return;
       }
 
-      ghost.style.left = `${chipRect.left}px`;
-      ghost.style.top = `${chipRect.top}px`;
-      ghost.style.width = `${chipRect.width}px`;
-      ghost.style.height = `${chipRect.height}px`;
+      placeFixed(ghost, chipRect);
       ghost.style.setProperty("--demo-duration", `${DEMO_DURATION_MS}ms`);
 
       // The finger's press/lift is a plain CSS animation on a DOM node that

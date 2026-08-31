@@ -3720,8 +3720,25 @@ body.is-revealing { overflow: hidden; }
 .profile-stats {
   display: flex;
   justify-content: center;
-  gap: 34px;
+  /* 26 rather than 34: three stats, and at 34 the row was within a few px of
+     wrapping on a 375 screen. */
+  gap: 26px;
   margin: 0;
+}
+
+/* The streak reads as a number with a flame, not a number and an icon, so the
+   two are set tight and the flame is sized off the digit next to it rather
+   than the 16px it takes in the path's own header. */
+.profile-streak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.profile-streak .streak-flame {
+  width: 19px;
+  height: 19px;
 }
 
 .profile-stats div { text-align: center; }
@@ -3890,6 +3907,26 @@ body.is-revealing { overflow: hidden; }
   align-items: center;
   gap: 11px;
   margin-bottom: 14px;
+}
+
+/* Takes the slack so the streak is pushed to the right edge of the row,
+   away from the name it would otherwise crowd. */
+.activity-who { flex: 1 1 auto; min-width: 0; }
+
+/* Smaller than the path's, which is a header element on its own. Here it sits
+   beside a name and a timestamp and should not outrank either. */
+.activity-streak {
+  flex: 0 0 auto;
+  gap: 4px;
+}
+
+.activity-streak .streak-flame {
+  width: 15px;
+  height: 15px;
+}
+
+.activity-streak .streak-count {
+  font-size: 12px;
 }
 
 .activity-avatar {

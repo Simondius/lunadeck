@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useProgress } from "@/components/use-progress";
+import Flame from "@/components/flame";
 import { knownCardKeys, setDisplayName } from "@/lib/progress";
 
 // The Social tab.
@@ -44,6 +45,7 @@ export default function SocialScreen({ sections, totalCards, totalNodes, activit
         known={known.size}
         totalCards={totalCards}
         pathPercent={pathPercent}
+        streak={progress.streakDays}
       />
 
       <section className="feed">
@@ -99,10 +101,23 @@ function ActivityItem({ friend }) {
         <div className="activity-avatar">
           <img src={friend.avatar} alt="" />
         </div>
-        <div>
+        <div className="activity-who">
           <span className="activity-name">{friend.name}</span>
           <span className="activity-when">{friend.when}</span>
         </div>
+        {/* Their streak, which the friends list already showed and the feed
+            did not. Same chip as the path and the profile, so the number means
+            the same thing wherever it turns up. */}
+        {friend.streak ? (
+          <div
+            className="streak activity-streak"
+            role="img"
+            aria-label={`${friend.streak} day streak`}
+          >
+            <Flame />
+            <span className="streak-count">{friend.streak}</span>
+          </div>
+        ) : null}
       </header>
 
       <div className="activity-cards">
@@ -125,7 +140,7 @@ function ActivityItem({ friend }) {
   );
 }
 
-function ProfileCard({ name, known, totalCards, pathPercent }) {
+function ProfileCard({ name, known, totalCards, pathPercent, streak }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(name ?? "");
 
@@ -189,6 +204,16 @@ function ProfileCard({ name, known, totalCards, pathPercent }) {
           <dd>
             {pathPercent}
             <span>%</span>
+          </dd>
+        </div>
+        {/* The flame comes with it rather than the word "days": it is the same
+            mark the path uses for the same number, and a streak read as a bare
+            digit next to two other bare digits stops looking like a streak. */}
+        <div>
+          <dt>Streak</dt>
+          <dd className="profile-streak">
+            <Flame />
+            {streak}
           </dd>
         </div>
       </dl>

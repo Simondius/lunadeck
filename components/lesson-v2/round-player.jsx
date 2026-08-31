@@ -188,7 +188,7 @@ export default function RoundPlayer({
               ref={chipRef(word.key)}
               word={word}
               cardRef={cardRef}
-              disabled={phase === "demo" || stage !== "playing"}
+              disabled={stage !== "playing"}
               onAccepted={handleAccepted}
               onRejected={() => {
                 missedRef.current = true;

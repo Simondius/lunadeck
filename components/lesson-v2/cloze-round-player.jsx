@@ -291,7 +291,7 @@ export default function ClozeRoundPlayer({
               ref={demoWord?.listKey === word.listKey ? demoChipRef : undefined}
               word={word}
               blankRefs={blankRefs}
-              disabled={phase === "demo" || stage !== "playing"}
+              disabled={stage !== "playing"}
               onAccepted={handleAccepted}
               onRejected={() => {
                 missedRef.current = true;

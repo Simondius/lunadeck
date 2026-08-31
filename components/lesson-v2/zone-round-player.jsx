@@ -271,7 +271,7 @@ export default function ZoneRoundPlayer({
               ref={chipRef(element.listKey)}
               element={element}
               cardRef={cardRef}
-              disabled={phase === "demo" || stage !== "playing"}
+              disabled={stage !== "playing"}
               onAccepted={handleAccepted}
               onRejected={() => {
                 missedRef.current = true;

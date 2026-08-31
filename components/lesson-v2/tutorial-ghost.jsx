@@ -126,6 +126,14 @@ export default function TutorialGhost({ chipRef, cardRef, targetRect, targetRef,
     });
     if (pending.length === 0) playOnce();
 
+    // Any press anywhere ends the demo, which loops until one arrives.
+    //
+    // This puts a requirement on the round players: the chips have to stay
+    // interactive while the demo runs. A disabled <button> dispatches no
+    // pointer events at all, so it cannot reach this listener, and pressing
+    // the one thing the demo is pointing at did nothing forever. Nodes 1, 5
+    // and 8 were unplayable unless you happened to press the card first, for
+    // a whole day. Do not gate a chip on the demo phase; see 0041.
     window.addEventListener("pointerdown", interrupt);
     return () => {
       cancelled = true;

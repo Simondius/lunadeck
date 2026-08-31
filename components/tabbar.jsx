@@ -41,7 +41,12 @@ export default function TabBar() {
             href={tab.href}
             aria-current={active ? "page" : undefined}
           >
-            <span className={`tab-glyph${tab.glyph}`} aria-hidden="true" />
+            {/* The wrapper is a fixed-height box and the glyph is centred in
+                it, so the shapes can be whatever size each one needs without
+                moving the label under it. See .tab-icon in globals.css. */}
+            <span className="tab-icon" aria-hidden="true">
+              <span className={`tab-glyph${tab.glyph}`} />
+            </span>
             {tab.label}
           </Link>
         );

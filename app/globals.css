@@ -492,22 +492,44 @@ a { color: inherit; text-decoration: none; }
 
 .tab.is-active { color: var(--accent); }
 
-/* Glyphs are CSS shapes, not icon files: ring, card, diamond, half-moon. */
+/* One box per glyph, the same height for all five, with the shape centred
+   inside it.
+
+   The glyphs are deliberately different sizes: a card wants to be taller
+   than it is wide, two overlapping rings want to be wider than tall. When
+   each one carried its own height and its own margin-bottom, those added up
+   to different totals (20px for the ring, the card and the half-moon, 17px
+   for the diamond and the rings), so the labels sat on two different lines
+   and the shapes did not share a centre. The diamond made it worse: a 12px
+   box rotated 45 degrees paints about 17px while still occupying 12.
+
+   So the box is fixed and the shape floats in the middle of it. Variants set
+   their own width and height and nothing else about their position. 18px
+   fits the tallest, which is the 16px card, and the diamond's painted 17. */
+.tab-icon {
+  display: grid;
+  place-items: center;
+  height: 18px;
+  margin-bottom: 6px;
+}
+
+/* Glyphs are CSS shapes, not icon files: ring, card, diamond, half-moon.
+
+   One stroke weight for the set. The ring was 2px while the card and the
+   diamond were 1.5px and the rings about 1.4px, which made the ring read as the
+   heaviest thing in the bar for no reason anyone chose. */
 .tab-glyph {
   display: block;
-  margin: 0 auto 6px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid currentColor;
+  border: 1.5px solid currentColor;
 }
 
 .tab-glyph.is-deck {
   width: 12px;
   height: 16px;
-  margin-bottom: 4px;
   border-radius: 2px;
-  border-width: 1.5px;
 }
 
 .tab-glyph.is-draw {
@@ -521,7 +543,6 @@ a { color: inherit; text-decoration: none; }
   height: 12px;
   border: none;
   border-radius: 0;
-  margin-bottom: 5px;
   background:
     radial-gradient(circle 5px at 5px 6px, transparent 3.2px, currentColor 3.2px 4.6px, transparent 4.7px),
     radial-gradient(circle 5px at 10px 6px, transparent 3.2px, currentColor 3.2px 4.6px, transparent 4.7px);
@@ -529,12 +550,13 @@ a { color: inherit; text-decoration: none; }
 
 /* A diamond, which the comment above has claimed the set contains since before
    there was a fourth tab to put it on. */
+/* 10px, not the 12px it started at, because a rotated square paints its
+   diagonal: 12px became 17px on screen against the ring 14px, and read as the
+   biggest glyph in the bar. 10 x root 2 is 14.1, which matches the ring. */
 .tab-glyph.is-guide {
-  width: 12px;
-  height: 12px;
-  margin-bottom: 5px;
+  width: 10px;
+  height: 10px;
   border-radius: 2px;
-  border-width: 1.5px;
   transform: rotate(45deg);
 }
 

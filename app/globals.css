@@ -1876,16 +1876,15 @@ div.reference-art, div.reference-symbol { cursor: default; }
 
 /* --- tile-match-player.jsx --------------------------------------------- */
 
+/* One grid, both tiles of a row as direct siblings (image then text,
+   interleaved in tile-match-player.jsx) - not two independent .tile-match-col
+   grids. Grid's own row-stretch then sizes every row to its tallest cell
+   and stretches the other to match, which two separate grids sizing their
+   own rows from their own content only can't do for each other. */
 .tile-match-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-}
-
-.tile-match-col {
-  display: grid;
-  gap: 10px;
-  align-content: start;
 }
 
 .tile-match-tile {
@@ -1907,7 +1906,11 @@ div.reference-art, div.reference-symbol { cursor: default; }
 
 .tile-match-tile img {
   display: block;
-  width: 100%;
+  /* Half of the tile's own width, not the full column - at 100% these
+     crowded out the text column's rows and read as oversized next to them.
+     The tile itself still fills the column; only the image inside shrinks,
+     centered by .tile-match-tile's own flex centering. */
+  width: 50%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
   border-radius: 6px;

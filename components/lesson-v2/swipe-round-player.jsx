@@ -260,15 +260,27 @@ function SwipeChip({ card, reducedMotion, busy, onResolve }) {
 // tapped via the tick/cross controls for anyone not swiping. A miss doesn't
 // stop the deck; it queues for this round's own second-look pass once the
 // full deck's been through once, mirroring NodeSession's own per-node
-// review (docs/decisions/0038) one level down. Reports {missed}, same
-// contract as every other round type.
+// review (docs/decisions/0038) one level down.
+//
+// Always reports {missed: false}, unlike every other round type. A card
+// stays current until it's answered correctly (see resolve() below), so by
+// the time this round can finish, every card has already been confirmed
+// right — including any that were wrong the first time, via the internal
+// review pass above. Reporting a real miss here would additionally queue
+// this *entire* round (every card, not just the ones that were wrong) into
+// NodeSession's own node-level second look, on top of the per-card review
+// this component already ran. That's not "one more look at what you got
+// wrong" - it's the whole deck again for a single miss.
 export default function SwipeRoundPlayer({
   cardKey,
   cardName,
   round,
-  roundNumber,
-  totalRounds,
+  // roundNumber/totalRounds arrive from NodeSession like every other round
+  // type, but go unused here - the topbar's own progress bar below counts
+  // cards in the deck instead (see completedCount), since a swipe node is
+  // always exactly one round and "round 1 of 1" says nothing.
   onDone,
+  basePath = "/v2",
 }) {
   const reducedMotion = usePrefersReducedMotion();
   const [stage, setStage] = useState("main"); // main | review | ready
@@ -280,8 +292,18 @@ export default function SwipeRoundPlayer({
   // one. The real, shuffled deck arrives a tick later, client-only.
   const [queue, setQueue] = useState(null);
   const [resolving, setResolving] = useState(false);
+  // How many of the deck's cards have been answered correctly at least
+  // once - drives the topbar progress bar the same way a keyword round's
+  // does, one segment per item, filled left to right. A plain roundNumber/
+  // totalRounds pair (round-player.jsx's own progress source) is useless
+  // here: a swipe node is always exactly one round holding the whole deck,
+  // so that pair is permanently "1 of 1." origIndex (set when the deck is
+  // first shuffled below) is what lets a card correctly-answered during
+  // the internal review pass still count only once, since review re-deals
+  // the same cards under fresh listKeys.
+  const [completedCount, setCompletedCount] = useState(0);
+  const completedRef = useRef(new Set());
   const missedRef = useRef([]);
-  const hadAnyMiss = useRef(false);
   // Which cards have already been counted as a miss this round, keyed by
   // listKey - a card that's wrong stays current until answered correctly
   // (see resolve() below), so it can be attempted several times in a row;
@@ -297,6 +319,7 @@ export default function SwipeRoundPlayer({
       shuffleTrueRandom(round.cards).map((c, i) => ({
         ...c,
         listKey: `main-${round.id}-${i}-${Math.random()}`,
+        origIndex: i,
       }))
     );
     // round.id is stable for the lifetime of one mounted round; this should
@@ -339,8 +362,11 @@ export default function SwipeRoundPlayer({
     setResolving(true);
     const card = queue[0];
     const correct = claimedMatch === card.isMatch;
+    if (correct && !completedRef.current.has(card.origIndex)) {
+      completedRef.current.add(card.origIndex);
+      setCompletedCount(completedRef.current.size);
+    }
     if (!correct) {
-      hadAnyMiss.current = true;
       // Only the first wrong attempt on a given card queues it for this
       // round's own second look - it stays current and can be tried
       // several times in a row (see below), and one initial miss should
@@ -480,19 +506,19 @@ export default function SwipeRoundPlayer({
   return (
     <main className="session is-swipe-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div
           className="progress"
           role="progressbar"
           aria-valuemin={0}
-          aria-valuemax={totalRounds}
-          aria-valuenow={roundNumber - 1}
-          aria-label={`Round ${roundNumber} of ${totalRounds}`}
+          aria-valuemax={round.cards.length}
+          aria-valuenow={completedCount}
+          aria-label={`${completedCount} of ${round.cards.length} matched`}
         >
-          {Array.from({ length: totalRounds }, (_, i) => (
-            <span key={i} className={i < roundNumber - 1 ? "is-done" : undefined} />
+          {Array.from({ length: round.cards.length }, (_, i) => (
+            <span key={i} className={i < completedCount ? "is-done" : undefined} />
           ))}
         </div>
       </div>
@@ -517,7 +543,7 @@ export default function SwipeRoundPlayer({
             type="button"
             className="action swipe-continue"
             style={{ opacity: 0 }}
-            onClick={() => onDone({ missed: hadAnyMiss.current })}
+            onClick={() => onDone({ missed: false })}
           >
             Continue
           </button>

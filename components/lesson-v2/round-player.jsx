@@ -34,6 +34,7 @@ export default function RoundPlayer({
   totalRounds,
   secondLook,
   onDone,
+  basePath = "/v2",
 }) {
   const [activeWords, setActiveWords] = useState(() => keyed(round));
   const [collected, setCollected] = useState([]);
@@ -114,12 +115,23 @@ export default function RoundPlayer({
     setStage("ready");
   }
 
+  // The "pairs" tier (originally 2 words: one correct, one distractor;
+  // 4 as of 0047: two correct, two distractors) is still the simple
+  // tier - its last wrong chip's own pop animation (closeOutRound, above)
+  // already reads as the round's success beat, so waiting on a Continue
+  // tap after it adds a step the mastery tiers' fuller sequence doesn't
+  // need. The 6-word tiers still get the button.
+  const autoAdvance = round.words.length <= 4;
+
   // Fires once stage flips to "ready" — useLayoutEffect so the button never
   // paints at full opacity even for a frame before the fade takes over.
   useLayoutEffect(() => {
-    if (stage === "ready") {
-      animateSkippable(continueRef.current, [{ opacity: 0 }, { opacity: 1 }], CONTINUE_FADE_MS);
+    if (stage !== "ready") return;
+    if (autoAdvance) {
+      onDone({ missed: missedRef.current });
+      return;
     }
+    animateSkippable(continueRef.current, [{ opacity: 0 }, { opacity: 1 }], CONTINUE_FADE_MS);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage]);
 
@@ -140,7 +152,7 @@ export default function RoundPlayer({
   return (
     <main className="session is-drag-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div
@@ -195,7 +207,7 @@ export default function RoundPlayer({
               }}
             />
           ))}
-          {stage === "ready" ? (
+          {stage === "ready" && !autoAdvance ? (
             <button
               ref={continueRef}
               type="button"

@@ -1,0 +1,1639 @@
+{
+  "cardKey": "major_00_fool",
+  "cardName": "The Fool",
+  "nodes": [
+    {
+      "id": "node-8",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "cloze",
+          "text": "The Fool stands at both the start and end of the {b1}, {b2} becoming the engine of a {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "journey"
+            },
+            {
+              "key": "b2",
+              "answer": "chaos"
+            },
+            {
+              "key": "b3",
+              "answer": "new cycle"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "Tuesday",
+            "purple"
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n8-r2",
+          "type": "cloze",
+          "text": "He steps to the edge of a {b1} unafraid, trusting a {b2} will appear beneath his {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "precipice"
+            },
+            {
+              "key": "b2",
+              "answer": "path"
+            },
+            {
+              "key": "b3",
+              "answer": "feet"
+            }
+          ],
+          "distractors": [
+            "teacup",
+            "banana",
+            "ladder"
+          ]
+        },
+        {
+          "id": "n8-r3",
+          "type": "cloze",
+          "text": "Associated with {b1}, tied to {b2} and quick, unconventional thinking, his energy resists {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Uranus"
+            },
+            {
+              "key": "b2",
+              "answer": "mystery"
+            },
+            {
+              "key": "b3",
+              "answer": "convention"
+            }
+          ],
+          "distractors": [
+            "elephant",
+            "Wednesday",
+            "faith"
+          ]
+        },
+        {
+          "id": "n8-r4",
+          "type": "cloze",
+          "text": "...and welcomes the {b1}, treating every departure as an {b2} rather than a {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "unknown"
+            },
+            {
+              "key": "b2",
+              "answer": "invitation"
+            },
+            {
+              "key": "b3",
+              "answer": "risk"
+            }
+          ],
+          "distractors": [
+            "spaghetti",
+            "introspection",
+            "freedom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "One cycle ends, the next begins",
+              "isMatch": true
+            },
+            {
+              "text": "Travels light, takes chances anyway",
+              "isMatch": true
+            },
+            {
+              "text": "Calm at the cliff edge, unafraid to fall",
+              "isMatch": true
+            },
+            {
+              "text": "Trusts a path appears when you step",
+              "isMatch": true
+            },
+            {
+              "text": "Packs fourteen suitcases just in case",
+              "isMatch": false
+            },
+            {
+              "text": "Waits for GPS before a single step",
+              "isMatch": false
+            },
+            {
+              "text": "Wears socks with sandals to prove a point",
+              "isMatch": false
+            },
+            {
+              "text": "Says no to everything, always",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "n1-r1",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "cliff",
+              "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.59,
+                  "x1": 0.78,
+                  "y1": 1.0
+                }
+              ],
+              "name": "Cliff edge"
+            },
+            {
+              "key": "raised_hand",
+              "text": "Raised hand: Reaching toward the unknown, not looking down for safety.",
+              "rects": [
+                {
+                  "x0": 0.55,
+                  "y0": 0.29,
+                  "x1": 0.76,
+                  "y1": 0.4
+                }
+              ],
+              "name": "Raised hand"
+            },
+            {
+              "key": "rising_sun",
+              "text": "Rising sun: Dawn breaking the instant he steps off the edge.",
+              "rects": [
+                {
+                  "x0": 0.65,
+                  "y0": 0.0,
+                  "x1": 1.0,
+                  "y1": 0.28
+                }
+              ],
+              "name": "Rising sun"
+            }
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n1-r2",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "uranus",
+              "text": "Uranus: sudden insight, breaking old patterns open.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.1,
+                  "x1": 0.61,
+                  "y1": 0.22
+                }
+              ],
+              "name": "Uranus"
+            },
+            {
+              "key": "crescent_moon",
+              "text": "Crescent moon: A moon near his heart — instinct over reasoning.",
+              "rects": [
+                {
+                  "x0": 0.37,
+                  "y0": 0.4,
+                  "x1": 0.62,
+                  "y1": 0.53
+                }
+              ],
+              "name": "Crescent moon"
+            },
+            {
+              "key": "night_sky",
+              "text": "Night sky: He moves by feel, not by sight.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.0,
+                  "x1": 0.7,
+                  "y1": 0.3
+                },
+                {
+                  "x0": 0.0,
+                  "y0": 0.3,
+                  "x1": 1.0,
+                  "y1": 0.59
+                }
+              ],
+              "name": "Night sky"
+            }
+          ]
+        },
+        {
+          "id": "n1-r3",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "raised_hand",
+              "text": "Raised hand: Reaching toward the unknown, not looking down for safety.",
+              "rects": [
+                {
+                  "x0": 0.55,
+                  "y0": 0.29,
+                  "x1": 0.76,
+                  "y1": 0.4
+                }
+              ],
+              "name": "Raised hand"
+            },
+            {
+              "key": "uranus",
+              "text": "Uranus: sudden insight, breaking old patterns open.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.1,
+                  "x1": 0.61,
+                  "y1": 0.22
+                }
+              ],
+              "name": "Uranus"
+            },
+            {
+              "key": "night_sky",
+              "text": "Night sky: He moves by feel, not by sight.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.0,
+                  "x1": 0.7,
+                  "y1": 0.3
+                },
+                {
+                  "x0": 0.0,
+                  "y0": 0.3,
+                  "x1": 1.0,
+                  "y1": 0.59
+                }
+              ],
+              "name": "Night sky"
+            }
+          ]
+        },
+        {
+          "id": "n1-r4",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "cliff",
+              "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.59,
+                  "x1": 0.78,
+                  "y1": 1.0
+                }
+              ],
+              "name": "Cliff edge"
+            },
+            {
+              "key": "crescent_moon",
+              "text": "Crescent moon: A moon near his heart — instinct over reasoning.",
+              "rects": [
+                {
+                  "x0": 0.37,
+                  "y0": 0.4,
+                  "x1": 0.62,
+                  "y1": 0.53
+                }
+              ],
+              "name": "Crescent moon"
+            },
+            {
+              "key": "rising_sun",
+              "text": "Rising sun: Dawn breaking the instant he steps off the edge.",
+              "rects": [
+                {
+                  "x0": 0.65,
+                  "y0": 0.0,
+                  "x1": 1.0,
+                  "y1": 0.28
+                }
+              ],
+              "name": "Rising sun"
+            }
+          ]
+        },
+        {
+          "id": "n1-r5",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "cliff",
+              "text": "The boundary between safety and the unknown, crossed without hesitation.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_cliff_edge.png"
+            },
+            {
+              "key": "raised_hand",
+              "text": "Reaching toward the unknown, not looking down for safety.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_raised_hand.png"
+            },
+            {
+              "key": "rising_sun",
+              "text": "Dawn breaking the instant he steps off the edge.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_rising_sun.png"
+            }
+          ]
+        },
+        {
+          "id": "n1-r6",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "uranus",
+              "text": "Sudden insight, breaking old patterns open.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_uranus.png"
+            },
+            {
+              "key": "crescent_moon",
+              "text": "A moon near his heart — instinct over reasoning.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_crescent_moon.png"
+            },
+            {
+              "key": "night_sky",
+              "text": "He moves by feel, not by sight.",
+              "image": "/assets/cards/cardelements/major_00_fool_element_night_sky.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "n2-r1",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r2",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r3",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r4",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r5",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r6",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Meets life with a curious beginner's mind",
+              "isMatch": true
+            },
+            {
+              "text": "Nonconformist, glad to break convention",
+              "isMatch": true
+            },
+            {
+              "text": "Standing where one journey ends, the next begins",
+              "isMatch": true
+            },
+            {
+              "text": "Ruled by Uranus, quick and unconventional",
+              "isMatch": true
+            },
+            {
+              "text": "Waits for the safest possible moment to move",
+              "isMatch": false
+            },
+            {
+              "text": "Refuses to go near the edge at all",
+              "isMatch": false
+            },
+            {
+              "text": "Approaches life with caution and suspicion",
+              "isMatch": false
+            },
+            {
+              "text": "Follows every rule exactly as it's written",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "n3-r1",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r2",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r3",
+          "words": [
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "green",
+              "correct": false
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "Friday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r4",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "pineapple",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r5",
+          "words": [
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "Monday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r6",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "Friday",
+              "correct": false
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r7",
+          "words": [
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "pineapple",
+              "correct": false
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-9",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "cloze",
+          "text": "Beginning and ending in one — a fresh {b1} starting right after one just closed",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "cycle"
+            }
+          ],
+          "distractors": [
+            "banana",
+            "Thursday",
+            "journey"
+          ]
+        },
+        {
+          "id": "n9-r2",
+          "type": "cloze",
+          "text": "Travels light, takes chances with {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "levity"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "umbrella",
+            "spontaneity"
+          ]
+        },
+        {
+          "id": "n9-r3",
+          "type": "cloze",
+          "text": "On the edge of the precipice, but calm rather than afraid of the {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "void"
+            }
+          ],
+          "distractors": [
+            "elephant",
+            "spaghetti",
+            "unknown"
+          ]
+        },
+        {
+          "id": "n9-r4",
+          "type": "cloze",
+          "text": "Trusts that the path appears once you take the {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "step"
+            }
+          ],
+          "distractors": [
+            "purple",
+            "bicycle",
+            "leap"
+          ]
+        },
+        {
+          "id": "n9-r5",
+          "type": "cloze",
+          "text": "Approaches life with a beginner's mind — curious, unguarded, {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "unjaded"
+            }
+          ],
+          "distractors": [
+            "teacup",
+            "Wednesday",
+            "faith"
+          ]
+        },
+        {
+          "id": "n9-r6",
+          "type": "cloze",
+          "text": "Nonconformist, revolutionary energy — willing to go against {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "convention"
+            }
+          ],
+          "distractors": [
+            "broccoli",
+            "Thursday",
+            "introspection"
+          ]
+        },
+        {
+          "id": "n9-r7",
+          "type": "cloze",
+          "text": "Says yes to the {b1} instead of playing it safe",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "unknown"
+            }
+          ],
+          "distractors": [
+            "banana",
+            "umbrella",
+            "freedom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "n4-r1",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "seriousness",
+              "correct": false
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "patience",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r2",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "patience",
+              "correct": false
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "routine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r3",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "tradition",
+              "correct": false
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "duty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r4",
+          "words": [
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "logic",
+              "correct": false
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "planning",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r5",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "duty",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "seriousness",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r6",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "routine",
+              "correct": false
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "logic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r7",
+          "words": [
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "planning",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "seriousness",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "n5-r1",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "tradition",
+              "correct": false
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            },
+            {
+              "text": "purple",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r2",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "patience",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r3",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "green",
+              "correct": false
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            },
+            {
+              "text": "planning",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r4",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "routine",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r5",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "seriousness",
+              "correct": false
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Steps off the edge without waiting to be certain",
+              "isMatch": true
+            },
+            {
+              "text": "Every departure reads as invitation, not risk",
+              "isMatch": true
+            },
+            {
+              "text": "Says yes to the unknown, not playing it safe",
+              "isMatch": true
+            },
+            {
+              "text": "Trusts a path appears when you step",
+              "isMatch": true
+            },
+            {
+              "text": "A bridge between the everyday and the sacred",
+              "isMatch": false,
+              "_source": "The Hierophant"
+            },
+            {
+              "text": "Solitude here is productive, not lonely",
+              "isMatch": false,
+              "_source": "The Hermit"
+            },
+            {
+              "text": "The chains are looser than they look",
+              "isMatch": false,
+              "_source": "The Devil"
+            },
+            {
+              "text": "Freedom is a responsibility you already hold",
+              "isMatch": false,
+              "_source": "The Devil"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "n6-r1",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": false
+            },
+            {
+              "text": "shrewdness",
+              "correct": false
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r2",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": false
+            },
+            {
+              "text": "leadership",
+              "correct": false
+            },
+            {
+              "text": "faith",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r3",
+          "words": [
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "wisdom",
+              "correct": false
+            },
+            {
+              "text": "ambition",
+              "correct": false
+            },
+            {
+              "text": "kindness",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r4",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "pause",
+              "correct": false
+            },
+            {
+              "text": "luck",
+              "correct": false
+            },
+            {
+              "text": "responsibility",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r5",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "hope",
+              "correct": false
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            },
+            {
+              "text": "destruction",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "n7-r1",
+          "words": [
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "duty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r2",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "Monday",
+              "correct": false
+            },
+            {
+              "text": "logic",
+              "correct": false
+            },
+            {
+              "text": "wisdom",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r3",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "seriousness",
+              "correct": false
+            },
+            {
+              "text": "ambition",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r4",
+          "words": [
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r5",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            },
+            {
+              "text": "tradition",
+              "correct": false
+            },
+            {
+              "text": "hope",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-10",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "One cycle ends the instant the next begins",
+          "options": [
+            "One cycle ends the instant the next begins",
+            "The universe rebooted like an old phone",
+            "Every ending erases all memory of the past",
+            "A bridge between the everyday and the sacred"
+          ]
+        },
+        {
+          "id": "n10-r2",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Travels light, takes chances anyway",
+          "options": [
+            "Travels light, takes chances anyway",
+            "Packs fourteen suitcases just in case",
+            "Waits for the safest possible moment to move",
+            "Solitude here is productive, not lonely"
+          ]
+        },
+        {
+          "id": "n10-r3",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Calm at the cliff edge, not afraid to fall",
+          "options": [
+            "Calm at the cliff edge, not afraid to fall",
+            "Screams the whole way down, then laughs",
+            "Refuses to go near the edge at all",
+            "The chains are looser than they look"
+          ]
+        },
+        {
+          "id": "n10-r4",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Trusts a path appears the moment you step",
+          "options": [
+            "Trusts a path appears the moment you step",
+            "Waits for GPS before taking a single step",
+            "Only moves once the whole road is visible",
+            "A lantern lights the path one step at a time"
+          ]
+        },
+        {
+          "id": "n10-r5",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Meets life with a curious beginner's mind",
+          "options": [
+            "Meets life with a curious beginner's mind",
+            "Already an expert in absolutely everything",
+            "Approaches life with caution and suspicion",
+            "Holding something divine within ordinary life"
+          ]
+        },
+        {
+          "id": "n10-r6",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Nonconformist energy, glad to break convention",
+          "options": [
+            "Nonconformist energy, glad to break convention",
+            "Wears socks with sandals to prove a point",
+            "Follows every rule exactly as it's written",
+            "Freedom is a responsibility you already hold"
+          ]
+        },
+        {
+          "id": "n10-r7",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Says yes to the unknown, not playing it safe",
+          "options": [
+            "Says yes to the unknown, not playing it safe",
+            "Says no to literally everything, always",
+            "Only says yes once every risk is removed",
+            "The message arrives through a trusted teacher"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-8-capstone",
+      "rounds": [
+        {
+          "id": "n8-r5",
+          "type": "cloze",
+          "text": "The Fool stands at both the start and end of the {b1}, {b2} becoming the engine of a {b3}. He steps to the edge of a {b4} unafraid, trusting a {b5} will appear beneath his {b6}. Associated with {b7}, tied to {b8} and quick, unconventional thinking, his energy resists {b9} and welcomes the {b10}, treating every departure as an {b11} rather than a {b12}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "journey"
+            },
+            {
+              "key": "b2",
+              "answer": "chaos"
+            },
+            {
+              "key": "b3",
+              "answer": "new cycle"
+            },
+            {
+              "key": "b4",
+              "answer": "precipice"
+            },
+            {
+              "key": "b5",
+              "answer": "path"
+            },
+            {
+              "key": "b6",
+              "answer": "feet"
+            },
+            {
+              "key": "b7",
+              "answer": "Uranus"
+            },
+            {
+              "key": "b8",
+              "answer": "mystery"
+            },
+            {
+              "key": "b9",
+              "answer": "convention"
+            },
+            {
+              "key": "b10",
+              "answer": "unknown"
+            },
+            {
+              "key": "b11",
+              "answer": "invitation"
+            },
+            {
+              "key": "b12",
+              "answer": "risk"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "teacup",
+            "faith",
+            "freedom"
+          ]
+        }
+      ]
+    }
+  ]
+}

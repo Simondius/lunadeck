@@ -18,7 +18,8 @@ stop two people rebuilding the same thing.
 
 | who | what | status |
 | --- | --- | --- |
-| Simon | An alternative curriculum that grew overnight (31 Aug) from one section to five, gained a live morning playtest pass, then a sixth round type ("Does it match?" — swipe/tap true-or-false on a card's own reading notes) and, biggest change yet: **v2 is now the default at `/`**, with the original curriculum moved to `/v1` behind the dev console. See [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md), [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md), [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0045`](decisions/0045-v2-becomes-the-default-and-gets-a-swipe-round.md). This branch (`v2-fool-section-nodes`) had drifted from `main` since #54 landed — this merge folds `main`'s own review fixes (`0039`–`0041` below) back in, including the `dev-console.jsx` `clamp()` wing that this branch had dropped | **Merged into `main`** — 31 Aug |
+| Simon | v3: v2's own five sections, resequenced per section for variety — every section now opens on an easy fill-in-the-blank intro, alternates format and climbs difficulty, closes on multiple choice into a fill-in-the-blank capstone, instead of five or six identical keyword-tap nodes in a row up front. No round content changed, only node order (plus one node split per section — the old description node's mega-round becomes its own capstone). **v3 is now the default at `/`**; v1 and v2 both live on behind the dev console. `components/lesson-v2/*` gained a `basePath` prop (default `/v2`, so v2 itself is untouched) rather than being forked into a `lesson-v3/` copy. See [`0046`](decisions/0046-v3-resequences-v2-for-variety.md) | **In progress** — 31 Aug, mechanically verified and spot-checked, not yet fully playtested |
+| Simon | v2: an alternative curriculum that grew overnight (31 Aug) from one section to five, gained a live morning playtest pass, then a sixth round type ("Does it match?" — swipe/tap true-or-false on a card's own reading notes), then briefly became the default at `/` before v3 took that spot (row above). See [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md), [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md), [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0045`](decisions/0045-v2-becomes-the-default-and-gets-a-swipe-round.md) | **Merged into `main`** — 31 Aug |
 | Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
 | Tia + Claude | The **Guide** tab: Mentor renamed and given a job, a live reading with a physical deck. Camera scan, variable-length spread, follow-up questions, share UI (drawn, not wired), session end. See [`0042`](decisions/0042-the-guide-reads-your-own-deck.md) | **Merged** 31 Aug — #59 |
 | Tia + Claude | Card recognition made real: the scan identifies the card and its orientation off the deck's printed banners, against the 78 keys. See [`0043`](decisions/0043-the-scanner-actually-reads-the-card.md) | **Merged** 31 Aug — #60 |
@@ -232,20 +233,31 @@ so the account model is worth settling before either is built for real.
 written once at the end, after the mistake-review queue. Abandoning saves
 nothing. A section played out of order from the deck counts identically.
 
-**v2 is the default curriculum now, not a sandbox anymore** (`0037`, `0045`).
-It was reachable only from the dev console as of `0037`'s own writing; as of
-`0045` (31 Aug) it's what `/` renders, and the tab bar's Path tab goes there
-like any other tab. The original curriculum moved to `/v1`, still reachable
-from the dev console's Content menu, for whoever needs it. v2 itself is
-still bespoke, not built on `lib/rounds.js`'s node/instance/format model: no
-hints, no XP. Content lives in `data/v2/*_section.json`, not
-`data/data_curriculum_nodes.csv`, and `components/lesson-v2/*` is new code,
-not a fork of `components/lesson/*`. Nothing here calls `completeSection` —
-v2 has no node ids to collide with v1's, so nothing is written to
-`lunadeck.progress.v1` at all. The moment v2 wants to persist anything (XP,
-a resume point, unlock state), that's a real design question, not a default
-to fall into — and now that it's the front door, a real question sooner
-rather than later.
+**There are three curricula now, and `/` renders whichever one is current**
+(`0037`, `0045`, `0046`). v2 was reachable only from the dev console as of
+`0037`'s own writing; as of `0045` (31 Aug) it became what `/` rendered.
+Later the same day `0046` resequenced v2's own five sections for variety
+(same content, different node order — see the in-flight row above) and
+called the result v3, which is now the one `/` renders. v1 and v2 both live
+on at `/v1` and `/v2`, reachable from the dev console's Content menu. v3's
+data is its own copy under `data/v3/*_section.json` — v2's files are
+untouched — but v3 reuses `components/lesson-v2/*` directly rather than
+forking it a second time: every round-player component and `NodeSession`
+itself took a `basePath` prop (defaulting to `/v2`, so v2's own behavior is
+unchanged) instead of hardcoding which curriculum's routes to link back to.
+`app/v3/page.js` (the path screen) is its own file, since its `LABELS` and
+node-shape logic aren't something a prop can parameterize, but it reuses
+v2's markup and every `.v2-*` CSS class as-is.
+
+v2 and v3 alike are still bespoke, not built on `lib/rounds.js`'s
+node/instance/format model: no hints, no XP. Content lives in
+`data/v2/*_section.json` / `data/v3/*_section.json`, not
+`data/data_curriculum_nodes.csv`. Nothing here calls `completeSection` —
+neither has node ids that collide with v1's, so nothing is written to
+`lunadeck.progress.v1` at all. The moment either wants to persist anything
+(XP, a resume point, unlock state), that's a real design question, not a
+default to fall into — and now that one of them is the front door, a real
+question sooner rather than later.
 
 **Five sections now, five round shapes** (`0035`, built overnight 31 Aug,
 merged and playtested): Fool, Lovers, Magician,

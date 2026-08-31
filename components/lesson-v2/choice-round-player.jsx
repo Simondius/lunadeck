@@ -23,6 +23,7 @@ export default function ChoiceRoundPlayer({
   roundNumber,
   totalRounds,
   onDone,
+  basePath = "/v2",
 }) {
   const options = useMemo(
     () =>
@@ -72,7 +73,7 @@ export default function ChoiceRoundPlayer({
   return (
     <main className="session is-drag-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div

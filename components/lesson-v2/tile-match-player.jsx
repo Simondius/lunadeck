@@ -13,7 +13,7 @@ const CONTINUE_FADE_MS = 500;
 // give a pair away. A 2-column grid, however many rows the card's element
 // count needs — 2×3 for the Fool's six, 2×1 for a two-element card like the
 // Magician. Reports {missed}, same contract as every other round type.
-export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDone }) {
+export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDone, basePath = "/v2" }) {
   const leftOrder = useMemo(() => seededShuffle(round.pairs, `${round.id}-left`), [round]);
   const rightOrder = useMemo(() => seededShuffle(round.pairs, `${round.id}-right`), [round]);
   const [matched, setMatched] = useState(() => new Set());
@@ -98,7 +98,7 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
   return (
     <main className="session is-drag-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div
@@ -116,33 +116,40 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
       </div>
 
       <div className="drag-layout">
+        {/* One flat grid, not two independent columns - the image and text
+            columns used to be separate CSS grids, each sizing its own rows
+            from its own content only, so an image tile and the unrelated
+            text tile that happened to land beside it (the two columns
+            shuffle independently on purpose) could disagree on height and
+            the two columns would drift out of alignment row by row. A
+            single grid with both tiles as siblings, interleaved image-then-
+            text, gives every row one shared height: the grid's default
+            row-stretch sizes each row to its tallest cell and stretches the
+            shorter one to match. */}
         <div className="tile-match-grid">
-          <div className="tile-match-col">
-            {leftOrder.map((pair) => (
+          {leftOrder.flatMap((leftPair, i) => {
+            const rightPair = rightOrder[i];
+            return [
               <button
-                key={pair.key}
+                key={`img-${leftPair.key}`}
                 type="button"
-                className={tileClass(pair.key, "left")}
-                onClick={() => tapLeft(pair.key)}
-                disabled={matched.has(pair.key)}
+                className={tileClass(leftPair.key, "left")}
+                onClick={() => tapLeft(leftPair.key)}
+                disabled={matched.has(leftPair.key)}
               >
-                <img src={pair.image} alt="" />
-              </button>
-            ))}
-          </div>
-          <div className="tile-match-col">
-            {rightOrder.map((pair) => (
+                <img src={leftPair.image} alt="" />
+              </button>,
               <button
-                key={pair.key}
+                key={`text-${rightPair.key}`}
                 type="button"
-                className={tileClass(pair.key, "right")}
-                onClick={() => tapRight(pair.key)}
-                disabled={matched.has(pair.key)}
+                className={tileClass(rightPair.key, "right")}
+                onClick={() => tapRight(rightPair.key)}
+                disabled={matched.has(rightPair.key)}
               >
-                {pair.text}
-              </button>
-            ))}
-          </div>
+                {rightPair.text}
+              </button>,
+            ];
+          })}
         </div>
 
         <div className="drag-layout-spacer" aria-hidden="true" />

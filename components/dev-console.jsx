@@ -36,12 +36,24 @@ const MENU = [
         label: "Content",
         actions: [
           {
-            // v2 is the default curriculum now (Simon's call, 31 Aug) — the
-            // tab bar's own Path tab already goes there. This is the only
-            // door back to the original curriculum, moved to /v1.
-            label: "v1 (old curriculum)",
+            // v3 is the default curriculum now (Simon's call, 31 Aug) — the
+            // tab bar's own Path tab already goes there. v1 and v2 both stay
+            // reachable here for whoever wants either earlier shape.
+            label: "v1 (original curriculum)",
             run: () => {
               window.location.href = "/v1";
+            },
+          },
+          {
+            label: "v2 (five cards, original order)",
+            run: () => {
+              window.location.href = "/v2";
+            },
+          },
+          {
+            label: "v3 (resequenced, default)",
+            run: () => {
+              window.location.href = "/v3";
             },
           },
         ],

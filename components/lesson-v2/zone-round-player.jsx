@@ -95,6 +95,7 @@ export default function ZoneRoundPlayer({
   totalRounds,
   secondLook,
   onDone,
+  basePath = "/v2",
 }) {
   const [remaining, setRemaining] = useState(() => keyed(round));
   const [highlights, setHighlights] = useState([]);
@@ -206,7 +207,7 @@ export default function ZoneRoundPlayer({
   return (
     <main className="session is-drag-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div

@@ -42,6 +42,13 @@ export default function NodeSession({
   totalNodes,
   sectionSlug,
   nextSection,
+  // Every "quit"/"next section"/"back to..." link needs this. v2 was the
+  // only curriculum on this component when it was written, so it defaulted
+  // in as a literal; v3 (docs/decisions/0046) reuses this same component
+  // tree with its own resequenced data and passes "/v3" instead. Threaded
+  // down to whichever round Player is rendered below, since each of those
+  // renders its own "quit" link independently.
+  basePath = "/v2",
 }) {
   const [mainIndex, setMainIndex] = useState(0);
   const [reviewQueue, setReviewQueue] = useState([]);
@@ -127,7 +134,7 @@ export default function NodeSession({
     return (
       <main className="session is-drag-lesson">
         <div className="topbar">
-          <Link className="quit" href="/v2" aria-label="Leave lesson">
+          <Link className="quit" href={basePath} aria-label="Leave lesson">
             ✕
           </Link>
         </div>
@@ -157,20 +164,20 @@ export default function NodeSession({
   if (stage === "complete") {
     const hasNextInSection = nodeNumber < totalNodes;
     const nextHref = hasNextInSection
-      ? `/v2/play/${sectionSlug}/${nodeNumber + 1}`
+      ? `${basePath}/play/${sectionSlug}/${nodeNumber + 1}`
       : nextSection
-        ? `/v2/play/${nextSection.slug}/1`
-        : "/v2";
+        ? `${basePath}/play/${nextSection.slug}/1`
+        : basePath;
     const nextLabel = hasNextInSection
       ? `Node ${nodeNumber + 1}`
       : nextSection
         ? nextSection.cardName
-        : "Back to v2";
+        : `Back to ${basePath.slice(1)}`;
 
     return (
       <main className="session is-drag-lesson">
         <div className="topbar">
-          <Link className="quit" href="/v2" aria-label="Leave lesson">
+          <Link className="quit" href={basePath} aria-label="Leave lesson">
             ✕
           </Link>
         </div>
@@ -208,6 +215,7 @@ export default function NodeSession({
       totalRounds={totalRounds}
       secondLook={stage === "review"}
       onDone={handleRoundDone}
+      basePath={basePath}
     />
   );
 }

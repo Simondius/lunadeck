@@ -1,0 +1,1169 @@
+{
+  "cardKey": "major_04_emperor",
+  "cardName": "The Emperor",
+  "nodes": [
+    {
+      "id": "node-8",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "cloze",
+          "text": "The Emperor sits ready to {b1}, giving {b2} to the creative {b3} that came before him.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "act"
+            },
+            {
+              "key": "b2",
+              "answer": "shape"
+            },
+            {
+              "key": "b3",
+              "answer": "chaos"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "Tuesday",
+            "purple"
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n8-r2",
+          "type": "cloze",
+          "text": "He sets clear {b1} and claims his own {b2} without {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "boundaries"
+            },
+            {
+              "key": "b2",
+              "answer": "space"
+            },
+            {
+              "key": "b3",
+              "answer": "hesitation"
+            }
+          ],
+          "distractors": [
+            "teacup",
+            "banana",
+            "ladder"
+          ]
+        },
+        {
+          "id": "n8-r3",
+          "type": "cloze",
+          "text": "Paired with {b1}, he shares its springtime urgency, the instinct to {b2} and push forward before {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Aries"
+            },
+            {
+              "key": "b2",
+              "answer": "sprout"
+            },
+            {
+              "key": "b3",
+              "answer": "overthinking"
+            }
+          ],
+          "distractors": [
+            "elephant",
+            "Wednesday",
+            "pause"
+          ]
+        },
+        {
+          "id": "n8-r4",
+          "type": "cloze",
+          "text": "Ruled by {b1}'s spark, both are {b2}, reactive, and quick to abandon what no longer excites them, in pursuit of pure {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Mars"
+            },
+            {
+              "key": "b2",
+              "answer": "combative"
+            },
+            {
+              "key": "b3",
+              "answer": "momentum"
+            }
+          ],
+          "distractors": [
+            "spaghetti",
+            "dreams",
+            "reception"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-11",
+      "rounds": [
+        {
+          "id": "n8-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Acts the instant the moment calls",
+              "isMatch": true
+            },
+            {
+              "text": "Sets clear boundaries without apology",
+              "isMatch": true
+            },
+            {
+              "text": "Gives shape to raw potential",
+              "isMatch": true
+            },
+            {
+              "text": "Ready to act, shaping creative chaos",
+              "isMatch": true
+            },
+            {
+              "text": "Waits for a calendar invite first",
+              "isMatch": false
+            },
+            {
+              "text": "Sets boundaries, then forgets where they are",
+              "isMatch": false
+            },
+            {
+              "text": "Alphabetizes the chaos, for fun",
+              "isMatch": false
+            },
+            {
+              "text": "Leads by sending seventeen follow-up emails",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "n1-r1",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "ram",
+              "name": "Ram",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
+              "rects": [
+                {
+                  "x0": 0.16,
+                  "y0": 0.591,
+                  "x1": 0.578,
+                  "y1": 0.811
+                }
+              ]
+            },
+            {
+              "key": "aries",
+              "name": "Aries",
+              "text": "Aries: the spark of pure life force — acts before it thinks.",
+              "rects": [
+                {
+                  "x0": 0.406,
+                  "y0": 0.124,
+                  "x1": 0.615,
+                  "y1": 0.199
+                }
+              ]
+            }
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n1-r2",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "ram",
+              "name": "Ram",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
+              "rects": [
+                {
+                  "x0": 0.16,
+                  "y0": 0.591,
+                  "x1": 0.578,
+                  "y1": 0.811
+                }
+              ]
+            },
+            {
+              "key": "aries",
+              "name": "Aries",
+              "text": "Aries: the spark of pure life force — acts before it thinks.",
+              "rects": [
+                {
+                  "x0": 0.406,
+                  "y0": 0.124,
+                  "x1": 0.615,
+                  "y1": 0.199
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n1-r3",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "ram",
+              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
+              "image": "/assets/cards/cardelements/major_04_emperor_element_ram.png"
+            },
+            {
+              "key": "aries",
+              "text": "The spark of pure life force — acts before it thinks.",
+              "image": "/assets/cards/cardelements/major_04_emperor_element_aries.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "n2-r1",
+          "words": [
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            }
+          ],
+          "tutorial": true
+        },
+        {
+          "id": "n2-r2",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n2-r3",
+          "words": [
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "elephant",
+              "correct": false
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-12",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Leads through decisive action",
+              "isMatch": true
+            },
+            {
+              "text": "Life force breaking through",
+              "isMatch": true
+            },
+            {
+              "text": "Spark-first instinct, leads with action",
+              "isMatch": true
+            },
+            {
+              "text": "Claims his own space without hesitation",
+              "isMatch": true
+            },
+            {
+              "text": "Waits patiently for the perfect conditions",
+              "isMatch": false
+            },
+            {
+              "text": "Boundaries shift depending on who's watching",
+              "isMatch": false
+            },
+            {
+              "text": "Leaves raw potential as it is",
+              "isMatch": false
+            },
+            {
+              "text": "Leads only after months of deliberation",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "n3-r1",
+          "words": [
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r2",
+          "words": [
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n3-r3",
+          "words": [
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-9",
+      "rounds": [
+        {
+          "id": "n9-r1",
+          "type": "cloze",
+          "text": "Ready to act the instant the moment calls for it — no {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "hesitation"
+            }
+          ],
+          "distractors": [
+            "pineapple"
+          ]
+        },
+        {
+          "id": "n9-r2",
+          "type": "cloze",
+          "text": "Sets clear {b1} and claims space without apology",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "boundaries"
+            }
+          ],
+          "distractors": [
+            "Monday"
+          ]
+        },
+        {
+          "id": "n9-r3",
+          "type": "cloze",
+          "text": "Gives shape and order to what was still raw {b1}",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "potential"
+            }
+          ],
+          "distractors": [
+            "spaghetti"
+          ]
+        },
+        {
+          "id": "n9-r4",
+          "type": "cloze",
+          "text": "Leadership through {b1}, immediate action",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "decisive"
+            }
+          ],
+          "distractors": [
+            "green"
+          ]
+        },
+        {
+          "id": "n9-r5",
+          "type": "cloze",
+          "text": "Spring's {b1} — breaking through and pushing forward",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "life force"
+            }
+          ],
+          "distractors": [
+            "dreams"
+          ]
+        },
+        {
+          "id": "n9-r6",
+          "type": "cloze",
+          "text": "A spark-first, think-later {b1}; leads with action",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "instinct"
+            }
+          ],
+          "distractors": [
+            "reception"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "n4-r1",
+          "words": [
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "hesitation",
+              "correct": false
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "exhaustion",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r2",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "boundlessness",
+              "correct": false
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "exhaustion",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r3",
+          "words": [
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "decay",
+              "correct": false
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "submission",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r4",
+          "words": [
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "exhaustion",
+              "correct": false
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "hesitation",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r5",
+          "words": [
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "submission",
+              "correct": false
+            },
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "boundlessness",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "n5-r1",
+          "words": [
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "broccoli",
+              "correct": false
+            },
+            {
+              "text": "Thursday",
+              "correct": false
+            },
+            {
+              "text": "umbrella",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r2",
+          "words": [
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "bicycle",
+              "correct": false
+            },
+            {
+              "text": "green",
+              "correct": false
+            },
+            {
+              "text": "Friday",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r3",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "pineapple",
+              "correct": false
+            },
+            {
+              "text": "Monday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n5-r4",
+          "words": [
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "Wednesday",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-13",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Paired with Aries, springtime urgency",
+              "isMatch": true
+            },
+            {
+              "text": "Ruled by Mars's spark, pure momentum",
+              "isMatch": true
+            },
+            {
+              "text": "Sets clear boundaries without apology",
+              "isMatch": true
+            },
+            {
+              "text": "Life force breaking through",
+              "isMatch": true
+            },
+            {
+              "text": "Time to turn inward, before acting",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "Power comes from receiving, not acting",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "A quiet, reflected light, not blazing",
+              "isMatch": false,
+              "_source": "The High Priestess"
+            },
+            {
+              "text": "Pause and let go, instead of forcing",
+              "isMatch": false,
+              "_source": "The Hanged Man"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "n6-r1",
+          "words": [
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "pause",
+              "correct": false
+            },
+            {
+              "text": "dreams",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r2",
+          "words": [
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "reception",
+              "correct": false
+            },
+            {
+              "text": "abandon",
+              "correct": false
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r3",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            },
+            {
+              "text": "following the flow",
+              "correct": false
+            },
+            {
+              "text": "feminine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n6-r4",
+          "words": [
+            {
+              "text": "sprouting",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "action",
+              "correct": true
+            },
+            {
+              "text": "listening",
+              "correct": false
+            },
+            {
+              "text": "magic",
+              "correct": false
+            },
+            {
+              "text": "sacrificing something to get something better",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "n7-r1",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            },
+            {
+              "text": "listening",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r2",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "pause",
+              "correct": false
+            },
+            {
+              "text": "abandon",
+              "correct": false
+            },
+            {
+              "text": "following the flow",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r3",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "dreams",
+              "correct": false
+            },
+            {
+              "text": "inner reality",
+              "correct": false
+            },
+            {
+              "text": "feminine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n7-r4",
+          "words": [
+            {
+              "text": "personal limits",
+              "correct": true
+            },
+            {
+              "text": "leadership",
+              "correct": true
+            },
+            {
+              "text": "life force",
+              "correct": true
+            },
+            {
+              "text": "mystery",
+              "correct": false
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            },
+            {
+              "text": "magic",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-10",
+      "rounds": [
+        {
+          "id": "n10-r1",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Acts the instant the moment calls for it",
+          "options": [
+            "Acts the instant the moment calls for it",
+            "Waits for a calendar invite before acting",
+            "Waits patiently for the perfect conditions",
+            "Time to turn inward before acting outward"
+          ]
+        },
+        {
+          "id": "n10-r2",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Sets clear boundaries without apology",
+          "options": [
+            "Sets clear boundaries without apology",
+            "Sets boundaries, then forgets where they are",
+            "Boundaries shift depending on who's watching",
+            "Power comes from receiving, not acting"
+          ]
+        },
+        {
+          "id": "n10-r3",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Gives shape and order to raw potential",
+          "options": [
+            "Gives shape and order to raw potential",
+            "Alphabetizes the chaos, just for fun",
+            "Leaves raw potential exactly as it is",
+            "A quiet, reflected light, not a blazing one"
+          ]
+        },
+        {
+          "id": "n10-r4",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Leads through decisive, immediate action",
+          "options": [
+            "Leads through decisive, immediate action",
+            "Leads by sending seventeen follow-up emails",
+            "Leads only after months of deliberation",
+            "A new view comes from surrender, not struggle"
+          ]
+        },
+        {
+          "id": "n10-r5",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Life force breaking through and pushing on",
+          "options": [
+            "Life force breaking through and pushing on",
+            "Life force best described as three espressos",
+            "Energy fading fast, best to rest instead",
+            "Hidden things surface if you look"
+          ]
+        },
+        {
+          "id": "n10-r6",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A spark-first instinct that leads with action",
+          "options": [
+            "A spark-first instinct that leads with action",
+            "A spreadsheet-first instinct before anything",
+            "Thinks it through fully before any spark",
+            "Pause and let go instead of forcing it"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-8-capstone",
+      "rounds": [
+        {
+          "id": "n8-r5",
+          "type": "cloze",
+          "text": "The Emperor sits ready to {b1}, giving {b2} to the creative {b3} that came before him. He sets clear {b4} and claims his own {b5} without {b6}. Paired with {b7}, he shares its springtime urgency, the instinct to {b8} and push forward before {b9}. Ruled by {b10}'s spark, both are {b11}, reactive, and quick to abandon what no longer excites them, in pursuit of pure {b12}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "act"
+            },
+            {
+              "key": "b2",
+              "answer": "shape"
+            },
+            {
+              "key": "b3",
+              "answer": "chaos"
+            },
+            {
+              "key": "b4",
+              "answer": "boundaries"
+            },
+            {
+              "key": "b5",
+              "answer": "space"
+            },
+            {
+              "key": "b6",
+              "answer": "hesitation"
+            },
+            {
+              "key": "b7",
+              "answer": "Aries"
+            },
+            {
+              "key": "b8",
+              "answer": "sprout"
+            },
+            {
+              "key": "b9",
+              "answer": "overthinking"
+            },
+            {
+              "key": "b10",
+              "answer": "Mars"
+            },
+            {
+              "key": "b11",
+              "answer": "combative"
+            },
+            {
+              "key": "b12",
+              "answer": "momentum"
+            }
+          ],
+          "distractors": [
+            "pizza",
+            "teacup",
+            "pause",
+            "dreams"
+          ]
+        }
+      ]
+    }
+  ]
+}

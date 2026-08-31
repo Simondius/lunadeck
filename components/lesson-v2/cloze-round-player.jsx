@@ -162,6 +162,7 @@ export default function ClozeRoundPlayer({
   totalRounds,
   secondLook,
   onDone,
+  basePath = "/v2",
 }) {
   const tokens = useMemo(() => parseSentence(round.text), [round]);
   const [bank, setBank] = useState(() => bankWords(round));
@@ -249,7 +250,7 @@ export default function ClozeRoundPlayer({
   return (
     <main className="session is-drag-lesson">
       <div className="topbar">
-        <Link className="quit" href="/v2" aria-label="Leave lesson">
+        <Link className="quit" href={basePath} aria-label="Leave lesson">
           ✕
         </Link>
         <div

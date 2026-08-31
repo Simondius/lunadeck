@@ -20,7 +20,8 @@ stop two people rebuilding the same thing.
 | --- | --- | --- |
 | Simon | An alternative curriculum, reachable via dev console → Path → Content → v2. Grew overnight (31 Aug) from one section to five — Fool, Lovers, Magician, Empress, Emperor — and from two round shapes to five (keyword, zone, cloze, choice, tilematch); see [`0037`](decisions/0037-v2s-fool-section-is-bespoke.md), [`0038`](decisions/0038-v2-nodes-review-their-own-mistakes.md), [`0035`](decisions/0035-v2-grows-to-five-cards-and-three-new-round-types.md). Followed same day by a live morning playtest pass — node reorder, real drag-target/touch bugs fixed, choice round switched to drag-onto-card, dev console gained skip-without-completing controls, and the path screen got chunky per-type icons + a tappable companion card per section; see [`0036`](decisions/0036-morning-playtest-fixes-for-the-five-card-build.md). **Merged into `main`** 31 Aug, rebased onto #52/#53 first — the collision points Tia flagged (`app/globals.css`'s end-of-file additions, `dev-console.jsx`'s `clamp()`) were reconciled by hand; `lib/progress.js` and `tabbar.jsx` merged clean since v2 never touches either | **Done** — 31 Aug |
 | Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
-| Tia + Claude | The **Guide** tab: Mentor renamed and given a job, a live reading with a physical deck. Camera scan with a confirm step, variable-length spread, follow-up questions, share UI (drawn, not wired), session end. See [`0042`](decisions/0042-the-guide-reads-your-own-deck.md) | **Merged** 31 Aug — #59 |
+| Tia + Claude | The **Guide** tab: Mentor renamed and given a job, a live reading with a physical deck. Camera scan, variable-length spread, follow-up questions, share UI (drawn, not wired), session end. See [`0042`](decisions/0042-the-guide-reads-your-own-deck.md) | **Merged** 31 Aug — #59 |
+| Tia + Claude | Card recognition made real: the scan identifies the card and its orientation off the deck's printed banners, against the 78 keys. See [`0043`](decisions/0043-the-scanner-actually-reads-the-card.md) | **Merged** 31 Aug — #60 |
 | Claude | Review of Simon's v2 (#54), which neither Tia nor Simon can read as code. Two passes: [`0039`](decisions/0039-two-fixes-from-reviewing-v2.md) fixed a broken tile asset and a stale node count, [`0040`](decisions/0040-fixed-overlays-measure-the-frame-not-the-window.md) fixed all three v2 drag overlays landing hundreds of px off above 900px. Two things left open deliberately, both judgement calls rather than defects: `v2-fool-section-nodes` is fully merged but Simon merged `main` into it after #54 landed and kept his own `dev-console.jsx`, so **that branch has lost #52's fix** — new work should branch from `main`, not continue there. And tilematch's detail images carry `alt=""`; the round tests visual recognition, so no honest alt text exists and it needs a spec answer, not an attribute | **Merged** 31 Aug — #55, #56 |
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
@@ -104,10 +105,17 @@ name anyone reads, and is now shared by both tabs on purpose.
 each card, say when you have finished, and get one reading of however many cards
 are on the table; then you can ask follow-up questions, scan more (which throws
 the old reading away, because a reading of five cards is not a reading of six),
-share it, or end the session. Two things are deliberately not real: **card
-recognition**, which has no vision model behind it and so asks you to confirm a
-guess rather than asserting one, and **sharing**, which is drawn and disabled.
-The camera itself is real, and needs `localhost` or HTTPS to open.
+share it, or end the session. **Card recognition is real** (`0043`). The frame goes to `/api/scan`, which
+sends it both ways up to Haiku with the answer constrained to the 78 card keys,
+and reads the card off its printed banners: the name on a major or court card,
+the suit plus the small top numeral on a numbered minor. It returns the card,
+which way up it lay, and a confidence. Measured 25/26 on identity and 26/26 on
+orientation against repo masters, with nothing confidently wrong. The confirm
+step stays, because a real photograph in a real room will sometimes be wrong;
+`low` confidence is routed to asking rather than asserting.
+
+**Sharing is still drawn and disabled.** The camera needs `localhost` or HTTPS
+to open, and falls back to picking the card by hand.
 
 Its session lives in its own `lunadeck.guide.v1` key, not in `lib/progress.js`.
 Nothing in a reading is earned, and a reading someone did with their own deck

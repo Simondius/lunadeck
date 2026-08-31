@@ -4203,6 +4203,13 @@ body.is-revealing { overflow: hidden; }
   padding: 20px 20px 26px;
   display: flex;
   flex-direction: column;
+  /* Capped like .shell. Without this the scanner is the one screen in the app
+     that runs full width, and on a desktop frame the two confirm cards grew
+     to 370px each and pushed the button that accepts them off the bottom. */
+  width: 100%;
+  max-width: var(--shell);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .scanner-body.is-picker { padding-bottom: 12px; }
@@ -4291,6 +4298,7 @@ body.is-revealing { overflow: hidden; }
 .scanner-guess img {
   width: 100%;
   aspect-ratio: var(--card-ratio);
+  max-height: 40vh;
   object-fit: cover;
   border-radius: 10px;
   display: block;

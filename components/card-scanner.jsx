@@ -6,39 +6,51 @@ import { useScrollLock } from "./use-scroll-lock";
 
 // Pointing a phone at a card and being told what it is.
 //
-// The camera is real: getUserMedia, the rear lens where there is one, a live
-// viewfinder, and a capture that keeps the actual frame. **Recognising the card
-// in that frame is not.** There is no vision model wired up here, so the step
-// between "captured" and "this is the Eight of Cups" is a placeholder.
+// Both halves are real now. The camera is getUserMedia, the rear lens where
+// there is one, a live viewfinder and a capture that keeps the frame; and the
+// frame goes to /api/scan, which identifies the card against the 78 in the
+// deck and says which way up it was. See 0043 for how well that works and how
+// it was measured.
 //
-// That placeholder is deliberately shaped as a *confirmation* rather than an
-// assertion. Two reasons. It does not lie: the screen asks whether it got the
-// card right instead of announcing that it did. And it is not throwaway work,
-// because real card recognition needs exactly this step anyway — a photo of a
-// tarot card in a dim room at an angle will be wrong often enough that a
-// confirm-and-correct pass is part of the feature, not an apology for it.
+// The confirm step stays, and is not an apology for a weak guess: a photo of a
+// card in a dim room at an angle will sometimes be wrong, and it is cheaper to
+// be asked than to find a card you did not pull sitting in your reading. What
+// the confirm screen says depends on how sure the answer was:
 //
-// The one line of UI that admits the guess is currently random is there so a
-// playtester with a real deck knows why it keeps being wrong, and can go
-// straight to the picker instead of concluding the whole thing is broken.
+//   high  the card, stated, with a way to correct it
+//   low   the card, offered as a question, with the picker one tap away
+//
+// A low answer means the app could not read the printed name and worked from
+// the imagery instead. That is exactly when a person should be asked, so `low`
+// is routed to asking rather than buried.
 
-const IDENTIFY_MS = 900;
+// Below this a frame is not a photograph of a card, it is a placeholder the
+// stream has not filled in yet.
+const MIN_FRAME_WIDTH = 240;
 
 export default function CardScanner({ deck, taken = [], onIdentified, onClose }) {
-  // starting | live | identifying | confirm | manual | blocked
+  // starting | live | identifying | confirm | manual | blocked | failed
   const [stage, setStage] = useState("starting");
   const [error, setError] = useState(null);
   const [shot, setShot] = useState(null);
   const [guess, setGuess] = useState(null);
+  const [sure, setSure] = useState(false);
   const [reversed, setReversed] = useState(false);
   const [query, setQuery] = useState("");
+  // A frame has actually arrived and is big enough to read a card off.
+  //
+  // Not the same thing as the stream being open: play() can resolve before
+  // the first frame, so "live" alone would let someone press Capture and
+  // have nothing happen at all. Found by testing against a canvas-backed
+  // stream, which reports 2x2 until its first paint and produced a capture
+  // the server rejected as too small to be a card.
+  const [frameReady, setFrameReady] = useState(false);
 
   // Covers the whole frame, so nothing behind it should scroll.
   useScrollLock();
 
   const videoRef = useRef(null);
   const streamRef = useRef(null);
-  const timerRef = useRef(null);
 
   const available = deck.filter((card) => !taken.includes(card.key));
 
@@ -93,39 +105,54 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
     open();
     return () => {
       cancelled = true;
-      if (timerRef.current) window.clearTimeout(timerRef.current);
       stopCamera();
     };
   }, [stopCamera]);
 
-  // Keep the captured frame. A real recogniser would read this; here it is
-  // shown next to the guess so the confirm step has something to confirm
-  // against, and so the capture visibly did something.
-  function capture() {
+  // The captured frame is both what gets identified and what the confirm
+  // screen shows beside the answer, so you can see what the camera actually
+  // got when the answer is wrong.
+  async function capture() {
     const video = videoRef.current;
-    if (!video || !video.videoWidth) return;
+    if (!video || video.videoWidth < MIN_FRAME_WIDTH) return;
 
     const canvas = document.createElement("canvas");
-    // Downscaled: this only has to be legible on a phone, and a full-res frame
-    // as a data URL is megabytes held in React state.
-    const width = 640;
+    // 1024 wide. The card's small top numeral has to survive this, since it is
+    // the whole difference between the Two and the Ten of a suit, and the
+    // server downscales to 768 from here anyway. A full-res frame as a data
+    // URL would be megabytes held in React state.
+    const width = Math.min(1024, video.videoWidth);
     const height = Math.round((video.videoHeight / video.videoWidth) * width);
     canvas.width = width;
     canvas.height = height;
     canvas.getContext("2d").drawImage(video, 0, 0, width, height);
 
-    setShot(canvas.toDataURL("image/jpeg", 0.8));
+    const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
+    setShot(dataUrl);
     setStage("identifying");
+    setError(null);
 
-    // The placeholder. A pause, then a card, because the pause is where the
-    // recognition would go and the screen should be honest about the shape of
-    // the interaction even while the middle of it is missing.
-    timerRef.current = window.setTimeout(() => {
-      const pool = available.length ? available : deck;
-      setGuess(pool[Math.floor(Math.random() * pool.length)]);
-      setReversed(false);
+    try {
+      const response = await fetch("/api/scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: dataUrl }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data?.error ?? "That scan did not go through.");
+
+      setGuess({ key: data.key, name: data.name, master: data.master });
+      // The scan's own reading of which way up the card lay, which the toggle
+      // can still override.
+      setReversed(!!data.reversed);
+      setSure(data.confidence === "high");
       setStage("confirm");
-    }, IDENTIFY_MS);
+    } catch (cause) {
+      // A failed scan is not a dead end: the picker is always there, and the
+      // reason is worth saying rather than silently falling back.
+      setError(cause.message);
+      setStage("failed");
+    }
   }
 
   function accept(card) {
@@ -171,16 +198,28 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
                 <figcaption>Your card</figcaption>
               </figure>
             ) : null}
-            <figure className={reversed ? "scanner-guess is-reversed" : "scanner-guess"}>
+            {/* Shown the right way up even when the card was pulled reversed.
+                The question this screen asks is which card it is, and turning
+                the answer upside down to mirror the photo makes the name
+                harder to read, which works against the one thing being
+                confirmed. Orientation is carried by the checkbox below, which
+                arrives already ticked. */}
+            <figure className="scanner-guess">
               <img src={guess.master} alt="" />
-              <figcaption>{guess.name}</figcaption>
+              <figcaption>
+                {guess.name}
+                {reversed ? ", reversed" : ""}
+              </figcaption>
             </figure>
           </div>
 
-          <p className="scanner-question">Is this the card?</p>
+          <p className="scanner-question">
+            {sure ? guess.name : `Is this the ${guess.name}?`}
+          </p>
           <p className="scanner-caveat">
-            Recognition isn&rsquo;t built yet, so this is a guess. Correcting it
-            takes a tap.
+            {sure
+              ? "Read off the card. Change it if that's not right."
+              : "I couldn't read the name on it, so this is from the picture. Worth checking."}
           </p>
 
           <label className="scanner-toggle">
@@ -193,7 +232,7 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
           </label>
 
           <button className="action" type="button" onClick={() => accept(guess)}>
-            Yes, that&rsquo;s it
+            {sure ? "Add it" : "Yes, that’s it"}
           </button>
           <button
             className="action-quiet"
@@ -203,7 +242,27 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
               setStage("manual");
             }}
           >
-            Pick the right card
+            Pick a different card
+          </button>
+        </div>
+      ) : stage === "failed" ? (
+        <div className="scanner-body">
+          <div className="scanner-blocked">
+            <p className="scanner-question">That scan didn&rsquo;t work.</p>
+            <p className="scanner-caveat">{error}</p>
+          </div>
+          <button className="action" type="button" onClick={() => setStage("live")}>
+            Try again
+          </button>
+          <button
+            className="action-quiet"
+            type="button"
+            onClick={() => {
+              setQuery("");
+              setStage("manual");
+            }}
+          >
+            Choose the card instead
           </button>
         </div>
       ) : stage === "blocked" ? (
@@ -234,6 +293,14 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
               muted
               playsInline
               autoPlay
+              // onResize as well as onLoadedMetadata: a stream can report a
+              // placeholder size first and its real one a frame later.
+              onLoadedMetadata={(event) =>
+                setFrameReady(event.currentTarget.videoWidth >= MIN_FRAME_WIDTH)
+              }
+              onResize={(event) =>
+                setFrameReady(event.currentTarget.videoWidth >= MIN_FRAME_WIDTH)
+              }
             />
             <div className="scanner-reticle" aria-hidden="true" />
             {stage === "identifying" ? (
@@ -247,14 +314,16 @@ export default function CardScanner({ deck, taken = [], onIdentified, onClose })
           <p className="scanner-hint">
             {stage === "starting"
               ? "Opening the camera…"
-              : "Hold the card inside the frame."}
+              : frameReady
+                ? "Hold the card inside the frame."
+                : "Waiting for the first frame…"}
           </p>
 
           <button
             className="action"
             type="button"
             onClick={capture}
-            disabled={stage !== "live"}
+            disabled={stage !== "live" || !frameReady}
           >
             Capture
           </button>

@@ -3,25 +3,13 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useProgress } from "@/components/use-progress";
-import { isSectionComplete } from "@/lib/progress";
-
-// A card is known once the section that teaches it is finished — the same rule
-// the path and unit screens use, so the three never disagree.
-function knownKeys(progress, sections) {
-  const known = new Set();
-  for (const section of sections) {
-    if (section.cardKey && isSectionComplete(progress, section.nodeIds)) {
-      known.add(section.cardKey);
-    }
-  }
-  return known;
-}
+import { knownCardKeys } from "@/lib/progress";
 
 export default function DeckScreen({ groups, sections }) {
   const progress = useProgress();
   const [filter, setFilter] = useState("all");
 
-  const known = useMemo(() => knownKeys(progress, sections), [progress, sections]);
+  const known = useMemo(() => knownCardKeys(progress, sections), [progress, sections]);
   const total = groups.reduce((n, g) => n + g.cards.length, 0);
   const shown = filter === "all" ? groups : groups.filter((g) => g.id === filter);
 

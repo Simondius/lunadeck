@@ -7,10 +7,16 @@ import { usePathname } from "next/navigation";
 const TABS = [
   { href: "/", label: "PATH", glyph: "" },
   { href: "/deck", label: "DECK", glyph: " is-deck" },
-  // The nightly draw lives inside the Reader, so there is no separate Draw
-  // tab. Trials is gone until the Challenge tab is actually wanted; its spec
-  // is still in specs/ when it is.
-  { href: "/reader", label: "READER", glyph: " is-draw" },
+  // The daily draw lives inside this tab, so there is no separate Draw tab.
+  // Trials is gone until the Challenge tab is actually wanted; its spec is
+  // still in specs/ when it is.
+  //
+  // Labelled for the thing you get rather than the character who gives it:
+  // the route stays /reader because renaming it would churn every link for a
+  // string nobody sees in an app shell.
+  { href: "/reader", label: "READING", glyph: " is-draw" },
+  { href: "/mentor", label: "MENTOR", glyph: " is-mentor" },
+  { href: "/social", label: "SOCIAL", glyph: " is-social" },
 ];
 
 export default function TabBar() {

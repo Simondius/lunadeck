@@ -27,6 +27,13 @@
      screens. See UX_Style_Guide §10. */
   --card-ratio: 813 / 1456;
 
+  /* The height a full-screen surface actually has. On a phone that is the
+     viewport; on a wide window the app is drawn as a device and .app-frame
+     caps itself at min(940px, 94dvh), so 100dvh overshoots by however tall
+     the window is beyond that. Anything sized to "the whole screen" reads
+     this, never 100dvh directly. */
+  --frame-h: 100dvh;
+
   --parchment: #f2ede3;
   --muted: #7f8aa8;        /* cooler than the old #8b83a6 */
   --muted-warm: #a49cb8;
@@ -199,6 +206,15 @@ a { color: inherit; text-decoration: none; }
 }
 
 .overall { margin-bottom: 22px; }
+
+/* The path's rule without the path's meaning. The Reading tab has no
+   completion metric and should not imply one. */
+.statusrule {
+  height: 2px;
+  background: rgba(242, 237, 227, 0.08);
+  border-radius: 2px;
+  margin-bottom: 22px;
+}
 
 /* --- the path ------------------------------------------------------- */
 /* One continuous scroll of every section in the curriculum, with each unit's
@@ -499,6 +515,29 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(120deg, currentColor 50%, transparent 50%);
 }
 
+/* Two overlapping rings, as close to "people" as a CSS shape gets. */
+.tab-glyph.is-social {
+  width: 15px;
+  height: 12px;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 5px;
+  background:
+    radial-gradient(circle 5px at 5px 6px, transparent 3.2px, currentColor 3.2px 4.6px, transparent 4.7px),
+    radial-gradient(circle 5px at 10px 6px, transparent 3.2px, currentColor 3.2px 4.6px, transparent 4.7px);
+}
+
+/* A diamond, which the comment above has claimed the set contains since before
+   there was a fourth tab to put it on. */
+.tab-glyph.is-mentor {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  border-width: 1.5px;
+  transform: rotate(45deg);
+}
+
 /* --- unit detail ---------------------------------------------------- */
 
 .backlink {
@@ -755,8 +794,12 @@ a { color: inherit; text-decoration: none; }
 /* Placeholder portrait for the character who will eventually answer
    questions. A rounded square rather than a circle — it is a scene, not a
    face, and a circle crops the candles off. */
+/* Portrait, not square: the art is 2:3 (see scripts/make_reader_portrait.mjs)
+   and the frame is given the same ratio so nothing is cropped a second time at
+   display size. The old rounded square was built for a 500x500 placeholder. */
 .reader-portrait {
   width: 200px;
+  aspect-ratio: 2 / 3;
   margin: 0 auto 18px;
   border-radius: 18px;
   overflow: hidden;
@@ -767,14 +810,144 @@ a { color: inherit; text-decoration: none; }
     0 0 60px rgba(143, 82, 196, 0.18);
 }
 
-.reader-portrait img { width: 100%; display: block; }
+.reader-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The deck's own front, which is a card and so carries the card ratio rather
+   than the 2:3 the mentor's portrait uses. Given its real ratio so nothing is
+   cropped: the art is a printed box lid and losing a slice off either side
+   would take the border with it. */
+/* Sized from its height rather than its width, so the whole lid is visible.
+   Width-first plus the 54dvh cap cropped 54px off the top and bottom, which
+   took the top of the ZODIAC wordmark with it: fine on a photograph, wrong on
+   a printed cover, where a sliced title reads as a rendering fault. Height
+   drives width through the ratio, and max-width catches a narrow frame. */
+.reader-greeting .reader-portrait.is-deckfront {
+  aspect-ratio: var(--card-ratio);
+  width: auto;
+  /* Driven by width, with the height budget converted through the ratio, so
+     whichever runs out first decides the size and the other follows. Setting
+     height directly and capping max-width let the width clamp while the height
+     stayed put, which squashed the frame off-ratio and cropped the sides of a
+     printed cover. --below is the measured height of everything under the
+     card: 26 margin, two lines at 24.75, 28 margin, 51 button, with room for
+     the line wrapping to three. */
+  --below: 196px;
+  width: min(100%, calc((var(--greet-box) - var(--below)) * 813 / 1456));
+  height: auto;
+  max-height: none;
+}
+
+/* The whole first screen, centred as one block rather than a stack of
+   separate rows. Vertically centred in whatever height the shell gives it, so
+   the reader sits in the middle of the frame and not under the top edge. */
+.reader-greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Grouped near the top rather than centred. The column is narrow and very
+     tall on a desktop frame, and the card's width is capped by the column, so
+     it cannot grow to fill that height: centring split the surplus evenly and
+     put 247px of nothing between the rule and the card. The group now sits
+     under a bounded gap and the surplus falls below it, where it reads as
+     margin above the tab bar rather than a hole in the middle. */
+  justify-content: flex-start;
+  padding-top: clamp(12px, calc(var(--frame-h) * 0.04), 56px);
+  text-align: center;
+  /* The free region is the shell's top padding down to the tab bar, so the
+     reader sits in the true middle of what you can see. Measured first with
+     a guessed 200px and it sat 85px high — the shell's own bottom padding,
+     calc(var(--tabbar) + 26px), was inside the block being centred. */
+  /* Sized against the shell's own clearance rather than a guess: the first
+     attempt subtracted a tab-bar height read off the element (63px) when the
+     token is 74px, and assumed 100dvh matched window.innerHeight when it did
+     not. The shell drops its bottom padding for this screen instead, so the
+     arithmetic below is the only thing that has to be right. */
+  /* The block's height, in one place so the art below can be sized from it.
+     The free region is what is left under the status bar and rule, down to the
+     tab bar, capped so it stops growing on a tall screen: uncapped at 1242px
+     it reached 1074 while the art stayed 470, and the whole difference became
+     247px of dead space above and 236 below. */
+  --greet-box: calc(var(--frame-h) - 26px - var(--tabbar) - 68px);
+  min-height: var(--greet-box);
+  gap: 0;
+}
+
+/* Nothing scrolls under the tab bar on this screen, so the shell's clearance
+   padding would only add height the page then has to scroll off. */
+.shell.is-greeting,
+.shell.is-waiting { padding-bottom: 0; }
+
+/* Larger here than anywhere else: on this screen it is the screen.
+
+   Proportional, not a fixed pixel width. A flat 288px was 87% of a 375px
+   phone frame but only 77% of the 420px desktop one, so the same rule made a
+   decisive change on a phone and a barely visible one on a laptop, which is
+   exactly what Tia saw. The cap stops it outgrowing its own rounded corners
+   on the widest frame. */
+.reader-greeting .reader-portrait {
+  width: min(92%, 352px);
+  /* On a short viewport (a landscape phone, a small laptop) the 2:3 frame is
+     taller than the screen has to spare and the greeting would scroll. The cap
+     wins over aspect-ratio, and object-fit: cover means the frame crops rather
+     than the art squashing. */
+  max-height: calc(var(--frame-h) * 0.54);
+  margin-bottom: 26px;
+  box-shadow:
+    0 0 0 1px var(--accent-a45),
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 0 90px rgba(143, 82, 196, 0.28);
+}
+
+/* A slow warm swell around the portrait, picking up the candlelight in the
+   art. Done on the shadow rather than a pseudo-element because
+   .reader-portrait carries overflow: hidden to clip the image to its rounded
+   corners, and that would clip a glow drawn outside the box to nothing. */
+.reader-greeting .reader-portrait {
+  animation: reader-glow 7s ease-in-out infinite;
+}
+
+@keyframes reader-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px var(--accent-a45),
+      0 24px 60px rgba(0, 0, 0, 0.7),
+      0 0 60px rgba(143, 82, 196, 0.16),
+      0 0 90px rgba(214, 154, 72, 0.06);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px var(--accent-a45),
+      0 24px 60px rgba(0, 0, 0, 0.7),
+      0 0 100px rgba(143, 82, 196, 0.34),
+      0 0 150px rgba(214, 154, 72, 0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reader-greeting .reader-portrait { animation: none; }
+}
+
+.reader-intro {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted-warm);
+  margin: 0 0 28px;
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+
+.reader-greeting .action { max-width: 260px; }
 
 /* Once the three are dealt, the reader stops being the subject of the screen
    and the cards and the question box take over. Measured, not decorative:
    at full size the Ask button landed at y=850 on a 375x812 frame, behind the
    63px tab bar — the one control the whole tab exists for. */
-.reader-portrait.is-compact { width: 110px; margin-bottom: 14px; }
-
 /* Separates a section of the tab from the one above it. */
 .reader-divider { margin-top: 30px; }
 
@@ -1691,6 +1864,8 @@ div.reference-art, div.reference-symbol { cursor: default; }
     transform: translateZ(0);
     width: 428px;
     height: min(940px, 94dvh);
+    /* Descendants sizing to the screen must mean this, not the window. */
+    --frame-h: min(940px, 94dvh);
     overflow: hidden;
     background: var(--ink);
     border-radius: 30px;
@@ -2100,6 +2275,148 @@ a.slot { display: block; }
 
 .reading { margin-bottom: 24px; }
 
+/* --- the takeaway, and the detail under it ---------------------------- */
+
+/* The answer, and for many people the only thing they will read.
+   Measured first as one 19px Fraunces paragraph: it ran seven lines, and
+   Fraunces is a display face, so it read as a wall. It was also smaller than
+   .detail-name below it (21px), which put a card label above the answer in the
+   hierarchy. Split in two: the display face carries one line, the body face
+   carries the rest. */
+.takeaway-block {
+  margin: 2px 0 34px;
+  padding-left: 16px;
+  /* Anchors the block instead of leaving it floating at the top of the
+     screen, without boxing the most important thing on it. */
+  border-left: 2px solid var(--accent-a45);
+}
+
+.takeaway-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.takeaway-headline {
+  font-family: var(--display);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: var(--parchment);
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.takeaway {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--muted-warm);
+  margin: 0;
+}
+
+/* Optional depth below it: one card at a time, at a size worth looking at.
+   Three abreast rendered each card 104px wide, about 1.5cm on a real phone,
+   which is what prompted this. One per row gets 60% of the frame instead. */
+.detail {
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+.detail-card + .detail-card {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+/* Centred, while everything below it stays left. Flush left it left a wide
+   empty gutter down one side of every card. Centring an image is not the same
+   move as centring text: the four alignment switches 0029 removed were all
+   text, and those stay left. */
+.detail-art {
+  /* Wide enough that its edges sit near the text margins. At 68% the card
+     left a 53px gutter each side and the text below started hard against the
+     margin, which reads as a misalignment rather than as a centred figure.
+     Closing the gap fixes that without centring the headings, which belong to
+     the note under them rather than to the picture above. */
+  width: 86%;
+  max-width: 300px;
+  margin: 0 auto 18px;
+  aspect-ratio: var(--card-ratio);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--accent-a45),
+    0 18px 44px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(143, 82, 196, 0.18);
+}
+
+.detail-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-art img.is-reversed { transform: rotate(180deg); }
+
+/* Left-aligned, like the note underneath. The block used to run
+   left / centre / centre / centre / left down five elements, which is four
+   changes of alignment inside one card. */
+.detail-position {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
+/* 17px, under the 27px headline. At 21px it outranked the answer. */
+.detail-name {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px;
+}
+
+/* Orientation folded onto the name's line rather than claiming a fourth row
+   of its own. */
+.detail-line {
+  display: inline;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-left: 8px;
+  vertical-align: 1px;
+}
+
+/* The pause between the cards landing and the reader speaking. Sits where the
+   prose will, so nothing jumps when it arrives. */
+.reader-thinking {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-align: center;
+  margin: 18px 0 24px;
+}
+
+/* Separated from the daily reading above it — this is the second half of the
+   screen, and it should read as a new offer rather than more of the same. */
+.reader-ask {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
 .reading-body {
   font-family: var(--body);
   font-size: 15px;
@@ -2121,3 +2438,721 @@ a.slot { display: block; }
   white-space: nowrap;
   border: 0;
 }
+
+/* --- the full-screen reveal ------------------------------------------ */
+
+/* Covers the phone frame rather than the browser window. .app-frame carries a
+   transform, which makes it the containing block for fixed descendants, so
+   inset:0 here means the frame's edges. Same mechanism that lost the dev
+   console; here it is exactly what is wanted. */
+/* Anchored to the top of the frame and given the viewport's height, with the
+   page's scroll locked at zero for the duration (see card-reveal.jsx). Two
+   things forced that: .app-frame is the whole scrolling page, 3099px tall on a
+   finished reading, so `inset: 0` against it is not the viewport; and a fixed
+   child of a transformed ancestor scrolls with it, so an overlay left free
+   would slide off as soon as anyone moved.
+
+   Note there is no opacity animation on this element. The backdrop is opaque
+   from the first frame, because an animation is a thing that can fail to run:
+   with `fill: both` it held opacity 0 in a backgrounded tab and the results
+   page showed straight through the reveal. Only the card animates. */
+.reveal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--frame-h);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 26px 22px;
+  background: var(--ink);
+  cursor: pointer;
+}
+
+.reveal.is-leaving {
+  animation: reveal-out 400ms ease-in forwards;
+}
+
+@keyframes reveal-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.reveal-skip {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  cursor: pointer;
+}
+
+.reveal-skip:hover,
+.reveal-skip:focus-visible { color: var(--muted-warm); }
+
+.reveal-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+.reveal-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* The card is given the height and takes what width the ratio allows, so a
+     short frame shrinks it rather than cropping it or pushing the caption off
+     the bottom. */
+  max-height: 100%;
+  /* One animation for the whole turn, not a 520ms entrance and then nothing.
+     The card used to arrive and then sit still for two seconds, which reads as
+     finished and waiting for a tap rather than as a sequence still running. It
+     now keeps drifting for as long as the card is up, so stillness always
+     means stopped. */
+  animation: reveal-card-turn var(--per-card, 2600ms) linear both;
+}
+
+@keyframes reveal-card-turn {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.9);
+  }
+  /* Entry lands at about 470ms of a 2600ms turn. */
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  /* Then a slow push in for the rest of it. Small enough not to distract from
+     the art, large enough to be unmistakably moving. */
+  100% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.04);
+  }
+}
+
+.reveal-art {
+  position: relative;
+  aspect-ratio: var(--card-ratio);
+  max-height: calc(100% - 74px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--accent-a45),
+    0 30px 70px rgba(0, 0, 0, 0.7),
+    0 0 90px rgba(143, 82, 196, 0.25);
+}
+
+.reveal-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reveal-art img.is-reversed { transform: rotate(180deg); }
+
+/* Pinned upright over a card that is not, per Spec_Daily_Draw_Tab §2: the
+   orientation should read before any of the text does. */
+.reveal-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(10, 8, 16, 0.82);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--parchment);
+}
+
+.reveal-card figcaption {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.reveal-position {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.reveal-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.reveal-pips {
+  display: flex;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.reveal-pip {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+  overflow: hidden;
+  transition: background 240ms ease;
+}
+
+.reveal-pip.is-done { background: var(--accent); }
+
+/* The card's drift says time is passing; this says how much is left. Fills
+   over exactly one turn, from the same variable that drives the card. */
+.reveal-pip.is-current::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transform-origin: left center;
+  animation: reveal-pip-fill var(--per-card, 2600ms) linear both;
+}
+
+@keyframes reveal-pip-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Reduced motion takes away the movement, not the sequence: the three still
+   get their turn and still advance on a tap, they just arrive rather than
+   fly in. */
+/* Stillness drops the card's drift, which is the vestibular part, and keeps
+   the pip filling, which is the part that tells you the sequence is running.
+   Losing both would leave no signal at all that anything is happening. */
+.reveal.is-still .reveal-card,
+.reveal.is-still.is-leaving {
+  animation: none;
+}
+
+.reveal.is-still .reveal-pip { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .reveal-card,
+  .reveal.is-leaving { animation: none; }
+  .reveal .reveal-pip { transition: none; }
+}
+
+/* Nothing behind the reveal moves while it is up. */
+body.is-revealing { overflow: hidden; }
+
+/* --- waiting for the reader ------------------------------------------ */
+
+/* Reachable by skipping the reveal, or by a reading slower than it. Rarely
+   seen is not the same as allowed to be ugly. */
+.waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(var(--frame-h) - 26px - var(--tabbar));
+}
+
+/* Fanned rather than gridded: overlapping lets each card be about half again
+   as wide as the three-column row managed, which is the whole complaint about
+   card size on a phone. The middle card sits forward. */
+.waiting-fan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 34px;
+  /* The fan is wider than its cards once rotated; this stops the outer two
+     nudging the page into a horizontal scroll on a narrow frame. */
+  max-width: 100%;
+}
+
+.waiting-card {
+  width: 132px;
+  aspect-ratio: var(--card-ratio);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--accent-a30),
+    0 18px 40px rgba(0, 0, 0, 0.6);
+  /* -1, 0, 1 from the index, so the outer two splay and the middle stays
+     upright without three separate rules. */
+  --turn: calc(var(--i) - 1);
+  transform: rotate(calc(var(--turn) * 7deg)) translateY(calc(abs(var(--turn)) * 10px));
+  margin-inline: -14px;
+  animation: waiting-attend 3600ms ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1200ms);
+}
+
+/* The middle card in front, so the fan reads as a hand rather than a stack. */
+.waiting-card:nth-child(2) { z-index: 2; }
+
+.waiting-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.waiting-card img.is-reversed { transform: rotate(180deg); }
+
+/* The reader looking from one card to the next: each lifts and brightens in
+   turn, a third of the cycle apart. */
+@keyframes waiting-attend {
+  0%, 66%, 100% {
+    filter: brightness(0.62) saturate(0.75);
+  }
+  22%, 44% {
+    filter: brightness(1) saturate(1);
+  }
+}
+
+.waiting-line {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+  animation: waiting-pulse 2400ms ease-in-out infinite;
+}
+
+@keyframes waiting-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Stillness keeps the fan and the dimming, loses the movement: the cards sit
+   at an even brightness instead of taking turns. */
+@media (prefers-reduced-motion: reduce) {
+  .waiting-card,
+  .waiting-line { animation: none; }
+  .waiting-card { filter: brightness(0.85); }
+  .waiting-line { opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+}
+
+/* --- social ----------------------------------------------------------- */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6px 0 26px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow:
+    0 0 0 2px var(--accent-a45),
+    0 14px 34px rgba(0, 0, 0, 0.55),
+    0 0 46px rgba(143, 82, 196, 0.2);
+}
+
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* A button, because it opens the editor. Styled as the heading it looks like
+   rather than as a control, since the affordance is the point of tapping it
+   and a bordered field here would shout. */
+.profile-name {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--parchment);
+  margin-bottom: 18px;
+}
+
+.profile-name:hover,
+.profile-name:focus-visible { color: var(--accent-bright); }
+
+.profile-name-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 260px;
+  margin-bottom: 12px;
+}
+
+/* The question box's field, at one line, for anywhere a short value is typed. */
+.ask-field.is-inline {
+  font-size: 15px;
+  padding: 11px 14px;
+  text-align: center;
+  resize: none;
+  margin-bottom: 8px;
+}
+
+/* Search reads left, unlike the centred name field: a query grows from where
+   the caret starts and centring makes it jump as you type. */
+.ask-field.is-inline[type="search"] {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  margin: 0;
+}
+
+.profile-stats div { text-align: center; }
+
+.profile-stats dt {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.profile-stats dd {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.profile-stats dd span {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.feed { margin-bottom: 26px; }
+
+/* The heading rule carries the section's action on its right. Baseline-aligned
+   so the two read as one line rather than a label with a button stuck to it. */
+.feed-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.feed-manage {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  text-decoration: none;
+  /* Widens the tap target without moving the text off the baseline: the
+     padding grows it and the negative margin gives the height back to the
+     layout, so the heading row does not get taller. 21px was a thumb-sized
+     miss. */
+  padding: 13px 2px 13px 14px;
+  margin: -13px -2px;
+}
+
+.feed-manage:hover,
+.feed-manage:focus-visible { color: var(--parchment); }
+
+.feed-empty {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.friend-list { list-style: none; margin: 18px 0 0; padding: 0; }
+
+.friend-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.friend-avatar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--accent-a45);
+}
+
+.friend-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Takes the slack so the percentage and streak stay put down the column
+   however long a username runs. */
+.friend-main { flex: 1; min-width: 0; }
+
+.friend-name {
+  display: block;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--parchment);
+  margin-bottom: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.friend-you {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-left: 7px;
+}
+
+/* The path's own progress rule, per row. */
+.friend-bar {
+  height: 2px;
+  background: rgba(242, 237, 227, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.friend-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--accent-dim), var(--accent));
+}
+
+.friend-percent {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* The status bar's streak chip at row scale. */
+.friend-streak { flex: none; gap: 4px; }
+
+/* Quiet at rest: a row of people is not a row of delete buttons, and this one
+   should be findable rather than prominent. It brightens on hover and focus,
+   and the padding gives it a 36px target inside a 40px row. */
+.friend-remove {
+  flex: none;
+  padding: 8px 2px 8px 8px;
+  margin: -8px -2px -8px 0;
+  background: none;
+  border: none;
+  font-family: var(--body);
+  font-size: 19px;
+  line-height: 1;
+  color: var(--faint);
+  cursor: pointer;
+}
+
+.friend-remove:hover,
+.friend-remove:focus-visible { color: var(--bad-text); }
+
+/* --- friends' activity ------------------------------------------------ */
+
+.activity {
+  padding: 18px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.activity:last-of-type { border-bottom: none; }
+
+.activity-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+
+.activity-avatar {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--accent-a45);
+}
+
+.activity-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.activity-name {
+  display: block;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--parchment);
+}
+
+.activity-when {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Small: these are somebody else's cards and the takeaway under them is the
+   part worth reading. The learner's own three get the full-screen reveal. */
+.activity-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+.activity-card { margin: 0; min-width: 0; }
+
+.activity-art {
+  aspect-ratio: var(--card-ratio);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--accent-a30);
+}
+
+.activity-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-art img.is-reversed { transform: rotate(180deg); }
+
+.activity-card figcaption {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 5px;
+  /* Two lines held open so a long name does not shorten its column. */
+  min-height: 2.4em;
+  line-height: 1.2;
+}
+
+.activity-takeaway {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted-warm);
+  margin: 0;
+}
+
+/* Says the feed is not real, without dressing the screen in a banner. */
+.feed-note {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  margin: 16px 0 0;
+}
+
+/* --- confirmation dialog ---------------------------------------------- */
+
+/* Covers the frame, not the window: .app-frame carries a transform and so is
+   the containing block for fixed children, and --frame-h is the frame's own
+   height rather than 100dvh. Same pair of facts the card reveal needed. */
+.confirm-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--frame-h);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  /* Set outright, never animated in: an opacity animation that does not run
+     leaves the scrim invisible and the dialog floating over a live list. */
+  background: rgba(6, 5, 11, 0.82);
+  backdrop-filter: blur(3px);
+}
+
+.confirm {
+  width: 100%;
+  max-width: 320px;
+  padding: 26px 22px 18px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.confirm-avatar {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--accent-a45);
+}
+
+.confirm-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.confirm-title {
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  /* Long usernames wrap rather than widening the dialog. */
+  overflow-wrap: anywhere;
+}
+
+.confirm-body {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted-warm);
+  margin: 0 0 20px;
+}
+
+.confirm-actions { display: flex; flex-direction: column; }
+
+/* The destructive one reads as destructive rather than as the app's primary. */
+.confirm-remove {
+  background: rgba(217, 96, 95, 0.18);
+  border: 1px solid var(--bad-line);
+  color: var(--bad-text);
+}
+
+.confirm-remove:hover,
+.confirm-remove:focus-visible { background: rgba(217, 96, 95, 0.3); }

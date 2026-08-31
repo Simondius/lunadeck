@@ -18,8 +18,18 @@ stop two people rebuilding the same thing.
 
 | who | what | status |
 | --- | --- | --- |
-| Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | **Claimed**, starting when he is back — 30 Aug, away a couple of hours from midday |
-| Tia + Claude | The Reader tab — the daily three plus a reader that answers open questions, grounded on the real card rows | **In review** — 30 Aug, [#50](https://github.com/LousyBones/lunadeck/pull/50). Needs a key and a real question before merge |
+| Simon | An alternative curriculum, reachable from the dev console, with the changes held behind that toggle | **Claimed**, merging in the morning — see the warning below before you do |
+| Tia + Claude | Reading tab, Mentor tab, Social tab | **Merged** 31 Aug — #50, #52, #53. Nothing in flight |
+
+> **Simon, read this before you merge.** `main` moved a long way on the evening
+> of 30 Aug and the morning of 31 Aug: 37 commits across #52 and #53. If your
+> branch is based on the `main` you last saw, rebase before merging rather than
+> after. The parts most likely to collide with an alternative curriculum are
+> `lib/progress.js` (new fields: `dailyDraw`, `lastReading`, `displayName`, and
+> `knownCardKeys` moved in from `deck-screen.jsx`), `components/tabbar.jsx`
+> (three tabs became five) and `app/globals.css` (large additions at the end).
+> `components/dev-console.jsx` changed too, in #52 — one function, `clamp()`.
+> Decisions 0025 to 0034 carry the reasoning for all of it.
 
 *Claimed* means nobody's hands are on it yet but it is spoken for: don't build
 it, do feel free to work anywhere else. *In progress* means someone is actively
@@ -87,18 +97,115 @@ jump is visible as a jump. The full entry stays gated on finishing the section.
 masthead. This deviates from `Spec_MainPath` §2 deliberately: that spec predates
 the path carrying its sections inline.
 
-**The reader answers; the path teaches** (`0025`). The Reader tab is one
-feature in two beats. The nightly three is the ritual — three cards, named, with
-two of the deck's own keywords each and nothing interpreted. Asking a question
-is what buys an interpretation: `app/api/reading/` pulls three fresh cards and
-calls Claude with the guidebook rows for exactly those cards as the only
-permitted source for what they mean. Generated prose, sourced substance — the
-path teaches these cards and the reader must not contradict it. This is the
-first part of the app that needs a server and a key; see the environment note
-below. Reader pulls deliberately do not feed `drawnCardKeys`, and the daily
-draw deliberately does not touch `streakDays` — whether a draw should credit
-the app's streak is a cross-tab call `Spec_Daily_Draw_Tab` §10 puts outside
-this feature, and it is still open.
+**The reader answers; the path teaches** (`0025`, `0026`, `0032`). Five tabs
+now: Path, Deck, Reading, Mentor, Social.
+
+The character moved out of Reading and into **Mentor**, which holds the art and
+a line saying it is not built, and nothing else. Reading carries no notion of a
+person any more — not the portrait and not the strings — and its image is the
+deck's own front. The route is still `/reader` and so are the class names,
+deliberately: renaming is churn for strings nobody sees. `SYSTEM_PROMPT` still
+opens "You are the reader", which is the model's persona rather than a name
+anyone reads, and is left alone until Mentor has a job.
+
+Reading is one screen that arrives in order. A status bar and a rule anchor the
+top, borrowed from the path so the two read as the same app; then the deck
+front, one line, one button, and no title, since the picture says what it is.
+Nothing about questions is visible until you have drawn. The daily draw deals
+three seeded cards instantly and the reader reads them: the words land at
+~8.5s, which the card reveal now covers entirely. Asking your own question
+opens underneath, behind a rule, and pulls three fresh cards.
+
+That status bar deliberately carries **no "n of 78"**. The Deck tab already has
+one and it counts cards the curriculum has taught; a second denominator here,
+counting cards the draw has turned up, would be a different number wearing the
+same clothes on the neighbouring tab. `0007` keeps one definition of *known* so
+the path, the unit pages and the deck can never disagree. The rule under the
+status bar is the path's 2px with none of its meaning: this tab has no
+completion to report.
+
+**The three get the screen first** (`0030`). Pressing Daily draw hands each
+card a full-screen turn, 2.6s apart, tap to go early and skip to leave, playing
+once per draw. It is overlaid on the results page rather than replacing it, so
+the reading's ~8.5s call runs while the reveal plays. A tap on the last card leaves, like
+the other two: if the reading is in you land on it, and if not you land on the
+waiting fan, which moves and so reads as working. Skip stays for leaving early. Two things to know if
+you touch it. The backdrop is opaque from the first frame and must stay that
+way, because an opacity animation with `fill: both` holds its `from` state in
+a backgrounded tab and the page showed through. And it is pinned to the frame's
+top at `100dvh` with the page locked at scroll zero, because `.app-frame`'s
+transform makes it the containing block for fixed children and it is the whole
+scrolling page, not the viewport.
+
+**The reader has real art** (`assets/misc/reader_MASTER.webp`, 1536x2752).
+The greeting's portrait is derived from it by `scripts/make_reader_portrait.mjs`
+— a 2:3 crop at 900px, the same generated-not-hand-edited rule the card circles
+and avatars follow. Change the crop numbers in that script and re-run it.
+
+The old 500x500 placeholder is why the portrait could never be made bigger
+without going soft: at 305 CSS px on a 3x phone it was upscaling 1.83x. The
+900px derivative renders 1.02x at 3x, so display size is no longer limited by
+the art.
+
+The deck front is shown on the way in and not afterwards — once the cards are
+down they are the subject.
+
+**The white bleed was not fully dead** (`0032`). `0019` trimmed the 78 card
+masters; `assets/misc/deck_box_lid_MASTER.png` was missed and still had 26
+near-white columns, inside the 24-to-27 range `0021` measured. It went
+unnoticed because the lid was only ever a small deck-back button.
+`scripts/trim_export_bleed.mjs` trims it, is a safe no-op on a clean image, and
+takes any path — running it over three card masters returns "no bleed found",
+which independently confirms `0019`.
+
+**The reading arrives structured** (`0028`): a takeaway plus one note per card,
+not prose that gets sliced up. The takeaway sits alone at the top and has to
+stand on its own, because most people will read it and nothing else. Under it
+each card renders one per row at 285px, up from 104px three-abreast, with its
+own note. The notes are still one continuous argument with the joins intact, so
+read top to bottom they are a single reading. Field order in `READING_SCHEMA`
+is load-bearing: `cards` first, `takeaway` last, so the takeaway is written
+after the notes it summarises. Readings stored under the old prose shape still
+render, via a fallback that can go whenever nobody has one.
+
+Both readings go through `app/api/reading/`, which calls Claude with the
+guidebook rows for exactly those cards as the only permitted source for what
+they mean. **The voice is tuned by naming tics, not by asking for "natural"**
+(`0027`). Em dashes are stripped in code and covered by tests, because that is
+a property of the string. Everything else — no tricolon, no fragment-as-beat,
+no correcting negation, at most one line built to land — lives only in
+`SYSTEM_PROMPT` and nothing defends it. Treat an edit there as a change to the
+product, and read a reading afterwards.
+
+Generated prose, sourced substance: the path teaches these cards and the reader
+must not contradict it. This is the first part of the app that
+needs a server and a key; see the environment note below, and note the daily
+draw now spends an API call per person per day simply by being opened. Reader
+pulls deliberately do not feed `drawnCardKeys`, and the daily draw
+deliberately does not touch `streakDays` — whether a draw should credit the
+app's streak is a cross-tab call `Spec_Daily_Draw_Tab` §10 puts outside this
+feature, and it is still open.
+
+**Social is scaffolding, and says so** (`0034`). A fifth tab: a profile block
+whose two numbers are real — cards known and path percent, computed by the same
+`knownCardKeys` the deck uses, now shared from `lib/progress.js` so a second
+definition cannot appear — an editable local display name, a card avatar, and
+empty states elsewhere. The activity feed carries **sample data** from
+`lib/demo-friends.js` so the layout can be judged: real card keys, takeaways
+written against those cards actual rows so nothing contradicts the curriculum,
+and a line under the feed saying the people are not real. One file, one export,
+delete it when accounts arrive.
+
+**The feed shows daily draws only, never questions** (`0034`). A question is
+something a person typed about their own life; the daily draw is the only part
+of the Reading tab that is not private, since nobody chose its cards and nobody
+said why. If a second event type is ever added, it is not that one.
+
+It **departs from `Spec_Meta_Hygiene_Systems` §5.1** on purpose: that spec
+designs one flat list of a closed group with *no search, no profile screen and
+no friending*, and says real friending is "a future pass once the group stops
+being closed". This is that pass. `Spec_Challenge_Tab` assumes the same graph,
+so the account model is worth settling before either is built for real.
 
 **A section commits atomically.** Progress is held in memory during play and
 written once at the end, after the mistake-review queue. Abandoning saves
@@ -107,6 +214,19 @@ nothing. A section played out of order from the deck counts identically.
 ---
 
 ## Things that will bite you
+
+**`100dvh` is the window, not the frame.** At 900px and up the app draws itself
+as a device and `.app-frame` caps at `min(940px, 94dvh)`, so on a tall desktop
+window `100dvh` overshoots the frame by hundreds of pixels and a full-height
+screen runs off the bottom. Use **`--frame-h`**, which is `100dvh` on a phone
+and the frame's own height on a desktop. Three screens built on 30 Aug repeated
+this before it was made a token (`0033`).
+
+Its sharper form: **the preview pane is 561px wide, under the 900px
+breakpoint,** so desktop framing is never active in it. Layout checked only
+there is checked at one width and one shape. Resize past 900 before believing a
+full-height screen works.
+
 
 - **A silent hole is the failure mode here.** The symbol formats quizzed a symbol
   the intro had stopped showing, for three decisions, and nothing broke. The path
@@ -188,10 +308,12 @@ changed.
 
 ## Open questions
 
-- **The reader has been asked one real question, by a machine.** It held: 210
-  words, 8.8s, every claim traceable to a sourced row (`0025`). What is still
-  unmeasured is whether it holds for *your* question — a bad question, a vague
-  one, a heavy one, the same question twice. That needs a person.
+- **The reader has been asked one real question and given one daily reading,
+  both by a machine.** Both held: ~210 words, ~8.5s, every claim traceable to a
+  sourced row (`0025`, `0026`). What is still unmeasured is whether it holds
+  for *your* question — a bad one, a vague one, a heavy one, the same question
+  twice — and whether a daily reading stays worth reading on day thirty. That
+  needs a person and a month.
 - **Nobody has played a full unit as a learner.** A machine has, which only
   proves nothing crashes. Every real fix on 29 Aug came from Tia playing two
   nodes of section 1. Still the highest-value hour available.

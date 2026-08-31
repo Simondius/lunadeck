@@ -92,7 +92,8 @@ masthead. This deviates from `Spec_MainPath` §2 deliberately: that spec predate
 the path carrying its sections inline.
 
 **The reader answers; the path teaches** (`0025`, `0026`, `0032`). Five tabs
-now: Path, Deck, Reading, Guide, Social.
+now: Path, Deck, Guide, Reading, Social. Guide holds the middle slot
+deliberately: it is the one tab you open with a deck already in your hands.
 
 The character moved out of Reading and into what is now **Guide** (`0042`),
 which has a job: reading the cards you pull from a real deck. Reading carries no

@@ -4,9 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Glyphs are CSS shapes rather than icon files — see .tab-glyph in globals.css.
+//
+// Order matters. Guide sits in the middle slot: it is the one tab you open with
+// a physical deck already in your hands, so it is the one that most wants to be
+// reachable with a thumb rather than at the end of a row.
 const TABS = [
   { href: "/", label: "PATH", glyph: "" },
   { href: "/deck", label: "DECK", glyph: " is-deck" },
+  { href: "/guide", label: "GUIDE", glyph: " is-guide" },
   // The daily draw lives inside this tab, so there is no separate Draw tab.
   // Trials is gone until the Challenge tab is actually wanted; its spec is
   // still in specs/ when it is.
@@ -15,7 +20,6 @@ const TABS = [
   // the route stays /reader because renaming it would churn every link for a
   // string nobody sees in an app shell.
   { href: "/reader", label: "READING", glyph: " is-draw" },
-  { href: "/guide", label: "GUIDE", glyph: " is-guide" },
   { href: "/social", label: "SOCIAL", glyph: " is-social" },
 ];
 

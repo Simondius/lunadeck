@@ -27,9 +27,11 @@ export default function TabBar() {
   const pathname = usePathname() ?? "/";
 
   // The lesson screen is full-bleed; the bar would sit over its footer.
-  // v2 is exempted — its drag section has no fixed footer to collide with,
-  // and Simon wants the bar reachable while iterating on it.
-  if (pathname.includes("/play") && !pathname.startsWith("/v2")) return null;
+  // v2 and Story are both exempted — v2's drag section has no fixed footer
+  // to collide with, and Story (0048) is meant to keep the bar reachable
+  // rather than go full-bleed like v1/v3's own lesson screens do.
+  if (pathname.includes("/play") && !pathname.startsWith("/v2") && !pathname.startsWith("/story"))
+    return null;
 
   return (
     <nav className="tabbar" aria-label="Sections">

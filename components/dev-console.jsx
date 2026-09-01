@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
+import { CHAPTERS } from "@/data/story/chapters";
 
 // A floating, draggable debug overlay — deliberately styled as tooling, not
 // app UI, so it never reads as part of Lunadeck itself. Menu items are
@@ -57,6 +58,26 @@ const MENU = [
             },
           },
         ],
+      },
+    ],
+  },
+  {
+    // A separate top-level group, not a Path subgroup - Story isn't a
+    // curriculum variant, it's its own linear narrative mode (0048), so it
+    // sits beside Path rather than under it.
+    group: "Story",
+    subgroups: [
+      {
+        label: "Chapters",
+        // One button per chapter, not one link to the index (0052) - the
+        // index is one tap away regardless, and jumping straight into a
+        // specific chapter is the actual dev workflow this exists for.
+        actions: CHAPTERS.map((c) => ({
+          label: `${c.partLabel}: ${c.data.title}`,
+          run: () => {
+            window.location.href = `/story/play/${c.slug}`;
+          },
+        })),
       },
     ],
   },
@@ -143,6 +164,12 @@ export default function DevConsole({ allNodeIds = [] }) {
   // first client tick, same pattern as useProgress.
   const [position, setPosition] = useState(null);
   const [open, setOpen] = useState(false);
+  // Which top-level group (Path, Story, ...) is expanded, if any - an
+  // accordion, not a checklist, since MENU only ever had one group until
+  // Story joined it. Two groups both showing every subgroup and action at
+  // once was fine at one group; it isn't once there's a second thing to
+  // scroll past to reach it.
+  const [openGroup, setOpenGroup] = useState(null);
   // Non-null only while a NodeSession is mounted somewhere - see
   // lib/dev-console-bridge.js. The < > buttons only render then; there's
   // nothing to skip through on any other screen.
@@ -204,13 +231,17 @@ export default function DevConsole({ allNodeIds = [] }) {
   };
 
   const endDrag = () => {
-    if (drag.current && !drag.current.moved) setOpen((v) => !v);
+    if (drag.current && !drag.current.moved) {
+      setOpen((v) => !v);
+      setOpenGroup(null);
+    }
     drag.current = null;
   };
 
   const runAction = (action) => {
     action.run(allNodeIds);
     setOpen(false);
+    setOpenGroup(null);
   };
 
   return (
@@ -220,10 +251,21 @@ export default function DevConsole({ allNodeIds = [] }) {
     >
       {open ? (
         <div className="dev-console-menu" role="menu">
-          {MENU.map((group) => (
+          {MENU.map((group) => {
+            const expanded = openGroup === group.group;
+            return (
             <div key={group.group} className="dev-console-group">
-              <span className="dev-console-group-label">{group.group}</span>
-              {group.subgroups.map((subgroup) => (
+              <button
+                type="button"
+                className="dev-console-group-label"
+                aria-expanded={expanded}
+                onClick={() => setOpenGroup(expanded ? null : group.group)}
+              >
+                {group.group}
+                <span className="dev-console-group-chevron" aria-hidden="true" />
+              </button>
+              {expanded
+                ? group.subgroups.map((subgroup) => (
                 <div key={subgroup.label} className="dev-console-subgroup">
                   <span className="dev-console-subgroup-label">{subgroup.label}</span>
                   {subgroup.actions.map((action) => (
@@ -238,9 +280,11 @@ export default function DevConsole({ allNodeIds = [] }) {
                     </button>
                   ))}
                 </div>
-              ))}
+                  ))
+                : null}
             </div>
-          ))}
+            );
+          })}
         </div>
       ) : null}
       {skip ? (

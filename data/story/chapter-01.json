@@ -1,0 +1,239 @@
+{
+  "id": "chapter-01",
+  "title": "The Reading Room",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Hi.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Hi, what brings you here?", "correct": true },
+        { "text": "Hey, you look like shit.", "correct": false, "reaction": "confusion" },
+        { "text": "The courthouse is next door.", "correct": false, "reaction": "anger" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I hate my job. Can you help me figure out what to do?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_00_fool"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "The Fool's about starting fresh — standing at the edge and choosing to jump.",
+          "correct": true
+        },
+        {
+          "text": "The Fool means you're an idiot for staying in a job you hate this long.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "Actually, this card isn't about your job at all — try not to overthink it.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Hmm, I'm not sure if that applies to me.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "It's about being willing to leap before you know exactly where you'll land.",
+          "correct": true
+        },
+        {
+          "text": "You clearly don't want my help, so why did you even come here?",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "You're right, let's just ignore the card and talk about something else.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if I fail and it all falls apart?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "That fear's the whole test — the Fool says yes to the unknown instead of playing it safe.",
+          "correct": true
+        },
+        {
+          "text": "Then you'll have proven everyone right about you.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "Failure isn't really a possibility if you don't think about it.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Yeah.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But I don't even have a real plan for what's next.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "You don't need it all mapped out — the path tends to appear once you take the step.",
+          "correct": true
+        },
+        {
+          "text": "Then you're not ready, and you should just stay where you are.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "A plan doesn't really matter either way.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Huh.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "anger",
+      "speaker": "client",
+      "text": "\"Everyone at work thinks I'm insane for even considering this.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "anger",
+      "options": [
+        {
+          "text": "That reaction's kind of the point — this is nonconformist, go-against-convention energy.",
+          "correct": true
+        },
+        {
+          "text": "They're right, you should probably listen to them instead.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "What other people think shouldn't factor into this at all.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I feel like an idiot, starting over at my age.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "That's not foolish — it's a beginner's mind, curious instead of guarded and jaded.",
+          "correct": true
+        },
+        {
+          "text": "You should feel that way, honestly — you waited too long.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "Age doesn't come into a tarot reading at all.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "One more thing — the Fool travels light. Taking the leap with a little levity beats carrying every worst case with you."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"That makes sense. Thanks.\""
+    }
+  ]
+}

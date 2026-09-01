@@ -1,0 +1,246 @@
+{
+  "id": "chapter-02",
+  "title": "Riley",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley settles into the chair Dave just left."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Hey.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Hey — what's going on?", "correct": true },
+        { "text": "Do I know you from somewhere?", "correct": false, "reaction": "confusion" },
+        { "text": "You're late.", "correct": false, "reaction": "anger" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I got offered a spot on tour with this band. But I'd have to drop out of my program to do it. I don't know if that's brave or just stupid.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_00_fool"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "The Fool's about a fresh start — one thing ending right as another begins.",
+          "correct": true
+        },
+        {
+          "text": "It means you're throwing away everything you worked for.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "This card isn't really about decisions like that.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I don't know, dropping out feels pretty reckless.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "It's not reckless — it's standing at the edge, calm, not scared of the fall.",
+          "correct": true
+        },
+        {
+          "text": "Reckless is exactly the right word for it.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "The edge doesn't really mean anything here.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if the tour falls apart and I've got nothing to go back to?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "That's the risk this card's asking you to take — saying yes to the unknown, not playing it safe.",
+          "correct": true
+        },
+        {
+          "text": "Then you'll have wasted your shot, and that's on you.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "It won't fall apart if you don't think about it.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Yeah. Okay.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I don't even know what happens after the tour ends.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "You don't need that mapped out yet — the path shows up once you actually step onto it.",
+          "correct": true
+        },
+        {
+          "text": "Then you're not ready to go at all.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "What happens after doesn't matter.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Huh.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "anger",
+      "speaker": "client",
+      "text": "\"My parents think I'm ruining my life over this.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "anger",
+      "options": [
+        {
+          "text": "That reaction kind of proves the point — this card's energy is going against convention.",
+          "correct": true
+        },
+        {
+          "text": "They're right, you should listen to them.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "What your parents think isn't relevant to a reading.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Everyone in my program's been doing this way longer than me. I'd be starting over from nothing.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "Starting over isn't weakness here — it's a beginner's mind, curious instead of guarded.",
+          "correct": true
+        },
+        {
+          "text": "You should feel behind, because you are.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "Experience doesn't come into this at all.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "One more thing — the Fool travels light. Whatever you decide, taking it with a little levity beats carrying every worst case with you."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Thanks. I needed to hear that.\""
+    }
+  ]
+}

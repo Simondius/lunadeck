@@ -1,0 +1,379 @@
+{
+  "id": "chapter-03",
+  "title": "Past, Present, Future",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Hey. I actually did it — I quit.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"But there's a lot more going on than I expected. Can we do a full reading this time — past, present, future?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for the present.",
+      "card": "major_00_fool",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "This is the leap you already took — standing at the edge, and you jumped anyway.",
+          "correct": true
+        },
+        { "text": "This means you made a huge mistake.", "correct": false, "reaction": "anger" },
+        {
+          "text": "This card isn't really about what you just did.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"It still feels surreal.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "That's the beginner's-mind part — it feels unfamiliar because you're seeing it fresh.",
+          "correct": true
+        },
+        {
+          "text": "It should feel surreal, because you're not ready for this.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        { "text": "Surreal doesn't mean anything here.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay — what's next, then?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for the future.",
+      "card": "major_06_lovers",
+      "slot": 2
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "There's a real choice ahead — one worth weighing from every angle before you commit.",
+          "correct": true
+        },
+        {
+          "text": "It means you're going to lose someone over this.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "This card just means you shouldn't trust them.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"There's someone I'd be going into business with. I don't want to drag them into something that fails.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "Then choose with more than logic — trust your gut on this one too, not just the plan.",
+          "correct": true
+        },
+        { "text": "Then don't drag them into it at all.", "correct": false, "reaction": "anger" },
+        {
+          "text": "Their feelings aren't really relevant to the choice.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"And the past?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for the past.",
+      "card": "major_03_empress",
+      "slot": 0
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "Something's already been growing quietly, underneath everything else.",
+          "correct": true
+        },
+        {
+          "text": "It means you wasted years on something pointless.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "The past doesn't really factor into a reading.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"The workshop. I've been building furniture on weekends for two years and never told anyone at work.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "That's exactly it — you nourished it quietly until it was ready to stand on its own.",
+          "correct": true
+        },
+        {
+          "text": "You should have told people, that was foolish to hide.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        { "text": "Hiding it doesn't matter either way.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"So where does that leave me?\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Am I actually ready for this, or did I just panic and quit?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "You didn't panic — you said yes to the unknown instead of playing it safe, same as the present card.",
+          "correct": true
+        },
+        { "text": "Honestly, it does sound like panic.", "correct": false, "reaction": "anger" },
+        {
+          "text": "Readiness isn't something a card can answer.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But what happens after the workshop grows into something real? I don't have a plan beyond the next few months.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "You don't need the whole map yet — trust that the path appears once you take the next step.",
+          "correct": true
+        },
+        {
+          "text": "That means there's a big decision on the horizon that needs weighing from every angle.",
+          "correct": false,
+          "reaction": "confusion"
+        },
+        {
+          "text": "That means something you're nurturing right now needs protecting before it grows further.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if we want different things?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "Then hold both what you want and what they want in balance, rather than picking one.",
+          "correct": true
+        },
+        { "text": "Then it's over before it starts.", "correct": false, "reaction": "anger" },
+        {
+          "text": "What they want doesn't need to factor in.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"If we do this together, how do I know it's actually the right partnership?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        {
+          "text": "Let more than one part of you weigh in — body, mind, and spirit all get a vote, not just the plan.",
+          "correct": true
+        },
+        {
+          "text": "It means you should just leap in without looking too closely.",
+          "correct": false,
+          "reaction": "confusion"
+        },
+        {
+          "text": "It means the partnership needs constant nurturing before it can be trusted.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Was I wrong to keep the workshop to myself this whole time?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "No — protecting something quietly while it's still forming is its own way of caring for yourself.",
+          "correct": true
+        },
+        {
+          "text": "Yes, hiding things from people you trust is always wrong.",
+          "correct": false,
+          "reaction": "anger"
+        },
+        {
+          "text": "Whether you were wrong isn't something this reading can say.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Does this mean the workshop was always meant to become something bigger?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        {
+          "text": "It means something was ready to be born — an idea finally taking real shape.",
+          "correct": true
+        },
+        {
+          "text": "It means you're standing at the edge of something totally new, unrelated to what came before.",
+          "correct": false,
+          "reaction": "confusion"
+        },
+        {
+          "text": "It means you'll need to choose between the workshop and the business partnership.",
+          "correct": false,
+          "reaction": "confusion"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "For what it's worth — none of this needed to be perfect from the start. Abundance here comes from letting things flourish, not forcing them."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Thanks. That actually means a lot.\""
+    }
+  ]
+}

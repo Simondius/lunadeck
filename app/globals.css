@@ -3137,14 +3137,39 @@ a.slot { display: block; }
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* A button now, not a span — Path and Story (0049) are top-level and
+   collapsed by default, expanding on tap rather than always showing every
+   subgroup at once. */
 .dev-console-group-label {
-  display: block;
-  padding: 4px 8px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background: none;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9a9aa2;
+  color: #e4e4ea;
+  cursor: pointer;
+}
+
+.dev-console-group-label:active { background: rgba(255, 255, 255, 0.08); }
+
+.dev-console-group-chevron {
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #9a9aa2;
+  border-bottom: 1.5px solid #9a9aa2;
+  transform: rotate(-45deg);
+  transition: transform 150ms ease;
+}
+
+.dev-console-group-label[aria-expanded="true"] .dev-console-group-chevron {
+  transform: rotate(45deg);
 }
 
 .dev-console-subgroup + .dev-console-subgroup {
@@ -5017,4 +5042,431 @@ body.is-revealing { overflow: hidden; }
   border-radius: 2px;
   background: currentColor;
   box-shadow: -7px 0 0 currentColor, 7px 0 0 currentColor;
+}
+
+/* --- chapter-player.jsx (Story mode, 0048, 0049, 0050) ------------------ */
+
+.session.is-story-lesson {
+  display: flex;
+  flex-direction: column;
+  /* Story keeps the tab bar visible (components/tabbar.jsx exempts /story
+     from the full-bleed lesson treatment v1/v3 use), so - unlike those -
+     this screen has to leave the bar its own room at the bottom itself. */
+  padding-bottom: var(--tabbar, 74px);
+}
+
+/* The sketch pack (public/assets/reading-scene-sketch-v2) draws in grey/
+   black line art on a transparent ground, meant to sit on a light page -
+   its own README calls the backgrounds "light grey, not black, so they
+   sit further back visually behind the black-line table/characters/
+   hands." Laid over this app's usual near-black shell, the linework would
+   nearly disappear. This is the one screen in the app with a light stage
+   for that reason.
+
+   The stage is also the only tap target for a dialogue or reveal beat now
+   (0050) - the panel below it is reserved for choices alone, so "tap to
+   continue" has nowhere else to live. */
+.story-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1536 / 1625;
+  background: #e7e3da;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.story-stage.is-tappable { cursor: pointer; }
+
+.story-layer {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.story-bg-art {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Characters are cropped to their own bounding box per the asset pack's
+   own README, not placed at a fixed canonical position. Sized down from
+   this scene's first pass and pulled further up the frame on purpose
+   (0050, Simon's own review of that pass): a client "sitting across the
+   table" reads as further away and smaller than the table itself, not
+   overlapping it - z-index already put the table in front, but a
+   character sized to nearly fill the frame still visually collided with
+   it through the table art's own transparent gaps. */
+/* Shifted off-center (0050) - the revealed card sits top-right at full
+   height once a reveal beat fires, and centered was straight underneath
+   it. Off-center by default too, not just once a card appears, so the
+   character doesn't visibly jump sideways the moment one does. */
+.story-character-art {
+  top: 4%;
+  left: 30%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Riley sits opposite Dave (0050) - chapter-player.jsx's CHARACTER_SIDE
+   map decides which characters get this. */
+.story-character-art.is-side-right {
+  left: 70%;
+}
+
+/* Table and hands share the background's own 1536px-wide canvas, so
+   width: 100% keeps them in scale; bottom: 0 is this scene's own choice
+   of where "the table" sits, not a coordinate the asset pack specifies.
+   The 3D tilt (0050) is this scene's own addition too - flat-on, the
+   table read as a card propped upright rather than a surface the reader
+   is looking down at; rotateX around the *bottom* edge keeps the front
+   edge (nearest the viewer) anchored in place and tips the far edge back,
+   away from the camera. */
+/* A solid backing, not the table art itself - the table PNG is still
+   transparent outside its own drawn shape, and the tilt (rotateX below)
+   opened a gap at its own top edge where the background/character used to
+   show through. This sits right behind the table layer, same footprint,
+   same tilt, so the table now reads as an opaque surface. */
+.story-table-backing {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 49%;
+  z-index: 2;
+  background: #d8cfba;
+  transform: perspective(900px) rotateX(30deg);
+  transform-origin: bottom center;
+}
+
+.story-table-art {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  transform: perspective(900px) rotateX(30deg);
+  transform-origin: bottom center;
+}
+
+/* The one real tarot card, not sketch art - lifts off the pile and flips
+   to face the viewer once a "reveal" beat fires (chapter-player.jsx's own
+   CARD_PILE/CARD_PROMINENT/CARD_RESTING keyframes), then shrinks back down
+   to rest beside the pile on the tap that dismisses it, staying there for
+   the rest of the chapter. Position/size/rotation are driven entirely by
+   inline style + Web Animations from JS, not by this rule - it only sets
+   what never changes during that animation. */
+.story-revealed-card {
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  border-radius: 4%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  backface-visibility: hidden;
+}
+
+.story-hands-art {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 4;
+}
+
+/* A client's line, in a speech bubble anchored to their own face - not
+   the dark caption strip below, which is now the reader's own voice only
+   (0050). Anchored a fixed spot rather than measured off the character's
+   actual rendered position: every beat in this chapter keeps a given
+   character in the same place (.story-character-art's own left: 30%/70%
+   split, 0050), so a fixed anchor per side reads identically to a
+   measured one without the layout-effect machinery a measured one would
+   need. This is the left-character (Dave) variant, extending rightward
+   from near his face; .is-side-right mirrors it for Riley. */
+.story-bubble {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  max-width: 58%;
+  z-index: 5;
+  background: #fdfcf8;
+  border: 2px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.story-bubble.is-side-right {
+  left: auto;
+  right: 8%;
+}
+
+/* The bubble's own tail, pointing down toward the character's face. */
+.story-bubble::after {
+  content: "";
+  position: absolute;
+  left: 38%;
+  bottom: -14px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fdfcf8;
+  border-bottom: 0;
+}
+
+.story-bubble::before {
+  content: "";
+  position: absolute;
+  left: 38%;
+  bottom: -18px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-top-color: #1a1a1a;
+  border-bottom: 0;
+}
+
+.story-bubble.is-side-right::after {
+  left: auto;
+  right: 38%;
+}
+
+.story-bubble.is-side-right::before {
+  left: auto;
+  right: 38%;
+}
+
+/* Tap-to-continue on a speech bubble doesn't just cut away - it glimmers
+   (the same shimmer-sweep every chip success in the app already uses)
+   and fades, 0.5s total (chapter-player.jsx's own BUBBLE_DISMISS_MS),
+   before the next beat replaces it. */
+.story-bubble.is-dismissing {
+  animation: story-bubble-dismiss 500ms ease forwards;
+}
+
+@keyframes story-bubble-dismiss {
+  0% { opacity: 1; transform: scale(1); filter: brightness(1); }
+  45% { filter: brightness(2.2); }
+  100% { opacity: 0; transform: scale(0.92); filter: brightness(2.6); }
+}
+
+.story-bubble-name {
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8378;
+}
+
+.story-bubble-line {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+/* The reader's own line, or scene narration - overlaid on the stage
+   itself rather than in a box below it (0050: "interaction instructions
+   should overlap on top of the image"). */
+.story-caption {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 6%;
+  z-index: 5;
+  background: rgba(12, 8, 16, 0.72);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--parchment);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.story-caption.is-narration {
+  font-style: italic;
+  color: rgba(242, 237, 227, 0.8);
+}
+
+/* A light-on-dark hint reads fine over the hands/table art below it, but
+   this stage's own background is light (see .story-stage) - an opaque
+   pill of its own guarantees contrast regardless of what's directly
+   behind it, the same reasoning as the speech bubble's own solid fill. */
+.story-tap-hint {
+  position: absolute;
+  right: 4%;
+  bottom: 3%;
+  z-index: 5;
+  background: rgba(12, 8, 16, 0.72);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
+  color: rgba(242, 237, 227, 0.9);
+}
+
+/* Choices only, below the stage (0050) - dialogue and narration both moved
+   onto the stage itself, so this panel is empty except during a choice or
+   draw beat. */
+/* Fills whatever's left below the stage and centers its own content in
+   it (0050) - a short 2-option choice and a full 4-option one should both
+   read as "centered in the remaining space," not "top-anchored right
+   under the image." */
+.story-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* An overlay on the table itself now (0055), not a row between the stage
+   and the choice panel - Simon's call after seeing them crowd into the
+   text box's own space. .story-table-art's own drawn surface (after its
+   rotateX tilt) measures out to roughly top:62%/height:38% of the stage,
+   so this sits inside that band rather than guessing - any higher and it
+   climbs back into the character/background layers above the table's
+   back edge, which is the exact overlap Simon flagged. Sized as a
+   percentage of stage WIDTH for both dimensions (aspect-ratio derives
+   height from it), same as every other layer, so it scales with the
+   stage instead of a fixed pixel size. */
+.story-slots {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 4.5%;
+}
+
+/* 23% of stage width each (0055: "make the cards 25% bigger" - up from
+   the 18.9% this replaced). */
+.story-slot {
+  flex: 0 0 23%;
+  aspect-ratio: 3 / 5;
+  border-radius: 8px;
+  border: 1px dashed rgba(20, 16, 12, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(20, 16, 12, 0.08);
+}
+
+.story-slot.is-filled {
+  border-style: solid;
+  border-color: var(--accent);
+}
+
+.story-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* var(--muted) read too close in luminance to the table's own pale wash
+   underneath it (0055, Simon's own review) - solid dark text plus an
+   opaque chip guarantees contrast regardless of what linework sits
+   behind a given slot, same reasoning as .story-tap-hint's own pill. */
+.story-slot-label {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f2ede3;
+  text-align: center;
+  background: rgba(20, 16, 12, 0.72);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+
+.story-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story-prompt {
+  margin: 0;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 17px;
+  color: var(--parchment);
+}
+
+.story-choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* No line-clamp (0053) - a box that would need a third line now grows to
+   fit it instead of truncating. "No more than one box on a given screen
+   needs three lines" is a content-authoring discipline (how each
+   chapter's options are written), not something CSS can enforce - two
+   sibling options both truncated to the same clamp would just hide which
+   one actually ran long. */
+.story-choice-option {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(242, 237, 227, 0.18);
+  background: rgba(242, 237, 227, 0.05);
+  color: var(--parchment);
+  font-family: var(--body);
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Same reject language as every other wrong-tap in the app. */
+.story-choice-option.is-wrong {
+  border-color: var(--bad);
+  background: rgba(217, 96, 95, 0.14);
+  animation: choice-option-shake 460ms ease;
+}
+
+.story-card-pool {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.story-pool-card {
+  border: none;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3 / 5;
+  background: rgba(242, 237, 227, 0.05);
+}
+
+.story-pool-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.story-pool-card.is-wrong {
+  animation: choice-option-shake 460ms ease;
+  box-shadow: 0 0 0 2px var(--bad);
+}
+
+.story-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
 }

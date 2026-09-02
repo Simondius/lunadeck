@@ -204,12 +204,19 @@ export default function NodeSession({
   // or review) is currently showing it.
   const roundKey = `${stage === "review" ? "review" : "main"}-${round.id}`;
   const Player = PLAYERS[round.type] ?? RoundPlayer;
+  // A round can name its own card (docs/decisions/0058's mashup nodes,
+  // covering all three of a review unit's cards in one node) rather than
+  // inheriting the section's single cardKey/cardName - every existing
+  // round across v1/v2/v3 has neither field, so this changes nothing for
+  // them.
+  const roundCardKey = round.cardKey ?? cardKey;
+  const roundCardName = round.cardName ?? cardName;
 
   return (
     <Player
       key={roundKey}
-      cardKey={cardKey}
-      cardName={cardName}
+      cardKey={roundCardKey}
+      cardName={roundCardName}
       round={round}
       roundNumber={roundNumber}
       totalRounds={totalRounds}

@@ -1,0 +1,188 @@
+{
+  "id": "u7-dave-start",
+  "title": "One More Pass",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Fool", "Lovers", "Empress"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Months on. The partnership papers are ready to sign — Dave's booked one more session first."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I want all three cards out on the table again — the Fool, the Lovers, the Empress — before I sign tomorrow.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Fool down first.",
+      "card": "major_00_fool",
+      "slot": 0
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "One cycle just ended, right as the next one begins.", "correct": true },
+        { "text": "Something you're nurturing is finally ready to be born.", "correct": false, "reaction": "confusion" },
+        { "text": "This is a choice worth weighing from every angle.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"My old coworkers still think I lost it, quitting like that.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 0,
+      "options": [
+        { "text": "It's fine going against convention — that's the whole card.", "correct": true },
+        { "text": "It's about holding two sides of yourself in balance.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about pleasure and beauty being part of the message.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. Now the partnership.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Lovers down next.",
+      "card": "major_06_lovers",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 1,
+      "options": [
+        { "text": "Two real paths — the hard part was ever choosing at all.", "correct": true },
+        { "text": "It's about trusting the path shows up once you take the step.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about raw, unformed chaos that hasn't settled yet.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"How do I know signing with him is actually the right call, not just the easy one?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "Let more than logic decide — body, mind, and spirit all get a vote.", "correct": true },
+        { "text": "It's about staying calm right at the edge of the fall.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about abundance growing in every direction at once.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"And the workshop, underneath it all.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Empress down last.",
+      "card": "major_03_empress",
+      "slot": 2
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 2,
+      "options": [
+        { "text": "Nourish, protect, and grow whatever you're tending.", "correct": true },
+        { "text": "It's about saying yes to the unknown instead of playing safe.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about a real choice you have to weigh carefully.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Some days it still feels like I forced all of this to happen faster than it should have.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 2,
+      "options": [
+        { "text": "Real abundance comes from allowing things to flourish, not forcing them.", "correct": true },
+        { "text": "It's about a beginner's mind, curious instead of jaded.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about choosing with your gut, not just your head.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Wait — if the Empress is about not forcing things, wasn't quitting my job basically forcing a change?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — that was the Fool's leap, not the Empress's patience. Different card, different moment.", "correct": true },
+        { "text": "Yes, so the whole reading contradicts itself.", "correct": false, "reaction": "anger" },
+        { "text": "The two cards can't both be true, pick one.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Three cards don't have to describe the same moment the same way — the Fool covers the leap itself, the Empress covers what had already been quietly growing underneath it long before you jumped."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "All three, together: a leap, a choice, and something patiently grown. That's not a contradiction — that's just what the last year actually was."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Okay. I think I finally see it — a leap, a choice, and something patiently grown, all pulling the same direction. Thank you for laying it all out like that.\""
+    }
+  ]
+}

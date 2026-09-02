@@ -1,0 +1,161 @@
+{
+  "id": "u8-riley-start",
+  "title": "One More Pass",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Fool", "Lovers", "Empress"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley settles into the chair, still faintly amused."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I've got a full plate this month, but let's get all three cards out — the Empress first, though. That one's been on my mind.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Empress down first.",
+      "card": "major_03_empress",
+      "slot": 2
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 2,
+      "options": [
+        { "text": "Pleasure and ease aren't indulgences — they're part of the message.", "correct": true },
+        { "text": "It's about saying yes to the unknown instead of playing it safe.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about a partnership that listens to more than one voice.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Does that mean I'm supposed to have a finished album by now?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 2,
+      "options": [
+        { "text": "No — it just says something's forming, not that it has to be finished.", "correct": true },
+        { "text": "Yes, you're behind schedule.", "correct": false, "reaction": "anger" },
+        { "text": "The Empress doesn't apply until something's fully finished.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Now the Fool — where I actually am right now, out here.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Fool down next.",
+      "card": "major_00_fool",
+      "slot": 0
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "Standing at the edge, calm, not scared of the fall.", "correct": true },
+        { "text": "It's about nourishing something quietly until it's ready.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about weighing a choice from every angle.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"The tour's going to end eventually. What then?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 0,
+      "options": [
+        { "text": "One cycle ends the instant the next one begins.", "correct": true },
+        { "text": "It's about holding two sides of yourself in balance.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about pleasure and beauty being part of the message.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"And the Lovers — the band, the choice, all of it.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You set the Lovers down last.",
+      "card": "major_06_lovers",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 1,
+      "options": [
+        { "text": "A real choice, weighed from every angle before you make it.", "correct": true },
+        { "text": "It's about trusting a path will appear once you step.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about abundance growing in every direction at once.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I still feel like two different people sometimes — the one from the old band, and this one.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "Both are still you — the card's about holding both sides in balance.", "correct": true },
+        { "text": "It's about a fresh cycle starting the moment the old one ends.", "correct": false, "reaction": "confusion" },
+        { "text": "It's about raw, unformed chaos that hasn't settled yet.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Alright. Let's put it all together.\""
+    }
+  ]
+}

@@ -1,26 +1,26 @@
 {
-  "cardKey": "major_01_magician",
-  "cardName": "The Magician",
+  "cardKey": "major_06_lovers",
+  "cardName": "The Lovers",
   "nodes": [
     {
-      "id": "node-8",
+      "id": "node-1",
       "rounds": [
         {
           "id": "n8-r1",
           "type": "cloze",
-          "text": "The Magician sees beyond the {b1}, working with the {b2} already within {b3}.",
+          "text": "{b1}'s communicative, inquisitive mind, ruled by {b2} and tied to {b3}, sets the tone for the Lovers.",
           "blanks": [
             {
               "key": "b1",
-              "answer": "visible"
+              "answer": "Gemini"
             },
             {
               "key": "b2",
-              "answer": "resources"
+              "answer": "Mercury"
             },
             {
               "key": "b3",
-              "answer": "reach"
+              "answer": "Air"
             }
           ],
           "distractors": [
@@ -33,19 +33,19 @@
         {
           "id": "n8-r2",
           "type": "cloze",
-          "text": "He knows {b1} lives in {b2} things, available only to those who know how to {b3} it.",
+          "text": "The card usually shows two figures beneath a watching {b1}, forming a {b2} of body, mind, and {b3}.",
           "blanks": [
             {
               "key": "b1",
-              "answer": "magic"
+              "answer": "angel"
             },
             {
               "key": "b2",
-              "answer": "ordinary"
+              "answer": "triangle"
             },
             {
               "key": "b3",
-              "answer": "use"
+              "answer": "spirit"
             }
           ],
           "distractors": [
@@ -57,90 +57,85 @@
         {
           "id": "n8-r3",
           "type": "cloze",
-          "text": "{b1} governs this card, lending sharp {b2} and the ability to view a situation from several {b3} at once.",
+          "text": "It centers on a {b1} in the road: have you {b2} every part of the {b3}?",
           "blanks": [
             {
               "key": "b1",
-              "answer": "Mercury"
+              "answer": "fork"
             },
             {
               "key": "b2",
-              "answer": "wit"
+              "answer": "weighed"
             },
             {
               "key": "b3",
-              "answer": "angles"
+              "answer": "decision"
             }
           ],
           "distractors": [
             "elephant",
             "Wednesday",
-            "dreams"
+            "exploration"
           ]
         },
         {
           "id": "n8-r4",
           "type": "cloze",
-          "text": "His {b1} recalls the caduceus, a symbol of {b2}, and the tools laid before him show that everything needed is already at {b3}.",
+          "text": "True {b1} comes from listening to all three {b2} together, not from the {b3} alone.",
           "blanks": [
             {
               "key": "b1",
-              "answer": "staff"
+              "answer": "choice"
             },
             {
               "key": "b2",
-              "answer": "healing"
+              "answer": "voices"
             },
             {
               "key": "b3",
-              "answer": "hand"
+              "answer": "heart"
             }
           ],
           "distractors": [
             "spaghetti",
-            "pause",
-            "overthinking"
+            "reception",
+            "unstable"
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-11",
-      "rounds": [
+        },
         {
           "id": "n8-r1",
           "type": "swipe",
           "cards": [
             {
-              "text": "Sees more than the eyes take in",
+              "text": "A real choice, every angle weighed",
               "isMatch": true
             },
             {
-              "text": "Success comes from resources at hand",
+              "text": "Two paths, the challenge is choosing",
               "isMatch": true
             },
             {
-              "text": "Magic hides in the ordinary",
+              "text": "Choosing with the heart, not the head",
               "isMatch": true
             },
             {
-              "text": "Sees beyond what's visible",
+              "text": "Two figures stand beneath a watching angel",
               "isMatch": true
             },
             {
-              "text": "Has X-ray vision from a cereal box",
+              "text": "A choice between two identical socks",
               "isMatch": false
             },
             {
-              "text": "Orders every tool online first",
+              "text": "Fourteen valid paths, all equally silly",
               "isMatch": false
             },
             {
-              "text": "Magic only works with a shop-bought wand",
+              "text": "Choosing by coin flip instead",
               "isMatch": false
             },
             {
-              "text": "Views everything from one angle",
+              "text": "Holding fourteen sides, none in balance",
               "isMatch": false
             }
           ]
@@ -148,35 +143,61 @@
       ]
     },
     {
-      "id": "node-1",
+      "id": "node-2",
       "rounds": [
         {
           "id": "n1-r1",
           "type": "zone",
           "elements": [
             {
-              "key": "raised_wand",
-              "name": "Raised wand",
-              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
+              "key": "woman",
+              "name": "Woman",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
               "rects": [
                 {
-                  "x0": 0.16,
-                  "y0": 0.275,
+                  "x0": 0.185,
+                  "y0": 0.529,
                   "x1": 0.504,
-                  "y1": 0.433
+                  "y1": 0.79
                 }
               ]
             },
             {
-              "key": "mercury",
-              "name": "Mercury",
-              "text": "Mercury: quick wit, sharp intelligence, seeing a situation from every angle at once.",
+              "key": "man",
+              "name": "Man",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
               "rects": [
                 {
-                  "x0": 0.406,
-                  "y0": 0.158,
+                  "x0": 0.48,
+                  "y0": 0.529,
+                  "x1": 0.787,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "angel_wings",
+              "name": "Angel wings",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
+              "rects": [
+                {
+                  "x0": 0.172,
+                  "y0": 0.151,
+                  "x1": 0.824,
+                  "y1": 0.536
+                }
+              ]
+            },
+            {
+              "key": "gemini",
+              "name": "Gemini",
+              "text": "Gemini: a mind that questions, weighs, and wants to see every angle of the choice.",
+              "rects": [
+                {
+                  "x0": 0.394,
+                  "y0": 0.096,
                   "x1": 0.59,
-                  "y1": 0.234
+                  "y1": 0.165
                 }
               ]
             }
@@ -188,28 +209,54 @@
           "type": "zone",
           "elements": [
             {
-              "key": "raised_wand",
-              "name": "Raised wand",
-              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
+              "key": "woman",
+              "name": "Woman",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
               "rects": [
                 {
-                  "x0": 0.16,
-                  "y0": 0.275,
+                  "x0": 0.185,
+                  "y0": 0.529,
                   "x1": 0.504,
-                  "y1": 0.433
+                  "y1": 0.79
                 }
               ]
             },
             {
-              "key": "mercury",
-              "name": "Mercury",
-              "text": "Mercury: quick wit, sharp intelligence, seeing a situation from every angle at once.",
+              "key": "man",
+              "name": "Man",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
               "rects": [
                 {
-                  "x0": 0.406,
-                  "y0": 0.158,
+                  "x0": 0.48,
+                  "y0": 0.529,
+                  "x1": 0.787,
+                  "y1": 0.79
+                }
+              ]
+            },
+            {
+              "key": "angel_wings",
+              "name": "Angel wings",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
+              "rects": [
+                {
+                  "x0": 0.172,
+                  "y0": 0.151,
+                  "x1": 0.824,
+                  "y1": 0.536
+                }
+              ]
+            },
+            {
+              "key": "gemini",
+              "name": "Gemini",
+              "text": "Gemini: a mind that questions, weighs, and wants to see every angle of the choice.",
+              "rects": [
+                {
+                  "x0": 0.394,
+                  "y0": 0.096,
                   "x1": 0.59,
-                  "y1": 0.234
+                  "y1": 0.165
                 }
               ]
             }
@@ -220,27 +267,32 @@
           "type": "tilematch",
           "pairs": [
             {
-              "key": "raised_wand",
-              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
-              "image": "/assets/cards/cardelements/major_01_magician_element_raised_wand.png"
+              "key": "woman",
+              "text": "She is one half of the choice — the feminine voice in the triangle.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_woman.png"
             },
             {
-              "key": "mercury",
-              "text": "Quick wit, sharp intelligence, seeing a situation from every angle at once.",
-              "image": "/assets/cards/cardelements/major_01_magician_element_mercury.png"
+              "key": "man",
+              "text": "He is the other half — the masculine voice, meeting her as an equal.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_man.png"
+            },
+            {
+              "key": "angel_wings",
+              "text": "The angel above is the third voice — true choice means listening to it too, not just the heart.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_angel_wings.png"
+            },
+            {
+              "key": "gemini",
+              "text": "A mind that questions, weighs, and wants to see every angle of the choice.",
+              "image": "/assets/cards/cardelements/major_06_lovers_element_gemini.png"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-2",
-      "rounds": [
+        },
         {
           "id": "n2-r1",
           "words": [
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
@@ -248,7 +300,7 @@
               "correct": false
             },
             {
-              "text": "intelligence",
+              "text": "variety",
               "correct": true
             },
             {
@@ -262,7 +314,7 @@
           "id": "n2-r2",
           "words": [
             {
-              "text": "intelligence",
+              "text": "variety",
               "correct": true
             },
             {
@@ -270,7 +322,7 @@
               "correct": false
             },
             {
-              "text": "personal ability",
+              "text": "possibility",
               "correct": true
             },
             {
@@ -278,46 +330,41 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-12",
-      "rounds": [
+        },
         {
           "id": "n9-r1",
           "type": "swipe",
           "cards": [
             {
-              "text": "Views one thing from many angles",
+              "text": "Two sides of you, held in balance",
               "isMatch": true
             },
             {
-              "text": "The right words land at the right time",
+              "text": "A partnership built on real listening",
               "isMatch": true
             },
             {
-              "text": "Time to act, not just have the idea",
+              "text": "Gemini's mind, ruled by Mercury, sets the tone",
               "isMatch": true
             },
             {
-              "text": "Mercury lends sharp wit and many angles",
+              "text": "A triangle of body, mind, and spirit",
               "isMatch": true
             },
             {
-              "text": "Only trusts what the eyes show",
+              "text": "Only one path, no real choice",
               "isMatch": false
             },
             {
-              "text": "Success needs resources you lack",
+              "text": "One path exists, no choosing needed",
               "isMatch": false
             },
             {
-              "text": "Magic only appears in rare, dramatic moments",
+              "text": "Choosing only with cold, careful logic",
               "isMatch": false
             },
             {
-              "text": "Commits fully before seeing every angle",
+              "text": "One side wins out, always",
               "isMatch": false
             }
           ]
@@ -331,7 +378,7 @@
           "id": "n3-r1",
           "words": [
             {
-              "text": "skill",
+              "text": "choosing with the heart",
               "correct": true
             },
             {
@@ -339,7 +386,7 @@
               "correct": false
             },
             {
-              "text": "communication",
+              "text": "partnership",
               "correct": true
             },
             {
@@ -352,7 +399,7 @@
           "id": "n3-r2",
           "words": [
             {
-              "text": "communication",
+              "text": "partnership",
               "correct": true
             },
             {
@@ -360,7 +407,7 @@
               "correct": false
             },
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
@@ -372,16 +419,16 @@
       ]
     },
     {
-      "id": "node-9",
+      "id": "node-4",
       "rounds": [
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Sees with more than the eyes — perceives both the visible and the {b1}",
+          "text": "A real choice stands in front of you — has every angle actually been {b1}?",
           "blanks": [
             {
               "key": "b1",
-              "answer": "invisible"
+              "answer": "weighed"
             }
           ],
           "distractors": [
@@ -391,11 +438,11 @@
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "You already have everything you need; success is about using the {b1} at hand",
+          "text": "Two paths, both valid — the challenge is {b1}, not lacking options",
           "blanks": [
             {
               "key": "b1",
-              "answer": "resources"
+              "answer": "choosing"
             }
           ],
           "distractors": [
@@ -405,11 +452,11 @@
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "Magic hides in {b1} things — available only to those who know how to look",
+          "text": "Choosing with the {b1}, not just the head",
           "blanks": [
             {
               "key": "b1",
-              "answer": "ordinary"
+              "answer": "heart"
             }
           ],
           "distractors": [
@@ -419,111 +466,29 @@
         {
           "id": "n9-r4",
           "type": "cloze",
-          "text": "Sharp, quick-witted intelligence; can view a situation from multiple {b1} at once",
+          "text": "Holding the masculine and feminine, or two sides of yourself, in {b1}",
           "blanks": [
             {
               "key": "b1",
-              "answer": "angles"
+              "answer": "balance"
             }
           ],
           "distractors": [
-            "purple"
+            "reception"
           ]
         },
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "A gift for {b1} — the right words, spoken or written, at the right moment",
+          "text": "A {b1} or union that asks you to listen to more than one voice — body, mind, and spirit",
           "blanks": [
             {
               "key": "b1",
-              "answer": "communication"
+              "answer": "partnership"
             }
           ],
           "distractors": [
-            "pause"
-          ]
-        },
-        {
-          "id": "n9-r6",
-          "type": "cloze",
-          "text": "Reminds you it's time to {b1} on an idea, not just have it",
-          "blanks": [
-            {
-              "key": "b1",
-              "answer": "act"
-            }
-          ],
-          "distractors": [
-            "overthinking"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "node-4",
-      "rounds": [
-        {
-          "id": "n4-r1",
-          "words": [
-            {
-              "text": "shrewdness",
-              "correct": true
-            },
-            {
-              "text": "naivety",
-              "correct": false
-            },
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "clumsiness",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r2",
-          "words": [
-            {
-              "text": "intelligence",
-              "correct": true
-            },
-            {
-              "text": "foolishness",
-              "correct": false
-            },
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "clumsiness",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r3",
-          "words": [
-            {
-              "text": "personal ability",
-              "correct": true
-            },
-            {
-              "text": "helplessness",
-              "correct": false
-            },
-            {
-              "text": "communication",
-              "correct": true
-            },
-            {
-              "text": "silence",
-              "correct": false
-            }
+            "exploration"
           ]
         }
       ]
@@ -532,18 +497,81 @@
       "id": "node-5",
       "rounds": [
         {
+          "id": "n4-r1",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "obligation",
+              "correct": false
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "cold logic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r2",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "sameness",
+              "correct": false
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": true
+            },
+            {
+              "text": "cold logic",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "n4-r3",
+          "words": [
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "dead end",
+              "correct": false
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "solitude",
+              "correct": false
+            }
+          ]
+        },
+        {
           "id": "n5-r1",
           "words": [
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
-              "text": "intelligence",
+              "text": "variety",
               "correct": true
             },
             {
-              "text": "skill",
+              "text": "possibility",
               "correct": true
             },
             {
@@ -564,15 +592,15 @@
           "id": "n5-r2",
           "words": [
             {
-              "text": "personal ability",
+              "text": "choosing with the heart",
               "correct": true
             },
             {
-              "text": "communication",
+              "text": "partnership",
               "correct": true
             },
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
@@ -588,51 +616,46 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-13",
-      "rounds": [
+        },
         {
           "id": "n10-r1",
           "type": "swipe",
           "cards": [
             {
-              "text": "The staff recalls the healer's caduceus",
+              "text": "True choice means listening to all three voices",
               "isMatch": true
             },
             {
-              "text": "The tools he needs are already close",
+              "text": "A real choice, every angle weighed",
               "isMatch": true
             },
             {
-              "text": "Sees more than the eyes take in",
+              "text": "A partnership built on real listening",
               "isMatch": true
             },
             {
-              "text": "The right words land at the right time",
+              "text": "Two paths, the challenge is choosing",
               "isMatch": true
             },
             {
-              "text": "Hidden things surface if you look",
+              "text": "Trusts a path appears when you step",
               "isMatch": false,
-              "_source": "The Moon"
+              "_source": "The Fool"
             },
             {
-              "text": "Sacrifice now, gain more later",
+              "text": "What falls apart was already unstable",
               "isMatch": false,
-              "_source": "The Hanged Man"
+              "_source": "The Tower"
             },
             {
-              "text": "The blindfold is self-imposed and removable",
+              "text": "Power comes from receiving, not acting",
               "isMatch": false,
-              "_source": "Eight of Swords"
+              "_source": "The High Priestess"
             },
             {
-              "text": "Pause, let go instead of forcing",
+              "text": "A sudden, unexpected lightning-strike moment",
               "isMatch": false,
-              "_source": "The Hanged Man"
+              "_source": "The Tower"
             }
           ]
         }
@@ -645,27 +668,27 @@
           "id": "n6-r1",
           "words": [
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
-              "text": "intelligence",
+              "text": "variety",
               "correct": true
             },
             {
-              "text": "skill",
+              "text": "possibility",
               "correct": true
             },
             {
-              "text": "dreams",
+              "text": "imagination",
               "correct": false
             },
             {
-              "text": "pause",
+              "text": "exploration",
               "correct": false
             },
             {
-              "text": "overthinking",
+              "text": "destruction",
               "correct": false
             }
           ]
@@ -674,61 +697,56 @@
           "id": "n6-r2",
           "words": [
             {
-              "text": "personal ability",
+              "text": "choosing with the heart",
               "correct": true
             },
             {
-              "text": "communication",
+              "text": "partnership",
               "correct": true
             },
             {
-              "text": "shrewdness",
+              "text": "choice",
               "correct": true
             },
             {
-              "text": "mystery",
+              "text": "reception",
               "correct": false
             },
             {
-              "text": "abandon",
+              "text": "levity",
               "correct": false
             },
             {
-              "text": "feminine",
+              "text": "unexpected transformation",
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-7",
-      "rounds": [
+        },
         {
           "id": "n7-r1",
           "words": [
             {
-              "text": "personal ability",
+              "text": "possibility",
               "correct": true
             },
             {
-              "text": "communication",
+              "text": "choosing with the heart",
               "correct": true
             },
             {
-              "text": "shrewdness",
+              "text": "partnership",
               "correct": true
             },
             {
-              "text": "pause",
+              "text": "speed",
               "correct": false
             },
             {
-              "text": "abandon",
+              "text": "play",
               "correct": false
             },
             {
-              "text": "following the flow",
+              "text": "spontaneity",
               "correct": false
             }
           ]
@@ -737,58 +755,53 @@
           "id": "n7-r2",
           "words": [
             {
-              "text": "personal ability",
+              "text": "possibility",
               "correct": true
             },
             {
-              "text": "communication",
+              "text": "choosing with the heart",
               "correct": true
             },
             {
-              "text": "shrewdness",
+              "text": "partnership",
               "correct": true
             },
             {
-              "text": "dreams",
+              "text": "imagination",
               "correct": false
             },
             {
-              "text": "sensitivity",
+              "text": "reception",
               "correct": false
             },
             {
-              "text": "inner reality",
+              "text": "magic",
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-kw-swipe",
-      "rounds": [
+        },
         {
           "id": "kw-swipe-r1",
           "type": "swipe",
           "cards": [
             {
-              "text": "communication",
+              "text": "choice",
               "isMatch": true
             },
             {
-              "text": "intelligence",
+              "text": "choosing with the heart",
               "isMatch": true
             },
             {
-              "text": "personal ability",
+              "text": "partnership",
               "isMatch": true
             },
             {
-              "text": "shrewdness",
+              "text": "possibility",
               "isMatch": true
             },
             {
-              "text": "skill",
+              "text": "variety",
               "isMatch": true
             },
             {
@@ -800,7 +813,7 @@
               "isMatch": false
             },
             {
-              "text": "choosing with the heart",
+              "text": "intelligence",
               "isMatch": false
             },
             {
@@ -816,144 +829,127 @@
       ]
     },
     {
-      "id": "node-10",
+      "id": "node-7",
       "rounds": [
         {
           "id": "n10-r1",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "Sees more than what the eyes take in",
+          "correct": "A real choice, has every angle been weighed",
           "options": [
-            "Sees more than what the eyes take in",
-            "Has X-ray vision from a cereal box",
-            "Only trusts exactly what the eyes show",
-            "Hidden things surface if you look"
+            "A real choice, has every angle been weighed",
+            "A real choice between two identical socks",
+            "No real choice, only one obvious path",
+            "Trusts a path appears the moment you step"
           ]
         },
         {
           "id": "n10-r2",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "Success comes from resources already at hand",
+          "correct": "Two valid paths, the challenge is choosing",
           "options": [
-            "Success comes from resources already at hand",
-            "Orders every tool online before starting",
-            "Success requires resources you don't have yet",
-            "Sacrifice something now to gain more later"
+            "Two valid paths, the challenge is choosing",
+            "Fourteen valid paths, all equally silly",
+            "Only one path exists, no choosing needed",
+            "What falls apart was already unstable"
           ]
         },
         {
           "id": "n10-r3",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "Magic hides in things that seem ordinary",
+          "correct": "Choosing with the heart, not just the head",
           "options": [
-            "Magic hides in things that seem ordinary",
-            "Magic only works with a wand from a shop",
-            "Magic only appears in rare, dramatic moments",
-            "The blindfold is self-imposed and removable"
+            "Choosing with the heart, not just the head",
+            "Choosing entirely by coin flip instead",
+            "Choosing only with cold, careful logic",
+            "Power comes from receiving, not acting"
           ]
         },
         {
           "id": "n10-r4",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "Views one situation from many angles at once",
+          "correct": "Holding two sides of yourself in balance",
           "options": [
-            "Views one situation from many angles at once",
-            "Views everything from exactly one angle",
-            "Commits fully before seeing every angle",
-            "A pattern is repeating, notice it in time"
+            "Holding two sides of yourself in balance",
+            "Holding fourteen sides, none in balance",
+            "One side wins out completely, always",
+            "A sudden, unexpected lightning-strike moment"
           ]
         },
         {
           "id": "n10-r5",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "The right words land at exactly the right time",
+          "correct": "A partnership that asks you to listen well",
           "options": [
-            "The right words land at exactly the right time",
-            "Communicates only through interpretive dance",
-            "Chooses silence over speaking at all",
-            "Pause and let go instead of forcing it"
+            "A partnership that asks you to listen well",
+            "A partnership that requires zero listening",
+            "A solo journey, no partner required",
+            "Nonconformist, glad to break convention"
           ]
         },
         {
-          "id": "n10-r6",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
-          "correct": "Time to act on the idea, not just have it",
-          "options": [
-            "Time to act on the idea, not just have it",
-            "Has the idea, frames it, never touches it again",
-            "Better to keep planning than to actually act",
-            "Overthinking has become the obstacle itself"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "node-8-capstone",
-      "rounds": [
-        {
           "id": "n8-r5",
           "type": "cloze",
-          "text": "The Magician sees beyond the {b1}, working with the {b2} already within {b3}. He knows {b4} lives in {b5} things, available only to those who know how to {b6} it. {b7} governs this card, lending sharp {b8} and the ability to view a situation from several {b9} at once. His {b10} recalls the caduceus, a symbol of {b11}, and the tools laid before him show that everything needed is already at {b12}.",
+          "text": "{b1}'s communicative, inquisitive mind, ruled by {b2} and tied to {b3}, sets the tone for the Lovers. The card usually shows two figures beneath a watching {b4}, forming a {b5} of body, mind, and {b6}. It centers on a {b7} in the road: have you {b8} every part of the {b9}? True {b10} comes from listening to all three {b11} together, not from the {b12} alone.",
           "blanks": [
             {
               "key": "b1",
-              "answer": "visible"
+              "answer": "Gemini"
             },
             {
               "key": "b2",
-              "answer": "resources"
-            },
-            {
-              "key": "b3",
-              "answer": "reach"
-            },
-            {
-              "key": "b4",
-              "answer": "magic"
-            },
-            {
-              "key": "b5",
-              "answer": "ordinary"
-            },
-            {
-              "key": "b6",
-              "answer": "use"
-            },
-            {
-              "key": "b7",
               "answer": "Mercury"
             },
             {
+              "key": "b3",
+              "answer": "Air"
+            },
+            {
+              "key": "b4",
+              "answer": "angel"
+            },
+            {
+              "key": "b5",
+              "answer": "triangle"
+            },
+            {
+              "key": "b6",
+              "answer": "spirit"
+            },
+            {
+              "key": "b7",
+              "answer": "fork"
+            },
+            {
               "key": "b8",
-              "answer": "wit"
+              "answer": "weighed"
             },
             {
               "key": "b9",
-              "answer": "angles"
+              "answer": "decision"
             },
             {
               "key": "b10",
-              "answer": "staff"
+              "answer": "choice"
             },
             {
               "key": "b11",
-              "answer": "healing"
+              "answer": "voices"
             },
             {
               "key": "b12",
-              "answer": "hand"
+              "answer": "heart"
             }
           ],
           "distractors": [
             "pizza",
             "teacup",
-            "dreams",
-            "pause"
+            "exploration",
+            "reception"
           ]
         }
       ]

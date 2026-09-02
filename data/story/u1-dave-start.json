@@ -1,0 +1,83 @@
+{
+  "id": "u1-dave-start",
+  "title": "First Reading",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Hi.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Hi, what brings you here?", "correct": true },
+        { "text": "Hey, you look like shit.", "correct": false, "reaction": "confusion" },
+        { "text": "The courthouse is next door.", "correct": false, "reaction": "anger" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I hate my job. Can you help me figure out what to do?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_00_fool"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Starting fresh — standing at the edge, choosing to jump.", "correct": true },
+        { "text": "You're an idiot for staying this long.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about your job at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool's never really about the job itself — it's about you finally being willing to leap without knowing exactly where you'll land."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Hmm, I'm not sure if that applies to me.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It's about leaping before you know where you'll land.", "correct": true },
+        { "text": "You clearly don't want my help.", "correct": false, "reaction": "anger" },
+        { "text": "Let's just ignore the card, then.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't wait around for certainty — it trusts that clarity shows up after the jump, not before it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. I think I see it.\""
+    }
+  ]
+}

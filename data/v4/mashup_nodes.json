@@ -1,0 +1,488 @@
+{
+  "unit7": [
+    {
+      "id": "mashup-a",
+      "rounds": [
+        {
+          "id": "mash-r1",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "words": [
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": false
+            },
+            {
+              "text": "harmony",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r2",
+          "type": "cloze",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "text": "A real choice stands in front of you — has every {b1} actually been weighed?",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "angle"
+            }
+          ],
+          "distractors": [
+            "nourishment",
+            "intuition",
+            "cycle"
+          ]
+        },
+        {
+          "id": "mash-r3",
+          "type": "choice",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Nourish, protect, and grow whatever you're tending",
+          "options": [
+            "Nourish, protect, and grow whatever you're tending",
+            "One cycle ends the instant the next begins",
+            "A real choice stands in front of you, asking to be weighed"
+          ]
+        },
+        {
+          "id": "mash-r4",
+          "type": "cloze",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "text": "He steps to the edge of a {b1}, unafraid, trusting a {b2} will appear beneath his {b3}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "precipice"
+            },
+            {
+              "key": "b2",
+              "answer": "path"
+            },
+            {
+              "key": "b3",
+              "answer": "feet"
+            }
+          ],
+          "distractors": [
+            "harmony",
+            "partnership",
+            "nourishment"
+          ]
+        },
+        {
+          "id": "mash-r5",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "words": [
+            {
+              "text": "choice",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": true
+            },
+            {
+              "text": "levity",
+              "correct": false
+            },
+            {
+              "text": "beauty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r6",
+          "type": "cloze",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "text": "{b1}, protect, and grow whatever you're tending.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "Nourish"
+            }
+          ],
+          "distractors": [
+            "Choose",
+            "Explore",
+            "Weigh"
+          ]
+        }
+      ],
+      "label": "The Whole Deck, Mixed Up"
+    },
+    {
+      "id": "mashup-b",
+      "rounds": [
+        {
+          "id": "mash-r7",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "words": [
+            {
+              "text": "nourishment",
+              "correct": true
+            },
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": false
+            },
+            {
+              "text": "possibility",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r8",
+          "type": "cloze",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "text": "Approaches life with a beginner's {b1} — curious, unguarded, unjaded.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "mind"
+            }
+          ],
+          "distractors": [
+            "choice",
+            "harmony",
+            "creation"
+          ]
+        },
+        {
+          "id": "mash-r9",
+          "type": "choice",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Two paths, both valid — the challenge is choosing, not lacking options",
+          "options": [
+            "Two paths, both valid — the challenge is choosing, not lacking options",
+            "Something is ready to be born, a project finally taking shape",
+            "Nonconformist, revolutionary energy — willing to go against convention"
+          ]
+        },
+        {
+          "id": "mash-r10",
+          "type": "cloze",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "text": "Abundance that comes from allowing things to {b1}, not forcing them.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "flourish"
+            }
+          ],
+          "distractors": [
+            "explore",
+            "choose",
+            "leap"
+          ]
+        },
+        {
+          "id": "mash-r11",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "words": [
+            {
+              "text": "levity",
+              "correct": true
+            },
+            {
+              "text": "spontaneity",
+              "correct": true
+            },
+            {
+              "text": "choosing with the heart",
+              "correct": false
+            },
+            {
+              "text": "in a relationship",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r12",
+          "type": "choice",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A partnership that asks you to listen to more than one voice — body, mind, and spirit",
+          "options": [
+            "A partnership that asks you to listen to more than one voice — body, mind, and spirit",
+            "Says yes to the unknown instead of playing it safe",
+            "Pleasure, beauty, and the body are part of the message, not indulgences"
+          ]
+        }
+      ],
+      "label": "Cross-Card Curveballs"
+    }
+  ],
+  "unit8": [
+    {
+      "id": "mashup-c",
+      "rounds": [
+        {
+          "id": "mash-r13",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "words": [
+            {
+              "text": "variety",
+              "correct": true
+            },
+            {
+              "text": "possibility",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": false
+            },
+            {
+              "text": "exploration",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r14",
+          "type": "cloze",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "text": "Something is ready to be {b1} — a project or idea taking shape.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "born"
+            }
+          ],
+          "distractors": [
+            "chosen",
+            "explored",
+            "weighed"
+          ]
+        },
+        {
+          "id": "mash-r15",
+          "type": "choice",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Says yes to the unknown instead of playing it safe",
+          "options": [
+            "Says yes to the unknown instead of playing it safe",
+            "A reminder to love and care for yourself first",
+            "Choosing with the heart, not just the head"
+          ]
+        },
+        {
+          "id": "mash-r16",
+          "type": "cloze",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "text": "Holding the masculine and feminine, or two sides of {b1}, in balance.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "yourself"
+            }
+          ],
+          "distractors": [
+            "the deck",
+            "the moment",
+            "the path"
+          ]
+        },
+        {
+          "id": "mash-r17",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "words": [
+            {
+              "text": "love",
+              "correct": true
+            },
+            {
+              "text": "in a relationship",
+              "correct": true
+            },
+            {
+              "text": "speed",
+              "correct": false
+            },
+            {
+              "text": "choice",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r18",
+          "type": "cloze",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "text": "Trusts that the {b1} appears once you take the {b2}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "path"
+            },
+            {
+              "key": "b2",
+              "answer": "step"
+            }
+          ],
+          "distractors": [
+            "choice",
+            "harmony",
+            "creation"
+          ]
+        }
+      ],
+      "label": "The Whole Deck, Mixed Up"
+    },
+    {
+      "id": "mashup-d",
+      "rounds": [
+        {
+          "id": "mash-r19",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "words": [
+            {
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "play",
+              "correct": true
+            },
+            {
+              "text": "nourishment",
+              "correct": false
+            },
+            {
+              "text": "choice",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r20",
+          "type": "choice",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A reminder to love and care for yourself first",
+          "options": [
+            "A reminder to love and care for yourself first",
+            "Two paths, both valid — the challenge is choosing, not lacking options",
+            "Trusts that the path appears once you take the step"
+          ]
+        },
+        {
+          "id": "mash-r21",
+          "type": "cloze",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "text": "Choosing with the {b1}, not just the {b2}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "heart"
+            },
+            {
+              "key": "b2",
+              "answer": "head"
+            }
+          ],
+          "distractors": [
+            "cycle",
+            "mind",
+            "feet"
+          ]
+        },
+        {
+          "id": "mash-r22",
+          "cardKey": "major_00_fool",
+          "cardName": "The Fool",
+          "words": [
+            {
+              "text": "intuition",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "partnership",
+              "correct": false
+            },
+            {
+              "text": "beauty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "mash-r23",
+          "type": "cloze",
+          "cardKey": "major_03_empress",
+          "cardName": "The Empress",
+          "text": "Pleasure, beauty, and the {b1} are not indulgences — they're part of the message.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "body"
+            }
+          ],
+          "distractors": [
+            "choice",
+            "journey",
+            "cycle"
+          ]
+        },
+        {
+          "id": "mash-r24",
+          "type": "choice",
+          "cardKey": "major_06_lovers",
+          "cardName": "The Lovers",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Holding the masculine and feminine, or two sides of yourself, in balance",
+          "options": [
+            "Holding the masculine and feminine, or two sides of yourself, in balance",
+            "Something is ready to be born, a project finally taking shape",
+            "One cycle ends the instant the next begins"
+          ]
+        }
+      ],
+      "label": "Cross-Card Curveballs"
+    }
+  ]
+}

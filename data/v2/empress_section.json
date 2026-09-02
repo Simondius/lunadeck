@@ -31,19 +31,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n1-r3",
-          "words": [
-            {
-              "text": "life",
-              "correct": true
-            },
-            {
-              "text": "elephant",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -72,32 +59,6 @@
             },
             {
               "text": "spaghetti",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n2-r3",
-          "words": [
-            {
-              "text": "beauty",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n2-r4",
-          "words": [
-            {
-              "text": "in a relationship",
-              "correct": true
-            },
-            {
-              "text": "broccoli",
               "correct": false
             }
           ]
@@ -155,45 +116,6 @@
             },
             {
               "text": "indifference",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r5",
-          "words": [
-            {
-              "text": "harmony",
-              "correct": true
-            },
-            {
-              "text": "discord",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r6",
-          "words": [
-            {
-              "text": "beauty",
-              "correct": true
-            },
-            {
-              "text": "ugliness",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r7",
-          "words": [
-            {
-              "text": "in a relationship",
-              "correct": true
-            },
-            {
-              "text": "alone",
               "correct": false
             }
           ]
@@ -289,64 +211,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n4-r4",
-          "words": [
-            {
-              "text": "life",
-              "correct": true
-            },
-            {
-              "text": "love",
-              "correct": true
-            },
-            {
-              "text": "harmony",
-              "correct": true
-            },
-            {
-              "text": "purple",
-              "correct": false
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            },
-            {
-              "text": "broccoli",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r5",
-          "words": [
-            {
-              "text": "beauty",
-              "correct": true
-            },
-            {
-              "text": "in a relationship",
-              "correct": true
-            },
-            {
-              "text": "creation",
-              "correct": true
-            },
-            {
-              "text": "Tuesday",
-              "correct": false
-            },
-            {
-              "text": "elephant",
-              "correct": false
-            },
-            {
-              "text": "umbrella",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -407,64 +271,6 @@
             },
             {
               "text": "feminine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r3",
-          "words": [
-            {
-              "text": "in a relationship",
-              "correct": true
-            },
-            {
-              "text": "creation",
-              "correct": true
-            },
-            {
-              "text": "nourishment",
-              "correct": true
-            },
-            {
-              "text": "following the flow",
-              "correct": false
-            },
-            {
-              "text": "sensitivity",
-              "correct": false
-            },
-            {
-              "text": "magic",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r4",
-          "words": [
-            {
-              "text": "life",
-              "correct": true
-            },
-            {
-              "text": "love",
-              "correct": true
-            },
-            {
-              "text": "harmony",
-              "correct": true
-            },
-            {
-              "text": "need to lighten up",
-              "correct": false
-            },
-            {
-              "text": "inner reality",
-              "correct": false
-            },
-            {
-              "text": "sacrificing something to get something better",
               "correct": false
             }
           ]
@@ -531,62 +337,71 @@
               "correct": false
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "node-kw-swipe",
+      "rounds": [
         {
-          "id": "n6-r3",
-          "words": [
-            {
-              "text": "harmony",
-              "correct": true
-            },
+          "id": "kw-swipe-r1",
+          "type": "swipe",
+          "cards": [
             {
               "text": "beauty",
-              "correct": true
+              "isMatch": true
+            },
+            {
+              "text": "creation",
+              "isMatch": true
+            },
+            {
+              "text": "harmony",
+              "isMatch": true
             },
             {
               "text": "in a relationship",
-              "correct": true
+              "isMatch": true
             },
             {
-              "text": "magic",
-              "correct": false
+              "text": "life",
+              "isMatch": true
             },
             {
-              "text": "abandon",
-              "correct": false
+              "text": "love",
+              "isMatch": true
             },
             {
-              "text": "inner reality",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r4",
-          "words": [
-            {
-              "text": "harmony",
-              "correct": true
+              "text": "nourishment",
+              "isMatch": true
             },
             {
-              "text": "beauty",
-              "correct": true
+              "text": "exploration",
+              "isMatch": false
             },
             {
-              "text": "in a relationship",
-              "correct": true
+              "text": "nonconformity",
+              "isMatch": false
             },
             {
-              "text": "overthinking",
-              "correct": false
+              "text": "spontaneity",
+              "isMatch": false
             },
             {
-              "text": "following the flow",
-              "correct": false
+              "text": "partnership",
+              "isMatch": false
             },
             {
-              "text": "need to lighten up",
-              "correct": false
+              "text": "communication",
+              "isMatch": false
+            },
+            {
+              "text": "shrewdness",
+              "isMatch": false
+            },
+            {
+              "text": "leadership",
+              "isMatch": false
             }
           ]
         }

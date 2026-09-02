@@ -1,0 +1,100 @@
+{
+  "id": "u8-riley-end",
+  "title": "The Whole Deck",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay, I think that's actually everything now.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "The Fool's leap, the Lovers' choice, the Empress's patience — a full toolkit.", "correct": true },
+        { "text": "Only the Fool actually matters, the other two are decoration.", "correct": false, "reaction": "anger" },
+        { "text": "Whichever card came up last cancels out the other two.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"If I ever have to make a call like the old-band choice again, which card do I lean on?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "None alone — a real reading holds several truths side by side.", "correct": true },
+        { "text": "Always the Fool, it's the most important card.", "correct": false, "reaction": "anger" },
+        { "text": "Whichever card you drew most recently always wins.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "That's the whole reason to read three cards instead of one — no single card has to carry the entire answer by itself."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Is there a wrong way to read your own cards?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Mostly just forcing them to say only what you want to hear.", "correct": true },
+        { "text": "Yes — you always need someone else to read for you.", "correct": false, "reaction": "anger" },
+        { "text": "No, any interpretation at all is automatically correct.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Huh. Never thought a deck of cards would make this much sense.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "\"One last thing — Dave mentioned he's already finished your risers.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Of course he did. I'll believe it when I see it not wobble.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "For what it's worth — nothing in this deck was ever about who you end up with. Just about what you choose, and how you carry it."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Thanks. Truly — for all of it. I think I finally see the whole toolkit now: the Fool's leap, the Lovers' choice, the Empress's patience. None of it needed anyone else to complete it — but I'm glad you were here for it anyway.\""
+    }
+  ]
+}

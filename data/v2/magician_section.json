@@ -116,19 +116,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n2-r3",
-          "words": [
-            {
-              "text": "personal ability",
-              "correct": true
-            },
-            {
-              "text": "elephant",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -157,19 +144,6 @@
             },
             {
               "text": "spaghetti",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r3",
-          "words": [
-            {
-              "text": "shrewdness",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
               "correct": false
             }
           ]
@@ -214,32 +188,6 @@
             },
             {
               "text": "helplessness",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r4",
-          "words": [
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "clumsiness",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r5",
-          "words": [
-            {
-              "text": "communication",
-              "correct": true
-            },
-            {
-              "text": "silence",
               "correct": false
             }
           ]
@@ -306,64 +254,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n5-r3",
-          "words": [
-            {
-              "text": "intelligence",
-              "correct": true
-            },
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "communication",
-              "correct": true
-            },
-            {
-              "text": "pineapple",
-              "correct": false
-            },
-            {
-              "text": "Monday",
-              "correct": false
-            },
-            {
-              "text": "banana",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r4",
-          "words": [
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "shrewdness",
-              "correct": true
-            },
-            {
-              "text": "personal ability",
-              "correct": true
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
-            },
-            {
-              "text": "purple",
-              "correct": false
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -424,64 +314,6 @@
             },
             {
               "text": "feminine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r3",
-          "words": [
-            {
-              "text": "intelligence",
-              "correct": true
-            },
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "communication",
-              "correct": true
-            },
-            {
-              "text": "sensitivity",
-              "correct": false
-            },
-            {
-              "text": "following the flow",
-              "correct": false
-            },
-            {
-              "text": "inner reality",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r4",
-          "words": [
-            {
-              "text": "skill",
-              "correct": true
-            },
-            {
-              "text": "personal ability",
-              "correct": true
-            },
-            {
-              "text": "communication",
-              "correct": true
-            },
-            {
-              "text": "magic",
-              "correct": false
-            },
-            {
-              "text": "need to lighten up",
-              "correct": false
-            },
-            {
-              "text": "inner obstruction we cause ourselves",
               "correct": false
             }
           ]
@@ -548,62 +380,55 @@
               "correct": false
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "node-kw-swipe",
+      "rounds": [
         {
-          "id": "n7-r3",
-          "words": [
-            {
-              "text": "personal ability",
-              "correct": true
-            },
+          "id": "kw-swipe-r1",
+          "type": "swipe",
+          "cards": [
             {
               "text": "communication",
-              "correct": true
+              "isMatch": true
+            },
+            {
+              "text": "intelligence",
+              "isMatch": true
+            },
+            {
+              "text": "personal ability",
+              "isMatch": true
             },
             {
               "text": "shrewdness",
-              "correct": true
+              "isMatch": true
             },
             {
-              "text": "feminine",
-              "correct": false
+              "text": "skill",
+              "isMatch": true
             },
             {
-              "text": "magic",
-              "correct": false
+              "text": "exploration",
+              "isMatch": false
             },
             {
-              "text": "mystery",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n7-r4",
-          "words": [
-            {
-              "text": "personal ability",
-              "correct": true
+              "text": "play",
+              "isMatch": false
             },
             {
-              "text": "communication",
-              "correct": true
+              "text": "choosing with the heart",
+              "isMatch": false
             },
             {
-              "text": "shrewdness",
-              "correct": true
+              "text": "beauty",
+              "isMatch": false
             },
             {
-              "text": "overthinking",
-              "correct": false
-            },
-            {
-              "text": "inner obstruction we cause ourselves",
-              "correct": false
-            },
-            {
-              "text": "need to lighten up",
-              "correct": false
+              "text": "life",
+              "isMatch": false
             }
           ]
         }

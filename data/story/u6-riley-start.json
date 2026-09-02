@@ -1,0 +1,73 @@
+{
+  "id": "u6-riley-start",
+  "title": "A Third Card",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Deep into the tour now, Riley's got something new to ask about."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"I've been writing so much more since I joined. It doesn't even feel like work. Is something actually coming out of it?\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_03_empress"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Something's ready to be born — an idea taking real shape.", "correct": true },
+        { "text": "It means you're at the edge of something unrelated.", "correct": false, "reaction": "confusion" },
+        { "text": "It means you'll have to choose between writing and the tour.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress marks the point where something that's just been forming quietly is finally ready to become real."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Is it okay that I'm not stressed about any of this right now?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "More than okay — it's a reminder to care for yourself first.", "correct": true },
+        { "text": "You should be more stressed than you are.", "correct": false, "reaction": "anger" },
+        { "text": "Stress levels don't factor into a reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress doesn't treat calm as denial — caring for yourself first is the whole point, not something to feel guilty about."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. Let's put the whole thing together.\""
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "u7-dave-end",
+  "title": "A Familiar Face in the Doorway",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. I think I'm actually ready to sign tomorrow.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Good — the Fool, the Lovers, and the Empress are all working together now.", "correct": true },
+        { "text": "That just means something new is about to fall apart.", "correct": false, "reaction": "anger" },
+        { "text": "That means you should still be protecting this quietly, not signing anything.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "That's the whole point of doing a reading like this together, instead of one card at a time — you get to see where all three actually agree."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "As Dave gets up to leave, someone else is already waiting by the door."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Oh — hey. You're the guy who was in here forever.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"...Guilty. You're Riley, right? Dave.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "There's a beat. You look between them, and can't help yourself."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "\"So — are you two...?\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "anger",
+      "speaker": "client",
+      "text": "\"No.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "anger",
+      "speaker": "client",
+      "text": "\"No.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "narration",
+      "text": "They say it in perfect unison, then both look a little embarrassed about how fast that was."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I just mentioned I've been building furniture. She needs stage risers for the tour.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Turns out 'sturdy' and 'won't collapse on a drummer' is harder to find than you'd think.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Sounds like a good partnership — no card required to see that.", "correct": true },
+        { "text": "That's a terrible business idea.", "correct": false, "reaction": "anger" },
+        { "text": "Furniture and tours have nothing to do with each other.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Wait, isn't this basically a Lovers moment — two people, one choice to work together?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Sort of — but the Lovers is about a choice you're facing, not two people meeting.", "correct": true },
+        { "text": "Yes, exactly — the card's about you two specifically.", "correct": false, "reaction": "anger" },
+        { "text": "No, the Lovers only ever means romance.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The card was never about who shows up in the doorway — it's about the choice itself, and you two each already made a different one, on different days, for different reasons."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Anyway. Good luck with your reading.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Thanks. ...He seems fine, by the way.\""
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "cardName": "The Empress",
   "nodes": [
     {
-      "id": "node-7",
+      "id": "node-1",
       "rounds": [
         {
           "id": "n7-r1",
@@ -77,12 +77,7 @@
             "Wednesday",
             "dreams"
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-10",
-      "rounds": [
+        },
         {
           "id": "n7-r1",
           "type": "swipe",
@@ -120,12 +115,7 @@
               "isMatch": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-1",
-      "rounds": [
+        },
         {
           "id": "n1-r1",
           "words": [
@@ -168,12 +158,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-11",
-      "rounds": [
+        },
         {
           "id": "n8-r1",
           "type": "swipe",
@@ -262,7 +247,7 @@
       ]
     },
     {
-      "id": "node-8",
+      "id": "node-3",
       "rounds": [
         {
           "id": "n8-r1",
@@ -365,7 +350,7 @@
       ]
     },
     {
-      "id": "node-3",
+      "id": "node-4",
       "rounds": [
         {
           "id": "n3-r1",
@@ -450,12 +435,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-4",
-      "rounds": [
+        },
         {
           "id": "n4-r1",
           "words": [
@@ -546,7 +526,7 @@
       ]
     },
     {
-      "id": "node-12",
+      "id": "node-5",
       "rounds": [
         {
           "id": "n9-r1",
@@ -589,12 +569,7 @@
               "_source": "The Hanged Man"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-5",
-      "rounds": [
+        },
         {
           "id": "n5-r1",
           "words": [
@@ -652,12 +627,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-6",
-      "rounds": [
+        },
         {
           "id": "n6-r1",
           "words": [
@@ -715,12 +685,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-kw-swipe",
-      "rounds": [
+        },
         {
           "id": "kw-swipe-r1",
           "type": "swipe",
@@ -786,7 +751,7 @@
       ]
     },
     {
-      "id": "node-9",
+      "id": "node-6",
       "rounds": [
         {
           "id": "n9-r1",
@@ -875,7 +840,7 @@
       ]
     },
     {
-      "id": "node-7-capstone",
+      "id": "node-7",
       "rounds": [
         {
           "id": "n7-r4",

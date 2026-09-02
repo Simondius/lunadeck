@@ -1,0 +1,121 @@
+{
+  "id": "u4-riley-end",
+  "title": "Present and Future",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Present", "Future"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley's back, having turned the old band down for good."
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for the present.",
+      "card": "major_06_lovers",
+      "slot": 0
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "You're still living inside the choice you just made.", "correct": true },
+        { "text": "This means you made the wrong choice.", "correct": false, "reaction": "anger" },
+        { "text": "The present has nothing to do with that choice.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers doesn't close once you decide — you're still standing inside the choice, and that's exactly what the present position means here."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So is the Fool card telling me I made the reckless choice by staying on tour?\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "reader",
+      "text": "You draw for the future.",
+      "card": "major_00_fool",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "No — it's about what's opening up next, not the choice itself.", "correct": true },
+        { "text": "Yes, it's confirming you were reckless.", "correct": false, "reaction": "anger" },
+        { "text": "It has nothing to do with what's ahead.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool in the future position isn't grading the choice you already made — it's pointing at the fresh start that choice is about to open."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"How does staying with a choice lead to a whole fresh start, though?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "Committing to it is what clears room for what's next.", "correct": true },
+        { "text": "It doesn't — the two cards contradict each other.", "correct": false, "reaction": "confusion" },
+        { "text": "The Lovers cancels out whatever the Fool says.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Standing firmly in the choice is exactly what makes room for the next fresh start — the Lovers settles something so the Fool has somewhere new to go."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"What if I still second-guess it later?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "That's normal — a real choice gets weighed even after.", "correct": true },
+        { "text": "You shouldn't ever think about it again.", "correct": false, "reaction": "anger" },
+        { "text": "Second-guessing means the choice was wrong.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Weighing every angle isn't a one-time event — the Lovers doesn't mind you circling back to check your own reasoning."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Okay. I think I finally get it — I'm still living inside a choice I already made, and what's next doesn't have to undo it. Thank you for that.\""
+    }
+  ]
+}

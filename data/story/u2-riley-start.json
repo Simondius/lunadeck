@@ -1,0 +1,90 @@
+{
+  "id": "u2-riley-start",
+  "title": "First Reading",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley settles into the chair Dave just left."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Hey.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Hey — what's going on?", "correct": true },
+        { "text": "Do I know you from somewhere?", "correct": false, "reaction": "confusion" },
+        { "text": "You're late.", "correct": false, "reaction": "anger" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I got offered a spot on tour with this band. But I'd have to drop out of my program to do it. I don't know if that's brave or just stupid.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_00_fool"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "A fresh start — one thing ending as another begins.", "correct": true },
+        { "text": "You're throwing away everything you worked for.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about decisions like that.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't grade what you're leaving behind — it just marks the exact moment one door closes and another opens."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I don't know, dropping out feels pretty reckless.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It's standing at the edge, calm, not scared of falling.", "correct": true },
+        { "text": "Reckless is exactly the right word.", "correct": false, "reaction": "anger" },
+        { "text": "The edge doesn't really mean anything here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Reckless would be jumping without noticing the edge at all. The Fool sees exactly where it's standing and steps off anyway."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Yeah. I think I get it.\""
+    }
+  ]
+}

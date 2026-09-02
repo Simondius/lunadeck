@@ -340,27 +340,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n2-r3",
-          "words": [
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "elephant",
-              "correct": false
-            },
-            {
-              "text": "choosing with the heart",
-              "correct": true
-            },
-            {
-              "text": "purple",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -448,27 +427,6 @@
             },
             {
               "text": "Wednesday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r3",
-          "words": [
-            {
-              "text": "choice",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            },
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "broccoli",
               "correct": false
             }
           ]
@@ -615,48 +573,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n4-r4",
-          "words": [
-            {
-              "text": "choosing with the heart",
-              "correct": true
-            },
-            {
-              "text": "cold logic",
-              "correct": false
-            },
-            {
-              "text": "choice",
-              "correct": true
-            },
-            {
-              "text": "obligation",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r5",
-          "words": [
-            {
-              "text": "partnership",
-              "correct": true
-            },
-            {
-              "text": "solitude",
-              "correct": false
-            },
-            {
-              "text": "variety",
-              "correct": true
-            },
-            {
-              "text": "sameness",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -717,64 +633,6 @@
             },
             {
               "text": "Friday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r3",
-          "words": [
-            {
-              "text": "variety",
-              "correct": true
-            },
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "partnership",
-              "correct": true
-            },
-            {
-              "text": "pineapple",
-              "correct": false
-            },
-            {
-              "text": "Monday",
-              "correct": false
-            },
-            {
-              "text": "banana",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r4",
-          "words": [
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "choosing with the heart",
-              "correct": true
-            },
-            {
-              "text": "choice",
-              "correct": true
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
-            },
-            {
-              "text": "purple",
-              "correct": false
-            },
-            {
-              "text": "Wednesday",
               "correct": false
             }
           ]
@@ -888,64 +746,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n6-r3",
-          "words": [
-            {
-              "text": "variety",
-              "correct": true
-            },
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "partnership",
-              "correct": true
-            },
-            {
-              "text": "sensitivity",
-              "correct": false
-            },
-            {
-              "text": "nonconformity",
-              "correct": false
-            },
-            {
-              "text": "breaking from old schemes",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r4",
-          "words": [
-            {
-              "text": "possibility",
-              "correct": true
-            },
-            {
-              "text": "choosing with the heart",
-              "correct": true
-            },
-            {
-              "text": "choice",
-              "correct": true
-            },
-            {
-              "text": "listening",
-              "correct": false
-            },
-            {
-              "text": "intuition",
-              "correct": false
-            },
-            {
-              "text": "magic",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -1009,62 +809,55 @@
               "correct": false
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "node-kw-swipe",
+      "rounds": [
         {
-          "id": "n7-r3",
-          "words": [
+          "id": "kw-swipe-r1",
+          "type": "swipe",
+          "cards": [
             {
-              "text": "possibility",
-              "correct": true
+              "text": "choice",
+              "isMatch": true
             },
             {
               "text": "choosing with the heart",
-              "correct": true
+              "isMatch": true
             },
             {
               "text": "partnership",
-              "correct": true
+              "isMatch": true
+            },
+            {
+              "text": "possibility",
+              "isMatch": true
+            },
+            {
+              "text": "variety",
+              "isMatch": true
             },
             {
               "text": "exploration",
-              "correct": false
+              "isMatch": false
             },
             {
-              "text": "nonconformity",
-              "correct": false
+              "text": "play",
+              "isMatch": false
             },
             {
-              "text": "intuition",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n7-r4",
-          "words": [
-            {
-              "text": "possibility",
-              "correct": true
+              "text": "intelligence",
+              "isMatch": false
             },
             {
-              "text": "choosing with the heart",
-              "correct": true
+              "text": "beauty",
+              "isMatch": false
             },
             {
-              "text": "partnership",
-              "correct": true
-            },
-            {
-              "text": "destruction",
-              "correct": false
-            },
-            {
-              "text": "unexpected transformation",
-              "correct": false
-            },
-            {
-              "text": "breaking from old schemes",
-              "correct": false
+              "text": "life",
+              "isMatch": false
             }
           ]
         }

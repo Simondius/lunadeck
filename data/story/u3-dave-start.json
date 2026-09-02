@@ -1,0 +1,73 @@
+{
+  "id": "u3-dave-start",
+  "title": "A Second Card",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "A few weeks on. Dave's back, a little more settled than last time."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I need help with something else now. There's a chance to go into business with someone — using something I've been quietly building on the side. I don't know if I should take it.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_06_lovers"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "A real choice ahead — worth weighing from every angle.", "correct": true },
+        { "text": "It means you're going to lose someone over this.", "correct": false, "reaction": "anger" },
+        { "text": "This card just means you shouldn't trust them.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers isn't a verdict on the outcome — it's just naming that a real decision, not a formality, is sitting in front of you."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"There's someone I'd be going into business with. I don't want to drag them into something that fails.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Choose with more than logic — trust your gut too.", "correct": true },
+        { "text": "Then don't drag them into it at all.", "correct": false, "reaction": "anger" },
+        { "text": "Their feelings aren't really relevant.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Weighing every angle includes the ones that don't show up on a spreadsheet — this card wants your gut in the room too, not just the plan."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. Let me sit with that.\""
+    }
+  ]
+}

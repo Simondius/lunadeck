@@ -62,6 +62,15 @@ const MENU = [
               window.location.href = "/v3";
             },
           },
+          {
+            // Narrative + lessons merged into one path (0057) - its own
+            // top-level entry alongside v1/v2/v3, not a Story subgroup
+            // item, since it's a curriculum variant like the other three.
+            label: "v4 (narrative + lessons, Dave/Riley)",
+            run: () => {
+              window.location.href = "/v4";
+            },
+          },
         ],
       },
     ],

@@ -3,7 +3,7 @@
   "cardName": "The Fool",
   "nodes": [
     {
-      "id": "node-8",
+      "id": "node-1",
       "rounds": [
         {
           "id": "n8-r1",
@@ -101,12 +101,7 @@
             "introspection",
             "freedom"
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-11",
-      "rounds": [
+        },
         {
           "id": "n8-r1",
           "type": "swipe",
@@ -148,7 +143,7 @@
       ]
     },
     {
-      "id": "node-1",
+      "id": "node-2",
       "rounds": [
         {
           "id": "n1-r1",
@@ -159,10 +154,10 @@
               "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
               "rects": [
                 {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.59,
                   "x1": 0.78,
-                  "y1": 1.0
+                  "y1": 1
                 }
               ],
               "name": "Cliff edge"
@@ -186,8 +181,8 @@
               "rects": [
                 {
                   "x0": 0.65,
-                  "y0": 0.0,
-                  "x1": 1.0,
+                  "y0": 0,
+                  "x1": 1,
                   "y1": 0.28
                 }
               ],
@@ -231,15 +226,15 @@
               "text": "Night sky: He moves by feel, not by sight.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.0,
+                  "x0": 0,
+                  "y0": 0,
                   "x1": 0.7,
                   "y1": 0.3
                 },
                 {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.3,
-                  "x1": 1.0,
+                  "x1": 1,
                   "y1": 0.59
                 }
               ],
@@ -282,15 +277,15 @@
               "text": "Night sky: He moves by feel, not by sight.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.0,
+                  "x0": 0,
+                  "y0": 0,
                   "x1": 0.7,
                   "y1": 0.3
                 },
                 {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.3,
-                  "x1": 1.0,
+                  "x1": 1,
                   "y1": 0.59
                 }
               ],
@@ -307,10 +302,10 @@
               "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
               "rects": [
                 {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.59,
                   "x1": 0.78,
-                  "y1": 1.0
+                  "y1": 1
                 }
               ],
               "name": "Cliff edge"
@@ -334,8 +329,8 @@
               "rects": [
                 {
                   "x0": 0.65,
-                  "y0": 0.0,
-                  "x1": 1.0,
+                  "y0": 0,
+                  "x1": 1,
                   "y1": 0.28
                 }
               ],
@@ -388,7 +383,7 @@
       ]
     },
     {
-      "id": "node-2",
+      "id": "node-3",
       "rounds": [
         {
           "id": "n2-r1",
@@ -453,12 +448,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-12",
-      "rounds": [
+        },
         {
           "id": "n9-r1",
           "type": "swipe",
@@ -496,12 +486,7 @@
               "isMatch": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-3",
-      "rounds": [
+        },
         {
           "id": "n3-r1",
           "words": [
@@ -589,7 +574,7 @@
       ]
     },
     {
-      "id": "node-9",
+      "id": "node-4",
       "rounds": [
         {
           "id": "n9-r1",
@@ -706,7 +691,7 @@
       ]
     },
     {
-      "id": "node-4",
+      "id": "node-5",
       "rounds": [
         {
           "id": "n4-r1",
@@ -791,12 +776,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-5",
-      "rounds": [
+        },
         {
           "id": "n5-r1",
           "words": [
@@ -883,12 +863,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-13",
-      "rounds": [
+        },
         {
           "id": "n10-r1",
           "type": "swipe",
@@ -1022,12 +997,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-7",
-      "rounds": [
+        },
         {
           "id": "n7-r1",
           "words": [
@@ -1114,12 +1084,7 @@
               "correct": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-kw-swipe",
-      "rounds": [
+        },
         {
           "id": "kw-swipe-r1",
           "type": "swipe",
@@ -1185,7 +1150,7 @@
       ]
     },
     {
-      "id": "node-10",
+      "id": "node-7",
       "rounds": [
         {
           "id": "n10-r1",
@@ -1270,12 +1235,7 @@
             "Only says yes once every risk is removed",
             "The message arrives through a trusted teacher"
           ]
-        }
-      ]
-    },
-    {
-      "id": "node-8-capstone",
-      "rounds": [
+        },
         {
           "id": "n8-r5",
           "type": "cloze",

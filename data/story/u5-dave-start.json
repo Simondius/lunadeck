@@ -1,0 +1,73 @@
+{
+  "id": "u5-dave-start",
+  "title": "A Third Card",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Months on. The partnership's underway, and Dave wants to look further back."
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Before any of this — the workshop. I've been building furniture on weekends for two years and never told anyone at work.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_03_empress"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Something's been growing quietly underneath it all.", "correct": true },
+        { "text": "It means you wasted years on something pointless.", "correct": false, "reaction": "anger" },
+        { "text": "The past doesn't really factor into a reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress here points at something that was already alive before you told a single person about it — quietly, out of view."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Was I wrong to keep it to myself this whole time?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "No — protecting it quietly was caring for yourself first.", "correct": true },
+        { "text": "Yes, hiding things from people you trust is wrong.", "correct": false, "reaction": "anger" },
+        { "text": "Whether you were wrong isn't something a reading can say.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress's other message: care for yourself first. Keeping something safe while it's still forming counts."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. Let's put the whole thing together.\""
+    }
+  ]
+}

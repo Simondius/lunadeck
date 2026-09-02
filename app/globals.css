@@ -3701,6 +3701,13 @@ a.slot { display: block; }
   animation: v2CardFloat 7s ease-in-out infinite, v2CardGlow 7s ease-in-out infinite;
 }
 
+/* v4's own reuse of this companion slot for a character portrait instead
+   of card art (Simon's own call, 0057) - same transparent-ground issue as
+   .v4-character-shape above, needs the same light backing. */
+.v2-companion.is-character {
+  background: #e7e3da;
+}
+
 .v2-companion.is-left {
   left: 4px;
 }
@@ -3748,6 +3755,56 @@ a.slot { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .v2-companion { animation: none; box-shadow: 0 0 0 1px var(--accent-a30); }
   .v2-companion::after { animation: none; display: none; }
+}
+
+/* --- v4 path: the character node ---------------------------------------
+   A new, more dramatic node type for the start/end narrative steps
+   (docs/decisions/0057, Simon's own brief: "a new icon that is more
+   dramatic") - visually distinct from every .v2-shape-* lesson glyph
+   rather than forced through that same circle/hex/square/oct system,
+   since a narrative beat isn't a round type. Bigger than a lesson node,
+   a torch-lit portrait crop instead of a flat icon, with its own
+   slow-breathing glow standing in for the "dramatic" ask. */
+.v4-character-shape {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  /* The character art (public/assets/reading-scene-sketch-v2) is grey/
+     black linework on a transparent ground, meant to sit on a light page
+     (see .story-stage) - without its own light backing here it reads as
+     nearly invisible against the path's dark starfield. */
+  background: #e7e3da;
+  box-shadow:
+    0 0 0 3px var(--accent),
+    0 0 0 6px rgba(20, 16, 12, 0.4),
+    0 0 22px 4px var(--accent-a45);
+  animation: v4CharacterGlow 4s ease-in-out infinite;
+}
+
+.v4-character-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+@keyframes v4CharacterGlow {
+  0%, 100% { box-shadow: 0 0 0 3px var(--accent), 0 0 0 6px rgba(20, 16, 12, 0.4), 0 0 18px 3px var(--accent-a30); }
+  50% { box-shadow: 0 0 0 3px var(--accent-bright), 0 0 0 6px rgba(20, 16, 12, 0.4), 0 0 30px 6px var(--accent-a45); }
+}
+
+.v4-character-step.is-current .v4-character-shape {
+  width: 100px;
+  height: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-character-shape { animation: none; }
 }
 
 /* --- the full-screen reveal ------------------------------------------ */

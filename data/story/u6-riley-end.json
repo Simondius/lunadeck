@@ -1,0 +1,144 @@
+{
+  "id": "u6-riley-end",
+  "title": "The Whole Reading",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley lays out all three cards together for the first time."
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "The past: the choice you already made.",
+      "card": "major_06_lovers",
+      "slot": 0
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "The present: what's flourishing right now.",
+      "card": "major_03_empress",
+      "slot": 1
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "The future: whatever's opening up next.",
+      "card": "major_00_fool",
+      "slot": 2
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me, then. Does the Lovers being in my past mean that choice is done and I shouldn't think about it again?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 0,
+      "options": [
+        { "text": "No — a real choice can still be weighed even after.", "correct": true },
+        { "text": "Yes, you're not allowed to revisit it.", "correct": false, "reaction": "anger" },
+        { "text": "A past-position card has no relevance anymore.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Past position doesn't mean closed book — the Lovers is fine with you weighing it again, even from the other side of the decision."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And the Empress in the present — does that mean I should stop touring and go all in on writing right now?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "No — it just says something's flourishing, not what to drop.", "correct": true },
+        { "text": "Yes, you should quit the tour immediately.", "correct": false, "reaction": "anger" },
+        { "text": "The Empress can't apply to two things at once.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress names what's alive right now — it isn't handing you an ultimatum about what to give up for it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"And the Fool in the future — is that a totally different fresh start, unrelated to the writing?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 2,
+      "options": [
+        { "text": "Not necessarily — it could be this same thing opening further.", "correct": true },
+        { "text": "Yes, it has to be something completely separate.", "correct": false, "reaction": "confusion" },
+        { "text": "The Fool always cancels out whatever came before.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A fresh start doesn't have to mean a different thing entirely — the Fool in the future can just as easily be this same idea taking its next leap."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Last one — do all three cards have to agree with each other to make sense?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "No — a reading is a conversation between cards, not a consensus.", "correct": true },
+        { "text": "Yes, if they disagree the reading is wrong.", "correct": false, "reaction": "anger" },
+        { "text": "Only the middle card actually matters.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Three cards don't need to point the same direction to be true together — a real choice, a real flourishing, and a real fresh start can all sit side by side."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "One thread ties all three: a choice you stood behind, something real growing because you let it, and room opening up for whatever's next."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Thanks. I think that's the real lesson — the choice I made, what's flourishing right now, and whatever's coming next all belong together. That's exactly what I needed to hear.\""
+    }
+  ]
+}

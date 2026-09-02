@@ -44,45 +44,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n2-r4",
-          "words": [
-            {
-              "text": "levity",
-              "correct": true
-            },
-            {
-              "text": "purple",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n2-r5",
-          "words": [
-            {
-              "text": "nonconformity",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n2-r6",
-          "words": [
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -140,45 +101,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n3-r5",
-          "words": [
-            {
-              "text": "intuition",
-              "correct": true
-            },
-            {
-              "text": "bicycle",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r6",
-          "words": [
-            {
-              "text": "play",
-              "correct": true
-            },
-            {
-              "text": "Friday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r7",
-          "words": [
-            {
-              "text": "spontaneity",
-              "correct": true
-            },
-            {
-              "text": "pineapple",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -233,45 +155,6 @@
             },
             {
               "text": "logic",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r5",
-          "words": [
-            {
-              "text": "play",
-              "correct": true
-            },
-            {
-              "text": "duty",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r6",
-          "words": [
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "routine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r7",
-          "words": [
-            {
-              "text": "spontaneity",
-              "correct": true
-            },
-            {
-              "text": "planning",
               "correct": false
             }
           ]
@@ -364,64 +247,6 @@
             },
             {
               "text": "planning",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r4",
-          "words": [
-            {
-              "text": "speed",
-              "correct": true
-            },
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "levity",
-              "correct": true
-            },
-            {
-              "text": "routine",
-              "correct": false
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
-            },
-            {
-              "text": "Tuesday",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r5",
-          "words": [
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "intuition",
-              "correct": true
-            },
-            {
-              "text": "spontaneity",
-              "correct": true
-            },
-            {
-              "text": "seriousness",
-              "correct": false
-            },
-            {
-              "text": "broccoli",
-              "correct": false
-            },
-            {
-              "text": "Thursday",
               "correct": false
             }
           ]
@@ -757,64 +582,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n6-r4",
-          "words": [
-            {
-              "text": "play",
-              "correct": true
-            },
-            {
-              "text": "levity",
-              "correct": true
-            },
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "pause",
-              "correct": false
-            },
-            {
-              "text": "luck",
-              "correct": false
-            },
-            {
-              "text": "responsibility",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r5",
-          "words": [
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "speed",
-              "correct": true
-            },
-            {
-              "text": "spontaneity",
-              "correct": true
-            },
-            {
-              "text": "hope",
-              "correct": false
-            },
-            {
-              "text": "mystery",
-              "correct": false
-            },
-            {
-              "text": "destruction",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -907,62 +674,71 @@
               "correct": false
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "node-kw-swipe",
+      "rounds": [
         {
-          "id": "n7-r4",
-          "words": [
-            {
-              "text": "play",
-              "correct": true
-            },
+          "id": "kw-swipe-r1",
+          "type": "swipe",
+          "cards": [
             {
               "text": "exploration",
-              "correct": true
+              "isMatch": true
             },
             {
-              "text": "nonconformity",
-              "correct": true
-            },
-            {
-              "text": "bicycle",
-              "correct": false
-            },
-            {
-              "text": "Thursday",
-              "correct": false
-            },
-            {
-              "text": "mystery",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n7-r5",
-          "words": [
-            {
-              "text": "speed",
-              "correct": true
+              "text": "intuition",
+              "isMatch": true
             },
             {
               "text": "levity",
-              "correct": true
+              "isMatch": true
+            },
+            {
+              "text": "nonconformity",
+              "isMatch": true
+            },
+            {
+              "text": "play",
+              "isMatch": true
+            },
+            {
+              "text": "speed",
+              "isMatch": true
             },
             {
               "text": "spontaneity",
-              "correct": true
+              "isMatch": true
             },
             {
-              "text": "umbrella",
-              "correct": false
+              "text": "choice",
+              "isMatch": false
             },
             {
-              "text": "tradition",
-              "correct": false
+              "text": "possibility",
+              "isMatch": false
             },
             {
-              "text": "hope",
-              "correct": false
+              "text": "intelligence",
+              "isMatch": false
+            },
+            {
+              "text": "skill",
+              "isMatch": false
+            },
+            {
+              "text": "harmony",
+              "isMatch": false
+            },
+            {
+              "text": "love",
+              "isMatch": false
+            },
+            {
+              "text": "leadership",
+              "isMatch": false
             }
           ]
         }
@@ -1259,7 +1035,7 @@
             "pizza",
             "teacup",
             "faith",
-            "freedom"
+            "stranger"
           ]
         }
       ]
@@ -1280,7 +1056,7 @@
           "distractors": [
             "banana",
             "Thursday",
-            "journey"
+            "stranger"
           ]
         },
         {
@@ -1296,7 +1072,7 @@
           "distractors": [
             "Tuesday",
             "umbrella",
-            "spontaneity"
+            "anger"
           ]
         },
         {
@@ -1312,7 +1088,7 @@
           "distractors": [
             "elephant",
             "spaghetti",
-            "unknown"
+            "crowd"
           ]
         },
         {
@@ -1328,7 +1104,7 @@
           "distractors": [
             "purple",
             "bicycle",
-            "leap"
+            "coin"
           ]
         },
         {
@@ -1376,7 +1152,7 @@
           "distractors": [
             "banana",
             "umbrella",
-            "freedom"
+            "silence"
           ]
         }
       ]

@@ -1,0 +1,121 @@
+{
+  "id": "u3-dave-end",
+  "title": "Present and Future",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Present", "Future"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave's back a few days later, ready to look at the whole picture."
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for the present.",
+      "card": "major_00_fool",
+      "slot": 0
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "You're still living the leap you already took.", "correct": true },
+        { "text": "This means you should undo the leap.", "correct": false, "reaction": "anger" },
+        { "text": "The present doesn't connect to the past draw.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't end once you jump — you're still mid-air here, and that's exactly where the present sits."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So does the Lovers card mean I'm going to fall for my business partner or something?\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "reader",
+      "text": "You draw for the future.",
+      "card": "major_06_lovers",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "No — it's about the partnership decision, not romance.", "correct": true },
+        { "text": "It's definitely a sign about your love life.", "correct": false, "reaction": "anger" },
+        { "text": "This card can't be about a business decision.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers shows up for any real fork in the road — this one's a partnership, not a romance, and the card doesn't care which."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay. But how do these two even relate to each other?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 0,
+      "options": [
+        { "text": "The leap got you here — the choice decides what's next.", "correct": true },
+        { "text": "They don't relate to each other at all.", "correct": false, "reaction": "confusion" },
+        { "text": "The first card cancels out the second.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "One card set you in motion, the other's asking what you do with that motion — the Fool opened the door the Lovers is now standing in."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"If I say yes to this partnership, doesn't that undo the whole leap-of-faith thing?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 1,
+      "options": [
+        { "text": "No — choosing carefully isn't the opposite of leaping.", "correct": true },
+        { "text": "Yes, a real leap means never planning ahead.", "correct": false, "reaction": "confusion" },
+        { "text": "Any plan at all ruins the reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool got you off the ledge. The Lovers is just asking you to weigh this next step with more than your gut alone — that's not backing down from the leap."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Okay. I think I finally get it — the leap already happened, and this choice just needs my gut in the room too, not only the plan. Thank you — really.\""
+    }
+  ]
+}

@@ -116,19 +116,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n2-r3",
-          "words": [
-            {
-              "text": "sprouting",
-              "correct": true
-            },
-            {
-              "text": "elephant",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -157,19 +144,6 @@
             },
             {
               "text": "spaghetti",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n3-r3",
-          "words": [
-            {
-              "text": "action",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
               "correct": false
             }
           ]
@@ -214,32 +188,6 @@
             },
             {
               "text": "decay",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r4",
-          "words": [
-            {
-              "text": "life force",
-              "correct": true
-            },
-            {
-              "text": "exhaustion",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r5",
-          "words": [
-            {
-              "text": "leadership",
-              "correct": true
-            },
-            {
-              "text": "submission",
               "correct": false
             }
           ]
@@ -306,64 +254,6 @@
               "correct": false
             }
           ]
-        },
-        {
-          "id": "n5-r3",
-          "words": [
-            {
-              "text": "personal limits",
-              "correct": true
-            },
-            {
-              "text": "sprouting",
-              "correct": true
-            },
-            {
-              "text": "leadership",
-              "correct": true
-            },
-            {
-              "text": "pineapple",
-              "correct": false
-            },
-            {
-              "text": "Monday",
-              "correct": false
-            },
-            {
-              "text": "banana",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n5-r4",
-          "words": [
-            {
-              "text": "sprouting",
-              "correct": true
-            },
-            {
-              "text": "life force",
-              "correct": true
-            },
-            {
-              "text": "action",
-              "correct": true
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
-            },
-            {
-              "text": "purple",
-              "correct": false
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
-            }
-          ]
         }
       ]
     },
@@ -424,64 +314,6 @@
             },
             {
               "text": "mystery",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r3",
-          "words": [
-            {
-              "text": "personal limits",
-              "correct": true
-            },
-            {
-              "text": "sprouting",
-              "correct": true
-            },
-            {
-              "text": "leadership",
-              "correct": true
-            },
-            {
-              "text": "sensitivity",
-              "correct": false
-            },
-            {
-              "text": "following the flow",
-              "correct": false
-            },
-            {
-              "text": "feminine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r4",
-          "words": [
-            {
-              "text": "sprouting",
-              "correct": true
-            },
-            {
-              "text": "life force",
-              "correct": true
-            },
-            {
-              "text": "action",
-              "correct": true
-            },
-            {
-              "text": "listening",
-              "correct": false
-            },
-            {
-              "text": "magic",
-              "correct": false
-            },
-            {
-              "text": "sacrificing something to get something better",
               "correct": false
             }
           ]
@@ -548,62 +380,55 @@
               "correct": false
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "node-kw-swipe",
+      "rounds": [
         {
-          "id": "n7-r3",
-          "words": [
+          "id": "kw-swipe-r1",
+          "type": "swipe",
+          "cards": [
             {
-              "text": "personal limits",
-              "correct": true
+              "text": "action",
+              "isMatch": true
             },
             {
               "text": "leadership",
-              "correct": true
+              "isMatch": true
             },
             {
               "text": "life force",
-              "correct": true
+              "isMatch": true
             },
-            {
-              "text": "dreams",
-              "correct": false
-            },
-            {
-              "text": "inner reality",
-              "correct": false
-            },
-            {
-              "text": "feminine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n7-r4",
-          "words": [
             {
               "text": "personal limits",
-              "correct": true
+              "isMatch": true
             },
             {
-              "text": "leadership",
-              "correct": true
+              "text": "sprouting",
+              "isMatch": true
             },
             {
-              "text": "life force",
-              "correct": true
+              "text": "exploration",
+              "isMatch": false
             },
             {
-              "text": "mystery",
-              "correct": false
+              "text": "play",
+              "isMatch": false
             },
             {
-              "text": "sensitivity",
-              "correct": false
+              "text": "choosing with the heart",
+              "isMatch": false
             },
             {
-              "text": "magic",
-              "correct": false
+              "text": "communication",
+              "isMatch": false
+            },
+            {
+              "text": "skill",
+              "isMatch": false
             }
           ]
         }
@@ -814,7 +639,7 @@
           "distractors": [
             "elephant",
             "Wednesday",
-            "pause"
+            "thunder"
           ]
         },
         {
@@ -898,7 +723,7 @@
           "distractors": [
             "pizza",
             "teacup",
-            "pause",
+            "thunder",
             "dreams"
           ]
         }

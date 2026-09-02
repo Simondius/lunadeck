@@ -1,0 +1,73 @@
+{
+  "id": "u4-riley-start",
+  "title": "A Second Card",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "A few weeks into rehearsals, Riley's back with a different question."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"My old band asked if I'd come back instead. I have to answer by tonight, and I don't know which way to go.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_06_lovers"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Two real paths — the challenge is choosing, not lacking options.", "correct": true },
+        { "text": "It means one of these paths is objectively wrong.", "correct": false, "reaction": "anger" },
+        { "text": "This card can't help with something like this.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers doesn't say one path is the mistake — it says both are real enough that choosing between them is the actual hard part."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"On paper the tour makes way less sense. But something about it feels right.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Choose with your gut here, not just what's sensible.", "correct": true },
+        { "text": "Ignore that feeling completely.", "correct": false, "reaction": "anger" },
+        { "text": "What makes sense on paper is all that matters.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "This card asks for more than the sensible calculation — it wants the choice made with your gut in the room too."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Okay. I think I know what I'm telling them.\""
+    }
+  ]
+}

@@ -44,20 +44,12 @@
       "character": "dave",
       "emotion": "neutral",
       "options": [
-        {
-          "text": "The Fool's about starting fresh — standing at the edge and choosing to jump.",
-          "correct": true
-        },
-        {
-          "text": "The Fool means you're an idiot for staying in a job you hate this long.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Actually, this card isn't about your job at all — try not to overthink it.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Starting fresh — standing at the edge, choosing to jump.", "correct": true },
+        { "text": "You're an idiot for staying this long.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about your job at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool's never really about the job itself — it's about you finally being willing to leap without knowing exactly where you'll land."
       ]
     },
     {
@@ -72,20 +64,32 @@
       "character": "dave",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "It's about being willing to leap before you know exactly where you'll land.",
-          "correct": true
-        },
-        {
-          "text": "You clearly don't want my help, so why did you even come here?",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "You're right, let's just ignore the card and talk about something else.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "It's about leaping before you know where you'll land.", "correct": true },
+        { "text": "You clearly don't want my help.", "correct": false, "reaction": "anger" },
+        { "text": "Let's just ignore the card, then.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't wait around for certainty — it trusts that clarity shows up after the jump, not before it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Wait — the card's literally called The Fool. Are you saying I'm being an idiot?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — fool here means fearless beginner, not stupid.", "correct": true },
+        { "text": "Kind of, yeah.", "correct": false, "reaction": "anger" },
+        { "text": "Honestly, the name doesn't mean much.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Every deck names it that on purpose — the Fool is the one person unjaded enough to actually take the leap. That's a compliment here, not an insult."
       ]
     },
     {
@@ -100,20 +104,12 @@
       "character": "dave",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "That fear's the whole test — the Fool says yes to the unknown instead of playing it safe.",
-          "correct": true
-        },
-        {
-          "text": "Then you'll have proven everyone right about you.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Failure isn't really a possibility if you don't think about it.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That fear's the test — it says yes to the unknown.", "correct": true },
+        { "text": "Then you'll have proven everyone right.", "correct": false, "reaction": "anger" },
+        { "text": "Failure isn't possible if you don't think about it.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Playing it safe was always the other option on the table. The Fool picks the leap anyway."
       ]
     },
     {
@@ -135,20 +131,12 @@
       "character": "dave",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "You don't need it all mapped out — the path tends to appear once you take the step.",
-          "correct": true
-        },
-        {
-          "text": "Then you're not ready, and you should just stay where you are.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "A plan doesn't really matter either way.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "You don't need it mapped out — the path appears once you step.", "correct": true },
+        { "text": "Then you're not ready — stay put.", "correct": false, "reaction": "anger" },
+        { "text": "A plan doesn't matter either way.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool trusts the ground will be there before it's visible. That's not recklessness — it's the whole point of the card."
       ]
     },
     {
@@ -170,20 +158,12 @@
       "character": "dave",
       "emotion": "anger",
       "options": [
-        {
-          "text": "That reaction's kind of the point — this is nonconformist, go-against-convention energy.",
-          "correct": true
-        },
-        {
-          "text": "They're right, you should probably listen to them instead.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "What other people think shouldn't factor into this at all.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That reaction's the point — it's nonconformist energy.", "correct": true },
+        { "text": "They're right, you should listen to them.", "correct": false, "reaction": "anger" },
+        { "text": "What others think shouldn't factor in.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool was never going to look sensible to everyone else — it's the one card that's fine going against convention."
       ]
     },
     {
@@ -205,20 +185,12 @@
       "character": "dave",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "That's not foolish — it's a beginner's mind, curious instead of guarded and jaded.",
-          "correct": true
-        },
-        {
-          "text": "You should feel that way, honestly — you waited too long.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Age doesn't come into a tarot reading at all.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That's not foolish — it's a beginner's mind.", "correct": true },
+        { "text": "Honestly, you waited too long.", "correct": false, "reaction": "anger" },
+        { "text": "Age doesn't come into a reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A beginner's mind is curious, not behind — unguarded and unjaded is exactly the energy this card wants from you."
       ]
     },
     {

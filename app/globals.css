@@ -3086,6 +3086,74 @@ a.slot { display: block; }
   cursor: grabbing;
 }
 
+/* The minimized form (0056) - fixed to the top-right corner of the frame
+   rather than the FAB's own draggable position, and sized to match a
+   .tab-icon glyph (18px) rather than the 52px FAB, so it reads as a
+   small out-of-the-way marker instead of a persistent floating button.
+   Same fixed-to-.app-frame positioning quirk as .dev-console itself (see
+   frameBox() in dev-console.jsx) - top/right here are relative to the
+   phone frame, not the browser window, which is exactly what parks it
+   in the corner of the device illusion rather than the page. */
+.dev-console-mini {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #38383f;
+  color: #e4e4ea;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 6px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dev-console-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dev-console-menu-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #75757d;
+}
+
+/* Minimizes the console (0056) rather than closing it outright - there's
+   nothing to "quit," just .dev-console-mini to tap when it's wanted
+   again. */
+.dev-console-minimize {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: #9a9aa2;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dev-console-minimize:hover,
+.dev-console-minimize:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e4e4ea;
+}
+
 /* Only rendered while a NodeSession is mounted (lib/dev-console-bridge.js) -
    step through the current node's rounds without completing them. Anchored
    to .dev-console itself (same fixed positioning context as the FAB), so
@@ -5075,7 +5143,9 @@ body.is-revealing { overflow: hidden; }
   overflow: hidden;
 }
 
-.story-stage.is-tappable { cursor: pointer; }
+/* Whole-page tap target now (0053: "make the entire page clickable"),
+   not just the stage - is-tappable lands on the outer <main> itself. */
+.session.is-story-lesson.is-tappable { cursor: pointer; }
 
 .story-layer {
   position: absolute;
@@ -5153,11 +5223,13 @@ body.is-revealing { overflow: hidden; }
 
 /* The one real tarot card, not sketch art - lifts off the pile and flips
    to face the viewer once a "reveal" beat fires (chapter-player.jsx's own
-   CARD_PILE/CARD_PROMINENT/CARD_RESTING keyframes), then shrinks back down
-   to rest beside the pile on the tap that dismisses it, staying there for
-   the rest of the chapter. Position/size/rotation are driven entirely by
-   inline style + Web Animations from JS, not by this rule - it only sets
-   what never changes during that animation. */
+   CARD_PILE/CARD_FOCUS keyframes, plus its slot-recall transitions,
+   0056), then stays in the focus spot rather than shrinking away -
+   position/size/rotation are driven entirely by inline style + Web
+   Animations from JS, not by this rule - it only sets what never changes
+   during that animation. pointer-events is back on (its .story-layer
+   parent class turns it off by default) so a tap can open the zoom
+   overlay instead of falling through to the whole-page dismiss tap. */
 .story-revealed-card {
   position: absolute;
   z-index: 3;
@@ -5165,6 +5237,8 @@ body.is-revealing { overflow: hidden; }
   border-radius: 4%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   backface-visibility: hidden;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .story-hands-art {
@@ -5183,12 +5257,19 @@ body.is-revealing { overflow: hidden; }
    split, 0050), so a fixed anchor per side reads identically to a
    measured one without the layout-effect machinery a measured one would
    need. This is the left-character (Dave) variant, extending rightward
-   from near his face; .is-side-right mirrors it for Riley. */
+   from near his face; .is-side-right mirrors it for Riley.
+
+   Sits BELOW the face rather than above it (0056: "position the text
+   bubbles lower so client's face is visible") - .story-character-art
+   tops out at top:4%, so there's no real headroom above the head to put
+   a bubble into without it just overlapping the face anyway; parking it
+   at the chest/tie level with an upward tail (below) leaves the whole
+   face - measured at roughly 8%-20% of the stage - clear. */
 .story-bubble {
   position: absolute;
-  top: 5%;
-  left: 8%;
-  max-width: 58%;
+  top: 22%;
+  left: 6%;
+  max-width: 56%;
   z-index: 5;
   background: #fdfcf8;
   border: 2px solid #1a1a1a;
@@ -5201,42 +5282,41 @@ body.is-revealing { overflow: hidden; }
 
 .story-bubble.is-side-right {
   left: auto;
-  right: 8%;
+  right: 6%;
 }
 
-/* The bubble's own tail, pointing down toward the character's face. */
+/* The bubble's own tail, pointing UP at the character's face (0056) -
+   positioned via --tail-x, a pixel offset from the bubble's own left
+   edge that chapter-player.jsx measures directly off the rendered DOM
+   (the character's own horizontal center) and re-measures whenever the
+   bubble's text - and so its width - changes, rather than a fixed
+   percentage that would drift off the character as dialogue length
+   changes the bubble's own width. left, not right, works for both sides:
+   the offset is always computed from the bubble's actual left edge
+   regardless of which side of the stage that edge happens to sit on. The
+   18% fallback only matters before the first measurement lands. */
 .story-bubble::after {
   content: "";
   position: absolute;
-  left: 38%;
-  bottom: -14px;
+  left: var(--tail-x, 18%);
+  top: -14px;
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top-color: #fdfcf8;
-  border-bottom: 0;
+  border-bottom-color: #fdfcf8;
+  border-top: 0;
 }
 
 .story-bubble::before {
   content: "";
   position: absolute;
-  left: 38%;
-  bottom: -18px;
+  left: var(--tail-x, 18%);
+  top: -18px;
   width: 0;
   height: 0;
   border: 12px solid transparent;
-  border-top-color: #1a1a1a;
-  border-bottom: 0;
-}
-
-.story-bubble.is-side-right::after {
-  left: auto;
-  right: 38%;
-}
-
-.story-bubble.is-side-right::before {
-  left: auto;
-  right: 38%;
+  border-bottom-color: #1a1a1a;
+  border-top: 0;
 }
 
 /* Tap-to-continue on a speech bubble doesn't just cut away - it glimmers
@@ -5268,15 +5348,61 @@ body.is-revealing { overflow: hidden; }
   color: #1a1a1a;
 }
 
-/* The reader's own line, or scene narration - overlaid on the stage
-   itself rather than in a box below it (0050: "interaction instructions
-   should overlap on top of the image"). */
-.story-caption {
+/* The reader's own reaction to a correct pick (0056: "a speech bubble
+   appears at the bottom of the image and attributed to the user") - can
+   run multiple steps in a row, each tapped through like a client bubble,
+   before the beat actually advances. Bottom-center rather than anchored
+   to a face: the reader has no on-stage portrait to anchor a tail to. */
+.story-reader-bubble {
   position: absolute;
-  left: 5%;
-  right: 5%;
-  bottom: 6%;
-  z-index: 5;
+  left: 8%;
+  right: 8%;
+  bottom: 5%;
+  z-index: 6;
+  background: #fdfcf8;
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.story-reader-bubble.is-dismissing {
+  animation: story-bubble-dismiss 500ms ease forwards;
+}
+
+/* Tapping the big card or a slot's own thumbnail (0056: "tapping on any
+   card at any point should expand to full screen") opens this instead of
+   whatever the tap would otherwise have done - stopPropagation on the
+   card's own onClick keeps it from also firing the whole-page dismiss/
+   advance tap underneath. */
+.story-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(8, 6, 10, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  cursor: pointer;
+}
+
+.story-zoom-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Below the stage now, not overlaid on it (0056, Simon's own reversal of
+   0050's "overlap on top of the image" call for this one element - the
+   reader's speech bubble and the post-choice elaboration bubble both stay
+   on-image, only this plain narration/caption text moved) - a normal
+   block at the top of .story-content instead of an absolutely-positioned
+   layer, so it no longer needs a positioning context of its own. */
+.story-caption {
   background: rgba(12, 8, 16, 0.72);
   border-radius: 10px;
   padding: 10px 14px;
@@ -5319,9 +5445,20 @@ body.is-revealing { overflow: hidden; }
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* The centered part of .story-content (0050's own centering, kept) - a
+   sibling after .story-caption now, rather than the whole panel, so a
+   caption (0056) always sits at the panel's own top instead of getting
+   pulled into the centered block with whatever choices follow it. */
+.story-content-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 16px;
-  margin-top: 14px;
 }
 
 /* An overlay on the table itself now (0055), not a row between the stage
@@ -5358,6 +5495,22 @@ body.is-revealing { overflow: hidden; }
   justify-content: center;
   overflow: hidden;
   background: rgba(20, 16, 12, 0.08);
+  /* 0056: "add 20% transparency... so they are not as prominent" - a flat
+     baseline on top of whatever opacity a filled/dimmed/focused state
+     below adds on top of it. */
+  opacity: 0.8;
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
+/* While one card is up in focus, its two table-mates dim rather than
+   compete with it for attention (0056: "grey out the cards on the
+   table... so they don't distract") - only the other FILLED slots, not
+   an unfilled one still waiting on its own reveal. Grayscale alone, no
+   reduced opacity (0056: "too transparent... use grey scale instead") -
+   cutting opacity let the table linework underneath show through and
+   read as washed-out rather than simply de-emphasized. */
+.story-slots.has-focus .story-slot.is-filled:not(.is-focused) {
+  filter: grayscale(100%);
 }
 
 .story-slot.is-filled {
@@ -5365,11 +5518,28 @@ body.is-revealing { overflow: hidden; }
   border-color: var(--accent);
 }
 
+/* The card currently "up" in the focus spot (0056) empties its own slot
+   back to a glow instead of showing a redundant thumbnail - this is what
+   tells the learner which of the three cards a given line is about,
+   including when a later question recalls one already on the table. */
+.story-slot.is-focused {
+  border-style: solid;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(184, 148, 74, 0.35), 0 0 16px 4px rgba(184, 148, 74, 0.45);
+  animation: story-slot-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes story-slot-glow {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(184, 148, 74, 0.3), 0 0 12px 2px rgba(184, 148, 74, 0.35); }
+  50% { box-shadow: 0 0 0 3px rgba(184, 148, 74, 0.5), 0 0 20px 6px rgba(184, 148, 74, 0.6); }
+}
+
 .story-slot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
 /* var(--muted) read too close in luminance to the table's own pale wash
@@ -5428,11 +5598,24 @@ body.is-revealing { overflow: hidden; }
   cursor: pointer;
 }
 
-/* Same reject language as every other wrong-tap in the app. */
+/* Same reject language as every other wrong-tap in the app - the brief
+   shake/flash on the exact tap (chapter-player.jsx's own flashKey). */
 .story-choice-option.is-wrong {
   border-color: var(--bad);
   background: rgba(217, 96, 95, 0.14);
   animation: choice-option-shake 460ms ease;
+}
+
+/* Stays after the flash fades (0056: "after it flashes, then it is
+   deactivated... slightly tinged red") - a wrong option doesn't reset and
+   invite a second guess, it's out for the rest of this beat. disabled in
+   the JSX too, not just styled - this is a real click-through block, not
+   just a visual cue. */
+.story-choice-option.is-eliminated {
+  border-color: rgba(217, 96, 95, 0.35);
+  background: rgba(217, 96, 95, 0.08);
+  color: var(--muted);
+  cursor: not-allowed;
 }
 
 .story-card-pool {

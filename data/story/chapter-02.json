@@ -51,20 +51,12 @@
       "character": "riley",
       "emotion": "neutral",
       "options": [
-        {
-          "text": "The Fool's about a fresh start — one thing ending right as another begins.",
-          "correct": true
-        },
-        {
-          "text": "It means you're throwing away everything you worked for.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "This card isn't really about decisions like that.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "A fresh start — one thing ending as another begins.", "correct": true },
+        { "text": "You're throwing away everything you worked for.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about decisions like that.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't grade what you're leaving behind — it just marks the exact moment one door closes and another opens."
       ]
     },
     {
@@ -79,20 +71,32 @@
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "It's not reckless — it's standing at the edge, calm, not scared of the fall.",
-          "correct": true
-        },
-        {
-          "text": "Reckless is exactly the right word for it.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "The edge doesn't really mean anything here.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "It's standing at the edge, calm, not scared of falling.", "correct": true },
+        { "text": "Reckless is exactly the right word.", "correct": false, "reaction": "anger" },
+        { "text": "The edge doesn't really mean anything here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Reckless would be jumping without noticing the edge at all. The Fool sees exactly where it's standing and steps off anyway."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So does this card mean the tour's definitely going to work out for me?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's not a prediction, it's about the leap itself.", "correct": true },
+        { "text": "Yes, it guarantees it.", "correct": false, "reaction": "anger" },
+        { "text": "It has nothing to do with the tour at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool never promises a landing. It's a card about the jump, not the outcome — how the tour actually goes is still yours to find out."
       ]
     },
     {
@@ -107,20 +111,12 @@
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "That's the risk this card's asking you to take — saying yes to the unknown, not playing it safe.",
-          "correct": true
-        },
-        {
-          "text": "Then you'll have wasted your shot, and that's on you.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "It won't fall apart if you don't think about it.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That's the risk — saying yes to the unknown, not playing safe.", "correct": true },
+        { "text": "Then you'll have wasted your shot.", "correct": false, "reaction": "anger" },
+        { "text": "It won't fall apart if you don't think about it.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The card doesn't pretend there's no risk — it just says the unknown is worth saying yes to anyway, instead of staying somewhere merely safe."
       ]
     },
     {
@@ -142,20 +138,12 @@
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "You don't need that mapped out yet — the path shows up once you actually step onto it.",
-          "correct": true
-        },
-        {
-          "text": "Then you're not ready to go at all.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "What happens after doesn't matter.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "You don't need that yet — the path shows up once you step.", "correct": true },
+        { "text": "Then you're not ready to go at all.", "correct": false, "reaction": "anger" },
+        { "text": "What happens after doesn't matter.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool trusts that the ground appears once you're already moving. Not knowing the ending isn't a hole in the plan — it's the plan."
       ]
     },
     {
@@ -177,20 +165,12 @@
       "character": "riley",
       "emotion": "anger",
       "options": [
-        {
-          "text": "That reaction kind of proves the point — this card's energy is going against convention.",
-          "correct": true
-        },
-        {
-          "text": "They're right, you should listen to them.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "What your parents think isn't relevant to a reading.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That reaction proves the point — it's against-convention energy.", "correct": true },
+        { "text": "They're right, you should listen to them.", "correct": false, "reaction": "anger" },
+        { "text": "What your parents think isn't relevant.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool was never going to look sensible to the people expecting you to stay on the program's path. That's not a flaw in the reading."
       ]
     },
     {
@@ -212,20 +192,12 @@
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        {
-          "text": "Starting over isn't weakness here — it's a beginner's mind, curious instead of guarded.",
-          "correct": true
-        },
-        {
-          "text": "You should feel behind, because you are.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Experience doesn't come into this at all.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Starting over isn't weakness — it's a beginner's mind.", "correct": true },
+        { "text": "You should feel behind, because you are.", "correct": false, "reaction": "anger" },
+        { "text": "Experience doesn't come into this at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A beginner's mind is curious and unjaded, not behind — that's an asset on a tour, not a deficit next to everyone else's years."
       ]
     },
     {

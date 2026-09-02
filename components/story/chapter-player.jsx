@@ -11,19 +11,31 @@ const CARD_ENTER_MS = 900;
 const CARD_EXIT_MS = 650;
 const BUBBLE_DISMISS_MS = 500;
 
-// The pile's own on-screen spot (small, edge-on, at the deck), the
-// prominent reveal spot (tall, facing the viewer, on whichever side the
-// current character *isn't* sitting), and a small resting spot beside the
-// pile it settles into afterward. Expressed as top/left/width/height
-// throughout (not bottom/right) because a single WAAPI animation
-// interpolates a given property consistently across all of its keyframes
-// - mixing top with bottom, or left with right, across keyframes isn't
-// something it can resolve into one motion. These are the LEFT-character
-// version (card goes top-right); mirrorFrame() flips them for a
-// right-side character (Riley) so the card goes top-left instead.
+// Persisted across chapters (0056) - once the learner's tapped through
+// this many real advances, they've got the mechanic, in this chapter or
+// any other Story chapter.
+const TAP_HINT_KEY = "lunadeck.story.taphint.count.v1";
+const TAP_HINT_THRESHOLD = 4;
+
+// The pile's own on-screen spot (small, edge-on, at the deck) and the
+// focus spot a revealed card holds - tall, facing the viewer, taking up
+// the majority of the free space above the table without reaching into
+// the character's own footprint (0056: the character's own art tops out
+// around left:13%-47%, so this starts clear of it at 60%). A single card
+// reading just stays here once revealed - there's no separate "resting"
+// spot to shrink into anymore (0056: "should remain taking up the
+// majority of the free space", not shrink away). A multi-card reading
+// reuses this same spot as its "currently being discussed" focus - see
+// frameFromSlot() for where a card goes when focus moves elsewhere.
+// Expressed as top/left/width/height throughout (not bottom/right)
+// because a single WAAPI animation interpolates a given property
+// consistently across all of its keyframes - mixing top with bottom, or
+// left with right, across keyframes isn't something it can resolve into
+// one motion. These are the LEFT-character version (card goes top-right);
+// mirrorFrame() flips them for a right-side character (Riley) so the
+// card goes top-left instead.
 const CARD_PILE = { top: "58%", left: "45%", width: "9%", height: "15%", rotateY: 90, opacity: 0.001 };
-const CARD_PROMINENT = { top: "3%", left: "68%", width: "28%", height: "48%", rotateY: 0, opacity: 1 };
-const CARD_RESTING = { top: "45%", left: "50%", width: "24%", height: "40%", rotateY: 0, opacity: 1 };
+const CARD_FOCUS = { top: "5%", left: "60%", width: "36%", height: "55%", rotateY: 0, opacity: 1 };
 
 // Which side of the stage each character sits on - Riley mirrors Dave
 // (0050: "opposite of Dave"), so the reveal card always animates toward
@@ -71,12 +83,22 @@ function shuffle(items) {
 // Plays one Story chapter: a fixed sequence of "beats" - dialogue, a
 // multiple-choice moment, or a scripted card reveal - with no branching
 // (0048, 0050). A persistent scene (background, current character, table,
-// hands) fills the stage; dialogue and instructions overlay directly on
-// it, and the strip below is reserved for choices alone (0050).
+// hands) fills the stage; a client's or the reader's own speech bubble
+// overlays it directly, plain narration/instruction text sits below in
+// the content panel instead (0056), and that panel is otherwise reserved
+// for choices alone (0050).
 export default function ChapterPlayer({ chapter, nextChapter }) {
   const [beatIndex, setBeatIndex] = useState(0);
   const [reactionEmotion, setReactionEmotion] = useState(null);
-  const [wrongKey, setWrongKey] = useState(null);
+  // The brief shake/flash on the exact option just tapped wrong, separate
+  // from eliminatedKeys below - flashKey clears itself after the flash
+  // plays; eliminatedKeys doesn't (0056).
+  const [flashKey, setFlashKey] = useState(null);
+  // Every option tapped wrong on the CURRENT choice beat, permanently
+  // (0056: "after it flashes, then it is deactivated") - reset whenever
+  // the beat changes (advance(), or a dev-console skip), never just on a
+  // timer, so a wrong guess can't be retried a moment later.
+  const [eliminatedKeys, setEliminatedKeys] = useState(() => new Set());
   const [revealedCard, setRevealedCard] = useState(null);
   // hidden | entering | shown | exiting | settled - a tap only ever acts
   // on "shown" (dismiss) or is ignored (still entering/exiting). Keeping
@@ -91,13 +113,41 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
   // advancing - the bubble plays its own glimmer-and-fade
   // (.story-bubble.is-dismissing) instead of just vanishing.
   const [bubbleDismissing, setBubbleDismissing] = useState(false);
-  // Slots are optional - only chapters that actually deal from a pool
-  // (the "draw" beat type) need them at all.
+  // Slots are optional - only chapters doing a multi-card reading
+  // (slotLabels) need them at all.
   const [slots, setSlots] = useState(() => (chapter.slotLabels ?? []).map(() => null));
   const [usedCards, setUsedCards] = useState(() => new Set());
+  // Which slot's card is currently up in the CARD_FOCUS spot, for a
+  // multi-card reading - null before the first card lands, or between a
+  // card going back down and the next one coming up (0056).
+  const [focusSlot, setFocusSlot] = useState(null);
+  // A correct choice can queue up one or more reader-voiced follow-on
+  // lines (beat.elaboration) before the beat actually advances (0056) -
+  // elaborationQueue is that beat's own array while it's playing out,
+  // elaborationStep is which line is showing.
+  const [elaborationQueue, setElaborationQueue] = useState(null);
+  const [elaborationStep, setElaborationStep] = useState(0);
+  // A card the learner tapped to see full-screen (0056) - any revealed or
+  // slotted card, not tied to the current beat at all.
+  const [zoomedCard, setZoomedCard] = useState(null);
 
   const cardRef = useRef(null);
+  const stageRef = useRef(null);
+  const slotRefs = useRef([]);
   const skipResolverRef = useRef(null);
+  const characterRef = useRef(null);
+  const bubbleRef = useRef(null);
+  // Once the learner's tapped through a handful of beats, "Tap to
+  // continue" has done its job (0056) - persisted across chapters, not
+  // just this one, since the whole point is "they already get it."
+  const [tapHintDismissed, setTapHintDismissed] = useState(true);
+  // The tail's horizontal offset from the bubble's own left edge, in
+  // pixels (0056: "dynamically position the arrow... so it always points
+  // to the character's face") - measured off the actual rendered DOM
+  // rather than a fixed percentage, since a percentage-of-the-bubble
+  // drifts off the character's fixed position as dialogue length changes
+  // the bubble's own width.
+  const [tailOffset, setTailOffset] = useState(null);
 
   const beat = chapter.beats[beatIndex];
   const atEnd = beatIndex >= chapter.beats.length;
@@ -112,8 +162,29 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
   const character = beat?.character ?? chapter.beats[chapter.beats.length - 1].character;
   const side = CHARACTER_SIDE[character] ?? "left";
   const pileFrame = side === "right" ? mirrorFrame(CARD_PILE) : CARD_PILE;
-  const prominentFrame = side === "right" ? mirrorFrame(CARD_PROMINENT) : CARD_PROMINENT;
-  const restingFrame = side === "right" ? mirrorFrame(CARD_RESTING) : CARD_RESTING;
+  const focusFrame = side === "right" ? mirrorFrame(CARD_FOCUS) : CARD_FOCUS;
+
+  // A slot's own on-screen position, measured directly off its rendered
+  // DOM box rather than re-deriving .story-slots' flex/gap math here -
+  // the two would only ever drift apart. Unlike the pile/focus frames,
+  // slot position isn't mirrored per character side: Past/Present/Future
+  // always read left-to-right regardless of who's sitting where.
+  function frameFromSlot(index) {
+    const stageEl = stageRef.current;
+    const slotEl = slotRefs.current[index];
+    if (!stageEl || !slotEl) return null;
+    const stageRect = stageEl.getBoundingClientRect();
+    const slotRect = slotEl.getBoundingClientRect();
+    if (!stageRect.width || !stageRect.height) return null;
+    return {
+      top: `${((slotRect.top - stageRect.top) / stageRect.height) * 100}%`,
+      left: `${((slotRect.left - stageRect.left) / stageRect.width) * 100}%`,
+      width: `${(slotRect.width / stageRect.width) * 100}%`,
+      height: `${(slotRect.height / stageRect.height) * 100}%`,
+      rotateY: 0,
+      opacity: 1,
+    };
+  }
 
   useEffect(() => {
     function onTap() {
@@ -123,25 +194,73 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
     return () => window.removeEventListener("pointerdown", onTap);
   }, []);
 
+  useEffect(() => {
+    try {
+      const count = Number(window.localStorage.getItem(TAP_HINT_KEY) ?? 0);
+      setTapHintDismissed(count >= TAP_HINT_THRESHOLD);
+    } catch {
+      // Blocked storage - just leave the hint showing every time.
+      setTapHintDismissed(false);
+    }
+  }, []);
+
+  function recordRealTap() {
+    if (tapHintDismissed) return;
+    try {
+      const count = Number(window.localStorage.getItem(TAP_HINT_KEY) ?? 0) + 1;
+      window.localStorage.setItem(TAP_HINT_KEY, String(count));
+      if (count >= TAP_HINT_THRESHOLD) setTapHintDismissed(true);
+    } catch {
+      // Blocked storage - the hint just keeps showing.
+    }
+  }
+
+  // Re-measured whenever the client bubble's own text (and so its width)
+  // changes, or the character swaps sides - the face itself doesn't move
+  // within a chapter, but the bubble's left edge does as its content
+  // does, so the OFFSET from that edge has to be recomputed every time.
+  useEffect(() => {
+    const bubbleEl = bubbleRef.current;
+    const charEl = characterRef.current;
+    if (!bubbleEl || !charEl) {
+      setTailOffset(null);
+      return;
+    }
+    const bubbleRect = bubbleEl.getBoundingClientRect();
+    const charRect = charEl.getBoundingClientRect();
+    const faceX = charRect.left + charRect.width / 2;
+    const raw = faceX - bubbleRect.left;
+    setTailOffset(Math.min(Math.max(raw, 16), Math.max(16, bubbleRect.width - 16)));
+  }, [beatIndex, side, beat?.text]);
+
   // The dev console's ‹ › controls (components/dev-console.jsx, 0052) -
   // the same escape hatch NodeSession gives every curriculum round, so a
   // beat further into a chapter doesn't need everything before it played
   // for real. A blunt jump, not a re-run of whatever gating a tap would
   // normally go through: it clears every transient bit of state a real
-  // tap would (a wrong-answer flash, a bubble mid-dismiss) rather than
-  // leaving it stranded on whatever beat skip lands on.
+  // tap would (a wrong-answer flash, a bubble mid-dismiss, an in-progress
+  // elaboration) rather than leaving it stranded on whatever beat skip
+  // lands on. It doesn't try to reconstruct slots/focusSlot for a skip
+  // target deep into a multi-card reading - that's the one thing left for
+  // whoever's driving it to keep in mind.
   useEffect(() => {
     return registerNodeSkip({
       onNext() {
         setReactionEmotion(null);
-        setWrongKey(null);
+        setFlashKey(null);
+        setEliminatedKeys(new Set());
         setBubbleDismissing(false);
+        setElaborationQueue(null);
+        setElaborationStep(0);
         setBeatIndex((i) => Math.min(i + 1, chapter.beats.length));
       },
       onPrev() {
         setReactionEmotion(null);
-        setWrongKey(null);
+        setFlashKey(null);
+        setEliminatedKeys(new Set());
         setBubbleDismissing(false);
+        setElaborationQueue(null);
+        setElaborationStep(0);
         setBeatIndex((i) => Math.max(i - 1, 0));
       },
     });
@@ -162,13 +281,37 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
     });
   }
 
-  // A reveal beat's card lifts off the pile once, the moment it becomes
-  // current - not on every re-render, and not again once it's settled.
+  // A reveal beat's card lifts off the pile the moment it becomes current
+  // - once per distinct card, not on every re-render. In a multi-card
+  // reading, the card already up in focus (if any) has to clear out to
+  // its own slot first, so there's room for the new one to rise from the
+  // pile into the same spot.
   useEffect(() => {
-    if (beat?.type === "reveal" && cardPhase === "hidden") {
+    if (beat?.type !== "reveal" || revealedCard === beat.card) return;
+    let cancelled = false;
+    (async () => {
+      if (focusSlot != null && cardRef.current) {
+        const prevFrame = frameFromSlot(focusSlot);
+        if (prevFrame) {
+          setCardPhase("exiting");
+          await animateSkippable(
+            cardRef.current,
+            [
+              { ...cardFrame(focusFrame), offset: 0 },
+              { ...cardFrame(prevFrame), offset: 1 },
+            ],
+            CARD_EXIT_MS
+          );
+        }
+      }
+      if (cancelled) return;
+      setFocusSlot(null);
       setRevealedCard(beat.card);
       setCardPhase("entering");
-    }
+    })();
+    return () => {
+      cancelled = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [beat]);
 
@@ -181,7 +324,7 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
     const animation = cardRef.current?.animate(
       [
         { ...cardFrame(pileFrame), offset: 0 },
-        { ...cardFrame(prominentFrame), offset: 1 },
+        { ...cardFrame(focusFrame), offset: 1 },
       ],
       { duration: CARD_ENTER_MS, easing: "ease", fill: "forwards" }
     );
@@ -192,6 +335,53 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
     animation.onfinish = () => setCardPhase("shown");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardPhase]);
+
+  // A later beat can ask about a card already sitting on the table
+  // (0056: "when the character asks a question about a card that is
+  // already on the table then it should animate back into that focus
+  // position and the slot should glow again") - beat.slot marks which
+  // one. Skipped while a reveal beat is current: that's the effect above
+  // bringing a brand-new card up from the pile, not a recall of an
+  // existing one.
+  useEffect(() => {
+    if (!chapter.slotLabels?.length || beat?.type === "reveal") return;
+    const desired = beat?.slot;
+    if (desired == null || desired === focusSlot || slots[desired] == null) return;
+    let cancelled = false;
+    (async () => {
+      if (focusSlot != null && cardRef.current) {
+        const prevFrame = frameFromSlot(focusSlot);
+        if (prevFrame) {
+          await animateSkippable(
+            cardRef.current,
+            [
+              { ...cardFrame(focusFrame), offset: 0 },
+              { ...cardFrame(prevFrame), offset: 1 },
+            ],
+            CARD_EXIT_MS
+          );
+        }
+      }
+      if (cancelled) return;
+      const startFrame = frameFromSlot(desired);
+      setRevealedCard(slots[desired]);
+      setFocusSlot(desired);
+      requestAnimationFrame(() => {
+        if (cancelled || !cardRef.current || !startFrame) return;
+        cardRef.current.animate(
+          [
+            { ...cardFrame(startFrame), offset: 0 },
+            { ...cardFrame(focusFrame), offset: 1 },
+          ],
+          { duration: CARD_ENTER_MS, easing: "ease", fill: "forwards" }
+        );
+      });
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [beat]);
 
   // The reading ends with the chapter, not with the card sitting there
   // forever - a fresh WAAPI animation on the same element takes over from
@@ -220,55 +410,50 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
 
   function advance() {
     setReactionEmotion(null);
+    setEliminatedKeys(new Set());
     setBeatIndex((i) => i + 1);
   }
 
   async function handleStageTap() {
     if (atEnd) return;
+    if (elaborationQueue) {
+      if (bubbleDismissing) return;
+      recordRealTap();
+      setBubbleDismissing(true);
+      window.setTimeout(() => {
+        setBubbleDismissing(false);
+        const next = elaborationStep + 1;
+        if (next >= elaborationQueue.length) {
+          setElaborationQueue(null);
+          setElaborationStep(0);
+          advance();
+        } else {
+          setElaborationStep(next);
+        }
+      }, BUBBLE_DISMISS_MS);
+      return;
+    }
     if (beat.type === "reveal") {
       // Still entering, or already mid-exit - either way this tap isn't
       // the one that dismisses it. (Entering can't reach here at all: the
       // stage isn't even tappable until cardPhase is "shown", see
       // `tappable` below.)
       if (cardPhase !== "shown") return;
-      setCardPhase("exiting");
+      recordRealTap();
       if (beat.slot != null) {
-        // A multi-card reading (0054): this card's spot is a labelled
-        // slot, not "beside the pile" - it fades in place instead of
-        // travelling there, and the persistent .story-slots row is what
-        // actually records it, freeing the stage for the next card's own
-        // entrance from the same pile.
-        await animateSkippable(
-          cardRef.current,
-          [
-            { ...cardFrame(prominentFrame), offset: 0 },
-            { ...cardFrame({ ...prominentFrame, opacity: 0 }), offset: 1 },
-          ],
-          CARD_EXIT_MS
-        );
         setSlots((prev) => {
           const next = [...prev];
           next[beat.slot] = beat.card;
           return next;
         });
-        setRevealedCard(null);
-        setCardPhase("hidden");
-        advance();
-        return;
+        setFocusSlot(beat.slot);
       }
-      await animateSkippable(
-        cardRef.current,
-        [
-          { ...cardFrame(prominentFrame), offset: 0 },
-          { ...cardFrame(restingFrame), offset: 1 },
-        ],
-        CARD_EXIT_MS
-      );
       setCardPhase("settled");
       advance();
       return;
     }
     if (beat.type !== "dialogue") return;
+    recordRealTap();
     if (beat.speaker === "client") {
       if (bubbleDismissing) return;
       setBubbleDismissing(true);
@@ -283,13 +468,19 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
 
   function tryChoice(option) {
     if (option.correct) {
-      advance();
+      if (beat.elaboration?.length) {
+        setElaborationQueue(beat.elaboration);
+        setElaborationStep(0);
+      } else {
+        advance();
+      }
       return;
     }
-    setWrongKey(option.text);
+    setFlashKey(option.text);
     setReactionEmotion(option.reaction ?? null);
+    setEliminatedKeys((prev) => new Set(prev).add(option.text));
     window.setTimeout(() => {
-      setWrongKey(null);
+      setFlashKey(null);
       setReactionEmotion(null);
     }, 900);
   }
@@ -305,8 +496,13 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
       advance();
       return;
     }
-    setWrongKey(cardKey);
-    window.setTimeout(() => setWrongKey(null), 460);
+    setFlashKey(cardKey);
+    window.setTimeout(() => setFlashKey(null), 460);
+  }
+
+  function openZoom(e, cardKey) {
+    e.stopPropagation();
+    setZoomedCard(cardKey);
   }
 
   const emotion = reactionEmotion ?? beat?.emotion ?? "neutral";
@@ -316,7 +512,11 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
   const tappable =
     !atEnd &&
     !bubbleDismissing &&
-    (beat.type === "dialogue" || (beat.type === "reveal" && cardPhase === "shown"));
+    (elaborationQueue != null ||
+      beat.type === "dialogue" ||
+      (beat.type === "reveal" && cardPhase === "shown"));
+  const showCaption =
+    !atEnd && beat.type === "dialogue" && (beat.speaker === "reader" || beat.speaker === "narration");
 
   return (
     <main
@@ -346,9 +546,10 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
         </div>
       </div>
 
-      <div className="story-stage">
+      <div className="story-stage" ref={stageRef}>
         <img className="story-layer story-bg-art" src={backgroundSrc(chapter.location.background)} alt="" />
         <img
+          ref={characterRef}
           className={
             side === "right"
               ? "story-layer story-character-art is-side-right"
@@ -366,95 +567,130 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
             style={cardFrame(pileFrame)}
             src={masterForKey(revealedCard)}
             alt=""
+            onClick={(e) => openZoom(e, revealedCard)}
           />
         ) : null}
         <img className="story-layer story-hands-art" src={`${ASSETS}/hands/hands.png`} alt="" />
 
         {(chapter.slotLabels ?? []).length > 0 ? (
-          <div className="story-slots">
-            {chapter.slotLabels.map((label, i) => (
-              <div key={label} className={slots[i] ? "story-slot is-filled" : "story-slot"}>
-                {slots[i] ? (
-                  <img src={masterForKey(slots[i])} alt="" />
-                ) : (
-                  <span className="story-slot-label">{label}</span>
-                )}
-              </div>
-            ))}
+          <div className={revealedCard ? "story-slots has-focus" : "story-slots"}>
+            {chapter.slotLabels.map((label, i) => {
+              const isFocused = focusSlot === i;
+              const isFilled = slots[i] != null;
+              return (
+                <div
+                  key={label}
+                  ref={(el) => {
+                    slotRefs.current[i] = el;
+                  }}
+                  className={
+                    "story-slot" +
+                    (isFilled ? " is-filled" : "") +
+                    (isFocused ? " is-focused" : "")
+                  }
+                >
+                  {isFilled && !isFocused ? (
+                    <img src={masterForKey(slots[i])} alt="" onClick={(e) => openZoom(e, slots[i])} />
+                  ) : !isFilled ? (
+                    <span className="story-slot-label">{label}</span>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         ) : null}
 
         {!atEnd && beat.speaker === "client" ? (
           <div
+            ref={bubbleRef}
             className={
               "story-bubble" +
               (side === "right" ? " is-side-right" : "") +
               (bubbleDismissing ? " is-dismissing" : "")
             }
+            style={tailOffset != null ? { "--tail-x": `${tailOffset}px` } : undefined}
           >
             <span className="story-bubble-name">{speakerName}</span>
             <span className="story-bubble-line">{beat.text}</span>
           </div>
         ) : null}
 
-        {!atEnd && (beat.speaker === "reader" || beat.speaker === "narration") ? (
+        {elaborationQueue ? (
+          <div className={"story-reader-bubble" + (bubbleDismissing ? " is-dismissing" : "")}>
+            <span className="story-bubble-name">You</span>
+            <span className="story-bubble-line">{elaborationQueue[elaborationStep]}</span>
+          </div>
+        ) : null}
+
+        {tappable && !tapHintDismissed ? <span className="story-tap-hint">Tap to continue</span> : null}
+      </div>
+
+      <div className="story-content">
+        {showCaption ? (
           <div className={beat.speaker === "narration" ? "story-caption is-narration" : "story-caption"}>
             {beat.text}
           </div>
         ) : null}
-
-        {tappable ? <span className="story-tap-hint">Tap to continue</span> : null}
+        <div className="story-content-main">
+          {atEnd ? (
+            <div className="story-end">
+              <p className="prompt">Chapter complete.</p>
+              <Link className="action" href={nextChapter ? `/story/play/${nextChapter.slug}` : "/story"}>
+                {nextChapter ? nextChapter.title : "Back to Story"}
+              </Link>
+            </div>
+          ) : beat.type === "choice" && !elaborationQueue ? (
+            <div className="story-choice">
+              <div className="story-choice-options">
+                {shuffledOptions.map((option) => {
+                  const isEliminated = eliminatedKeys.has(option.text);
+                  return (
+                    <button
+                      key={option.text}
+                      type="button"
+                      disabled={isEliminated}
+                      className={
+                        "story-choice-option" +
+                        (flashKey === option.text ? " is-wrong" : "") +
+                        (isEliminated ? " is-eliminated" : "")
+                      }
+                      onClick={() => tryChoice(option)}
+                    >
+                      {option.text}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : beat.type === "draw" ? (
+            <div className="story-choice">
+              <p className="story-prompt">{beat.prompt}</p>
+              <div className="story-card-pool">
+                {chapter.availableCards
+                  .filter((cardKey) => !usedCards.has(cardKey))
+                  .map((cardKey) => (
+                    <button
+                      key={cardKey}
+                      type="button"
+                      className={
+                        flashKey === cardKey ? "story-pool-card is-wrong" : "story-pool-card"
+                      }
+                      onClick={() => tryCard(cardKey)}
+                    >
+                      <img src={masterForKey(cardKey)} alt="" />
+                    </button>
+                  ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
 
-      <div className="story-content">
-        {atEnd ? (
-          <div className="story-end">
-            <p className="prompt">Chapter complete.</p>
-            <Link className="action" href={nextChapter ? `/story/play/${nextChapter.slug}` : "/story"}>
-              {nextChapter ? nextChapter.title : "Back to Story"}
-            </Link>
-          </div>
-        ) : beat.type === "choice" ? (
-          <div className="story-choice">
-            <div className="story-choice-options">
-              {shuffledOptions.map((option) => (
-                <button
-                  key={option.text}
-                  type="button"
-                  className={
-                    wrongKey === option.text
-                      ? "story-choice-option is-wrong"
-                      : "story-choice-option"
-                  }
-                  onClick={() => tryChoice(option)}
-                >
-                  {option.text}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : beat.type === "draw" ? (
-          <div className="story-choice">
-            <p className="story-prompt">{beat.prompt}</p>
-            <div className="story-card-pool">
-              {chapter.availableCards
-                .filter((cardKey) => !usedCards.has(cardKey))
-                .map((cardKey) => (
-                  <button
-                    key={cardKey}
-                    type="button"
-                    className={
-                      wrongKey === cardKey ? "story-pool-card is-wrong" : "story-pool-card"
-                    }
-                    onClick={() => tryCard(cardKey)}
-                  >
-                    <img src={masterForKey(cardKey)} alt="" />
-                  </button>
-                ))}
-            </div>
-          </div>
-        ) : null}
-      </div>
+      {zoomedCard ? (
+        <div className="story-zoom-overlay" onClick={(e) => openZoom(e, null)}>
+          <img src={masterForKey(zoomedCard)} alt="" />
+        </div>
+      ) : null}
     </main>
   );
 }

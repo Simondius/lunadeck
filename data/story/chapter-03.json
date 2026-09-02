@@ -35,17 +35,14 @@
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "This is the leap you already took — standing at the edge, and you jumped anyway.",
-          "correct": true
-        },
+        { "text": "Standing at the edge — and you jumped anyway.", "correct": true },
         { "text": "This means you made a huge mistake.", "correct": false, "reaction": "anger" },
-        {
-          "text": "This card isn't really about what you just did.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "This card isn't about what you just did.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The leap already happened — quitting WAS the jump. This card's just naming it."
       ]
     },
     {
@@ -53,23 +50,43 @@
       "character": "dave",
       "emotion": "neutral",
       "speaker": "client",
+      "slot": 1,
       "text": "\"It still feels surreal.\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "That's the beginner's-mind part — it feels unfamiliar because you're seeing it fresh.",
-          "correct": true
-        },
-        {
-          "text": "It should feel surreal, because you're not ready for this.",
-          "correct": false,
-          "reaction": "anger"
-        },
+        { "text": "That's beginner's mind — unfamiliar because it's fresh.", "correct": true },
+        { "text": "It should — you're not ready for this.", "correct": false, "reaction": "anger" },
         { "text": "Surreal doesn't mean anything here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A beginner's mind is curious and unjaded — feeling strange right now is exactly what that looks like."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "slot": 1,
+      "text": "\"Wait — the card's literally called The Fool. Are you saying I panicked into a dumb decision?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "slot": 1,
+      "options": [
+        { "text": "No — fool means fearless beginner, not reckless.", "correct": true },
+        { "text": "Kind of, yeah.", "correct": false, "reaction": "anger" },
+        { "text": "Honestly, the name doesn't mean much.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool's the one figure in the deck unjaded enough to actually leap. That's the compliment buried in the name, not an insult."
       ]
     },
     {
@@ -92,21 +109,14 @@
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 2,
       "options": [
-        {
-          "text": "There's a real choice ahead — one worth weighing from every angle before you commit.",
-          "correct": true
-        },
-        {
-          "text": "It means you're going to lose someone over this.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "This card just means you shouldn't trust them.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "A real choice ahead — worth weighing from every angle.", "correct": true },
+        { "text": "It means you're going to lose someone over this.", "correct": false, "reaction": "anger" },
+        { "text": "This card just means you shouldn't trust them.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers isn't a verdict on the outcome — it's just naming that a real decision, not a formality, is sitting in front of you."
       ]
     },
     {
@@ -114,23 +124,21 @@
       "character": "dave",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"There's someone I'd be going into business with. I don't want to drag them into something that fails.\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "Then choose with more than logic — trust your gut on this one too, not just the plan.",
-          "correct": true
-        },
+        { "text": "Choose with more than logic — trust your gut too.", "correct": true },
         { "text": "Then don't drag them into it at all.", "correct": false, "reaction": "anger" },
-        {
-          "text": "Their feelings aren't really relevant to the choice.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Their feelings aren't really relevant.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Weighing every angle includes the ones that don't show up on a spreadsheet — this card wants your gut in the room too, not just the plan."
       ]
     },
     {
@@ -153,21 +161,14 @@
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        {
-          "text": "Something's already been growing quietly, underneath everything else.",
-          "correct": true
-        },
-        {
-          "text": "It means you wasted years on something pointless.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "The past doesn't really factor into a reading.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Something's been growing quietly underneath it all.", "correct": true },
+        { "text": "It means you wasted years on something pointless.", "correct": false, "reaction": "anger" },
+        { "text": "The past doesn't really factor into a reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress in the past position points at something that was already alive before you noticed it — quietly, out of view."
       ]
     },
     {
@@ -175,23 +176,21 @@
       "character": "dave",
       "emotion": "realisation",
       "speaker": "client",
+      "slot": 0,
       "text": "\"The workshop. I've been building furniture on weekends for two years and never told anyone at work.\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        {
-          "text": "That's exactly it — you nourished it quietly until it was ready to stand on its own.",
-          "correct": true
-        },
-        {
-          "text": "You should have told people, that was foolish to hide.",
-          "correct": false,
-          "reaction": "anger"
-        },
+        { "text": "You nourished it quietly until it stood on its own.", "correct": true },
+        { "text": "You should have told people — that was foolish.", "correct": false, "reaction": "anger" },
         { "text": "Hiding it doesn't matter either way.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "That's the Empress's whole logic — protect and grow something before it's ready for anyone else's opinion of it."
       ]
     },
     {
@@ -206,23 +205,21 @@
       "character": "dave",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 1,
       "text": "\"Am I actually ready for this, or did I just panic and quit?\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 1,
       "options": [
-        {
-          "text": "You didn't panic — you said yes to the unknown instead of playing it safe, same as the present card.",
-          "correct": true
-        },
+        { "text": "You said yes to the unknown, not playing it safe.", "correct": true },
         { "text": "Honestly, it does sound like panic.", "correct": false, "reaction": "anger" },
-        {
-          "text": "Readiness isn't something a card can answer.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Readiness isn't something a card can answer.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Panic and a leap can look identical from the outside. The Fool's the same card either way — it just says you went."
       ]
     },
     {
@@ -230,27 +227,21 @@
       "character": "dave",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 1,
       "text": "\"But what happens after the workshop grows into something real? I don't have a plan beyond the next few months.\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 1,
       "options": [
-        {
-          "text": "You don't need the whole map yet — trust that the path appears once you take the next step.",
-          "correct": true
-        },
-        {
-          "text": "That means there's a big decision on the horizon that needs weighing from every angle.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "That means something you're nurturing right now needs protecting before it grows further.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "You don't need the map yet — the path appears once you step.", "correct": true },
+        { "text": "A big decision's coming — weigh every angle first.", "correct": false, "reaction": "confusion" },
+        { "text": "Something you're nurturing right now needs protecting.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "That's the Fool again, not a different card — it trusts the next stretch of path shows up only once you're already walking it."
       ]
     },
     {
@@ -258,23 +249,21 @@
       "character": "dave",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"What if we want different things?\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "Then hold both what you want and what they want in balance, rather than picking one.",
-          "correct": true
-        },
+        { "text": "Hold both what you want and what they want in balance.", "correct": true },
         { "text": "Then it's over before it starts.", "correct": false, "reaction": "anger" },
-        {
-          "text": "What they want doesn't need to factor in.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "What they want doesn't need to factor in.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers isn't about one person winning the negotiation — it's about holding two real, valid wants at once."
       ]
     },
     {
@@ -282,27 +271,21 @@
       "character": "dave",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"If we do this together, how do I know it's actually the right partnership?\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "Let more than one part of you weigh in — body, mind, and spirit all get a vote, not just the plan.",
-          "correct": true
-        },
-        {
-          "text": "It means you should just leap in without looking too closely.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "It means the partnership needs constant nurturing before it can be trusted.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Let more than logic decide — body, mind, and spirit get a vote.", "correct": true },
+        { "text": "Just leap in without looking too closely.", "correct": false, "reaction": "confusion" },
+        { "text": "It needs constant nurturing before it can be trusted.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "This is the Lovers' own idea of a partnership — one that listens to more than a single voice, not just the numbers."
       ]
     },
     {
@@ -310,27 +293,21 @@
       "character": "dave",
       "emotion": "neutral",
       "speaker": "client",
+      "slot": 0,
       "text": "\"Was I wrong to keep the workshop to myself this whole time?\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        {
-          "text": "No — protecting something quietly while it's still forming is its own way of caring for yourself.",
-          "correct": true
-        },
-        {
-          "text": "Yes, hiding things from people you trust is always wrong.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Whether you were wrong isn't something this reading can say.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "No — protecting it quietly was caring for yourself first.", "correct": true },
+        { "text": "Yes, hiding things from people you trust is wrong.", "correct": false, "reaction": "anger" },
+        { "text": "Whether you were wrong isn't something a reading can say.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress's other message: care for yourself first. Keeping something safe while it's still forming counts."
       ]
     },
     {
@@ -338,27 +315,21 @@
       "character": "dave",
       "emotion": "neutral",
       "speaker": "client",
+      "slot": 0,
       "text": "\"Does this mean the workshop was always meant to become something bigger?\""
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        {
-          "text": "It means something was ready to be born — an idea finally taking real shape.",
-          "correct": true
-        },
-        {
-          "text": "It means you're standing at the edge of something totally new, unrelated to what came before.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "It means you'll need to choose between the workshop and the business partnership.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Something was ready to be born — an idea taking real shape.", "correct": true },
+        { "text": "You're at the edge of something new, unrelated to it.", "correct": false, "reaction": "confusion" },
+        { "text": "You'll have to choose between the workshop and the partnership.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress marks the moment something quietly forming is finally ready to exist out loud."
       ]
     },
     {

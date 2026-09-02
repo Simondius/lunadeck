@@ -35,13 +35,14 @@
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        {
-          "text": "There was a real choice behind you — two paths, and neither one was wrong to want.",
-          "correct": true
-        },
+        { "text": "A real choice behind you — two paths, neither wrong.", "correct": true },
         { "text": "It means you made the wrong choice back then.", "correct": false, "reaction": "anger" },
-        { "text": "This card just means you should've stayed with the band.", "correct": false, "reaction": "confusion" }
+        { "text": "This card means you should've stayed with the band.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers in the past position isn't grading your decision — it's just marking that a real fork, not an easy call, was there."
       ]
     },
     {
@@ -49,23 +50,43 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 0,
+      "text": "\"So does the Lovers card mean I'll meet my person out on this tour?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "slot": 0,
+      "options": [
+        { "text": "No — it's about a choice you're facing, not romance.", "correct": true },
+        { "text": "Yes, definitely — keep an eye out.", "correct": false, "reaction": "anger" },
+        { "text": "This card doesn't mean anything for you.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers shows up for any real fork in the road — a partnership, a decision, two valid paths. It's not a soulmate prediction."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "slot": 0,
       "text": "\"I turned down staying with my old band to do this. I still think about that sometimes.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 0,
       "options": [
-        {
-          "text": "That's worth sitting with, not dismissing — a real choice means weighing every angle, even after.",
-          "correct": true
-        },
+        { "text": "That's worth sitting with — real choices get weighed even after.", "correct": true },
         { "text": "Then you should regret it.", "correct": false, "reaction": "anger" },
-        {
-          "text": "Once a choice is made, it doesn't matter anymore.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Once a choice is made, it doesn't matter anymore.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Still thinking about it isn't second-guessing — it's exactly what weighing every angle actually looks like, before or after."
       ]
     },
     {
@@ -73,27 +94,21 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 0,
       "text": "\"Sometimes I still feel like two different people — the one in the old band and the one on this tour.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 0,
       "options": [
-        {
-          "text": "Both are still you — this card's about holding both sides of yourself in balance, not picking one to erase.",
-          "correct": true
-        },
-        {
-          "text": "It means you should let go of the old version of yourself completely.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "It means one of those two sides just needs to be nurtured until it takes over.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Both are still you — this card holds two sides in balance.", "correct": true },
+        { "text": "Let go of the old version of yourself completely.", "correct": false, "reaction": "confusion" },
+        { "text": "One of those two sides needs to take over.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers isn't asking you to pick a self to erase — it's about holding both sides of yourself at once, in balance."
       ]
     },
     {
@@ -116,21 +131,14 @@
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "Right now, something in you is genuinely flourishing — real growth, not forced.",
-          "correct": true
-        },
-        {
-          "text": "It means you're being lazy about your career.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Growth isn't really what this card is about.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Something in you is genuinely flourishing right now.", "correct": true },
+        { "text": "It means you're being lazy about your career.", "correct": false, "reaction": "anger" },
+        { "text": "Growth isn't really what this card is about.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "This isn't forced or manufactured growth — the Empress here means something is thriving because you're finally letting it."
       ]
     },
     {
@@ -138,27 +146,21 @@
       "character": "riley",
       "emotion": "realisation",
       "speaker": "client",
+      "slot": 1,
       "text": "\"I've been writing so much more since I joined. It doesn't even feel like work.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "That ease is the point — pleasure and creativity aren't indulgences, they're the message.",
-          "correct": true
-        },
-        {
-          "text": "Enjoying it that much probably means you're not taking it seriously.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "How it feels doesn't matter, only the output does.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That ease is the point — pleasure isn't an indulgence here.", "correct": true },
+        { "text": "Enjoying it means you're not taking it seriously.", "correct": false, "reaction": "anger" },
+        { "text": "How it feels doesn't matter, only the output.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress treats pleasure and ease as part of the message, not a warning sign — it not feeling like work is the growth, not a red flag."
       ]
     },
     {
@@ -166,27 +168,21 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "client",
+      "slot": 1,
       "text": "\"Do you think something is actually coming out of all this writing?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "Something's ready to be born — an idea or a project finally taking real shape.",
-          "correct": true
-        },
-        {
-          "text": "It means you're standing at the edge of something totally unrelated to the writing.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "It means you'll have to choose between the writing and the tour.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Something's ready to be born — an idea taking real shape.", "correct": true },
+        { "text": "You're at the edge of something unrelated to the writing.", "correct": false, "reaction": "confusion" },
+        { "text": "You'll have to choose between the writing and the tour.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress marks the point where something that's just been forming quietly is finally ready to become real."
       ]
     },
     {
@@ -209,17 +205,14 @@
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 2,
       "options": [
-        {
-          "text": "Another fresh start is coming — one thing wrapping up right as the next one opens.",
-          "correct": true
-        },
+        { "text": "A fresh start — one thing wrapping up as the next opens.", "correct": true },
         { "text": "It means this is all about to fall apart.", "correct": false, "reaction": "anger" },
-        {
-          "text": "The future isn't really what this card addresses.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "The future isn't really what this card addresses.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool doesn't say what's ending is a failure — just that it's making room for whatever's about to begin."
       ]
     },
     {
@@ -227,23 +220,21 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"The tour ends in a few months. I don't know what happens after that.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "You don't need to know yet — trust the path shows up once you take the next step.",
-          "correct": true
-        },
+        { "text": "You don't need to know yet — the path shows up as you step.", "correct": true },
         { "text": "You should be panicking about that, honestly.", "correct": false, "reaction": "anger" },
-        {
-          "text": "Not knowing means you should stop and turn back now.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Not knowing means you should turn back now.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool never asks for the whole route in advance — it trusts the next stretch shows up once you're already on it."
       ]
     },
     {
@@ -258,23 +249,21 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 0,
       "text": "\"Do I need to make peace with turning down my old band?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 0,
       "options": [
-        {
-          "text": "Less about peace, more about trusting you chose with your gut, not just the safer plan.",
-          "correct": true
-        },
+        { "text": "Less peace, more trusting you chose with your gut.", "correct": true },
         { "text": "No, you should still regret it.", "correct": false, "reaction": "anger" },
-        {
-          "text": "That choice doesn't need any more thought.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That choice doesn't need any more thought.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Lovers doesn't need you to make peace with it — just to trust it was a real choice, made with more than the safer logic."
       ]
     },
     {
@@ -282,23 +271,21 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "client",
+      "slot": 1,
       "text": "\"Is it okay that I'm not stressed about any of this right now?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 1,
       "options": [
-        {
-          "text": "More than okay — it's a reminder to care for yourself first, not treat calm as a warning sign.",
-          "correct": true
-        },
+        { "text": "More than okay — it's a reminder to care for yourself first.", "correct": true },
         { "text": "You should be more stressed than you are.", "correct": false, "reaction": "anger" },
-        {
-          "text": "Stress levels don't factor into a reading.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Stress levels don't factor into a reading.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Empress doesn't treat calm as denial — caring for yourself first is the whole point, not something to feel guilty about."
       ]
     },
     {
@@ -306,27 +293,21 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"What if I just end up starting over from nothing again?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "Starting over isn't the risk — it's a beginner's mind, curious instead of already jaded.",
-          "correct": true
-        },
-        {
-          "text": "Then you'll have wasted this whole tour for nothing.",
-          "correct": false,
-          "reaction": "anger"
-        },
-        {
-          "text": "Starting over doesn't mean anything in this context.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "Starting over is a beginner's mind, not a risk.", "correct": true },
+        { "text": "Then you'll have wasted this whole tour.", "correct": false, "reaction": "anger" },
+        { "text": "Starting over doesn't mean anything here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A beginner's mind is curious rather than jaded — starting over reads as loss only if you skip past what it also opens up."
       ]
     },
     {
@@ -334,27 +315,21 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
+      "slot": 2,
       "text": "\"Some of my old bandmates think I made a reckless choice, going off script like this.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 2,
       "options": [
-        {
-          "text": "That's the nonconformist energy of this card — willing to go against convention, not reckless for its own sake.",
-          "correct": true
-        },
-        {
-          "text": "It means you need to weigh their opinion carefully before deciding anything else.",
-          "correct": false,
-          "reaction": "confusion"
-        },
-        {
-          "text": "It means you should protect yourself from their opinions the way you'd protect something still growing.",
-          "correct": false,
-          "reaction": "confusion"
-        }
+        { "text": "That's nonconformist energy, not recklessness.", "correct": true },
+        { "text": "Weigh their opinion carefully before deciding anything.", "correct": false, "reaction": "confusion" },
+        { "text": "Protect yourself from their opinions like something growing.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool was never going to look sensible from inside the old plan — going against convention is exactly its energy, not a side effect of it."
       ]
     },
     {

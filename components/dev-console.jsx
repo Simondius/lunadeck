@@ -15,6 +15,11 @@ import { CHAPTERS } from "@/data/story/chapters";
 // and the eventual release does nothing but drop the button in place.
 const DRAG_THRESHOLD = 6;
 const POSITION_KEY = "lunadeck.devconsole.pos.v1";
+// Persisted separately from position (0056: "add an option... to close it
+// and reduce it's size... move it to the top right corner") - minimizing
+// doesn't forget the FAB's own dragged spot, it just replaces it with a
+// small fixed icon until restored.
+const MINIMIZED_KEY = "lunadeck.devconsole.minimized.v1";
 
 const MENU = [
   {
@@ -164,6 +169,10 @@ export default function DevConsole({ allNodeIds = [] }) {
   // first client tick, same pattern as useProgress.
   const [position, setPosition] = useState(null);
   const [open, setOpen] = useState(false);
+  // Off (full FAB) until a saved "minimized" is read back, same as
+  // `position` - nobody gets switched to the small icon just by this
+  // shipping; it only persists once someone actually minimizes it.
+  const [minimized, setMinimized] = useState(false);
   // Which top-level group (Path, Story, ...) is expanded, if any - an
   // accordion, not a checklist, since MENU only ever had one group until
   // Story joined it. Two groups both showing every subgroup and action at
@@ -181,9 +190,23 @@ export default function DevConsole({ allNodeIds = [] }) {
 
   useEffect(() => {
     setPosition(loadPosition());
+    try {
+      setMinimized(window.localStorage.getItem(MINIMIZED_KEY) === "1");
+    } catch {
+      // Blocked storage - stays the full FAB every load.
+    }
   }, []);
 
   useEffect(() => subscribeNodeSkip(setSkip), []);
+
+  function setMinimizedPersisted(value) {
+    setMinimized(value);
+    try {
+      window.localStorage.setItem(MINIMIZED_KEY, value ? "1" : "0");
+    } catch {
+      // Blocked storage - just won't remember past this load.
+    }
+  }
 
   // The skip controls appear when a node session mounts, which can be long
   // after the console was parked. Re-clamp so neither wing hangs off the
@@ -207,6 +230,23 @@ export default function DevConsole({ allNodeIds = [] }) {
   }, [position]);
 
   if (!position) return null;
+
+  // Small and fixed, not draggable - the whole point is to be out of the
+  // way (0056: "reduce it's size to a small icon the size of the icons
+  // in the menu at the bottom and move it to the top right corner").
+  // Tapping it just restores the full console at wherever it was parked.
+  if (minimized) {
+    return (
+      <button
+        type="button"
+        className="dev-console-mini"
+        aria-label="Open dev console"
+        onClick={() => setMinimizedPersisted(false)}
+      >
+        DEV
+      </button>
+    );
+  }
 
   const onPointerDown = (event) => {
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -251,6 +291,21 @@ export default function DevConsole({ allNodeIds = [] }) {
     >
       {open ? (
         <div className="dev-console-menu" role="menu">
+          <div className="dev-console-menu-header">
+            <span className="dev-console-menu-title">DEV</span>
+            <button
+              type="button"
+              className="dev-console-minimize"
+              aria-label="Minimize dev console"
+              onClick={() => {
+                setOpen(false);
+                setOpenGroup(null);
+                setMinimizedPersisted(true);
+              }}
+            >
+              ✕
+            </button>
+          </div>
           {MENU.map((group) => {
             const expanded = openGroup === group.group;
             return (

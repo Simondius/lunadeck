@@ -8,6 +8,7 @@ import { registerNodeSkip } from "@/lib/dev-console-bridge";
 const ASSETS = "/assets/reading-scene-sketch-v2";
 
 const CARD_ENTER_MS = 900;
+const CARD_SHIMMER_MS = 1000;
 const CARD_EXIT_MS = 650;
 const BUBBLE_DISMISS_MS = 500;
 
@@ -100,14 +101,18 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
   // timer, so a wrong guess can't be retried a moment later.
   const [eliminatedKeys, setEliminatedKeys] = useState(() => new Set());
   const [revealedCard, setRevealedCard] = useState(null);
-  // hidden | entering | shown | exiting | settled - a tap only ever acts
-  // on "shown" (dismiss) or is ignored (still entering/exiting). Keeping
-  // this explicit, rather than deriving "is it safe to dismiss" from
-  // whether an animation happens to still be running, is what keeps a
-  // stray tap during the entrance from also firing the dismissal: the two
-  // used to share one skip listener, and a single tap could resolve the
-  // entrance *and* be read as the next tap that starts the exit, racing
-  // two Web Animations on the same element.
+  // hidden | entering | shimmering | shown | exiting | settled - a tap
+  // only ever acts on "shown" (dismiss) or is ignored (still entering/
+  // shimmering/exiting). Keeping this explicit, rather than deriving "is
+  // it safe to dismiss" from whether an animation happens to still be
+  // running, is what keeps a stray tap during the entrance from also
+  // firing the dismissal: the two used to share one skip listener, and a
+  // single tap could resolve the entrance *and* be read as the next tap
+  // that starts the exit, racing two Web Animations on the same element.
+  // "shimmering" (docs/decisions/0067: "shake and shimmer for 1s before
+  // the options appear") is its own phase, not folded into "entering",
+  // because it's the one part of the reveal that's tap-skippable - the
+  // pile-to-focus entrance itself still always plays out in full.
   const [cardPhase, setCardPhase] = useState("hidden");
   // True for the 0.5s between tapping a speech bubble and actually
   // advancing - the bubble plays its own glimmer-and-fade
@@ -329,10 +334,33 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
       { duration: CARD_ENTER_MS, easing: "ease", fill: "forwards" }
     );
     if (!animation) {
-      setCardPhase("shown");
+      setCardPhase("shimmering");
       return;
     }
-    animation.onfinish = () => setCardPhase("shown");
+    animation.onfinish = () => setCardPhase("shimmering");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardPhase]);
+
+  // The reveal's own little flourish once it lands (0067) - a quick
+  // shake-and-shimmer before the stage becomes tappable, skippable by tap
+  // like the exit is (animateSkippable's shared pointerdown listener
+  // already fires regardless of whether `tappable` has main's onClick
+  // attached, so this works without needing the stage tappable yet).
+  useEffect(() => {
+    if (cardPhase !== "shimmering") return;
+    const base = cardFrame(focusFrame).transform;
+    animateSkippable(
+      cardRef.current,
+      [
+        { ...cardFrame(focusFrame), filter: "brightness(1)", offset: 0 },
+        { ...cardFrame(focusFrame), transform: `${base} rotate(-3deg)`, filter: "brightness(1.6)", offset: 0.15 },
+        { ...cardFrame(focusFrame), transform: `${base} rotate(3deg)`, filter: "brightness(1.9)", offset: 0.35 },
+        { ...cardFrame(focusFrame), transform: `${base} rotate(-2deg)`, filter: "brightness(1.5)", offset: 0.55 },
+        { ...cardFrame(focusFrame), transform: `${base} rotate(1deg)`, filter: "brightness(1.2)", offset: 0.8 },
+        { ...cardFrame(focusFrame), filter: "brightness(1)", offset: 1 },
+      ],
+      CARD_SHIMMER_MS
+    ).then(() => setCardPhase("shown"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardPhase]);
 
@@ -506,6 +534,30 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
   }
 
   const emotion = reactionEmotion ?? beat?.emotion ?? "neutral";
+  // A reaction face (a wrong choice's anger/confusion) doesn't snap back
+  // to neutral the instant the next beat's own prompt appears (0067: "have
+  // it fade away for 1s after the next user prompt appears") - the new
+  // beat's own content (a fresh bubble, fresh choices) renders immediately
+  // as normal, but the character's *previous* expression lingers as a
+  // fading ghost layered underneath, crossfading out over 1s rather than
+  // being replaced outright. Keyed on the actual image src, not just the
+  // emotion name, so switching characters (Dave -> Riley) doesn't try to
+  // cross-fade between two different people's faces.
+  const [fadingGhost, setFadingGhost] = useState(null);
+  const prevCharacterSrcRef = useRef(null);
+  useEffect(() => {
+    const nextSrc = characterSrc(character, emotion);
+    const prevSrc = prevCharacterSrcRef.current;
+    prevCharacterSrcRef.current = nextSrc;
+    if (!prevSrc || prevSrc === nextSrc) return;
+    const ghost = { src: prevSrc, id: nextSrc + Date.now() };
+    setFadingGhost(ghost);
+    const timeout = window.setTimeout(() => {
+      setFadingGhost((current) => (current?.id === ghost.id ? null : current));
+    }, 1000);
+    return () => window.clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [character, emotion]);
   // Character ids double as display names (dave, riley) - capitalized,
   // that's the name a client-speaker line is labelled with.
   const speakerName = character ? character[0].toUpperCase() + character.slice(1) : null;
@@ -558,6 +610,18 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
           src={characterSrc(character, emotion)}
           alt=""
         />
+        {fadingGhost ? (
+          <img
+            key={fadingGhost.id}
+            className={
+              side === "right"
+                ? "story-layer story-character-art is-side-right is-fading-ghost"
+                : "story-layer story-character-art is-fading-ghost"
+            }
+            src={fadingGhost.src}
+            alt=""
+          />
+        ) : null}
         <div className="story-layer story-table-backing" aria-hidden="true" />
         <img className="story-layer story-table-art" src={`${ASSETS}/table/table_gemstones_deck.png`} alt="" />
         {revealedCard ? (

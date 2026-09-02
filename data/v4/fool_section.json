@@ -243,6 +243,51 @@
           ]
         },
         {
+          "id": "n1-r4",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "cliff",
+              "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
+              "rects": [
+                {
+                  "x0": 0,
+                  "y0": 0.59,
+                  "x1": 0.78,
+                  "y1": 1
+                }
+              ],
+              "name": "Cliff edge"
+            },
+            {
+              "key": "crescent_moon",
+              "text": "Crescent moon: A moon near his heart — instinct over reasoning.",
+              "rects": [
+                {
+                  "x0": 0.37,
+                  "y0": 0.4,
+                  "x1": 0.62,
+                  "y1": 0.53
+                }
+              ],
+              "name": "Crescent moon"
+            },
+            {
+              "key": "rising_sun",
+              "text": "Rising sun: Dawn breaking the instant he steps off the edge.",
+              "rects": [
+                {
+                  "x0": 0.65,
+                  "y0": 0,
+                  "x1": 1,
+                  "y1": 0.28
+                }
+              ],
+              "name": "Rising sun"
+            }
+          ]
+        },
+        {
           "id": "n1-r3",
           "type": "zone",
           "elements": [
@@ -294,51 +339,6 @@
           ]
         },
         {
-          "id": "n1-r4",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "cliff",
-              "text": "Cliff edge: The boundary between safety and the unknown, crossed without hesitation.",
-              "rects": [
-                {
-                  "x0": 0,
-                  "y0": 0.59,
-                  "x1": 0.78,
-                  "y1": 1
-                }
-              ],
-              "name": "Cliff edge"
-            },
-            {
-              "key": "crescent_moon",
-              "text": "Crescent moon: A moon near his heart — instinct over reasoning.",
-              "rects": [
-                {
-                  "x0": 0.37,
-                  "y0": 0.4,
-                  "x1": 0.62,
-                  "y1": 0.53
-                }
-              ],
-              "name": "Crescent moon"
-            },
-            {
-              "key": "rising_sun",
-              "text": "Rising sun: Dawn breaking the instant he steps off the edge.",
-              "rects": [
-                {
-                  "x0": 0.65,
-                  "y0": 0,
-                  "x1": 1,
-                  "y1": 0.28
-                }
-              ],
-              "name": "Rising sun"
-            }
-          ]
-        },
-        {
           "id": "n1-r5",
           "type": "tilematch",
           "pairs": [
@@ -365,7 +365,7 @@
           "pairs": [
             {
               "key": "uranus",
-              "text": "Sudden insight, breaking old patterns open.",
+              "text": "Uranus: Sudden insight, breaking old patterns open.",
               "image": "/assets/cards/cardelements/major_00_fool_element_uranus.png"
             },
             {
@@ -547,6 +547,14 @@
             {
               "text": "Friday",
               "correct": false
+            },
+            {
+              "text": "cactus",
+              "correct": false
+            },
+            {
+              "text": "violin",
+              "correct": false
             }
           ]
         },
@@ -567,6 +575,14 @@
             },
             {
               "text": "pineapple",
+              "correct": false
+            },
+            {
+              "text": "trombone",
+              "correct": false
+            },
+            {
+              "text": "Saturday",
               "correct": false
             }
           ]
@@ -701,54 +717,32 @@
               "correct": true
             },
             {
-              "text": "seriousness",
-              "correct": false
-            },
-            {
               "text": "speed",
               "correct": true
-            },
-            {
-              "text": "patience",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r2",
-          "words": [
-            {
-              "text": "speed",
-              "correct": true
-            },
-            {
-              "text": "patience",
-              "correct": false
             },
             {
               "text": "exploration",
               "correct": true
             },
             {
-              "text": "routine",
-              "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n4-r3",
-          "words": [
-            {
               "text": "nonconformity",
               "correct": true
             },
             {
-              "text": "tradition",
+              "text": "seriousness",
               "correct": false
             },
             {
-              "text": "play",
-              "correct": true
+              "text": "patience",
+              "correct": false
+            },
+            {
+              "text": "routine",
+              "correct": false
+            },
+            {
+              "text": "tradition",
+              "correct": false
             },
             {
               "text": "duty",
@@ -923,7 +917,11 @@
               "correct": true
             },
             {
-              "text": "intuition",
+              "text": "speed",
+              "correct": true
+            },
+            {
+              "text": "exploration",
               "correct": true
             },
             {
@@ -937,23 +935,6 @@
             {
               "text": "imagination",
               "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n6-r2",
-          "words": [
-            {
-              "text": "speed",
-              "correct": true
-            },
-            {
-              "text": "exploration",
-              "correct": true
-            },
-            {
-              "text": "play",
-              "correct": true
             },
             {
               "text": "partnership",
@@ -985,6 +966,10 @@
               "correct": true
             },
             {
+              "text": "play",
+              "correct": true
+            },
+            {
               "text": "wisdom",
               "correct": false
             },
@@ -995,23 +980,6 @@
             {
               "text": "kindness",
               "correct": false
-            }
-          ]
-        },
-        {
-          "id": "n7-r1",
-          "words": [
-            {
-              "text": "spontaneity",
-              "correct": true
-            },
-            {
-              "text": "intuition",
-              "correct": true
-            },
-            {
-              "text": "play",
-              "correct": true
             },
             {
               "text": "banana",
@@ -1161,7 +1129,7 @@
             "One cycle ends the instant the next begins",
             "The universe rebooted like an old phone",
             "Every ending erases all memory of the past",
-            "A bridge between the everyday and the sacred"
+            "Time skips backward whenever he blinks"
           ]
         },
         {
@@ -1171,9 +1139,9 @@
           "correct": "Travels light, takes chances anyway",
           "options": [
             "Travels light, takes chances anyway",
-            "Packs fourteen suitcases just in case",
-            "Waits for the safest possible moment to move",
-            "Solitude here is productive, not lonely"
+            "Rehearses the trip for eleven months first",
+            "Insures every step against disaster",
+            "Never leaves without a laminated itinerary"
           ]
         },
         {
@@ -1184,8 +1152,8 @@
           "options": [
             "Calm at the cliff edge, not afraid to fall",
             "Screams the whole way down, then laughs",
-            "Refuses to go near the edge at all",
-            "The chains are looser than they look"
+            "Builds a railing before going anywhere near it",
+            "Brings a parachute just to sit down"
           ]
         },
         {
@@ -1195,7 +1163,7 @@
           "correct": "Trusts a path appears the moment you step",
           "options": [
             "Trusts a path appears the moment you step",
-            "Waits for GPS before taking a single step",
+            "Demands a signed contract before moving",
             "Only moves once the whole road is visible",
             "A lantern lights the path one step at a time"
           ]
@@ -1208,7 +1176,7 @@
           "options": [
             "Meets life with a curious beginner's mind",
             "Already an expert in absolutely everything",
-            "Approaches life with caution and suspicion",
+            "Interrogates every stranger before saying hello",
             "Holding something divine within ordinary life"
           ]
         },
@@ -1219,9 +1187,9 @@
           "correct": "Nonconformist energy, glad to break convention",
           "options": [
             "Nonconformist energy, glad to break convention",
-            "Wears socks with sandals to prove a point",
-            "Follows every rule exactly as it's written",
-            "Freedom is a responsibility you already hold"
+            "Files a permit before breaking any rule",
+            "Colors strictly, obsessively inside the lines",
+            "Freedom is a chore best left to someone else"
           ]
         },
         {
@@ -1231,7 +1199,7 @@
           "correct": "Says yes to the unknown, not playing it safe",
           "options": [
             "Says yes to the unknown, not playing it safe",
-            "Says no to literally everything, always",
+            "Says maybe, then reconsiders for a week",
             "Only says yes once every risk is removed",
             "The message arrives through a trusted teacher"
           ]

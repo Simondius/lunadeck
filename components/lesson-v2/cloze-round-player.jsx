@@ -238,13 +238,20 @@ export default function ClozeRoundPlayer({
     shimmer(cardArtRef.current);
   }
 
-  // Demoed word: whichever blank's answer is "new cycle" if this round has
+  // Demoed word: whichever blank's answer is "journey" if this round has
   // one (Fool node 8 round 1 does — Simon's own example when he asked for
   // this), else just the first blank. Either way it's real round content,
   // not a made-up demo sentence.
   const demoBlank =
-    round.tutorial && (round.blanks.find((b) => b.answer === "new cycle") ?? round.blanks[0]);
+    round.tutorial && (round.blanks.find((b) => b.answer === "journey") ?? round.blanks[0]);
   const demoWord = demoBlank ? bank.find((w) => w.blankKey === demoBlank.key) : null;
+  // A recap round (the whole card's own description, every blank at
+  // once) doesn't get queued for a second-look replay on a miss the way
+  // every other round does (docs/decisions/0066: "don't remember failure
+  // here... continue without re-doing the level") - node-session.jsx's
+  // own mistake-review queue exists to reinforce a single fact just
+  // missed, not to re-run an entire recap a learner already sat through
+  // once. onDone's noReview flag below carries that through.
   const isRecap = round.blanks.length > RECAP_BLANK_THRESHOLD;
 
   return (
@@ -274,6 +281,12 @@ export default function ClozeRoundPlayer({
       <div className="cloze-bg-scrim" aria-hidden="true" />
 
       <div className="drag-layout">
+        {/* A leading spacer, mirroring the trailing ones below - every
+            round player was missing this (docs/decisions/0066, "center
+            the content vertically... fix for all nodes"): a single
+            trailing spacer only pushes the *rest* of the layout down
+            from a fixed top, it doesn't center the whole block. */}
+        <div className="drag-layout-spacer" aria-hidden="true" />
         {isRecap ? null : (
           <>
             <button
@@ -339,7 +352,7 @@ export default function ClozeRoundPlayer({
           type="button"
           className="action cloze-continue"
           style={{ opacity: 0 }}
-          onClick={() => onDone({ missed: missedRef.current })}
+          onClick={() => onDone({ missed: missedRef.current, noReview: isRecap })}
         >
           Continue
         </button>

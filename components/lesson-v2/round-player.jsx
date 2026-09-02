@@ -170,6 +170,12 @@ export default function RoundPlayer({
       </div>
 
       <div className="drag-layout">
+        {/* A leading spacer, mirroring the trailing one below - every
+            round player was missing this (docs/decisions/0066, "center
+            the content vertically... fix for all nodes"): a single
+            trailing spacer only pushes the *rest* of the layout down
+            from a fixed top, it doesn't center the whole block. */}
+        <div className="drag-layout-spacer" aria-hidden="true" />
         <div className="reference-card is-compact drag-reference-card">
           <p className="reference-name">{cardName}</p>
           <div ref={cardRef} className="reference-art drag-target">

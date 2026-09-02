@@ -110,7 +110,13 @@ const LABELS = {
 // a small single-card mashup (plain + cloze + choice) testing only what
 // this unit has taught so far, shared between the two units that teach
 // the same card since there's nothing character-specific about it.
-function singleCardLessonSteps(cardSlug) {
+//
+// Every href here carries a `?unit=<N>` query param (docs/decisions/
+// 0065) - two sibling units teaching the same card (1&2, 3&4, 5&6) link
+// to the exact same lesson routes, so a lesson node finishing has no way
+// to know which unit's own end-narrative "next" should mean without it.
+function singleCardLessonSteps(unit) {
+  const cardSlug = unit.cardSlug;
   const section = SECTIONS.find((s) => s.slug === cardSlug);
   const labels = LABELS[cardSlug] ?? [];
   const cut = new Set(CUT_INDICES[cardSlug] ?? []);
@@ -120,7 +126,7 @@ function singleCardLessonSteps(cardSlug) {
     .map(({ node, i }) => ({
       kind: "lesson",
       key: `${cardSlug}-${node.id}`,
-      href: `/v4/play/${cardSlug}/${i + 1}`,
+      href: `/v4/play/${cardSlug}/${i + 1}?unit=${unit.unit}`,
       label: labels[i] ?? `Node ${i + 1}`,
       node,
     }));
@@ -129,7 +135,7 @@ function singleCardLessonSteps(cardSlug) {
   const capstoneStep = {
     kind: "lesson",
     key: `${cardSlug}-${capstoneNode.id}`,
-    href: `/v4/play/${cardSlug}-capstone/1`,
+    href: `/v4/play/${cardSlug}-capstone/1?unit=${unit.unit}`,
     label: capstoneNode.label,
     node: capstoneNode,
   };
@@ -157,7 +163,7 @@ function reviewLessonSteps(unit) {
     return {
       kind: "lesson",
       key: `${cardSlug}-${node.id}-review${unit.reviewCardIndex}`,
-      href: `/v4/play/${cardSlug}/${i + 1}`,
+      href: `/v4/play/${cardSlug}/${i + 1}?unit=${unit.unit}`,
       label: `${labels[i] ?? `Node ${i + 1}`} (${section.data.cardName})`,
       node,
     };
@@ -165,7 +171,7 @@ function reviewLessonSteps(unit) {
   const mashupSteps = (mashupNodes[unit.mashupKey] ?? []).map((node, i) => ({
     kind: "lesson",
     key: `${unit.mashupKey}-${node.id}`,
-    href: `/v4/play/${unit.mashupKey}/${i + 1}`,
+    href: `/v4/play/${unit.mashupKey}/${i + 1}?unit=${unit.unit}`,
     label: node.label ?? `Mashup ${i + 1}`,
     node,
   }));
@@ -179,7 +185,7 @@ function reviewLessonSteps(unit) {
 // the existing V2NodeIcon shape system) or a character node and to link
 // to the right play route.
 export function stepsForUnit(unit) {
-  const lessonSteps = unit.kind === "review" ? reviewLessonSteps(unit) : singleCardLessonSteps(unit.cardSlug);
+  const lessonSteps = unit.kind === "review" ? reviewLessonSteps(unit) : singleCardLessonSteps(unit);
   return [
     {
       kind: "character",
@@ -217,6 +223,31 @@ function getAllSteps() {
 export function getNextPathStep(href) {
   const steps = getAllSteps();
   const i = steps.findIndex((s) => s.href === href);
+  if (i === -1 || i + 1 >= steps.length) return null;
+  const next = steps[i + 1];
+  return { href: next.href, label: next.label };
+}
+
+// What comes right after a given LESSON node's own bare href (no query
+// string), scoped to one specific unit (docs/decisions/0065) -
+// getNextPathStep() above can't be reused here as-is: two sibling units
+// teaching the same card (1&2, 3&4, 5&6) share identical lesson hrefs, so
+// a global search-by-href would always resolve to whichever of the two
+// units happens to come first in UNITS, regardless of which one the
+// learner is actually in. This is why every lesson href carries its own
+// `?unit=` - the v4 play route strips the query, passes the bare href
+// plus the unit number here, and this scopes the search to that unit's
+// own step list before comparing (the bare href in each step's own
+// stored `href` still has its query string, so comparison strips that
+// too). Returns null once there's truly nothing left in this unit's own
+// list - the caller falls back to the unit's endSlug itself in that case,
+// which only happens if this is somehow called on the end-narrative step.
+export function getNextLessonStep(unitNumber, bareHref) {
+  const unit = UNITS.find((u) => u.unit === unitNumber);
+  if (!unit) return null;
+  const steps = stepsForUnit(unit);
+  const strip = (h) => h.split("?")[0];
+  const i = steps.findIndex((s) => strip(s.href) === bareHref);
   if (i === -1 || i + 1 >= steps.length) return null;
   const next = steps[i + 1];
   return { href: next.href, label: next.label };

@@ -1,21 +1,25 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import DragChip from "./drag-chip";
 import { masterForKey, seededShuffle } from "@/lib/rounds";
 
-const CONTINUE_FADE_MS = 500;
+const WRONG_FLASH_MS = 460;
+const CORRECT_ADVANCE_MS = 500;
 
-// Plays one "choice" round: drag the one true reading onto the card, same
-// gesture as every other round type in v2 — this used to be tap-one-of-4,
-// but Simon's call after playtesting was that switching mechanics for one
-// round type broke the rhythm the rest of the section teaches. Reusing
-// DragChip directly (rather than a parallel implementation) means a wrong
-// drop already behaves exactly like a keyword round's wrong drop: the card
-// flashes and shakes, the chip snaps back, and it's still there to retry.
-// Reports {missed}, same contract as every other round type — see
-// node-session.jsx and docs/decisions/0035.
+// Plays one "choice" round: tap the one true reading, not drag it onto the
+// card (docs/decisions/0066 — Simon's own call, replacing 0035's original
+// "reuse DragChip so every round type shares one gesture" reasoning: a
+// pick-one-of-four multiple choice reads more naturally as a tap than a
+// drag, and Story mode's own narrative choices already establish exactly
+// this tap-and-feedback language elsewhere in the app). A wrong tap shakes
+// and tints red *permanently* — it stays disabled rather than resetting,
+// same as a wrong narrative choice (chapter-player.jsx's own eliminatedKeys,
+// 0056) — so a repeat guess isn't possible. A correct tap sparkles while
+// every other option fades away, then the round advances on its own after
+// CORRECT_ADVANCE_MS — no Continue button to tap, since there's nothing
+// left to decide once the right answer is already picked. Reports
+// {missed}, same contract as every other round type — see node-session.jsx.
 export default function ChoiceRoundPlayer({
   cardKey,
   cardName,
@@ -34,41 +38,27 @@ export default function ChoiceRoundPlayer({
       })),
     [round]
   );
-  const [stage, setStage] = useState("playing"); // playing | ready
-  const cardRef = useRef(null);
-  const skipResolverRef = useRef(null);
-  const continueRef = useRef(null);
+  // The exact wrong option currently mid-shake, separate from
+  // eliminatedKeys below — flashKey clears itself once the shake plays;
+  // eliminatedKeys doesn't, matching chapter-player.jsx's own
+  // flashKey/eliminatedKeys split (0056).
+  const [flashKey, setFlashKey] = useState(null);
+  const [eliminatedKeys, setEliminatedKeys] = useState(() => new Set());
+  const [correctKey, setCorrectKey] = useState(null);
   const missedRef = useRef(false);
 
-  useEffect(() => {
-    function onTap() {
-      skipResolverRef.current?.();
+  function tryOption(option) {
+    if (correctKey || eliminatedKeys.has(option.listKey)) return;
+    if (option.correct) {
+      setCorrectKey(option.listKey);
+      window.setTimeout(() => onDone({ missed: missedRef.current }), CORRECT_ADVANCE_MS);
+      return;
     }
-    window.addEventListener("pointerdown", onTap);
-    return () => window.removeEventListener("pointerdown", onTap);
-  }, []);
-
-  function animateSkippable(el, keyframes, duration) {
-    return new Promise((resolve) => {
-      if (!el) {
-        resolve();
-        return;
-      }
-      const animation = el.animate(keyframes, { duration, easing: "ease", fill: "forwards" });
-      skipResolverRef.current = () => animation.finish();
-      animation.onfinish = () => {
-        skipResolverRef.current = null;
-        resolve();
-      };
-    });
+    missedRef.current = true;
+    setFlashKey(option.listKey);
+    setEliminatedKeys((prev) => new Set(prev).add(option.listKey));
+    window.setTimeout(() => setFlashKey(null), WRONG_FLASH_MS);
   }
-
-  useLayoutEffect(() => {
-    if (stage === "ready") {
-      animateSkippable(continueRef.current, [{ opacity: 0 }, { opacity: 1 }], CONTINUE_FADE_MS);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stage]);
 
   return (
     <main className="session is-drag-lesson">
@@ -91,42 +81,47 @@ export default function ChoiceRoundPlayer({
       </div>
 
       <div className="drag-layout">
+        {/* A leading spacer, mirroring the trailing one below - every
+            round player was missing this (docs/decisions/0066, "center
+            the content vertically... fix for all nodes"): a single
+            trailing spacer only pushes the *rest* of the layout down
+            from a fixed top, it doesn't center the whole block. */}
+        <div className="drag-layout-spacer" aria-hidden="true" />
+
         <p className="prompt">{round.prompt}</p>
 
         <div className="reference-card is-compact drag-reference-card choice-reference-card">
           <p className="reference-name">{cardName}</p>
-          <div ref={cardRef} className="reference-art drag-target">
+          <div className="reference-art">
             <img src={masterForKey(cardKey)} alt={cardName} />
           </div>
         </div>
 
         <div className="drag-layout-spacer" aria-hidden="true" />
 
-        <div className="chips drag-chips">
-          {options.map((word) => (
-            <DragChip
-              key={word.listKey}
-              word={word}
-              long
-              cardRef={cardRef}
-              disabled={stage !== "playing"}
-              onAccepted={() => setStage("ready")}
-              onRejected={() => {
-                missedRef.current = true;
-              }}
-            />
-          ))}
-          {stage === "ready" ? (
-            <button
-              ref={continueRef}
-              type="button"
-              className="action"
-              style={{ opacity: 0 }}
-              onClick={() => onDone({ missed: missedRef.current })}
-            >
-              Continue
-            </button>
-          ) : null}
+        <div className="choice-select-options">
+          {options.map((option) => {
+            const isEliminated = eliminatedKeys.has(option.listKey);
+            const isCorrectPick = correctKey === option.listKey;
+            const isFadingOut = correctKey != null && !isCorrectPick;
+            return (
+              <button
+                key={option.listKey}
+                type="button"
+                disabled={isEliminated || correctKey != null}
+                className={
+                  "choice-select-option" +
+                  (flashKey === option.listKey ? " is-wrong" : "") +
+                  (isEliminated ? " is-eliminated" : "") +
+                  (isCorrectPick ? " is-correct-pick" : "") +
+                  (isFadingOut ? " is-fading-out" : "")
+                }
+                onClick={() => tryOption(option)}
+              >
+                {option.text}
+              </button>
+            );
+          })}
         </div>
 
         <div className="drag-layout-spacer" aria-hidden="true" />

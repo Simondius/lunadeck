@@ -9,6 +9,7 @@ import ChoiceRoundPlayer from "./choice-round-player";
 import TileMatchPlayer from "./tile-match-player";
 import SwipeRoundPlayer from "./swipe-round-player";
 import { registerNodeSkip } from "@/lib/dev-console-bridge";
+import NodeCompleteCelebration from "./node-complete-celebration";
 
 // One player component per round.type. No "type" at all is the original
 // keyword-pair shape (RoundPlayer) — kept untagged since it predates every
@@ -42,6 +43,17 @@ export default function NodeSession({
   totalNodes,
   sectionSlug,
   nextSection,
+  // v4 (docs/decisions/0065) passes these explicitly instead of relying
+  // on nextSection/sectionSlug/nodeNumber math below: its own lesson
+  // nodes aren't a plain card-by-card chain (cut nodes reserved for
+  // review units, a mid-unit capstone, cross-card mashup nodes), and two
+  // sibling units teaching the same card share identical section/node
+  // routes, so "what's actually next" can only be resolved by the page
+  // itself (data/v4/units.js's own getNextLessonStep), not derived here.
+  // undefined (the default) keeps the original nextSection-based
+  // computation for v1/v2/v3, which never pass these.
+  nextHref: nextHrefOverride,
+  nextLabel: nextLabelOverride,
   // Every "quit"/"next section"/"back to..." link needs this. v2 was the
   // only curriculum on this component when it was written, so it defaulted
   // in as a literal; v3 (docs/decisions/0046) reuses this same component
@@ -99,7 +111,7 @@ export default function NodeSession({
     });
   }, [stage, mainIndex, reviewIndex, reviewQueue, node.rounds.length]);
 
-  function handleRoundDone({ missed }) {
+  function handleRoundDone({ missed, noReview }) {
     if (stage === "review") {
       // A second look never requeues again, whatever happens this time —
       // same rule v1's review pass follows (docs/decisions/0008): it can't
@@ -112,9 +124,11 @@ export default function NodeSession({
       return;
     }
 
-    const nextQueue = missed
-      ? [...reviewQueue, node.rounds[mainIndex]]
-      : reviewQueue;
+    // A round can opt out of the review queue entirely (docs/decisions/
+    // 0066) - a whole-card recap round doesn't get replayed on a miss the
+    // way one missed fact does, it just continues.
+    const nextQueue =
+      missed && !noReview ? [...reviewQueue, node.rounds[mainIndex]] : reviewQueue;
 
     if (mainIndex + 1 < node.rounds.length) {
       setReviewQueue(nextQueue);
@@ -162,17 +176,23 @@ export default function NodeSession({
   }
 
   if (stage === "complete") {
-    const hasNextInSection = nodeNumber < totalNodes;
-    const nextHref = hasNextInSection
-      ? `${basePath}/play/${sectionSlug}/${nodeNumber + 1}`
-      : nextSection
-        ? `${basePath}/play/${nextSection.slug}/1`
-        : basePath;
-    const nextLabel = hasNextInSection
-      ? `Node ${nodeNumber + 1}`
-      : nextSection
-        ? nextSection.cardName
-        : `Back to ${basePath.slice(1)}`;
+    let nextHref, nextLabel;
+    if (nextHrefOverride !== undefined) {
+      nextHref = nextHrefOverride;
+      nextLabel = nextLabelOverride;
+    } else {
+      const hasNextInSection = nodeNumber < totalNodes;
+      nextHref = hasNextInSection
+        ? `${basePath}/play/${sectionSlug}/${nodeNumber + 1}`
+        : nextSection
+          ? `${basePath}/play/${nextSection.slug}/1`
+          : basePath;
+      nextLabel = hasNextInSection
+        ? `Node ${nodeNumber + 1}`
+        : nextSection
+          ? nextSection.cardName
+          : `Back to ${basePath.slice(1)}`;
+    }
 
     return (
       <main className="session is-drag-lesson">
@@ -183,10 +203,7 @@ export default function NodeSession({
         </div>
         <div className="bridge-layout">
           <div className="drag-layout-spacer" aria-hidden="true" />
-          <p className="prompt">Node {nodeNumber} complete.</p>
-          <p className="spec-note">
-            Placeholder ending — see docs/draft-alt-path-fool-section.md.
-          </p>
+          <NodeCompleteCelebration />
           <Link className="action" href={nextHref}>
             {nextLabel}
           </Link>

@@ -116,6 +116,12 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
       </div>
 
       <div className="drag-layout">
+        {/* A leading spacer, mirroring the trailing ones below - every
+            round player was missing this (docs/decisions/0066, "center
+            the content vertically... fix for all nodes"): a single
+            trailing spacer only pushes the *rest* of the layout down
+            from a fixed top, it doesn't center the whole block. */}
+        <div className="drag-layout-spacer" aria-hidden="true" />
         {/* One flat grid, not two independent columns - the image and text
             columns used to be separate CSS grids, each sizing its own rows
             from its own content only, so an image tile and the unrelated

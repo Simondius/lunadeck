@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { SECTIONS, getSection, getNextSection } from "@/data/v4/sections";
+import { SECTIONS, getSection } from "@/data/v4/sections";
+import { getNextLessonStep } from "@/data/v4/units";
 import mashupNodes from "@/data/v4/mashup_nodes.json";
 import capstoneNodes from "@/data/v4/capstone_nodes.json";
 import NodeSession from "@/components/lesson-v2/node-session";
@@ -11,16 +12,25 @@ import NodeSession from "@/components/lesson-v2/node-session";
 // same pattern app/v3's own play route already establishes.
 //
 // <section> also accepts two kinds of pseudo-section, both resolved here
-// rather than in a nested route, since NodeSession's own "complete"
-// screen always links to `${basePath}/play/${sectionSlug}/${n+1}` and a
-// nested route would make that auto-generated link 404:
+// rather than in a nested route (docs/decisions/0059, 0062):
 //   - a review unit's own mashup pair (data/v4/mashup_nodes.json's own
-//     "unit7"/"unit8" keys, docs/decisions/0059)
+//     "unit7"/"unit8" keys)
 //   - a single-card unit's mid-unit mini capstone (data/v4/
 //     capstone_nodes.json's own "fool"/"lovers"/"empress" keys, suffixed
 //     "-capstone" so they don't collide with the real card sections of
-//     the same name, docs/decisions/0062) - always exactly one node, so
-//     <node> is always "1" for these.
+//     the same name) - always exactly one node, so <node> is always "1".
+//
+// Every link into this route carries a `?unit=<N>` query param
+// (data/v4/units.js's own stepsForUnit) - v4's lesson content isn't a
+// plain card-by-card chain (cut nodes reserved for review units, a
+// mid-unit capstone, cross-card mashup nodes), and two sibling units
+// teaching the same card (1&2, 3&4, 5&6) share identical section/node
+// routes, so "what's actually next" can only be resolved with that unit
+// context, via getNextLessonStep() - never NodeSession's own built-in
+// nextSection/nodeNumber math, which assumed a flat per-card chain that
+// doesn't hold once cut/capstone/mashup nodes exist (docs/decisions/
+// 0065). Passing an explicit nextHref/nextLabel to NodeSession for every
+// branch below bypasses that built-in math entirely.
 export function generateStaticParams() {
   const single = SECTIONS.flatMap((s) => s.data.nodes.map((_, i) => ({ section: s.slug, node: String(i + 1) })));
   const mashup = Object.entries(mashupNodes).flatMap(([unit, nodes]) =>
@@ -30,9 +40,18 @@ export function generateStaticParams() {
   return [...single, ...mashup, ...capstone];
 }
 
-export default async function V4NodePlayPage({ params }) {
+function resolveNext(unitParam, bareHref) {
+  const unitNumber = Number(unitParam);
+  const next = unitNumber ? getNextLessonStep(unitNumber, bareHref) : null;
+  return next ? { nextHref: next.href, nextLabel: next.label } : { nextHref: "/v4", nextLabel: "Back to Path" };
+}
+
+export default async function V4NodePlayPage({ params, searchParams }) {
   const { section: sectionParam, node: nodeParam } = await params;
+  const { unit: unitParam } = await searchParams;
   const nodeNumber = Number(nodeParam);
+  const bareHref = `/v4/play/${sectionParam}/${nodeNumber}`;
+  const { nextHref, nextLabel } = resolveNext(unitParam, bareHref);
 
   const mashupSet = mashupNodes[sectionParam];
   if (mashupSet) {
@@ -48,7 +67,8 @@ export default async function V4NodePlayPage({ params }) {
         nodeNumber={nodeNumber}
         totalNodes={mashupSet.length}
         sectionSlug={sectionParam}
-        nextSection={null}
+        nextHref={nextHref}
+        nextLabel={nextLabel}
         basePath="/v4"
       />
     );
@@ -68,7 +88,8 @@ export default async function V4NodePlayPage({ params }) {
         nodeNumber={1}
         totalNodes={1}
         sectionSlug={sectionParam}
-        nextSection={null}
+        nextHref={nextHref}
+        nextLabel={nextLabel}
         basePath="/v4"
       />
     );
@@ -89,7 +110,8 @@ export default async function V4NodePlayPage({ params }) {
       nodeNumber={nodeNumber}
       totalNodes={section.data.nodes.length}
       sectionSlug={section.slug}
-      nextSection={getNextSection(section.slug)}
+      nextHref={nextHref}
+      nextLabel={nextLabel}
       basePath="/v4"
     />
   );

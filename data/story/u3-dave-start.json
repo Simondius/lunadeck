@@ -1,11 +1,12 @@
 {
   "id": "u3-dave-start",
-  "title": "A Second Card",
+  "title": "Past and Present",
   "character": "dave",
   "location": {
     "name": "The Reading Room",
     "background": "background_library"
   },
+  "slotLabels": ["Past", "Present"],
   "beats": [
     {
       "type": "dialogue",
@@ -19,20 +20,52 @@
       "character": "dave",
       "emotion": "neutral",
       "speaker": "client",
-      "text": "\"I need help with something else now. There's a chance to go into business with someone — using something I've been quietly building on the side. I don't know if I should take it.\""
+      "text": "\"I want to look back at the leap I took. And there's something new, too — a chance to go into business with someone, using something I've been quietly building. I don't know if I should take it.\""
     },
     {
       "type": "reveal",
       "character": "dave",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "You turn over the top card.",
-      "card": "major_06_lovers"
+      "text": "You draw for how the leap looks now.",
+      "card": "major_00_fool",
+      "slot": 0
     },
     {
       "type": "choice",
       "character": "dave",
       "emotion": "neutral",
+      "slot": 0,
+      "options": [
+        { "text": "One cycle ended the moment you jumped — this is the start of the next.", "correct": true },
+        { "text": "It means the leap is already over and done with.", "correct": false, "reaction": "confusion" },
+        { "text": "It means you should have waited longer to jump.", "correct": false, "reaction": "anger" }
+      ],
+      "elaboration": [
+        "The Fool doesn't close the book once the leap happens — it just marks where one cycle ended and the next one, quietly, already began."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay. Now the thing that's actually in front of me.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for what's in front of you now.",
+      "card": "major_06_lovers",
+      "slot": 1
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "slot": 1,
       "options": [
         { "text": "A real choice ahead — worth weighing from every angle.", "correct": true },
         { "text": "It means you're going to lose someone over this.", "correct": false, "reaction": "anger" },
@@ -53,6 +86,7 @@
       "type": "choice",
       "character": "dave",
       "emotion": "confusion",
+      "slot": 1,
       "options": [
         { "text": "Choose with more than logic — trust your gut too.", "correct": true },
         { "text": "Then don't drag them into it at all.", "correct": false, "reaction": "anger" },
@@ -65,9 +99,9 @@
     {
       "type": "dialogue",
       "character": "dave",
-      "emotion": "neutral",
+      "emotion": "realisation",
       "speaker": "client",
-      "text": "\"Okay. Let me sit with that.\""
+      "text": "\"Okay. I think the leap already answered half of this — I just needed to see it. Thanks. Let me sit with the rest.\""
     }
   ]
 }

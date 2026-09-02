@@ -1,11 +1,12 @@
 {
   "id": "u4-riley-start",
-  "title": "A Second Card",
+  "title": "Past and Present",
   "character": "riley",
   "location": {
     "name": "The Reading Room",
     "background": "background_library"
   },
+  "slotLabels": ["Past", "Present"],
   "beats": [
     {
       "type": "dialogue",
@@ -19,27 +20,29 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"My old band asked if I'd come back instead. I have to answer by tonight, and I don't know which way to go.\""
+      "text": "\"My old band asked if I'd come back instead. I have to answer by tonight — but first I want to look at how I even got here.\""
     },
     {
       "type": "reveal",
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "You turn over the top card.",
-      "card": "major_06_lovers"
+      "text": "You draw for the choice behind you.",
+      "card": "major_06_lovers",
+      "slot": 0
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
+      "slot": 0,
       "options": [
-        { "text": "Two real paths — the challenge is choosing, not lacking options.", "correct": true },
-        { "text": "It means one of these paths is objectively wrong.", "correct": false, "reaction": "anger" },
-        { "text": "This card can't help with something like this.", "correct": false, "reaction": "confusion" }
+        { "text": "Two real paths — the challenge was choosing, not lacking options.", "correct": true },
+        { "text": "It means one of those paths was objectively wrong.", "correct": false, "reaction": "anger" },
+        { "text": "This card can't say anything about a choice already made.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Lovers doesn't say one path is the mistake — it says both are real enough that choosing between them is the actual hard part."
+        "The Lovers doesn't say one path was the mistake — it says both were real enough that choosing between them was the actual hard part, then and now."
       ]
     },
     {
@@ -47,27 +50,58 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"On paper the tour makes way less sense. But something about it feels right.\""
+      "text": "\"So tonight's answer is basically the same question all over again?\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You draw for where you actually stand right now.",
+      "card": "major_00_fool",
+      "slot": 1
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
+      "slot": 1,
       "options": [
-        { "text": "Choose with your gut here, not just what's sensible.", "correct": true },
+        { "text": "Not quite — you're standing somewhere new now, not repeating the old choice.", "correct": true },
+        { "text": "Yes, it's exactly the same decision again.", "correct": false, "reaction": "anger" },
+        { "text": "Where you stand now doesn't matter at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Fool in the present doesn't reopen the old fork — it just says you're mid-leap somewhere new, on ground the earlier choice helped create."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"On paper, going back makes more sense. But something about staying feels right.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "slot": 1,
+      "options": [
+        { "text": "Trust that feeling too — it says yes to the unknown instead of playing safe.", "correct": true },
         { "text": "Ignore that feeling completely.", "correct": false, "reaction": "anger" },
-        { "text": "What makes sense on paper is all that matters.", "correct": false, "reaction": "confusion" }
+        { "text": "Only what makes sense on paper matters.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "This card asks for more than the sensible calculation — it wants the choice made with your gut in the room too."
+        "The Fool doesn't ask for the sensible calculation — it asks whether you're still willing to say yes to not knowing exactly how this goes."
       ]
     },
     {
       "type": "dialogue",
       "character": "riley",
-      "emotion": "neutral",
+      "emotion": "realisation",
       "speaker": "client",
-      "text": "\"Okay. I think I know what I'm telling them.\""
+      "text": "\"Okay. I think I already know what I'm telling them tonight. Thanks — that actually helped.\""
     }
   ]
 }

@@ -87,7 +87,7 @@ function shuffle(items) {
 // overlays it directly, plain narration/instruction text sits below in
 // the content panel instead (0056), and that panel is otherwise reserved
 // for choices alone (0050).
-export default function ChapterPlayer({ chapter, nextChapter }) {
+export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story", backLabel = "Back to Story" }) {
   const [beatIndex, setBeatIndex] = useState(0);
   const [reactionEmotion, setReactionEmotion] = useState(null);
   // The brief shake/flash on the exact option just tapped wrong, separate
@@ -635,8 +635,8 @@ export default function ChapterPlayer({ chapter, nextChapter }) {
           {atEnd ? (
             <div className="story-end">
               <p className="prompt">Chapter complete.</p>
-              <Link className="action" href={nextChapter ? `/story/play/${nextChapter.slug}` : "/story"}>
-                {nextChapter ? nextChapter.title : "Back to Story"}
+              <Link className="action" href={nextChapter ? nextChapter.href : backHref}>
+                {nextChapter ? nextChapter.label : backLabel}
               </Link>
             </div>
           ) : beat.type === "choice" && !elaborationQueue ? (

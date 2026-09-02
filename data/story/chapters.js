@@ -50,13 +50,11 @@ export const CHAPTERS = RAW_CHAPTERS.map((c) => {
 
 // v4's own narrative nodes (docs/decisions/0057) - a start/end pair per
 // unit, each playable through the same ChapterPlayer as the original four
-// chapters above, but NOT chained into CHAPTERS's own next-chapter link:
-// a unit's start node is followed by that unit's seven lesson nodes before
-// its end node, and only v4's own path page (not ChapterPlayer's built-in
-// "next chapter" screen) knows that sequencing. getNextChapter() below
-// deliberately only ever searches CHAPTERS, never this list, so every v4
-// narrative node's own chapter-complete screen falls back to its default
-// "Back to Story" rather than wrongly auto-advancing past the lesson nodes.
+// chapters above, but NOT chained into CHAPTERS's own next-chapter link
+// below: a unit's start node is followed by lesson nodes before its end
+// node, so "what comes next" for one of these isn't just "the next entry
+// in this array." app/story/play/[chapter]/page.js instead computes that
+// from data/v4/units.js's own real path sequence (docs/decisions/0064).
 export const V4_CHAPTERS = [
   { slug: "u1-dave-start", data: u1DaveStart },
   { slug: "u1-dave-end", data: u1DaveEnd },
@@ -88,5 +86,5 @@ export function getNextChapter(slug) {
   const i = CHAPTERS.findIndex((c) => c.slug === slug);
   if (i === -1 || i + 1 >= CHAPTERS.length) return null;
   const next = CHAPTERS[i + 1];
-  return { slug: next.slug, title: next.data.title };
+  return { href: `/story/play/${next.slug}`, label: next.data.title };
 }

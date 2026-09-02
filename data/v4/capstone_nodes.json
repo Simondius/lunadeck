@@ -1,0 +1,344 @@
+{
+  "fool": {
+    "id": "capstone-fool",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "cap-r1",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "words": [
+          {
+            "text": "speed",
+            "correct": true
+          },
+          {
+            "text": "play",
+            "correct": true
+          },
+          {
+            "text": "creation",
+            "correct": false
+          },
+          {
+            "text": "partnership",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r2",
+        "type": "cloze",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "text": "Nonconformist, revolutionary energy — willing to go against {b1}.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "convention"
+          }
+        ],
+        "distractors": [
+          "partnership",
+          "beauty",
+          "possibility"
+        ]
+      },
+      {
+        "id": "cap-r3",
+        "type": "choice",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Trusts that the path appears once you take the step",
+        "options": [
+          "Trusts that the path appears once you take the step",
+          "A reminder to love and care for yourself first",
+          "Two paths, both valid — the challenge is choosing, not lacking options"
+        ]
+      },
+      {
+        "id": "cap-r4",
+        "type": "cloze",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "text": "On the edge of the precipice, but calm rather than afraid of the {b1}.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "void"
+          }
+        ],
+        "distractors": [
+          "choice",
+          "harmony",
+          "creation"
+        ]
+      },
+      {
+        "id": "cap-r5",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "words": [
+          {
+            "text": "exploration",
+            "correct": true
+          },
+          {
+            "text": "intuition",
+            "correct": true
+          },
+          {
+            "text": "choosing with the heart",
+            "correct": false
+          },
+          {
+            "text": "beauty",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r6",
+        "type": "choice",
+        "cardKey": "major_00_fool",
+        "cardName": "The Fool",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Says yes to the unknown instead of playing it safe",
+        "options": [
+          "Says yes to the unknown instead of playing it safe",
+          "Holding the masculine and feminine, or two sides of yourself, in balance",
+          "Pleasure, beauty, and the body are not indulgences — they're part of the message"
+        ]
+      }
+    ]
+  },
+  "lovers": {
+    "id": "capstone-lovers",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "cap-r7",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "words": [
+          {
+            "text": "choice",
+            "correct": true
+          },
+          {
+            "text": "possibility",
+            "correct": true
+          },
+          {
+            "text": "levity",
+            "correct": false
+          },
+          {
+            "text": "nourishment",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r8",
+        "type": "cloze",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "text": "A partnership or union that asks you to listen to more than one voice — body, {b1}, and spirit.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "mind"
+          }
+        ],
+        "distractors": [
+          "cycle",
+          "creation",
+          "speed"
+        ]
+      },
+      {
+        "id": "cap-r9",
+        "type": "choice",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Choosing with the heart, not just the head",
+        "options": [
+          "Choosing with the heart, not just the head",
+          "Something is ready to be born, a project finally taking shape",
+          "Says yes to the unknown instead of playing it safe"
+        ]
+      },
+      {
+        "id": "cap-r10",
+        "type": "cloze",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "text": "Two paths, both valid — the challenge is {b1}, not lacking options.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "choosing"
+          }
+        ],
+        "distractors": [
+          "nourishing",
+          "exploring",
+          "protecting"
+        ]
+      },
+      {
+        "id": "cap-r11",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "words": [
+          {
+            "text": "partnership",
+            "correct": true
+          },
+          {
+            "text": "variety",
+            "correct": true
+          },
+          {
+            "text": "speed",
+            "correct": false
+          },
+          {
+            "text": "beauty",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r12",
+        "type": "choice",
+        "cardKey": "major_06_lovers",
+        "cardName": "The Lovers",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Holding the masculine and feminine, or two sides of yourself, in balance",
+        "options": [
+          "Holding the masculine and feminine, or two sides of yourself, in balance",
+          "Nonconformist, revolutionary energy — willing to go against convention",
+          "Abundance that comes from allowing things to flourish, not forcing them"
+        ]
+      }
+    ]
+  },
+  "empress": {
+    "id": "capstone-empress",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "cap-r13",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "words": [
+          {
+            "text": "love",
+            "correct": true
+          },
+          {
+            "text": "beauty",
+            "correct": true
+          },
+          {
+            "text": "intuition",
+            "correct": false
+          },
+          {
+            "text": "partnership",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r14",
+        "type": "cloze",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "text": "Mother Earth energy — fertility, {b1}, life growing in every direction.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "abundance"
+          }
+        ],
+        "distractors": [
+          "choice",
+          "exploration",
+          "leadership"
+        ]
+      },
+      {
+        "id": "cap-r15",
+        "type": "choice",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Creation before form — raw, generative chaos that hasn't settled yet",
+        "options": [
+          "Creation before form — raw, generative chaos that hasn't settled yet",
+          "A real choice stands in front of you, asking to be weighed",
+          "Nonconformist, revolutionary energy — willing to go against convention"
+        ]
+      },
+      {
+        "id": "cap-r16",
+        "type": "cloze",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "text": "Something is ready to be {b1} — a child, a project, an idea taking shape.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "born"
+          }
+        ],
+        "distractors": [
+          "chosen",
+          "explored",
+          "weighed"
+        ]
+      },
+      {
+        "id": "cap-r17",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "words": [
+          {
+            "text": "creation",
+            "correct": true
+          },
+          {
+            "text": "harmony",
+            "correct": true
+          },
+          {
+            "text": "speed",
+            "correct": false
+          },
+          {
+            "text": "choice",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r18",
+        "type": "choice",
+        "cardKey": "major_03_empress",
+        "cardName": "The Empress",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Nourish, protect, and grow whatever you're tending",
+        "options": [
+          "Nourish, protect, and grow whatever you're tending",
+          "Travels light, takes chances with levity",
+          "A partnership or union that asks you to listen to more than one voice"
+        ]
+      }
+    ]
+  }
+}

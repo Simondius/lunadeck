@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLayoutEffect, useRef, useState } from "react";
 import { SECTIONS } from "@/data/v4/sections";
 import mashupNodes from "@/data/v4/mashup_nodes.json";
+import capstoneNodes from "@/data/v4/capstone_nodes.json";
 import { masterForKey } from "@/lib/rounds";
 import { shapeForNode, makeKeywordVariantTracker, V2NodeIcon } from "@/components/lesson-v2/v2-node-icon";
 
@@ -116,12 +117,16 @@ function characterPortrait(character) {
 }
 
 // A single-card unit's 7 lesson nodes minus the two CUT_INDICES marks as
-// redundant - 5 lessons per unit now, not 7 (docs/decisions/0058).
+// redundant - 5 lessons per unit now, not 7 (docs/decisions/0058) - plus
+// one mid-unit "mini capstone" spliced into the middle of that 5 (0062):
+// a small single-card mashup (plain + cloze + choice) testing only what
+// this unit has taught so far, shared between the two units that teach
+// the same card since there's nothing character-specific about it.
 function singleCardLessonSteps(cardSlug) {
   const section = SECTIONS.find((s) => s.slug === cardSlug);
   const labels = LABELS[cardSlug] ?? [];
   const cut = new Set(CUT_INDICES[cardSlug] ?? []);
-  return section.data.nodes
+  const steps = section.data.nodes
     .map((node, i) => ({ node, i }))
     .filter(({ i }) => !cut.has(i))
     .map(({ node, i }) => ({
@@ -131,6 +136,18 @@ function singleCardLessonSteps(cardSlug) {
       label: labels[i] ?? `Node ${i + 1}`,
       node,
     }));
+
+  const capstoneNode = capstoneNodes[cardSlug];
+  const capstoneStep = {
+    kind: "lesson",
+    key: `${cardSlug}-${capstoneNode.id}`,
+    href: `/v4/play/${cardSlug}-capstone/1`,
+    label: capstoneNode.label,
+    node: capstoneNode,
+  };
+  const middle = Math.floor(steps.length / 2);
+  steps.splice(middle, 0, capstoneStep);
+  return steps;
 }
 
 // A review unit's 5 lesson steps: 3 single-card ones - one of each card's

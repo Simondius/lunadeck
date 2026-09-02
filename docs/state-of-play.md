@@ -71,6 +71,7 @@ round that assumes something untaught:
 | meaning | A1 anonymised, A2 meaning, C boards | the card and its opening line |
 | notes | A2 talking points, B true/false | the card and its first three reading notes |
 | symbol | A4, A5, A7 | the icon, its label, and its phrases |
+| Claude | Story mode and v4 merged referencing eleven images that were never committed, so the default route drew broken-image icons for everyone but their author. `npm test` now checks story art too and **is red until those eleven files land**; missing art also falls back to a quiet placeholder instead of a broken icon. See [`0068`](decisions/0068-story-art-is-checked-and-its-absence-is-drawn.md) | **Merged** 2 Sep — #79. Blocked on the art |
 
 182 beats across 78 sections. A beat is not a node: no XP, nothing to miss,
 never in the review queue. Placement is derived, never keyed to a node number,
@@ -288,6 +289,13 @@ not just increment a number.
 ---
 
 ## Things that will bite you
+
+**Art has to be committed, not just made.** Story mode and v4 shipped on 2 Sep
+referencing eleven images that only existed on the machine they were drawn on,
+and the default route rendered broken-image icons for everyone else. A feature
+that reads its own art from disk looks finished to whoever has the files.
+`npm test` now runs `scripts/check_story_assets.mjs`, which walks the story data
+and names anything referenced but absent (`0068`).
 
 **`100dvh` is the window, not the frame.** At 900px and up the app draws itself
 as a device and `.app-frame` caps at `min(940px, 94dvh)`, so on a tall desktop

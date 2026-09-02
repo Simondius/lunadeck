@@ -6,6 +6,7 @@ import { SECTIONS } from "@/data/v4/sections";
 import { UNITS, stepsForUnit } from "@/data/v4/units";
 import { masterForKey } from "@/lib/rounds";
 import { shapeForNode, makeKeywordVariantTracker, V2NodeIcon } from "@/components/lesson-v2/v2-node-icon";
+import SceneImage from "@/components/story/scene-image";
 
 const ASSETS = "/assets/reading-scene-sketch-v2";
 
@@ -128,7 +129,10 @@ export default function V4Path() {
                       style={companionTop[key] != null ? { top: `${companionTop[key]}px` } : undefined}
                       aria-hidden="true"
                     >
-                      <img src={isCard ? masterForKey(cardKey) : characterPortrait(unit.character)} alt="" />
+                      <SceneImage
+                        src={isCard ? masterForKey(cardKey) : characterPortrait(unit.character)}
+                        initial={isCard ? null : unit.character[0].toUpperCase()}
+                      />
                     </span>
                   );
                 })}
@@ -152,7 +156,10 @@ export default function V4Path() {
                             style={style}
                           >
                             <span ref={peakRef} className="v4-character-shape">
-                              <img src={characterPortrait(step.character)} alt="" />
+                              <SceneImage
+                                src={characterPortrait(step.character)}
+                                initial={step.character[0].toUpperCase()}
+                              />
                               {isCurrent ? (
                                 <span className="v2-sparkle-field" aria-hidden="true">
                                   <span className="v2-sparkle" />

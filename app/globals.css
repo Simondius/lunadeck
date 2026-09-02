@@ -5891,3 +5891,59 @@ body.is-revealing { overflow: hidden; }
   gap: 14px;
   text-align: center;
 }
+
+/* ---------------------------------------------------------------------------
+   Art that has not arrived yet.
+
+   components/story/scene-image.jsx falls back to this when an image fails to
+   load, instead of leaving the browser's broken-image icon on the stage.
+
+   The base carries no decoration on purpose. Most of these layers are scenery
+   sized by their own image's dimensions, so without one they collapse to
+   nothing, and nothing is the right answer: a grey slab where the table should
+   be reads as more broken than an absent table. Only the layers that carry
+   information get a footprint below.
+   --------------------------------------------------------------------------- */
+
+.art-pending {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+.art-pending-initial {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* The character is the exception: whose reading this is matters, so the layer
+   keeps a portrait-shaped footprint (its own rule sets height: auto against an
+   image that is not there) and shows their initial. Dark on the scene's own
+   light ground, not the app's parchment, which would vanish into it. */
+.story-character-art.art-pending {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  border-radius: 10px;
+  background: rgba(24, 20, 35, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(24, 20, 35, 0.1);
+}
+
+.story-character-art.art-pending .art-pending-initial {
+  font-size: 40px;
+  color: rgba(24, 20, 35, 0.3);
+}
+
+/* v4's path already draws these as a cream card or circle, so the fallback
+   only has to fill that shape and put a legible initial in it. */
+.v2-companion .art-pending,
+.v4-character-shape .art-pending {
+  width: 100%;
+  height: 100%;
+}
+
+.v2-companion .art-pending-initial,
+.v4-character-shape .art-pending-initial {
+  font-size: 28px;
+  color: rgba(24, 20, 35, 0.32);
+}

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { masterForKey } from "@/lib/rounds";
 import { registerNodeSkip } from "@/lib/dev-console-bridge";
+import SceneImage from "@/components/story/scene-image";
 
 const ASSETS = "/assets/reading-scene-sketch-v2";
 
@@ -599,8 +600,11 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
       </div>
 
       <div className="story-stage" ref={stageRef}>
-        <img className="story-layer story-bg-art" src={backgroundSrc(chapter.location.background)} alt="" />
-        <img
+        <SceneImage
+          className="story-layer story-bg-art"
+          src={backgroundSrc(chapter.location.background)}
+        />
+        <SceneImage
           ref={characterRef}
           className={
             side === "right"
@@ -608,10 +612,10 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
               : "story-layer story-character-art"
           }
           src={characterSrc(character, emotion)}
-          alt=""
+          initial={character ? character[0].toUpperCase() : null}
         />
         {fadingGhost ? (
-          <img
+          <SceneImage
             key={fadingGhost.id}
             className={
               side === "right"
@@ -619,11 +623,13 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
                 : "story-layer story-character-art is-fading-ghost"
             }
             src={fadingGhost.src}
-            alt=""
           />
         ) : null}
         <div className="story-layer story-table-backing" aria-hidden="true" />
-        <img className="story-layer story-table-art" src={`${ASSETS}/table/table_gemstones_deck.png`} alt="" />
+        <SceneImage
+          className="story-layer story-table-art"
+          src={`${ASSETS}/table/table_gemstones_deck.png`}
+        />
         {revealedCard ? (
           <img
             ref={cardRef}
@@ -634,7 +640,10 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
             onClick={(e) => openZoom(e, revealedCard)}
           />
         ) : null}
-        <img className="story-layer story-hands-art" src={`${ASSETS}/hands/hands.png`} alt="" />
+        <SceneImage
+          className="story-layer story-hands-art"
+          src={`${ASSETS}/hands/hands.png`}
+        />
 
         {(chapter.slotLabels ?? []).length > 0 ? (
           <div className={revealedCard ? "story-slots has-focus" : "story-slots"}>

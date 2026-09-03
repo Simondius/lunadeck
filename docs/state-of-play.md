@@ -72,7 +72,7 @@ round that assumes something untaught:
 | meaning | A1 anonymised, A2 meaning, C boards | the card and its opening line |
 | notes | A2 talking points, B true/false | the card and its first three reading notes |
 | symbol | A4, A5, A7 | the icon, its label, and its phrases |
-| Claude | Story mode and v4 merged referencing eleven images that were never committed, so the default route drew broken-image icons for everyone but their author. `npm test` now checks story art too and **is red until those eleven files land**; missing art also falls back to a quiet placeholder instead of a broken icon. See [`0068`](decisions/0068-story-art-is-checked-and-its-absence-is-drawn.md) | **Merged** 2 Sep — #79. Blocked on the art |
+| Claude | Story mode and v4 merged referencing eleven images that were never committed, so the default route drew broken-image icons for everyone but their author. `npm test` now checks story art too and **is red until those eleven files land**; missing art also falls back to a quiet placeholder instead of a broken icon. See [`0068`](decisions/0068-story-art-is-checked-and-its-absence-is-drawn.md) | **Merged** 2 Sep — #79. The eleven files landed 3 Sep as #85, so the suite is green again |
 
 182 beats across 78 sections. A beat is not a node: no XP, nothing to miss,
 never in the review queue. Placement is derived, never keyed to a node number,

@@ -1,0 +1,98 @@
+{
+  "id": "u25-dave-end",
+  "title": "Bright Enough to Notice",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_15_devil", "major_17_star", "major_19_sun", "major_04_emperor", "major_18_moon"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down. \"Let's see the whole shape of the last year.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the chain you finally admitted was already loose.",
+      "slot": 0,
+      "answer": "major_15_devil"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the people you let back in instead of carrying it alone.",
+      "slot": 1,
+      "answer": "major_17_star"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the success now bright enough for the paper to notice.",
+      "slot": 2,
+      "answer": "major_19_sun"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me. If I share the credit, doesn't that make the success feel smaller?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — the warmth radiates outward either way; sharing it doesn't shrink it.", "correct": true },
+        { "text": "It does — credit's a fixed pie.", "correct": false, "reaction": "anger" },
+        { "text": "The Sun doesn't have anything to do with credit.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Warmth, success, and vitality radiate outward in this card — none of that shrinks by including someone else in the story."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Should I just get in front of every camera and interview from now on?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Sometimes the wiser move is to step back and let it unfold without you in every shot.", "correct": true },
+        { "text": "Yes — take every opportunity you can get.", "correct": false, "reaction": "anger" },
+        { "text": "The Sun says press attention doesn't matter at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Sometimes the wisest move with this card is to step back and simply watch things unfold, instead of putting yourself at the center of every frame."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the habit you set down, the people you let carry some of the weight, and the light that's bright now because of both.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think this one's actually mine to enjoy — I just don't need to stand in front of it alone. Thank you.\""
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "cardKey": "major_17_star",
+  "cardName": "The Star",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_17_star-n1-r172",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "community",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_17_star-n2-r173",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "aquarius",
+              "name": "Aquarius",
+              "text": "Aquarius: idealistic, nonconformist vision, moving to its own rhythm toward hope.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.1,
+                  "x1": 0.62,
+                  "y1": 0.2
+                }
+              ]
+            },
+            {
+              "key": "star_halo",
+              "name": "Star halo",
+              "text": "The eight-pointed star crowning her: the light seen at the end of the tunnel, hope made luminous.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.17,
+                  "x1": 0.66,
+                  "y1": 0.36
+                }
+              ]
+            },
+            {
+              "key": "vessel",
+              "name": "Vessel",
+              "text": "The vessel raised in her hand: an open-handed gift poured out into the world, faith offered without needing anything back.",
+              "rects": [
+                {
+                  "x0": 0.63,
+                  "y0": 0.33,
+                  "x1": 0.83,
+                  "y1": 0.45
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_17_star-n2-r266",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "aquarius",
+              "name": "Aquarius",
+              "text": "Aquarius: idealistic, nonconformist vision, moving to its own rhythm toward hope.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.1,
+                  "x1": 0.62,
+                  "y1": 0.2
+                }
+              ]
+            },
+            {
+              "key": "star_halo",
+              "name": "Star halo",
+              "text": "The eight-pointed star crowning her: the light seen at the end of the tunnel, hope made luminous.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.17,
+                  "x1": 0.66,
+                  "y1": 0.36
+                }
+              ]
+            },
+            {
+              "key": "vessel",
+              "name": "Vessel",
+              "text": "The vessel raised in her hand: an open-handed gift poured out into the world, faith offered without needing anything back.",
+              "rects": [
+                {
+                  "x0": 0.63,
+                  "y0": 0.33,
+                  "x1": 0.83,
+                  "y1": 0.45
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_17_star-n2-r267",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "aquarius",
+              "text": "Idealistic, nonconformist vision, moving to its own rhythm toward hope.",
+              "image": "/assets/cards/cardelements/major_17_star_element_aquarius.png"
+            },
+            {
+              "key": "star_halo",
+              "text": "The eight-pointed star crowning her: the light seen at the end of the tunnel, hope made luminous.",
+              "image": "/assets/cards/cardelements/major_17_star_element_star_halo.png"
+            },
+            {
+              "key": "vessel",
+              "text": "The vessel raised in her hand: an open-handed gift poured out into the world, faith offered without needing anything back.",
+              "image": "/assets/cards/cardelements/major_17_star_element_vessel.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_17_star-n3-r174",
+          "words": [
+            {
+              "text": "hope",
+              "correct": true
+            },
+            {
+              "text": "nature",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_17_star-n4-r178",
+          "words": [
+            {
+              "text": "community",
+              "correct": true
+            },
+            {
+              "text": "nonconformity",
+              "correct": true
+            },
+            {
+              "text": "hope",
+              "correct": true
+            },
+            {
+              "text": "nature",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": false
+            },
+            {
+              "text": "nourishment",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_17_star-n5-r179",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Hope returning after the storm",
+              "isMatch": true
+            },
+            {
+              "text": "An act of giving that seems small but nourishes something larger",
+              "isMatch": true
+            },
+            {
+              "text": "Renewal comes through shared, communal feeling, not isolation",
+              "isMatch": true
+            },
+            {
+              "text": "Staying open and receptive to life, rather than guarded",
+              "isMatch": true
+            },
+            {
+              "text": "A quietly nonconformist light",
+              "isMatch": true
+            },
+            {
+              "text": "Mother Earth energy",
+              "isMatch": false
+            },
+            {
+              "text": "Something is ready to be born",
+              "isMatch": false
+            },
+            {
+              "text": "Creation before form",
+              "isMatch": false
+            },
+            {
+              "text": "Nourish, protect, and grow whatever you're tending",
+              "isMatch": false
+            },
+            {
+              "text": "A reminder to love and care for yourself first",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_17_star-n6-r180",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Hope returning after the storm",
+          "options": [
+            "Hope returning after the storm",
+            "Pleasure, beauty, and the body are not indulgences",
+            "Abundance that comes from allowing things to flourish, not forcing them",
+            "A bridge between the everyday and the sacred"
+          ]
+        },
+        {
+          "id": "major_17_star-n6-r181",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "An act of giving that seems small but nourishes something larger",
+          "options": [
+            "An act of giving that seems small but nourishes something larger",
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+          ]
+        },
+        {
+          "id": "major_17_star-n6-r182",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Renewal comes through shared, communal feeling, not isolation",
+          "options": [
+            "Renewal comes through shared, communal feeling, not isolation",
+            "Holding something divine within an ordinary, grounded life",
+            "Real strength is gentle",
+            "Taming the wilder instincts with calm rather than domination"
+          ]
+        },
+        {
+          "id": "major_17_star-n6-r183",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Staying open and receptive to life, rather than guarded",
+          "options": [
+            "Staying open and receptive to life, rather than guarded",
+            "Courage means acting honestly, not acting fearlessly",
+            "Generosity and warmth are forms of power too",
+            "Connection and relating to others, not standing above them"
+          ]
+        },
+        {
+          "id": "major_17_star-n6-r184",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A quietly nonconformist light",
+          "options": [
+            "A quietly nonconformist light",
+            "What goes up comes around",
+            "A turning point; you're at a hinge between one cycle ending and another beginning",
+            "Fortune and misfortune are both just transitions to learn from"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_17_star-n7-r185",
+          "type": "cloze",
+          "text": "A woman pours water onto both earth and river, an act that feeds the ground while also serving something purely ideal, {b1}, and shared intention. Aquarius carries a double {b2}: airy and lucid, yet emotionally tied to Water. Ruled by Uranus, the only planet spinning on its side, Aquarius marches to its own rhythm, valuing collective good over individual will. In the Star, that uniqueness becomes hope itself, an openness to life and nature.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "hope"
+            },
+            {
+              "key": "b2",
+              "answer": "nature"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

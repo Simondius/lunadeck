@@ -1,0 +1,98 @@
+{
+  "id": "u18-riley-end",
+  "title": "Upside Down, Still Calm",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_08_strength", "major_10_wheel_of_fortune", "major_12_hanged_man", "major_06_lovers", "major_11_justice"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "A few weeks into the quiet, Riley's back, restless but trying not to show it."
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the gentler strength that got you through the review.",
+      "slot": 0,
+      "answer": "major_08_strength"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the turn that brought the offer, and the contract with it.",
+      "slot": 1,
+      "answer": "major_10_wheel_of_fortune"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the pause you're sitting in right now, whether you like it or not.",
+      "slot": 2,
+      "answer": "major_12_hanged_man"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me on the new one. Does this mean signing was actually the wrong call, since now everything's just stopped?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — sometimes you sacrifice something now to gain something better later.", "correct": true },
+        { "text": "Yes, the pause proves it was a mistake.", "correct": false, "reaction": "anger" },
+        { "text": "This card has no opinion on the contract.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Sometimes you sacrifice something now to gain something better later — the pause isn't proof the choice was wrong, it's part of the deal."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"If I'm not writing or recording or touring for six months, doesn't that mean I'm not actually growing?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Stillness isn't nothing — it's meditative, and it deepens awareness even from here.", "correct": true },
+        { "text": "You're right, this whole stretch is wasted.", "correct": false, "reaction": "anger" },
+        { "text": "Growth and stillness are unrelated.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Meditative stillness that deepens awareness — following the flow instead of fighting it is still movement, just not the kind you can see from the outside."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the strength that got you through it, the turn that brought the offer, and now, a pause you didn't ask for but might actually need.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been treating this like dead air, when it's really just the part of the song before the part that matters. I can sit in that for a while. Thanks.\""
+    }
+  ]
+}

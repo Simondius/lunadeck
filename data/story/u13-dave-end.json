@@ -1,0 +1,98 @@
+{
+  "id": "u13-dave-end",
+  "title": "The Strong Start",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_01_magician", "major_02_high_priestess", "major_07_chariot", "major_03_empress", "major_05_hierophant"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down. \"Let's see the whole run-up to this.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the commission where you learned the tools were already enough.",
+      "slot": 0,
+      "answer": "major_01_magician"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the read you trusted before you could explain it.",
+      "slot": 1,
+      "answer": "major_02_high_priestess"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the bigger contract you're about to pull off together.",
+      "slot": 2,
+      "answer": "major_07_chariot"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me — if the Chariot's about a strong start, does that mean the hard part's basically over once we begin?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's the initiating push, not the whole journey.", "correct": true },
+        { "text": "Yes, everything after the start takes care of itself.", "correct": false, "reaction": "anger" },
+        { "text": "The Chariot has nothing to do with how long this takes.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Chariot's energy is for getting the cart moving — it doesn't promise anything about sustaining that pace once you're rolling."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And if he and I disagree again three weeks in, does that mean the two horses were never actually aligned?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — aligning them isn't a one-time fix, it's ongoing work.", "correct": true },
+        { "text": "Yes, that means the whole partnership was doomed from day one.", "correct": false, "reaction": "anger" },
+        { "text": "Disagreement means one of you should quit.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Two horses don't get aligned once and stay that way forever — the Chariot's job is steering them back together every time they start to pull apart."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: what you already had, the read you trusted, and the push you're only now making together.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been expecting the alignment to be permanent instead of something we keep doing. That's actually useful to hear before Monday.\""
+    }
+  ]
+}

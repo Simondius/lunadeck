@@ -1,0 +1,83 @@
+{
+  "id": "u25-dave-start",
+  "title": "The Guy Who Built It From a Garage",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"The storefront actually took off. The local paper wants to run a piece — 'the guy who built it out of a garage.'\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Does the piece mention your partner at all?", "correct": true },
+        { "text": "You earned every bit of that on your own.", "correct": false, "reaction": "anger" },
+        { "text": "Reporters never get anything right anyway.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"...Not really. I didn't correct them when they asked.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_19_sun"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "This card's warmth is real, but it warns against centering the whole story on yourself.", "correct": true },
+        { "text": "Then you should turn the interview down entirely.", "correct": false, "reaction": "anger" },
+        { "text": "This card doesn't have anything to do with credit.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Even the Sun can burn — the warning here isn't against enjoying success, it's against letting confidence tip into making the whole story about you."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So the Sun's telling me not to enjoy this?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — enjoy it fully, that part's earned. Just make sure the truth in the story includes both of you.", "correct": true },
+        { "text": "Correct — you should feel guilty about it.", "correct": false, "reaction": "anger" },
+        { "text": "The Sun says none of this actually matters.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "This is pure, uncomplicated joy, genuinely earned — the card just asks that the truth of the story stays bigger than your part alone in it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Yeah. I'll call the reporter back, get the story right.\""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "u10-riley-end",
+  "title": "The Space You Claim",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_00_fool", "major_06_lovers", "major_04_emperor", "major_03_empress", "major_01_magician"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "A few days later, contract still unsigned, Riley wants to see the whole shape of it before she answers."
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the leap that put you on this tour with nothing but the songs and nerve.",
+      "slot": 0,
+      "answer": "major_00_fool"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the partnership you chose, and the choice that's still shaping how you work.",
+      "slot": 1,
+      "answer": "major_06_lovers"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the space you're about to claim, whether the label likes it or not.",
+      "slot": 2,
+      "answer": "major_04_emperor"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If the Emperor's about acting without hesitation, doesn't the fact that I've been sitting on this contract for four days mean I already blew it?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's about acting decisively when the moment actually calls for it, not being instant about everything.", "correct": true },
+        { "text": "Yes, hesitating at all means you failed the card.", "correct": false, "reaction": "anger" },
+        { "text": "The Emperor doesn't care about timing either way.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Ready to act the instant it counts doesn't mean rushing every decision — it means not flinching once you actually know what you want."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And if I tell them no, co-writer or not, doesn't that just make me the difficult one again?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Setting clear boundaries and claiming space isn't difficult — it's just refusing to apologize for it.", "correct": true },
+        { "text": "Yes, saying no always makes you difficult.", "correct": false, "reaction": "anger" },
+        { "text": "Boundaries aren't part of this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Sets clear boundaries and claims space without apology — that's not a flaw the card is warning you about, it's the actual message."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the leap that got you here, the partnership you're still weighing, and the shape you're finally ready to give this yourself.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been treating 'claiming space' like it needed someone else's permission first. It doesn't. Thanks — that actually helps.\""
+    }
+  ]
+}

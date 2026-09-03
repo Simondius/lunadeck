@@ -1,0 +1,90 @@
+{
+  "id": "u16-riley-start",
+  "title": "The Offer Comes In",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley's manager calls mid-afternoon, sounding oddly formal for once."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"The label came back with an actual offer. Not a maybe, not 'let's talk' — a real number, a real date. It's suddenly all really happening.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "That's a real turning point, not just another Tuesday.", "correct": true },
+        { "text": "It's not a big deal, calm down.", "correct": false, "reaction": "anger" },
+        { "text": "An offer doesn't actually change anything.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I don't know why I feel more nervous now than I did on stage.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_10_wheel_of_fortune"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "You're standing right at the hinge — one cycle ending, another about to start.", "correct": true },
+        { "text": "It means everything before this didn't count.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about timing at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A turning point — you're at a hinge between one cycle ending and another beginning. Nothing here is permanent, high or low, it just turns."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if I sign and it turns out to be the wrong call?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Fortune or misfortune, either way it's just a transition to learn from.", "correct": true },
+        { "text": "If it's wrong, that's the end of everything.", "correct": false, "reaction": "anger" },
+        { "text": "There's no such thing as a wrong call here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Fortune and misfortune are both just transitions to learn from — stay balanced at the center, even as things spin around you."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. I can sign something without knowing exactly how it turns out.\""
+    }
+  ]
+}

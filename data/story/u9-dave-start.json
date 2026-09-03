@@ -1,0 +1,83 @@
+{
+  "id": "u9-dave-start",
+  "title": "First Reading",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"We landed a commission neither of us has actually built before. My partner thinks I'm the one who should figure it out.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Do you think you can figure it out?", "correct": true },
+        { "text": "Sounds like you're in over your head.", "correct": false, "reaction": "anger" },
+        { "text": "Why would he ask you specifically?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Technically? Maybe. I just don't feel ready.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_01_magician"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "You already have everything you need for this.", "correct": true },
+        { "text": "You'll need to learn a whole new skill first.", "correct": false, "reaction": "confusion" },
+        { "text": "This card means you should turn the job down.", "correct": false, "reaction": "anger" }
+      ],
+      "elaboration": [
+        "The Magician doesn't hand you anything new — it points at tools already on the table and says: those are enough."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I don't have the resources for this one, though. Not really.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Skill, focus, the right words when you need them — that's the resource.", "correct": true },
+        { "text": "You're right, this is out of your depth.", "correct": false, "reaction": "anger" },
+        { "text": "Ignore the card, then.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Magic hides in ordinary things — available only to those who actually know how to look for it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Alright. I think I can start tomorrow with what's already in the shop.\""
+    }
+  ]
+}

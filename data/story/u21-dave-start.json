@@ -1,0 +1,83 @@
+{
+  "id": "u21-dave-start",
+  "title": "A Habit, Not a Rule",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"We got offered a real storefront — first one either of us has ever had. I told the landlord I'd need to check with my partner before saying yes to anything.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Could you have said yes yourself, right there?", "correct": true },
+        { "text": "Of course you needed to check — obviously.", "correct": false, "reaction": "anger" },
+        { "text": "Why would a landlord care about your partnership at all?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"...Yeah. Technically. I just always run it by him first, out of habit at this point.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_15_devil"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "That's a habit, not a rule — the chain's loose enough to lift off whenever you actually try.", "correct": true },
+        { "text": "That settles it — the partnership needs to end.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with your business partner.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Devil's chains only look fastened — the card actually shows them loose enough to remove, which makes the checking-in you've built into every decision more habit than binding rule."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So you're saying the partnership itself is the problem?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's not against the attachment itself, it's asking which habit is actually keeping you stuck.", "correct": true },
+        { "text": "Yes — cut him loose before it gets worse.", "correct": false, "reaction": "anger" },
+        { "text": "The card doesn't have an opinion on any of this.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "This is the most misunderstood card in the deck for a reason — it isn't purely bad, it just wants you to name the exact dependency or habit doing the holding."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Next time something like this comes up, I'm answering it myself first, and telling him after.\""
+    }
+  ]
+}

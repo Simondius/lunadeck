@@ -1,0 +1,90 @@
+{
+  "id": "u24-riley-start",
+  "title": "The Same Dream Again",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley's restless, dark circles under her eyes she didn't have last time."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I keep having this dream — back onstage with my old band, except something's always wrong, and I wake up before I find out what.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "What does it feel like right before you wake up?", "correct": true },
+        { "text": "Dreams don't mean anything, ignore it.", "correct": false, "reaction": "anger" },
+        { "text": "That has nothing to do with your old band.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Dread, mostly. Like I'm about to make the same mistake twice.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_18_moon"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "That dread might be worth trusting more than any plain explanation you'd give it.", "correct": true },
+        { "text": "Dread this specific means you should quit music altogether.", "correct": false, "reaction": "anger" },
+        { "text": "The dream is a coincidence, not a signal.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Trust intuition and dreams over what's plainly stated — and a repeating cycle is worth noticing before it has the chance to repeat again."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"My old band actually called, wanting to talk. First time since the tour split. Is the dream about that?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Maybe — what's hidden tends to surface in the dark, if you're actually willing to look at it.", "correct": true },
+        { "text": "It definitely means don't ever speak to them again.", "correct": false, "reaction": "anger" },
+        { "text": "The timing is meaningless.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "What's hidden becomes visible in the dark, if you're willing to look — and facing whatever that shadow side is turns out to be part of becoming whole."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe I should actually pick up, instead of just dreaming around it.\""
+    }
+  ]
+}

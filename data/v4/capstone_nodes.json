@@ -340,5 +340,1236 @@
         ]
       }
     ]
+  },
+  "high_priestess": {
+    "id": "major_02_high_priestess-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_02_high_priestess-cap-r4",
+        "cardKey": "major_02_high_priestess",
+        "cardName": "The High Priestess",
+        "words": [
+          {
+            "text": "imagination",
+            "correct": true
+          },
+          {
+            "text": "reception",
+            "correct": true
+          },
+          {
+            "text": "sensitivity",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_02_high_priestess-cap-r5",
+        "type": "cloze",
+        "cardKey": "major_02_high_priestess",
+        "cardName": "The High Priestess",
+        "text": "Lives on the {b1} — between the seen and unseen worlds",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "threshold"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_02_high_priestess-cap-r6",
+        "type": "choice",
+        "cardKey": "major_02_high_priestess",
+        "cardName": "The High Priestess",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Her power is in receiving and being, not in acting",
+        "options": [
+          "Her power is in receiving and being, not in acting",
+          "Solitude here is productive, not lonely",
+          "A lantern lighting the path one careful step at a time"
+        ]
+      }
+    ]
+  },
+  "hierophant": {
+    "id": "major_05_hierophant-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_05_hierophant-cap-r20",
+        "cardKey": "major_05_hierophant",
+        "cardName": "The Hierophant",
+        "words": [
+          {
+            "text": "faith",
+            "correct": true
+          },
+          {
+            "text": "search for spirituality",
+            "correct": true
+          },
+          {
+            "text": "the right distance",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_05_hierophant-cap-r21",
+        "type": "cloze",
+        "cardKey": "major_05_hierophant",
+        "cardName": "The Hierophant",
+        "text": "A bridge between the {b1} and the sacred",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "everyday"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_05_hierophant-cap-r22",
+        "type": "choice",
+        "cardKey": "major_05_hierophant",
+        "cardName": "The Hierophant",
+        "prompt": "Which of these is true of this card?",
+        "correct": "When reality feels shaky, lean on faith or tradition to steady it",
+        "options": [
+          "When reality feels shaky, lean on faith or tradition to steady it",
+          "A real choice stands in front of you",
+          "Two paths, both valid"
+        ]
+      }
+    ]
+  },
+  "chariot": {
+    "id": "major_07_chariot-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_07_chariot-cap-r34",
+        "cardKey": "major_07_chariot",
+        "cardName": "The Chariot",
+        "words": [
+          {
+            "text": "emotions",
+            "correct": true
+          },
+          {
+            "text": "movement",
+            "correct": true
+          },
+          {
+            "text": "ambition",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_07_chariot-cap-r35",
+        "type": "cloze",
+        "cardKey": "major_07_chariot",
+        "cardName": "The Chariot",
+        "text": "Determined forward motion — {b1} finally in gear",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "ambition"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_07_chariot-cap-r36",
+        "type": "choice",
+        "cardKey": "major_07_chariot",
+        "cardName": "The Chariot",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Pulled by two forces that need aligning, not fighting, to move you forward",
+        "options": [
+          "Pulled by two forces that need aligning, not fighting, to move you forward",
+          "Sees with more than the eyes",
+          "You already have everything you need; success is about using the resources at hand"
+        ]
+      }
+    ]
+  },
+  "strength": {
+    "id": "major_08_strength-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_08_strength-cap-r48",
+        "cardKey": "major_08_strength",
+        "cardName": "Strength",
+        "words": [
+          {
+            "text": "kindness",
+            "correct": true
+          },
+          {
+            "text": "creative action",
+            "correct": true
+          },
+          {
+            "text": "balanced strength",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_08_strength-cap-r49",
+        "type": "cloze",
+        "cardKey": "major_08_strength",
+        "cardName": "Strength",
+        "text": "Real {b1} is gentle — it comes from the heart, not force",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "strength"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_08_strength-cap-r50",
+        "type": "choice",
+        "cardKey": "major_08_strength",
+        "cardName": "Strength",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Taming the wilder instincts with calm rather than domination",
+        "options": [
+          "Taming the wilder instincts with calm rather than domination",
+          "Mother Earth energy",
+          "Something is ready to be born"
+        ]
+      }
+    ]
+  },
+  "hermit": {
+    "id": "major_09_hermit-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_09_hermit-cap-r62",
+        "cardKey": "major_09_hermit",
+        "cardName": "The Hermit",
+        "words": [
+          {
+            "text": "introspection",
+            "correct": true
+          },
+          {
+            "text": "productive solitude",
+            "correct": true
+          },
+          {
+            "text": "analysis",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_09_hermit-cap-r63",
+        "type": "cloze",
+        "cardKey": "major_09_hermit",
+        "cardName": "The Hermit",
+        "text": "Solitude here is {b1}, not lonely",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "productive"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_09_hermit-cap-r64",
+        "type": "choice",
+        "cardKey": "major_09_hermit",
+        "cardName": "The Hermit",
+        "prompt": "Which of these is true of this card?",
+        "correct": "A lantern lighting the path one careful step at a time",
+        "options": [
+          "A lantern lighting the path one careful step at a time",
+          "Lives on the threshold",
+          "Her power is in receiving and being, not in acting"
+        ]
+      }
+    ]
+  },
+  "wheel_of_fortune": {
+    "id": "major_10_wheel_of_fortune-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_10_wheel_of_fortune-cap-r76",
+        "cardKey": "major_10_wheel_of_fortune",
+        "cardName": "The Wheel of Fortune",
+        "words": [
+          {
+            "text": "synchronicity",
+            "correct": true
+          },
+          {
+            "text": "opportunity",
+            "correct": true
+          },
+          {
+            "text": "luck",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_10_wheel_of_fortune-cap-r77",
+        "type": "cloze",
+        "cardKey": "major_10_wheel_of_fortune",
+        "cardName": "The Wheel of Fortune",
+        "text": "What goes up comes around — nothing here is {b1}, high or low",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "permanent"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_10_wheel_of_fortune-cap-r78",
+        "type": "choice",
+        "cardKey": "major_10_wheel_of_fortune",
+        "cardName": "The Wheel of Fortune",
+        "prompt": "Which of these is true of this card?",
+        "correct": "A turning point; you're at a hinge between one cycle ending and another beginning",
+        "options": [
+          "A turning point; you're at a hinge between one cycle ending and another beginning",
+          "Beginning and ending in one",
+          "Travels light, takes chances with levity"
+        ]
+      }
+    ]
+  },
+  "justice": {
+    "id": "major_11_justice-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_11_justice-cap-r90",
+        "cardKey": "major_11_justice",
+        "cardName": "Justice",
+        "words": [
+          {
+            "text": "beauty",
+            "correct": true
+          },
+          {
+            "text": "harmony",
+            "correct": true
+          },
+          {
+            "text": "sense of justice",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_11_justice-cap-r91",
+        "type": "cloze",
+        "cardKey": "major_11_justice",
+        "cardName": "Justice",
+        "text": "A mirror moment — an honest, {b1} look at yourself",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "unflinching"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_11_justice-cap-r92",
+        "type": "choice",
+        "cardKey": "major_11_justice",
+        "cardName": "Justice",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Acting because it's simply right, not because a rulebook says so",
+        "options": [
+          "Acting because it's simply right, not because a rulebook says so",
+          "Sees with more than the eyes",
+          "You already have everything you need; success is about using the resources at hand"
+        ]
+      }
+    ]
+  },
+  "hanged_man": {
+    "id": "major_12_hanged_man-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_12_hanged_man-cap-r104",
+        "cardKey": "major_12_hanged_man",
+        "cardName": "The Hanged Man",
+        "words": [
+          {
+            "text": "pause",
+            "correct": true
+          },
+          {
+            "text": "abandon",
+            "correct": true
+          },
+          {
+            "text": "following the flow",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_12_hanged_man-cap-r105",
+        "type": "cloze",
+        "cardKey": "major_12_hanged_man",
+        "cardName": "The Hanged Man",
+        "text": "{b1}, upside down, but calm — not suffering, just paused",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "Suspended"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_12_hanged_man-cap-r106",
+        "type": "choice",
+        "cardKey": "major_12_hanged_man",
+        "cardName": "The Hanged Man",
+        "prompt": "Which of these is true of this card?",
+        "correct": "A new perspective comes from surrendering, not struggling",
+        "options": [
+          "A new perspective comes from surrendering, not struggling",
+          "Lives on the threshold",
+          "Her power is in receiving and being, not in acting"
+        ]
+      }
+    ]
+  },
+  "death": {
+    "id": "major_13_death-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_13_death-cap-r118",
+        "cardKey": "major_13_death",
+        "cardName": "Death",
+        "words": [
+          {
+            "text": "mystery",
+            "correct": true
+          },
+          {
+            "text": "magic",
+            "correct": true
+          },
+          {
+            "text": "depth",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_13_death-cap-r119",
+        "type": "cloze",
+        "cardKey": "major_13_death",
+        "cardName": "Death",
+        "text": "Not an ending — a transformation that clears the way for new {b1}",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "life"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_13_death-cap-r120",
+        "type": "choice",
+        "cardKey": "major_13_death",
+        "cardName": "Death",
+        "prompt": "Which of these is true of this card?",
+        "correct": "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+        "options": [
+          "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+          "Beginning and ending in one",
+          "Travels light, takes chances with levity"
+        ]
+      }
+    ]
+  },
+  "temperance": {
+    "id": "major_14_temperance-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_14_temperance-cap-r132",
+        "cardKey": "major_14_temperance",
+        "cardName": "Temperance",
+        "words": [
+          {
+            "text": "exploration",
+            "correct": true
+          },
+          {
+            "text": "alchemy",
+            "correct": true
+          },
+          {
+            "text": "finding the right balance in opposites",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_14_temperance-cap-r133",
+        "type": "cloze",
+        "cardKey": "major_14_temperance",
+        "cardName": "Temperance",
+        "text": "The journey matters more than the {b1} right now",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "destination"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_14_temperance-cap-r134",
+        "type": "choice",
+        "cardKey": "major_14_temperance",
+        "cardName": "Temperance",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Blending different, even opposing, ingredients into something greater than either alone",
+        "options": [
+          "Blending different, even opposing, ingredients into something greater than either alone",
+          "Lives on the threshold",
+          "Her power is in receiving and being, not in acting"
+        ]
+      }
+    ]
+  },
+  "devil": {
+    "id": "major_15_devil-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_15_devil-cap-r146",
+        "cardKey": "major_15_devil",
+        "cardName": "The Devil",
+        "words": [
+          {
+            "text": "break from dependence",
+            "correct": true
+          },
+          {
+            "text": "visceral force",
+            "correct": true
+          },
+          {
+            "text": "freedom",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_15_devil-cap-r147",
+        "type": "cloze",
+        "cardKey": "major_15_devil",
+        "cardName": "The Devil",
+        "text": "Not purely bad — it's {b1} more than any other card",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "misunderstood"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_15_devil-cap-r148",
+        "type": "choice",
+        "cardKey": "major_15_devil",
+        "cardName": "The Devil",
+        "prompt": "Which of these is true of this card?",
+        "correct": "The chains look tight, but they're actually loose enough to remove",
+        "options": [
+          "The chains look tight, but they're actually loose enough to remove",
+          "A bridge between the everyday and the sacred",
+          "When reality feels shaky, lean on faith or tradition to steady it"
+        ]
+      }
+    ]
+  },
+  "tower": {
+    "id": "major_16_tower-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_16_tower-cap-r160",
+        "cardKey": "major_16_tower",
+        "cardName": "The Tower",
+        "words": [
+          {
+            "text": "unexpected transformation",
+            "correct": true
+          },
+          {
+            "text": "destruction",
+            "correct": true
+          },
+          {
+            "text": "breaking from old schemes",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_16_tower-cap-r161",
+        "type": "cloze",
+        "cardKey": "major_16_tower",
+        "cardName": "The Tower",
+        "text": "Sudden, {b1} change — the lightning strike moment",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "unexpected"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_16_tower-cap-r162",
+        "type": "choice",
+        "cardKey": "major_16_tower",
+        "cardName": "The Tower",
+        "prompt": "Which of these is true of this card?",
+        "correct": "What falls apart was already unstable; the collapse just makes it visible",
+        "options": [
+          "What falls apart was already unstable; the collapse just makes it visible",
+          "Beginning and ending in one",
+          "Travels light, takes chances with levity"
+        ]
+      }
+    ]
+  },
+  "star": {
+    "id": "major_17_star-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_17_star-cap-r175",
+        "cardKey": "major_17_star",
+        "cardName": "The Star",
+        "words": [
+          {
+            "text": "community",
+            "correct": true
+          },
+          {
+            "text": "nonconformity",
+            "correct": true
+          },
+          {
+            "text": "hope",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_17_star-cap-r176",
+        "type": "cloze",
+        "cardKey": "major_17_star",
+        "cardName": "The Star",
+        "text": "{b1} returning after the storm — light visible at the end of the tunnel",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "hope"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_17_star-cap-r177",
+        "type": "choice",
+        "cardKey": "major_17_star",
+        "cardName": "The Star",
+        "prompt": "Which of these is true of this card?",
+        "correct": "An act of giving that seems small but nourishes something larger",
+        "options": [
+          "An act of giving that seems small but nourishes something larger",
+          "Mother Earth energy",
+          "Something is ready to be born"
+        ]
+      }
+    ]
+  },
+  "moon": {
+    "id": "major_18_moon-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_18_moon-cap-r189",
+        "cardKey": "major_18_moon",
+        "cardName": "The Moon",
+        "words": [
+          {
+            "text": "dreams",
+            "correct": true
+          },
+          {
+            "text": "sensitivity",
+            "correct": true
+          },
+          {
+            "text": "inner reality",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_18_moon-cap-r190",
+        "type": "cloze",
+        "cardKey": "major_18_moon",
+        "cardName": "The Moon",
+        "text": "What's hidden {b1} visible in the dark, if you're willing to look",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "becomes"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_18_moon-cap-r191",
+        "type": "choice",
+        "cardKey": "major_18_moon",
+        "cardName": "The Moon",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Trust intuition and dreams over what's plainly stated",
+        "options": [
+          "Trust intuition and dreams over what's plainly stated",
+          "Lives on the threshold",
+          "Her power is in receiving and being, not in acting"
+        ]
+      }
+    ]
+  },
+  "sun": {
+    "id": "major_19_sun-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_19_sun-cap-r203",
+        "cardKey": "major_19_sun",
+        "cardName": "The Sun",
+        "words": [
+          {
+            "text": "truth",
+            "correct": true
+          },
+          {
+            "text": "light",
+            "correct": true
+          },
+          {
+            "text": "success",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_19_sun-cap-r204",
+        "type": "cloze",
+        "cardKey": "major_19_sun",
+        "cardName": "The Sun",
+        "text": "Pure, {b1} joy — like a child's optimism",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "uncomplicated"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_19_sun-cap-r205",
+        "type": "choice",
+        "cardKey": "major_19_sun",
+        "cardName": "The Sun",
+        "prompt": "Which of these is true of this card?",
+        "correct": "True self-expression; showing your real nature without apology",
+        "options": [
+          "True self-expression; showing your real nature without apology",
+          "Sees with more than the eyes",
+          "You already have everything you need; success is about using the resources at hand"
+        ]
+      }
+    ]
+  },
+  "judgment": {
+    "id": "major_20_judgment-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_20_judgment-cap-r217",
+        "cardKey": "major_20_judgment",
+        "cardName": "Judgment",
+        "words": [
+          {
+            "text": "vocation",
+            "correct": true
+          },
+          {
+            "text": "healing",
+            "correct": true
+          },
+          {
+            "text": "rebirth",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_20_judgment-cap-r218",
+        "type": "cloze",
+        "cardKey": "major_20_judgment",
+        "cardName": "Judgment",
+        "text": "A calling being answered — your true {b1} coming into focus",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "vocation"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_20_judgment-cap-r219",
+        "type": "choice",
+        "cardKey": "major_20_judgment",
+        "cardName": "Judgment",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Rebirth requires passing through an ending first",
+        "options": [
+          "Rebirth requires passing through an ending first",
+          "Beginning and ending in one",
+          "Travels light, takes chances with levity"
+        ]
+      }
+    ]
+  },
+  "world": {
+    "id": "major_21_world-capstone",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "major_21_world-cap-r231",
+        "cardKey": "major_21_world",
+        "cardName": "The World",
+        "words": [
+          {
+            "text": "achieved objective",
+            "correct": true
+          },
+          {
+            "text": "conclusion of a cycle",
+            "correct": true
+          },
+          {
+            "text": "exploration",
+            "correct": true
+          },
+          {
+            "text": "trombone",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "major_21_world-cap-r232",
+        "type": "cloze",
+        "cardKey": "major_21_world",
+        "cardName": "The World",
+        "text": "A full cycle {b1} — the circle closes",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "completed"
+          }
+        ],
+        "distractors": [
+          "cactus",
+          "violin"
+        ]
+      },
+      {
+        "id": "major_21_world-cap-r233",
+        "type": "choice",
+        "cardKey": "major_21_world",
+        "cardName": "The World",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Achievement and wholeness; everything has come together",
+        "options": [
+          "Achievement and wholeness; everything has come together",
+          "Mother Earth energy",
+          "Something is ready to be born"
+        ]
+      }
+    ]
+  },
+  "magician": {
+    "id": "capstone-magician",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "cap-r9001",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "words": [
+          {
+            "text": "shrewdness",
+            "correct": true
+          },
+          {
+            "text": "intelligence",
+            "correct": true
+          },
+          {
+            "text": "nourishment",
+            "correct": false
+          },
+          {
+            "text": "harmony",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r9002",
+        "type": "cloze",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "text": "Sharp, quick-witted intelligence; can view a situation from multiple {b1} at once.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "angles"
+          }
+        ],
+        "distractors": [
+          "choices",
+          "partners",
+          "boundaries"
+        ]
+      },
+      {
+        "id": "cap-r9003",
+        "type": "choice",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "prompt": "Which of these is true of this card?",
+        "correct": "You already have everything you need; success is about using the resources at hand",
+        "options": [
+          "You already have everything you need; success is about using the resources at hand",
+          "A real choice stands in front of you, asking to be weighed",
+          "Nourish, protect, and grow whatever you're tending"
+        ]
+      },
+      {
+        "id": "cap-r9004",
+        "type": "cloze",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "text": "A gift for {b1} — the right words, spoken or written, at the right moment.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "communication"
+          }
+        ],
+        "distractors": [
+          "leadership",
+          "balance",
+          "patience"
+        ]
+      },
+      {
+        "id": "cap-r9005",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "words": [
+          {
+            "text": "skill",
+            "correct": true
+          },
+          {
+            "text": "personal ability",
+            "correct": true
+          },
+          {
+            "text": "speed",
+            "correct": false
+          },
+          {
+            "text": "beauty",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r9006",
+        "type": "choice",
+        "cardKey": "major_01_magician",
+        "cardName": "The Magician",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Reminds you it's time to act on an idea, not just have it",
+        "options": [
+          "Reminds you it's time to act on an idea, not just have it",
+          "Nonconformist, revolutionary energy — willing to go against convention",
+          "Two paths, both valid — the challenge is choosing, not lacking options"
+        ]
+      }
+    ]
+  },
+  "emperor": {
+    "id": "capstone-emperor",
+    "label": "Mini Capstone",
+    "rounds": [
+      {
+        "id": "cap-r9007",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "words": [
+          {
+            "text": "action",
+            "correct": true
+          },
+          {
+            "text": "leadership",
+            "correct": true
+          },
+          {
+            "text": "nourishment",
+            "correct": false
+          },
+          {
+            "text": "choice",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r9008",
+        "type": "cloze",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "text": "Sets clear {b1} and claims space without apology.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "boundaries"
+          }
+        ],
+        "distractors": [
+          "partnerships",
+          "cycles",
+          "reflections"
+        ]
+      },
+      {
+        "id": "cap-r9009",
+        "type": "choice",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Ready to act the instant the moment calls for it — no hesitation",
+        "options": [
+          "Ready to act the instant the moment calls for it — no hesitation",
+          "Something is ready to be born, a project finally taking shape",
+          "A partnership or union that asks you to listen to more than one voice"
+        ]
+      },
+      {
+        "id": "cap-r9010",
+        "type": "cloze",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "text": "Spring's life force — breaking through and pushing {b1}.",
+        "blanks": [
+          {
+            "key": "b1",
+            "answer": "forward"
+          }
+        ],
+        "distractors": [
+          "backward",
+          "sideways",
+          "inward"
+        ]
+      },
+      {
+        "id": "cap-r9011",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "words": [
+          {
+            "text": "personal limits",
+            "correct": true
+          },
+          {
+            "text": "sprouting",
+            "correct": true
+          },
+          {
+            "text": "beauty",
+            "correct": false
+          },
+          {
+            "text": "levity",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "cap-r9012",
+        "type": "choice",
+        "cardKey": "major_04_emperor",
+        "cardName": "The Emperor",
+        "prompt": "Which of these is true of this card?",
+        "correct": "Gives shape and order to what was still raw potential",
+        "options": [
+          "Gives shape and order to what was still raw potential",
+          "Creation before form — raw, generative chaos that hasn't settled yet",
+          "Trusts that the path appears once you take the step"
+        ]
+      }
+    ]
   }
 }

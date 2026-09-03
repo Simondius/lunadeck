@@ -1,0 +1,366 @@
+{
+  "cardKey": "major_09_hermit",
+  "cardName": "The Hermit",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n1-r59",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "introspection",
+              "correct": true
+            },
+            {
+              "text": "productive solitude",
+              "correct": true
+            },
+            {
+              "text": "analysis",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n2-r60",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "virgo",
+              "name": "Virgo",
+              "text": "Virgo: attentive discernment and productive solitude, a focus on detail that reveals the bigger picture.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.11,
+                  "x1": 0.6,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "lantern",
+              "name": "Lantern",
+              "text": "The lantern he carries: the light that leads him step by step, focusing on detail as he searches for his spiritual center.",
+              "rects": [
+                {
+                  "x0": 0.5,
+                  "y0": 0.4,
+                  "x1": 0.8,
+                  "y1": 0.66
+                }
+              ]
+            },
+            {
+              "key": "owl",
+              "name": "Owl",
+              "text": "An owl keeping silent watch from the branches: the calm, searching wisdom found in solitude.",
+              "rects": [
+                {
+                  "x0": 0.76,
+                  "y0": 0.2,
+                  "x1": 0.96,
+                  "y1": 0.38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_09_hermit-n2-r250",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "virgo",
+              "name": "Virgo",
+              "text": "Virgo: attentive discernment and productive solitude, a focus on detail that reveals the bigger picture.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.11,
+                  "x1": 0.6,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "lantern",
+              "name": "Lantern",
+              "text": "The lantern he carries: the light that leads him step by step, focusing on detail as he searches for his spiritual center.",
+              "rects": [
+                {
+                  "x0": 0.5,
+                  "y0": 0.4,
+                  "x1": 0.8,
+                  "y1": 0.66
+                }
+              ]
+            },
+            {
+              "key": "owl",
+              "name": "Owl",
+              "text": "An owl keeping silent watch from the branches: the calm, searching wisdom found in solitude.",
+              "rects": [
+                {
+                  "x0": 0.76,
+                  "y0": 0.2,
+                  "x1": 0.96,
+                  "y1": 0.38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_09_hermit-n2-r251",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "virgo",
+              "text": "Attentive discernment and productive solitude, a focus on detail that reveals the bigger picture.",
+              "image": "/assets/cards/cardelements/major_09_hermit_element_virgo.png"
+            },
+            {
+              "key": "lantern",
+              "text": "The lantern he carries: the light that leads him step by step, focusing on detail as he searches for his spiritual center.",
+              "image": "/assets/cards/cardelements/major_09_hermit_element_lantern.png"
+            },
+            {
+              "key": "owl",
+              "text": "An owl keeping silent watch from the branches: the calm, searching wisdom found in solitude.",
+              "image": "/assets/cards/cardelements/major_09_hermit_element_owl.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n3-r61",
+          "words": [
+            {
+              "text": "the discovery of the inner world",
+              "correct": true
+            },
+            {
+              "text": "lantern",
+              "correct": true
+            },
+            {
+              "text": "wisdom",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n4-r65",
+          "words": [
+            {
+              "text": "introspection",
+              "correct": true
+            },
+            {
+              "text": "productive solitude",
+              "correct": true
+            },
+            {
+              "text": "analysis",
+              "correct": true
+            },
+            {
+              "text": "the discovery of the inner world",
+              "correct": true
+            },
+            {
+              "text": "lantern",
+              "correct": true
+            },
+            {
+              "text": "wisdom",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n5-r66",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Solitude here is productive, not lonely",
+              "isMatch": true
+            },
+            {
+              "text": "A lantern lighting the path one careful step at a time",
+              "isMatch": true
+            },
+            {
+              "text": "Time to withdraw and look inward before moving again",
+              "isMatch": true
+            },
+            {
+              "text": "Attention to small details reveals the bigger picture",
+              "isMatch": true
+            },
+            {
+              "text": "The search itself",
+              "isMatch": true
+            },
+            {
+              "text": "Lives on the threshold",
+              "isMatch": false
+            },
+            {
+              "text": "Her power is in receiving and being, not in acting",
+              "isMatch": false
+            },
+            {
+              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
+              "isMatch": false
+            },
+            {
+              "text": "Trust the vision or feeling that comes without explanation",
+              "isMatch": false
+            },
+            {
+              "text": "A quiet, reflected light rather than a blazing one",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n6-r67",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Solitude here is productive, not lonely",
+          "options": [
+            "Solitude here is productive, not lonely",
+            "Offers protection and care from a place of stillness",
+            "Signals it's time to turn inward before doing anything outward",
+            "The journey matters more than the destination right now"
+          ]
+        },
+        {
+          "id": "major_09_hermit-n6-r68",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A lantern lighting the path one careful step at a time",
+          "options": [
+            "A lantern lighting the path one careful step at a time",
+            "Blending different, even opposing, ingredients into something greater than either alone",
+            "Patience and experience refine raw experience into wisdom",
+            "Moderation — finding the right balance rather than swinging to extremes"
+          ]
+        },
+        {
+          "id": "major_09_hermit-n6-r69",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Time to withdraw and look inward before moving again",
+          "options": [
+            "Time to withdraw and look inward before moving again",
+            "Broadening your view by mixing new experiences in",
+            "Suspended, upside down, but calm",
+            "A new perspective comes from surrendering, not struggling"
+          ]
+        },
+        {
+          "id": "major_09_hermit-n6-r70",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Attention to small details reveals the bigger picture",
+          "options": [
+            "Attention to small details reveals the bigger picture",
+            "Pause and let go instead of forcing the next move",
+            "Meditative stillness that deepens awareness",
+            "Sometimes you sacrifice something now to gain something better later"
+          ]
+        },
+        {
+          "id": "major_09_hermit-n6-r71",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The search itself",
+          "options": [
+            "The search itself",
+            "What's hidden becomes visible in the dark, if you're willing to look",
+            "Trust intuition and dreams over what's plainly stated",
+            "Facing the shadow side is part of becoming whole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_09_hermit-n7-r72",
+          "type": "cloze",
+          "text": "Virgo is ruled by Mercury in its most grounded form, {b2} and quietly organized. The Hermit masters Virgo's gift for solitude, treating being alone as generative rather than lonely. His {b1} lights the path one careful step at a time, mirroring Virgo's patient attention to detail. As the first card in the deck to carry light, the Hermit's path leads inward, toward a spiritual center.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "lantern"
+            },
+            {
+              "key": "b2",
+              "answer": "detail-oriented"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

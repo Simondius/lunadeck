@@ -1,0 +1,90 @@
+{
+  "id": "u14-riley-start",
+  "title": "Not Clawing Back",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "The first single's been out a week, and the internet has opinions."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"A blogger tore it apart this morning — called the whole thing derivative. Everyone around me is saying I should claw back publicly, prove them wrong.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Clawing back isn't the only way to prove anything.", "correct": true },
+        { "text": "You should absolutely go after them.", "correct": false, "reaction": "anger" },
+        { "text": "Why would you respond to a stranger's opinion at all?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Part of me wants to. Part of me just feels sick about it.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_08_strength"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Real strength here isn't clawing back — it comes from the heart, not force.", "correct": true },
+        { "text": "It means you should fight harder, not softer.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with how you respond.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Real strength is gentle — it comes from the heart, not force. Taming the instinct to lash out with calm isn't weakness, it's the whole point."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Doesn't staying gentle just mean I let people walk over me?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — courage here means acting honestly, not acting fearlessly or aggressively.", "correct": true },
+        { "text": "Yes, gentle just means weak.", "correct": false, "reaction": "anger" },
+        { "text": "Courage isn't part of this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Courage means acting honestly, not acting fearlessly — standing your ground doesn't require swinging first."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Maybe not responding at all is the stronger move here.\""
+    }
+  ]
+}

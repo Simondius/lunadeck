@@ -1,0 +1,98 @@
+{
+  "id": "u26-riley-end",
+  "title": "The Reckoning",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_16_tower", "major_18_moon", "major_20_judgment", "major_19_sun", "major_15_devil"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley lays three cards face down. \"Let's see the whole shape of this, not just today's.\""
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the collapse that cleared the ground you're standing on now.",
+      "slot": 0,
+      "answer": "major_16_tower"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the dream, and the call you finally picked up.",
+      "slot": 1,
+      "answer": "major_18_moon"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the answer you just gave, out loud, for the first time.",
+      "slot": 2,
+      "answer": "major_20_judgment"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If this is supposedly my vocation, why did it take a total collapse and a bad dream to get here?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Because rebirth doesn't skip the ending — it needs one to actually happen.", "correct": true },
+        { "text": "It means the vocation isn't real, since it came from a mess.", "correct": false, "reaction": "anger" },
+        { "text": "The path getting here doesn't matter at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Rebirth requires passing through an ending first — the collapse and the dream weren't detours, they were the road."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"What if this is just relief talking, and not an actual calling?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "A real calling and real relief aren't opposites — this can be both at once.", "correct": true },
+        { "text": "Relief means it's fake, throw it out.", "correct": false, "reaction": "anger" },
+        { "text": "Feelings are irrelevant to whether a calling is real.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A calling being answered is exactly this: your true vocation coming into focus, whatever else you happen to feel alongside it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the ground that had to come down, the dream that made you look, and the voice you just decided, finally, to use.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I'm not saying I've got it figured out — I don't. But for the first time in years, this actually feels like mine, start to finish. That's enough to build on.\""
+    }
+  ]
+}

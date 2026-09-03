@@ -1,0 +1,83 @@
+{
+  "id": "u13-dave-start",
+  "title": "Pulling in the Same Direction",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"We landed a bigger contract. My partner wants to start Monday. I want two more weeks to plan it properly.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Sounds like you're both pulling toward the same finish, just at different speeds.", "correct": true },
+        { "text": "Then you two clearly shouldn't be in business together.", "correct": false, "reaction": "anger" },
+        { "text": "Whoever's more senior should just decide.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Maybe. It just feels like we're fighting each other instead of the actual deadline.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_07_chariot"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Two forces pulling the same cart — the trick is aligning them, not picking one.", "correct": true },
+        { "text": "One of you has to give up control entirely.", "correct": false, "reaction": "anger" },
+        { "text": "This card means the deal is doomed either way.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Chariot isn't pulled by one horse — it's pulled by two, and the whole card is about getting them moving the same direction instead of against each other."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But my gut says start now, and his spreadsheet says wait. Which one's actually right?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Neither wins alone — it's the two together that actually move you.", "correct": true },
+        { "text": "The spreadsheet is always right over a gut feeling.", "correct": false, "reaction": "anger" },
+        { "text": "Gut feelings don't belong in business decisions.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Chariot only moves when instinct and reason pull together — treating the emotional read as fuel instead of a distraction is the actual win."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Let's find a start date that both horses can live with.\""
+    }
+  ]
+}

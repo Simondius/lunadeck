@@ -1,0 +1,398 @@
+{
+  "cardKey": "major_02_high_priestess",
+  "cardName": "The High Priestess",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n1-r1",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "imagination",
+              "correct": true
+            },
+            {
+              "text": "reception",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n2-r2",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "moon",
+              "name": "Moon",
+              "text": "Moon: intuition and reception rather than action, the emotional tides she keeps.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.18,
+                  "x1": 0.51,
+                  "y1": 0.25
+                }
+              ]
+            },
+            {
+              "key": "raised_hand",
+              "name": "Raised hand",
+              "text": "Raised hand: reaching toward the small moon, receiving rather than reaching to act.",
+              "rects": [
+                {
+                  "x0": 0.58,
+                  "y0": 0.26,
+                  "x1": 0.75,
+                  "y1": 0.43
+                }
+              ]
+            },
+            {
+              "key": "water_current",
+              "name": "Water current",
+              "text": "Water at her feet: the mutable, emotional element she governs, protection offered from the threshold.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.6,
+                  "x1": 1.0,
+                  "y1": 0.92
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n2-r242",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "moon",
+              "name": "Moon",
+              "text": "Moon: intuition and reception rather than action, the emotional tides she keeps.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.18,
+                  "x1": 0.51,
+                  "y1": 0.25
+                }
+              ]
+            },
+            {
+              "key": "raised_hand",
+              "name": "Raised hand",
+              "text": "Raised hand: reaching toward the small moon, receiving rather than reaching to act.",
+              "rects": [
+                {
+                  "x0": 0.58,
+                  "y0": 0.26,
+                  "x1": 0.75,
+                  "y1": 0.43
+                }
+              ]
+            },
+            {
+              "key": "water_current",
+              "name": "Water current",
+              "text": "Water at her feet: the mutable, emotional element she governs, protection offered from the threshold.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.6,
+                  "x1": 1.0,
+                  "y1": 0.92
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n2-r243",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "moon",
+              "text": "Intuition and reception rather than action, the emotional tides she keeps.",
+              "image": "/assets/cards/cardelements/major_02_high_priestess_element_moon.png"
+            },
+            {
+              "key": "raised_hand",
+              "text": "Reaching toward the small moon, receiving rather than reaching to act.",
+              "image": "/assets/cards/cardelements/major_02_high_priestess_element_raised_hand.png"
+            },
+            {
+              "key": "water_current",
+              "text": "Water at her feet: the mutable, emotional element she governs, protection offered from the threshold.",
+              "image": "/assets/cards/cardelements/major_02_high_priestess_element_water_current.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n3-r3",
+          "words": [
+            {
+              "text": "listening",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n4-r7",
+          "words": [
+            {
+              "text": "imagination",
+              "correct": true
+            },
+            {
+              "text": "reception",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": true
+            },
+            {
+              "text": "listening",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "introspection",
+              "correct": false
+            },
+            {
+              "text": "productive solitude",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n5-r8",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Lives on the threshold",
+              "isMatch": true
+            },
+            {
+              "text": "Her power is in receiving and being, not in acting",
+              "isMatch": true
+            },
+            {
+              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
+              "isMatch": true
+            },
+            {
+              "text": "Trust the vision or feeling that comes without explanation",
+              "isMatch": true
+            },
+            {
+              "text": "A quiet, reflected light rather than a blazing one",
+              "isMatch": true
+            },
+            {
+              "text": "Offers protection and care from a place of stillness",
+              "isMatch": true
+            },
+            {
+              "text": "Signals it's time to turn inward before doing anything outward",
+              "isMatch": true
+            },
+            {
+              "text": "Solitude here is productive, not lonely",
+              "isMatch": false
+            },
+            {
+              "text": "A lantern lighting the path one careful step at a time",
+              "isMatch": false
+            },
+            {
+              "text": "Time to withdraw and look inward before moving again",
+              "isMatch": false
+            },
+            {
+              "text": "Attention to small details reveals the bigger picture",
+              "isMatch": false
+            },
+            {
+              "text": "The search itself",
+              "isMatch": false
+            },
+            {
+              "text": "Suspended, upside down, but calm",
+              "isMatch": false
+            },
+            {
+              "text": "A new perspective comes from surrendering, not struggling",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n6-r9",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Lives on the threshold",
+          "options": [
+            "Lives on the threshold",
+            "Pause and let go instead of forcing the next move",
+            "Meditative stillness that deepens awareness",
+            "Sometimes you sacrifice something now to gain something better later"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r10",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Her power is in receiving and being, not in acting",
+          "options": [
+            "Her power is in receiving and being, not in acting",
+            "The journey matters more than the destination right now",
+            "Blending different, even opposing, ingredients into something greater than either alone",
+            "Patience and experience refine raw experience into wisdom"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r11",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Deep listening — she absorbs what others carry and reflects it back transformed",
+          "options": [
+            "Deep listening — she absorbs what others carry and reflects it back transformed",
+            "Moderation — finding the right balance rather than swinging to extremes",
+            "Broadening your view by mixing new experiences in",
+            "What's hidden becomes visible in the dark, if you're willing to look"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r12",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Trust the vision or feeling that comes without explanation",
+          "options": [
+            "Trust the vision or feeling that comes without explanation",
+            "Trust intuition and dreams over what's plainly stated",
+            "Facing the shadow side is part of becoming whole",
+            "A cycle is repeating"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r13",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A quiet, reflected light rather than a blazing one",
+          "options": [
+            "A quiet, reflected light rather than a blazing one",
+            "The everyday and the spiritual aren't separate; they're two sides of the same coin",
+            "Hope returning after the storm",
+            "An act of giving that seems small but nourishes something larger"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r14",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Offers protection and care from a place of stillness",
+          "options": [
+            "Offers protection and care from a place of stillness",
+            "Renewal comes through shared, communal feeling, not isolation",
+            "Staying open and receptive to life, rather than guarded",
+            "A quietly nonconformist light"
+          ]
+        },
+        {
+          "id": "major_02_high_priestess-n6-r15",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Signals it's time to turn inward before doing anything outward",
+          "options": [
+            "Signals it's time to turn inward before doing anything outward",
+            "Beginning and ending in one",
+            "Travels light, takes chances with levity",
+            "On the edge of the precipice, but calm rather than afraid of the void"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_02_high_priestess-n7-r16",
+          "type": "cloze",
+          "text": "The High Priestess lives on the threshold between worlds, receiving rather than acting. Where the Magician does, she absorbs, holding the stories of others through a quiet, dreamlike gestation. Her light is borrowed, like the moon {b1} the sun, delicate and indirect. She embodies the feminine, gestation, and trust in inner vision, offering {b2} and care from behind her still, watchful veil.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "reflecting"
+            },
+            {
+              "key": "b2",
+              "answer": "protection"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

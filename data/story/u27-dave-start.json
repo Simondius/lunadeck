@@ -1,0 +1,83 @@
+{
+  "id": "u27-dave-start",
+  "title": "Where the Fool Was Headed",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"We paid off the lease early this week. Everything I set out to prove when I quit — it's basically all there now.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "So what happens now that you've actually landed?", "correct": true },
+        { "text": "Guess you're done taking risks, then.", "correct": false, "reaction": "anger" },
+        { "text": "That's got nothing to do with a card reading.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Honestly? No idea. I never planned past 'don't fail.'\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_21_world"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "This one's the whole circle closing — but closing isn't the same as stopping.", "correct": true },
+        { "text": "It means there's nothing left to do now.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with finishing anything.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A full cycle completed — but the same card that closes it is also the one that clears the way for the next beginning."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Feels weird to go looking for the next thing when this one finally worked.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "That's the actual warning in this card — don't get too comfortable in 'done.'", "correct": true },
+        { "text": "Then don't — just stop here for good.", "correct": false, "reaction": "anger" },
+        { "text": "The card doesn't warn about anything at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Don't linger too long in the comfort of 'done' — a new journey is already calling, even right after a real one finishes."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Fair. I'll give myself a week to enjoy it. Then back to figuring out what's next.\""
+    }
+  ]
+}

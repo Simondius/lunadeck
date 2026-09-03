@@ -1,0 +1,358 @@
+{
+  "cardKey": "major_07_chariot",
+  "cardName": "The Chariot",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n1-r31",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "emotions",
+              "correct": true
+            },
+            {
+              "text": "movement",
+              "correct": true
+            },
+            {
+              "text": "ambition",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n2-r32",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "cancer",
+              "name": "Cancer",
+              "text": "Cancer: emotional sensitivity and nurturing, the cardinal initiator in matters of intuition and relationship.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.09,
+                  "x1": 0.6,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "horses",
+              "name": "The two horses",
+              "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.35,
+                  "x1": 0.55,
+                  "y1": 0.78
+                }
+              ]
+            },
+            {
+              "key": "reins",
+              "name": "Reins",
+              "text": "Reins held taut in her hands: the determination and ambition that steer great movement toward its goal.",
+              "rects": [
+                {
+                  "x0": 0.36,
+                  "y0": 0.22,
+                  "x1": 0.6,
+                  "y1": 0.42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_07_chariot-n2-r246",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "cancer",
+              "name": "Cancer",
+              "text": "Cancer: emotional sensitivity and nurturing, the cardinal initiator in matters of intuition and relationship.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.09,
+                  "x1": 0.6,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "horses",
+              "name": "The two horses",
+              "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.35,
+                  "x1": 0.55,
+                  "y1": 0.78
+                }
+              ]
+            },
+            {
+              "key": "reins",
+              "name": "Reins",
+              "text": "Reins held taut in her hands: the determination and ambition that steer great movement toward its goal.",
+              "rects": [
+                {
+                  "x0": 0.36,
+                  "y0": 0.22,
+                  "x1": 0.6,
+                  "y1": 0.42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_07_chariot-n2-r247",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "cancer",
+              "text": "Emotional sensitivity and nurturing, the cardinal initiator in matters of intuition and relationship.",
+              "image": "/assets/cards/cardelements/major_07_chariot_element_cancer.png"
+            },
+            {
+              "key": "horses",
+              "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
+              "image": "/assets/cards/cardelements/major_07_chariot_element_horses.png"
+            },
+            {
+              "key": "reins",
+              "text": "Reins held taut in her hands: the determination and ambition that steer great movement toward its goal.",
+              "image": "/assets/cards/cardelements/major_07_chariot_element_reins.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n3-r33",
+          "words": [
+            {
+              "text": "success",
+              "correct": true
+            },
+            {
+              "text": "focus",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n4-r37",
+          "words": [
+            {
+              "text": "emotions",
+              "correct": true
+            },
+            {
+              "text": "movement",
+              "correct": true
+            },
+            {
+              "text": "ambition",
+              "correct": true
+            },
+            {
+              "text": "success",
+              "correct": true
+            },
+            {
+              "text": "focus",
+              "correct": true
+            },
+            {
+              "text": "shrewdness",
+              "correct": false
+            },
+            {
+              "text": "intelligence",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n5-r38",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Determined forward motion",
+              "isMatch": true
+            },
+            {
+              "text": "Pulled by two forces that need aligning, not fighting, to move you forward",
+              "isMatch": true
+            },
+            {
+              "text": "Success comes from uniting intuition with rational drive",
+              "isMatch": true
+            },
+            {
+              "text": "Emotion is the fuel, not the obstacle, for this journey",
+              "isMatch": true
+            },
+            {
+              "text": "A strong start",
+              "isMatch": true
+            },
+            {
+              "text": "Sees with more than the eyes",
+              "isMatch": false
+            },
+            {
+              "text": "You already have everything you need; success is about using the resources at hand",
+              "isMatch": false
+            },
+            {
+              "text": "Magic hides in ordinary things",
+              "isMatch": false
+            },
+            {
+              "text": "Sharp, quick-witted intelligence; can view a situation from multiple angles at once",
+              "isMatch": false
+            },
+            {
+              "text": "A gift for communication",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n6-r39",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Determined forward motion",
+          "options": [
+            "Determined forward motion",
+            "Reminds you it's time to act on an idea, not just have it",
+            "Ready to act the instant the moment calls for it",
+            "Sets clear boundaries and claims space without apology"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r40",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Pulled by two forces that need aligning, not fighting, to move you forward",
+          "options": [
+            "Pulled by two forces that need aligning, not fighting, to move you forward",
+            "Gives shape and order to what was still raw potential",
+            "Leadership through decisive, immediate action",
+            "Spring's life force"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r41",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Success comes from uniting intuition with rational drive",
+          "options": [
+            "Success comes from uniting intuition with rational drive",
+            "A spark-first, think-later instinct; leads with action",
+            "A calling being answered",
+            "Rebirth requires passing through an ending first"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r42",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Emotion is the fuel, not the obstacle, for this journey",
+          "options": [
+            "Emotion is the fuel, not the obstacle, for this journey",
+            "Letting go of what no longer belongs to you, to make room for healing",
+            "A reckoning — reviewing the past honestly before moving forward",
+            "Your voice, finally ready to be used"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r43",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A strong start",
+          "options": [
+            "A strong start",
+            "A real choice stands in front of you",
+            "Two paths, both valid",
+            "Choosing with the heart, not just the head"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_07_chariot-n7-r44",
+          "type": "cloze",
+          "text": "Cancer is a cardinal sign, an initiator especially in matters of intuition, {b2}, and feeling. That same initiating drive appears in the Chariot, a card of momentum and {b1}. Two horses pull it in different directions, symbols of the forces moving us, and only by aligning intuition with reason can we actually reach the goal. Cancer's emotional current becomes the fuel for the whole journey.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "ambition"
+            },
+            {
+              "key": "b2",
+              "answer": "relationships"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

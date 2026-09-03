@@ -1,0 +1,358 @@
+{
+  "cardKey": "major_11_justice",
+  "cardName": "Justice",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_11_justice-n1-r87",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "sense of justice",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_11_justice-n2-r88",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "libra",
+              "name": "Libra",
+              "text": "Libra: balance and harmony, an aesthetic, fair-minded sense of justice rooted in relationship.",
+              "rects": [
+                {
+                  "x0": 0.43,
+                  "y0": 0.115,
+                  "x1": 0.57,
+                  "y1": 0.21
+                }
+              ]
+            },
+            {
+              "key": "scales",
+              "name": "Scales",
+              "text": "The scales in her raised hand: an honest weighing, the true and even vision she holds up to the world.",
+              "rects": [
+                {
+                  "x0": 0.03,
+                  "y0": 0.45,
+                  "x1": 0.42,
+                  "y1": 0.65
+                }
+              ]
+            },
+            {
+              "key": "sword",
+              "name": "Sword",
+              "text": "The sword held low: decisive action from the heart, the responsibility that moves when it must.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.54,
+                  "x1": 0.62,
+                  "y1": 0.75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_11_justice-n2-r254",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "libra",
+              "name": "Libra",
+              "text": "Libra: balance and harmony, an aesthetic, fair-minded sense of justice rooted in relationship.",
+              "rects": [
+                {
+                  "x0": 0.43,
+                  "y0": 0.115,
+                  "x1": 0.57,
+                  "y1": 0.21
+                }
+              ]
+            },
+            {
+              "key": "scales",
+              "name": "Scales",
+              "text": "The scales in her raised hand: an honest weighing, the true and even vision she holds up to the world.",
+              "rects": [
+                {
+                  "x0": 0.03,
+                  "y0": 0.45,
+                  "x1": 0.42,
+                  "y1": 0.65
+                }
+              ]
+            },
+            {
+              "key": "sword",
+              "name": "Sword",
+              "text": "The sword held low: decisive action from the heart, the responsibility that moves when it must.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.54,
+                  "x1": 0.62,
+                  "y1": 0.75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_11_justice-n2-r255",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "libra",
+              "text": "Balance and harmony, an aesthetic, fair-minded sense of justice rooted in relationship.",
+              "image": "/assets/cards/cardelements/major_11_justice_element_libra.png"
+            },
+            {
+              "key": "scales",
+              "text": "The scales in her raised hand: an honest weighing, the true and even vision she holds up to the world.",
+              "image": "/assets/cards/cardelements/major_11_justice_element_scales.png"
+            },
+            {
+              "key": "sword",
+              "text": "The sword held low: decisive action from the heart, the responsibility that moves when it must.",
+              "image": "/assets/cards/cardelements/major_11_justice_element_sword.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_11_justice-n3-r89",
+          "words": [
+            {
+              "text": "responsibility",
+              "correct": true
+            },
+            {
+              "text": "sense of reality",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_11_justice-n4-r93",
+          "words": [
+            {
+              "text": "beauty",
+              "correct": true
+            },
+            {
+              "text": "harmony",
+              "correct": true
+            },
+            {
+              "text": "sense of justice",
+              "correct": true
+            },
+            {
+              "text": "responsibility",
+              "correct": true
+            },
+            {
+              "text": "sense of reality",
+              "correct": true
+            },
+            {
+              "text": "shrewdness",
+              "correct": false
+            },
+            {
+              "text": "intelligence",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_11_justice-n5-r94",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "A mirror moment",
+              "isMatch": true
+            },
+            {
+              "text": "Acting because it's simply right, not because a rulebook says so",
+              "isMatch": true
+            },
+            {
+              "text": "Responsibility and fairness, driven by the heart rather than obligation",
+              "isMatch": true
+            },
+            {
+              "text": "Seeking balance, harmony, and beauty in how things are resolved",
+              "isMatch": true
+            },
+            {
+              "text": "Cause and effect are catching up",
+              "isMatch": true
+            },
+            {
+              "text": "Sees with more than the eyes",
+              "isMatch": false
+            },
+            {
+              "text": "You already have everything you need; success is about using the resources at hand",
+              "isMatch": false
+            },
+            {
+              "text": "Magic hides in ordinary things",
+              "isMatch": false
+            },
+            {
+              "text": "Sharp, quick-witted intelligence; can view a situation from multiple angles at once",
+              "isMatch": false
+            },
+            {
+              "text": "A gift for communication",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_11_justice-n6-r95",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A mirror moment",
+          "options": [
+            "A mirror moment",
+            "Reminds you it's time to act on an idea, not just have it",
+            "Ready to act the instant the moment calls for it",
+            "Sets clear boundaries and claims space without apology"
+          ]
+        },
+        {
+          "id": "major_11_justice-n6-r96",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Acting because it's simply right, not because a rulebook says so",
+          "options": [
+            "Acting because it's simply right, not because a rulebook says so",
+            "Gives shape and order to what was still raw potential",
+            "Leadership through decisive, immediate action",
+            "Spring's life force"
+          ]
+        },
+        {
+          "id": "major_11_justice-n6-r97",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Responsibility and fairness, driven by the heart rather than obligation",
+          "options": [
+            "Responsibility and fairness, driven by the heart rather than obligation",
+            "A spark-first, think-later instinct; leads with action",
+            "A bridge between the everyday and the sacred",
+            "When reality feels shaky, lean on faith or tradition to steady it"
+          ]
+        },
+        {
+          "id": "major_11_justice-n6-r98",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Seeking balance, harmony, and beauty in how things are resolved",
+          "options": [
+            "Seeking balance, harmony, and beauty in how things are resolved",
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Spiritual truth doesn't have to abandon the pleasures of daily life",
+            "Holding something divine within an ordinary, grounded life"
+          ]
+        },
+        {
+          "id": "major_11_justice-n6-r99",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Cause and effect are catching up",
+          "options": [
+            "Cause and effect are catching up",
+            "A real choice stands in front of you",
+            "Two paths, both valid",
+            "Choosing with the heart, not just the head"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_11_justice-n7-r100",
+          "type": "cloze",
+          "text": "After the Wheel's turning point comes real responsibility. Justice holds up a mirror, an honest, unflinching reflection of what's true. Its rules aren't written in books, they come from an inner sense of care toward the world. Libra, ruled by Venus just like the Empress, brings its aesthetic, {b2}-seeking gaze to this card, so {b1} and equanimity become inseparable from what's fair.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "beauty"
+            },
+            {
+              "key": "b2",
+              "answer": "harmony"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

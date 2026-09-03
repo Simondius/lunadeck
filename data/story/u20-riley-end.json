@@ -1,0 +1,98 @@
+{
+  "id": "u20-riley-end",
+  "title": "What the Mixing Makes",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_10_wheel_of_fortune", "major_12_hanged_man", "major_14_temperance", "major_13_death", "major_11_justice"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley lays three cards face down. \"Let's see the whole shape of this, not just today's.\""
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the whole spinning run of the tour, every night a different pull of the wheel.",
+      "slot": 0,
+      "answer": "major_10_wheel_of_fortune"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the pause you're sitting in now that the tour's actually stopped.",
+      "slot": 1,
+      "answer": "major_12_hanged_man"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the thing you're about to have to blend.",
+      "slot": 2,
+      "answer": "major_14_temperance"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If blending them is supposedly the answer, why does it feel like nothing's actually landed yet?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Blending takes time to settle — it's not instant, it's a process.", "correct": true },
+        { "text": "That means the blend already failed.", "correct": false, "reaction": "anger" },
+        { "text": "Landing has nothing to do with this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Patience and experience refine raw experience into wisdom — the journey matters more than the destination right now."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And if the mix ends up sounding closer to one side than the other, does that mean I picked after all?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — moderation isn't a fifty-fifty split, it's finding what actually balances.", "correct": true },
+        { "text": "Yes, that means you cheated and picked a side.", "correct": false, "reaction": "anger" },
+        { "text": "Balance doesn't matter here at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Moderation means finding the right balance rather than swinging to extremes — it was never about an even split."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the spin that carried you here, the pause you needed after it, and the patient work of actually blending what you make next.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah — I think I've been waiting for the two sides to just resolve themselves. They won't. I actually have to sit down and mix them, and that's going to take longer than a weekend. That's fine, though.\""
+    }
+  ]
+}

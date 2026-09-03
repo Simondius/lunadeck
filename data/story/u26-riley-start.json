@@ -1,0 +1,90 @@
+{
+  "id": "u26-riley-start",
+  "title": "An Honest Answer",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley's back, having actually made the call this time."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I told them no. Not because I'm angry anymore — I actually looked at the whole thing honestly, first time in years, and no is just... true.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "What did looking at it honestly actually show you?", "correct": true },
+        { "text": "You should've said yes out of loyalty.", "correct": false, "reaction": "anger" },
+        { "text": "Why does honesty matter here at all?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"That I spent years playing someone else's songs and calling it a compromise. It wasn't a compromise. It was hiding.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_20_judgment"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "That's the real reckoning — an honest look back before anything new can actually begin.", "correct": true },
+        { "text": "Reckonings are about punishing yourself for the past.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with looking backward.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A reckoning — reviewing the past honestly before moving forward. And rebirth requires passing through an ending first, not around it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So what happens now? I don't even know what my own music sounds like without them in it.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "You find out — your voice was always yours, just waiting for room to actually be used.", "correct": true },
+        { "text": "You'll never find that out, it's gone.", "correct": false, "reaction": "anger" },
+        { "text": "Your voice isn't relevant to this decision.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Letting go of what no longer belongs to you makes room for healing — and your voice is finally ready to be used, on its own terms."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Yeah. I think I'm ready to actually find out.\""
+    }
+  ]
+}

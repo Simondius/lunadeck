@@ -1,0 +1,90 @@
+{
+  "id": "u12-riley-start",
+  "title": "A Voice You Trust",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Three weeks into her first real studio sessions, Riley's still getting used to someone else calling the shots in the room."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"The producer keeps telling me to trust the process, even when I have no idea what he's doing to the vocal take. Strange, taking direction again after a year of just doing it myself.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Trusting the process doesn't mean trusting it blindly — it means trusting him specifically.", "correct": true },
+        { "text": "You should never let anyone else touch your vocals.", "correct": false, "reaction": "anger" },
+        { "text": "Trusting a process and trusting a person are unrelated.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I guess I do trust him. I just don't love not understanding what's happening.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_05_hierophant"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "This is exactly that — a message that arrives through someone you actually trust, not through figuring it out alone.", "correct": true },
+        { "text": "It means you should never take a note from anyone again.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with taking direction.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The message here doesn't have to arrive on its own — it comes through a mentor, a teacher, or a structure you've decided to trust."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Doesn't that make me the least DIY person in the room, letting someone else steer?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Not at all — spiritual truth here doesn't ask you to give up your own instincts to use it.", "correct": true },
+        { "text": "Yes, DIY and taking direction can't coexist.", "correct": false, "reaction": "anger" },
+        { "text": "This card has no opinion on independence.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Spiritual truth doesn't have to abandon the pleasures of daily life — leaning on a trusted structure and keeping your own voice were never actually opposites."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Yeah. I think I can let him drive for a few takes and still know it's mine.\""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "u27-dave-end",
+  "title": "Full Circle",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_17_star", "major_19_sun", "major_21_world", "major_00_fool", "major_20_judgment"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave's back for what he says is the last reading he needs — not the last time he'll stop by."
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the point you stopped carrying it all alone.",
+      "slot": 0,
+      "answer": "major_17_star"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the success bright enough that other people noticed too.",
+      "slot": 1,
+      "answer": "major_19_sun"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the whole shape of it, now that it's actually finished.",
+      "slot": 2,
+      "answer": "major_21_world"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me one last time. If this is a full cycle completed, is the reading telling me to stop?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — completing this cycle is exactly what frees you to start the next one.", "correct": true },
+        { "text": "Yes, this is as far as it goes.", "correct": false, "reaction": "anger" },
+        { "text": "The World doesn't mean anything is actually finished.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Completion here clears the way for the next beginning — the circle closing is the whole reason a new one gets to start."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So what am I even supposed to cut away, if everything's finally working?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Whatever's no longer needed now that you've actually landed — that's still worth clearing out.", "correct": true },
+        { "text": "Nothing — cutting anything away now would ruin it.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with cutting anything away.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Closure here comes from cutting away what's no longer needed, even in a version of things that's finally working."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread, if you want it: the same card that opened your very first reading was the Fool — and the Fool's whole arc ends exactly here, in the World, one circle closed and another one already waiting.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"...Yeah. Guess I finally get to stop calling it a leap of faith and start calling it a business. Thanks for sticking with the version of me that didn't know that yet.\""
+    }
+  ]
+}

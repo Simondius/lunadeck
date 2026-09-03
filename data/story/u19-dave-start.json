@@ -1,0 +1,83 @@
+{
+  "id": "u19-dave-start",
+  "title": "Closing Up the Old Shop",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"We have to give up the original garage. It's the only space that can't handle the volume anymore. Feels like giving up where all of this actually started.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "What would it actually mean to let it go?", "correct": true },
+        { "text": "Then don't take on more work than the garage can handle.", "correct": false, "reaction": "anger" },
+        { "text": "A building doesn't really mean anything.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I built the first pieces in there. It feels like closing a door for good.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_13_death"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "It's not sealing anything shut — it's clearing room for what's next to actually grow.", "correct": true },
+        { "text": "It does mean this is over for good.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with endings at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Death doesn't seal an ending shut — it's an organic process that clears space for something new to actually take root."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But everything that made this feel real happened in that room. Doesn't giving it up mean losing that?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Nothing that mattered gets erased — it just feeds what grows next, like leaves feeding roots.", "correct": true },
+        { "text": "Yes, you're about to lose all of it.", "correct": false, "reaction": "anger" },
+        { "text": "The garage was never actually important.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "What's released doesn't vanish — it becomes the ground the next thing grows out of, the same way dead leaves feed the roots underneath them."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Let's find the new space, and I'll go back one more time before we clear it out.\""
+    }
+  ]
+}

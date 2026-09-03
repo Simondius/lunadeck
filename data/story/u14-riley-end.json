@@ -1,0 +1,98 @@
+{
+  "id": "u14-riley-end",
+  "title": "The Softer Kind of Strong",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_04_emperor", "major_05_hierophant", "major_08_strength", "major_03_empress", "major_07_chariot"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "A few days after the review, Riley's back, calmer than she was on the phone."
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the space you claimed when the label pushed back.",
+      "slot": 0,
+      "answer": "major_04_emperor"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the trust you're still building in the booth.",
+      "slot": 1,
+      "answer": "major_05_hierophant"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: how you actually respond when it stings.",
+      "slot": 2,
+      "answer": "major_08_strength"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me on the new one. If Strength is about staying gentle, doesn't that mean I'm supposed to just feel fine about the review? Because I don't.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's not about not feeling it, it's about not letting it curdle into force.", "correct": true },
+        { "text": "Yes, feeling anything at all fails the card.", "correct": false, "reaction": "anger" },
+        { "text": "Feelings aren't relevant to Strength at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Real strength is gentle — it comes from the heart, not force. It never asked you to feel nothing, just to answer with the gentler instinct instead of the aggressive one."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if staying generous about it just makes me look like I don't care?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Generosity and warmth are forms of power too — it's not the same as not caring.", "correct": true },
+        { "text": "You're right, you should look like you don't care.", "correct": false, "reaction": "anger" },
+        { "text": "Generosity has nothing to do with Strength.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Generosity and warmth are forms of power too — connection, not standing above someone, is where this card's strength actually lives."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the space you claimed, the trust you're building, and now, the gentler kind of strong.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been treating gentle like it was the opposite of strong, when it's actually just a different kind of it. Thank you.\""
+    }
+  ]
+}

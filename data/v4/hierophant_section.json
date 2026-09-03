@@ -1,0 +1,350 @@
+{
+  "cardKey": "major_05_hierophant",
+  "cardName": "The Hierophant",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n1-r17",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "faith",
+              "correct": true
+            },
+            {
+              "text": "search for spirituality",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n2-r18",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "taurus",
+              "name": "Taurus",
+              "text": "Taurus: grounded sensory pleasure, patiently manifesting ideals into real, lived, material form.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.12,
+                  "x1": 0.6,
+                  "y1": 0.24
+                }
+              ]
+            },
+            {
+              "key": "raised_hand",
+              "name": "Raised hand",
+              "text": "His raised hand of blessing: the bridge he forms between what is habitual and manifest and what lies high in the skies.",
+              "rects": [
+                {
+                  "x0": 0.24,
+                  "y0": 0.3,
+                  "x1": 0.46,
+                  "y1": 0.48
+                }
+              ]
+            },
+            {
+              "key": "celestial_orb",
+              "name": "Ringed celestial orb",
+              "text": "A ringed planet stitched into his robe: the sky's rarefied, mystical order carried into the folds of an earthly garment.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.42,
+                  "x1": 0.58,
+                  "y1": 0.58
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n2-r244",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "taurus",
+              "name": "Taurus",
+              "text": "Taurus: grounded sensory pleasure, patiently manifesting ideals into real, lived, material form.",
+              "rects": [
+                {
+                  "x0": 0.4,
+                  "y0": 0.12,
+                  "x1": 0.6,
+                  "y1": 0.24
+                }
+              ]
+            },
+            {
+              "key": "raised_hand",
+              "name": "Raised hand",
+              "text": "His raised hand of blessing: the bridge he forms between what is habitual and manifest and what lies high in the skies.",
+              "rects": [
+                {
+                  "x0": 0.24,
+                  "y0": 0.3,
+                  "x1": 0.46,
+                  "y1": 0.48
+                }
+              ]
+            },
+            {
+              "key": "celestial_orb",
+              "name": "Ringed celestial orb",
+              "text": "A ringed planet stitched into his robe: the sky's rarefied, mystical order carried into the folds of an earthly garment.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.42,
+                  "x1": 0.58,
+                  "y1": 0.58
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n2-r245",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "taurus",
+              "text": "Grounded sensory pleasure, patiently manifesting ideals into real, lived, material form.",
+              "image": "/assets/cards/cardelements/major_05_hierophant_element_taurus.png"
+            },
+            {
+              "key": "raised_hand",
+              "text": "His raised hand of blessing: the bridge he forms between what is habitual and manifest and what lies high in the skies.",
+              "image": "/assets/cards/cardelements/major_05_hierophant_element_raised_hand.png"
+            },
+            {
+              "key": "celestial_orb",
+              "text": "A ringed planet stitched into his robe: the sky's rarefied, mystical order carried into the folds of an earthly garment.",
+              "image": "/assets/cards/cardelements/major_05_hierophant_element_celestial_orb.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n3-r19",
+          "words": [
+            {
+              "text": "the right distance",
+              "correct": true
+            },
+            {
+              "text": "the message that comes from the spiritual world",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n4-r23",
+          "words": [
+            {
+              "text": "faith",
+              "correct": true
+            },
+            {
+              "text": "search for spirituality",
+              "correct": true
+            },
+            {
+              "text": "the right distance",
+              "correct": true
+            },
+            {
+              "text": "the message that comes from the spiritual world",
+              "correct": true
+            },
+            {
+              "text": "choice",
+              "correct": false
+            },
+            {
+              "text": "variety",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n5-r24",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "A bridge between the everyday and the sacred",
+              "isMatch": true
+            },
+            {
+              "text": "When reality feels shaky, lean on faith or tradition to steady it",
+              "isMatch": true
+            },
+            {
+              "text": "The message arrives through a mentor, teacher, or trusted structure",
+              "isMatch": true
+            },
+            {
+              "text": "Spiritual truth doesn't have to abandon the pleasures of daily life",
+              "isMatch": true
+            },
+            {
+              "text": "Holding something divine within an ordinary, grounded life",
+              "isMatch": true
+            },
+            {
+              "text": "A real choice stands in front of you",
+              "isMatch": false
+            },
+            {
+              "text": "Two paths, both valid",
+              "isMatch": false
+            },
+            {
+              "text": "Choosing with the heart, not just the head",
+              "isMatch": false
+            },
+            {
+              "text": "Holding the masculine and feminine, or two sides of yourself, in balance",
+              "isMatch": false
+            },
+            {
+              "text": "A partnership or union that asks you to listen to more than one voice",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n6-r25",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A bridge between the everyday and the sacred",
+          "options": [
+            "A bridge between the everyday and the sacred",
+            "Real strength is gentle",
+            "Taming the wilder instincts with calm rather than domination",
+            "Courage means acting honestly, not acting fearlessly"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r26",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "When reality feels shaky, lean on faith or tradition to steady it",
+          "options": [
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "Generosity and warmth are forms of power too",
+            "Connection and relating to others, not standing above them",
+            "A mirror moment"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r27",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The message arrives through a mentor, teacher, or trusted structure",
+          "options": [
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Acting because it's simply right, not because a rulebook says so",
+            "Responsibility and fairness, driven by the heart rather than obligation",
+            "Seeking balance, harmony, and beauty in how things are resolved"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r28",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Spiritual truth doesn't have to abandon the pleasures of daily life",
+          "options": [
+            "Spiritual truth doesn't have to abandon the pleasures of daily life",
+            "Cause and effect are catching up",
+            "The journey matters more than the destination right now",
+            "Blending different, even opposing, ingredients into something greater than either alone"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r29",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Holding something divine within an ordinary, grounded life",
+          "options": [
+            "Holding something divine within an ordinary, grounded life",
+            "Patience and experience refine raw experience into wisdom",
+            "Moderation — finding the right balance rather than swinging to extremes",
+            "Broadening your view by mixing new experiences in"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_05_hierophant-n7-r30",
+          "type": "cloze",
+          "text": "He bridges the everyday and the sacred, teaching that a spiritual {b2} can carry us through hard moments. Pairing him with sensory, {b1} Taurus seems unlikely, until you notice Taurus fully inhabits the here and now. Aries was divine spark; Taurus is the true birth, holding that flame within earthly form.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "present-focused"
+            },
+            {
+              "key": "b2",
+              "answer": "perspective"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

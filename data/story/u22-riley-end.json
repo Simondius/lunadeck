@@ -1,0 +1,98 @@
+{
+  "id": "u22-riley-end",
+  "title": "A Freer View",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_12_hanged_man", "major_14_temperance", "major_16_tower", "major_15_devil", "major_00_fool"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley lays three cards face down. \"Let's see the whole shape of this, not just today's.\""
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the pause you sat in after the tour, before any of this deal news.",
+      "slot": 0,
+      "answer": "major_12_hanged_man"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the blend you'd only just started to find.",
+      "slot": 1,
+      "answer": "major_14_temperance"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: what just came down on all of it.",
+      "slot": 2,
+      "answer": "major_16_tower"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If the collapse was inevitable, why bother building carefully at all?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Careful building isn't wasted — it's what let you actually see what was stagnant.", "correct": true },
+        { "text": "It means careful building is pointless, so stop trying.", "correct": false, "reaction": "anger" },
+        { "text": "Building has nothing to do with what collapsed.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "What falls apart was already unstable; the collapse just makes it visible — building the thing carefully was still how you found that out."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Everyone keeps telling me to rebuild exactly what I had. Is that the move?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Not necessarily — sometimes the disruption is the only way to break the stagnation underneath.", "correct": true },
+        { "text": "Yes, rebuild it identical, immediately.", "correct": false, "reaction": "anger" },
+        { "text": "Stagnation isn't something this card is about.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Sometimes disruption is the only way to break stagnation — and resisting the change usually costs more than flowing with it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the pause that steadied you, the blend you were only starting to trust, and the collapse that's clearing space for something less rigid.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been mourning the wrong thing — it wasn't really working, not all the way. I can see that now that it's actually gone. I'm not scared to build the next version smaller and truer instead.\""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "u12-riley-end",
+  "title": "Faith in the Booth",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_06_lovers", "major_04_emperor", "major_05_hierophant", "major_00_fool", "major_02_high_priestess"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley's back between takes, headphones still hooked around her neck."
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the choice about the writing partnership, weighed and made.",
+      "slot": 0,
+      "answer": "major_06_lovers"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the space you finally claimed as yours.",
+      "slot": 1,
+      "answer": "major_04_emperor"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the trust you're building with someone else's ear.",
+      "slot": 2,
+      "answer": "major_05_hierophant"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me. If the Hierophant's about trusting a mentor, am I supposed to just do whatever the producer says now, no pushback?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's a bridge, not a leash. You still bring your own voice across it.", "correct": true },
+        { "text": "Yes, pushback isn't allowed once you trust someone.", "correct": false, "reaction": "anger" },
+        { "text": "This card doesn't involve pushback either way.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "It's a bridge between the everyday and the sacred, not a substitute for it — rejecting all guidance is one extreme, but handing over every call is the other."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if leaning on him just means I don't trust my own ear anymore?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Leaning on something steady when things feel shaky isn't the same as losing yourself.", "correct": true },
+        { "text": "It is — you should trust no one but yourself.", "correct": false, "reaction": "anger" },
+        { "text": "Trusting yourself isn't part of this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "When reality feels shaky, lean on faith or tradition to steady it — that's borrowing steadiness, not surrendering your own ear."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the partnership you chose, the space you claimed, and now, a voice you've decided is worth trusting.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think trusting him doesn't cancel out trusting myself — I just get to do both at once. Thanks for that.\""
+    }
+  ]
+}

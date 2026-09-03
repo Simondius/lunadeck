@@ -1,0 +1,366 @@
+{
+  "cardKey": "major_13_death",
+  "cardName": "Death",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_13_death-n1-r115",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "mystery",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "depth",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_13_death-n2-r116",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "scorpio",
+              "name": "Scorpio",
+              "text": "Scorpio: intensity and transformation, a comfort with what lies beneath the surface as what no longer has life is shed.",
+              "rects": [
+                {
+                  "x0": 0.41,
+                  "y0": 0.105,
+                  "x1": 0.58,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "scythe",
+              "name": "Scythe",
+              "text": "The scythe he carries: the clean, necessary cut, clearing what is no longer viable to make room for new blood.",
+              "rects": [
+                {
+                  "x0": 0.02,
+                  "y0": 0.24,
+                  "x1": 0.32,
+                  "y1": 0.52
+                }
+              ]
+            },
+            {
+              "key": "rising_sun",
+              "name": "Rising sun",
+              "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.6,
+                  "x1": 0.33,
+                  "y1": 0.82
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_13_death-n2-r258",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "scorpio",
+              "name": "Scorpio",
+              "text": "Scorpio: intensity and transformation, a comfort with what lies beneath the surface as what no longer has life is shed.",
+              "rects": [
+                {
+                  "x0": 0.41,
+                  "y0": 0.105,
+                  "x1": 0.58,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "scythe",
+              "name": "Scythe",
+              "text": "The scythe he carries: the clean, necessary cut, clearing what is no longer viable to make room for new blood.",
+              "rects": [
+                {
+                  "x0": 0.02,
+                  "y0": 0.24,
+                  "x1": 0.32,
+                  "y1": 0.52
+                }
+              ]
+            },
+            {
+              "key": "rising_sun",
+              "name": "Rising sun",
+              "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.6,
+                  "x1": 0.33,
+                  "y1": 0.82
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_13_death-n2-r259",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "scorpio",
+              "text": "Intensity and transformation, a comfort with what lies beneath the surface as what no longer has life is shed.",
+              "image": "/assets/cards/cardelements/major_13_death_element_scorpio.png"
+            },
+            {
+              "key": "scythe",
+              "text": "The scythe he carries: the clean, necessary cut, clearing what is no longer viable to make room for new blood.",
+              "image": "/assets/cards/cardelements/major_13_death_element_scythe.png"
+            },
+            {
+              "key": "rising_sun",
+              "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
+              "image": "/assets/cards/cardelements/major_13_death_element_rising_sun.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_13_death-n3-r117",
+          "words": [
+            {
+              "text": "the sickle",
+              "correct": true
+            },
+            {
+              "text": "cutting dry branches",
+              "correct": true
+            },
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_13_death-n4-r121",
+          "words": [
+            {
+              "text": "mystery",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "depth",
+              "correct": true
+            },
+            {
+              "text": "the sickle",
+              "correct": true
+            },
+            {
+              "text": "cutting dry branches",
+              "correct": true
+            },
+            {
+              "text": "life",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_13_death-n5-r122",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Not an ending",
+              "isMatch": true
+            },
+            {
+              "text": "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+              "isMatch": true
+            },
+            {
+              "text": "Endings free up room for something essential to grow",
+              "isMatch": true
+            },
+            {
+              "text": "Intense, magnetic, and a little uncomfortable",
+              "isMatch": true
+            },
+            {
+              "text": "Look beneath the surface for what actually needs to go",
+              "isMatch": true
+            },
+            {
+              "text": "Beginning and ending in one",
+              "isMatch": false
+            },
+            {
+              "text": "Travels light, takes chances with levity",
+              "isMatch": false
+            },
+            {
+              "text": "On the edge of the precipice, but calm rather than afraid of the void",
+              "isMatch": false
+            },
+            {
+              "text": "Trusts that the path appears once you take the step",
+              "isMatch": false
+            },
+            {
+              "text": "Approaches life with a beginner's mind",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_13_death-n6-r123",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Not an ending",
+          "options": [
+            "Not an ending",
+            "Nonconformist, revolutionary energy",
+            "Says yes to the unknown instead of playing it safe",
+            "What goes up comes around"
+          ]
+        },
+        {
+          "id": "major_13_death-n6-r124",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+          "options": [
+            "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+            "A turning point; you're at a hinge between one cycle ending and another beginning",
+            "Fortune and misfortune are both just transitions to learn from",
+            "Stay balanced at the center, even as things spin around you"
+          ]
+        },
+        {
+          "id": "major_13_death-n6-r125",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Endings free up room for something essential to grow",
+          "options": [
+            "Endings free up room for something essential to grow",
+            "Everything is connected",
+            "Suspended, upside down, but calm",
+            "A new perspective comes from surrendering, not struggling"
+          ]
+        },
+        {
+          "id": "major_13_death-n6-r126",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Intense, magnetic, and a little uncomfortable",
+          "options": [
+            "Intense, magnetic, and a little uncomfortable",
+            "Pause and let go instead of forcing the next move",
+            "Meditative stillness that deepens awareness",
+            "Sometimes you sacrifice something now to gain something better later"
+          ]
+        },
+        {
+          "id": "major_13_death-n6-r127",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Look beneath the surface for what actually needs to go",
+          "options": [
+            "Look beneath the surface for what actually needs to go",
+            "Sudden, unexpected change",
+            "What falls apart was already unstable; the collapse just makes it visible",
+            "The point isn't the falling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_13_death-n7-r128",
+          "type": "cloze",
+          "text": "Scorpio belongs to November, when decay feeds new growth just as falling leaves fertilize the roots beneath them. Sitting between {b1} and death, Scorpio is magnetic and intense, aware that reaching what's essential means releasing what no longer has life in it. Death carries the same message: not an ending sealed shut, but an organic process that clears space for fresh blood and new {b2}.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "life"
+            },
+            {
+              "key": "b2",
+              "answer": "beginnings"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "u11-dave-start",
+  "title": "The Part She Didn't Say",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"The client keeps sending me changes to a design she already approved. I don't think it's actually about the design.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "What do you think it's actually about?", "correct": true },
+        { "text": "Tell her to stop wasting your time.", "correct": false, "reaction": "anger" },
+        { "text": "Sounds like she doesn't know what she wants.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Maybe she doesn't. Or maybe she just isn't saying it outright.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_02_high_priestess"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Listen for what she's carrying underneath the requests, not just the requests.", "correct": true },
+        { "text": "Ignore her and build what you originally agreed.", "correct": false, "reaction": "anger" },
+        { "text": "This card means you should ask her outright what's wrong.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The High Priestess doesn't act on what's said — she listens underneath it, absorbing what someone's carrying and handing it back changed."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But I can't put 'a feeling' on an invoice. If I can't explain the reasoning, how do I justify redoing the joinery again?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "You don't owe the explanation yet — trust it and see if it's right.", "correct": true },
+        { "text": "If you can't explain it, it's not worth doing.", "correct": false, "reaction": "anger" },
+        { "text": "Feelings don't belong anywhere near a commission.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Trusting a feeling before you can explain it is exactly the card's point, not a flaw in the reasoning."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Alright. I'll build what I think she actually needs, and let the paperwork catch up.\""
+    }
+  ]
+}

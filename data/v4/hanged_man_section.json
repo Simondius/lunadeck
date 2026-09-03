@@ -1,0 +1,350 @@
+{
+  "cardKey": "major_12_hanged_man",
+  "cardName": "The Hanged Man",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n1-r101",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "pause",
+              "correct": true
+            },
+            {
+              "text": "abandon",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n2-r102",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "neptune",
+              "name": "Neptune",
+              "text": "Neptune: dreams, mystery, and surrender, the fluid, hidden depth that dissolves rigid boundaries.",
+              "rects": [
+                {
+                  "x0": 0.41,
+                  "y0": 0.095,
+                  "x1": 0.59,
+                  "y1": 0.215
+                }
+              ]
+            },
+            {
+              "key": "crossed_legs",
+              "name": "Crossed legs",
+              "text": "His legs crossed like a yoga position: even hanging upside down, a body settled into stillness rather than struggle.",
+              "rects": [
+                {
+                  "x0": 0.26,
+                  "y0": 0.22,
+                  "x1": 0.72,
+                  "y1": 0.44
+                }
+              ]
+            },
+            {
+              "key": "serene_face",
+              "name": "Serene face",
+              "text": "His calm, unbothered expression: not suffering but pausing, a surrender that leads to greater awareness.",
+              "rects": [
+                {
+                  "x0": 0.26,
+                  "y0": 0.58,
+                  "x1": 0.64,
+                  "y1": 0.78
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n2-r256",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "neptune",
+              "name": "Neptune",
+              "text": "Neptune: dreams, mystery, and surrender, the fluid, hidden depth that dissolves rigid boundaries.",
+              "rects": [
+                {
+                  "x0": 0.41,
+                  "y0": 0.095,
+                  "x1": 0.59,
+                  "y1": 0.215
+                }
+              ]
+            },
+            {
+              "key": "crossed_legs",
+              "name": "Crossed legs",
+              "text": "His legs crossed like a yoga position: even hanging upside down, a body settled into stillness rather than struggle.",
+              "rects": [
+                {
+                  "x0": 0.26,
+                  "y0": 0.22,
+                  "x1": 0.72,
+                  "y1": 0.44
+                }
+              ]
+            },
+            {
+              "key": "serene_face",
+              "name": "Serene face",
+              "text": "His calm, unbothered expression: not suffering but pausing, a surrender that leads to greater awareness.",
+              "rects": [
+                {
+                  "x0": 0.26,
+                  "y0": 0.58,
+                  "x1": 0.64,
+                  "y1": 0.78
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n2-r257",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "neptune",
+              "text": "Dreams, mystery, and surrender, the fluid, hidden depth that dissolves rigid boundaries.",
+              "image": "/assets/cards/cardelements/major_12_hanged_man_element_neptune.png"
+            },
+            {
+              "key": "crossed_legs",
+              "text": "His legs crossed like a yoga position: even hanging upside down, a body settled into stillness rather than struggle.",
+              "image": "/assets/cards/cardelements/major_12_hanged_man_element_crossed_legs.png"
+            },
+            {
+              "key": "serene_face",
+              "text": "His calm, unbothered expression: not suffering but pausing, a surrender that leads to greater awareness.",
+              "image": "/assets/cards/cardelements/major_12_hanged_man_element_serene_face.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n3-r103",
+          "words": [
+            {
+              "text": "following the flow",
+              "correct": true
+            },
+            {
+              "text": "sacrificing something to get something better",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n4-r107",
+          "words": [
+            {
+              "text": "pause",
+              "correct": true
+            },
+            {
+              "text": "abandon",
+              "correct": true
+            },
+            {
+              "text": "following the flow",
+              "correct": true
+            },
+            {
+              "text": "sacrificing something to get something better",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n5-r108",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Suspended, upside down, but calm",
+              "isMatch": true
+            },
+            {
+              "text": "A new perspective comes from surrendering, not struggling",
+              "isMatch": true
+            },
+            {
+              "text": "Pause and let go instead of forcing the next move",
+              "isMatch": true
+            },
+            {
+              "text": "Meditative stillness that deepens awareness",
+              "isMatch": true
+            },
+            {
+              "text": "Sometimes you sacrifice something now to gain something better later",
+              "isMatch": true
+            },
+            {
+              "text": "Lives on the threshold",
+              "isMatch": false
+            },
+            {
+              "text": "Her power is in receiving and being, not in acting",
+              "isMatch": false
+            },
+            {
+              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
+              "isMatch": false
+            },
+            {
+              "text": "Trust the vision or feeling that comes without explanation",
+              "isMatch": false
+            },
+            {
+              "text": "A quiet, reflected light rather than a blazing one",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n6-r109",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Suspended, upside down, but calm",
+          "options": [
+            "Suspended, upside down, but calm",
+            "Offers protection and care from a place of stillness",
+            "Signals it's time to turn inward before doing anything outward",
+            "Not an ending"
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n6-r110",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A new perspective comes from surrendering, not struggling",
+          "options": [
+            "A new perspective comes from surrendering, not struggling",
+            "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+            "Endings free up room for something essential to grow",
+            "Intense, magnetic, and a little uncomfortable"
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n6-r111",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Pause and let go instead of forcing the next move",
+          "options": [
+            "Pause and let go instead of forcing the next move",
+            "Look beneath the surface for what actually needs to go",
+            "What's hidden becomes visible in the dark, if you're willing to look",
+            "Trust intuition and dreams over what's plainly stated"
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n6-r112",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Meditative stillness that deepens awareness",
+          "options": [
+            "Meditative stillness that deepens awareness",
+            "Facing the shadow side is part of becoming whole",
+            "A cycle is repeating",
+            "The everyday and the spiritual aren't separate; they're two sides of the same coin"
+          ]
+        },
+        {
+          "id": "major_12_hanged_man-n6-r113",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Sometimes you sacrifice something now to gain something better later",
+          "options": [
+            "Sometimes you sacrifice something now to gain something better later",
+            "Solitude here is productive, not lonely",
+            "A lantern lighting the path one careful step at a time",
+            "Time to withdraw and look inward before moving again"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_12_hanged_man-n7-r114",
+          "type": "cloze",
+          "text": "Before Neptune's discovery, this card belonged simply to Water: flowing, hanging, embracing, just like the Hanged Man himself. Suspended upside down, his calm expression gives away the truth, he isn't suffering, he's meditating, gaining a new {b1} through stillness. Crossed legs echo a yoga pose. Neptune, planet of dreams, depth, and sacrifice, and Water's {b2} flow, capture the soul of this quiet surrender.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "perspective"
+            },
+            {
+              "key": "b2",
+              "answer": "unstoppable"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "u21-dave-end",
+  "title": "The Weight You Kept Choosing",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_11_justice", "major_13_death", "major_15_devil", "major_09_hermit", "major_14_temperance"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards face down. \"Let's see how far the habit actually goes.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the mirror moment when you two finally called the ledger even.",
+      "slot": 0,
+      "answer": "major_11_justice"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the parts of the old way of running things you've been cutting loose.",
+      "slot": 1,
+      "answer": "major_13_death"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the habit you keep giving into without asking why.",
+      "slot": 2,
+      "answer": "major_15_devil"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me on this one then. If the Devil showed up, does that mean something's actually wrong with the partnership?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it's not a verdict on the partnership, just a nudge to notice the habit.", "correct": true },
+        { "text": "Yes, the card's telling you to walk away.", "correct": false, "reaction": "anger" },
+        { "text": "The card can't be about a partnership at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Not purely bad — the Devil isn't calling the relationship itself the problem, it just wants you to notice which specific dependency or habit is doing the holding."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But if the chains are already loose, why does it still feel like I need permission every time?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Because loosening them takes actually reaching for it, not just knowing they're loose.", "correct": true },
+        { "text": "It doesn't — you're imagining the whole thing.", "correct": false, "reaction": "anger" },
+        { "text": "The chains being loose means you've already dealt with it.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Freedom here is a responsibility you already hold whether you use it or not — the chain being loose doesn't lift it off for you."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the honest reckoning that started the partnership fair, the old habits you've been cutting away, and the one habit you're only now willing to name.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think the chain was never locked — I just kept putting it back on out of habit. I can actually take it off now. Thanks.\""
+    }
+  ]
+}

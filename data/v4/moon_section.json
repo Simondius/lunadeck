@@ -1,0 +1,378 @@
+{
+  "cardKey": "major_18_moon",
+  "cardName": "The Moon",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_18_moon-n1-r186",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "dreams",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": true
+            },
+            {
+              "text": "inner reality",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_18_moon-n2-r187",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "pisces",
+              "name": "Pisces",
+              "text": "Pisces: dreams and empathy, a receptive depth that dissolves the boundary between self and other.",
+              "rects": [
+                {
+                  "x0": 0.44,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.21
+                }
+              ]
+            },
+            {
+              "key": "moon_face",
+              "name": "Moon face",
+              "text": "The face in the moon: our hidden, intimate side, watching from stillness as the night deepens.",
+              "rects": [
+                {
+                  "x0": 0.3,
+                  "y0": 0.24,
+                  "x1": 0.65,
+                  "y1": 0.46
+                }
+              ]
+            },
+            {
+              "key": "fish_riders",
+              "name": "Twin fish riders",
+              "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.52,
+                  "x1": 0.24,
+                  "y1": 0.77
+                },
+                {
+                  "x0": 0.6,
+                  "y0": 0.58,
+                  "x1": 0.87,
+                  "y1": 0.84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_18_moon-n2-r268",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "pisces",
+              "name": "Pisces",
+              "text": "Pisces: dreams and empathy, a receptive depth that dissolves the boundary between self and other.",
+              "rects": [
+                {
+                  "x0": 0.44,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.21
+                }
+              ]
+            },
+            {
+              "key": "moon_face",
+              "name": "Moon face",
+              "text": "The face in the moon: our hidden, intimate side, watching from stillness as the night deepens.",
+              "rects": [
+                {
+                  "x0": 0.3,
+                  "y0": 0.24,
+                  "x1": 0.65,
+                  "y1": 0.46
+                }
+              ]
+            },
+            {
+              "key": "fish_riders",
+              "name": "Twin fish riders",
+              "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.52,
+                  "x1": 0.24,
+                  "y1": 0.77
+                },
+                {
+                  "x0": 0.6,
+                  "y0": 0.58,
+                  "x1": 0.87,
+                  "y1": 0.84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_18_moon-n2-r269",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "pisces",
+              "text": "Dreams and empathy, a receptive depth that dissolves the boundary between self and other.",
+              "image": "/assets/cards/cardelements/major_18_moon_element_pisces.png"
+            },
+            {
+              "key": "moon_face",
+              "text": "The face in the moon: our hidden, intimate side, watching from stillness as the night deepens.",
+              "image": "/assets/cards/cardelements/major_18_moon_element_moon_face.png"
+            },
+            {
+              "key": "fish_riders",
+              "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
+              "image": "/assets/cards/cardelements/major_18_moon_element_fish_riders.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_18_moon-n3-r188",
+          "words": [
+            {
+              "text": "feminine",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "mystery",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_18_moon-n4-r192",
+          "words": [
+            {
+              "text": "dreams",
+              "correct": true
+            },
+            {
+              "text": "sensitivity",
+              "correct": true
+            },
+            {
+              "text": "inner reality",
+              "correct": true
+            },
+            {
+              "text": "feminine",
+              "correct": true
+            },
+            {
+              "text": "magic",
+              "correct": true
+            },
+            {
+              "text": "mystery",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_18_moon-n5-r193",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "What's hidden becomes visible in the dark, if you're willing to look",
+              "isMatch": true
+            },
+            {
+              "text": "Trust intuition and dreams over what's plainly stated",
+              "isMatch": true
+            },
+            {
+              "text": "Facing the shadow side is part of becoming whole",
+              "isMatch": true
+            },
+            {
+              "text": "A cycle is repeating",
+              "isMatch": true
+            },
+            {
+              "text": "The everyday and the spiritual aren't separate; they're two sides of the same coin",
+              "isMatch": true
+            },
+            {
+              "text": "Lives on the threshold",
+              "isMatch": false
+            },
+            {
+              "text": "Her power is in receiving and being, not in acting",
+              "isMatch": false
+            },
+            {
+              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
+              "isMatch": false
+            },
+            {
+              "text": "Trust the vision or feeling that comes without explanation",
+              "isMatch": false
+            },
+            {
+              "text": "A quiet, reflected light rather than a blazing one",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_18_moon-n6-r194",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "What's hidden becomes visible in the dark, if you're willing to look",
+          "options": [
+            "What's hidden becomes visible in the dark, if you're willing to look",
+            "Offers protection and care from a place of stillness",
+            "Signals it's time to turn inward before doing anything outward",
+            "What goes up comes around"
+          ]
+        },
+        {
+          "id": "major_18_moon-n6-r195",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Trust intuition and dreams over what's plainly stated",
+          "options": [
+            "Trust intuition and dreams over what's plainly stated",
+            "A turning point; you're at a hinge between one cycle ending and another beginning",
+            "Fortune and misfortune are both just transitions to learn from",
+            "Stay balanced at the center, even as things spin around you"
+          ]
+        },
+        {
+          "id": "major_18_moon-n6-r196",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Facing the shadow side is part of becoming whole",
+          "options": [
+            "Facing the shadow side is part of becoming whole",
+            "Everything is connected",
+            "Suspended, upside down, but calm",
+            "A new perspective comes from surrendering, not struggling"
+          ]
+        },
+        {
+          "id": "major_18_moon-n6-r197",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A cycle is repeating",
+          "options": [
+            "A cycle is repeating",
+            "Pause and let go instead of forcing the next move",
+            "Meditative stillness that deepens awareness",
+            "Sometimes you sacrifice something now to gain something better later"
+          ]
+        },
+        {
+          "id": "major_18_moon-n6-r198",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The everyday and the spiritual aren't separate; they're two sides of the same coin",
+          "options": [
+            "The everyday and the spiritual aren't separate; they're two sides of the same coin",
+            "Not an ending",
+            "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+            "Endings free up room for something essential to grow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_18_moon-n7-r199",
+          "type": "cloze",
+          "text": "The Moon asks us to look closely at our hidden, intimate side, where the senses sharpen and {b2} takes on a deeper, more magical dimension. It resonates with Pisces, the zodiac's final and most inwardly guided sign, where daily life and spirit meet, echoed in the two fish swimming in opposite directions. Ruled by Neptune, planet of {b1}, this card invites us into the unknown to face repeating patterns and grow.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "mystery"
+            },
+            {
+              "key": "b2",
+              "answer": "everything"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

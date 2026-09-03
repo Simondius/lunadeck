@@ -1,0 +1,362 @@
+{
+  "cardKey": "major_19_sun",
+  "cardName": "The Sun",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_19_sun-n1-r200",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "truth",
+              "correct": true
+            },
+            {
+              "text": "light",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_19_sun-n2-r201",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "sun",
+              "name": "Sun",
+              "text": "Sun: vitality and warmth, true self-expression radiating confidence into the world.",
+              "rects": [
+                {
+                  "x0": 0.43,
+                  "y0": 0.09,
+                  "x1": 0.58,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "child",
+              "name": "Child among sunflowers",
+              "text": "The bare child reaching for sunflowers: purity and inner strength, the optimism of a self freely expressed.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.58,
+                  "x1": 0.62,
+                  "y1": 0.85
+                }
+              ]
+            },
+            {
+              "key": "sunflowers",
+              "name": "Sunflowers",
+              "text": "Sunflowers turned to the light: life that grows toward warmth, fortune and success in full bloom.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.55,
+                  "x1": 0.24,
+                  "y1": 0.88
+                },
+                {
+                  "x0": 0.76,
+                  "y0": 0.52,
+                  "x1": 1.0,
+                  "y1": 0.84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_19_sun-n2-r270",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "sun",
+              "name": "Sun",
+              "text": "Sun: vitality and warmth, true self-expression radiating confidence into the world.",
+              "rects": [
+                {
+                  "x0": 0.43,
+                  "y0": 0.09,
+                  "x1": 0.58,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "child",
+              "name": "Child among sunflowers",
+              "text": "The bare child reaching for sunflowers: purity and inner strength, the optimism of a self freely expressed.",
+              "rects": [
+                {
+                  "x0": 0.32,
+                  "y0": 0.58,
+                  "x1": 0.62,
+                  "y1": 0.85
+                }
+              ]
+            },
+            {
+              "key": "sunflowers",
+              "name": "Sunflowers",
+              "text": "Sunflowers turned to the light: life that grows toward warmth, fortune and success in full bloom.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.55,
+                  "x1": 0.24,
+                  "y1": 0.88
+                },
+                {
+                  "x0": 0.76,
+                  "y0": 0.52,
+                  "x1": 1.0,
+                  "y1": 0.84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_19_sun-n2-r271",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "sun",
+              "text": "Vitality and warmth, true self-expression radiating confidence into the world.",
+              "image": "/assets/cards/cardelements/major_19_sun_element_sun.png"
+            },
+            {
+              "key": "child",
+              "text": "The bare child reaching for sunflowers: purity and inner strength, the optimism of a self freely expressed.",
+              "image": "/assets/cards/cardelements/major_19_sun_element_child.png"
+            },
+            {
+              "key": "sunflowers",
+              "text": "Sunflowers turned to the light: life that grows toward warmth, fortune and success in full bloom.",
+              "image": "/assets/cards/cardelements/major_19_sun_element_sunflowers.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_19_sun-n3-r202",
+          "words": [
+            {
+              "text": "success",
+              "correct": true
+            },
+            {
+              "text": "true self",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_19_sun-n4-r206",
+          "words": [
+            {
+              "text": "truth",
+              "correct": true
+            },
+            {
+              "text": "light",
+              "correct": true
+            },
+            {
+              "text": "success",
+              "correct": true
+            },
+            {
+              "text": "true self",
+              "correct": true
+            },
+            {
+              "text": "shrewdness",
+              "correct": false
+            },
+            {
+              "text": "intelligence",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_19_sun-n5-r207",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Pure, uncomplicated joy",
+              "isMatch": true
+            },
+            {
+              "text": "True self-expression; showing your real nature without apology",
+              "isMatch": true
+            },
+            {
+              "text": "Warmth, success, and vitality radiating outward",
+              "isMatch": true
+            },
+            {
+              "text": "Even the Sun can burn",
+              "isMatch": true
+            },
+            {
+              "text": "Sometimes the wisest move is to step back and simply watch things unfold",
+              "isMatch": true
+            },
+            {
+              "text": "Sees with more than the eyes",
+              "isMatch": false
+            },
+            {
+              "text": "You already have everything you need; success is about using the resources at hand",
+              "isMatch": false
+            },
+            {
+              "text": "Magic hides in ordinary things",
+              "isMatch": false
+            },
+            {
+              "text": "Sharp, quick-witted intelligence; can view a situation from multiple angles at once",
+              "isMatch": false
+            },
+            {
+              "text": "A gift for communication",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_19_sun-n6-r208",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Pure, uncomplicated joy",
+          "options": [
+            "Pure, uncomplicated joy",
+            "Reminds you it's time to act on an idea, not just have it",
+            "Mother Earth energy",
+            "Something is ready to be born"
+          ]
+        },
+        {
+          "id": "major_19_sun-n6-r209",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "True self-expression; showing your real nature without apology",
+          "options": [
+            "True self-expression; showing your real nature without apology",
+            "Creation before form",
+            "Nourish, protect, and grow whatever you're tending",
+            "A reminder to love and care for yourself first"
+          ]
+        },
+        {
+          "id": "major_19_sun-n6-r210",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Warmth, success, and vitality radiating outward",
+          "options": [
+            "Warmth, success, and vitality radiating outward",
+            "Pleasure, beauty, and the body are not indulgences",
+            "Abundance that comes from allowing things to flourish, not forcing them",
+            "A full cycle completed"
+          ]
+        },
+        {
+          "id": "major_19_sun-n6-r211",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Even the Sun can burn",
+          "options": [
+            "Even the Sun can burn",
+            "Achievement and wholeness; everything has come together",
+            "Don't linger too long in the comfort of \"done\"",
+            "Completion that clears the way for the next beginning"
+          ]
+        },
+        {
+          "id": "major_19_sun-n6-r212",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Sometimes the wisest move is to step back and simply watch things unfold",
+          "options": [
+            "Sometimes the wisest move is to step back and simply watch things unfold",
+            "Closure that comes from cutting away what's no longer needed",
+            "Ready to act the instant the moment calls for it",
+            "Sets clear boundaries and claims space without apology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_19_sun-n7-r213",
+          "type": "cloze",
+          "text": "The Sun and its ruling planet share a name, radiating warmth, life, and true self-expression. Often shown with a child, symbolizing purity, creativity, and optimism, this card brings fortune and {b2} drawn from authentic identity rather than performance. As the pulsing heart of the whole system, the Sun offers vital {b1}, but with a caution: get too close and you can be burned, so avoid centering everything on yourself.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "light"
+            },
+            {
+              "key": "b2",
+              "answer": "success"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

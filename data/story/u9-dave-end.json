@@ -1,0 +1,98 @@
+{
+  "id": "u9-dave-end",
+  "title": "Three Cards, One Question",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_06_lovers", "major_03_empress", "major_01_magician", "major_00_fool", "major_04_emperor"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards face down. \"Let's see the whole shape of this, not just today's.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the decision that put the two of you in business together.",
+      "slot": 0,
+      "answer": "major_06_lovers"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the shop, and everything you've actually built there.",
+      "slot": 1,
+      "answer": "major_03_empress"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: what you're standing in front of right now.",
+      "slot": 2,
+      "answer": "major_01_magician"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me on this one then. If I already have what I need, why did it take me a week to even start?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Having the resources isn't the same as trusting them yet.", "correct": true },
+        { "text": "You didn't actually have what you needed after all.", "correct": false, "reaction": "confusion" },
+        { "text": "A week means the card was wrong.", "correct": false, "reaction": "anger" }
+      ],
+      "elaboration": [
+        "The Magician points at what's already on the table — it doesn't promise you'll reach for it right away."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And the communication part — I haven't said a word to the client yet.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It's still there when the moment actually calls for it.", "correct": true },
+        { "text": "You've already missed the moment.", "correct": false, "reaction": "anger" },
+        { "text": "The Magician isn't about talking to clients.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A gift for communication is worth nothing sitting unused — the right words at the right moment is still the deal, whenever that moment turns out to be."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the choice that started this, the thing you've since built, and the skill you're only now willing to use.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been treating 'ready' like a feeling I'm supposed to wait for, instead of just picking up the tools already in front of me. That actually helps.\""
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "cardKey": "major_14_temperance",
+  "cardName": "Temperance",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n1-r129",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "alchemy",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n2-r130",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "sagittarius",
+              "name": "Sagittarius",
+              "text": "Sagittarius: the pull of exploration and optimism, valuing the journey itself over any fixed destination.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.08,
+                  "x1": 0.58,
+                  "y1": 0.2
+                }
+              ]
+            },
+            {
+              "key": "starry_sash",
+              "name": "Starry sash",
+              "text": "The starry sash flowing between her hands: the alchemy of Temperance, blending separate elements into something greater than their sum.",
+              "rects": [
+                {
+                  "x0": 0.28,
+                  "y0": 0.27,
+                  "x1": 0.64,
+                  "y1": 0.55
+                }
+              ]
+            },
+            {
+              "key": "cup",
+              "name": "Cup",
+              "text": "The cup tipped between her fingers: patient testing and mixing, tempering experience before it's swallowed whole.",
+              "rects": [
+                {
+                  "x0": 0.16,
+                  "y0": 0.45,
+                  "x1": 0.36,
+                  "y1": 0.62
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_14_temperance-n2-r260",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "sagittarius",
+              "name": "Sagittarius",
+              "text": "Sagittarius: the pull of exploration and optimism, valuing the journey itself over any fixed destination.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.08,
+                  "x1": 0.58,
+                  "y1": 0.2
+                }
+              ]
+            },
+            {
+              "key": "starry_sash",
+              "name": "Starry sash",
+              "text": "The starry sash flowing between her hands: the alchemy of Temperance, blending separate elements into something greater than their sum.",
+              "rects": [
+                {
+                  "x0": 0.28,
+                  "y0": 0.27,
+                  "x1": 0.64,
+                  "y1": 0.55
+                }
+              ]
+            },
+            {
+              "key": "cup",
+              "name": "Cup",
+              "text": "The cup tipped between her fingers: patient testing and mixing, tempering experience before it's swallowed whole.",
+              "rects": [
+                {
+                  "x0": 0.16,
+                  "y0": 0.45,
+                  "x1": 0.36,
+                  "y1": 0.62
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_14_temperance-n2-r261",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "sagittarius",
+              "text": "The pull of exploration and optimism, valuing the journey itself over any fixed destination.",
+              "image": "/assets/cards/cardelements/major_14_temperance_element_sagittarius.png"
+            },
+            {
+              "key": "starry_sash",
+              "text": "The starry sash flowing between her hands: the alchemy of Temperance, blending separate elements into something greater than their sum.",
+              "image": "/assets/cards/cardelements/major_14_temperance_element_starry_sash.png"
+            },
+            {
+              "key": "cup",
+              "text": "The cup tipped between her fingers: patient testing and mixing, tempering experience before it's swallowed whole.",
+              "image": "/assets/cards/cardelements/major_14_temperance_element_cup.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n3-r131",
+          "words": [
+            {
+              "text": "finding the right balance in opposites",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n4-r135",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "alchemy",
+              "correct": true
+            },
+            {
+              "text": "finding the right balance in opposites",
+              "correct": true
+            },
+            {
+              "text": "imagination",
+              "correct": false
+            },
+            {
+              "text": "reception",
+              "correct": false
+            },
+            {
+              "text": "sensitivity",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n5-r136",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "The journey matters more than the destination right now",
+              "isMatch": true
+            },
+            {
+              "text": "Blending different, even opposing, ingredients into something greater than either alone",
+              "isMatch": true
+            },
+            {
+              "text": "Patience and experience refine raw experience into wisdom",
+              "isMatch": true
+            },
+            {
+              "text": "Moderation — finding the right balance rather than swinging to extremes",
+              "isMatch": true
+            },
+            {
+              "text": "Broadening your view by mixing new experiences in",
+              "isMatch": true
+            },
+            {
+              "text": "Lives on the threshold",
+              "isMatch": false
+            },
+            {
+              "text": "Her power is in receiving and being, not in acting",
+              "isMatch": false
+            },
+            {
+              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
+              "isMatch": false
+            },
+            {
+              "text": "Trust the vision or feeling that comes without explanation",
+              "isMatch": false
+            },
+            {
+              "text": "A quiet, reflected light rather than a blazing one",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n6-r137",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The journey matters more than the destination right now",
+          "options": [
+            "The journey matters more than the destination right now",
+            "Offers protection and care from a place of stillness",
+            "Signals it's time to turn inward before doing anything outward",
+            "A bridge between the everyday and the sacred"
+          ]
+        },
+        {
+          "id": "major_14_temperance-n6-r138",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Blending different, even opposing, ingredients into something greater than either alone",
+          "options": [
+            "Blending different, even opposing, ingredients into something greater than either alone",
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+          ]
+        },
+        {
+          "id": "major_14_temperance-n6-r139",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Patience and experience refine raw experience into wisdom",
+          "options": [
+            "Patience and experience refine raw experience into wisdom",
+            "Holding something divine within an ordinary, grounded life",
+            "Real strength is gentle",
+            "Taming the wilder instincts with calm rather than domination"
+          ]
+        },
+        {
+          "id": "major_14_temperance-n6-r140",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Moderation — finding the right balance rather than swinging to extremes",
+          "options": [
+            "Moderation — finding the right balance rather than swinging to extremes",
+            "Courage means acting honestly, not acting fearlessly",
+            "Generosity and warmth are forms of power too",
+            "Connection and relating to others, not standing above them"
+          ]
+        },
+        {
+          "id": "major_14_temperance-n6-r141",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Broadening your view by mixing new experiences in",
+          "options": [
+            "Broadening your view by mixing new experiences in",
+            "Solitude here is productive, not lonely",
+            "A lantern lighting the path one careful step at a time",
+            "Time to withdraw and look inward before moving again"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_14_temperance-n7-r142",
+          "type": "cloze",
+          "text": "Sagittarius lives by the idea that the journey matters more than the destination, curious and mutable like its element, Fire, torn between instinct and a wish to belong. Temperance embodies {b1} itself, blending different ingredients into something greater than their sum. Through experience and study, both Sagittarius and Temperance temper diverse experiences into deeper {b2}, broadening their view of the world along the way.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "alchemy"
+            },
+            {
+              "key": "b2",
+              "answer": "understanding"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "cardKey": "major_08_strength",
+  "cardName": "Strength",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_08_strength-n1-r45",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "kindness",
+              "correct": true
+            },
+            {
+              "text": "creative action",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_08_strength-n2-r46",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "leo",
+              "name": "Leo",
+              "text": "Leo: courage and personal radiance, a strength that comes from the heart and connects rather than dominates.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.05,
+                  "x1": 0.62,
+                  "y1": 0.19
+                }
+              ]
+            },
+            {
+              "key": "lion_face",
+              "name": "The lion",
+              "text": "The lion's profile, mane ablaze: not a show of supremacy over other creatures, but a fierce heart at rest.",
+              "rects": [
+                {
+                  "x0": 0.06,
+                  "y0": 0.22,
+                  "x1": 0.4,
+                  "y1": 0.52
+                }
+              ]
+            },
+            {
+              "key": "gentle_touch",
+              "name": "Gentle touch",
+              "text": "Her hand resting gently on the lion: the gentler energy that comes from within and tames the more aggressive instincts.",
+              "rects": [
+                {
+                  "x0": 0.28,
+                  "y0": 0.52,
+                  "x1": 0.5,
+                  "y1": 0.72
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_08_strength-n2-r248",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "leo",
+              "name": "Leo",
+              "text": "Leo: courage and personal radiance, a strength that comes from the heart and connects rather than dominates.",
+              "rects": [
+                {
+                  "x0": 0.38,
+                  "y0": 0.05,
+                  "x1": 0.62,
+                  "y1": 0.19
+                }
+              ]
+            },
+            {
+              "key": "lion_face",
+              "name": "The lion",
+              "text": "The lion's profile, mane ablaze: not a show of supremacy over other creatures, but a fierce heart at rest.",
+              "rects": [
+                {
+                  "x0": 0.06,
+                  "y0": 0.22,
+                  "x1": 0.4,
+                  "y1": 0.52
+                }
+              ]
+            },
+            {
+              "key": "gentle_touch",
+              "name": "Gentle touch",
+              "text": "Her hand resting gently on the lion: the gentler energy that comes from within and tames the more aggressive instincts.",
+              "rects": [
+                {
+                  "x0": 0.28,
+                  "y0": 0.52,
+                  "x1": 0.5,
+                  "y1": 0.72
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_08_strength-n2-r249",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "leo",
+              "text": "Courage and personal radiance, a strength that comes from the heart and connects rather than dominates.",
+              "image": "/assets/cards/cardelements/major_08_strength_element_leo.png"
+            },
+            {
+              "key": "lion_face",
+              "text": "The lion's profile, mane ablaze: not a show of supremacy over other creatures, but a fierce heart at rest.",
+              "image": "/assets/cards/cardelements/major_08_strength_element_lion_face.png"
+            },
+            {
+              "key": "gentle_touch",
+              "text": "Her hand resting gently on the lion: the gentler energy that comes from within and tames the more aggressive instincts.",
+              "image": "/assets/cards/cardelements/major_08_strength_element_gentle_touch.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_08_strength-n3-r47",
+          "words": [
+            {
+              "text": "balanced strength",
+              "correct": true
+            },
+            {
+              "text": "awareness",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_08_strength-n4-r51",
+          "words": [
+            {
+              "text": "kindness",
+              "correct": true
+            },
+            {
+              "text": "creative action",
+              "correct": true
+            },
+            {
+              "text": "balanced strength",
+              "correct": true
+            },
+            {
+              "text": "awareness",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": false
+            },
+            {
+              "text": "nourishment",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_08_strength-n5-r52",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Real strength is gentle",
+              "isMatch": true
+            },
+            {
+              "text": "Taming the wilder instincts with calm rather than domination",
+              "isMatch": true
+            },
+            {
+              "text": "Courage means acting honestly, not acting fearlessly",
+              "isMatch": true
+            },
+            {
+              "text": "Generosity and warmth are forms of power too",
+              "isMatch": true
+            },
+            {
+              "text": "Connection and relating to others, not standing above them",
+              "isMatch": true
+            },
+            {
+              "text": "Mother Earth energy",
+              "isMatch": false
+            },
+            {
+              "text": "Something is ready to be born",
+              "isMatch": false
+            },
+            {
+              "text": "Creation before form",
+              "isMatch": false
+            },
+            {
+              "text": "Nourish, protect, and grow whatever you're tending",
+              "isMatch": false
+            },
+            {
+              "text": "A reminder to love and care for yourself first",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_08_strength-n6-r53",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Real strength is gentle",
+          "options": [
+            "Real strength is gentle",
+            "Pleasure, beauty, and the body are not indulgences",
+            "Abundance that comes from allowing things to flourish, not forcing them",
+            "Ready to act the instant the moment calls for it"
+          ]
+        },
+        {
+          "id": "major_08_strength-n6-r54",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Taming the wilder instincts with calm rather than domination",
+          "options": [
+            "Taming the wilder instincts with calm rather than domination",
+            "Sets clear boundaries and claims space without apology",
+            "Gives shape and order to what was still raw potential",
+            "Leadership through decisive, immediate action"
+          ]
+        },
+        {
+          "id": "major_08_strength-n6-r55",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Courage means acting honestly, not acting fearlessly",
+          "options": [
+            "Courage means acting honestly, not acting fearlessly",
+            "Spring's life force",
+            "A spark-first, think-later instinct; leads with action",
+            "A bridge between the everyday and the sacred"
+          ]
+        },
+        {
+          "id": "major_08_strength-n6-r56",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Generosity and warmth are forms of power too",
+          "options": [
+            "Generosity and warmth are forms of power too",
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+          ]
+        },
+        {
+          "id": "major_08_strength-n6-r57",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Connection and relating to others, not standing above them",
+          "options": [
+            "Connection and relating to others, not standing above them",
+            "Holding something divine within an ordinary, grounded life",
+            "A mirror moment",
+            "Acting because it's simply right, not because a rulebook says so"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_08_strength-n7-r58",
+          "type": "cloze",
+          "text": "Strength depicts a lion, Leo's clear signature: courage, personal power, and a sense of belonging rather than dominance. This isn't physical force, it's a gentler energy that comes from within and radiates outward. Like Leo, it means following your heart honestly, acting with {b1}, and letting {b2} flow in harmony with others, letting that softness guide and calm our more aggressive instincts.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "generosity"
+            },
+            {
+              "key": "b2",
+              "answer": "creativity"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

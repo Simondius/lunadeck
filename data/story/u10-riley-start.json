@@ -1,0 +1,90 @@
+{
+  "id": "u10-riley-start",
+  "title": "Setting the Terms",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "The tour's in its final stretch, and Riley's phone won't stop lighting up with label emails."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"They want to bring in a co-writer on everything I put out, and route every decision on the album through them. I said I wanted to hang on to creative control, and now I'm apparently 'being difficult.'\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Being difficult and knowing what you want aren't the same thing.", "correct": true },
+        { "text": "Maybe you should just let them run it.", "correct": false, "reaction": "anger" },
+        { "text": "Why would a co-writer need control over everything?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I don't know. Maybe I'm overreacting.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_04_emperor"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "This is about giving shape to something still raw — and claiming the space to do it yourself.", "correct": true },
+        { "text": "It means you should hand the shape over to them instead.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about creative decisions at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Emperor doesn't wait for permission — it gives shape and order to what was still raw potential, and claims its own space without apologizing for it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Claiming space just sounds like a nicer way of saying 'controlling.'\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "There's a real difference — this card is leadership through decisive action, not control for its own sake.", "correct": true },
+        { "text": "No, you're right, you should back off.", "correct": false, "reaction": "anger" },
+        { "text": "The Emperor doesn't care about the difference.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Leadership through decisive, immediate action is one thing — authority curdled into rigidity and control is another. This card is asking for the first, not the second."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe I've been mistaking claiming space for being difficult this whole time.\""
+    }
+  ]
+}

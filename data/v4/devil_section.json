@@ -1,0 +1,362 @@
+{
+  "cardKey": "major_15_devil",
+  "cardName": "The Devil",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_15_devil-n1-r143",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "break from dependence",
+              "correct": true
+            },
+            {
+              "text": "visceral force",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_15_devil-n2-r144",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "capricorn",
+              "name": "Capricorn",
+              "text": "Capricorn: disciplined, earthy ambition, limits and responsibility built through hard work.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "horns",
+              "name": "Horns",
+              "text": "The goat horns crowning him: Pan's wild, chthonic form, the primordial instinct this card doesn't condemn so much as ask us to own.",
+              "rects": [
+                {
+                  "x0": 0.34,
+                  "y0": 0.14,
+                  "x1": 0.66,
+                  "y1": 0.32
+                }
+              ]
+            },
+            {
+              "key": "chains",
+              "name": "Loose chains",
+              "text": "The chain trailing loose from each figure's neck into the flames, never pulled taut: bondage that could be shrugged off at any time, the freedom of choice already in their own hands.",
+              "rects": [
+                {
+                  "x0": 0.15,
+                  "y0": 0.6,
+                  "x1": 0.32,
+                  "y1": 0.79
+                },
+                {
+                  "x0": 0.65,
+                  "y0": 0.6,
+                  "x1": 0.82,
+                  "y1": 0.79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_15_devil-n2-r262",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "capricorn",
+              "name": "Capricorn",
+              "text": "Capricorn: disciplined, earthy ambition, limits and responsibility built through hard work.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "horns",
+              "name": "Horns",
+              "text": "The goat horns crowning him: Pan's wild, chthonic form, the primordial instinct this card doesn't condemn so much as ask us to own.",
+              "rects": [
+                {
+                  "x0": 0.34,
+                  "y0": 0.14,
+                  "x1": 0.66,
+                  "y1": 0.32
+                }
+              ]
+            },
+            {
+              "key": "chains",
+              "name": "Loose chains",
+              "text": "The chain trailing loose from each figure's neck into the flames, never pulled taut: bondage that could be shrugged off at any time, the freedom of choice already in their own hands.",
+              "rects": [
+                {
+                  "x0": 0.15,
+                  "y0": 0.6,
+                  "x1": 0.32,
+                  "y1": 0.79
+                },
+                {
+                  "x0": 0.65,
+                  "y0": 0.6,
+                  "x1": 0.82,
+                  "y1": 0.79
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_15_devil-n2-r263",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "capricorn",
+              "text": "Disciplined, earthy ambition, limits and responsibility built through hard work.",
+              "image": "/assets/cards/cardelements/major_15_devil_element_capricorn.png"
+            },
+            {
+              "key": "horns",
+              "text": "The goat horns crowning him: Pan's wild, chthonic form, the primordial instinct this card doesn't condemn so much as ask us to own.",
+              "image": "/assets/cards/cardelements/major_15_devil_element_horns.png"
+            },
+            {
+              "key": "chains",
+              "text": "The chain trailing loose from each figure's neck into the flames, never pulled taut: bondage that could be shrugged off at any time, the freedom of choice already in their own hands.",
+              "image": "/assets/cards/cardelements/major_15_devil_element_chains.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_15_devil-n3-r145",
+          "words": [
+            {
+              "text": "freedom",
+              "correct": true
+            },
+            {
+              "text": "codependence",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_15_devil-n4-r149",
+          "words": [
+            {
+              "text": "break from dependence",
+              "correct": true
+            },
+            {
+              "text": "visceral force",
+              "correct": true
+            },
+            {
+              "text": "freedom",
+              "correct": true
+            },
+            {
+              "text": "codependence",
+              "correct": true
+            },
+            {
+              "text": "faith",
+              "correct": false
+            },
+            {
+              "text": "search for spirituality",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_15_devil-n5-r150",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Not purely bad",
+              "isMatch": true
+            },
+            {
+              "text": "The chains look tight, but they're actually loose enough to remove",
+              "isMatch": true
+            },
+            {
+              "text": "Freedom is a responsibility you already hold, whether you use it or not",
+              "isMatch": true
+            },
+            {
+              "text": "A visceral, primal pull worth acknowledging rather than denying",
+              "isMatch": true
+            },
+            {
+              "text": "Ask what dependency or habit is really keeping you stuck",
+              "isMatch": true
+            },
+            {
+              "text": "A bridge between the everyday and the sacred",
+              "isMatch": false
+            },
+            {
+              "text": "When reality feels shaky, lean on faith or tradition to steady it",
+              "isMatch": false
+            },
+            {
+              "text": "The message arrives through a mentor, teacher, or trusted structure",
+              "isMatch": false
+            },
+            {
+              "text": "Spiritual truth doesn't have to abandon the pleasures of daily life",
+              "isMatch": false
+            },
+            {
+              "text": "Holding something divine within an ordinary, grounded life",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_15_devil-n6-r151",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Not purely bad",
+          "options": [
+            "Not purely bad",
+            "Real strength is gentle",
+            "Taming the wilder instincts with calm rather than domination",
+            "Courage means acting honestly, not acting fearlessly"
+          ]
+        },
+        {
+          "id": "major_15_devil-n6-r152",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The chains look tight, but they're actually loose enough to remove",
+          "options": [
+            "The chains look tight, but they're actually loose enough to remove",
+            "Generosity and warmth are forms of power too",
+            "Connection and relating to others, not standing above them",
+            "A mirror moment"
+          ]
+        },
+        {
+          "id": "major_15_devil-n6-r153",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Freedom is a responsibility you already hold, whether you use it or not",
+          "options": [
+            "Freedom is a responsibility you already hold, whether you use it or not",
+            "Acting because it's simply right, not because a rulebook says so",
+            "Responsibility and fairness, driven by the heart rather than obligation",
+            "Seeking balance, harmony, and beauty in how things are resolved"
+          ]
+        },
+        {
+          "id": "major_15_devil-n6-r154",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A visceral, primal pull worth acknowledging rather than denying",
+          "options": [
+            "A visceral, primal pull worth acknowledging rather than denying",
+            "Cause and effect are catching up",
+            "The journey matters more than the destination right now",
+            "Blending different, even opposing, ingredients into something greater than either alone"
+          ]
+        },
+        {
+          "id": "major_15_devil-n6-r155",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Ask what dependency or habit is really keeping you stuck",
+          "options": [
+            "Ask what dependency or habit is really keeping you stuck",
+            "Patience and experience refine raw experience into wisdom",
+            "Moderation — finding the right balance rather than swinging to extremes",
+            "Broadening your view by mixing new experiences in"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_15_devil-n7-r156",
+          "type": "cloze",
+          "text": "Neither wholly good nor evil, the Devil recalls Pan, half-goat like Capricorn, embodying earthy, instinctual force. Capricorn, a cardinal Earth sign, is practical and {b2}, especially about material life. Ruled by Saturn, it understands limits and the hard work required to reach a goal. The Devil speaks to that same responsibility: the chains shown are loose, not locked, since our {b1} is always a choice we're free to make.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "freedom"
+            },
+            {
+              "key": "b2",
+              "answer": "control-oriented"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

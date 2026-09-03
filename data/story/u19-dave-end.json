@@ -1,0 +1,98 @@
+{
+  "id": "u19-dave-end",
+  "title": "The Leaves and the Roots",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_09_hermit", "major_11_justice", "major_13_death", "major_04_emperor", "major_12_hanged_man"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down, the shop nearly empty behind him. \"One more, before we hand back the keys.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the quiet that let you finally see what wasn't working.",
+      "slot": 0,
+      "answer": "major_09_hermit"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the honest account that set things right between you two.",
+      "slot": 1,
+      "answer": "major_11_justice"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the ending that's actually clearing room for the next place.",
+      "slot": 2,
+      "answer": "major_13_death"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me on this one. If Death's not really about endings sealing shut, why does it still feel exactly like losing something?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Because real change is intense and uncomfortable even when nothing's actually being erased.", "correct": true },
+        { "text": "It feels like loss because you are, in fact, losing it.", "correct": false, "reaction": "anger" },
+        { "text": "If it feels like loss, you're reading the card wrong.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The card doesn't ask the discomfort to go away — real transformation is intense and a little uncomfortable, and that's still true even though nothing here is being sealed shut."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"How do I know what's actually worth carrying to the new place, and what's just dead weight I'm dragging along out of guilt?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Look underneath the sentiment for what's actually still alive and useful — the rest can go.", "correct": true },
+        { "text": "Keep everything, just in case.", "correct": false, "reaction": "anger" },
+        { "text": "It doesn't matter what you bring, the card doesn't care.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Death asks you to look beneath the surface for what's actually still got life in it — the rest was already dead weight, guilt or no guilt."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the quiet that showed you the problem, the honest fix that followed, and the ending that's making room for the next chapter.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been treating the garage like something that needed protecting, instead of something that already did its job. Feels right to let it go now. Thanks — for all of it, really.\""
+    }
+  ]
+}

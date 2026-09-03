@@ -1,0 +1,98 @@
+{
+  "id": "u16-riley-end",
+  "title": "Which Way It Spins",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_05_hierophant", "major_08_strength", "major_10_wheel_of_fortune", "major_01_magician", "major_09_hermit"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "That evening, term sheet still in hand, Riley wants the whole shape of it laid out."
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the trust you built with someone else's ear before any of this was real.",
+      "slot": 0,
+      "answer": "major_05_hierophant"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: how you answered the review without swinging first.",
+      "slot": 1,
+      "answer": "major_08_strength"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the offer that just landed, turning everything with it.",
+      "slot": 2,
+      "answer": "major_10_wheel_of_fortune"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me on the new one. If the Wheel means nothing's permanent, doesn't that mean this offer could just disappear too?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It could turn again — that's the point, nothing here is fixed high or low.", "correct": true },
+        { "text": "No, once you sign it's permanent forever.", "correct": false, "reaction": "anger" },
+        { "text": "Permanence has nothing to do with this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "What goes up comes around — nothing here is permanent, high or low. That's not a threat, it's just how the wheel works."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So am I supposed to just brace for the next downturn the whole time?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — stay balanced at the center, even as things spin, instead of bracing for the drop.", "correct": true },
+        { "text": "Yes, always expect the worst.", "correct": false, "reaction": "anger" },
+        { "text": "Balance isn't part of this card.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Stay balanced at the center, even as things spin around you — and everything's connected, so what you choose now shapes what the wheel brings back."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the trust you built, the strength you found when it counted, and now, the turn you're actually standing in.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been waiting for the other shoe to drop instead of just standing in the turn while it's actually good. Thanks.\""
+    }
+  ]
+}

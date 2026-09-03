@@ -1,0 +1,83 @@
+{
+  "id": "u17-dave-start",
+  "title": "The Uneven Split",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"The numbers I found on my Thursdays: I've been covering more of the material costs than we ever agreed to. He doesn't know.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "So what does telling him honestly actually look like?", "correct": true },
+        { "text": "Just quietly stop covering it and see what happens.", "correct": false, "reaction": "anger" },
+        { "text": "Maybe don't mention it at all.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I don't want it to sound like an accusation. I just want it fixed.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_11_justice"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Start with an honest look at yourself, not at him — then it won't land like an accusation.", "correct": true },
+        { "text": "Make sure he feels as guilty as possible.", "correct": false, "reaction": "anger" },
+        { "text": "Fairness isn't really the point here.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Justice starts as a mirror pointed at you first — an honest look at your own part in it, before it ever becomes about assigning blame."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But we never actually wrote the cost split down anywhere. Is it even fair to bring it up now?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Nothing needed to be written down for it to be worth fixing now.", "correct": true },
+        { "text": "If it's not written down, it doesn't count.", "correct": false, "reaction": "anger" },
+        { "text": "Bringing it up now is too late to matter.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Justice was never waiting on a rulebook — it acts because something's simply right, and the imbalance catching up with you now is exactly the card's timing."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Alright. I'll bring the actual numbers, not just the feeling, and we'll split it evenly from here.\""
+    }
+  ]
+}

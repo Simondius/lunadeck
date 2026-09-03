@@ -1,0 +1,98 @@
+{
+  "id": "u23-dave-end",
+  "title": "Letting Someone Else Carry Part of It",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_13_death", "major_15_devil", "major_17_star", "major_01_magician", "major_10_wheel_of_fortune"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down. \"Let's see if reaching out actually undoes anything.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the old habits you finally cut loose.",
+      "slot": 0,
+      "answer": "major_13_death"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the chain you decided to lift on your own.",
+      "slot": 1,
+      "answer": "major_15_devil"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: reaching back out instead of carrying it all alone.",
+      "slot": 2,
+      "answer": "major_17_star"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. Doesn't reaching out for help kind of undo the whole point of finally deciding things myself?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — asking for help isn't handing the decision back to someone else.", "correct": true },
+        { "text": "It does — you should've just kept doing it alone.", "correct": false, "reaction": "anger" },
+        { "text": "The Star doesn't apply to asking for help at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Star's light is a quietly nonconformist one — hope that doesn't need everyone else's approval, which isn't the same as needing no one's help at all."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"What if I ask for help and it turns out to be a total waste of everyone's time?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Even a small ask can end up feeding something bigger than you expect.", "correct": true },
+        { "text": "Then you'll have wasted their time for nothing.", "correct": false, "reaction": "anger" },
+        { "text": "Asking for help is never actually worth it.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "An act of giving that seems small can nourish something a lot larger than it looks like from where you're standing."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: what you cut away, the habit you finally set down, and the people you're letting back in to help carry the rest.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I mistook 'doing it myself' for 'doing it alone.' Those aren't the same thing. Thanks — really.\""
+    }
+  ]
+}

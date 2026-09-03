@@ -1,0 +1,378 @@
+{
+  "cardKey": "major_16_tower",
+  "cardName": "The Tower",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_16_tower-n1-r157",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "unexpected transformation",
+              "correct": true
+            },
+            {
+              "text": "destruction",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_16_tower-n2-r158",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "mars",
+              "name": "Mars",
+              "text": "Mars: direct, assertive action, jolting stagnant energy into motion.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.12,
+                  "x1": 0.6,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "lightning_bolt",
+              "name": "Lightning bolt",
+              "text": "The lightning strike that splits the tower open: the sudden change that forces movement, however unwelcome it arrives.",
+              "rects": [
+                {
+                  "x0": 0.55,
+                  "y0": 0.03,
+                  "x1": 0.92,
+                  "y1": 0.4
+                }
+              ]
+            },
+            {
+              "key": "falling_figures",
+              "name": "Falling figures",
+              "text": "The two figures cast from the tower: falling not as ruin but as release, riding the wave of change instead of resisting it.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.35,
+                  "x1": 0.25,
+                  "y1": 0.58
+                },
+                {
+                  "x0": 0.63,
+                  "y0": 0.36,
+                  "x1": 0.9,
+                  "y1": 0.6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_16_tower-n2-r264",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "mars",
+              "name": "Mars",
+              "text": "Mars: direct, assertive action, jolting stagnant energy into motion.",
+              "rects": [
+                {
+                  "x0": 0.42,
+                  "y0": 0.12,
+                  "x1": 0.6,
+                  "y1": 0.22
+                }
+              ]
+            },
+            {
+              "key": "lightning_bolt",
+              "name": "Lightning bolt",
+              "text": "The lightning strike that splits the tower open: the sudden change that forces movement, however unwelcome it arrives.",
+              "rects": [
+                {
+                  "x0": 0.55,
+                  "y0": 0.03,
+                  "x1": 0.92,
+                  "y1": 0.4
+                }
+              ]
+            },
+            {
+              "key": "falling_figures",
+              "name": "Falling figures",
+              "text": "The two figures cast from the tower: falling not as ruin but as release, riding the wave of change instead of resisting it.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.35,
+                  "x1": 0.25,
+                  "y1": 0.58
+                },
+                {
+                  "x0": 0.63,
+                  "y0": 0.36,
+                  "x1": 0.9,
+                  "y1": 0.6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_16_tower-n2-r265",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "mars",
+              "text": "Direct, assertive action, jolting stagnant energy into motion.",
+              "image": "/assets/cards/cardelements/major_16_tower_element_mars.png"
+            },
+            {
+              "key": "lightning_bolt",
+              "text": "The lightning strike that splits the tower open: the sudden change that forces movement, however unwelcome it arrives.",
+              "image": "/assets/cards/cardelements/major_16_tower_element_lightning_bolt.png"
+            },
+            {
+              "key": "falling_figures",
+              "text": "The two figures cast from the tower: falling not as ruin but as release, riding the wave of change instead of resisting it.",
+              "image": "/assets/cards/cardelements/major_16_tower_element_falling_figures.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_16_tower-n3-r159",
+          "words": [
+            {
+              "text": "breaking from old schemes",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_16_tower-n4-r163",
+          "words": [
+            {
+              "text": "unexpected transformation",
+              "correct": true
+            },
+            {
+              "text": "destruction",
+              "correct": true
+            },
+            {
+              "text": "breaking from old schemes",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": false
+            },
+            {
+              "text": "levity",
+              "correct": false
+            },
+            {
+              "text": "nonconformity",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_16_tower-n5-r164",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "Sudden, unexpected change",
+              "isMatch": true
+            },
+            {
+              "text": "What falls apart was already unstable; the collapse just makes it visible",
+              "isMatch": true
+            },
+            {
+              "text": "The point isn't the falling",
+              "isMatch": true
+            },
+            {
+              "text": "Resisting the change costs more than flowing with it",
+              "isMatch": true
+            },
+            {
+              "text": "Clears the way for a freer view beyond old, rigid thinking",
+              "isMatch": true
+            },
+            {
+              "text": "Sometimes disruption is the only way to break stagnation",
+              "isMatch": true
+            },
+            {
+              "text": "Beginning and ending in one",
+              "isMatch": false
+            },
+            {
+              "text": "Travels light, takes chances with levity",
+              "isMatch": false
+            },
+            {
+              "text": "On the edge of the precipice, but calm rather than afraid of the void",
+              "isMatch": false
+            },
+            {
+              "text": "Trusts that the path appears once you take the step",
+              "isMatch": false
+            },
+            {
+              "text": "Approaches life with a beginner's mind",
+              "isMatch": false
+            },
+            {
+              "text": "Nonconformist, revolutionary energy",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_16_tower-n6-r165",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Sudden, unexpected change",
+          "options": [
+            "Sudden, unexpected change",
+            "Says yes to the unknown instead of playing it safe",
+            "Not an ending",
+            "What no longer has life in it needs to be released, like dead leaves feeding the roots"
+          ]
+        },
+        {
+          "id": "major_16_tower-n6-r166",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "What falls apart was already unstable; the collapse just makes it visible",
+          "options": [
+            "What falls apart was already unstable; the collapse just makes it visible",
+            "Endings free up room for something essential to grow",
+            "Intense, magnetic, and a little uncomfortable",
+            "Look beneath the surface for what actually needs to go"
+          ]
+        },
+        {
+          "id": "major_16_tower-n6-r167",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The point isn't the falling",
+          "options": [
+            "The point isn't the falling",
+            "Determined forward motion",
+            "Pulled by two forces that need aligning, not fighting, to move you forward",
+            "Success comes from uniting intuition with rational drive"
+          ]
+        },
+        {
+          "id": "major_16_tower-n6-r168",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Resisting the change costs more than flowing with it",
+          "options": [
+            "Resisting the change costs more than flowing with it",
+            "Emotion is the fuel, not the obstacle, for this journey",
+            "A strong start",
+            "What goes up comes around"
+          ]
+        },
+        {
+          "id": "major_16_tower-n6-r169",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Clears the way for a freer view beyond old, rigid thinking",
+          "options": [
+            "Clears the way for a freer view beyond old, rigid thinking",
+            "A turning point; you're at a hinge between one cycle ending and another beginning",
+            "Fortune and misfortune are both just transitions to learn from",
+            "Stay balanced at the center, even as things spin around you"
+          ]
+        },
+        {
+          "id": "major_16_tower-n6-r170",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Sometimes disruption is the only way to break stagnation",
+          "options": [
+            "Sometimes disruption is the only way to break stagnation",
+            "Everything is connected",
+            "A calling being answered",
+            "Rebirth requires passing through an ending first"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_16_tower-n7-r171",
+          "type": "cloze",
+          "text": "Mars is raw energy, the god of war, tied to Fire and unafraid to stir what's grown stagnant. It speaks up against {b1} rather than staying silent. That same activist spirit strikes the Tower: {b2} shatters it, but what matters is how it falls. Rather than resisting the change, it rides the wave, using Mars's fire to survive and see beyond the old, outgrown way of thinking.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "injustice"
+            },
+            {
+              "key": "b2",
+              "answer": "lightning"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

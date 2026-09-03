@@ -1,0 +1,370 @@
+{
+  "cardKey": "major_21_world",
+  "cardName": "The World",
+  "nodes": [
+    {
+      "id": "node-1",
+      "rounds": [
+        {
+          "id": "major_21_world-n1-r228",
+          "tutorial": true,
+          "words": [
+            {
+              "text": "achieved objective",
+              "correct": true
+            },
+            {
+              "text": "conclusion of a cycle",
+              "correct": true
+            },
+            {
+              "text": "Tuesday",
+              "correct": false
+            },
+            {
+              "text": "banana",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-2",
+      "rounds": [
+        {
+          "id": "major_21_world-n2-r229",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "saturn",
+              "name": "Saturn",
+              "text": "Saturn: structure and discipline, the boundary that closes one cycle so another can begin.",
+              "rects": [
+                {
+                  "x0": 0.44,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "wreath",
+              "name": "Encircling wreath",
+              "text": "The wreath of green fronds surrounding her: a whole made complete, the circle closed at journey's end.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.14,
+                  "x1": 0.24,
+                  "y1": 0.85
+                },
+                {
+                  "x0": 0.76,
+                  "y0": 0.14,
+                  "x1": 1.0,
+                  "y1": 0.85
+                }
+              ]
+            },
+            {
+              "key": "scarves",
+              "name": "Star-scarves",
+              "text": "The starry cloth draped across her hands: the boundary between worlds, held loosely and ready to be released.",
+              "rects": [
+                {
+                  "x0": 0.2,
+                  "y0": 0.4,
+                  "x1": 0.68,
+                  "y1": 0.62
+                },
+                {
+                  "x0": 0.62,
+                  "y0": 0.55,
+                  "x1": 0.82,
+                  "y1": 0.86
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_21_world-n2-r274",
+          "type": "zone",
+          "elements": [
+            {
+              "key": "saturn",
+              "name": "Saturn",
+              "text": "Saturn: structure and discipline, the boundary that closes one cycle so another can begin.",
+              "rects": [
+                {
+                  "x0": 0.44,
+                  "y0": 0.1,
+                  "x1": 0.58,
+                  "y1": 0.23
+                }
+              ]
+            },
+            {
+              "key": "wreath",
+              "name": "Encircling wreath",
+              "text": "The wreath of green fronds surrounding her: a whole made complete, the circle closed at journey's end.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.14,
+                  "x1": 0.24,
+                  "y1": 0.85
+                },
+                {
+                  "x0": 0.76,
+                  "y0": 0.14,
+                  "x1": 1.0,
+                  "y1": 0.85
+                }
+              ]
+            },
+            {
+              "key": "scarves",
+              "name": "Star-scarves",
+              "text": "The starry cloth draped across her hands: the boundary between worlds, held loosely and ready to be released.",
+              "rects": [
+                {
+                  "x0": 0.2,
+                  "y0": 0.4,
+                  "x1": 0.68,
+                  "y1": 0.62
+                },
+                {
+                  "x0": 0.62,
+                  "y0": 0.55,
+                  "x1": 0.82,
+                  "y1": 0.86
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "major_21_world-n2-r275",
+          "type": "tilematch",
+          "pairs": [
+            {
+              "key": "saturn",
+              "text": "Structure and discipline, the boundary that closes one cycle so another can begin.",
+              "image": "/assets/cards/cardelements/major_21_world_element_saturn.png"
+            },
+            {
+              "key": "wreath",
+              "text": "The wreath of green fronds surrounding her: a whole made complete, the circle closed at journey's end.",
+              "image": "/assets/cards/cardelements/major_21_world_element_wreath.png"
+            },
+            {
+              "key": "scarves",
+              "text": "The starry cloth draped across her hands: the boundary between worlds, held loosely and ready to be released.",
+              "image": "/assets/cards/cardelements/major_21_world_element_scarves.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-3",
+      "rounds": [
+        {
+          "id": "major_21_world-n3-r230",
+          "words": [
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "purple",
+              "correct": false
+            },
+            {
+              "text": "spaghetti",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-4",
+      "rounds": [
+        {
+          "id": "major_21_world-n4-r234",
+          "words": [
+            {
+              "text": "achieved objective",
+              "correct": true
+            },
+            {
+              "text": "conclusion of a cycle",
+              "correct": true
+            },
+            {
+              "text": "exploration",
+              "correct": true
+            },
+            {
+              "text": "creation",
+              "correct": false
+            },
+            {
+              "text": "nourishment",
+              "correct": false
+            },
+            {
+              "text": "life",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-5",
+      "rounds": [
+        {
+          "id": "major_21_world-n5-r235",
+          "type": "swipe",
+          "cards": [
+            {
+              "text": "A full cycle completed",
+              "isMatch": true
+            },
+            {
+              "text": "Achievement and wholeness; everything has come together",
+              "isMatch": true
+            },
+            {
+              "text": "Don't linger too long in the comfort of \"done\"",
+              "isMatch": true
+            },
+            {
+              "text": "Completion that clears the way for the next beginning",
+              "isMatch": true
+            },
+            {
+              "text": "Closure that comes from cutting away what's no longer needed",
+              "isMatch": true
+            },
+            {
+              "text": "Mother Earth energy",
+              "isMatch": false
+            },
+            {
+              "text": "Something is ready to be born",
+              "isMatch": false
+            },
+            {
+              "text": "Creation before form",
+              "isMatch": false
+            },
+            {
+              "text": "Nourish, protect, and grow whatever you're tending",
+              "isMatch": false
+            },
+            {
+              "text": "A reminder to love and care for yourself first",
+              "isMatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-6",
+      "rounds": [
+        {
+          "id": "major_21_world-n6-r236",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "A full cycle completed",
+          "options": [
+            "A full cycle completed",
+            "Pleasure, beauty, and the body are not indulgences",
+            "Abundance that comes from allowing things to flourish, not forcing them",
+            "A bridge between the everyday and the sacred"
+          ]
+        },
+        {
+          "id": "major_21_world-n6-r237",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Achievement and wholeness; everything has come together",
+          "options": [
+            "Achievement and wholeness; everything has come together",
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+          ]
+        },
+        {
+          "id": "major_21_world-n6-r238",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Don't linger too long in the comfort of \"done\"",
+          "options": [
+            "Don't linger too long in the comfort of \"done\"",
+            "Holding something divine within an ordinary, grounded life",
+            "A mirror moment",
+            "Acting because it's simply right, not because a rulebook says so"
+          ]
+        },
+        {
+          "id": "major_21_world-n6-r239",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Completion that clears the way for the next beginning",
+          "options": [
+            "Completion that clears the way for the next beginning",
+            "Responsibility and fairness, driven by the heart rather than obligation",
+            "Seeking balance, harmony, and beauty in how things are resolved",
+            "Cause and effect are catching up"
+          ]
+        },
+        {
+          "id": "major_21_world-n6-r240",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Closure that comes from cutting away what's no longer needed",
+          "options": [
+            "Closure that comes from cutting away what's no longer needed",
+            "The journey matters more than the destination right now",
+            "Blending different, even opposing, ingredients into something greater than either alone",
+            "Patience and experience refine raw experience into wisdom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-7",
+      "rounds": [
+        {
+          "id": "major_21_world-n7-r241",
+          "type": "cloze",
+          "text": "The journey that began with the Fool completes here. Saturn, the planet that sets boundaries and cuts away the {b1}, governs this final card, often shown with a wreath {b2} wholeness and a closed circle. From the World, all that's left is to begin again, staying open rather than settling into comfort. Saturn closes this cycle cleanly, clearing the way for the next one to start.",
+          "blanks": [
+            {
+              "key": "b1",
+              "answer": "unnecessary"
+            },
+            {
+              "key": "b2",
+              "answer": "symbolizing"
+            }
+          ],
+          "distractors": [
+            "Tuesday",
+            "banana",
+            "purple"
+          ]
+        }
+      ]
+    }
+  ]
+}

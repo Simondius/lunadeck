@@ -1,0 +1,90 @@
+{
+  "id": "u18-riley-start",
+  "title": "The Pause Before Release",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "The ink's dry on the contract. So, it turns out, is Riley's calendar — the label wants the songs held back for six months before anything comes out."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Six months of just sitting on it. After all that, waiting was not what I pictured happening next.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Sitting on it isn't the same as nothing happening.", "correct": true },
+        { "text": "Six months means they're punishing you for something.", "correct": false, "reaction": "anger" },
+        { "text": "Waiting periods don't actually mean anything.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I just feel like I'm losing momentum, stuck in place.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_12_hanged_man"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "You're suspended, not stuck — and it's calm, not suffering.", "correct": true },
+        { "text": "It means something's gone wrong.", "correct": false, "reaction": "anger" },
+        { "text": "This card is a punishment for waiting too long.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Suspended, upside down, but calm — not suffering, just paused. This isn't a penalty, it's a deliberate pause."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But I'm not doing anything differently just by sitting here.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "A new perspective comes from surrendering to the pause, not fighting it.", "correct": true },
+        { "text": "You're right, you should be doing more right now.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with perspective.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A new perspective comes from surrendering, not struggling — pause and let go instead of forcing the next move."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe the six months isn't dead time. Maybe it's just time I haven't figured out the use of yet.\""
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "u23-dave-start",
+  "title": "Going It Alone",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Since the storefront, I've been deciding things myself. But I've also stopped telling anyone what's going on until it's already done.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Has going it alone actually made things easier?", "correct": true },
+        { "text": "Good — you don't need anyone else's input anymore.", "correct": false, "reaction": "anger" },
+        { "text": "That's not related to the storefront at all.", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Honestly? It's felt kind of lonely. And slower — I could use another set of hands.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_17_star"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Real renewal here comes from leaning on other people, not going it alone.", "correct": true },
+        { "text": "This card means you should shut everyone out completely.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to say about being alone.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Renewal in the Star comes through shared, communal feeling, not isolation — the same independence you just found doesn't have to mean carrying it solo."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"But asking for help feels like giving back the independence I just found.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Staying open to others isn't losing that — it's staying receptive instead of guarded.", "correct": true },
+        { "text": "You're right, better to stay closed off.", "correct": false, "reaction": "anger" },
+        { "text": "Independence and asking for help can't coexist.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Star's whole message is staying open and receptive to life rather than guarded — that doesn't undo a decision you made on your own, it just widens who's allowed to help you carry it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Maybe I'll actually call my partner and tell him what's really going on, instead of the summary version.\""
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "u20-riley-start",
+  "title": "The Long Way Round",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Tour's over. Riley's back in the chair, restless in a different way than usual."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Everyone wants me to just pick — keep making the big radio-ready stuff, or go all the way into what I've been writing on my own. Nobody thinks I can do both.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Maybe the answer isn't picking one.", "correct": true },
+        { "text": "Then you'd better hurry up and choose.", "correct": false, "reaction": "anger" },
+        { "text": "Why not let someone else decide for you?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I don't even know what 'not picking' would sound like. Feels like avoiding the real question.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_14_temperance"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "It's not avoidance — it's mixing what looks like opposites into something bigger than either one.", "correct": true },
+        { "text": "It means you have to force the two into matching exactly.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with combining anything.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Temperance is alchemy — blending different, even opposing, ingredients into something greater than either alone."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So I just throw the pop stuff and the raw stuff together and hope it works?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Not thrown together — tempered. It takes patience to actually find the balance.", "correct": true },
+        { "text": "Yes, exactly, just smash them together.", "correct": false, "reaction": "anger" },
+        { "text": "Patience doesn't factor into this at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Patience and experience refine raw experience into wisdom — moderation means finding the right balance, not swinging to whichever extreme feels safest today."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. Maybe I've been treating this like a fork in the road instead of something I actually get to blend myself.\""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "u11-dave-end",
+  "title": "Between the Lines",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_03_empress", "major_01_magician", "major_02_high_priestess", "major_06_lovers", "major_04_emperor"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards face down again. \"Let's see where the guesswork got me.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the workshop, quietly growing before any of this began.",
+      "slot": 0,
+      "answer": "major_03_empress"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the commission, and everything already on the table for it.",
+      "slot": 1,
+      "answer": "major_01_magician"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the instinct you followed before you could explain it.",
+      "slot": 2,
+      "answer": "major_02_high_priestess"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If listening underneath the request was the right call, why did she come back a third time with more changes?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "One right read doesn't end the conversation — it just earns you the next one.", "correct": true },
+        { "text": "It means your first read was wrong after all.", "correct": false, "reaction": "confusion" },
+        { "text": "Three rounds means she doesn't trust you.", "correct": false, "reaction": "anger" }
+      ],
+      "elaboration": [
+        "The High Priestess lives on a threshold, not a finish line — reading her underneath once doesn't close the door for good."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"And this 'trust the feeling' thing — how do I know it's actually intuition, and not just me guessing?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It doesn't arrive with proof — it arrives quiet, and you test it by building it anyway.", "correct": true },
+        { "text": "You can't ever know, so stop trusting it.", "correct": false, "reaction": "anger" },
+        { "text": "Real intuition always comes with certainty attached.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The High Priestess's light is borrowed and quiet, like the moon's — it was never going to arrive with the Magician's certainty attached."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: what's already there, what's already growing, and the quiet read you trusted before you could prove it.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think I've been waiting for the reasoning to catch up before I trust the read at all — and it never does, until after. That actually explains a lot.\""
+    }
+  ]
+}

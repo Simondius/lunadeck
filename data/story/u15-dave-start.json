@@ -1,0 +1,83 @@
+{
+  "id": "u15-dave-start",
+  "title": "Away From the Floor",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"I've been closing the shop early on Thursdays. Just to sit with the books alone, no interruptions.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "What are you actually looking for when you sit with them?", "correct": true },
+        { "text": "Sounds like you're avoiding the real work.", "correct": false, "reaction": "anger" },
+        { "text": "Why would the books need quiet to make sense?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"Something in the numbers doesn't add up to what I feel is actually going on. I need the quiet to actually see it.\""
+    },
+    {
+      "type": "reveal",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_09_hermit"
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "neutral",
+      "options": [
+        { "text": "That's productive solitude, not avoidance — the details only add up once no one's talking over them.", "correct": true },
+        { "text": "Closing early is just you slacking off.", "correct": false, "reaction": "anger" },
+        { "text": "This card means you should never work with anyone again.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Hermit's solitude isn't loneliness — it's the deliberate quiet that lets small details finally resolve into a bigger picture."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"My partner thinks I'm pulling away from the business by doing this.\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "You're not pulling away — you're finding the next step before you take it.", "correct": true },
+        { "text": "He's right, you should stop doing this.", "correct": false, "reaction": "anger" },
+        { "text": "What he thinks doesn't matter at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The Hermit's lantern only ever lights the next step, not the whole road — withdrawing to find that step isn't the same as leaving."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. One more Thursday, then I'll actually tell him what I found.\""
+    }
+  ]
+}

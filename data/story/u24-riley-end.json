@@ -1,0 +1,98 @@
+{
+  "id": "u24-riley-end",
+  "title": "Facing It in the Dark",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_14_temperance", "major_16_tower", "major_18_moon", "major_17_star", "major_10_wheel_of_fortune"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley lays three cards face down. \"Let's see the whole shape of this, not just today's.\""
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The past: the patient blend you finally sat down and made.",
+      "slot": 0,
+      "answer": "major_14_temperance"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The present: the ground still resettling since it came down.",
+      "slot": 1,
+      "answer": "major_16_tower"
+    },
+    {
+      "type": "draw",
+      "character": "riley",
+      "emotion": "neutral",
+      "prompt": "The future: the dream that keeps circling back.",
+      "slot": 2,
+      "answer": "major_18_moon"
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Okay, quiz me. If I'm supposed to trust the dream, why won't it just tell me plainly what it means?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Because plain isn't how it works here — the message comes through feeling, not statement.", "correct": true },
+        { "text": "It means the dream is broken and useless.", "correct": false, "reaction": "anger" },
+        { "text": "Plain meaning is exactly what this card gives you.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Trust intuition and dreams over what's plainly stated — clarity was never the format this card works in."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"What if the pattern I'm noticing is just me being paranoid about the old band?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "Paranoia and pattern aren't the same thing — sit with it before deciding which one this is.", "correct": true },
+        { "text": "It's definitely just paranoia, dismiss it.", "correct": false, "reaction": "anger" },
+        { "text": "Patterns and paranoia are literally identical.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "A cycle repeating is worth noticing before it happens again — that's different from assuming the worst without looking closely first."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the blend you finally trusted, the ground that's still settling, and the dream asking you to actually look instead of look away.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I called them back today, actually. Didn't say yes to anything — just listened, for once, instead of running from the dream or the phone call. Feels like the same thing, weirdly.\""
+    }
+  ]
+}

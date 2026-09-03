@@ -1,0 +1,90 @@
+{
+  "id": "u22-riley-start",
+  "title": "The Lightning Call",
+  "character": "riley",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Riley shows up rattled, phone still in her hand."
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "anger",
+      "speaker": "client",
+      "text": "\"The label restructured overnight. The whole deal my partner and I built the last two months around — gone, this morning, no warning.\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "anger",
+      "options": [
+        { "text": "That's a real shock — how are you doing right now?", "correct": true },
+        { "text": "You should've seen that coming.", "correct": false, "reaction": "anger" },
+        { "text": "Is that actually a bad thing?", "correct": false, "reaction": "confusion" }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"I keep replaying every conversation, trying to find where the warning sign was that I missed.\""
+    },
+    {
+      "type": "reveal",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "reader",
+      "text": "You turn over the top card.",
+      "card": "major_16_tower"
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "neutral",
+      "options": [
+        { "text": "There might not have been a sign — some things were unstable long before they showed it.", "correct": true },
+        { "text": "There's always a sign, you just weren't paying attention.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with sudden change.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Sudden, unexpected change — and what falls apart was usually already unstable; the collapse just finally makes it visible."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So was any of it even real, or was I building on nothing this whole time?\""
+    },
+    {
+      "type": "choice",
+      "character": "riley",
+      "emotion": "confusion",
+      "options": [
+        { "text": "It was real enough while it stood — the point now is knowing how you fall, not whether you fell.", "correct": true },
+        { "text": "None of it was real, you wasted two months.", "correct": false, "reaction": "anger" },
+        { "text": "How you fall doesn't matter, only whether you fell.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The point isn't the falling — it's knowing how to fall. Resisting the change costs more than actually flowing with it."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "riley",
+      "emotion": "neutral",
+      "speaker": "client",
+      "text": "\"...Okay. I guess I'd rather learn how to land than spend a week pretending the ground didn't move.\""
+    }
+  ]
+}

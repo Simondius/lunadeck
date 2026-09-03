@@ -65,6 +65,33 @@ export const UNITS = [
     endSlug: "u8-riley-end",
     title: "The Full Deck, No Strings Attached",
   },
+  // Units 9-27 (docs/decisions/0078): the rest of the Major Arcana, one
+  // new card per unit, alternating Dave/Riley the same way units 1-6 do -
+  // no review units among these (no sibling unit ever revisits one of
+  // these cards, so there's nothing to cut two nodes free for; every one
+  // of these units exposes its card's full 7 lesson nodes, not 5). Each
+  // end-narrative is a real 3-card draw (the new card plus that
+  // character's own 2 most recently taught) rather than scripted reveals -
+  // see data/story/chapters.js's own new units for the actual beats.
+  { unit: 9, character: "dave", cardSlug: "magician", startSlug: "u9-dave-start", endSlug: "u9-dave-end", title: "Dave's Sleight of Hand" },
+  { unit: 10, character: "riley", cardSlug: "emperor", startSlug: "u10-riley-start", endSlug: "u10-riley-end", title: "Riley Builds an Empire" },
+  { unit: 11, character: "dave", cardSlug: "high_priestess", startSlug: "u11-dave-start", endSlug: "u11-dave-end", title: "Dave Reads Between the Lines" },
+  { unit: 12, character: "riley", cardSlug: "hierophant", startSlug: "u12-riley-start", endSlug: "u12-riley-end", title: "Riley Learns the Rules" },
+  { unit: 13, character: "dave", cardSlug: "chariot", startSlug: "u13-dave-start", endSlug: "u13-dave-end", title: "Dave Takes the Wheel" },
+  { unit: 14, character: "riley", cardSlug: "strength", startSlug: "u14-riley-start", endSlug: "u14-riley-end", title: "Riley's Quiet Strength" },
+  { unit: 15, character: "dave", cardSlug: "hermit", startSlug: "u15-dave-start", endSlug: "u15-dave-end", title: "Dave's Own Company" },
+  { unit: 16, character: "riley", cardSlug: "wheel_of_fortune", startSlug: "u16-riley-start", endSlug: "u16-riley-end", title: "Riley's Turning Point" },
+  { unit: 17, character: "dave", cardSlug: "justice", startSlug: "u17-dave-start", endSlug: "u17-dave-end", title: "Dave Weighs It Up" },
+  { unit: 18, character: "riley", cardSlug: "hanged_man", startSlug: "u18-riley-start", endSlug: "u18-riley-end", title: "Riley Sees It Upside Down" },
+  { unit: 19, character: "dave", cardSlug: "death", startSlug: "u19-dave-start", endSlug: "u19-dave-end", title: "Dave Closes a Chapter" },
+  { unit: 20, character: "riley", cardSlug: "temperance", startSlug: "u20-riley-start", endSlug: "u20-riley-end", title: "Riley Finds the Blend" },
+  { unit: 21, character: "dave", cardSlug: "devil", startSlug: "u21-dave-start", endSlug: "u21-dave-end", title: "Dave's Own Worst Habit" },
+  { unit: 22, character: "riley", cardSlug: "tower", startSlug: "u22-riley-start", endSlug: "u22-riley-end", title: "Riley's Foundations Shake" },
+  { unit: 23, character: "dave", cardSlug: "star", startSlug: "u23-dave-start", endSlug: "u23-dave-end", title: "Dave Finds His North Star" },
+  { unit: 24, character: "riley", cardSlug: "moon", startSlug: "u24-riley-start", endSlug: "u24-riley-end", title: "Riley Moonlights" },
+  { unit: 25, character: "dave", cardSlug: "sun", startSlug: "u25-dave-start", endSlug: "u25-dave-end", title: "Dave in Full Light" },
+  { unit: 26, character: "riley", cardSlug: "judgment", startSlug: "u26-riley-start", endSlug: "u26-riley-end", title: "Riley's Final Verdict" },
+  { unit: 27, character: "dave", cardSlug: "world", startSlug: "u27-dave-start", endSlug: "u27-dave-end", title: "Dave Completes the Circle" },
 ];
 
 // The two most repetitive/redundant nodes per card (0-indexed into each
@@ -116,7 +143,70 @@ const LABELS = {
     "Pick the True Reading",
     "The Full Picture",
   ],
+  // Magician and Emperor (0078) came from the same mechanical v3 regroup
+  // as Fool/Lovers/Empress - these seven labels are a best-fit reading of
+  // what each of their own seven merged nodes actually contains, not a
+  // literal 1:1 carry-over of v3's own labels for them.
+  magician: [
+    "Meet the Magician",
+    "Find the Elements",
+    "More New Words",
+    "Readings, Filled In",
+    "All the Keywords",
+    "Closer Distractors",
+    "The Full Picture",
+  ],
+  emperor: [
+    "Meet the Emperor",
+    "Find the Elements",
+    "More New Words",
+    "Readings, Filled In",
+    "All the Keywords",
+    "Closer Distractors",
+    "The Full Picture",
+  ],
 };
+
+// Every card from here on (0078's own batch - the 17 majors that never
+// had v2/v3 round content, built fresh by scripts/build-v4-new-cards.mjs)
+// follows one fixed label shape, since they all share the exact same
+// generated 7-node structure - unlike the five cards above, whose labels
+// reflect whatever a mechanical regroup of pre-existing, differently-
+// shaped v3 content happened to produce. Only the first ("Meet the X")
+// varies by card, built from that card's own real name (SECTIONS' own
+// data.cardName) rather than hardcoded per slug - same "The " stripped
+// the same way Fool/Lovers/Empress's own hand-written labels already do
+// ("The Fool" -> "Meet the Fool").
+for (const slug of [
+  "high_priestess",
+  "hierophant",
+  "chariot",
+  "strength",
+  "hermit",
+  "wheel_of_fortune",
+  "justice",
+  "hanged_man",
+  "death",
+  "temperance",
+  "devil",
+  "tower",
+  "star",
+  "moon",
+  "sun",
+  "judgment",
+  "world",
+]) {
+  const bareName = (SECTIONS.find((s) => s.slug === slug)?.data.cardName ?? slug).replace(/^The /, "");
+  LABELS[slug] = [
+    `Meet the ${bareName}`,
+    "Find the Elements",
+    "More New Words",
+    "Closer Distractors",
+    "All the Keywords",
+    "Pick the True Reading",
+    "The Full Picture",
+  ];
+}
 
 // A single-card unit's 7 lesson nodes minus the two CUT_INDICES marks as
 // redundant - 5 lessons per unit now, not 7 (docs/decisions/0058) - plus

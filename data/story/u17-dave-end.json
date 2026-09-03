@@ -1,0 +1,98 @@
+{
+  "id": "u17-dave-end",
+  "title": "An Honest Account",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_07_chariot", "major_09_hermit", "major_11_justice", "major_01_magician", "major_10_wheel_of_fortune"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down. \"Let's see what led me to finally have that conversation.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the big push you and your partner pulled off together.",
+      "slot": 0,
+      "answer": "major_07_chariot"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the quiet that helped you actually see what was uneven.",
+      "slot": 1,
+      "answer": "major_09_hermit"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the honest conversation about the split.",
+      "slot": 2,
+      "answer": "major_11_justice"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me. If Justice is about fairness, why did I feel guilty bringing it up, like I was the one doing something wrong?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "That's the mirror working — looking honestly at yourself doesn't feel comfortable even when you're right.", "correct": true },
+        { "text": "Feeling guilty means you were actually in the wrong.", "correct": false, "reaction": "anger" },
+        { "text": "Justice shouldn't come with any feelings attached.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Justice holds up a mirror to you first, not just the situation — an honest look at yourself was always going to feel uncomfortable, guilt or not."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"He agreed pretty fast, actually. Does that mean the imbalance wasn't as big a deal as I thought?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "No — it just means balance was overdue on both sides, not only yours.", "correct": true },
+        { "text": "It means you made the whole thing up.", "correct": false, "reaction": "anger" },
+        { "text": "How fast he agreed doesn't mean anything at all.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "Cause and effect catching up doesn't need a fight to land — an overdue balance can resolve fast and still have been real."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: the push, the quiet that revealed what needed fixing, and the honest account that actually fixed it.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah. I think the hardest part was ever looking at myself in it, not the conversation itself. Feels a lot more even now, actually.\""
+    }
+  ]
+}

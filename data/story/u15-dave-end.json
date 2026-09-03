@@ -1,0 +1,98 @@
+{
+  "id": "u15-dave-end",
+  "title": "What the Lantern Found",
+  "character": "dave",
+  "location": {
+    "name": "The Reading Room",
+    "background": "background_library"
+  },
+  "slotLabels": ["Past", "Present", "Future"],
+  "availableCards": ["major_02_high_priestess", "major_07_chariot", "major_09_hermit", "major_06_lovers", "major_08_strength"],
+  "beats": [
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "Dave lays three cards down. \"Let's trace how I got to Thursday nights alone with a ledger.\""
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The past: the read you trusted before you could explain it.",
+      "slot": 0,
+      "answer": "major_02_high_priestess"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The present: the big push you and your partner pulled off together.",
+      "slot": 1,
+      "answer": "major_07_chariot"
+    },
+    {
+      "type": "draw",
+      "character": "dave",
+      "emotion": "neutral",
+      "prompt": "The future: the quiet you needed once the push was over.",
+      "slot": 2,
+      "answer": "major_09_hermit"
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"Quiz me. If solitude's supposed to be productive, why do I feel worse most Thursdays before I feel better?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "Feeling worse first just means you're actually looking, not performing calm.", "correct": true },
+        { "text": "Feeling worse means the Hermit was the wrong read.", "correct": false, "reaction": "confusion" },
+        { "text": "You should stop doing this if it feels bad.", "correct": false, "reaction": "anger" }
+      ],
+      "elaboration": [
+        "The Hermit was never about arriving at comfort — the search itself, uneven as it feels, is the actual point of the card."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "confusion",
+      "speaker": "client",
+      "text": "\"So when do I know I've actually found what I was looking for in the numbers?\""
+    },
+    {
+      "type": "choice",
+      "character": "dave",
+      "emotion": "confusion",
+      "options": [
+        { "text": "When the small details finally add up into something you can say out loud.", "correct": true },
+        { "text": "You'll never really know, so stop looking.", "correct": false, "reaction": "anger" },
+        { "text": "The Hermit promises a fixed finish line.", "correct": false, "reaction": "confusion" }
+      ],
+      "elaboration": [
+        "The lantern only shows one step at a time — you'll know you've found it when the details finally resolve into a picture you can actually name."
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "neutral",
+      "speaker": "narration",
+      "text": "\"One thread ties all three: a read you trusted, a push you made together, and the quiet that came after to make sense of both.\""
+    },
+    {
+      "type": "dialogue",
+      "character": "dave",
+      "emotion": "realisation",
+      "speaker": "client",
+      "text": "\"Yeah — I think I finally have the words for what's actually going on in the numbers. Time to actually tell him. Thanks.\""
+    }
+  ]
+}

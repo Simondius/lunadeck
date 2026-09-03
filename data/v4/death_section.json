@@ -298,11 +298,15 @@
         {
           "id": "major_13_death-n7-r119",
           "type": "cloze",
-          "text": "Sitting between {b1} and death, Scorpio is magnetic and intense, aware that reaching what's essential means releasing what no longer has life in it.",
+          "text": "Sitting between {b1} and death, Scorpio is magnetic and intense, aware that reaching what's {b2} means releasing what no longer has life in it.",
           "blanks": [
             {
               "key": "b1",
               "answer": "life"
+            },
+            {
+              "key": "b2",
+              "answer": "essential"
             }
           ],
           "distractors": [

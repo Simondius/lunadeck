@@ -22,7 +22,7 @@
               "correct": false
             },
             {
-              "text": "elephant",
+              "text": "lantern",
               "correct": false
             }
           ]
@@ -115,11 +115,11 @@
               "correct": true
             },
             {
-              "text": "teacup",
+              "text": "lantern",
               "correct": false
             },
             {
-              "text": "pizza",
+              "text": "wheelbarrow",
               "correct": false
             }
           ]

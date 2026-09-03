@@ -8,11 +8,15 @@
         {
           "id": "n7-r1",
           "type": "cloze",
-          "text": "The Empress is {b1} incarnate.",
+          "text": "The Empress is {b1} {b2}.",
           "blanks": [
             {
               "key": "b1",
               "answer": "Mother Earth"
+            },
+            {
+              "key": "b2",
+              "answer": "incarnate"
             }
           ],
           "distractors": [
@@ -268,99 +272,134 @@
         {
           "id": "n8-r1",
           "type": "cloze",
-          "text": "Mother Earth energy — fertility, {b1}, life growing in every direction",
+          "text": "Mother Earth energy — {b2}, {b1}, life growing in every direction",
           "blanks": [
             {
               "key": "b1",
               "answer": "abundance"
+            },
+            {
+              "key": "b2",
+              "answer": "fertility"
             }
           ],
           "distractors": [
-            "beanie"
+            "beanie",
+            "orange"
           ]
         },
         {
           "id": "n8-r2",
           "type": "cloze",
-          "text": "Something is ready to be {b1} — a child, a project, an idea taking shape",
+          "text": "{b2} is ready to be {b1} — a child, a project, an idea taking shape",
           "blanks": [
             {
               "key": "b1",
               "answer": "born"
+            },
+            {
+              "key": "b2",
+              "answer": "Something"
             }
           ],
           "distractors": [
-            "broccoli"
+            "broccoli",
+            "yellow"
           ]
         },
         {
           "id": "n8-r3",
           "type": "cloze",
-          "text": "Creation before form — raw, generative {b1} that hasn't settled yet",
+          "text": "Creation before form — raw, {b2} {b1} that hasn't settled yet",
           "blanks": [
             {
               "key": "b1",
               "answer": "chaos"
+            },
+            {
+              "key": "b2",
+              "answer": "generative"
             }
           ],
           "distractors": [
-            "umbrella"
+            "umbrella",
+            "turquoise"
           ]
         },
         {
           "id": "n8-r4",
           "type": "cloze",
-          "text": "{b1}, protect, and grow whatever you're tending",
+          "text": "{b1}, protect, and grow {b2} you're tending",
           "blanks": [
             {
               "key": "b1",
               "answer": "Nourish"
+            },
+            {
+              "key": "b2",
+              "answer": "whatever"
             }
           ],
           "distractors": [
-            "bicycle"
+            "bicycle",
+            "beige"
           ]
         },
         {
           "id": "n8-r5",
           "type": "cloze",
-          "text": "A reminder to love and {b1} for yourself first",
+          "text": "A {b2} to love and {b1} for yourself first",
           "blanks": [
             {
               "key": "b1",
               "answer": "care"
+            },
+            {
+              "key": "b2",
+              "answer": "reminder"
             }
           ],
           "distractors": [
-            "abandon"
+            "abandon",
+            "kazoo"
           ]
         },
         {
           "id": "n8-r6",
           "type": "cloze",
-          "text": "Pleasure, beauty, and the body are not indulgences — they're part of the {b1}",
+          "text": "Pleasure, beauty, and the body are not {b2} — they're part of the {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "message"
+            },
+            {
+              "key": "b2",
+              "answer": "indulgences"
             }
           ],
           "distractors": [
-            "overthinking"
+            "overthinking",
+            "accordion"
           ]
         },
         {
           "id": "n8-r7",
           "type": "cloze",
-          "text": "Abundance that comes from allowing things to {b1}, not forcing them",
+          "text": "{b2} that comes from allowing things to {b1}, not forcing them",
           "blanks": [
             {
               "key": "b1",
               "answer": "flourish"
+            },
+            {
+              "key": "b2",
+              "answer": "Abundance"
             }
           ],
           "distractors": [
-            "pause"
+            "pause",
+            "tambourine"
           ]
         }
       ]

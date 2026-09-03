@@ -288,11 +288,15 @@
         {
           "id": "major_19_sun-n7-r198",
           "type": "cloze",
-          "text": "As the pulsing heart of the whole system, the Sun offers vital {b1}, but with a caution: get too close and you can be burned, so avoid centering everything on yourself.",
+          "text": "As the pulsing heart of the whole system, the Sun offers vital {b1}, but with a caution: get too close and you can be burned, so avoid centering {b2} on yourself.",
           "blanks": [
             {
               "key": "b1",
               "answer": "light"
+            },
+            {
+              "key": "b2",
+              "answer": "everything"
             }
           ],
           "distractors": [

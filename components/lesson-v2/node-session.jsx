@@ -61,6 +61,12 @@ export default function NodeSession({
   // down to whichever round Player is rendered below, since each of those
   // renders its own "quit" link independently.
   basePath = "/v2",
+  // Optional override for the "complete" stage below: ({nextHref,
+  // nextLabel}) => ReactNode, replacing the default NodeCompleteCelebration
+  // + link entirely. alignment-check-session.jsx (0093) uses this so an
+  // Alignment Check node ends on its own cosmic resolution screen instead
+  // of the generic shooting-star celebration every other node keeps.
+  renderComplete,
 }) {
   const [mainIndex, setMainIndex] = useState(0);
   const [reviewQueue, setReviewQueue] = useState([]);
@@ -192,6 +198,10 @@ export default function NodeSession({
         : nextSection
           ? nextSection.cardName
           : `Back to ${basePath.slice(1)}`;
+    }
+
+    if (renderComplete) {
+      return renderComplete({ nextHref, nextLabel });
     }
 
     return (

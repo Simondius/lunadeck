@@ -31,11 +31,15 @@
         "type": "cloze",
         "cardKey": "major_00_fool",
         "cardName": "The Fool",
-        "text": "Nonconformist, revolutionary energy — willing to go against {b1}.",
+        "text": "{b2}, revolutionary energy — willing to go against {b1}.",
         "blanks": [
           {
             "key": "b1",
             "answer": "convention"
+          },
+          {
+            "key": "b2",
+            "answer": "Nonconformist"
           }
         ],
         "distractors": [
@@ -62,11 +66,15 @@
         "type": "cloze",
         "cardKey": "major_00_fool",
         "cardName": "The Fool",
-        "text": "On the edge of the precipice, but calm rather than afraid of the {b1}.",
+        "text": "On the edge of the {b2}, but calm rather than afraid of the {b1}.",
         "blanks": [
           {
             "key": "b1",
             "answer": "void"
+          },
+          {
+            "key": "b2",
+            "answer": "precipice"
           }
         ],
         "distractors": [
@@ -145,11 +153,15 @@
         "type": "cloze",
         "cardKey": "major_06_lovers",
         "cardName": "The Lovers",
-        "text": "A partnership or union that asks you to listen to more than one voice — body, {b1}, and spirit.",
+        "text": "A {b2} or union that asks you to listen to more than one voice — body, {b1}, and spirit.",
         "blanks": [
           {
             "key": "b1",
             "answer": "mind"
+          },
+          {
+            "key": "b2",
+            "answer": "partnership"
           }
         ],
         "distractors": [
@@ -176,11 +188,15 @@
         "type": "cloze",
         "cardKey": "major_06_lovers",
         "cardName": "The Lovers",
-        "text": "Two paths, both valid — the challenge is {b1}, not lacking options.",
+        "text": "Two paths, both valid — the {b2} is {b1}, not lacking options.",
         "blanks": [
           {
             "key": "b1",
             "answer": "choosing"
+          },
+          {
+            "key": "b2",
+            "answer": "challenge"
           }
         ],
         "distractors": [
@@ -259,11 +275,15 @@
         "type": "cloze",
         "cardKey": "major_03_empress",
         "cardName": "The Empress",
-        "text": "Mother Earth energy — fertility, {b1}, life growing in every direction.",
+        "text": "Mother Earth energy — {b2}, {b1}, life growing in every direction.",
         "blanks": [
           {
             "key": "b1",
             "answer": "abundance"
+          },
+          {
+            "key": "b2",
+            "answer": "fertility"
           }
         ],
         "distractors": [
@@ -290,11 +310,15 @@
         "type": "cloze",
         "cardKey": "major_03_empress",
         "cardName": "The Empress",
-        "text": "Something is ready to be {b1} — a child, a project, an idea taking shape.",
+        "text": "{b2} is ready to be {b1} — a child, a project, an idea taking shape.",
         "blanks": [
           {
             "key": "b1",
             "answer": "born"
+          },
+          {
+            "key": "b2",
+            "answer": "Something"
           }
         ],
         "distractors": [
@@ -381,15 +405,19 @@
         "type": "cloze",
         "cardKey": "major_02_high_priestess",
         "cardName": "The High Priestess",
-        "text": "Lives on the {b1} — between the seen and unseen worlds",
+        "text": "Lives on the {b1} — {b2} the seen and unseen worlds",
         "blanks": [
           {
             "key": "b1",
             "answer": "threshold"
+          },
+          {
+            "key": "b2",
+            "answer": "between"
           }
         ],
         "distractors": [
-          "banana",
+          "wink",
           "spaghetti"
         ]
       },
@@ -430,11 +458,11 @@
             "correct": true
           },
           {
-            "text": "umbrella",
+            "text": "muffin",
             "correct": false
           },
           {
-            "text": "bicycle",
+            "text": "scone",
             "correct": false
           },
           {
@@ -448,11 +476,15 @@
         "type": "cloze",
         "cardKey": "major_05_hierophant",
         "cardName": "The Hierophant",
-        "text": "A bridge between the {b1} and the sacred",
+        "text": "A bridge {b2} the {b1} and the sacred",
         "blanks": [
           {
             "key": "b1",
             "answer": "everyday"
+          },
+          {
+            "key": "b2",
+            "answer": "between"
           }
         ],
         "distractors": [
@@ -515,11 +547,15 @@
         "type": "cloze",
         "cardKey": "major_07_chariot",
         "cardName": "The Chariot",
-        "text": "Determined forward motion — {b1} finally in gear",
+        "text": "{b2} forward motion — {b1} finally in gear",
         "blanks": [
           {
             "key": "b1",
             "answer": "ambition"
+          },
+          {
+            "key": "b2",
+            "answer": "Determined"
           }
         ],
         "distractors": [
@@ -653,11 +689,15 @@
         "type": "cloze",
         "cardKey": "major_09_hermit",
         "cardName": "The Hermit",
-        "text": "Solitude here is {b1}, not lonely",
+        "text": "{b2} here is {b1}, not lonely",
         "blanks": [
           {
             "key": "b1",
             "answer": "productive"
+          },
+          {
+            "key": "b2",
+            "answer": "Solitude"
           }
         ],
         "distractors": [
@@ -791,11 +831,15 @@
         "type": "cloze",
         "cardKey": "major_11_justice",
         "cardName": "Justice",
-        "text": "A mirror moment — an honest, {b1} look at yourself",
+        "text": "A {b2} moment — an honest, {b1} look at yourself",
         "blanks": [
           {
             "key": "b1",
             "answer": "unflinching"
+          },
+          {
+            "key": "b2",
+            "answer": "mirror"
           }
         ],
         "distractors": [
@@ -858,11 +902,15 @@
         "type": "cloze",
         "cardKey": "major_12_hanged_man",
         "cardName": "The Hanged Man",
-        "text": "{b1}, upside down, but calm — not suffering, just paused",
+        "text": "{b1}, upside down, but calm — not {b2}, just paused",
         "blanks": [
           {
             "key": "b1",
             "answer": "Suspended"
+          },
+          {
+            "key": "b2",
+            "answer": "suffering"
           }
         ],
         "distractors": [
@@ -996,11 +1044,15 @@
         "type": "cloze",
         "cardKey": "major_14_temperance",
         "cardName": "Temperance",
-        "text": "The journey matters more than the {b1} right now",
+        "text": "The {b2} matters more than the {b1} right now",
         "blanks": [
           {
             "key": "b1",
             "answer": "destination"
+          },
+          {
+            "key": "b2",
+            "answer": "journey"
           }
         ],
         "distractors": [
@@ -1063,11 +1115,15 @@
         "type": "cloze",
         "cardKey": "major_15_devil",
         "cardName": "The Devil",
-        "text": "Not purely bad — it's {b1} more than any other card",
+        "text": "Not {b2} bad — it's {b1} more than any other card",
         "blanks": [
           {
             "key": "b1",
             "answer": "misunderstood"
+          },
+          {
+            "key": "b2",
+            "answer": "purely"
           }
         ],
         "distractors": [
@@ -1116,11 +1172,11 @@
             "correct": false
           },
           {
-            "text": "elephant",
+            "text": "paperclip",
             "correct": false
           },
           {
-            "text": "teacup",
+            "text": "flipper",
             "correct": false
           }
         ]
@@ -1130,16 +1186,20 @@
         "type": "cloze",
         "cardKey": "major_16_tower",
         "cardName": "The Tower",
-        "text": "Sudden, {b1} change — the lightning strike moment",
+        "text": "Sudden, {b1} change — the {b2} strike moment",
         "blanks": [
           {
             "key": "b1",
             "answer": "unexpected"
+          },
+          {
+            "key": "b2",
+            "answer": "lightning"
           }
         ],
         "distractors": [
-          "pizza",
-          "umbrella"
+          "clipboard",
+          "anchor"
         ]
       },
       {
@@ -1339,11 +1399,15 @@
         "type": "cloze",
         "cardKey": "major_19_sun",
         "cardName": "The Sun",
-        "text": "Pure, {b1} joy — like a child's optimism",
+        "text": "Pure, {b1} joy — like a child's {b2}",
         "blanks": [
           {
             "key": "b1",
             "answer": "uncomplicated"
+          },
+          {
+            "key": "b2",
+            "answer": "optimism"
           }
         ],
         "distractors": [
@@ -1406,11 +1470,15 @@
         "type": "cloze",
         "cardKey": "major_20_judgment",
         "cardName": "Judgment",
-        "text": "A calling being answered — your true {b1} coming into focus",
+        "text": "A calling being {b2} — your true {b1} coming into focus",
         "blanks": [
           {
             "key": "b1",
             "answer": "vocation"
+          },
+          {
+            "key": "b2",
+            "answer": "answered"
           }
         ],
         "distractors": [
@@ -1473,11 +1541,15 @@
         "type": "cloze",
         "cardKey": "major_21_world",
         "cardName": "The World",
-        "text": "A full cycle {b1} — the circle closes",
+        "text": "A full cycle {b1} — the {b2} closes",
         "blanks": [
           {
             "key": "b1",
             "answer": "completed"
+          },
+          {
+            "key": "b2",
+            "answer": "circle"
           }
         ],
         "distractors": [
@@ -1531,11 +1603,15 @@
         "type": "cloze",
         "cardKey": "major_01_magician",
         "cardName": "The Magician",
-        "text": "Sharp, quick-witted intelligence; can view a situation from multiple {b1} at once.",
+        "text": "Sharp, {b2} intelligence; can view a situation from multiple {b1} at once.",
         "blanks": [
           {
             "key": "b1",
             "answer": "angles"
+          },
+          {
+            "key": "b2",
+            "answer": "quick-witted"
           }
         ],
         "distractors": [
@@ -1562,11 +1638,15 @@
         "type": "cloze",
         "cardKey": "major_01_magician",
         "cardName": "The Magician",
-        "text": "A gift for {b1} — the right words, spoken or written, at the right moment.",
+        "text": "A gift for {b1} — the right words, spoken or {b2}, at the right moment.",
         "blanks": [
           {
             "key": "b1",
             "answer": "communication"
+          },
+          {
+            "key": "b2",
+            "answer": "written"
           }
         ],
         "distractors": [
@@ -1645,11 +1725,15 @@
         "type": "cloze",
         "cardKey": "major_04_emperor",
         "cardName": "The Emperor",
-        "text": "Sets clear {b1} and claims space without apology.",
+        "text": "Sets clear {b1} and claims space without {b2}.",
         "blanks": [
           {
             "key": "b1",
             "answer": "boundaries"
+          },
+          {
+            "key": "b2",
+            "answer": "apology"
           }
         ],
         "distractors": [
@@ -1676,11 +1760,15 @@
         "type": "cloze",
         "cardKey": "major_04_emperor",
         "cardName": "The Emperor",
-        "text": "Spring's life force — breaking through and pushing {b1}.",
+        "text": "{b2} life force — breaking through and pushing {b1}.",
         "blanks": [
           {
             "key": "b1",
             "answer": "forward"
+          },
+          {
+            "key": "b2",
+            "answer": "Spring's"
           }
         ],
         "distractors": [

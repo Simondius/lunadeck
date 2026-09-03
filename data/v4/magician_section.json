@@ -330,85 +330,115 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Sees with more than the eyes — perceives both the visible and the {b1}",
+          "text": "Sees with more than the eyes — {b2} both the visible and the {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "invisible"
+            },
+            {
+              "key": "b2",
+              "answer": "perceives"
             }
           ],
           "distractors": [
-            "lantern"
+            "lantern",
+            "pancake"
           ]
         },
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "You already have everything you need; success is about using the {b1} at hand",
+          "text": "You already have {b2} you need; success is about using the {b1} at hand",
           "blanks": [
             {
               "key": "b1",
               "answer": "resources"
+            },
+            {
+              "key": "b2",
+              "answer": "everything"
             }
           ],
           "distractors": [
-            "pogo stick"
+            "pogo stick",
+            "waffle"
           ]
         },
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "Magic hides in {b1} things — available only to those who know how to look",
+          "text": "Magic hides in {b1} things — {b2} only to those who know how to look",
           "blanks": [
             {
               "key": "b1",
               "answer": "ordinary"
+            },
+            {
+              "key": "b2",
+              "answer": "available"
             }
           ],
           "distractors": [
-            "glacier"
+            "glacier",
+            "burrito"
           ]
         },
         {
           "id": "n9-r4",
           "type": "cloze",
-          "text": "Sharp, quick-witted intelligence; can view a situation from multiple {b1} at once",
+          "text": "Sharp, {b2} intelligence; can view a situation from multiple {b1} at once",
           "blanks": [
             {
               "key": "b1",
               "answer": "angles"
+            },
+            {
+              "key": "b2",
+              "answer": "quick-witted"
             }
           ],
           "distractors": [
-            "seashell"
+            "seashell",
+            "dumpling"
           ]
         },
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "A gift for {b1} — the right words, spoken or written, at the right moment",
+          "text": "A gift for {b1} — the right words, spoken or {b2}, at the right moment",
           "blanks": [
             {
               "key": "b1",
               "answer": "communication"
+            },
+            {
+              "key": "b2",
+              "answer": "written"
             }
           ],
           "distractors": [
-            "pause"
+            "pause",
+            "raccoon"
           ]
         },
         {
           "id": "n9-r6",
           "type": "cloze",
-          "text": "Reminds you it's time to {b1} on an idea, not just have it",
+          "text": "{b2} you it's time to {b1} on an idea, not just have it",
           "blanks": [
             {
               "key": "b1",
               "answer": "act"
+            },
+            {
+              "key": "b2",
+              "answer": "Reminds"
             }
           ],
           "distractors": [
-            "overthinking"
+            "overthinking",
+            "platypus"
           ]
         }
       ]

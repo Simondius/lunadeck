@@ -56,6 +56,10 @@ function rectBoxStyle(rect) {
   };
 }
 
+function rectArea(rect) {
+  return Math.max(0, rect.x1 - rect.x0) * Math.max(0, rect.y1 - rect.y0);
+}
+
 // The inverse-scale trick that makes a small overflow:hidden window act like
 // a crop onto the full card image: the image inside is sized as if the
 // window were the whole card, then shifted so the window's own top-left
@@ -315,8 +319,19 @@ export default function ZoneRoundPlayer({
                 <img src={masterForKey(cardKey)} alt="" style={rectImageStyle(rect)} />
               </div>
             ))}
-            {remaining.flatMap((element) =>
-              element.rects.map((rect, i) => {
+            {remaining
+              .flatMap((element) => element.rects.map((rect, i) => ({ element, rect, i })))
+              // Largest first, so it paints first (bottom of the stack) and a
+              // smaller, more specific zone nested inside it paints after
+              // (on top) - without this, an element like "night sky" whose
+              // rect spans most of the card silently swallows every tap
+              // meant for a smaller zone underneath it, since same-z
+              // absolutely-positioned siblings stack in DOM order and the
+              // topmost one is all elementFromPoint (and a real tap) ever
+              // sees. Sorted per render rather than once, since `remaining`
+              // itself changes as elements get matched.
+              .sort((a, b) => rectArea(b.rect) - rectArea(a.rect))
+              .map(({ element, rect, i }) => {
                 const isSelected = selection?.type === "zone" && selection.key === element.listKey;
                 const isWrong = wrong?.zoneKey === element.listKey;
                 return (
@@ -336,8 +351,7 @@ export default function ZoneRoundPlayer({
                     }}
                   />
                 );
-              })
-            )}
+              })}
             {hint
               ? hint.rects.map((rect, i) => (
                   <div

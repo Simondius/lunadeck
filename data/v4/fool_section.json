@@ -595,11 +595,15 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Beginning and ending in one — a fresh {b1} starting right after one just closed",
+          "text": "{b2} and ending in one — a fresh {b1} starting right after one just closed",
           "blanks": [
             {
               "key": "b1",
               "answer": "cycle"
+            },
+            {
+              "key": "b2",
+              "answer": "Beginning"
             }
           ],
           "distractors": [
@@ -611,11 +615,15 @@
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "Travels light, takes chances with {b1}",
+          "text": "{b2} light, takes chances with {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "levity"
+            },
+            {
+              "key": "b2",
+              "answer": "Travels"
             }
           ],
           "distractors": [
@@ -627,11 +635,15 @@
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "On the edge of the precipice, but calm rather than afraid of the {b1}",
+          "text": "On the edge of the {b2}, but calm rather than afraid of the {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "void"
+            },
+            {
+              "key": "b2",
+              "answer": "precipice"
             }
           ],
           "distractors": [
@@ -643,11 +655,15 @@
         {
           "id": "n9-r4",
           "type": "cloze",
-          "text": "Trusts that the path appears once you take the {b1}",
+          "text": "Trusts that the path {b2} once you take the {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "step"
+            },
+            {
+              "key": "b2",
+              "answer": "appears"
             }
           ],
           "distractors": [
@@ -659,11 +675,15 @@
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "Approaches life with a beginner's mind — curious, unguarded, {b1}",
+          "text": "{b2} life with a beginner's mind — curious, unguarded, {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "unjaded"
+            },
+            {
+              "key": "b2",
+              "answer": "Approaches"
             }
           ],
           "distractors": [
@@ -675,11 +695,15 @@
         {
           "id": "n9-r6",
           "type": "cloze",
-          "text": "Nonconformist, revolutionary energy — willing to go against {b1}",
+          "text": "{b2}, revolutionary energy — willing to go against {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "convention"
+            },
+            {
+              "key": "b2",
+              "answer": "Nonconformist"
             }
           ],
           "distractors": [
@@ -691,11 +715,15 @@
         {
           "id": "n9-r7",
           "type": "cloze",
-          "text": "Says yes to the {b1} instead of playing it safe",
+          "text": "Says yes to the {b1} instead of {b2} it safe",
           "blanks": [
             {
               "key": "b1",
               "answer": "unknown"
+            },
+            {
+              "key": "b2",
+              "answer": "playing"
             }
           ],
           "distractors": [

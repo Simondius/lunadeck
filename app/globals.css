@@ -1794,6 +1794,312 @@ div.reference-art, div.reference-symbol { cursor: default; }
   }
 }
 
+/* --- alignment-check-intro.jsx / alignment-check-outro.jsx: the
+   Alignment Check node's own opening and closing ceremony (0093, a pilot
+   on The Fool only pending Simon's approval). The card shimmers, three
+   stars and two decorative planets swirl around it, and the three stars
+   settle into the exact line v2-node-icon.jsx's own "align" icon shows -
+   the icon's promise, played out once in full before the node it
+   decorates begins. The outro reuses the settled-star markup with no
+   swirl at all (its own three stars are simply rendered already in place)
+   so it reads as "still holding the pose the intro landed on." */
+.alignment-ceremony {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: radial-gradient(120% 90% at 50% 20%, #241c38 0%, var(--ink) 70%);
+  overflow: hidden;
+}
+
+.alignment-ceremony-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 360px;
+  text-align: center;
+}
+
+.alignment-ceremony-card-wrap {
+  position: relative;
+  width: 176px;
+  margin-bottom: 68px;
+}
+
+/* The frame is what actually scales/wobbles/shimmers - ::after generated
+   content doesn't render on a replaced element like <img> in any browser,
+   so the shimmer has to live on a wrapping <div> (this one), never on
+   .alignment-ceremony-art (the <img>) directly. That was the original bug:
+   an early version put .is-shimmering/.is-aligned-glimmer straight on the
+   <img> and nothing ever rendered. */
+.alignment-ceremony-art-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--card-ratio);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--accent-a45), 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+
+.alignment-ceremony-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The outro's own simple entrance - it opens already "aligned," there's
+   no swirl to grow alongside, just a quick settle-in. */
+.alignment-ceremony-art-frame.is-fading-in {
+  opacity: 0;
+  animation: alignment-art-in 500ms ease forwards;
+}
+
+@keyframes alignment-art-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* The intro's own build-up (Simon's spec): starts at a fifth size, wobbles
+   while it grows, and reaches full size exactly as the stars' own swirl
+   (alignment-star-swirl, 2000ms + up to 360ms of stagger = 2360ms) settles
+   - same duration here, so the card and the stars land together. A
+   shimmer sweeps across it a few times over that same stretch (590ms per
+   pass * 4 = 2360ms, the same shared duration again). */
+.alignment-ceremony-art-frame.is-entering {
+  opacity: 0;
+  animation: alignment-card-grow 2360ms ease-out forwards;
+}
+
+@keyframes alignment-card-grow {
+  0% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  8% { opacity: 1; }
+  18% { transform: scale(0.35) rotate(-9deg); }
+  32% { transform: scale(0.52) rotate(7deg); }
+  46% { transform: scale(0.68) rotate(-6deg); }
+  60% { transform: scale(0.82) rotate(4deg); }
+  74% { transform: scale(0.92) rotate(-2deg); }
+  88% { transform: scale(0.98) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.alignment-ceremony-art-frame.is-entering::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(242, 237, 227, 0) 0%,
+    rgba(242, 237, 227, 0.55) 45%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(242, 237, 227, 0.55) 55%,
+    rgba(242, 237, 227, 0) 100%
+  );
+  animation: shimmer-sweep 590ms ease-in-out 4;
+  pointer-events: none;
+}
+
+/* The payoff the whole swirl builds to: once the three stars are fully
+   settled (alignment-check-intro.jsx flips to .is-aligned-glimmer right
+   when its own "revealed" state goes true, whether that's the natural
+   timeout or a tap-to-skip) the card waits a half-beat, then catches a
+   bright half-second glimmer of its own - reuses cloze-round-player.jsx's
+   own wide sweep keyframe, just timed to 500ms instead of that format's
+   own pace, and held off by the same 500ms so it reads as the stars'
+   own landing before the card responds, not simultaneous with it. The
+   outro opens already in the settled state, so it always carries this
+   class and the same wait-then-glimmer plays once on mount instead. */
+.alignment-ceremony-art-frame.is-aligned-glimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -90%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(242, 237, 227, 0) 0%,
+    rgba(242, 237, 227, 0.75) 35%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(242, 237, 227, 0.75) 65%,
+    rgba(242, 237, 227, 0) 100%
+  );
+  animation: shimmer-sweep-wide 500ms ease;
+  animation-delay: 500ms;
+  animation-fill-mode: backwards;
+  pointer-events: none;
+}
+
+/* Stars/planets are centred on the card via top/left 50% + this
+   transform's own translate(-50%, -50%) baseline - the swirl and settled
+   keyframes both add their motion on top of that same centring, never
+   instead of it. */
+.alignment-orbit-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  color: var(--accent-bright);
+  filter: drop-shadow(0 0 6px var(--accent-bright));
+  opacity: 0;
+  animation: alignment-star-swirl 2000ms cubic-bezier(0.25, 0.6, 0.3, 1) forwards;
+}
+
+/* A fixed near-card orbit for the first three stops (shared by all three
+   stars, staggered apart only by animation-delay) - each star's own
+   --final-x/y only takes over for the last two stops, so widening the
+   gap between the card and the settled line (below it, not over the art)
+   can't blow up how far the early orbit swings. */
+@keyframes alignment-star-swirl {
+  0% {
+    opacity: 0;
+    transform: translate(-16px, -132px) rotate(-40deg) scale(0.3);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(118px, -36px) rotate(140deg) scale(0.55);
+  }
+  55% {
+    transform: translate(54px, 86px) rotate(230deg) scale(0.75);
+  }
+  80% {
+    transform: translate(calc(var(--final-x) * 0.65), calc(var(--final-y) * 0.72))
+      rotate(320deg) scale(0.9);
+  }
+  100% {
+    opacity: var(--final-opacity);
+    transform: translate(var(--final-x), var(--final-y)) rotate(360deg) scale(var(--final-scale));
+  }
+}
+
+.alignment-orbit-star.is-settled {
+  animation: none;
+  opacity: var(--final-opacity);
+  transform: translate(var(--final-x), var(--final-y)) scale(var(--final-scale));
+}
+
+/* Pure atmosphere - a wider, lazier drift than the stars', fading out
+   instead of landing, so the three-star line stays the unambiguous
+   payoff of the swirl. */
+.alignment-orbit-planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: alignment-planet-drift 2200ms ease-out forwards;
+}
+
+@keyframes alignment-planet-drift {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  20% { opacity: 0.9; }
+  55% {
+    opacity: 0.7;
+    transform: translate(calc(var(--angle) * 120px), -70px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--angle) * 150px), -20px) scale(0.6);
+  }
+}
+
+.alignment-orbit-planet.is-settled {
+  animation: none;
+  opacity: 0;
+}
+
+.alignment-ceremony-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, var(--parchment) 20%, var(--accent-bright) 50%, var(--parchment) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  animation:
+    alignment-title-in 550ms ease forwards,
+    alignment-title-glow 2.4s ease-in-out 950ms infinite;
+  animation-delay: 1900ms, 1900ms;
+}
+
+@keyframes alignment-title-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes alignment-title-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.35); }
+}
+
+.alignment-ceremony-line {
+  margin: 0;
+  max-width: 300px;
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted-warm);
+  opacity: 0;
+  animation: alignment-title-in 500ms ease forwards;
+  animation-delay: 2250ms;
+}
+
+.alignment-ceremony-action {
+  margin-top: 8px;
+  max-width: 220px;
+  opacity: 0;
+  animation: alignment-title-in 450ms ease forwards;
+  animation-delay: 2500ms;
+}
+
+/* Tapping to skip (alignment-check-intro.jsx's own skip()) — or the
+   outro, which is always rendered already-settled — snaps every element
+   straight to its finished state instead of restarting or jump-cutting
+   mid-flight. */
+.alignment-ceremony.is-revealed .alignment-ceremony-title,
+.alignment-ceremony.is-revealed .alignment-ceremony-line,
+.alignment-ceremony.is-revealed .alignment-ceremony-action {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alignment-ceremony-art-frame,
+  .alignment-orbit-star,
+  .alignment-orbit-planet,
+  .alignment-ceremony-title,
+  .alignment-ceremony-line,
+  .alignment-ceremony-action {
+    animation: none;
+    opacity: 1;
+  }
+  .alignment-ceremony-art-frame::after {
+    display: none;
+  }
+  .alignment-orbit-star {
+    transform: translate(var(--final-x), var(--final-y)) scale(var(--final-scale));
+  }
+  .alignment-orbit-planet {
+    display: none;
+  }
+}
+
 /* Half the shared .prompt size and centred — Simon's call for v2's drag
    screens specifically, scoped through .drag-layout so v1's format screens
    (which don't use it) keep the original size. */

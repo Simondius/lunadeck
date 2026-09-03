@@ -424,71 +424,96 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "A real choice stands in front of you — has every angle actually been {b1}?",
+          "text": "A real {b2} stands in front of you — has every angle actually been {b1}?",
           "blanks": [
             {
               "key": "b1",
               "answer": "weighed"
+            },
+            {
+              "key": "b2",
+              "answer": "choice"
             }
           ],
           "distractors": [
-            "turnip"
+            "turnip",
+            "harmonica"
           ]
         },
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "Two paths, both valid — the challenge is {b1}, not lacking options",
+          "text": "Two paths, both valid — the {b2} is {b1}, not lacking options",
           "blanks": [
             {
               "key": "b1",
               "answer": "choosing"
+            },
+            {
+              "key": "b2",
+              "answer": "challenge"
             }
           ],
           "distractors": [
-            "unicycle"
+            "unicycle",
+            "bagpipes"
           ]
         },
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "Choosing with the {b1}, not just the head",
+          "text": "{b2} with the {b1}, not just the head",
           "blanks": [
             {
               "key": "b1",
               "answer": "heart"
+            },
+            {
+              "key": "b2",
+              "answer": "Choosing"
             }
           ],
           "distractors": [
-            "geyser"
+            "geyser",
+            "xylophone"
           ]
         },
         {
           "id": "n9-r4",
           "type": "cloze",
-          "text": "Holding the masculine and feminine, or two sides of yourself, in {b1}",
+          "text": "Holding the {b2} and feminine, or two sides of yourself, in {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "balance"
+            },
+            {
+              "key": "b2",
+              "answer": "masculine"
             }
           ],
           "distractors": [
-            "reception"
+            "reception",
+            "sandwich"
           ]
         },
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "A {b1} or union that asks you to listen to more than one voice — body, mind, and spirit",
+          "text": "A {b1} or union that asks you to {b2} to more than one voice — body, mind, and spirit",
           "blanks": [
             {
               "key": "b1",
               "answer": "partnership"
+            },
+            {
+              "key": "b2",
+              "answer": "listen"
             }
           ],
           "distractors": [
-            "exploration"
+            "exploration",
+            "meatball"
           ]
         }
       ]

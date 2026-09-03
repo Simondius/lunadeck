@@ -199,22 +199,26 @@ function drawSillySentences(count) {
 // Simon's own calibration: a paragraph under 10 words only needs one or two
 // blanks, and one around 30 words should carry three to five - a fixed
 // count regardless of length either tests too little of a long paragraph
-// or crowds a short one.
+// or crowds a short one. Floor is 2, not 1 (0094: every cloze round needs
+// at least two blanks, full stop, even a single short sentence).
 function targetBlankCount(wordCount) {
-  return Math.max(1, Math.min(5, Math.round(wordCount / 8)));
+  return Math.max(2, Math.min(5, Math.round(wordCount / 8)));
 }
 
 // Blanks up to `targetBlankCount(words in text)` distinct real keywords
 // (falling back to blankRealWord's own longest-real-word rule once
-// keywords run out), then trims to just the sentence(s) that ended up
+// keywords run out - which a short sentence with only one or two real
+// keywords hits immediately for its second/third blank, same as the first
+// blank always could), then trims to just the sentence(s) that ended up
 // holding a blank - same reasoning as 0085, generalized past a fixed
 // one-or-two-blank assumption. If the trimmed result still runs past
 // `wordLimit` (multiple blanks landing in their own separate long
 // sentences), drops blanks from the end, restoring each one's real word,
-// until it fits or only one blank remains.
+// until it fits - but never below 2 (0094), even if that means the
+// trimmed text runs a little past wordLimit; the blank-count floor wins.
 function buildScaledCloze(text, keywords, wordLimit) {
   const wordCount = text.trim().split(/\s+/).length;
-  const target = Math.max(1, Math.min(targetBlankCount(wordCount), keywords.length || 1));
+  const target = Math.max(2, Math.min(targetBlankCount(wordCount), 5));
 
   let working = text;
   const blanks = [];
@@ -229,7 +233,7 @@ function buildScaledCloze(text, keywords, wordLimit) {
     blanks.push({ key, answer: result.answer });
   }
 
-  while (blanks.length > 1) {
+  while (blanks.length > 2) {
     const trimmed = trimToBlankSentences(working);
     if (trimmed.split(/\s+/).length <= wordLimit) return { text: trimmed, blanks };
     const last = blanks.pop();

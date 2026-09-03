@@ -330,85 +330,115 @@
         {
           "id": "n9-r1",
           "type": "cloze",
-          "text": "Ready to act the instant the moment calls for it — no {b1}",
+          "text": "Ready to act the {b2} the moment calls for it — no {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "hesitation"
+            },
+            {
+              "key": "b2",
+              "answer": "instant"
             }
           ],
           "distractors": [
-            "pineapple"
+            "pineapple",
+            "clipboard"
           ]
         },
         {
           "id": "n9-r2",
           "type": "cloze",
-          "text": "Sets clear {b1} and claims space without apology",
+          "text": "Sets clear {b1} and claims space without {b2}",
           "blanks": [
             {
               "key": "b1",
               "answer": "boundaries"
+            },
+            {
+              "key": "b2",
+              "answer": "apology"
             }
           ],
           "distractors": [
-            "Monday"
+            "Monday",
+            "trampoline"
           ]
         },
         {
           "id": "n9-r3",
           "type": "cloze",
-          "text": "Gives shape and order to what was still raw {b1}",
+          "text": "Gives {b2} and order to what was still raw {b1}",
           "blanks": [
             {
               "key": "b1",
               "answer": "potential"
+            },
+            {
+              "key": "b2",
+              "answer": "shape"
             }
           ],
           "distractors": [
-            "envelope"
+            "envelope",
+            "eggplant"
           ]
         },
         {
           "id": "n9-r4",
           "type": "cloze",
-          "text": "Leadership through {b1}, immediate action",
+          "text": "{b2} through {b1}, immediate action",
           "blanks": [
             {
               "key": "b1",
               "answer": "decisive"
+            },
+            {
+              "key": "b2",
+              "answer": "Leadership"
             }
           ],
           "distractors": [
-            "green"
+            "green",
+            "rubber band"
           ]
         },
         {
           "id": "n9-r5",
           "type": "cloze",
-          "text": "Spring's {b1} — breaking through and pushing forward",
+          "text": "{b2} {b1} — breaking through and pushing forward",
           "blanks": [
             {
               "key": "b1",
               "answer": "life force"
+            },
+            {
+              "key": "b2",
+              "answer": "Spring's"
             }
           ],
           "distractors": [
-            "dreams"
+            "dreams",
+            "flipper"
           ]
         },
         {
           "id": "n9-r6",
           "type": "cloze",
-          "text": "A spark-first, think-later {b1}; leads with action",
+          "text": "A {b2}, think-later {b1}; leads with action",
           "blanks": [
             {
               "key": "b1",
               "answer": "instinct"
+            },
+            {
+              "key": "b2",
+              "answer": "spark-first"
             }
           ],
           "distractors": [
-            "reception"
+            "reception",
+            "Sunday"
           ]
         }
       ]

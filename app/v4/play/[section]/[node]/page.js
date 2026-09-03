@@ -4,6 +4,7 @@ import { getNextLessonStep } from "@/data/v4/units";
 import mashupNodes from "@/data/v4/mashup_nodes.json";
 import capstoneNodes from "@/data/v4/capstone_nodes.json";
 import NodeSession from "@/components/lesson-v2/node-session";
+import AlignmentCheckSession from "@/components/lesson-v2/alignment-check-session";
 
 // v4's play screen, one lesson node at a time — /v4/play/<section>/<node>.
 // Same NodeSession the v2/v3 lesson content already uses (docs/decisions
@@ -80,13 +81,11 @@ export default async function V4NodePlayPage({ params, searchParams }) {
     if (!node || nodeNumber !== 1) notFound();
     const firstRound = node.rounds[0];
     return (
-      <NodeSession
+      <AlignmentCheckSession
         key={`${sectionParam}-${node.id}`}
         cardKey={firstRound.cardKey}
         cardName={firstRound.cardName}
         node={node}
-        nodeNumber={1}
-        totalNodes={1}
         sectionSlug={sectionParam}
         nextHref={nextHref}
         nextLabel={nextLabel}

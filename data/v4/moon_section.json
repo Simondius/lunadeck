@@ -304,11 +304,15 @@
         {
           "id": "major_18_moon-n7-r185",
           "type": "cloze",
-          "text": "Ruled by Neptune, planet of {b1}, this card invites us into the unknown to face repeating patterns and grow.",
+          "text": "Ruled by Neptune, planet of {b1}, this card invites us into the unknown to face {b2} patterns and grow.",
           "blanks": [
             {
               "key": "b1",
               "answer": "mystery"
+            },
+            {
+              "key": "b2",
+              "answer": "repeating"
             }
           ],
           "distractors": [

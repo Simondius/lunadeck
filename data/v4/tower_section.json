@@ -22,7 +22,7 @@
               "correct": false
             },
             {
-              "text": "purple",
+              "text": "gargoyle",
               "correct": false
             }
           ]
@@ -316,9 +316,9 @@
             }
           ],
           "distractors": [
-            "bicycle",
-            "broccoli",
-            "ladder"
+            "cinnamon",
+            "paddle",
+            "volcano"
           ]
         }
       ]

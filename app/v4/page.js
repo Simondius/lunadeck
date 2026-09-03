@@ -86,7 +86,7 @@ export default function V4Path() {
   return (
     <main className="shell starfield">
       <div className="trail">
-        {UNITS.map((unit) => {
+        {UNITS.map((unit, unitPosition) => {
           const unitKey = `u${unit.unit}`;
           const shut = collapsed.has(unitKey);
           const steps = stepsForUnit(unit);
@@ -104,7 +104,13 @@ export default function V4Path() {
                 aria-expanded={!shut}
                 aria-controls={`v4-${unitKey}-steps`}
               >
-                <span className="trail-unit-index">Unit {unit.unit}</span>
+                {/* The number shown is this unit's position in the path
+                    (UNITS' own array order), not its stored `unit:` id -
+                    Simon's call: the learner should see sequential unit
+                    numbers regardless of how the path itself is ordered
+                    internally (0073's own reorder, and any reorder after
+                    it), not the original 1-8 identifiers with gaps. */}
+                <span className="trail-unit-index">Unit {unitPosition + 1}</span>
                 <span className="trail-unit-name">{unit.title}</span>
                 <span className="trail-chevron" aria-hidden="true" />
               </button>

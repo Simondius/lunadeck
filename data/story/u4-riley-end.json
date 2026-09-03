@@ -13,7 +13,7 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "narration",
-      "text": "Riley's back, having turned the old band down for good."
+      "text": "Riley's back, the tour further along, her old band's offer well behind her now."
     },
     {
       "type": "reveal",
@@ -21,7 +21,7 @@
       "emotion": "neutral",
       "speaker": "reader",
       "text": "You draw for the present.",
-      "card": "major_06_lovers",
+      "card": "major_03_empress",
       "slot": 0
     },
     {
@@ -30,12 +30,12 @@
       "emotion": "neutral",
       "slot": 0,
       "options": [
-        { "text": "You're still living inside the choice you just made.", "correct": true },
-        { "text": "This means you made the wrong choice.", "correct": false, "reaction": "anger" },
-        { "text": "The present has nothing to do with that choice.", "correct": false, "reaction": "confusion" }
+        { "text": "You're still living inside the thing you've been growing.", "correct": true },
+        { "text": "This means the songs stopped mattering.", "correct": false, "reaction": "anger" },
+        { "text": "The present has nothing to do with that.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Lovers doesn't close once you decide — you're still standing inside the choice, and that's exactly what the present position means here."
+        "The Empress doesn't close once something's shared — you're still standing inside what you grew, and that's exactly what the present position means here."
       ]
     },
     {
@@ -43,7 +43,7 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"So is the Fool card telling me I made the reckless choice by staying on tour?\""
+      "text": "\"So does the Fool in my future mean everything I built with the songs stops mattering — like I'm starting completely over?\""
     },
     {
       "type": "reveal",
@@ -60,12 +60,12 @@
       "emotion": "confusion",
       "slot": 1,
       "options": [
-        { "text": "No — it's about what's opening up next, not the choice itself.", "correct": true },
-        { "text": "Yes, it's confirming you were reckless.", "correct": false, "reaction": "anger" },
+        { "text": "No — it's about what's opening up next, not erasing what came before.", "correct": true },
+        { "text": "Yes, it wipes the slate clean.", "correct": false, "reaction": "anger" },
         { "text": "It has nothing to do with what's ahead.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool in the future position isn't grading the choice you already made — it's pointing at the fresh start that choice is about to open."
+        "The Fool in the future position isn't erasing the ground you grew — it's pointing at the fresh start that ground is about to open onto."
       ]
     },
     {
@@ -73,7 +73,7 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"How does staying with a choice lead to a whole fresh start, though?\""
+      "text": "\"How does something I've been quietly growing lead to a whole fresh start, though?\""
     },
     {
       "type": "choice",
@@ -81,12 +81,12 @@
       "emotion": "confusion",
       "slot": 1,
       "options": [
-        { "text": "Committing to it is what clears room for what's next.", "correct": true },
+        { "text": "Growing it all the way is what clears room for the next leap.", "correct": true },
         { "text": "It doesn't — the two cards contradict each other.", "correct": false, "reaction": "confusion" },
-        { "text": "The Lovers cancels out whatever the Fool says.", "correct": false, "reaction": "confusion" }
+        { "text": "The Empress cancels out whatever the Fool says.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "Standing firmly in the choice is exactly what makes room for the next fresh start — the Lovers settles something so the Fool has somewhere new to go."
+        "Standing fully in what you've grown is exactly what makes room for the next leap — the Empress ripened something so the Fool has ground to jump from."
       ]
     },
     {
@@ -94,7 +94,7 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "client",
-      "text": "\"What if I still second-guess it later?\""
+      "text": "\"What if the thing I've been growing changes completely once the tour ends?\""
     },
     {
       "type": "choice",
@@ -102,12 +102,12 @@
       "emotion": "neutral",
       "slot": 0,
       "options": [
-        { "text": "That's normal — a real choice gets weighed even after.", "correct": true },
-        { "text": "You shouldn't ever think about it again.", "correct": false, "reaction": "anger" },
-        { "text": "Second-guessing means the choice was wrong.", "correct": false, "reaction": "confusion" }
+        { "text": "That's fine — abundance means letting it flourish, not staying fixed.", "correct": true },
+        { "text": "It shouldn't ever change.", "correct": false, "reaction": "anger" },
+        { "text": "Change means it was never real to begin with.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "Weighing every angle isn't a one-time event — the Lovers doesn't mind you circling back to check your own reasoning."
+        "Abundance that comes from allowing things to flourish, not forcing them — that includes letting it turn into something you didn't originally picture."
       ]
     },
     {
@@ -115,7 +115,7 @@
       "character": "riley",
       "emotion": "realisation",
       "speaker": "client",
-      "text": "\"Okay. I think I finally get it — I'm still living inside a choice I already made, and what's next doesn't have to undo it. Thank you for that.\""
+      "text": "\"Okay. I think I finally get it — the thing I started growing before all this isn't finished, it just found its next leap. Thank you for that.\""
     }
   ]
 }

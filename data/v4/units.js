@@ -16,13 +16,27 @@ import capstoneNodes from "./capstone_nodes.json";
 // (app/story/play/[chapter]/page.js, docs/decisions/0064) can compute
 // "what comes after this narrative node in the actual path" without
 // importing a "use client" page component.
+// Path order is plain 1-8 (0073 briefly reordered this to 1,3,5,2,4,6 to
+// avoid two units teaching the same card back to back, then Simon's
+// follow-up call revised the fix: keep strict Dave/Riley alternation
+// (odd units are always Dave, even always Riley - that's what makes plain
+// numeric order alternate on its own) and avoid repeats a different way -
+// reassign *which card* Riley's three units teach, since her own content
+// was the only thing standing in the way of both goals at once. Dave's
+// units (1/3/5) keep their original Fool/Lovers/Empress cardSlugs and
+// content untouched; Riley's (2/4/6) now teach Empress/Fool/Lovers -
+// Empress -> Fool -> Lovers, not her original Fool -> Lovers -> Empress -
+// so the combined sequence never repeats a card two units running:
+// Fool, Empress, Lovers, Fool, Empress, Lovers. Each of Riley's own units'
+// start/end chapter files (u2/u4/u6-riley-*) were rewritten to match
+// (docs/decisions/0074) - same file names, same slugs, new content.
 export const UNITS = [
   { unit: 1, character: "dave", cardSlug: "fool", startSlug: "u1-dave-start", endSlug: "u1-dave-end", title: "Dave's Leap of Fool" },
-  { unit: 2, character: "riley", cardSlug: "fool", startSlug: "u2-riley-start", endSlug: "u2-riley-end", title: "Riley's Fool on Tour" },
+  { unit: 2, character: "riley", cardSlug: "empress", startSlug: "u2-riley-start", endSlug: "u2-riley-end", title: "Riley's Empress on Tour" },
   { unit: 3, character: "dave", cardSlug: "lovers", startSlug: "u3-dave-start", endSlug: "u3-dave-end", title: "Dave and the Business of Lovers" },
-  { unit: 4, character: "riley", cardSlug: "lovers", startSlug: "u4-riley-start", endSlug: "u4-riley-end", title: "Riley's Band of Lovers" },
+  { unit: 4, character: "riley", cardSlug: "fool", startSlug: "u4-riley-start", endSlug: "u4-riley-end", title: "Riley's Band of Fools" },
   { unit: 5, character: "dave", cardSlug: "empress", startSlug: "u5-dave-start", endSlug: "u5-dave-end", title: "Dave Builds His Empress" },
-  { unit: 6, character: "riley", cardSlug: "empress", startSlug: "u6-riley-start", endSlug: "u6-riley-end", title: "Riley Pens Her Empress" },
+  { unit: 6, character: "riley", cardSlug: "lovers", startSlug: "u6-riley-start", endSlug: "u6-riley-end", title: "Riley Pens Her Lovers" },
   // Two cumulative-review units (docs/decisions/0058) built from the two
   // most repetitive nodes CUT_INDICES trims from each of the three cards
   // above (Simon's own call) - a "review" unit's lessons span all three
@@ -115,10 +129,28 @@ const LABELS = {
 // 0065) - two sibling units teaching the same card (1&2, 3&4, 5&6) link
 // to the exact same lesson routes, so a lesson node finishing has no way
 // to know which unit's own end-narrative "next" should mean without it.
+// Two units teach every single-card slug (Dave's and Riley's own take on
+// it - 1&2 for the Fool, 3&4 the Lovers, 5&6 the Empress). Whichever of
+// the two comes first in the *path's own order* (UNITS above, not raw
+// unit-number order, so this still means the right thing after 0073's
+// reorder) keeps that card's first lesson node labelled "Meet the X"; the
+// second gets "Go Deeper into the X" instead - Simon's call, since a
+// returning learner already met the card once by then.
+export function firstUnitForCard(cardSlug) {
+  return UNITS.find((u) => u.cardSlug === cardSlug && u.kind !== "review");
+}
+
+function displayCardName(cardSlug) {
+  return cardSlug.charAt(0).toUpperCase() + cardSlug.slice(1);
+}
+
 function singleCardLessonSteps(unit) {
   const cardSlug = unit.cardSlug;
   const section = SECTIONS.find((s) => s.slug === cardSlug);
-  const labels = LABELS[cardSlug] ?? [];
+  const labels = [...(LABELS[cardSlug] ?? [])];
+  if (firstUnitForCard(cardSlug)?.unit !== unit.unit) {
+    labels[0] = `Go Deeper into the ${displayCardName(cardSlug)}`;
+  }
   const cut = new Set(CUT_INDICES[cardSlug] ?? []);
   const steps = section.data.nodes
     .map((node, i) => ({ node, i }))

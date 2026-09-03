@@ -12,14 +12,14 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "narration",
-      "text": "Deep into the tour now, Riley's got something new to ask about."
+      "text": "Deep into the tour now, Riley's got something new to weigh."
     },
     {
       "type": "dialogue",
       "character": "riley",
-      "emotion": "realisation",
+      "emotion": "confusion",
       "speaker": "client",
-      "text": "\"I've been writing so much more since I joined. It doesn't even feel like work. Is something actually coming out of it?\""
+      "text": "\"The band's other writer wants to start a real partnership with me once the tour wraps — splitting everything evenly. I don't know if I should say yes.\""
     },
     {
       "type": "reveal",
@@ -27,39 +27,39 @@
       "emotion": "neutral",
       "speaker": "reader",
       "text": "You turn over the top card.",
-      "card": "major_03_empress"
+      "card": "major_06_lovers"
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
       "options": [
-        { "text": "Something's ready to be born — an idea taking real shape.", "correct": true },
-        { "text": "It means you're at the edge of something unrelated.", "correct": false, "reaction": "confusion" },
-        { "text": "It means you'll have to choose between writing and the tour.", "correct": false, "reaction": "confusion" }
+        { "text": "A real choice, worth weighing from every angle — not a formality.", "correct": true },
+        { "text": "It means you should obviously say no.", "correct": false, "reaction": "anger" },
+        { "text": "This card doesn't apply to decisions like that.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Empress marks the point where something that's just been forming quietly is finally ready to become real."
+        "A real choice stands in front of you — has every angle actually been weighed? That's the whole question the Lovers is asking, not which answer is correct."
       ]
     },
     {
       "type": "dialogue",
       "character": "riley",
-      "emotion": "neutral",
+      "emotion": "confusion",
       "speaker": "client",
-      "text": "\"Is it okay that I'm not stressed about any of this right now?\""
+      "text": "\"Logically it's a great opportunity. But something about it doesn't sit right, and I can't explain why.\""
     },
     {
       "type": "choice",
       "character": "riley",
-      "emotion": "neutral",
+      "emotion": "confusion",
       "options": [
-        { "text": "More than okay — it's a reminder to care for yourself first.", "correct": true },
-        { "text": "You should be more stressed than you are.", "correct": false, "reaction": "anger" },
-        { "text": "Stress levels don't factor into a reading.", "correct": false, "reaction": "confusion" }
+        { "text": "Choose with your heart too, not just what makes sense on paper.", "correct": true },
+        { "text": "Ignore that feeling completely.", "correct": false, "reaction": "anger" },
+        { "text": "Only the logical case matters here.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Empress doesn't treat calm as denial — caring for yourself first is the whole point, not something to feel guilty about."
+        "Choosing with the heart, not just the head — the Lovers doesn't trust a decision that only survives on a spreadsheet."
       ]
     },
     {

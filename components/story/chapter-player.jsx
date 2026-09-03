@@ -5,6 +5,7 @@ import Link from "next/link";
 import { masterForKey } from "@/lib/rounds";
 import { registerNodeSkip } from "@/lib/dev-console-bridge";
 import SceneImage from "@/components/story/scene-image";
+import UnitCompleteCelebration from "@/components/story/unit-complete-celebration";
 
 const ASSETS = "/assets/reading-scene-sketch-v2";
 
@@ -13,11 +14,14 @@ const CARD_SHIMMER_MS = 1000;
 const CARD_EXIT_MS = 650;
 const BUBBLE_DISMISS_MS = 500;
 
-// Persisted across chapters (0056) - once the learner's tapped through
-// this many real advances, they've got the mechanic, in this chapter or
-// any other Story chapter.
-const TAP_HINT_KEY = "lunadeck.story.taphint.count.v1";
-const TAP_HINT_THRESHOLD = 4;
+// How long the stage sits tappable-and-quiet before "Tap to continue"
+// fades in - Simon's call: every step that's just waiting on the reader
+// (a card sitting revealed with no button, a dialogue line, an
+// elaboration bubble), not a one-time onboarding hint that stops showing
+// after a few real taps. It fades back out the instant the reader acts,
+// whether that's the tap that answers it or the beat moving on some other
+// way - see the effect below.
+const TAP_HINT_DELAY_MS = 1000;
 
 // The pile's own on-screen spot (small, edge-on, at the deck) and the
 // focus spot a revealed card holds - tall, facing the viewer, taking up
@@ -89,7 +93,18 @@ function shuffle(items) {
 // overlays it directly, plain narration/instruction text sits below in
 // the content panel instead (0056), and that panel is otherwise reserved
 // for choices alone (0050).
-export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story", backLabel = "Back to Story" }) {
+export default function ChapterPlayer({
+  chapter,
+  nextChapter,
+  // Set only for the end-narrative of the first unit to teach a given
+  // card (app/story/play/[chapter]/page.js) - `{cardKey, cardName,
+  // unitNumber}`. Swaps the plain "chapter complete" screen for the full
+  // unlock celebration (docs/decisions/0076) instead of just a "next
+  // step" button.
+  unlockUnit,
+  backHref = "/story",
+  backLabel = "Back to Story",
+}) {
   const [beatIndex, setBeatIndex] = useState(0);
   const [reactionEmotion, setReactionEmotion] = useState(null);
   // The brief shake/flash on the exact option just tapped wrong, separate
@@ -143,10 +158,11 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
   const skipResolverRef = useRef(null);
   const characterRef = useRef(null);
   const bubbleRef = useRef(null);
-  // Once the learner's tapped through a handful of beats, "Tap to
-  // continue" has done its job (0056) - persisted across chapters, not
-  // just this one, since the whole point is "they already get it."
-  const [tapHintDismissed, setTapHintDismissed] = useState(true);
+  // "Tap to continue" fades in after TAP_HINT_DELAY_MS of the stage
+  // sitting tappable and untouched - see the effect further down, once
+  // `tappable` itself exists, for what actually drives this.
+  const [tapHintVisible, setTapHintVisible] = useState(false);
+  const tapHintTimeoutRef = useRef(null);
   // The tail's horizontal offset from the bubble's own left edge, in
   // pixels (0056: "dynamically position the arrow... so it always points
   // to the character's face") - measured off the actual rendered DOM
@@ -199,27 +215,6 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
     window.addEventListener("pointerdown", onTap);
     return () => window.removeEventListener("pointerdown", onTap);
   }, []);
-
-  useEffect(() => {
-    try {
-      const count = Number(window.localStorage.getItem(TAP_HINT_KEY) ?? 0);
-      setTapHintDismissed(count >= TAP_HINT_THRESHOLD);
-    } catch {
-      // Blocked storage - just leave the hint showing every time.
-      setTapHintDismissed(false);
-    }
-  }, []);
-
-  function recordRealTap() {
-    if (tapHintDismissed) return;
-    try {
-      const count = Number(window.localStorage.getItem(TAP_HINT_KEY) ?? 0) + 1;
-      window.localStorage.setItem(TAP_HINT_KEY, String(count));
-      if (count >= TAP_HINT_THRESHOLD) setTapHintDismissed(true);
-    } catch {
-      // Blocked storage - the hint just keeps showing.
-    }
-  }
 
   // Re-measured whenever the client bubble's own text (and so its width)
   // changes, or the character swaps sides - the face itself doesn't move
@@ -447,7 +442,6 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
     if (atEnd) return;
     if (elaborationQueue) {
       if (bubbleDismissing) return;
-      recordRealTap();
       setBubbleDismissing(true);
       window.setTimeout(() => {
         setBubbleDismissing(false);
@@ -468,7 +462,6 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
       // stage isn't even tappable until cardPhase is "shown", see
       // `tappable` below.)
       if (cardPhase !== "shown") return;
-      recordRealTap();
       if (beat.slot != null) {
         setSlots((prev) => {
           const next = [...prev];
@@ -482,7 +475,6 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
       return;
     }
     if (beat.type !== "dialogue") return;
-    recordRealTap();
     if (beat.speaker === "client") {
       if (bubbleDismissing) return;
       setBubbleDismissing(true);
@@ -570,6 +562,46 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
       (beat.type === "reveal" && cardPhase === "shown"));
   const showCaption =
     !atEnd && beat.type === "dialogue" && (beat.speaker === "reader" || beat.speaker === "narration");
+
+  // "Tap to continue" fades in once the stage has sat tappable and
+  // untouched for TAP_HINT_DELAY_MS - not the instant it becomes tappable,
+  // which would flash a hint at a reader who was already about to tap
+  // anyway. Depends on more than `tappable` itself since that stays true
+  // across, say, one dialogue line into the next - beatIndex/cardPhase/
+  // elaborationStep changing is what actually means "this is a new thing
+  // to wait on," and each one restarts the timer. Whatever ends the wait -
+  // the tap that answers it, or `tappable` going false outright (a choice
+  // beat's own buttons, the chapter ending) - clears the timeout and, via
+  // this same effect re-running, drops tapHintVisible back to false, which
+  // is what lets the hint fade out via .story-tap-hint's own CSS
+  // transition rather than just vanishing.
+  useEffect(() => {
+    window.clearTimeout(tapHintTimeoutRef.current);
+    setTapHintVisible(false);
+    if (!tappable) return undefined;
+    tapHintTimeoutRef.current = window.setTimeout(() => setTapHintVisible(true), TAP_HINT_DELAY_MS);
+    return () => window.clearTimeout(tapHintTimeoutRef.current);
+  }, [tappable, beatIndex, cardPhase, elaborationStep]);
+
+  // The unit-unlock celebration takes over the whole screen rather than
+  // nesting inside this component's own stage/content layout - it's its
+  // own <main>, same pattern node-session.jsx's "complete" stage uses for
+  // the same reason (a genuinely different screen, not a variant of this
+  // one). Falls back to the plain "chapter complete" screen below if
+  // there's no nextChapter to hand off to (shouldn't happen for a real
+  // unlock, but a missing next step has nowhere useful to send this on to
+  // anyway).
+  if (atEnd && unlockUnit && nextChapter) {
+    return (
+      <UnitCompleteCelebration
+        cardKey={unlockUnit.cardKey}
+        cardName={unlockUnit.cardName}
+        unitNumber={unlockUnit.unitNumber}
+        keywords={unlockUnit.keywords}
+        nextHref={nextChapter.href}
+      />
+    );
+  }
 
   return (
     <main
@@ -694,8 +726,6 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
             <span className="story-bubble-line">{elaborationQueue[elaborationStep]}</span>
           </div>
         ) : null}
-
-        {tappable && !tapHintDismissed ? <span className="story-tap-hint">Tap to continue</span> : null}
       </div>
 
       <div className="story-content">
@@ -703,6 +733,18 @@ export default function ChapterPlayer({ chapter, nextChapter, backHref = "/story
           <div className={beat.speaker === "narration" ? "story-caption is-narration" : "story-caption"}>
             {beat.text}
           </div>
+        ) : null}
+        {/* Below the stage, not overlaid on it (Simon's call) - the old
+            position (inside .story-stage, bottom-right) sat wherever a
+            speech bubble could also land, and got obscured by one. Every
+            beat this can show for already renders nothing else in
+            .story-content-main (see `tappable`'s own conditions vs. the
+            atEnd/choice/draw branches below), so there's nothing for it
+            to compete with here either. */}
+        {tappable ? (
+          <span className={tapHintVisible ? "story-tap-hint is-visible" : "story-tap-hint"}>
+            Tap to continue
+          </span>
         ) : null}
         <div className="story-content-main">
           {atEnd ? (

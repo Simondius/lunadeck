@@ -5,6 +5,7 @@ import Link from "next/link";
 import TutorialGhost from "./tutorial-ghost";
 import { Inspector } from "@/components/lesson/options";
 import { masterForKey, seededShuffle } from "@/lib/rounds";
+import { consumeTutorialSlot } from "@/lib/tutorial-gate";
 
 // Same brief chip-reject timing as drag-chip.jsx/zone-chip.jsx; the blank
 // carries the drama, the chip just gets out of the way fast.
@@ -169,8 +170,11 @@ export default function ClozeRoundPlayer({
   const [filled, setFilled] = useState({}); // { [blankKey]: answerText }
   const [stage, setStage] = useState("playing"); // playing | ready
   // Same rule as every other round type: the tutorial only plays when the
-  // round is marked for it, and never on a second-look replay.
-  const [phase, setPhase] = useState(round.tutorial && !secondLook ? "demo" : "live");
+  // round is marked for it, never on a second-look replay, and (see
+  // lib/tutorial-gate.js) only for the first three times this mechanic
+  // shows up anywhere in the path - starts "live" always, flipped to
+  // "demo" by the layout effect below if this mount earns a slot.
+  const [phase, setPhase] = useState("live");
   const [inspecting, setInspecting] = useState(false);
   const blankRefs = useRef(new Map());
   const cardArtRef = useRef(null);
@@ -179,6 +183,10 @@ export default function ClozeRoundPlayer({
   const skipResolverRef = useRef(null);
   const continueRef = useRef(null);
   const missedRef = useRef(false);
+  // Guards consumeTutorialSlot - a Strict Mode dev double-invoke of the
+  // layout effect below would otherwise burn two slots (a real
+  // localStorage increment, not a harmless re-run) for one actual mount.
+  const tutorialSlotConsumed = useRef(false);
 
   useEffect(() => {
     function onTap() {
@@ -186,6 +194,17 @@ export default function ClozeRoundPlayer({
     }
     window.addEventListener("pointerdown", onTap);
     return () => window.removeEventListener("pointerdown", onTap);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (tutorialSlotConsumed.current) return;
+    tutorialSlotConsumed.current = true;
+    if (round.tutorial && !secondLook && consumeTutorialSlot("cloze")) {
+      setPhase("demo");
+    }
+    // Mount-only: round.tutorial/secondLook are stable for the lifetime
+    // of a single round instance.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function animateSkippable(el, keyframes, duration) {

@@ -4,18 +4,22 @@ import { useLayoutEffect, useRef } from "react";
 
 import { placeFixed } from "@/lib/fixed-position";
 
-// Linger at full size/opacity, then shrink to nothing over the zone's own
-// centre — Simon's spec, split evenly.
-const HOLD_MS = 500;
-const SHRINK_MS = 500;
-const TOTAL_MS = HOLD_MS + SHRINK_MS;
+// A quick impact as the flown-in button lands, then the burst disperses
+// outward like the glitter it's made of - Simon's spec: "the card is
+// disintegrating into glitter and being absorbed into the card and
+// colourizing it." Mounted by ZoneRoundPlayer once the button's own flight
+// (zone-chip-flight.jsx) arrives, timed so this burst and the permanent
+// colour reveal underneath both land the instant the button would.
+// Simon's call after the first pass: slow this down to a full second and
+// make it read as more of an event - not just a reward flourish, but the
+// button's own life force pouring into the card and colourizing it.
+const IMPACT_MS = 280;
+const DISPERSE_MS = 720;
+const TOTAL_MS = IMPACT_MS + DISPERSE_MS;
 
-// The reward for a correctly-placed phrase: the zone it belongs to (one or
-// two rects — night_sky's "the dark background generally" is two) glows
-// gold-and-silver right on the card, holds, then collapses into its own
-// centre. Mounted once per correct drop by ZoneRoundPlayer and never
-// replayed, so a plain one-shot WAAPI animation per rect is enough — no loop,
-// no interrupt handling (compare tutorial-ghost.jsx, which needs both).
+// Mounted once per correct match and never replayed, so a plain one-shot
+// WAAPI animation per rect is enough — no loop, no interrupt handling
+// (compare tutorial-ghost.jsx, which needs both).
 export default function ZoneHighlight({ rects, cardRef }) {
   const nodeRefs = useRef([]);
 
@@ -35,12 +39,13 @@ export default function ZoneHighlight({ rects, cardRef }) {
 
       el.animate(
         [
-          { opacity: 0, transform: "scale(0.85)", offset: 0 },
-          { opacity: 1, transform: "scale(1)", offset: 0.1 },
-          { opacity: 1, transform: "scale(1)", offset: HOLD_MS / TOTAL_MS },
-          { opacity: 0, transform: "scale(0)", offset: 1 },
+          { opacity: 0, transform: "scale(0.6)", offset: 0 },
+          { opacity: 1, transform: "scale(1.22)", offset: IMPACT_MS / TOTAL_MS },
+          { opacity: 1, transform: "scale(1)", offset: (IMPACT_MS + 90) / TOTAL_MS },
+          { opacity: 1, transform: "scale(1.05)", offset: (IMPACT_MS + 320) / TOTAL_MS },
+          { opacity: 0, transform: "scale(1.6)", offset: 1 },
         ],
-        { duration: TOTAL_MS, easing: "ease", fill: "forwards" }
+        { duration: TOTAL_MS, easing: "ease-out", fill: "forwards" }
       );
     });
     // One-shot on mount — rects/cardRef describe a single, never-replayed

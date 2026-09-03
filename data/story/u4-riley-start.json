@@ -13,22 +13,22 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "narration",
-      "text": "A few weeks into rehearsals, Riley's back with a different question."
+      "text": "A few weeks after saying yes, Riley's mid-rehearsal blitz with the new band."
     },
     {
       "type": "dialogue",
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"My old band asked if I'd come back instead. I have to answer by tonight — but first I want to look at how I even got here.\""
+      "text": "\"My old band asked if I'd come back instead. I already told them no — but first I want to look at the thing that actually got me on this tour in the first place.\""
     },
     {
       "type": "reveal",
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "You draw for the choice behind you.",
-      "card": "major_06_lovers",
+      "text": "You draw for what's been growing this whole time.",
+      "card": "major_03_empress",
       "slot": 0
     },
     {
@@ -37,12 +37,12 @@
       "emotion": "neutral",
       "slot": 0,
       "options": [
-        { "text": "Two real paths — the challenge was choosing, not lacking options.", "correct": true },
-        { "text": "It means one of those paths was objectively wrong.", "correct": false, "reaction": "anger" },
-        { "text": "This card can't say anything about a choice already made.", "correct": false, "reaction": "confusion" }
+        { "text": "Still alive, still taking shape — this hasn't stopped growing.", "correct": true },
+        { "text": "It means the songs were never that good to begin with.", "correct": false, "reaction": "anger" },
+        { "text": "The past growing doesn't affect anything now.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Lovers doesn't say one path was the mistake — it says both were real enough that choosing between them was the actual hard part, then and now."
+        "The Empress doesn't stop once something's shared — abundance that comes from letting it flourish keeps compounding, it doesn't cash out in one moment."
       ]
     },
     {
@@ -50,7 +50,7 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"So tonight's answer is basically the same question all over again?\""
+      "text": "\"Okay. Now the thing that's actually happening to me right now.\""
     },
     {
       "type": "reveal",
@@ -64,44 +64,44 @@
     {
       "type": "choice",
       "character": "riley",
-      "emotion": "confusion",
+      "emotion": "neutral",
       "slot": 1,
       "options": [
-        { "text": "Not quite — you're standing somewhere new now, not repeating the old choice.", "correct": true },
-        { "text": "Yes, it's exactly the same decision again.", "correct": false, "reaction": "anger" },
-        { "text": "Where you stand now doesn't matter at all.", "correct": false, "reaction": "confusion" }
+        { "text": "Standing right at the edge — calm, not scared of the fall.", "correct": true },
+        { "text": "It means you jumped without looking.", "correct": false, "reaction": "anger" },
+        { "text": "This card has nothing to do with actually being on tour.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool in the present doesn't reopen the old fork — it just says you're mid-leap somewhere new, on ground the earlier choice helped create."
+        "The Fool isn't reckless — it's the one figure calm enough to see exactly where the edge is and step off it anyway."
       ]
     },
     {
       "type": "dialogue",
       "character": "riley",
-      "emotion": "neutral",
+      "emotion": "confusion",
       "speaker": "client",
-      "text": "\"On paper, going back makes more sense. But something about staying feels right.\""
+      "text": "\"Saying no to my old band felt like closing a door for good. Is that what this is?\""
     },
     {
       "type": "choice",
       "character": "riley",
-      "emotion": "neutral",
+      "emotion": "confusion",
       "slot": 1,
       "options": [
-        { "text": "Trust that feeling too — it says yes to the unknown instead of playing safe.", "correct": true },
-        { "text": "Ignore that feeling completely.", "correct": false, "reaction": "anger" },
-        { "text": "Only what makes sense on paper matters.", "correct": false, "reaction": "confusion" }
+        { "text": "Exactly — one thing ending as another begins, in the same breath.", "correct": true },
+        { "text": "It means that door's actually still open.", "correct": false, "reaction": "confusion" },
+        { "text": "Closing doors isn't something this card touches.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool doesn't ask for the sensible calculation — it asks whether you're still willing to say yes to not knowing exactly how this goes."
+        "Beginning and ending in one — the Fool doesn't wait for the old door to fully shut before the new one opens. They happen together."
       ]
     },
     {
       "type": "dialogue",
       "character": "riley",
-      "emotion": "realisation",
+      "emotion": "neutral",
       "speaker": "client",
-      "text": "\"Okay. I think I already know what I'm telling them tonight. Thanks — that actually helped.\""
+      "text": "\"...Yeah. I think I get it.\""
     }
   ]
 }

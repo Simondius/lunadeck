@@ -1,6 +1,6 @@
 {
   "id": "u2-riley-end",
-  "title": "Sitting With the Fool",
+  "title": "Sitting With the Empress",
   "character": "riley",
   "location": {
     "name": "The Reading Room",
@@ -12,34 +12,34 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "narration",
-      "text": "Riley's back a few days later, tour offer still sitting unanswered."
+      "text": "Riley's back a few days later, still waiting to hear back about the songs."
     },
     {
       "type": "reveal",
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "You set the Fool back down between you.",
-      "card": "major_00_fool"
+      "text": "You set the Empress back down between you.",
+      "card": "major_03_empress"
     },
     {
       "type": "dialogue",
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"So does this card mean the tour's definitely going to work out for me?\""
+      "text": "\"So does this card mean the songs are definitely going to take off?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        { "text": "No — it's not a prediction, it's about the leap itself.", "correct": true },
+        { "text": "No — it's not a guarantee, it's about something being ready to grow.", "correct": true },
         { "text": "Yes, it guarantees it.", "correct": false, "reaction": "anger" },
-        { "text": "It has nothing to do with the tour at all.", "correct": false, "reaction": "confusion" }
+        { "text": "It has nothing to do with the songs at all.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool never promises a landing. It's a card about the jump, not the outcome — how the tour actually goes is still yours to find out."
+        "The Empress never promises the harvest. It just says something real is ready to grow — what becomes of it from here is still unfolding."
       ]
     },
     {
@@ -47,19 +47,19 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"What if the tour falls apart and I've got nothing to go back to?\""
+      "text": "\"What if I push too hard trying to make it perfect before I send anything else?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        { "text": "That's the risk — saying yes to the unknown, not playing safe.", "correct": true },
-        { "text": "Then you'll have wasted your shot.", "correct": false, "reaction": "anger" },
-        { "text": "It won't fall apart if you don't think about it.", "correct": false, "reaction": "confusion" }
+        { "text": "Let it flourish instead of forcing it — that's the abundance this card points to.", "correct": true },
+        { "text": "Forcing it is the only way it'll ever be good enough.", "correct": false, "reaction": "anger" },
+        { "text": "Pushing harder never changes anything either way.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The card doesn't pretend there's no risk — it just says the unknown is worth saying yes to anyway, instead of staying somewhere merely safe."
+        "Abundance that comes from allowing things to flourish, not forcing them — gripping it tighter usually shrinks it instead."
       ]
     },
     {
@@ -74,19 +74,19 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"I don't even know what happens after the tour ends.\""
+      "text": "\"I don't even know if I'm doing this right — nobody ever taught me how to actually write a song.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        { "text": "You don't need that yet — the path shows up once you step.", "correct": true },
-        { "text": "Then you're not ready to go at all.", "correct": false, "reaction": "anger" },
-        { "text": "What happens after doesn't matter.", "correct": false, "reaction": "confusion" }
+        { "text": "You don't need the technique yet — nourish it and let it grow.", "correct": true },
+        { "text": "Then you shouldn't be doing this at all.", "correct": false, "reaction": "anger" },
+        { "text": "Technique doesn't matter, so don't think about it.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool trusts that the ground appears once you're already moving. Not knowing the ending isn't a hole in the plan — it's the plan."
+        "Nourish, protect, and grow whatever you're tending — the Empress cares more about tending it than about doing it by the book."
       ]
     },
     {
@@ -101,19 +101,19 @@
       "character": "riley",
       "emotion": "anger",
       "speaker": "client",
-      "text": "\"My parents think I'm ruining my life over this.\""
+      "text": "\"My bandmates think I'm being selfish, disappearing to work on my own stuff.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "anger",
       "options": [
-        { "text": "That reaction proves the point — it's against-convention energy.", "correct": true },
-        { "text": "They're right, you should listen to them.", "correct": false, "reaction": "anger" },
-        { "text": "What your parents think isn't relevant.", "correct": false, "reaction": "confusion" }
+        { "text": "That's not selfish — it's a reminder to care for yourself first.", "correct": true },
+        { "text": "They're right, you should stop.", "correct": false, "reaction": "anger" },
+        { "text": "What they think isn't relevant.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool was never going to look sensible to the people expecting you to stay on the program's path. That's not a flaw in the reading."
+        "A reminder to love and care for yourself first — that's not a footnote on this card, it's half the message."
       ]
     },
     {
@@ -128,19 +128,19 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"Everyone in my program's been doing this way longer than me. I'd be starting over from nothing.\""
+      "text": "\"Is it weird that I actually love just sitting with the guitar for hours — like, physically love it?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        { "text": "Starting over isn't weakness — it's a beginner's mind.", "correct": true },
-        { "text": "You should feel behind, because you are.", "correct": false, "reaction": "anger" },
-        { "text": "Experience doesn't come into this at all.", "correct": false, "reaction": "confusion" }
+        { "text": "Not weird at all — pleasure and the body are part of the message here.", "correct": true },
+        { "text": "You should feel guilty enjoying it that much.", "correct": false, "reaction": "anger" },
+        { "text": "Enjoyment doesn't belong in a reading.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "A beginner's mind is curious and unjaded, not behind — that's an asset on a tour, not a deficit next to everyone else's years."
+        "Pleasure, beauty, and the body are not indulgences — they're part of the message. Loving how it feels to make something isn't a distraction from the Empress, it's the card itself."
       ]
     },
     {
@@ -148,14 +148,14 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "One more thing — the Fool travels light. Whatever you decide, taking it with a little levity beats carrying every worst case with you."
+      "text": "One more thing — the Empress doesn't rush the harvest. Something worth growing takes exactly as long as it takes."
     },
     {
       "type": "dialogue",
       "character": "riley",
       "emotion": "realisation",
       "speaker": "client",
-      "text": "\"Thanks. I think I get it now — this isn't reckless, it's just a leap I'm allowed to take without already knowing where I land. I needed to hear that.\""
+      "text": "\"That makes sense. I think I get it now — I don't have to force this into something finished, I just have to keep tending it and let it grow at its own pace. Thank you, really.\""
     }
   ]
 }

@@ -203,7 +203,7 @@ export default function NodeSession({
         </div>
         <div className="bridge-layout">
           <div className="drag-layout-spacer" aria-hidden="true" />
-          <NodeCompleteCelebration />
+          <NodeCompleteCelebration cardKey={cardKey} />
           <Link className="action" href={nextHref}>
             {nextLabel}
           </Link>

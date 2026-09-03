@@ -6,9 +6,13 @@ import DragChip from "./drag-chip";
 import TutorialGhost from "./tutorial-ghost";
 import CollectedBadge from "./collected-badge";
 import { masterForKey, seededShuffle } from "@/lib/rounds";
+import { consumeTutorialSlot } from "@/lib/tutorial-gate";
 
 // How long one wrong word's pop-out plays before the next one starts.
-const POP_MS = 500;
+// 350ms, not 500 - Simon's call to speed the whole close-out sequence up
+// 30% (500 * 0.7), on top of which popDuration() below still tiers the
+// 3rd/4th and 5th-on words faster still, relative to this same base.
+const POP_MS = 350;
 // How long the Continue button takes to fade in once the round is clear.
 const CONTINUE_FADE_MS = 500;
 
@@ -41,8 +45,13 @@ export default function RoundPlayer({
   const [stage, setStage] = useState("playing"); // playing | popping | ready
   // The tutorial only ever applies to a round explicitly marked for it
   // (node 1's first round) and never during a second-look replay — a missed
-  // first round doesn't need re-teaching the gesture, just another try.
-  const [phase, setPhase] = useState(round.tutorial && !secondLook ? "demo" : "live");
+  // first round doesn't need re-teaching the gesture, just another try. On
+  // top of that, consumeTutorialSlot caps it to the first three times this
+  // *mechanic* (not this specific round) comes up anywhere in the path
+  // (lib/tutorial-gate.js) — starts "live" always, matching what a server
+  // render (no localStorage) would show, then a layout effect below flips
+  // it to "demo" before paint if this mount actually earns a slot.
+  const [phase, setPhase] = useState("live");
   const cardRef = useRef(null);
   const chipRefs = useRef(new Map());
   const skipResolverRef = useRef(null);
@@ -55,6 +64,10 @@ export default function RoundPlayer({
   // right after mount, so this has to be updated by the same ref-attachment
   // mechanism (see chipRef below), not computed inline in the JSX.
   const firstCorrectRef = useRef(null);
+  // Guards consumeTutorialSlot - a Strict Mode dev double-invoke of the
+  // layout effect below would otherwise burn two slots (a real
+  // localStorage increment, not a harmless re-run) for one actual mount.
+  const tutorialSlotConsumed = useRef(false);
 
   const firstCorrectKey = useMemo(
     () => activeWords.find((w) => w.correct)?.key,
@@ -70,6 +83,17 @@ export default function RoundPlayer({
     }
     window.addEventListener("pointerdown", onTap);
     return () => window.removeEventListener("pointerdown", onTap);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (tutorialSlotConsumed.current) return;
+    tutorialSlotConsumed.current = true;
+    if (round.tutorial && !secondLook && consumeTutorialSlot("keyword")) {
+      setPhase("demo");
+    }
+    // Mount-only: round.tutorial/secondLook are stable for the lifetime
+    // of a single round instance.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Runs a WAAPI animation to completion, but lets a tap jump straight to
@@ -98,9 +122,19 @@ export default function RoundPlayer({
     };
   }
 
+  // The first two leftover words pop at the full, readable pace - Simon's
+  // call: that's the pace that reads well. Any more than that and watching
+  // each one out at the same speed starts to drag, so the 3rd/4th pop 30%
+  // faster and the 5th on pops 50% faster.
+  function popDuration(index) {
+    if (index < 2) return POP_MS;
+    if (index < 4) return POP_MS * 0.7;
+    return POP_MS * 0.5;
+  }
+
   async function closeOutRound(wrongWords) {
     setStage("popping");
-    for (const word of wrongWords) {
+    for (const [index, word] of wrongWords.entries()) {
       await animateSkippable(
         chipRefs.current.get(word.key),
         [
@@ -108,7 +142,7 @@ export default function RoundPlayer({
           { transform: "scale(1.15)", opacity: 1, offset: 0.3 },
           { transform: "scale(0)", opacity: 0, offset: 1 },
         ],
-        POP_MS
+        popDuration(index)
       );
       setActiveWords((prev) => prev.filter((w) => w.key !== word.key));
     }

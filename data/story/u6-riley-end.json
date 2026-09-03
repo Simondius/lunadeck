@@ -20,8 +20,8 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "The past: the choice you already made.",
-      "card": "major_06_lovers",
+      "text": "The past: the songs, quietly growing.",
+      "card": "major_03_empress",
       "slot": 0
     },
     {
@@ -29,8 +29,8 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "The present: what's flourishing right now.",
-      "card": "major_03_empress",
+      "text": "The present: the leap you already took.",
+      "card": "major_00_fool",
       "slot": 1
     },
     {
@@ -38,8 +38,8 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "The future: whatever's opening up next.",
-      "card": "major_00_fool",
+      "text": "The future: the partnership you're weighing.",
+      "card": "major_06_lovers",
       "slot": 2
     },
     {
@@ -47,7 +47,7 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"Quiz me, then. Does the Lovers being in my past mean that choice is done and I shouldn't think about it again?\""
+      "text": "\"Okay, quiz me back then. If the Empress is about something quietly growing, why didn't it show up back when I first started writing those songs?\""
     },
     {
       "type": "choice",
@@ -55,12 +55,12 @@
       "emotion": "confusion",
       "slot": 0,
       "options": [
-        { "text": "No — a real choice can still be weighed even after.", "correct": true },
-        { "text": "Yes, you're not allowed to revisit it.", "correct": false, "reaction": "anger" },
-        { "text": "A past-position card has no relevance anymore.", "correct": false, "reaction": "confusion" }
+        { "text": "It was already there — the past doesn't wait to be drawn.", "correct": true },
+        { "text": "It didn't exist yet at that point.", "correct": false, "reaction": "confusion" },
+        { "text": "The Empress only applies going forward.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "Past position doesn't mean closed book — the Lovers is fine with you weighing it again, even from the other side of the decision."
+        "A card in the past position isn't dated to the moment you draw it — the songs were already quietly alive long before you ever sat down for a reading."
       ]
     },
     {
@@ -68,7 +68,7 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"And the Empress in the present — does that mean I should stop touring and go all in on writing right now?\""
+      "text": "\"And the Fool — does 'present' mean I'm still mid-leap, or that I've landed on this tour by now?\""
     },
     {
       "type": "choice",
@@ -76,12 +76,12 @@
       "emotion": "confusion",
       "slot": 1,
       "options": [
-        { "text": "No — it just says something's flourishing, not what to drop.", "correct": true },
-        { "text": "Yes, you should quit the tour immediately.", "correct": false, "reaction": "anger" },
-        { "text": "The Empress can't apply to two things at once.", "correct": false, "reaction": "confusion" }
+        { "text": "Still mid-leap — the Fool doesn't mark a landing.", "correct": true },
+        { "text": "It means you've definitely landed safely.", "correct": false, "reaction": "anger" },
+        { "text": "It means the leap already failed.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Empress names what's alive right now — it isn't handing you an ultimatum about what to give up for it."
+        "The Fool never shows the landing, only the jump — 'present' just means you're still in the air, not that it's over one way or the other."
       ]
     },
     {
@@ -89,7 +89,7 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "client",
-      "text": "\"And the Fool in the future — is that a totally different fresh start, unrelated to the writing?\""
+      "text": "\"And if I turn down the writing partnership — does that undo the leap I already took joining this tour?\""
     },
     {
       "type": "choice",
@@ -97,12 +97,12 @@
       "emotion": "neutral",
       "slot": 2,
       "options": [
-        { "text": "Not necessarily — it could be this same thing opening further.", "correct": true },
-        { "text": "Yes, it has to be something completely separate.", "correct": false, "reaction": "confusion" },
-        { "text": "The Fool always cancels out whatever came before.", "correct": false, "reaction": "confusion" }
+        { "text": "No — the leap already happened either way.", "correct": true },
+        { "text": "Yes, saying no erases the whole reading.", "correct": false, "reaction": "anger" },
+        { "text": "The Lovers card doesn't allow saying no.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "A fresh start doesn't have to mean a different thing entirely — the Fool in the future can just as easily be this same idea taking its next leap."
+        "The Lovers only asks you to weigh this one choice carefully — whichever way you go, it doesn't reach back and unmake the leap you already took."
       ]
     },
     {
@@ -110,20 +110,20 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"Last one — do all three cards have to agree with each other to make sense?\""
+      "text": "\"One more — is the whole point of the Empress that I should've shared the songs with people sooner?\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
-      "slot": 1,
+      "slot": 0,
       "options": [
-        { "text": "No — a reading is a conversation between cards, not a consensus.", "correct": true },
-        { "text": "Yes, if they disagree the reading is wrong.", "correct": false, "reaction": "anger" },
-        { "text": "Only the middle card actually matters.", "correct": false, "reaction": "confusion" }
+        { "text": "No — the point is you cared for them before anyone judged them.", "correct": true },
+        { "text": "Yes, secrecy is always the wrong move.", "correct": false, "reaction": "anger" },
+        { "text": "The Empress has no opinion on secrecy either way.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "Three cards don't need to point the same direction to be true together — a real choice, a real flourishing, and a real fresh start can all sit side by side."
+        "Nourish and protect first, before it's ready for anyone else's opinion — that's the actual message, not a verdict on when you should have gone public."
       ]
     },
     {
@@ -131,14 +131,14 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "reader",
-      "text": "One thread ties all three: a choice you stood behind, something real growing because you let it, and room opening up for whatever's next."
+      "text": "One thread ties all three: the songs you grew quietly, the leap that put them on a stage, and a choice that doesn't have to be forced to be right."
     },
     {
       "type": "dialogue",
       "character": "riley",
       "emotion": "realisation",
       "speaker": "client",
-      "text": "\"Thanks. I think that's the real lesson — the choice I made, what's flourishing right now, and whatever's coming next all belong together. That's exactly what I needed to hear.\""
+      "text": "\"Thanks. I think that's the real lesson — the songs I quietly built, the leap that got me here, and whatever I choose next all belong together, and none of it needed to be perfect to count. That actually means a lot.\""
     }
   ]
 }

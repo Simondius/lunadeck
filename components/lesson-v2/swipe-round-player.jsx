@@ -107,6 +107,76 @@ function shuffleTrueRandom(items) {
   return arr;
 }
 
+// A single word reads as small and lost on a card sized for a whole
+// sentence - Simon's spec: it should fill 80% of the card's own vertical
+// space, at most - overflowing the card is worse than reading a little
+// small. Measured via a scratch canvas's *actual* glyph bounding box, not
+// a font-size-times-line-height guess: .swipe-chip's display serif has
+// tall ascenders and descenders relative to its own em box, so a naive
+// "line box height = font-size" estimate ran a short word well past the
+// card's own edges rather than hitting 80% (Simon caught this on the
+// first pass). actualBoundingBoxAscent/Descent report what the font
+// actually draws, at any reference size, so scaling from that lands on
+// the real target regardless of a given font's own internal metrics.
+//
+// The 80% ceiling is calibrated once per card from a fixed sample string,
+// not from each word's own text - a short word ("speed") sized against
+// its *own* glyph box would land far bigger than a long one ("exploration")
+// ever could, and Simon's follow-up call was that this reads as
+// inconsistent: "if the word is shorter than this, set the font size to
+// this." So every word shares one ceiling (tall enough to cover any real
+// ascender/descender combination a keyword could contain), and only backs
+// off it when a specific word is too *wide* to fit at that size - the
+// ceiling is what a short word gets, a long one shrinks from there.
+const SINGLE_WORD_FILL = 0.8;
+const SINGLE_WORD_WIDTH_MARGIN = 0.94; // a sliver of breathing room, not edge-to-edge
+const MEASURE_REFERENCE_PX = 100;
+// A capital for full ascent, "p"/"y" for full descent - taller than any
+// real keyword needs, which is the point: every word sizes down from the
+// same worst-case ceiling instead of up from its own, shorter, glyph box.
+const HEIGHT_CALIBRATION_TEXT = "Hpy";
+let measureCanvas = null;
+function measureTextBox(text, fontSizePx, fontFamily, fontWeight) {
+  if (!measureCanvas) measureCanvas = document.createElement("canvas");
+  const ctx = measureCanvas.getContext("2d");
+  ctx.font = `${fontWeight} ${fontSizePx}px ${fontFamily}`;
+  const metrics = ctx.measureText(text);
+  const ascent = metrics.actualBoundingBoxAscent ?? fontSizePx * 0.8;
+  const descent = metrics.actualBoundingBoxDescent ?? fontSizePx * 0.2;
+  return { width: metrics.width, height: ascent + descent };
+}
+
+// Sized against the chip's own live box once it's mounted (its width comes
+// from CSS as min(39%, 160px), not a value this component knows in
+// advance): find the one ceiling font-size that puts the calibration
+// string at 80% of the available height, then shrink *this* word from
+// that ceiling only if it would overflow the available width at that size.
+function useSingleWordFontSize(chipRef, text, active) {
+  const [fontSize, setFontSize] = useState(null);
+  useLayoutEffect(() => {
+    if (!active) return;
+    const el = chipRef.current;
+    if (!el) return;
+    const style = window.getComputedStyle(el);
+    const availWidth = el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    const availHeight = el.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+    if (availWidth <= 0 || availHeight <= 0) return;
+
+    const calibration = measureTextBox(HEIGHT_CALIBRATION_TEXT, MEASURE_REFERENCE_PX, style.fontFamily, style.fontWeight);
+    if (calibration.height <= 0) return;
+    const ceilingFontSize = (MEASURE_REFERENCE_PX * availHeight * SINGLE_WORD_FILL) / calibration.height;
+
+    const atCeiling = measureTextBox(text, ceilingFontSize, style.fontFamily, style.fontWeight);
+    const widthScale = atCeiling.width > 0 ? (availWidth * SINGLE_WORD_WIDTH_MARGIN) / atCeiling.width : 1;
+    setFontSize(Math.min(ceilingFontSize, ceilingFontSize * widthScale));
+    // Mount-only, like every other layout measurement in this file - the
+    // chip remounts (fresh key) for every new card, so there's always a
+    // fresh effect run for a fresh word.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return fontSize;
+}
+
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
@@ -138,6 +208,8 @@ function SwipeChip({ card, reducedMotion, busy, onResolve }) {
   const [entryRotation] = useState(() => Math.random() * 6 - 3);
   const drag = useRef(null);
   const chipRef = useRef(null);
+  const isSingleWord = !/\s/.test(card.text.trim());
+  const singleWordFontSize = useSingleWordFontSize(chipRef, card.text.trim(), isSingleWord);
 
   useLayoutEffect(() => {
     if (reducedMotion || !chipRef.current) return;
@@ -214,6 +286,9 @@ function SwipeChip({ card, reducedMotion, busy, onResolve }) {
           "--rot": `${reducedMotion ? 0 : rot}deg`,
           "--wash-opacity": reducedMotion ? 0 : washOpacity,
           "--wash-color": washIsMatch ? "var(--good)" : "var(--bad)",
+          ...(isSingleWord && singleWordFontSize
+            ? { fontSize: `${singleWordFontSize}px`, lineHeight: 1, whiteSpace: "nowrap" }
+            : null),
         }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}

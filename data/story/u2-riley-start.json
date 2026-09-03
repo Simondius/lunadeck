@@ -36,7 +36,7 @@
       "character": "riley",
       "emotion": "neutral",
       "speaker": "client",
-      "text": "\"I got offered a spot on tour with this band. But I'd have to drop out of my program to do it. I don't know if that's brave or just stupid.\""
+      "text": "\"I've been recording songs on my own for almost a year — just messing around, really. Someone finally heard one and wants to hear more. I don't know if it's actually any good.\""
     },
     {
       "type": "reveal",
@@ -44,19 +44,19 @@
       "emotion": "neutral",
       "speaker": "reader",
       "text": "You turn over the top card.",
-      "card": "major_00_fool"
+      "card": "major_03_empress"
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "neutral",
       "options": [
-        { "text": "A fresh start — one thing ending as another begins.", "correct": true },
-        { "text": "You're throwing away everything you worked for.", "correct": false, "reaction": "anger" },
-        { "text": "This card isn't about decisions like that.", "correct": false, "reaction": "confusion" }
+        { "text": "Something you've been quietly growing is finally ready to take shape.", "correct": true },
+        { "text": "You should have forced it into shape months ago.", "correct": false, "reaction": "anger" },
+        { "text": "This card isn't about something you made.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "The Fool doesn't grade what you're leaving behind — it just marks the exact moment one door closes and another opens."
+        "The Empress doesn't care if it's a song or a garden — it just marks the point where something quietly alive is finally ready to be born."
       ]
     },
     {
@@ -64,19 +64,19 @@
       "character": "riley",
       "emotion": "confusion",
       "speaker": "client",
-      "text": "\"I don't know, dropping out feels pretty reckless.\""
+      "text": "\"I don't know, calling it 'ready' feels like a stretch — it's still pretty rough around the edges.\""
     },
     {
       "type": "choice",
       "character": "riley",
       "emotion": "confusion",
       "options": [
-        { "text": "It's standing at the edge, calm, not scared of falling.", "correct": true },
-        { "text": "Reckless is exactly the right word.", "correct": false, "reaction": "anger" },
-        { "text": "The edge doesn't really mean anything here.", "correct": false, "reaction": "confusion" }
+        { "text": "Rough is fine — creation always comes before it's fully formed.", "correct": true },
+        { "text": "Rough means it's not there yet at all.", "correct": false, "reaction": "anger" },
+        { "text": "Being polished doesn't matter here.", "correct": false, "reaction": "confusion" }
       ],
       "elaboration": [
-        "Reckless would be jumping without noticing the edge at all. The Fool sees exactly where it's standing and steps off anyway."
+        "Creation before form — raw, generative chaos that hasn't settled yet. The Empress was never about something arriving finished."
       ]
     },
     {

@@ -1477,31 +1477,37 @@ div.reference-art, div.reference-symbol { cursor: default; }
   white-space: normal;
 }
 
-/* zone-chip.jsx — a whole sentence, not a keyword, and it shrinks while
-   dragging (--scale, set from JS) so the zone it's headed for stays visible
-   underneath it. Otherwise identical to .drag-chip's transform/reject
-   handling; a separate class because the scale term means the two can't
-   share one transform rule. */
+/* zone-chip.jsx — a whole sentence, not a keyword, tapped rather than
+   dragged (Simon's call: dragging a whole sentence onto a specific patch
+   of card art read as unnatural). Three looks: idle (the shared .chip
+   base), the current selection (a persistent gold/silver shimmer, more
+   specific than .chip.is-selected's own plain accent tint so it wins), and
+   a wrong cross-tap (its own shake-and-flash, overriding .chip.is-wrong's
+   permanent line-through - that one's for a results summary, this is a
+   transient half-second flash that clears itself). */
 .zone-chip {
-  touch-action: none;
   max-width: 260px;
   text-align: left;
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(var(--scale, 1));
-  transition: transform 220ms ease;
 }
 
-.zone-chip.is-dragging {
-  transition: none;
-  cursor: grabbing;
-  position: relative;
-  z-index: 5;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+.zone-chip.is-selected {
+  border-color: var(--accent-bright);
+  background: rgba(184, 148, 74, 0.14);
+  color: var(--parchment);
+  animation: zone-select-shimmer 1.4s ease-in-out infinite;
 }
 
-.zone-chip.is-rejected {
-  transition: transform 180ms ease-out;
+@keyframes zone-select-shimmer {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-a30); }
+  50% { box-shadow: 0 0 16px 4px var(--accent-a45); }
+}
+
+.zone-chip.is-wrong {
+  text-decoration: none;
   border-color: var(--bad);
   background: rgba(217, 96, 95, 0.16);
+  color: var(--parchment);
+  animation: choice-option-shake 500ms ease;
 }
 
 .drag-target {
@@ -1570,33 +1576,46 @@ div.reference-art, div.reference-symbol { cursor: default; }
 }
 
 /* The touch-point overlay a phone screen recording draws under a real
-   finger — a soft translucent disc riding on top of the word it's dragging,
-   pressing in as the demo starts and lifting off as it ends. Its animation
-   duration is set from JS (--demo-duration) so it always matches the ghost
-   pill's own drag timing, whatever that's tuned to. */
+   finger — an actual finger silhouette (a tapered capsule, rounded most at
+   its own tip), not a plain dot, reaching down from above and riding on
+   top of the word it's dragging. Anchored by its own tip (bottom edge),
+   not its center - `bottom: 50%` puts that tip exactly on the pill's own
+   middle, with `transform-origin: 50% 100%` pivoting the whole shape
+   around that same tip. Rotated a fixed 135deg (Simon's spec: "always
+   pointing up from bottom right to top left, to emulate the user's own
+   index finger on their right hand") - every tutorial's own finger uses
+   this identical angle, not just this one. Its animation duration is set
+   from JS (--demo-duration) so it always matches the ghost pill's own
+   drag timing, whatever that's tuned to. */
 .tutorial-ghost-finger {
   position: absolute;
-  top: 50%;
+  bottom: 50%;
   left: 50%;
-  width: 46px;
-  height: 46px;
-  margin: -23px 0 0 -23px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(247, 242, 255, 0.65) 0%,
-    rgba(247, 242, 255, 0.28) 55%,
-    rgba(247, 242, 255, 0) 100%
+  width: 22px;
+  height: 58px;
+  margin: 0 0 0 -11px;
+  border-radius: 6px 6px 16px 16px / 6px 6px 22px 22px;
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 242, 255, 0) 0%,
+    rgba(247, 242, 255, 0.5) 55%,
+    rgba(247, 242, 255, 0.88) 100%
   );
-  box-shadow: 0 0 0 1px rgba(247, 242, 255, 0.4);
+  box-shadow: 0 2px 10px 2px rgba(247, 242, 255, 0.3);
+  transform-origin: 50% 100%;
   animation: tutorial-finger-press var(--demo-duration, 4200ms) ease-in-out;
 }
 
+/* Every keyframe carries the same 135deg alongside its own scale - a
+   keyframe's own `transform` value fully replaces the property for that
+   frame rather than composing with the base rule's, so the angle has to
+   be repeated in each one or the animation would snap back to unrotated
+   the instant it started. */
 @keyframes tutorial-finger-press {
-  0% { transform: scale(0.7); opacity: 0; }
-  6% { transform: scale(1); opacity: 1; }
-  78% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(0.6); opacity: 0; }
+  0% { transform: scale(0.7) rotate(135deg); opacity: 0; }
+  6% { transform: scale(1) rotate(135deg); opacity: 1; }
+  78% { transform: scale(1) rotate(135deg); opacity: 1; }
+  100% { transform: scale(0.6) rotate(135deg); opacity: 0; }
 }
 
 /* .session normally reserves 150px at the bottom for other formats' fixed
@@ -1758,10 +1777,21 @@ div.reference-art, div.reference-symbol { cursor: default; }
   filter: grayscale(1) brightness(0.85);
 }
 
+/* Mounted the instant a correct match lands (zone-round-player.jsx delays
+   this by FLIGHT_MS so it arrives alongside the button's own flight and
+   the glitter burst, not before either) - fades in rather than popping,
+   so the colour reads as arriving with the glitter instead of the crop
+   just appearing under it. */
 .zone-reveal {
   position: absolute;
   overflow: hidden;
   pointer-events: none;
+  opacity: 0;
+  animation: zone-reveal-in 1000ms ease forwards;
+}
+
+@keyframes zone-reveal-in {
+  to { opacity: 1; }
 }
 
 .zone-reveal img {
@@ -1784,6 +1814,144 @@ div.reference-art, div.reference-symbol { cursor: default; }
 
 .zone-hint.is-fading {
   opacity: 0;
+}
+
+/* The tap half of a zone: an otherwise invisible button sized to one of an
+   element's own rects (night_sky's "the dark background generally" is two,
+   sharing one key - tapping either selects the same element). Idle is
+   blank on purpose - the puzzle is finding the right patch of art, same as
+   the old drag version, and .zone-hint above is what un-blanks it on
+   request. Selected gets the same gold/silver shimmer .zone-chip.is-selected
+   does, sized to the zone instead of a chip; wrong gets the same shake and
+   red flash. Both reuse the dust-speckle look zone-highlight.jsx's own
+   reward burst establishes, just held/looped here instead of one-shot. */
+.zone-tap-area {
+  position: absolute;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.zone-tap-area.is-selected {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(240, 200, 105, 0.32) 45%,
+    rgba(240, 200, 105, 0) 80%
+  );
+  animation: zone-select-shimmer 1.4s ease-in-out infinite;
+}
+
+.zone-tap-area.is-wrong {
+  animation: zone-area-wrong-flash 500ms ease;
+}
+
+@keyframes zone-area-wrong-flash {
+  0%, 100% { background: rgba(217, 96, 95, 0); box-shadow: 0 0 0 0 rgba(217, 96, 95, 0); }
+  25% { background: rgba(217, 96, 95, 0.4); box-shadow: 0 0 0 3px rgba(217, 96, 95, 0.55); }
+}
+
+/* zone-chip-flight.jsx: the tapped button's own flight into the zone it
+   matches, shrinking and fading as it travels (see the component for the
+   translate/scale math) - a pill styled like the chip it replaces, plus
+   the same light-trail treatment collected-badge-trail.jsx established,
+   just under its own class name since the two are positioned by unrelated
+   math (a fixed side slot there, a card zone here). */
+.zone-chip-flight {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 15;
+  max-width: 260px;
+  padding: 9px 15px;
+  font-family: var(--body);
+  font-size: 13.5px;
+  color: var(--parchment);
+  background: rgba(184, 148, 74, 0.14);
+  border: 1px solid var(--accent-bright);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(240, 200, 105, 0.45);
+}
+
+.zone-chip-flight-trail {
+  position: fixed;
+  height: 3px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 14;
+  background: linear-gradient(
+    to right,
+    rgba(240, 200, 105, 0) 0%,
+    rgba(255, 255, 255, 0.55) 55%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  filter: blur(1.5px);
+  opacity: 0;
+}
+
+/* tutorial-tap.jsx: the same finger silhouette tutorial-ghost.jsx's own
+   .tutorial-ghost-finger draws under a dragged pill (a tapered capsule,
+   not a plain dot), standing alone and in the app's own purple accent
+   rather than that one's parchment tone - purple is this app's own
+   tutorial-affordance colour (gold/silver stays reserved for a
+   correct-match reward). Positioned by its own tip (bottom edge) in
+   tutorial-tap.jsx's tapAt(), not its center, so the tip is what actually
+   lands on the tap point. Invisible at rest: this mechanic is two
+   discrete taps, not a drag, so the finger only ever appears at the exact
+   instant it presses one spot, then the other - never animated between
+   them (see tutorial-tap.jsx's own comment: an earlier pass that glided
+   smoothly from one to the other read as demonstrating a drag). */
+.tutorial-tap-finger {
+  position: fixed;
+  width: 22px;
+  height: 58px;
+  border-radius: 6px 6px 16px 16px / 6px 6px 22px 22px;
+  pointer-events: none;
+  z-index: 20;
+  background: linear-gradient(
+    to bottom,
+    rgba(143, 82, 196, 0) 0%,
+    rgba(143, 82, 196, 0.5) 55%,
+    rgba(201, 166, 240, 0.9) 100%
+  );
+  box-shadow: 0 2px 10px 2px var(--accent-a30);
+  transform-origin: 50% 100%;
+  transform: rotate(135deg);
+  opacity: 0;
+}
+
+.tutorial-tap-finger.is-tapping {
+  animation: tutorial-tap-press 500ms ease-in-out;
+}
+
+/* Same fixed 135deg as .tutorial-ghost-finger, folded into every keyframe
+   alongside its own scale (a keyframe's own `transform` replaces the
+   property outright rather than composing with the base rule's, so the
+   angle has to be repeated in each one - Simon's spec: every tutorial's
+   finger points "up from bottom right to top left" the same way). */
+@keyframes tutorial-tap-press {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(135deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1) rotate(135deg);
+    box-shadow: 0 0 0 1px var(--accent-bright), 0 0 18px 5px var(--accent-a45);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1) rotate(135deg);
+    box-shadow: 0 0 0 1px var(--accent-bright), 0 0 18px 5px var(--accent-a45);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) rotate(135deg);
+  }
 }
 
 /* --- cloze-round-player.jsx ------------------------------------------ */
@@ -2323,28 +2491,36 @@ div.reference-art, div.reference-symbol { cursor: default; }
   cursor: not-allowed;
 }
 
+/* Simon's spec: a 0.5s shimmer that also grows the pick 10% larger, held
+   at that size (fill: forwards) until the round advances on its own timer
+   below - snapping back down mid-glow would read as the pick shrinking
+   away, not settling into place. */
 .choice-select-option.is-correct-pick {
   border-color: var(--accent-bright);
   background: rgba(184, 148, 74, 0.16);
-  animation: choice-correct-sparkle 500ms ease;
+  position: relative;
+  z-index: 1;
+  animation: choice-correct-sparkle 500ms ease forwards;
 }
 
 @keyframes choice-correct-sparkle {
-  0% { box-shadow: 0 0 0 0 var(--accent-a45); }
-  40% { box-shadow: 0 0 18px 4px var(--accent-a45); }
-  100% { box-shadow: 0 0 0 0 transparent; }
+  0% { box-shadow: 0 0 0 0 var(--accent-a45); transform: scale(1); }
+  40% { box-shadow: 0 0 22px 6px var(--accent-a45); transform: scale(1.1); }
+  100% { box-shadow: 0 0 10px 2px var(--accent-a30); transform: scale(1.1); }
 }
 
 /* The options the learner didn't pick, once the correct one is chosen -
-   fade out over the same 500ms the correct one spends sparkling, then the
-   round advances on its own (no Continue button - there's nothing left to
-   decide). */
+   dissolve over 0.3s (Simon's spec: "disintegrate and fade away") rather
+   than a plain opacity fade, then the round advances on its own (no
+   Continue button - there's nothing left to decide). */
 .choice-select-option.is-fading-out {
-  animation: choice-option-fade-out 500ms ease forwards;
+  animation: choice-option-fade-out 300ms ease forwards;
 }
 
 @keyframes choice-option-fade-out {
-  to { opacity: 0; }
+  0% { opacity: 1; filter: blur(0) brightness(1); transform: scale(1); }
+  35% { filter: blur(1px) brightness(1.4); }
+  100% { opacity: 0; filter: blur(5px) brightness(1.8); transform: scale(0.92); }
 }
 
 /* A correctly-placed word's resting badge — see collected-badge.jsx, which
@@ -2461,6 +2637,9 @@ div.reference-art, div.reference-symbol { cursor: default; }
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 0 24px 6px rgba(240, 200, 105, 0.5);
 }
 
+/* More dust than the original six (Simon's call: "add more sparkle and
+   gold dust to make it more of an event") - denser and covering more of
+   the zone's own footprint. */
 .zone-highlight::after {
   content: "";
   position: absolute;
@@ -2471,9 +2650,38 @@ div.reference-art, div.reference-symbol { cursor: default; }
     radial-gradient(circle, #fff 1.5px, transparent 2px),
     radial-gradient(circle, #f0c869 1.5px, transparent 2px),
     radial-gradient(circle, #fff 1.5px, transparent 2px),
-    radial-gradient(circle, #f0c869 1.5px, transparent 2px);
-  background-position: 10% 15%, 85% 20%, 15% 80%, 90% 75%, 50% 50%, 30% 45%;
+    radial-gradient(circle, #f0c869 1.5px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.2px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.2px, transparent 2px);
+  background-position:
+    10% 15%, 85% 20%, 15% 80%, 90% 75%, 50% 50%, 30% 45%,
+    65% 10%, 5% 45%, 95% 55%, 40% 90%;
   background-repeat: no-repeat;
+}
+
+/* zone-chip-flight.jsx's own trail dust - a handful of gold/silver motes
+   scattered along the flight path, same "life force" visual language as
+   .zone-highlight's own dust, just fixed-positioned and self-removing
+   (see spawnDust()). */
+.zone-chip-flight-dust {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.zone-chip-flight-dust.is-gold {
+  background: #f0c869;
+  box-shadow: 0 0 8px 2px rgba(240, 200, 105, 0.75);
+}
+
+.zone-chip-flight-dust.is-silver {
+  background: #e6e6ee;
+  box-shadow: 0 0 8px 2px rgba(230, 230, 238, 0.7);
 }
 
 /* --- candidate grids ------------------------------------------------ */
@@ -5655,21 +5863,37 @@ body.is-revealing { overflow: hidden; }
   color: rgba(242, 237, 227, 0.8);
 }
 
-/* A light-on-dark hint reads fine over the hands/table art below it, but
-   this stage's own background is light (see .story-stage) - an opaque
-   pill of its own guarantees contrast regardless of what's directly
-   behind it, the same reasoning as the speech bubble's own solid fill. */
+/* Sits below the stage, in the flow of .story-content, not overlaid on
+   the art - it used to be an absolutely-positioned corner of .story-stage
+   itself, where a speech bubble could (and did) land right on top of it.
+   Centered under the image instead, where nothing else in
+   .story-content-main ever renders at the same time as this can (see
+   `tappable`'s own conditions in chapter-player.jsx). */
+/* Mounted for the whole tappable step, not just once visible - opacity is
+   what fades it in (1s after the step goes quiet, see chapter-player.jsx's
+   own tapHintVisible effect) and back out the instant it's answered, rather
+   than the hint popping in and disappearing outright. */
 .story-tap-hint {
-  position: absolute;
-  right: 4%;
-  bottom: 3%;
-  z-index: 5;
+  align-self: center;
   background: rgba(12, 8, 16, 0.72);
   border-radius: 999px;
   padding: 4px 10px;
   font-family: var(--body);
   font-size: 10.5px;
   color: rgba(242, 237, 227, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  /* The fade *out* duration - applies whenever .is-visible is removed,
+     since that's the rule in force once opacity is heading back to 0.
+     Quick on purpose: this only plays once the reader has just acted. */
+  transition: opacity 200ms ease;
+}
+
+.story-tap-hint.is-visible {
+  opacity: 1;
+  /* The fade *in* duration - slower and more ambient, since this is a
+     passive nudge for someone who's paused, not a response to a tap. */
+  transition: opacity 1000ms ease;
 }
 
 /* Choices only, below the stage (0050) - dialogue and narration both moved
@@ -5946,4 +6170,236 @@ body.is-revealing { overflow: hidden; }
 .v4-character-shape .art-pending-initial {
   font-size: 28px;
   color: rgba(24, 20, 35, 0.32);
+}
+
+/* --- unit-complete-celebration.jsx ------------------------------------ */
+/* The screen between a unit's own end-narrative and the deck's own
+   unlock animation (docs/decisions/0076) - the card wobbles and glimmers
+   under a scatter of glitter, smaller than a full reference card so nothing
+   of it is cropped, while its own keywords flash into place around it. */
+.unit-celebration {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 24px;
+  background: radial-gradient(ellipse at 50% 35%, rgba(143, 82, 196, 0.16) 0%, transparent 60%), var(--ink);
+  cursor: pointer;
+}
+
+.unit-celebration-stage {
+  position: relative;
+  width: min(88vw, 420px);
+  display: flex;
+  justify-content: center;
+  padding: 34px 0;
+}
+
+/* The wobble - a slow rock, not a spin, so it reads as the card being
+   alive rather than broken. */
+.unit-celebration-wobble {
+  position: relative;
+  animation: unit-celebration-wobble 3.2s ease-in-out infinite;
+}
+
+@keyframes unit-celebration-wobble {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+/* Sized by its own natural aspect ratio (no fixed box, no object-fit:cover)
+   so nothing of the art is ever cropped - Simon's own complaint about the
+   first pass - and capped smaller than a reference card, since this
+   screen is about the ceremony around it, not a full card read. */
+.unit-celebration-art {
+  display: block;
+  max-height: 30vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px var(--accent-a45),
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 0 50px rgba(143, 82, 196, 0.35);
+  animation: unit-celebration-glimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes unit-celebration-glimmer {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.4) saturate(1.2); }
+}
+
+/* Glitter hovering over the card, twinkling continuously - the same
+   gold/silver dust pattern zone-highlight.jsx's own reward burst uses,
+   looped here instead of played once. */
+.unit-celebration-glitter {
+  position: absolute;
+  inset: -14%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #fff 1.5px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.5px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.2px, transparent 2px),
+    radial-gradient(circle, #fff 1.5px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.5px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.2px, transparent 2px);
+  background-position:
+    8% 10%, 92% 14%, 15% 88%, 85% 82%, 50% 4%, 4% 50%, 96% 46%, 60% 94%;
+  background-repeat: no-repeat;
+  animation: unit-celebration-twinkle 1.6s ease-in-out infinite;
+}
+
+@keyframes unit-celebration-twinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.unit-celebration-caption {
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--parchment);
+  text-align: center;
+}
+
+/* One pill per keyword, positioned around the card - the same look
+   round-player.jsx's own .chip gives the keyword-round format this is
+   quoting ("like in the keywords session type"). Words appear a random
+   0.2-0.6s apart (unit-complete-celebration.jsx's own randomGap()), but
+   each one's own fade-in-and-sparkle plays out over a full second
+   regardless of that pacing - Simon's spec explicitly splits the two. */
+.unit-celebration-keyword {
+  position: absolute;
+  font-family: var(--body);
+  font-size: 12.5px;
+  color: var(--parchment);
+  background: rgba(184, 148, 74, 0.18);
+  border: 1px solid var(--accent-bright);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  box-shadow: 0 0 12px 2px rgba(240, 200, 105, 0.3);
+  animation: unit-celebration-keyword-in 1000ms ease-out backwards;
+}
+
+@keyframes unit-celebration-keyword-in {
+  0% { opacity: 0; transform: scale(0.4); box-shadow: 0 0 0 0 rgba(240, 200, 105, 0); }
+  30% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 26px 7px rgba(240, 200, 105, 0.55); }
+  55% { transform: scale(0.94); }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 12px 2px rgba(240, 200, 105, 0.3);
+  }
+}
+
+/* The sparkle/glitter half of the same 1s landing - a scatter of dust
+   dots blooming outward from the pill and fading, the same technique
+   collected-badge.jsx's own .collected-badge-sparkle and zone-
+   highlight.jsx's dust pattern already use elsewhere for a correct-answer
+   reward. */
+.unit-celebration-keyword::after {
+  content: "";
+  position: absolute;
+  inset: -70%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #fff 1.5px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.5px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px),
+    radial-gradient(circle, #f0c869 1.2px, transparent 2px),
+    radial-gradient(circle, #fff 1.2px, transparent 2px);
+  background-position: 8% 15%, 88% 12%, 15% 85%, 85% 82%, 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: unit-celebration-keyword-sparkle 1000ms ease-out backwards;
+}
+
+@keyframes unit-celebration-keyword-sparkle {
+  0% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  30% { opacity: 1; transform: scale(1.1) rotate(8deg); }
+  100% { opacity: 0; transform: scale(1.9) rotate(20deg); }
+}
+
+/* --- deck-screen.jsx: the unlock/level-up moment ---------------------- */
+
+/* Sparks lifting off a newly-unlocked (or newly-levelled) card slot -
+   same gold/silver dust technique swipe-round-player.jsx's own
+   spawnBurst() and zone-chip-flight.jsx's own spawnDust() already use,
+   just spawned once from deck-screen.jsx's own playUnlockAnimation()
+   rather than per-frame. */
+.deck-slot-spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.deck-slot-spark.is-gold {
+  background: #f0c869;
+  box-shadow: 0 0 8px 2px rgba(240, 200, 105, 0.75);
+}
+
+.deck-slot-spark.is-silver {
+  background: #e6e6ee;
+  box-shadow: 0 0 8px 2px rgba(230, 230, 238, 0.7);
+}
+
+/* The translucent arrow pointing at the Path tab once the unlock
+   animation lands - "Continue Story" is the only thing on it that's
+   actually clickable; tapping the backdrop anywhere else dismisses it
+   without navigating (Simon's spec for both). */
+.deck-arrow-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+}
+
+/* Button on top, arrow glyph below it (see deck-screen.jsx's own JSX
+   order) - the tip has to be the element actually closest to the Path
+   tab it's pointing down at. */
+.deck-arrow-pointer {
+  position: fixed;
+  z-index: 31;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translate(-50%, 0);
+  animation: deck-arrow-bob 1.4s ease-in-out infinite;
+}
+
+/* Bobs downward, toward the tab, not up and away from it - a beckoning
+   nudge in the direction it's actually pointing. */
+@keyframes deck-arrow-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+.deck-arrow-glyph {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 20px solid rgba(201, 166, 240, 0.75);
+  filter: drop-shadow(0 0 10px rgba(143, 82, 196, 0.5));
+}
+
+.deck-arrow-cta {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }

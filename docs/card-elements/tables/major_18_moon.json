@@ -1,0 +1,51 @@
+{
+  "card_key": "major_18_moon",
+  "card_name": "The Moon",
+  "elements": [
+    {
+      "key": "pisces",
+      "name": "Pisces",
+      "text": "Pisces: dreams and empathy, a receptive depth that dissolves the boundary between self and other.",
+      "rects": [
+        {
+          "x0": 0.44,
+          "y0": 0.1,
+          "x1": 0.58,
+          "y1": 0.21
+        }
+      ]
+    },
+    {
+      "key": "moon_face",
+      "name": "Moon face",
+      "text": "The face in the moon: our hidden, intimate side, watching from stillness as the night deepens.",
+      "rects": [
+        {
+          "x0": 0.3,
+          "y0": 0.24,
+          "x1": 0.65,
+          "y1": 0.46
+        }
+      ]
+    },
+    {
+      "key": "fish_riders",
+      "name": "Twin fish riders",
+      "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.52,
+          "x1": 0.24,
+          "y1": 0.77
+        },
+        {
+          "x0": 0.6,
+          "y0": 0.58,
+          "x1": 0.87,
+          "y1": 0.84
+        }
+      ]
+    }
+  ]
+}

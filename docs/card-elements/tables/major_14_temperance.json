@@ -1,0 +1,30 @@
+{
+  "card_key": "major_14_temperance",
+  "card_name": "Temperance",
+  "elements": [
+    {
+      "key": "sagittarius",
+      "name": "Sagittarius",
+      "text": "Sagittarius: the pull of exploration and optimism, valuing the journey itself over any fixed destination.",
+      "rects": [
+        {"x0": 0.42, "y0": 0.08, "x1": 0.58, "y1": 0.2}
+      ]
+    },
+    {
+      "key": "starry_sash",
+      "name": "Starry sash",
+      "text": "The starry sash flowing between her hands: the alchemy of Temperance, blending separate elements into something greater than their sum.",
+      "rects": [
+        {"x0": 0.28, "y0": 0.27, "x1": 0.64, "y1": 0.55}
+      ]
+    },
+    {
+      "key": "cup",
+      "name": "Cup",
+      "text": "The cup tipped between her fingers: patient testing and mixing, tempering experience before it's swallowed whole.",
+      "rects": [
+        {"x0": 0.16, "y0": 0.45, "x1": 0.36, "y1": 0.62}
+      ]
+    }
+  ]
+}

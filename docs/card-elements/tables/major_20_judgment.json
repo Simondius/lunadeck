@@ -1,0 +1,45 @@
+{
+  "card_key": "major_20_judgment",
+  "card_name": "Judgment",
+  "elements": [
+    {
+      "key": "pluto",
+      "name": "Pluto",
+      "text": "Pluto: transformation through death and rebirth, releasing old schemes to reach healing.",
+      "rects": [
+        {
+          "x0": 0.44,
+          "y0": 0.09,
+          "x1": 0.58,
+          "y1": 0.19
+        }
+      ]
+    },
+    {
+      "key": "trumpet",
+      "name": "Angel's trumpet",
+      "text": "The golden trumpet sounding from above: the call to rise, our true vocation and voice being summoned.",
+      "rects": [
+        {
+          "x0": 0.36,
+          "y0": 0.33,
+          "x1": 0.64,
+          "y1": 0.58
+        }
+      ]
+    },
+    {
+      "key": "rising_figures",
+      "name": "Rising figures",
+      "text": "Bodies rising with arms outstretched from their graves: the dead reborn, healed and called back to life.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.58,
+          "x1": 1.0,
+          "y1": 0.86
+        }
+      ]
+    }
+  ]
+}

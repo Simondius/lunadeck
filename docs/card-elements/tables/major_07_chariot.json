@@ -1,0 +1,45 @@
+{
+  "card_key": "major_07_chariot",
+  "card_name": "The Chariot",
+  "elements": [
+    {
+      "key": "cancer",
+      "name": "Cancer",
+      "text": "Cancer: emotional sensitivity and nurturing, the cardinal initiator in matters of intuition and relationship.",
+      "rects": [
+        {
+          "x0": 0.38,
+          "y0": 0.09,
+          "x1": 0.6,
+          "y1": 0.23
+        }
+      ]
+    },
+    {
+      "key": "horses",
+      "name": "The two horses",
+      "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.35,
+          "x1": 0.55,
+          "y1": 0.78
+        }
+      ]
+    },
+    {
+      "key": "reins",
+      "name": "Reins",
+      "text": "Reins held taut in her hands: the determination and ambition that steer great movement toward its goal.",
+      "rects": [
+        {
+          "x0": 0.36,
+          "y0": 0.22,
+          "x1": 0.6,
+          "y1": 0.42
+        }
+      ]
+    }
+  ]
+}

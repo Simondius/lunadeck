@@ -1,0 +1,45 @@
+{
+  "card_key": "major_09_hermit",
+  "card_name": "The Hermit",
+  "elements": [
+    {
+      "key": "virgo",
+      "name": "Virgo",
+      "text": "Virgo: attentive discernment and productive solitude, a focus on detail that reveals the bigger picture.",
+      "rects": [
+        {
+          "x0": 0.4,
+          "y0": 0.11,
+          "x1": 0.6,
+          "y1": 0.23
+        }
+      ]
+    },
+    {
+      "key": "lantern",
+      "name": "Lantern",
+      "text": "The lantern he carries: the light that leads him step by step, focusing on detail as he searches for his spiritual center.",
+      "rects": [
+        {
+          "x0": 0.5,
+          "y0": 0.4,
+          "x1": 0.8,
+          "y1": 0.66
+        }
+      ]
+    },
+    {
+      "key": "owl",
+      "name": "Owl",
+      "text": "An owl keeping silent watch from the branches: the calm, searching wisdom found in solitude.",
+      "rects": [
+        {
+          "x0": 0.76,
+          "y0": 0.2,
+          "x1": 0.96,
+          "y1": 0.38
+        }
+      ]
+    }
+  ]
+}

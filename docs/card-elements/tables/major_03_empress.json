@@ -1,0 +1,45 @@
+{
+  "card_key": "major_03_empress",
+  "card_name": "The Empress",
+  "elements": [
+    {
+      "key": "venus",
+      "name": "Venus",
+      "text": "Venus: love, pleasure, beauty and harmony expressed through relationship.",
+      "rects": [
+        {
+          "x0": 0.44,
+          "y0": 0.115,
+          "x1": 0.56,
+          "y1": 0.19
+        }
+      ]
+    },
+    {
+      "key": "scepter",
+      "name": "Scepter",
+      "text": "Scepter: her authority as Mother Earth, life given shape and grown into the world.",
+      "rects": [
+        {
+          "x0": 0.26,
+          "y0": 0.18,
+          "x1": 0.37,
+          "y1": 0.83
+        }
+      ]
+    },
+    {
+      "key": "pomegranates",
+      "name": "Pomegranates",
+      "text": "Pomegranates among the fronds: fertility and abundance, life ripening in every direction.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.18,
+          "x1": 0.2,
+          "y1": 0.85
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "card_key": "major_12_hanged_man",
+  "card_name": "The Hanged Man",
+  "elements": [
+    {
+      "key": "neptune",
+      "name": "Neptune",
+      "text": "Neptune: dreams, mystery, and surrender, the fluid, hidden depth that dissolves rigid boundaries.",
+      "rects": [
+        {"x0": 0.41, "y0": 0.095, "x1": 0.59, "y1": 0.215}
+      ]
+    },
+    {
+      "key": "crossed_legs",
+      "name": "Crossed legs",
+      "text": "His legs crossed like a yoga position: even hanging upside down, a body settled into stillness rather than struggle.",
+      "rects": [
+        {"x0": 0.26, "y0": 0.22, "x1": 0.72, "y1": 0.44}
+      ]
+    },
+    {
+      "key": "serene_face",
+      "name": "Serene face",
+      "text": "His calm, unbothered expression: not suffering but pausing, a surrender that leads to greater awareness.",
+      "rects": [
+        {"x0": 0.26, "y0": 0.58, "x1": 0.64, "y1": 0.78}
+      ]
+    }
+  ]
+}

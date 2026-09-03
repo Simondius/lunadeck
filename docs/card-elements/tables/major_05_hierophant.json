@@ -1,0 +1,45 @@
+{
+  "card_key": "major_05_hierophant",
+  "card_name": "The Hierophant",
+  "elements": [
+    {
+      "key": "taurus",
+      "name": "Taurus",
+      "text": "Taurus: grounded sensory pleasure, patiently manifesting ideals into real, lived, material form.",
+      "rects": [
+        {
+          "x0": 0.4,
+          "y0": 0.12,
+          "x1": 0.6,
+          "y1": 0.24
+        }
+      ]
+    },
+    {
+      "key": "raised_hand",
+      "name": "Raised hand",
+      "text": "His raised hand of blessing: the bridge he forms between what is habitual and manifest and what lies high in the skies.",
+      "rects": [
+        {
+          "x0": 0.24,
+          "y0": 0.3,
+          "x1": 0.46,
+          "y1": 0.48
+        }
+      ]
+    },
+    {
+      "key": "celestial_orb",
+      "name": "Ringed celestial orb",
+      "text": "A ringed planet stitched into his robe: the sky's rarefied, mystical order carried into the folds of an earthly garment.",
+      "rects": [
+        {
+          "x0": 0.32,
+          "y0": 0.42,
+          "x1": 0.58,
+          "y1": 0.58
+        }
+      ]
+    }
+  ]
+}

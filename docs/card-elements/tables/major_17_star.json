@@ -1,0 +1,45 @@
+{
+  "card_key": "major_17_star",
+  "card_name": "The Star",
+  "elements": [
+    {
+      "key": "aquarius",
+      "name": "Aquarius",
+      "text": "Aquarius: idealistic, nonconformist vision, moving to its own rhythm toward hope.",
+      "rects": [
+        {
+          "x0": 0.4,
+          "y0": 0.1,
+          "x1": 0.62,
+          "y1": 0.2
+        }
+      ]
+    },
+    {
+      "key": "star_halo",
+      "name": "Star halo",
+      "text": "The eight-pointed star crowning her: the light seen at the end of the tunnel, hope made luminous.",
+      "rects": [
+        {
+          "x0": 0.32,
+          "y0": 0.17,
+          "x1": 0.66,
+          "y1": 0.36
+        }
+      ]
+    },
+    {
+      "key": "vessel",
+      "name": "Vessel",
+      "text": "The vessel raised in her hand: an open-handed gift poured out into the world, faith offered without needing anything back.",
+      "rects": [
+        {
+          "x0": 0.63,
+          "y0": 0.33,
+          "x1": 0.83,
+          "y1": 0.45
+        }
+      ]
+    }
+  ]
+}

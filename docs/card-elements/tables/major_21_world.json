@@ -1,0 +1,57 @@
+{
+  "card_key": "major_21_world",
+  "card_name": "The World",
+  "elements": [
+    {
+      "key": "saturn",
+      "name": "Saturn",
+      "text": "Saturn: structure and discipline, the boundary that closes one cycle so another can begin.",
+      "rects": [
+        {
+          "x0": 0.44,
+          "y0": 0.1,
+          "x1": 0.58,
+          "y1": 0.23
+        }
+      ]
+    },
+    {
+      "key": "wreath",
+      "name": "Encircling wreath",
+      "text": "The wreath of green fronds surrounding her: a whole made complete, the circle closed at journey's end.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.14,
+          "x1": 0.24,
+          "y1": 0.85
+        },
+        {
+          "x0": 0.76,
+          "y0": 0.14,
+          "x1": 1.0,
+          "y1": 0.85
+        }
+      ]
+    },
+    {
+      "key": "scarves",
+      "name": "Star-scarves",
+      "text": "The starry cloth draped across her hands: the boundary between worlds, held loosely and ready to be released.",
+      "rects": [
+        {
+          "x0": 0.2,
+          "y0": 0.4,
+          "x1": 0.68,
+          "y1": 0.62
+        },
+        {
+          "x0": 0.62,
+          "y0": 0.55,
+          "x1": 0.82,
+          "y1": 0.86
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "card_key": "major_15_devil",
+  "card_name": "The Devil",
+  "elements": [
+    {
+      "key": "capricorn",
+      "name": "Capricorn",
+      "text": "Capricorn: disciplined, earthy ambition, limits and responsibility built through hard work.",
+      "rects": [
+        {
+          "x0": 0.42,
+          "y0": 0.1,
+          "x1": 0.58,
+          "y1": 0.23
+        }
+      ]
+    },
+    {
+      "key": "horns",
+      "name": "Horns",
+      "text": "The goat horns crowning him: Pan's wild, chthonic form, the primordial instinct this card doesn't condemn so much as ask us to own.",
+      "rects": [
+        {
+          "x0": 0.34,
+          "y0": 0.14,
+          "x1": 0.66,
+          "y1": 0.32
+        }
+      ]
+    },
+    {
+      "key": "chains",
+      "name": "Loose chains",
+      "text": "The chain trailing loose from each figure's neck into the flames, never pulled taut: bondage that could be shrugged off at any time, the freedom of choice already in their own hands.",
+      "rects": [
+        {
+          "x0": 0.15,
+          "y0": 0.6,
+          "x1": 0.32,
+          "y1": 0.79
+        },
+        {
+          "x0": 0.65,
+          "y0": 0.6,
+          "x1": 0.82,
+          "y1": 0.79
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "card_key": "major_02_high_priestess",
+  "card_name": "The High Priestess",
+  "elements": [
+    {
+      "key": "moon",
+      "name": "Moon",
+      "text": "Moon: intuition and reception rather than action, the emotional tides she keeps.",
+      "rects": [
+        {
+          "x0": 0.42,
+          "y0": 0.18,
+          "x1": 0.51,
+          "y1": 0.25
+        }
+      ]
+    },
+    {
+      "key": "raised_hand",
+      "name": "Raised hand",
+      "text": "Raised hand: reaching toward the small moon, receiving rather than reaching to act.",
+      "rects": [
+        {
+          "x0": 0.58,
+          "y0": 0.26,
+          "x1": 0.75,
+          "y1": 0.43
+        }
+      ]
+    },
+    {
+      "key": "water_current",
+      "name": "Water current",
+      "text": "Water at her feet: the mutable, emotional element she governs, protection offered from the threshold.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.6,
+          "x1": 1.0,
+          "y1": 0.92
+        }
+      ]
+    }
+  ]
+}

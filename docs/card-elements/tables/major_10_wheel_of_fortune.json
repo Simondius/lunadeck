@@ -1,0 +1,30 @@
+{
+  "card_key": "major_10_wheel_of_fortune",
+  "card_name": "The Wheel of Fortune",
+  "elements": [
+    {
+      "key": "jupiter",
+      "name": "Jupiter",
+      "text": "Jupiter: expansion, luck, and abundance, the guiding, generous energy that can tip into excess if unchecked.",
+      "rects": [
+        {"x0": 0.44, "y0": 0.11, "x1": 0.56, "y1": 0.21}
+      ]
+    },
+    {
+      "key": "devil_figure",
+      "name": "Falling devil figure",
+      "text": "The red figure tumbling down the wheel's rim: misfortune as just one passing phase, not a permanent fate.",
+      "rects": [
+        {"x0": 0.0, "y0": 0.28, "x1": 0.28, "y1": 0.68}
+      ]
+    },
+    {
+      "key": "angel_figure",
+      "name": "Rising angel figure",
+      "text": "The winged figure ascending on the opposite side: fortune's rise mirroring the fall, the wheel's constant turning.",
+      "rects": [
+        {"x0": 0.58, "y0": 0.24, "x1": 0.98, "y1": 0.82}
+      ]
+    }
+  ]
+}

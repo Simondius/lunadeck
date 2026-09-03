@@ -1,0 +1,30 @@
+{
+  "card_key": "major_13_death",
+  "card_name": "Death",
+  "elements": [
+    {
+      "key": "scorpio",
+      "name": "Scorpio",
+      "text": "Scorpio: intensity and transformation, a comfort with what lies beneath the surface as what no longer has life is shed.",
+      "rects": [
+        {"x0": 0.41, "y0": 0.105, "x1": 0.58, "y1": 0.22}
+      ]
+    },
+    {
+      "key": "scythe",
+      "name": "Scythe",
+      "text": "The scythe he carries: the clean, necessary cut, clearing what is no longer viable to make room for new blood.",
+      "rects": [
+        {"x0": 0.02, "y0": 0.24, "x1": 0.32, "y1": 0.52}
+      ]
+    },
+    {
+      "key": "rising_sun",
+      "name": "Rising sun",
+      "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
+      "rects": [
+        {"x0": 0.0, "y0": 0.60, "x1": 0.33, "y1": 0.82}
+      ]
+    }
+  ]
+}

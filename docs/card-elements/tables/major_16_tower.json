@@ -1,0 +1,31 @@
+{
+  "card_key": "major_16_tower",
+  "card_name": "The Tower",
+  "elements": [
+    {
+      "key": "mars",
+      "name": "Mars",
+      "text": "Mars: direct, assertive action, jolting stagnant energy into motion.",
+      "rects": [
+        {"x0": 0.42, "y0": 0.12, "x1": 0.6, "y1": 0.22}
+      ]
+    },
+    {
+      "key": "lightning_bolt",
+      "name": "Lightning bolt",
+      "text": "The lightning strike that splits the tower open: the sudden change that forces movement, however unwelcome it arrives.",
+      "rects": [
+        {"x0": 0.55, "y0": 0.03, "x1": 0.92, "y1": 0.4}
+      ]
+    },
+    {
+      "key": "falling_figures",
+      "name": "Falling figures",
+      "text": "The two figures cast from the tower: falling not as ruin but as release, riding the wave of change instead of resisting it.",
+      "rects": [
+        {"x0": 0.0, "y0": 0.35, "x1": 0.25, "y1": 0.58},
+        {"x0": 0.63, "y0": 0.36, "x1": 0.9, "y1": 0.6}
+      ]
+    }
+  ]
+}

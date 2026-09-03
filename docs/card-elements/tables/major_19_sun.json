@@ -1,0 +1,51 @@
+{
+  "card_key": "major_19_sun",
+  "card_name": "The Sun",
+  "elements": [
+    {
+      "key": "sun",
+      "name": "Sun",
+      "text": "Sun: vitality and warmth, true self-expression radiating confidence into the world.",
+      "rects": [
+        {
+          "x0": 0.43,
+          "y0": 0.09,
+          "x1": 0.58,
+          "y1": 0.22
+        }
+      ]
+    },
+    {
+      "key": "child",
+      "name": "Child among sunflowers",
+      "text": "The bare child reaching for sunflowers: purity and inner strength, the optimism of a self freely expressed.",
+      "rects": [
+        {
+          "x0": 0.32,
+          "y0": 0.58,
+          "x1": 0.62,
+          "y1": 0.85
+        }
+      ]
+    },
+    {
+      "key": "sunflowers",
+      "name": "Sunflowers",
+      "text": "Sunflowers turned to the light: life that grows toward warmth, fortune and success in full bloom.",
+      "rects": [
+        {
+          "x0": 0.0,
+          "y0": 0.55,
+          "x1": 0.24,
+          "y1": 0.88
+        },
+        {
+          "x0": 0.76,
+          "y0": 0.52,
+          "x1": 1.0,
+          "y1": 0.84
+        }
+      ]
+    }
+  ]
+}

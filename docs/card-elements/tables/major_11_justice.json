@@ -1,0 +1,30 @@
+{
+  "card_key": "major_11_justice",
+  "card_name": "Justice",
+  "elements": [
+    {
+      "key": "libra",
+      "name": "Libra",
+      "text": "Libra: balance and harmony, an aesthetic, fair-minded sense of justice rooted in relationship.",
+      "rects": [
+        {"x0": 0.43, "y0": 0.115, "x1": 0.57, "y1": 0.21}
+      ]
+    },
+    {
+      "key": "scales",
+      "name": "Scales",
+      "text": "The scales in her raised hand: an honest weighing, the true and even vision she holds up to the world.",
+      "rects": [
+        {"x0": 0.03, "y0": 0.45, "x1": 0.42, "y1": 0.65}
+      ]
+    },
+    {
+      "key": "sword",
+      "name": "Sword",
+      "text": "The sword held low: decisive action from the heart, the responsibility that moves when it must.",
+      "rects": [
+        {"x0": 0.38, "y0": 0.54, "x1": 0.62, "y1": 0.75}
+      ]
+    }
+  ]
+}

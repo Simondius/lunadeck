@@ -7,12 +7,15 @@
 // template - Simon's own call ("adapt as needed if the card has more or
 // less content").
 //
-// Node 2 ("Find the Elements") is a deliberate placeholder - Simon has a
-// separate process extracting each card's own visual elements (the zone
-// rects and tile-match crops Fool/Lovers/Magician/Emperor already have
-// hand-authored), so this only writes a structurally valid stand-in
-// clearly marked as pending, not real content to be mistaken for
-// finished work.
+// Node 2 ("Find the Elements") started as a placeholder pending Simon's
+// own element-extraction pass; real data has since been wired directly
+// into each of these 17 cards' own output files (not through this
+// script). buildSection's own existingNode2() reads whatever is already
+// in a card's output file and reuses it verbatim unless it's still the
+// placeholder - rerunning this script for an unrelated fix elsewhere in
+// the same card (a cloze-length or distractor change, say) must never
+// silently wipe that real data back to the placeholder again (0088 - it
+// happened twice before this got fixed).
 //
 // Run with: node scripts/build-v4-new-cards.mjs
 import fs from "node:fs";
@@ -74,16 +77,166 @@ const ALL_MAJORS = [
   "major_21_world",
 ];
 
+// Every "silly" (obviously-wrong, not a real card keyword) single-word
+// distractor in the app draws from this one pool now - node-1/node-3/the
+// capstone's own plain round, node-7's recap cloze, and the capstone's own
+// cloze all used to index a tiny fixed 8-word array directly, always the
+// same "Tuesday"/"banana" for every one of the 17 cards this generates
+// (0088: "Tuesday and Banana seem to appear repeatedly... no single word
+// appears more than twice in a unit or 5 times in the entire course"). One
+// pool, one allocator, both caps enforced together.
 const SILLY_WORDS = [
-  "Tuesday",
-  "banana",
-  "purple",
-  "spaghetti",
-  "trombone",
-  "cactus",
-  "violin",
-  "Saturday",
+  "Tuesday", "Wednesday", "Thursday", "Saturday", "Sunday", "Monday", "Friday",
+  "banana", "spaghetti", "purple", "trombone", "cactus", "violin", "elephant",
+  "teacup", "pizza", "umbrella", "bicycle", "broccoli", "ladder", "green",
+  "orange", "yellow", "turquoise", "beige", "maroon",
+  "kazoo", "accordion", "tambourine", "harmonica", "bagpipes", "xylophone",
+  "pretzel", "sandwich", "meatball", "pancake", "waffle", "burrito", "dumpling",
+  "raccoon", "platypus", "walrus", "penguin", "octopus", "hedgehog", "flamingo",
+  "volcano", "glacier", "tornado", "avalanche", "puddle", "geyser",
+  "compass", "anchor", "lantern", "whistle", "telescope", "magnet",
+  "seashell", "pinecone", "jellyfish", "starfish", "barnacle", "coral",
+  "marmalade", "mustard", "ketchup", "mayonnaise", "vinegar", "cinnamon",
+  "puzzle", "yo-yo", "kite", "marble", "domino", "jigsaw",
+  "toaster", "blender", "vacuum", "stapler", "clipboard", "thermostat",
+  "sock", "mitten", "beanie", "scarf", "galoshes", "poncho",
+  "hiccup", "yawn", "sneeze", "wink", "shrug", "doodle",
+  "gargoyle", "unicycle", "trampoline", "seesaw", "pogo stick", "wheelbarrow",
+  "cauliflower", "artichoke", "eggplant", "turnip", "radish", "parsnip",
+  "typewriter", "postcard", "envelope", "paperclip", "rubber band", "thumbtack",
+  "snorkel", "flipper", "goggles", "life raft", "paddle", "buoy",
+  "bagel", "croissant", "muffin", "biscuit", "scone", "cupcake",
 ];
+const SILLY_WORD_GLOBAL_CAP = 5;
+const SILLY_WORD_PER_CARD_CAP = 2;
+const sillyWordGlobalUsage = new Map();
+const sillyWordPerCardUsage = new Map();
+let sillyWordCursor = 0;
+
+// Round-robins SILLY_WORDS, skipping anything already at 5 uses across the
+// whole run or 2 uses for this specific card (module-level state, so the
+// caps hold across all 17 cards, not just within one).
+function drawSillyWords(cardKey, count) {
+  const perCard = sillyWordPerCardUsage.get(cardKey) ?? new Map();
+  sillyWordPerCardUsage.set(cardKey, perCard);
+  const out = [];
+  let guard = 0;
+  while (out.length < count && guard < SILLY_WORDS.length * 4) {
+    const word = SILLY_WORDS[sillyWordCursor % SILLY_WORDS.length];
+    sillyWordCursor += 1;
+    guard += 1;
+    const globalUsed = sillyWordGlobalUsage.get(word) ?? 0;
+    const cardUsed = perCard.get(word) ?? 0;
+    if (globalUsed < SILLY_WORD_GLOBAL_CAP && cardUsed < SILLY_WORD_PER_CARD_CAP && !out.includes(word)) {
+      sillyWordGlobalUsage.set(word, globalUsed + 1);
+      perCard.set(word, cardUsed + 1);
+      out.push(word);
+    }
+  }
+  return out;
+}
+
+// Choice-round "obviously wrong" options for a card's first (only) teaching
+// unit (0087) - otherCardNotes() always pulled a choice round's wrong
+// options from the MOST similar other majors, so every "Pick the True
+// Reading" round was maximum-confusability with no easier option at all,
+// appropriate for a review unit testing mastery but not for a first
+// encounter. Full sentences, per 0080's own "choice options read as
+// sentences, not labels" rule - and genuinely invented nonsense rather
+// than sourced content, since the entire point is that nothing about them
+// should read as plausibly true of any real card.
+const SILLY_SENTENCES = [
+  "The card is legally required to agree with your horoscope",
+  "Only works if you're holding it upside down and humming",
+  "Secretly a coupon for one free tarot reading",
+  "Was originally a recipe card before the printer got confused",
+  "Grants one wish, but only on a leap year",
+  "Means you should immediately reorganize your sock drawer",
+  "Is actually just the Nine of Cups wearing a costume",
+  "Requires a permit from the local moon council",
+  "Only true if read aloud in a haunted house",
+  "Was drawn upside down by a cat walking across the deck",
+  "Comes with a money-back guarantee if you dislike your future",
+  "Its meaning changes depending on what you had for breakfast",
+  "Doubles as a coaster in a pinch",
+  "Is void where prohibited",
+  "Only counts if you drew it with your eyes closed",
+  "Was printed by mistake and means nothing at all",
+  "Requires three witnesses and a notarized signature to interpret",
+  "Its real meaning is written in invisible ink on the back",
+  "Only applies to left-handed Tuesdays",
+  "Is a trick question with no correct interpretation",
+  "Means you owe the deck a favor",
+  "Has to be read backwards while standing on one foot",
+  "Was actually meant for the person sitting behind you",
+  "Comes with batteries not included",
+  "Only works if the room is exactly 72 degrees",
+  "Is a rerun of a card you already drew last week",
+  "Grants temporary immunity from bad decisions",
+  "Its meaning resets every time someone sneezes nearby",
+  "Was shuffled in from a completely different deck by accident",
+  "Requires a subscription to unlock the second half of its meaning",
+];
+const sillySentenceUsage = new Map();
+let sillySentenceCursor = 0;
+
+function drawSillySentences(count) {
+  const out = [];
+  let guard = 0;
+  while (out.length < count && guard < SILLY_SENTENCES.length * 4) {
+    const sentence = SILLY_SENTENCES[sillySentenceCursor % SILLY_SENTENCES.length];
+    sillySentenceCursor += 1;
+    guard += 1;
+    const used = sillySentenceUsage.get(sentence) ?? 0;
+    if (used < 6 && !out.includes(sentence)) {
+      sillySentenceUsage.set(sentence, used + 1);
+      out.push(sentence);
+    }
+  }
+  return out;
+}
+
+// Simon's own calibration: a paragraph under 10 words only needs one or two
+// blanks, and one around 30 words should carry three to five - a fixed
+// count regardless of length either tests too little of a long paragraph
+// or crowds a short one.
+function targetBlankCount(wordCount) {
+  return Math.max(1, Math.min(5, Math.round(wordCount / 8)));
+}
+
+// Blanks up to `targetBlankCount(words in text)` distinct real keywords
+// (falling back to blankRealWord's own longest-real-word rule once
+// keywords run out), then trims to just the sentence(s) that ended up
+// holding a blank - same reasoning as 0085, generalized past a fixed
+// one-or-two-blank assumption. If the trimmed result still runs past
+// `wordLimit` (multiple blanks landing in their own separate long
+// sentences), drops blanks from the end, restoring each one's real word,
+// until it fits or only one blank remains.
+function buildScaledCloze(text, keywords, wordLimit) {
+  const wordCount = text.trim().split(/\s+/).length;
+  const target = Math.max(1, Math.min(targetBlankCount(wordCount), keywords.length || 1));
+
+  let working = text;
+  const blanks = [];
+  const used = new Set();
+  for (let i = 0; i < target; i++) {
+    const key = `b${i + 1}`;
+    const remaining = keywords.filter((k) => !used.has(k));
+    const result = blankRealWord(working, remaining, key);
+    if (used.has(result.answer)) break;
+    used.add(result.answer);
+    working = result.text;
+    blanks.push({ key, answer: result.answer });
+  }
+
+  while (blanks.length > 1) {
+    const trimmed = trimToBlankSentences(working);
+    if (trimmed.split(/\s+/).length <= wordLimit) return { text: trimmed, blanks };
+    const last = blanks.pop();
+    working = working.replace(`{${last.key}}`, last.answer);
+  }
+  return { text: trimToBlankSentences(working), blanks };
+}
 
 const cardsBase = load("data_tarot_cards_base.csv");
 const cardName = new Map(cardsBase.map((r) => [r.card_key, r.card_name]));
@@ -223,24 +376,81 @@ function blankRealWord(text, preferredWords, blankKey = "b1") {
   return { text: text.replace(re, `{${blankKey}}`), answer: longestWord };
 }
 
+// Calibrated against a real device screenshot at node-7's own font size -
+// High Priestess's own trimmed recap (33 words, two sentences) fit with
+// room to spare; Sun's (54 words, two long sentences) pushed its word
+// bank off the bottom of the screen even after the same trim.
+const RECAP_WORD_LIMIT = 42;
+
+// Keeps only the sentence(s) in `text` that actually contain a {bN} blank
+// placeholder, in their original order - a recap round only needs to show
+// what it's actually quizzing, not the whole paragraph the blank(s) were
+// pulled from. Falls back to the full text if every blank somehow landed
+// in the same single-sentence description (nothing to trim).
+function trimToBlankSentences(text) {
+  const sentences = (text.match(/[^.!?]+[.!?]*/g) ?? [text]).map((s) => s.trim());
+  const withBlanks = sentences.filter((s) => /\{b\d+\}/.test(s));
+  if (!withBlanks.length || withBlanks.length === sentences.length) return text.trim();
+  return withBlanks.join(" ").trim();
+}
+
 // Real reading notes from other majors, for swipe/choice "false" options -
 // genuine tarot content, just not true of this card.
+//
+// otherCardNotes always walked similarityByCard from the top (most
+// confusable first), so the handful of majors that happen to rank as
+// "most similar" to many other cards dominated as donors - Fool alone
+// backed 35 of the course's ~200 real-phrase distractor slots, while
+// several majors barely appeared (0091). drawSillyWords already solved
+// the same shape of problem for silly words (0088); this is that same
+// cap-and-skip pattern applied to donor cards instead of donor words.
+const DONOR_GLOBAL_CAP = 10; // across all 17 cards this script builds
+const DONOR_PER_CARD_CAP = 2; // within one consuming card's own slots
+const donorGlobalUsage = new Map();
+const donorPerCardUsage = new Map();
 function otherCardNotes(cardKey, count, used) {
+  const perCard = donorPerCardUsage.get(cardKey) ?? new Map();
+  donorPerCardUsage.set(cardKey, perCard);
   const out = [];
   for (const { other } of similarityByCard.get(cardKey) ?? []) {
     if (out.length >= count) break;
+    const globalUsed = donorGlobalUsage.get(other) ?? 0;
+    const cardUsed = perCard.get(other) ?? 0;
+    if (globalUsed >= DONOR_GLOBAL_CAP || cardUsed >= DONOR_PER_CARD_CAP) continue;
+    let pulled = 0;
     for (const note of talkingPointsByCard.get(other) ?? []) {
       if (out.length >= count) break;
       const phrase = shortPhrase(note);
       if (used.has(phrase) || out.includes(phrase)) continue;
       out.push(phrase);
       used.add(phrase);
+      pulled += 1;
+    }
+    if (pulled > 0) {
+      donorGlobalUsage.set(other, globalUsed + pulled);
+      perCard.set(other, cardUsed + pulled);
     }
   }
   return out;
 }
 
+const PLACEHOLDER_ELEMENT_MARKER = "Element pending";
+
+// Reads node-2 from this card's own EXISTING output file, if any, and
+// reuses it verbatim as long as it isn't still the placeholder - see the
+// header comment above (0088).
+function existingNode2(slug) {
+  const outPath = path.join(DATA_DIR, "v4", `${slug}_section.json`);
+  if (!fs.existsSync(outPath)) return null;
+  const existing = JSON.parse(fs.readFileSync(outPath, "utf8"));
+  const node2 = existing.nodes?.find((n) => n.id === "node-2");
+  if (!node2) return null;
+  const stillPlaceholder = JSON.stringify(node2).includes(PLACEHOLDER_ELEMENT_MARKER);
+  return stillPlaceholder ? null : node2;
+}
+
 function buildSection(cardKey) {
+  const slug = cardKey.replace(/^major_\d+_/, "");
   const name = cardName.get(cardKey);
   const keywords = (keywordsByCard.get(cardKey) ?? []).filter(Boolean);
   const notes = (talkingPointsByCard.get(cardKey) ?? []).filter(Boolean);
@@ -261,17 +471,18 @@ function buildSection(cardKey) {
         tutorial: true,
         words: [
           ...firstTier.map((text) => ({ text, correct: true })),
-          { text: SILLY_WORDS[0], correct: false },
-          { text: SILLY_WORDS[1], correct: false },
+          ...drawSillyWords(cardKey, 2).map((text) => ({ text, correct: false })),
         ],
       },
     ],
   };
 
-  // --- Node 2: Find the Elements - placeholder, pending Simon's own
-  // extraction pass. Two rects (top/bottom half) so the round is still
-  // structurally playable, not a single degenerate "tap anywhere."
-  const node2 = {
+  // --- Node 2: Find the Elements - real data if this card's own output
+  // file already has it (existingNode2 above), otherwise a structural
+  // placeholder pending Simon's own extraction pass. Two rects (top/bottom
+  // half) so the placeholder round is still playable, not a single
+  // degenerate "tap anywhere."
+  const node2 = existingNode2(slug) ?? {
     id: "node-2",
     rounds: [
       {
@@ -306,8 +517,7 @@ function buildSection(cardKey) {
         id: id(cardKey, "n3-r"),
         words: [
           ...tier2Words.map((text) => ({ text, correct: true })),
-          { text: SILLY_WORDS[2], correct: false },
-          { text: SILLY_WORDS[3], correct: false },
+          ...drawSillyWords(cardKey, 2).map((text) => ({ text, correct: false })),
         ],
       },
     ],
@@ -315,18 +525,21 @@ function buildSection(cardKey) {
 
   // --- Mini Capstone: plain + cloze + choice, this card's own content only.
   const capstoneNote = notes[0] ?? description;
-  const capstoneBlank = blankRealWord(capstoneNote, keywords);
+  const capstoneCloze = buildScaledCloze(capstoneNote, keywords, RECAP_WORD_LIMIT);
   const capstone = {
     id: `${cardKey}-capstone`,
-    label: "Mini Capstone",
+    label: "Alignment Check",
     rounds: [
       {
         id: id(cardKey, "cap-r"),
         cardKey,
         cardName: name,
+        // At least 2 distractors, 3 where there's room (0089) - every
+        // other "words" round in the app already draws 2-3; this was the
+        // one place still asking for just 1.
         words: [
           ...keywords.slice(0, Math.min(3, keywords.length)).map((text) => ({ text, correct: true })),
-          { text: SILLY_WORDS[4], correct: false },
+          ...drawSillyWords(cardKey, 3).map((text) => ({ text, correct: false })),
         ],
       },
       {
@@ -334,9 +547,9 @@ function buildSection(cardKey) {
         type: "cloze",
         cardKey,
         cardName: name,
-        text: capstoneBlank.text,
-        blanks: [{ key: "b1", answer: capstoneBlank.answer }],
-        distractors: [SILLY_WORDS[5], SILLY_WORDS[6]],
+        text: capstoneCloze.text,
+        blanks: capstoneCloze.blanks,
+        distractors: drawSillyWords(cardKey, 2),
       },
       {
         id: id(cardKey, "cap-r"),
@@ -345,9 +558,14 @@ function buildSection(cardKey) {
         cardName: name,
         prompt: "Which of these is true of this card?",
         correct: shortPhrase(notes[1] ?? notes[0] ?? description),
+        // Same 0087 scaffolding as node-6: one genuinely confusable real
+        // wrong, one obviously-wrong invented one - a 3-option round with
+        // both wrongs maximally confusable is harder than a first
+        // encounter needs.
         options: [
           shortPhrase(notes[1] ?? notes[0] ?? description),
-          ...otherCardNotes(cardKey, 2, new Set()),
+          ...otherCardNotes(cardKey, 1, new Set()),
+          ...drawSillySentences(1),
         ],
       },
     ],
@@ -387,10 +605,14 @@ function buildSection(cardKey) {
   };
 
   // --- Node 6: Pick the True Reading - one choice round per reading
-  // note, wrongs drawn from other majors' real notes (never repeating a
-  // wrong option already used elsewhere in this unit).
+  // note. This is the card's own first (only) teaching unit, so only one
+  // of the three wrong options is a genuinely confusable real reading
+  // (otherCardNotes, never repeating a wrong option already used
+  // elsewhere in this unit) - the other two are invented, obviously-wrong
+  // nonsense (0087), scaffolding a first encounter the way node-1's own
+  // easy tier already does for keywords.
   const node6Rounds = notes.map((note, i) => {
-    const wrongs = otherCardNotes(cardKey, 3, usedDistractorPhrases);
+    const wrongs = [...otherCardNotes(cardKey, 1, usedDistractorPhrases), ...drawSillySentences(2)];
     return {
       id: id(cardKey, "n6-r"),
       type: "choice",
@@ -401,28 +623,23 @@ function buildSection(cardKey) {
   });
   const node6 = { id: "node-6", rounds: node6Rounds };
 
-  // --- Node 7: The Full Picture - the whole condensed description as one
-  // recap cloze, blanking up to two of its own real keywords (falling
-  // back to the longest real word in the text when a keyword never
-  // literally appears in it - see blankRealWord).
-  const firstBlank = blankRealWord(description, keywords, "b1");
-  const remainingKeywords = keywords.filter((k) => k !== firstBlank.answer);
-  const secondBlank =
-    remainingKeywords.length > 0 ? blankRealWord(firstBlank.text, remainingKeywords, "b2") : null;
-  const recapText = secondBlank ? secondBlank.text : firstBlank.text;
-  const recapBlanks = [
-    { key: "b1", answer: firstBlank.answer },
-    ...(secondBlank ? [{ key: "b2", answer: secondBlank.answer }] : []),
-  ];
+  // --- Node 7: The Full Picture - blank count scales with the paragraph's
+  // own length (0086) rather than a fixed one-or-two, then keeps only the
+  // sentence(s) that actually ended up holding a blank (0085) - the
+  // original Fool/Lovers/Empress recap splits its own full description
+  // across several short rounds for exactly this reason; showing every
+  // sentence in a 50-90 word paragraph when only a couple of its words are
+  // tested pushes the word bank below the fold for no benefit.
+  const recap = buildScaledCloze(description, keywords, RECAP_WORD_LIMIT);
   const node7 = {
     id: "node-7",
     rounds: [
       {
         id: id(cardKey, "n7-r"),
         type: "cloze",
-        text: recapText,
-        blanks: recapBlanks,
-        distractors: [SILLY_WORDS[0], SILLY_WORDS[1], SILLY_WORDS[2]],
+        text: recap.text,
+        blanks: recap.blanks,
+        distractors: drawSillyWords(cardKey, 3),
       },
     ],
   };

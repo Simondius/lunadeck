@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_07_chariot-n1-r31",
+          "id": "major_07_chariot-n1-r29",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "beige",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "maroon",
               "correct": false
             }
           ]
@@ -59,52 +59,7 @@
               "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.35,
-                  "x1": 0.55,
-                  "y1": 0.78
-                }
-              ]
-            },
-            {
-              "key": "reins",
-              "name": "Reins",
-              "text": "Reins held taut in her hands: the determination and ambition that steer great movement toward its goal.",
-              "rects": [
-                {
-                  "x0": 0.36,
-                  "y0": 0.22,
-                  "x1": 0.6,
-                  "y1": 0.42
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_07_chariot-n2-r246",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "cancer",
-              "name": "Cancer",
-              "text": "Cancer: emotional sensitivity and nurturing, the cardinal initiator in matters of intuition and relationship.",
-              "rects": [
-                {
-                  "x0": 0.38,
-                  "y0": 0.09,
-                  "x1": 0.6,
-                  "y1": 0.23
-                }
-              ]
-            },
-            {
-              "key": "horses",
-              "name": "The two horses",
-              "text": "Two horses in harness: the forces that move us, aligned only when intuition and rationality pull together.",
-              "rects": [
-                {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.35,
                   "x1": 0.55,
                   "y1": 0.78
@@ -153,7 +108,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_07_chariot-n3-r33",
+          "id": "major_07_chariot-n3-r30",
           "words": [
             {
               "text": "success",
@@ -164,11 +119,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "kazoo",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "accordion",
               "correct": false
             }
           ]
@@ -179,7 +134,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_07_chariot-n4-r37",
+          "id": "major_07_chariot-n4-r34",
           "words": [
             {
               "text": "emotions",
@@ -217,7 +172,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_07_chariot-n5-r38",
+          "id": "major_07_chariot-n5-r35",
           "type": "swipe",
           "cards": [
             {
@@ -253,11 +208,11 @@
               "isMatch": false
             },
             {
-              "text": "Sharp, quick-witted intelligence; can view a situation from multiple angles at once",
+              "text": "Sudden, unexpected change",
               "isMatch": false
             },
             {
-              "text": "A gift for communication",
+              "text": "Pure, uncomplicated joy",
               "isMatch": false
             }
           ]
@@ -268,63 +223,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_07_chariot-n6-r39",
+          "id": "major_07_chariot-n6-r36",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Determined forward motion",
           "options": [
             "Determined forward motion",
-            "Reminds you it's time to act on an idea, not just have it",
             "Ready to act the instant the moment calls for it",
-            "Sets clear boundaries and claims space without apology"
+            "Its meaning resets every time someone sneezes nearby",
+            "Was shuffled in from a completely different deck by accident"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r37",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Pulled by two forces that need aligning, not fighting, to move you forward",
+          "options": [
+            "Pulled by two forces that need aligning, not fighting, to move you forward",
+            "Sets clear boundaries and claims space without apology",
+            "Requires a subscription to unlock the second half of its meaning",
+            "The card is legally required to agree with your horoscope"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r38",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Success comes from uniting intuition with rational drive",
+          "options": [
+            "Success comes from uniting intuition with rational drive",
+            "A calling being answered",
+            "Only works if you're holding it upside down and humming",
+            "Secretly a coupon for one free tarot reading"
+          ]
+        },
+        {
+          "id": "major_07_chariot-n6-r39",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "Emotion is the fuel, not the obstacle, for this journey",
+          "options": [
+            "Emotion is the fuel, not the obstacle, for this journey",
+            "Rebirth requires passing through an ending first",
+            "Was originally a recipe card before the printer got confused",
+            "Grants one wish, but only on a leap year"
           ]
         },
         {
           "id": "major_07_chariot-n6-r40",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "Pulled by two forces that need aligning, not fighting, to move you forward",
-          "options": [
-            "Pulled by two forces that need aligning, not fighting, to move you forward",
-            "Gives shape and order to what was still raw potential",
-            "Leadership through decisive, immediate action",
-            "Spring's life force"
-          ]
-        },
-        {
-          "id": "major_07_chariot-n6-r41",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
-          "correct": "Success comes from uniting intuition with rational drive",
-          "options": [
-            "Success comes from uniting intuition with rational drive",
-            "A spark-first, think-later instinct; leads with action",
-            "A calling being answered",
-            "Rebirth requires passing through an ending first"
-          ]
-        },
-        {
-          "id": "major_07_chariot-n6-r42",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
-          "correct": "Emotion is the fuel, not the obstacle, for this journey",
-          "options": [
-            "Emotion is the fuel, not the obstacle, for this journey",
-            "Letting go of what no longer belongs to you, to make room for healing",
-            "A reckoning — reviewing the past honestly before moving forward",
-            "Your voice, finally ready to be used"
-          ]
-        },
-        {
-          "id": "major_07_chariot-n6-r43",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
           "correct": "A strong start",
           "options": [
             "A strong start",
             "A real choice stands in front of you",
-            "Two paths, both valid",
-            "Choosing with the heart, not just the head"
+            "Means you should immediately reorganize your sock drawer",
+            "Is actually just the Nine of Cups wearing a costume"
           ]
         }
       ]
@@ -333,9 +288,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_07_chariot-n7-r44",
+          "id": "major_07_chariot-n7-r41",
           "type": "cloze",
-          "text": "Cancer is a cardinal sign, an initiator especially in matters of intuition, {b2}, and feeling. That same initiating drive appears in the Chariot, a card of momentum and {b1}. Two horses pull it in different directions, symbols of the forces moving us, and only by aligning intuition with reason can we actually reach the goal. Cancer's emotional current becomes the fuel for the whole journey.",
+          "text": "Cancer is a cardinal sign, an initiator {b3} in matters of intuition, {b2}, and feeling. That same {b4} drive appears in the Chariot, a card of momentum and {b1}.",
           "blanks": [
             {
               "key": "b1",
@@ -344,12 +299,20 @@
             {
               "key": "b2",
               "answer": "relationships"
+            },
+            {
+              "key": "b3",
+              "answer": "especially"
+            },
+            {
+              "key": "b4",
+              "answer": "initiating"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "sandwich",
+            "meatball",
+            "pancake"
           ]
         }
       ]

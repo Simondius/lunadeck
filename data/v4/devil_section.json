@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_15_devil-n1-r143",
+          "id": "major_15_devil-n1-r133",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "muffin",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "biscuit",
               "correct": false
             }
           ]
@@ -34,57 +34,6 @@
       "rounds": [
         {
           "id": "major_15_devil-n2-r144",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "capricorn",
-              "name": "Capricorn",
-              "text": "Capricorn: disciplined, earthy ambition, limits and responsibility built through hard work.",
-              "rects": [
-                {
-                  "x0": 0.42,
-                  "y0": 0.1,
-                  "x1": 0.58,
-                  "y1": 0.23
-                }
-              ]
-            },
-            {
-              "key": "horns",
-              "name": "Horns",
-              "text": "The goat horns crowning him: Pan's wild, chthonic form, the primordial instinct this card doesn't condemn so much as ask us to own.",
-              "rects": [
-                {
-                  "x0": 0.34,
-                  "y0": 0.14,
-                  "x1": 0.66,
-                  "y1": 0.32
-                }
-              ]
-            },
-            {
-              "key": "chains",
-              "name": "Loose chains",
-              "text": "The chain trailing loose from each figure's neck into the flames, never pulled taut: bondage that could be shrugged off at any time, the freedom of choice already in their own hands.",
-              "rects": [
-                {
-                  "x0": 0.15,
-                  "y0": 0.6,
-                  "x1": 0.32,
-                  "y1": 0.79
-                },
-                {
-                  "x0": 0.65,
-                  "y0": 0.6,
-                  "x1": 0.82,
-                  "y1": 0.79
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_15_devil-n2-r262",
           "type": "zone",
           "elements": [
             {
@@ -161,7 +110,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_15_devil-n3-r145",
+          "id": "major_15_devil-n3-r134",
           "words": [
             {
               "text": "freedom",
@@ -172,11 +121,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "scone",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "cupcake",
               "correct": false
             }
           ]
@@ -187,7 +136,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_15_devil-n4-r149",
+          "id": "major_15_devil-n4-r138",
           "words": [
             {
               "text": "break from dependence",
@@ -221,7 +170,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_15_devil-n5-r150",
+          "id": "major_15_devil-n5-r139",
           "type": "swipe",
           "cards": [
             {
@@ -245,23 +194,23 @@
               "isMatch": true
             },
             {
-              "text": "A bridge between the everyday and the sacred",
+              "text": "Real strength is gentle",
               "isMatch": false
             },
             {
-              "text": "When reality feels shaky, lean on faith or tradition to steady it",
+              "text": "Taming the wilder instincts with calm rather than domination",
               "isMatch": false
             },
             {
-              "text": "The message arrives through a mentor, teacher, or trusted structure",
+              "text": "Courage means acting honestly, not acting fearlessly",
               "isMatch": false
             },
             {
-              "text": "Spiritual truth doesn't have to abandon the pleasures of daily life",
+              "text": "Sudden, unexpected change",
               "isMatch": false
             },
             {
-              "text": "Holding something divine within an ordinary, grounded life",
+              "text": "Pure, uncomplicated joy",
               "isMatch": false
             }
           ]
@@ -272,63 +221,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_15_devil-n6-r151",
+          "id": "major_15_devil-n6-r140",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Not purely bad",
           "options": [
             "Not purely bad",
-            "Real strength is gentle",
-            "Taming the wilder instincts with calm rather than domination",
-            "Courage means acting honestly, not acting fearlessly"
+            "A mirror moment",
+            "Is a rerun of a card you already drew last week",
+            "Grants temporary immunity from bad decisions"
           ]
         },
         {
-          "id": "major_15_devil-n6-r152",
+          "id": "major_15_devil-n6-r141",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "The chains look tight, but they're actually loose enough to remove",
           "options": [
             "The chains look tight, but they're actually loose enough to remove",
-            "Generosity and warmth are forms of power too",
-            "Connection and relating to others, not standing above them",
-            "A mirror moment"
+            "Acting because it's simply right, not because a rulebook says so",
+            "Its meaning resets every time someone sneezes nearby",
+            "Was shuffled in from a completely different deck by accident"
           ]
         },
         {
-          "id": "major_15_devil-n6-r153",
+          "id": "major_15_devil-n6-r142",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Freedom is a responsibility you already hold, whether you use it or not",
           "options": [
             "Freedom is a responsibility you already hold, whether you use it or not",
-            "Acting because it's simply right, not because a rulebook says so",
-            "Responsibility and fairness, driven by the heart rather than obligation",
-            "Seeking balance, harmony, and beauty in how things are resolved"
+            "The journey matters more than the destination right now",
+            "Requires a subscription to unlock the second half of its meaning",
+            "The card is legally required to agree with your horoscope"
           ]
         },
         {
-          "id": "major_15_devil-n6-r154",
+          "id": "major_15_devil-n6-r143",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A visceral, primal pull worth acknowledging rather than denying",
           "options": [
             "A visceral, primal pull worth acknowledging rather than denying",
-            "Cause and effect are catching up",
-            "The journey matters more than the destination right now",
-            "Blending different, even opposing, ingredients into something greater than either alone"
+            "Blending different, even opposing, ingredients into something greater than either alone",
+            "Only works if you're holding it upside down and humming",
+            "Secretly a coupon for one free tarot reading"
           ]
         },
         {
-          "id": "major_15_devil-n6-r155",
+          "id": "major_15_devil-n6-r144",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Ask what dependency or habit is really keeping you stuck",
           "options": [
             "Ask what dependency or habit is really keeping you stuck",
-            "Patience and experience refine raw experience into wisdom",
-            "Moderation — finding the right balance rather than swinging to extremes",
-            "Broadening your view by mixing new experiences in"
+            "Hope returning after the storm",
+            "Was originally a recipe card before the printer got confused",
+            "Grants one wish, but only on a leap year"
           ]
         }
       ]
@@ -337,9 +286,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_15_devil-n7-r156",
+          "id": "major_15_devil-n7-r145",
           "type": "cloze",
-          "text": "Neither wholly good nor evil, the Devil recalls Pan, half-goat like Capricorn, embodying earthy, instinctual force. Capricorn, a cardinal Earth sign, is practical and {b2}, especially about material life. Ruled by Saturn, it understands limits and the hard work required to reach a goal. The Devil speaks to that same responsibility: the chains shown are loose, not locked, since our {b1} is always a choice we're free to make.",
+          "text": "Capricorn, a cardinal Earth sign, is practical and {b2}, especially about material life. The Devil speaks to that same {b3}: the chains shown are loose, not locked, since our {b1} is always a choice we're free to make.",
           "blanks": [
             {
               "key": "b1",
@@ -348,12 +297,16 @@
             {
               "key": "b2",
               "answer": "control-oriented"
+            },
+            {
+              "key": "b3",
+              "answer": "responsibility"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "Monday",
+            "Friday",
+            "banana"
           ]
         }
       ]

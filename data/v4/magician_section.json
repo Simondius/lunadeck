@@ -24,9 +24,9 @@
             }
           ],
           "distractors": [
-            "pizza",
-            "Tuesday",
-            "purple"
+            "doodle",
+            "marmalade",
+            "telescope"
           ],
           "tutorial": true
         },
@@ -49,9 +49,9 @@
             }
           ],
           "distractors": [
-            "teacup",
-            "banana",
-            "ladder"
+            "starfish",
+            "artichoke",
+            "sock"
           ]
         },
         {
@@ -73,8 +73,8 @@
             }
           ],
           "distractors": [
-            "elephant",
-            "Wednesday",
+            "pinecone",
+            "cauliflower",
             "dreams"
           ]
         },
@@ -97,7 +97,7 @@
             }
           ],
           "distractors": [
-            "spaghetti",
+            "sneeze",
             "pause",
             "overthinking"
           ]
@@ -179,38 +179,6 @@
           "tutorial": true
         },
         {
-          "id": "n1-r2",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "raised_wand",
-              "name": "Raised wand",
-              "text": "The wand echoes the healer's staff — the skill was always there, just waiting to be used.",
-              "rects": [
-                {
-                  "x0": 0.16,
-                  "y0": 0.275,
-                  "x1": 0.504,
-                  "y1": 0.433
-                }
-              ]
-            },
-            {
-              "key": "mercury",
-              "name": "Mercury",
-              "text": "Mercury: quick wit, sharp intelligence, seeing a situation from every angle at once.",
-              "rects": [
-                {
-                  "x0": 0.406,
-                  "y0": 0.158,
-                  "x1": 0.59,
-                  "y1": 0.234
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": "n1-r3",
           "type": "tilematch",
           "pairs": [
@@ -234,7 +202,7 @@
               "correct": true
             },
             {
-              "text": "banana",
+              "text": "envelope",
               "correct": false
             },
             {
@@ -242,7 +210,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "postcard",
               "correct": false
             }
           ],
@@ -256,7 +224,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "beanie",
               "correct": false
             },
             {
@@ -264,7 +232,7 @@
               "correct": true
             },
             {
-              "text": "elephant",
+              "text": "poncho",
               "correct": false
             }
           ]
@@ -320,7 +288,7 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "stapler",
               "correct": false
             },
             {
@@ -328,7 +296,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "mayonnaise",
               "correct": false
             }
           ]
@@ -341,7 +309,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "pretzel",
               "correct": false
             },
             {
@@ -349,7 +317,7 @@
               "correct": true
             },
             {
-              "text": "Wednesday",
+              "text": "parsnip",
               "correct": false
             }
           ]
@@ -370,7 +338,7 @@
             }
           ],
           "distractors": [
-            "banana"
+            "lantern"
           ]
         },
         {
@@ -384,7 +352,7 @@
             }
           ],
           "distractors": [
-            "Tuesday"
+            "pogo stick"
           ]
         },
         {
@@ -398,7 +366,7 @@
             }
           ],
           "distractors": [
-            "elephant"
+            "glacier"
           ]
         },
         {
@@ -412,7 +380,7 @@
             }
           ],
           "distractors": [
-            "purple"
+            "seashell"
           ]
         },
         {
@@ -527,15 +495,15 @@
               "correct": true
             },
             {
-              "text": "broccoli",
+              "text": "marble",
               "correct": false
             },
             {
-              "text": "Thursday",
+              "text": "yo-yo",
               "correct": false
             },
             {
-              "text": "umbrella",
+              "text": "maroon",
               "correct": false
             }
           ]
@@ -556,15 +524,15 @@
               "correct": true
             },
             {
-              "text": "bicycle",
+              "text": "avalanche",
               "correct": false
             },
             {
-              "text": "green",
+              "text": "barnacle",
               "correct": false
             },
             {
-              "text": "Friday",
+              "text": "snorkel",
               "correct": false
             }
           ]
@@ -910,8 +878,8 @@
             }
           ],
           "distractors": [
-            "pizza",
-            "teacup",
+            "magnet",
+            "mitten",
             "dreams",
             "pause"
           ]

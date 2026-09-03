@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_18_moon-n1-r186",
+          "id": "major_18_moon-n1-r173",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "pretzel",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "sandwich",
               "correct": false
             }
           ]
@@ -72,58 +72,7 @@
               "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.52,
-                  "x1": 0.24,
-                  "y1": 0.77
-                },
-                {
-                  "x0": 0.6,
-                  "y0": 0.58,
-                  "x1": 0.87,
-                  "y1": 0.84
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_18_moon-n2-r268",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "pisces",
-              "name": "Pisces",
-              "text": "Pisces: dreams and empathy, a receptive depth that dissolves the boundary between self and other.",
-              "rects": [
-                {
-                  "x0": 0.44,
-                  "y0": 0.1,
-                  "x1": 0.58,
-                  "y1": 0.21
-                }
-              ]
-            },
-            {
-              "key": "moon_face",
-              "name": "Moon face",
-              "text": "The face in the moon: our hidden, intimate side, watching from stillness as the night deepens.",
-              "rects": [
-                {
-                  "x0": 0.3,
-                  "y0": 0.24,
-                  "x1": 0.65,
-                  "y1": 0.46
-                }
-              ]
-            },
-            {
-              "key": "fish_riders",
-              "name": "Twin fish riders",
-              "text": "Twin figures riding mirrored fish: the two equal, opposing halves of Pisces, guided toward our depths.",
-              "rects": [
-                {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.52,
                   "x1": 0.24,
                   "y1": 0.77
@@ -165,7 +114,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_18_moon-n3-r188",
+          "id": "major_18_moon-n3-r174",
           "words": [
             {
               "text": "feminine",
@@ -180,11 +129,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "meatball",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "pancake",
               "correct": false
             }
           ]
@@ -195,7 +144,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_18_moon-n4-r192",
+          "id": "major_18_moon-n4-r178",
           "words": [
             {
               "text": "dreams",
@@ -237,7 +186,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_18_moon-n5-r193",
+          "id": "major_18_moon-n5-r179",
           "type": "swipe",
           "cards": [
             {
@@ -261,23 +210,23 @@
               "isMatch": true
             },
             {
+              "text": "What goes up comes around",
+              "isMatch": false
+            },
+            {
+              "text": "A turning point; you're at a hinge between one cycle ending and another beginning",
+              "isMatch": false
+            },
+            {
+              "text": "Fortune and misfortune are both just transitions to learn from",
+              "isMatch": false
+            },
+            {
               "text": "Lives on the threshold",
               "isMatch": false
             },
             {
-              "text": "Her power is in receiving and being, not in acting",
-              "isMatch": false
-            },
-            {
-              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
-              "isMatch": false
-            },
-            {
-              "text": "Trust the vision or feeling that comes without explanation",
-              "isMatch": false
-            },
-            {
-              "text": "A quiet, reflected light rather than a blazing one",
+              "text": "A calling being answered",
               "isMatch": false
             }
           ]
@@ -288,63 +237,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_18_moon-n6-r194",
+          "id": "major_18_moon-n6-r180",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "What's hidden becomes visible in the dark, if you're willing to look",
           "options": [
             "What's hidden becomes visible in the dark, if you're willing to look",
-            "Offers protection and care from a place of stillness",
-            "Signals it's time to turn inward before doing anything outward",
-            "What goes up comes around"
+            "Suspended, upside down, but calm",
+            "The card is legally required to agree with your horoscope",
+            "Only works if you're holding it upside down and humming"
           ]
         },
         {
-          "id": "major_18_moon-n6-r195",
+          "id": "major_18_moon-n6-r181",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Trust intuition and dreams over what's plainly stated",
           "options": [
             "Trust intuition and dreams over what's plainly stated",
-            "A turning point; you're at a hinge between one cycle ending and another beginning",
-            "Fortune and misfortune are both just transitions to learn from",
-            "Stay balanced at the center, even as things spin around you"
+            "A new perspective comes from surrendering, not struggling",
+            "Secretly a coupon for one free tarot reading",
+            "Was originally a recipe card before the printer got confused"
           ]
         },
         {
-          "id": "major_18_moon-n6-r196",
+          "id": "major_18_moon-n6-r182",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Facing the shadow side is part of becoming whole",
           "options": [
             "Facing the shadow side is part of becoming whole",
-            "Everything is connected",
-            "Suspended, upside down, but calm",
-            "A new perspective comes from surrendering, not struggling"
+            "Solitude here is productive, not lonely",
+            "Grants one wish, but only on a leap year",
+            "Means you should immediately reorganize your sock drawer"
           ]
         },
         {
-          "id": "major_18_moon-n6-r197",
+          "id": "major_18_moon-n6-r183",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A cycle is repeating",
           "options": [
             "A cycle is repeating",
-            "Pause and let go instead of forcing the next move",
-            "Meditative stillness that deepens awareness",
-            "Sometimes you sacrifice something now to gain something better later"
+            "Not purely bad",
+            "Is actually just the Nine of Cups wearing a costume",
+            "Requires a permit from the local moon council"
           ]
         },
         {
-          "id": "major_18_moon-n6-r198",
+          "id": "major_18_moon-n6-r184",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "The everyday and the spiritual aren't separate; they're two sides of the same coin",
           "options": [
             "The everyday and the spiritual aren't separate; they're two sides of the same coin",
-            "Not an ending",
-            "What no longer has life in it needs to be released, like dead leaves feeding the roots",
-            "Endings free up room for something essential to grow"
+            "The chains look tight, but they're actually loose enough to remove",
+            "Only true if read aloud in a haunted house",
+            "Was drawn upside down by a cat walking across the deck"
           ]
         }
       ]
@@ -353,23 +302,19 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_18_moon-n7-r199",
+          "id": "major_18_moon-n7-r185",
           "type": "cloze",
-          "text": "The Moon asks us to look closely at our hidden, intimate side, where the senses sharpen and {b2} takes on a deeper, more magical dimension. It resonates with Pisces, the zodiac's final and most inwardly guided sign, where daily life and spirit meet, echoed in the two fish swimming in opposite directions. Ruled by Neptune, planet of {b1}, this card invites us into the unknown to face repeating patterns and grow.",
+          "text": "Ruled by Neptune, planet of {b1}, this card invites us into the unknown to face repeating patterns and grow.",
           "blanks": [
             {
               "key": "b1",
               "answer": "mystery"
-            },
-            {
-              "key": "b2",
-              "answer": "everything"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "walrus",
+            "penguin",
+            "octopus"
           ]
         }
       ]

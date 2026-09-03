@@ -62,9 +62,10 @@ meanings come from the source guidebook. If something is missing, flag the gap
 rather than writing plausible filler.
 
 **Restart the dev server after editing `data/`.** `lib/data.js` parses each CSV
-once per process — a section's play page wants eleven of them, times 92 sections
-— so an edit will not show up on a refresh. Stop `npm run dev` and start it
-again.
+once per process, so an edit to a CSV won't show up on a refresh. `data/v4/*.json`
+is imported as plain JS modules, so it usually hot-reloads on save — but a
+change to a file that error'd on the last build sometimes needs the same
+restart to actually take.
 
 **Work on a branch and open a pull request**, never straight to `main` — the
 description is where the reasoning goes, and it is how the other person reviews
@@ -80,24 +81,20 @@ hand-edit a crop.
 
 ## Data integrity
 
-`python scripts/check_data.py` enforces everything below, plus a few rules the
-app depends on. Run it before opening a pull request that touches `data/`.
+The rules below were for `data_curriculum_nodes.csv` and
+`data_unit_metadata.csv`, the CSVs behind the original v1 curriculum. Both
+files (and `scripts/check_data.py`, which validated them) were removed once
+v4 became the app's only path (0082-0083) — v4's own lesson content lives in
+`data/v4/*.json` instead, edited directly rather than through a CSV pipeline.
+There is currently no automated check standing in `check_data.py`'s place
+for v4's own data; flag this if you're the one who ends up needing one.
 
-When editing `data/data_curriculum_nodes.csv`:
+Rules that still apply to every CSV in `data/`, v1 or not:
 
-- `global_play_order` must stay contiguous and unique
-- `node_id` must match its unit, section, and node numbers
-- every `card_key` in `cards_involved` must exist in `data_tarot_cards_base.csv`
-- `format_code` must be one of A1, A2, A3, A4, A5, A7, B, C
-- `cards_involved` must not repeat a card — a repeat renders two identical
-  options in one grid, which the learner cannot answer
-- if node counts change, update the matching row in `data_unit_metadata.csv`
-  (`standard_node_count`, `throwback_node_count`, `total_node_count`, and the
-  three completion time estimates)
-
-When editing `data/data_unit_metadata.csv`, `card_keys_covered` is
-pipe-delimited and must agree with the cards actually referenced by that unit's
-nodes.
+- `card_key` in `cards_involved`-shaped columns must exist in
+  `data_tarot_cards_base.csv`
+- a `cards_involved`-shaped list must not repeat a card — a repeat renders
+  two identical options in one grid, which the learner cannot answer
 
 ## Conventions
 

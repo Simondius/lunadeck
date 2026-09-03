@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_05_hierophant-n1-r17",
+          "id": "major_05_hierophant-n1-r16",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "violin",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "elephant",
               "correct": false
             }
           ]
@@ -34,51 +34,6 @@
       "rounds": [
         {
           "id": "major_05_hierophant-n2-r18",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "taurus",
-              "name": "Taurus",
-              "text": "Taurus: grounded sensory pleasure, patiently manifesting ideals into real, lived, material form.",
-              "rects": [
-                {
-                  "x0": 0.4,
-                  "y0": 0.12,
-                  "x1": 0.6,
-                  "y1": 0.24
-                }
-              ]
-            },
-            {
-              "key": "raised_hand",
-              "name": "Raised hand",
-              "text": "His raised hand of blessing: the bridge he forms between what is habitual and manifest and what lies high in the skies.",
-              "rects": [
-                {
-                  "x0": 0.24,
-                  "y0": 0.3,
-                  "x1": 0.46,
-                  "y1": 0.48
-                }
-              ]
-            },
-            {
-              "key": "celestial_orb",
-              "name": "Ringed celestial orb",
-              "text": "A ringed planet stitched into his robe: the sky's rarefied, mystical order carried into the folds of an earthly garment.",
-              "rects": [
-                {
-                  "x0": 0.32,
-                  "y0": 0.42,
-                  "x1": 0.58,
-                  "y1": 0.58
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_05_hierophant-n2-r244",
           "type": "zone",
           "elements": [
             {
@@ -149,7 +104,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_05_hierophant-n3-r19",
+          "id": "major_05_hierophant-n3-r17",
           "words": [
             {
               "text": "the right distance",
@@ -160,11 +115,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "teacup",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "pizza",
               "correct": false
             }
           ]
@@ -175,7 +130,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_05_hierophant-n4-r23",
+          "id": "major_05_hierophant-n4-r21",
           "words": [
             {
               "text": "faith",
@@ -209,7 +164,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_05_hierophant-n5-r24",
+          "id": "major_05_hierophant-n5-r22",
           "type": "swipe",
           "cards": [
             {
@@ -245,11 +200,11 @@
               "isMatch": false
             },
             {
-              "text": "Holding the masculine and feminine, or two sides of yourself, in balance",
+              "text": "A full cycle completed",
               "isMatch": false
             },
             {
-              "text": "A partnership or union that asks you to listen to more than one voice",
+              "text": "A calling being answered",
               "isMatch": false
             }
           ]
@@ -260,63 +215,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_05_hierophant-n6-r25",
+          "id": "major_05_hierophant-n6-r23",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A bridge between the everyday and the sacred",
           "options": [
             "A bridge between the everyday and the sacred",
             "Real strength is gentle",
+            "Requires three witnesses and a notarized signature to interpret",
+            "Its real meaning is written in invisible ink on the back"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r24",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "When reality feels shaky, lean on faith or tradition to steady it",
+          "options": [
+            "When reality feels shaky, lean on faith or tradition to steady it",
             "Taming the wilder instincts with calm rather than domination",
-            "Courage means acting honestly, not acting fearlessly"
+            "Only applies to left-handed Tuesdays",
+            "Is a trick question with no correct interpretation"
+          ]
+        },
+        {
+          "id": "major_05_hierophant-n6-r25",
+          "type": "choice",
+          "prompt": "Which of these is true of this card?",
+          "correct": "The message arrives through a mentor, teacher, or trusted structure",
+          "options": [
+            "The message arrives through a mentor, teacher, or trusted structure",
+            "A mirror moment",
+            "Means you owe the deck a favor",
+            "Has to be read backwards while standing on one foot"
           ]
         },
         {
           "id": "major_05_hierophant-n6-r26",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "When reality feels shaky, lean on faith or tradition to steady it",
+          "correct": "Spiritual truth doesn't have to abandon the pleasures of daily life",
           "options": [
-            "When reality feels shaky, lean on faith or tradition to steady it",
-            "Generosity and warmth are forms of power too",
-            "Connection and relating to others, not standing above them",
-            "A mirror moment"
+            "Spiritual truth doesn't have to abandon the pleasures of daily life",
+            "Acting because it's simply right, not because a rulebook says so",
+            "Was actually meant for the person sitting behind you",
+            "Comes with batteries not included"
           ]
         },
         {
           "id": "major_05_hierophant-n6-r27",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
-          "correct": "The message arrives through a mentor, teacher, or trusted structure",
-          "options": [
-            "The message arrives through a mentor, teacher, or trusted structure",
-            "Acting because it's simply right, not because a rulebook says so",
-            "Responsibility and fairness, driven by the heart rather than obligation",
-            "Seeking balance, harmony, and beauty in how things are resolved"
-          ]
-        },
-        {
-          "id": "major_05_hierophant-n6-r28",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
-          "correct": "Spiritual truth doesn't have to abandon the pleasures of daily life",
-          "options": [
-            "Spiritual truth doesn't have to abandon the pleasures of daily life",
-            "Cause and effect are catching up",
-            "The journey matters more than the destination right now",
-            "Blending different, even opposing, ingredients into something greater than either alone"
-          ]
-        },
-        {
-          "id": "major_05_hierophant-n6-r29",
-          "type": "choice",
-          "prompt": "Which of these is true of this card?",
           "correct": "Holding something divine within an ordinary, grounded life",
           "options": [
             "Holding something divine within an ordinary, grounded life",
-            "Patience and experience refine raw experience into wisdom",
-            "Moderation — finding the right balance rather than swinging to extremes",
-            "Broadening your view by mixing new experiences in"
+            "The journey matters more than the destination right now",
+            "Only works if the room is exactly 72 degrees",
+            "Is a rerun of a card you already drew last week"
           ]
         }
       ]
@@ -325,9 +280,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_05_hierophant-n7-r30",
+          "id": "major_05_hierophant-n7-r28",
           "type": "cloze",
-          "text": "He bridges the everyday and the sacred, teaching that a spiritual {b2} can carry us through hard moments. Pairing him with sensory, {b1} Taurus seems unlikely, until you notice Taurus fully inhabits the here and now. Aries was divine spark; Taurus is the true birth, holding that flame within earthly form.",
+          "text": "He bridges the {b4} and the sacred, teaching that a {b3} {b2} can carry us through hard moments. Pairing him with sensory, {b1} Taurus seems unlikely, until you notice Taurus fully inhabits the here and now.",
           "blanks": [
             {
               "key": "b1",
@@ -336,12 +291,20 @@
             {
               "key": "b2",
               "answer": "perspective"
+            },
+            {
+              "key": "b3",
+              "answer": "spiritual"
+            },
+            {
+              "key": "b4",
+              "answer": "everyday"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "orange",
+            "yellow",
+            "turquoise"
           ]
         }
       ]

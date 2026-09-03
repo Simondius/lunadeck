@@ -1,18 +1,17 @@
 import { notFound } from "next/navigation";
-import { CHAPTERS, V4_CHAPTERS, getChapter, getNextChapter } from "@/data/story/chapters";
+import { V4_CHAPTERS, getChapter } from "@/data/story/chapters";
 import { getNextPathStep, UNITS, firstUnitForCard } from "@/data/v4/units";
 import { SECTIONS } from "@/data/v4/sections";
 import { getCardKeywords } from "@/lib/data";
 import ChapterPlayer from "@/components/story/chapter-player";
 
-// Story's play screen, one chapter at a time — /story/<chapter-slug>
-// (0048). Mirrors app/v2 and app/v3's own play routes: a thin server
-// component that resolves the slug and hands the whole chapter object to a
-// client component that owns the actual sequencing. v4's own narrative
-// nodes (0057) reuse this same route rather than forking one for
-// themselves, so their slugs need to be enumerated here too.
+// Story's play screen, one narrative node at a time — /story/play/<slug>
+// (0048, repurposed 0083 as v4's own narrative-node engine once the
+// standalone Story mode it originally served was removed). A thin server
+// component that resolves the slug and hands the whole node object to a
+// client component that owns the actual sequencing.
 export function generateStaticParams() {
-  return [...CHAPTERS, ...V4_CHAPTERS].map((c) => ({ chapter: c.slug }));
+  return V4_CHAPTERS.map((c) => ({ chapter: c.slug }));
 }
 
 export default async function StoryChapterPage({ params }) {
@@ -20,14 +19,7 @@ export default async function StoryChapterPage({ params }) {
   const chapter = getChapter(slug);
   if (!chapter) notFound();
 
-  // A v4 narrative node's own "chapter complete" screen needs the actual
-  // next step in the v4 path (a lesson node, or the next unit's own start
-  // narrative) rather than the plain Story-mode chain getNextChapter()
-  // computes (0064) - and its own fallback, once there's truly nothing
-  // left (the very end of unit 8), is "back to the path," not "back to
-  // Story."
-  const isV4 = V4_CHAPTERS.some((c) => c.slug === slug);
-  const nextChapter = isV4 ? getNextPathStep(`/story/play/${slug}`) : getNextChapter(slug);
+  const nextChapter = getNextPathStep(`/story/play/${slug}`);
 
   // The end-narrative of the *first* unit to teach a given card gets the
   // full unlock celebration (docs/decisions/0076) instead of just
@@ -61,8 +53,8 @@ export default async function StoryChapterPage({ params }) {
       chapter={chapter.data}
       nextChapter={nextChapter}
       unlockUnit={unlockUnit}
-      backHref={isV4 ? "/v4" : "/story"}
-      backLabel={isV4 ? "Back to Path" : "Back to Story"}
+      backHref="/v4"
+      backLabel="Back to Path"
     />
   );
 }

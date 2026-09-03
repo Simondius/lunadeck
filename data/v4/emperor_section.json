@@ -179,38 +179,6 @@
           "tutorial": true
         },
         {
-          "id": "n1-r2",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "ram",
-              "name": "Ram",
-              "text": "The ram carries Aries into the throne room — instinct and courage made solid.",
-              "rects": [
-                {
-                  "x0": 0.16,
-                  "y0": 0.591,
-                  "x1": 0.578,
-                  "y1": 0.811
-                }
-              ]
-            },
-            {
-              "key": "aries",
-              "name": "Aries",
-              "text": "Aries: the spark of pure life force — acts before it thinks.",
-              "rects": [
-                {
-                  "x0": 0.406,
-                  "y0": 0.124,
-                  "x1": 0.615,
-                  "y1": 0.199
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": "n1-r3",
           "type": "tilematch",
           "pairs": [
@@ -256,7 +224,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "lantern",
               "correct": false
             },
             {
@@ -341,7 +309,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "sneeze",
               "correct": false
             },
             {
@@ -398,7 +366,7 @@
             }
           ],
           "distractors": [
-            "spaghetti"
+            "envelope"
           ]
         },
         {

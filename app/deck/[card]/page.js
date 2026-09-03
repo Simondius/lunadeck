@@ -15,23 +15,15 @@ export default async function Card({ params }) {
   // Which section teaches this card. The client needs it twice over: to know
   // whether the entry has been earned, and to say where the card lives — the
   // job the unit guidebook used to do, done per card, on the card you asked
-  // about.
+  // about. section.href already points at v4's own real lesson route
+  // (getAllSections(), 0082) - no minor arcana card has one yet.
   const section = sections.find((s) => s.cardKey === cardKey) ?? null;
 
   return (
     <CardPage
       card={card}
       nodeIds={section?.nodeIds ?? []}
-      lesson={
-        section
-          ? {
-              unit: section.unit,
-              unitName: section.unitName,
-              section: section.section,
-              href: `/units/${section.unit}/sections/${section.section}/play`,
-            }
-          : null
-      }
+      lesson={section?.href ? { unitName: section.unitName, href: section.href } : null}
     />
   );
 }

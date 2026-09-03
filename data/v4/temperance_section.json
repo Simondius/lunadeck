@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_14_temperance-n1-r129",
+          "id": "major_14_temperance-n1-r120",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "envelope",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "paperclip",
               "correct": false
             }
           ]
@@ -34,51 +34,6 @@
       "rounds": [
         {
           "id": "major_14_temperance-n2-r130",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "sagittarius",
-              "name": "Sagittarius",
-              "text": "Sagittarius: the pull of exploration and optimism, valuing the journey itself over any fixed destination.",
-              "rects": [
-                {
-                  "x0": 0.42,
-                  "y0": 0.08,
-                  "x1": 0.58,
-                  "y1": 0.2
-                }
-              ]
-            },
-            {
-              "key": "starry_sash",
-              "name": "Starry sash",
-              "text": "The starry sash flowing between her hands: the alchemy of Temperance, blending separate elements into something greater than their sum.",
-              "rects": [
-                {
-                  "x0": 0.28,
-                  "y0": 0.27,
-                  "x1": 0.64,
-                  "y1": 0.55
-                }
-              ]
-            },
-            {
-              "key": "cup",
-              "name": "Cup",
-              "text": "The cup tipped between her fingers: patient testing and mixing, tempering experience before it's swallowed whole.",
-              "rects": [
-                {
-                  "x0": 0.16,
-                  "y0": 0.45,
-                  "x1": 0.36,
-                  "y1": 0.62
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_14_temperance-n2-r260",
           "type": "zone",
           "elements": [
             {
@@ -149,18 +104,18 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_14_temperance-n3-r131",
+          "id": "major_14_temperance-n3-r121",
           "words": [
             {
               "text": "finding the right balance in opposites",
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "rubber band",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "thumbtack",
               "correct": false
             }
           ]
@@ -171,7 +126,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_14_temperance-n4-r135",
+          "id": "major_14_temperance-n4-r125",
           "words": [
             {
               "text": "exploration",
@@ -205,7 +160,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_14_temperance-n5-r136",
+          "id": "major_14_temperance-n5-r126",
           "type": "swipe",
           "cards": [
             {
@@ -229,23 +184,23 @@
               "isMatch": true
             },
             {
+              "text": "A bridge between the everyday and the sacred",
+              "isMatch": false
+            },
+            {
+              "text": "When reality feels shaky, lean on faith or tradition to steady it",
+              "isMatch": false
+            },
+            {
+              "text": "The message arrives through a mentor, teacher, or trusted structure",
+              "isMatch": false
+            },
+            {
               "text": "Lives on the threshold",
               "isMatch": false
             },
             {
-              "text": "Her power is in receiving and being, not in acting",
-              "isMatch": false
-            },
-            {
-              "text": "Deep listening — she absorbs what others carry and reflects it back transformed",
-              "isMatch": false
-            },
-            {
-              "text": "Trust the vision or feeling that comes without explanation",
-              "isMatch": false
-            },
-            {
-              "text": "A quiet, reflected light rather than a blazing one",
+              "text": "Not purely bad",
               "isMatch": false
             }
           ]
@@ -256,63 +211,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_14_temperance-n6-r137",
+          "id": "major_14_temperance-n6-r127",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "The journey matters more than the destination right now",
           "options": [
             "The journey matters more than the destination right now",
-            "Offers protection and care from a place of stillness",
-            "Signals it's time to turn inward before doing anything outward",
-            "A bridge between the everyday and the sacred"
+            "Real strength is gentle",
+            "Only counts if you drew it with your eyes closed",
+            "Was printed by mistake and means nothing at all"
           ]
         },
         {
-          "id": "major_14_temperance-n6-r138",
+          "id": "major_14_temperance-n6-r128",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Blending different, even opposing, ingredients into something greater than either alone",
           "options": [
             "Blending different, even opposing, ingredients into something greater than either alone",
-            "When reality feels shaky, lean on faith or tradition to steady it",
-            "The message arrives through a mentor, teacher, or trusted structure",
-            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+            "Taming the wilder instincts with calm rather than domination",
+            "Requires three witnesses and a notarized signature to interpret",
+            "Its real meaning is written in invisible ink on the back"
           ]
         },
         {
-          "id": "major_14_temperance-n6-r139",
+          "id": "major_14_temperance-n6-r129",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Patience and experience refine raw experience into wisdom",
           "options": [
             "Patience and experience refine raw experience into wisdom",
-            "Holding something divine within an ordinary, grounded life",
-            "Real strength is gentle",
-            "Taming the wilder instincts with calm rather than domination"
+            "Solitude here is productive, not lonely",
+            "Only applies to left-handed Tuesdays",
+            "Is a trick question with no correct interpretation"
           ]
         },
         {
-          "id": "major_14_temperance-n6-r140",
+          "id": "major_14_temperance-n6-r130",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Moderation — finding the right balance rather than swinging to extremes",
           "options": [
             "Moderation — finding the right balance rather than swinging to extremes",
-            "Courage means acting honestly, not acting fearlessly",
-            "Generosity and warmth are forms of power too",
-            "Connection and relating to others, not standing above them"
+            "A lantern lighting the path one careful step at a time",
+            "Means you owe the deck a favor",
+            "Has to be read backwards while standing on one foot"
           ]
         },
         {
-          "id": "major_14_temperance-n6-r141",
+          "id": "major_14_temperance-n6-r131",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Broadening your view by mixing new experiences in",
           "options": [
             "Broadening your view by mixing new experiences in",
-            "Solitude here is productive, not lonely",
-            "A lantern lighting the path one careful step at a time",
-            "Time to withdraw and look inward before moving again"
+            "A mirror moment",
+            "Was actually meant for the person sitting behind you",
+            "Comes with batteries not included"
           ]
         }
       ]
@@ -321,9 +276,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_14_temperance-n7-r142",
+          "id": "major_14_temperance-n7-r132",
           "type": "cloze",
-          "text": "Sagittarius lives by the idea that the journey matters more than the destination, curious and mutable like its element, Fire, torn between instinct and a wish to belong. Temperance embodies {b1} itself, blending different ingredients into something greater than their sum. Through experience and study, both Sagittarius and Temperance temper diverse experiences into deeper {b2}, broadening their view of the world along the way.",
+          "text": "Temperance embodies {b1} itself, blending different ingredients into something greater than their sum. Through experience and study, both Sagittarius and Temperance temper diverse experiences into deeper {b2}, broadening their view of the world along the way.",
           "blanks": [
             {
               "key": "b1",
@@ -335,9 +290,9 @@
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "buoy",
+            "bagel",
+            "croissant"
           ]
         }
       ]

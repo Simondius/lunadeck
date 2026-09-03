@@ -587,18 +587,21 @@ export default function ChapterPlayer({
   // nesting inside this component's own stage/content layout - it's its
   // own <main>, same pattern node-session.jsx's "complete" stage uses for
   // the same reason (a genuinely different screen, not a variant of this
-  // one). Falls back to the plain "chapter complete" screen below if
-  // there's no nextChapter to hand off to (shouldn't happen for a real
-  // unlock, but a missing next step has nowhere useful to send this on to
-  // anyway).
-  if (atEnd && unlockUnit && nextChapter) {
+  // one). Runs on `unlockUnit` alone, not also `nextChapter` (0082) - the
+  // course's very last unit (World, unit 27) is a real first-time unlock
+  // with nothing after it in the path, so requiring a next step here used
+  // to skip its own unlock screen entirely. `nextHref` goes through as
+  // undefined in that case; UnitCompleteCelebration and deck-screen.jsx's
+  // own `?next=` handling both already treat a missing next step as "land
+  // on the deck with no further prompt," not an error.
+  if (atEnd && unlockUnit) {
     return (
       <UnitCompleteCelebration
         cardKey={unlockUnit.cardKey}
         cardName={unlockUnit.cardName}
         unitNumber={unlockUnit.unitNumber}
         keywords={unlockUnit.keywords}
-        nextHref={nextChapter.href}
+        nextHref={nextChapter?.href}
       />
     );
   }

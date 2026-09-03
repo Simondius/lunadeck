@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_11_justice-n1-r87",
+          "id": "major_11_justice-n1-r81",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "kite",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "marble",
               "correct": false
             }
           ]
@@ -38,51 +38,6 @@
       "rounds": [
         {
           "id": "major_11_justice-n2-r88",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "libra",
-              "name": "Libra",
-              "text": "Libra: balance and harmony, an aesthetic, fair-minded sense of justice rooted in relationship.",
-              "rects": [
-                {
-                  "x0": 0.43,
-                  "y0": 0.115,
-                  "x1": 0.57,
-                  "y1": 0.21
-                }
-              ]
-            },
-            {
-              "key": "scales",
-              "name": "Scales",
-              "text": "The scales in her raised hand: an honest weighing, the true and even vision she holds up to the world.",
-              "rects": [
-                {
-                  "x0": 0.03,
-                  "y0": 0.45,
-                  "x1": 0.42,
-                  "y1": 0.65
-                }
-              ]
-            },
-            {
-              "key": "sword",
-              "name": "Sword",
-              "text": "The sword held low: decisive action from the heart, the responsibility that moves when it must.",
-              "rects": [
-                {
-                  "x0": 0.38,
-                  "y0": 0.54,
-                  "x1": 0.62,
-                  "y1": 0.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_11_justice-n2-r254",
           "type": "zone",
           "elements": [
             {
@@ -153,7 +108,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_11_justice-n3-r89",
+          "id": "major_11_justice-n3-r82",
           "words": [
             {
               "text": "responsibility",
@@ -164,11 +119,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "domino",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "jigsaw",
               "correct": false
             }
           ]
@@ -179,7 +134,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_11_justice-n4-r93",
+          "id": "major_11_justice-n4-r86",
           "words": [
             {
               "text": "beauty",
@@ -217,7 +172,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_11_justice-n5-r94",
+          "id": "major_11_justice-n5-r87",
           "type": "swipe",
           "cards": [
             {
@@ -253,11 +208,11 @@
               "isMatch": false
             },
             {
-              "text": "Sharp, quick-witted intelligence; can view a situation from multiple angles at once",
+              "text": "A full cycle completed",
               "isMatch": false
             },
             {
-              "text": "A gift for communication",
+              "text": "A calling being answered",
               "isMatch": false
             }
           ]
@@ -268,63 +223,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_11_justice-n6-r95",
+          "id": "major_11_justice-n6-r88",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A mirror moment",
           "options": [
             "A mirror moment",
-            "Reminds you it's time to act on an idea, not just have it",
             "Ready to act the instant the moment calls for it",
-            "Sets clear boundaries and claims space without apology"
+            "Its meaning changes depending on what you had for breakfast",
+            "Doubles as a coaster in a pinch"
           ]
         },
         {
-          "id": "major_11_justice-n6-r96",
+          "id": "major_11_justice-n6-r89",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Acting because it's simply right, not because a rulebook says so",
           "options": [
             "Acting because it's simply right, not because a rulebook says so",
-            "Gives shape and order to what was still raw potential",
-            "Leadership through decisive, immediate action",
-            "Spring's life force"
+            "Sets clear boundaries and claims space without apology",
+            "Is void where prohibited",
+            "Only counts if you drew it with your eyes closed"
           ]
         },
         {
-          "id": "major_11_justice-n6-r97",
+          "id": "major_11_justice-n6-r90",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Responsibility and fairness, driven by the heart rather than obligation",
           "options": [
             "Responsibility and fairness, driven by the heart rather than obligation",
-            "A spark-first, think-later instinct; leads with action",
             "A bridge between the everyday and the sacred",
-            "When reality feels shaky, lean on faith or tradition to steady it"
+            "Was printed by mistake and means nothing at all",
+            "Requires three witnesses and a notarized signature to interpret"
           ]
         },
         {
-          "id": "major_11_justice-n6-r98",
+          "id": "major_11_justice-n6-r91",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Seeking balance, harmony, and beauty in how things are resolved",
           "options": [
             "Seeking balance, harmony, and beauty in how things are resolved",
-            "The message arrives through a mentor, teacher, or trusted structure",
-            "Spiritual truth doesn't have to abandon the pleasures of daily life",
-            "Holding something divine within an ordinary, grounded life"
+            "When reality feels shaky, lean on faith or tradition to steady it",
+            "Its real meaning is written in invisible ink on the back",
+            "Only applies to left-handed Tuesdays"
           ]
         },
         {
-          "id": "major_11_justice-n6-r99",
+          "id": "major_11_justice-n6-r92",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Cause and effect are catching up",
           "options": [
             "Cause and effect are catching up",
             "A real choice stands in front of you",
-            "Two paths, both valid",
-            "Choosing with the heart, not just the head"
+            "Is a trick question with no correct interpretation",
+            "Means you owe the deck a favor"
           ]
         }
       ]
@@ -333,9 +288,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_11_justice-n7-r100",
+          "id": "major_11_justice-n7-r93",
           "type": "cloze",
-          "text": "After the Wheel's turning point comes real responsibility. Justice holds up a mirror, an honest, unflinching reflection of what's true. Its rules aren't written in books, they come from an inner sense of care toward the world. Libra, ruled by Venus just like the Empress, brings its aesthetic, {b2}-seeking gaze to this card, so {b1} and equanimity become inseparable from what's fair.",
+          "text": "After the Wheel's turning point comes real {b3}. Libra, ruled by Venus just like the Empress, brings its aesthetic, {b2}-seeking gaze to this card, so {b1} and equanimity become inseparable from what's fair.",
           "blanks": [
             {
               "key": "b1",
@@ -344,12 +299,16 @@
             {
               "key": "b2",
               "answer": "harmony"
+            },
+            {
+              "key": "b3",
+              "answer": "responsibility"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "thermostat",
+            "sock",
+            "mitten"
           ]
         }
       ]

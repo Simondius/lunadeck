@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
-import { CHAPTERS } from "@/data/story/chapters";
 
 // A floating, draggable debug overlay — deliberately styled as tooling, not
 // app UI, so it never reads as part of Lunadeck itself. Menu items are
@@ -37,61 +36,6 @@ const MENU = [
             run: () => reset(),
           },
         ],
-      },
-      {
-        label: "Content",
-        actions: [
-          {
-            // v3 is the default curriculum now (Simon's call, 31 Aug) — the
-            // tab bar's own Path tab already goes there. v1 and v2 both stay
-            // reachable here for whoever wants either earlier shape.
-            label: "v1 (original curriculum)",
-            run: () => {
-              window.location.href = "/v1";
-            },
-          },
-          {
-            label: "v2 (five cards, original order)",
-            run: () => {
-              window.location.href = "/v2";
-            },
-          },
-          {
-            label: "v3 (resequenced, default)",
-            run: () => {
-              window.location.href = "/v3";
-            },
-          },
-          {
-            // Narrative + lessons merged into one path (0057) - its own
-            // top-level entry alongside v1/v2/v3, not a Story subgroup
-            // item, since it's a curriculum variant like the other three.
-            label: "v4 (narrative + lessons, Dave/Riley)",
-            run: () => {
-              window.location.href = "/v4";
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // A separate top-level group, not a Path subgroup - Story isn't a
-    // curriculum variant, it's its own linear narrative mode (0048), so it
-    // sits beside Path rather than under it.
-    group: "Story",
-    subgroups: [
-      {
-        label: "Chapters",
-        // One button per chapter, not one link to the index (0052) - the
-        // index is one tap away regardless, and jumping straight into a
-        // specific chapter is the actual dev workflow this exists for.
-        actions: CHAPTERS.map((c) => ({
-          label: `${c.partLabel}: ${c.data.title}`,
-          run: () => {
-            window.location.href = `/story/play/${c.slug}`;
-          },
-        })),
       },
     ],
   },
@@ -128,9 +72,18 @@ function frameBox() {
   // yet. Zero is guarded either way: a window reporting no dimensions — a
   // background tab, a pane mid-init — would otherwise yield a negative
   // default that gets persisted and never recovers.
+  //
+  // Below 900px .app-frame carries no transform (see "desktop framing" in
+  // globals.css) - it isn't the fixed-positioning containing block there,
+  // it's just a plain wrapper as tall as everything inside it, which on a
+  // long single-scroll page (the v4 path) can run tens of thousands of
+  // pixels. Clamping to whichever is smaller keeps the desktop case (the
+  // frame IS genuinely capped there, per its own min(940px, 94dvh)) intact
+  // while stopping the console from defaulting to a Y thousands of pixels
+  // down an unrelated page's own content height.
   return {
-    width: rect?.width || window.innerWidth || 0,
-    height: rect?.height || window.innerHeight || 0,
+    width: Math.min(rect?.width || window.innerWidth || 0, window.innerWidth || Infinity),
+    height: Math.min(rect?.height || window.innerHeight || 0, window.innerHeight || Infinity),
   };
 }
 
@@ -178,10 +131,11 @@ export default function DevConsole({ allNodeIds = [] }) {
   // first client tick, same pattern as useProgress.
   const [position, setPosition] = useState(null);
   const [open, setOpen] = useState(false);
-  // Off (full FAB) until a saved "minimized" is read back, same as
-  // `position` - nobody gets switched to the small icon just by this
-  // shipping; it only persists once someone actually minimizes it.
-  const [minimized, setMinimized] = useState(false);
+  // Starts minimized (0083: "default the dev console to the circle up top
+  // right until opened") - stays that way through the server render and
+  // first paint, same reasoning as `position` above, then the effect below
+  // reads back an explicit saved preference if one exists.
+  const [minimized, setMinimized] = useState(true);
   // Which top-level group (Path, Story, ...) is expanded, if any - an
   // accordion, not a checklist, since MENU only ever had one group until
   // Story joined it. Two groups both showing every subgroup and action at
@@ -200,9 +154,14 @@ export default function DevConsole({ allNodeIds = [] }) {
   useEffect(() => {
     setPosition(loadPosition());
     try {
-      setMinimized(window.localStorage.getItem(MINIMIZED_KEY) === "1");
+      // No stored preference yet -> stays minimized (the new default).
+      // An explicit "0" (someone previously expanded it and it stuck)
+      // still wins, so restoring an already-open console isn't this
+      // change's problem to solve.
+      const stored = window.localStorage.getItem(MINIMIZED_KEY);
+      setMinimized(stored === null ? true : stored === "1");
     } catch {
-      // Blocked storage - stays the full FAB every load.
+      // Blocked storage - stays minimized, the new default.
     }
   }, []);
 

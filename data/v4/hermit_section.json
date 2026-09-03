@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_09_hermit-n1-r59",
+          "id": "major_09_hermit-n1-r55",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "tornado",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "avalanche",
               "correct": false
             }
           ]
@@ -38,51 +38,6 @@
       "rounds": [
         {
           "id": "major_09_hermit-n2-r60",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "virgo",
-              "name": "Virgo",
-              "text": "Virgo: attentive discernment and productive solitude, a focus on detail that reveals the bigger picture.",
-              "rects": [
-                {
-                  "x0": 0.4,
-                  "y0": 0.11,
-                  "x1": 0.6,
-                  "y1": 0.23
-                }
-              ]
-            },
-            {
-              "key": "lantern",
-              "name": "Lantern",
-              "text": "The lantern he carries: the light that leads him step by step, focusing on detail as he searches for his spiritual center.",
-              "rects": [
-                {
-                  "x0": 0.5,
-                  "y0": 0.4,
-                  "x1": 0.8,
-                  "y1": 0.66
-                }
-              ]
-            },
-            {
-              "key": "owl",
-              "name": "Owl",
-              "text": "An owl keeping silent watch from the branches: the calm, searching wisdom found in solitude.",
-              "rects": [
-                {
-                  "x0": 0.76,
-                  "y0": 0.2,
-                  "x1": 0.96,
-                  "y1": 0.38
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_09_hermit-n2-r250",
           "type": "zone",
           "elements": [
             {
@@ -153,7 +108,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_09_hermit-n3-r61",
+          "id": "major_09_hermit-n3-r56",
           "words": [
             {
               "text": "the discovery of the inner world",
@@ -168,11 +123,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "puddle",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "geyser",
               "correct": false
             }
           ]
@@ -183,7 +138,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_09_hermit-n4-r65",
+          "id": "major_09_hermit-n4-r60",
           "words": [
             {
               "text": "introspection",
@@ -225,7 +180,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_09_hermit-n5-r66",
+          "id": "major_09_hermit-n5-r61",
           "type": "swipe",
           "cards": [
             {
@@ -261,11 +216,11 @@
               "isMatch": false
             },
             {
-              "text": "Trust the vision or feeling that comes without explanation",
+              "text": "Sudden, unexpected change",
               "isMatch": false
             },
             {
-              "text": "A quiet, reflected light rather than a blazing one",
+              "text": "Pure, uncomplicated joy",
               "isMatch": false
             }
           ]
@@ -276,63 +231,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_09_hermit-n6-r67",
+          "id": "major_09_hermit-n6-r62",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Solitude here is productive, not lonely",
           "options": [
             "Solitude here is productive, not lonely",
-            "Offers protection and care from a place of stillness",
-            "Signals it's time to turn inward before doing anything outward",
-            "The journey matters more than the destination right now"
+            "The journey matters more than the destination right now",
+            "Is a trick question with no correct interpretation",
+            "Means you owe the deck a favor"
           ]
         },
         {
-          "id": "major_09_hermit-n6-r68",
+          "id": "major_09_hermit-n6-r63",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A lantern lighting the path one careful step at a time",
           "options": [
             "A lantern lighting the path one careful step at a time",
             "Blending different, even opposing, ingredients into something greater than either alone",
-            "Patience and experience refine raw experience into wisdom",
-            "Moderation — finding the right balance rather than swinging to extremes"
+            "Has to be read backwards while standing on one foot",
+            "Was actually meant for the person sitting behind you"
           ]
         },
         {
-          "id": "major_09_hermit-n6-r69",
+          "id": "major_09_hermit-n6-r64",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Time to withdraw and look inward before moving again",
           "options": [
             "Time to withdraw and look inward before moving again",
-            "Broadening your view by mixing new experiences in",
             "Suspended, upside down, but calm",
-            "A new perspective comes from surrendering, not struggling"
+            "Comes with batteries not included",
+            "Only works if the room is exactly 72 degrees"
           ]
         },
         {
-          "id": "major_09_hermit-n6-r70",
+          "id": "major_09_hermit-n6-r65",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Attention to small details reveals the bigger picture",
           "options": [
             "Attention to small details reveals the bigger picture",
-            "Pause and let go instead of forcing the next move",
-            "Meditative stillness that deepens awareness",
-            "Sometimes you sacrifice something now to gain something better later"
+            "A new perspective comes from surrendering, not struggling",
+            "Is a rerun of a card you already drew last week",
+            "Grants temporary immunity from bad decisions"
           ]
         },
         {
-          "id": "major_09_hermit-n6-r71",
+          "id": "major_09_hermit-n6-r66",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "The search itself",
           "options": [
             "The search itself",
             "What's hidden becomes visible in the dark, if you're willing to look",
-            "Trust intuition and dreams over what's plainly stated",
-            "Facing the shadow side is part of becoming whole"
+            "Its meaning resets every time someone sneezes nearby",
+            "Was shuffled in from a completely different deck by accident"
           ]
         }
       ]
@@ -341,9 +296,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_09_hermit-n7-r72",
+          "id": "major_09_hermit-n7-r67",
           "type": "cloze",
-          "text": "Virgo is ruled by Mercury in its most grounded form, {b2} and quietly organized. The Hermit masters Virgo's gift for solitude, treating being alone as generative rather than lonely. His {b1} lights the path one careful step at a time, mirroring Virgo's patient attention to detail. As the first card in the deck to carry light, the Hermit's path leads inward, toward a spiritual center.",
+          "text": "Virgo is ruled by Mercury in its most grounded form, {b2} and quietly organized. His {b1} lights the path one careful step at a time, mirroring Virgo's patient attention to detail.",
           "blanks": [
             {
               "key": "b1",
@@ -355,9 +310,9 @@
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "magnet",
+            "seashell",
+            "pinecone"
           ]
         }
       ]

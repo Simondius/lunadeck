@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_08_strength-n1-r45",
+          "id": "major_08_strength-n1-r42",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "waffle",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "burrito",
               "correct": false
             }
           ]
@@ -34,51 +34,6 @@
       "rounds": [
         {
           "id": "major_08_strength-n2-r46",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "leo",
-              "name": "Leo",
-              "text": "Leo: courage and personal radiance, a strength that comes from the heart and connects rather than dominates.",
-              "rects": [
-                {
-                  "x0": 0.38,
-                  "y0": 0.05,
-                  "x1": 0.62,
-                  "y1": 0.19
-                }
-              ]
-            },
-            {
-              "key": "lion_face",
-              "name": "The lion",
-              "text": "The lion's profile, mane ablaze: not a show of supremacy over other creatures, but a fierce heart at rest.",
-              "rects": [
-                {
-                  "x0": 0.06,
-                  "y0": 0.22,
-                  "x1": 0.4,
-                  "y1": 0.52
-                }
-              ]
-            },
-            {
-              "key": "gentle_touch",
-              "name": "Gentle touch",
-              "text": "Her hand resting gently on the lion: the gentler energy that comes from within and tames the more aggressive instincts.",
-              "rects": [
-                {
-                  "x0": 0.28,
-                  "y0": 0.52,
-                  "x1": 0.5,
-                  "y1": 0.72
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_08_strength-n2-r248",
           "type": "zone",
           "elements": [
             {
@@ -149,7 +104,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_08_strength-n3-r47",
+          "id": "major_08_strength-n3-r43",
           "words": [
             {
               "text": "balanced strength",
@@ -160,11 +115,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "dumpling",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "raccoon",
               "correct": false
             }
           ]
@@ -175,7 +130,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_08_strength-n4-r51",
+          "id": "major_08_strength-n4-r47",
           "words": [
             {
               "text": "kindness",
@@ -209,7 +164,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_08_strength-n5-r52",
+          "id": "major_08_strength-n5-r48",
           "type": "swipe",
           "cards": [
             {
@@ -245,11 +200,11 @@
               "isMatch": false
             },
             {
-              "text": "Nourish, protect, and grow whatever you're tending",
+              "text": "Sees with more than the eyes",
               "isMatch": false
             },
             {
-              "text": "A reminder to love and care for yourself first",
+              "text": "Pure, uncomplicated joy",
               "isMatch": false
             }
           ]
@@ -260,63 +215,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_08_strength-n6-r53",
+          "id": "major_08_strength-n6-r49",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Real strength is gentle",
           "options": [
             "Real strength is gentle",
-            "Pleasure, beauty, and the body are not indulgences",
-            "Abundance that comes from allowing things to flourish, not forcing them",
-            "Ready to act the instant the moment calls for it"
+            "Ready to act the instant the moment calls for it",
+            "Only true if read aloud in a haunted house",
+            "Was drawn upside down by a cat walking across the deck"
           ]
         },
         {
-          "id": "major_08_strength-n6-r54",
+          "id": "major_08_strength-n6-r50",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Taming the wilder instincts with calm rather than domination",
           "options": [
             "Taming the wilder instincts with calm rather than domination",
             "Sets clear boundaries and claims space without apology",
-            "Gives shape and order to what was still raw potential",
-            "Leadership through decisive, immediate action"
+            "Comes with a money-back guarantee if you dislike your future",
+            "Its meaning changes depending on what you had for breakfast"
           ]
         },
         {
-          "id": "major_08_strength-n6-r55",
+          "id": "major_08_strength-n6-r51",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Courage means acting honestly, not acting fearlessly",
           "options": [
             "Courage means acting honestly, not acting fearlessly",
-            "Spring's life force",
-            "A spark-first, think-later instinct; leads with action",
-            "A bridge between the everyday and the sacred"
+            "A bridge between the everyday and the sacred",
+            "Doubles as a coaster in a pinch",
+            "Is void where prohibited"
           ]
         },
         {
-          "id": "major_08_strength-n6-r56",
+          "id": "major_08_strength-n6-r52",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Generosity and warmth are forms of power too",
           "options": [
             "Generosity and warmth are forms of power too",
             "When reality feels shaky, lean on faith or tradition to steady it",
-            "The message arrives through a mentor, teacher, or trusted structure",
-            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+            "Only counts if you drew it with your eyes closed",
+            "Was printed by mistake and means nothing at all"
           ]
         },
         {
-          "id": "major_08_strength-n6-r57",
+          "id": "major_08_strength-n6-r53",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Connection and relating to others, not standing above them",
           "options": [
             "Connection and relating to others, not standing above them",
-            "Holding something divine within an ordinary, grounded life",
             "A mirror moment",
-            "Acting because it's simply right, not because a rulebook says so"
+            "Requires three witnesses and a notarized signature to interpret",
+            "Its real meaning is written in invisible ink on the back"
           ]
         }
       ]
@@ -325,9 +280,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_08_strength-n7-r58",
+          "id": "major_08_strength-n7-r54",
           "type": "cloze",
-          "text": "Strength depicts a lion, Leo's clear signature: courage, personal power, and a sense of belonging rather than dominance. This isn't physical force, it's a gentler energy that comes from within and radiates outward. Like Leo, it means following your heart honestly, acting with {b1}, and letting {b2} flow in harmony with others, letting that softness guide and calm our more aggressive instincts.",
+          "text": "Like Leo, it means following your heart honestly, acting with {b1}, and letting {b2} flow in harmony with others, letting that softness guide and calm our more {b3} instincts.",
           "blanks": [
             {
               "key": "b1",
@@ -336,12 +291,16 @@
             {
               "key": "b2",
               "answer": "creativity"
+            },
+            {
+              "key": "b3",
+              "answer": "aggressive"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "flamingo",
+            "volcano",
+            "glacier"
           ]
         }
       ]

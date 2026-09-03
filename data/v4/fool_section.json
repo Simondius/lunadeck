@@ -25,7 +25,7 @@
           ],
           "distractors": [
             "pizza",
-            "Tuesday",
+            "lantern",
             "purple"
           ],
           "tutorial": true
@@ -50,7 +50,7 @@
           ],
           "distractors": [
             "teacup",
-            "banana",
+            "paddle",
             "ladder"
           ]
         },
@@ -74,7 +74,7 @@
           ],
           "distractors": [
             "elephant",
-            "Wednesday",
+            "paperclip",
             "faith"
           ]
         },
@@ -394,7 +394,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "mayonnaise",
               "correct": false
             },
             {
@@ -402,7 +402,7 @@
               "correct": true
             },
             {
-              "text": "banana",
+              "text": "parsnip",
               "correct": false
             }
           ]
@@ -415,7 +415,7 @@
               "correct": true
             },
             {
-              "text": "elephant",
+              "text": "lantern",
               "correct": false
             },
             {
@@ -423,7 +423,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "pogo stick",
               "correct": false
             }
           ]
@@ -436,7 +436,7 @@
               "correct": true
             },
             {
-              "text": "banana",
+              "text": "glacier",
               "correct": false
             },
             {
@@ -444,7 +444,7 @@
               "correct": true
             },
             {
-              "text": "elephant",
+              "text": "seashell",
               "correct": false
             }
           ]
@@ -603,7 +603,7 @@
             }
           ],
           "distractors": [
-            "banana",
+            "marble",
             "Thursday",
             "stranger"
           ]
@@ -619,8 +619,8 @@
             }
           ],
           "distractors": [
-            "Tuesday",
-            "umbrella",
+            "yo-yo",
+            "avalanche",
             "anger"
           ]
         },
@@ -635,8 +635,8 @@
             }
           ],
           "distractors": [
-            "elephant",
-            "spaghetti",
+            "barnacle",
+            "snorkel",
             "crowd"
           ]
         },
@@ -651,7 +651,7 @@
             }
           ],
           "distractors": [
-            "purple",
+            "magnet",
             "bicycle",
             "coin"
           ]
@@ -667,8 +667,8 @@
             }
           ],
           "distractors": [
-            "teacup",
-            "Wednesday",
+            "mitten",
+            "wheelbarrow",
             "faith"
           ]
         },
@@ -684,7 +684,7 @@
           ],
           "distractors": [
             "broccoli",
-            "Thursday",
+            "muffin",
             "introspection"
           ]
         },
@@ -699,8 +699,8 @@
             }
           ],
           "distractors": [
-            "banana",
-            "umbrella",
+            "ketchup",
+            "domino",
             "silence"
           ]
         }
@@ -791,11 +791,11 @@
               "correct": false
             },
             {
-              "text": "elephant",
+              "text": "scone",
               "correct": false
             },
             {
-              "text": "purple",
+              "text": "toaster",
               "correct": false
             }
           ]
@@ -820,11 +820,11 @@
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "puzzle",
               "correct": false
             },
             {
-              "text": "Wednesday",
+              "text": "tornado",
               "correct": false
             }
           ]
@@ -845,11 +845,11 @@
               "correct": true
             },
             {
-              "text": "green",
+              "text": "puddle",
               "correct": false
             },
             {
-              "text": "bicycle",
+              "text": "shrug",
               "correct": false
             },
             {
@@ -982,11 +982,11 @@
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "seesaw",
               "correct": false
             },
             {
-              "text": "purple",
+              "text": "wink",
               "correct": false
             },
             {
@@ -1040,7 +1040,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "typewriter",
               "correct": false
             },
             {
@@ -1259,8 +1259,8 @@
             }
           ],
           "distractors": [
-            "pizza",
-            "teacup",
+            "vacuum",
+            "gargoyle",
             "faith",
             "stranger"
           ]

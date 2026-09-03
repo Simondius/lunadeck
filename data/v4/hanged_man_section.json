@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n1-r101",
+          "id": "major_12_hanged_man-n1-r94",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "beanie",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "scarf",
               "correct": false
             }
           ]
@@ -34,51 +34,6 @@
       "rounds": [
         {
           "id": "major_12_hanged_man-n2-r102",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "neptune",
-              "name": "Neptune",
-              "text": "Neptune: dreams, mystery, and surrender, the fluid, hidden depth that dissolves rigid boundaries.",
-              "rects": [
-                {
-                  "x0": 0.41,
-                  "y0": 0.095,
-                  "x1": 0.59,
-                  "y1": 0.215
-                }
-              ]
-            },
-            {
-              "key": "crossed_legs",
-              "name": "Crossed legs",
-              "text": "His legs crossed like a yoga position: even hanging upside down, a body settled into stillness rather than struggle.",
-              "rects": [
-                {
-                  "x0": 0.26,
-                  "y0": 0.22,
-                  "x1": 0.72,
-                  "y1": 0.44
-                }
-              ]
-            },
-            {
-              "key": "serene_face",
-              "name": "Serene face",
-              "text": "His calm, unbothered expression: not suffering but pausing, a surrender that leads to greater awareness.",
-              "rects": [
-                {
-                  "x0": 0.26,
-                  "y0": 0.58,
-                  "x1": 0.64,
-                  "y1": 0.78
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_12_hanged_man-n2-r256",
           "type": "zone",
           "elements": [
             {
@@ -149,7 +104,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n3-r103",
+          "id": "major_12_hanged_man-n3-r95",
           "words": [
             {
               "text": "following the flow",
@@ -160,11 +115,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "galoshes",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "poncho",
               "correct": false
             }
           ]
@@ -175,7 +130,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n4-r107",
+          "id": "major_12_hanged_man-n4-r99",
           "words": [
             {
               "text": "pause",
@@ -209,7 +164,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n5-r108",
+          "id": "major_12_hanged_man-n5-r100",
           "type": "swipe",
           "cards": [
             {
@@ -245,11 +200,11 @@
               "isMatch": false
             },
             {
-              "text": "Trust the vision or feeling that comes without explanation",
+              "text": "A full cycle completed",
               "isMatch": false
             },
             {
-              "text": "A quiet, reflected light rather than a blazing one",
+              "text": "Not purely bad",
               "isMatch": false
             }
           ]
@@ -260,63 +215,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n6-r109",
+          "id": "major_12_hanged_man-n6-r101",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Suspended, upside down, but calm",
           "options": [
             "Suspended, upside down, but calm",
-            "Offers protection and care from a place of stillness",
-            "Signals it's time to turn inward before doing anything outward",
-            "Not an ending"
+            "Not an ending",
+            "Was actually meant for the person sitting behind you",
+            "Comes with batteries not included"
           ]
         },
         {
-          "id": "major_12_hanged_man-n6-r110",
+          "id": "major_12_hanged_man-n6-r102",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A new perspective comes from surrendering, not struggling",
           "options": [
             "A new perspective comes from surrendering, not struggling",
             "What no longer has life in it needs to be released, like dead leaves feeding the roots",
-            "Endings free up room for something essential to grow",
-            "Intense, magnetic, and a little uncomfortable"
+            "Only works if the room is exactly 72 degrees",
+            "Is a rerun of a card you already drew last week"
           ]
         },
         {
-          "id": "major_12_hanged_man-n6-r111",
+          "id": "major_12_hanged_man-n6-r103",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Pause and let go instead of forcing the next move",
           "options": [
             "Pause and let go instead of forcing the next move",
-            "Look beneath the surface for what actually needs to go",
             "What's hidden becomes visible in the dark, if you're willing to look",
-            "Trust intuition and dreams over what's plainly stated"
+            "Grants temporary immunity from bad decisions",
+            "Its meaning resets every time someone sneezes nearby"
           ]
         },
         {
-          "id": "major_12_hanged_man-n6-r112",
+          "id": "major_12_hanged_man-n6-r104",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Meditative stillness that deepens awareness",
           "options": [
             "Meditative stillness that deepens awareness",
-            "Facing the shadow side is part of becoming whole",
-            "A cycle is repeating",
-            "The everyday and the spiritual aren't separate; they're two sides of the same coin"
+            "Trust intuition and dreams over what's plainly stated",
+            "Was shuffled in from a completely different deck by accident",
+            "Requires a subscription to unlock the second half of its meaning"
           ]
         },
         {
-          "id": "major_12_hanged_man-n6-r113",
+          "id": "major_12_hanged_man-n6-r105",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Sometimes you sacrifice something now to gain something better later",
           "options": [
             "Sometimes you sacrifice something now to gain something better later",
             "Solitude here is productive, not lonely",
-            "A lantern lighting the path one careful step at a time",
-            "Time to withdraw and look inward before moving again"
+            "The card is legally required to agree with your horoscope",
+            "Only works if you're holding it upside down and humming"
           ]
         }
       ]
@@ -325,9 +280,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_12_hanged_man-n7-r114",
+          "id": "major_12_hanged_man-n7-r106",
           "type": "cloze",
-          "text": "Before Neptune's discovery, this card belonged simply to Water: flowing, hanging, embracing, just like the Hanged Man himself. Suspended upside down, his calm expression gives away the truth, he isn't suffering, he's meditating, gaining a new {b1} through stillness. Crossed legs echo a yoga pose. Neptune, planet of dreams, depth, and sacrifice, and Water's {b2} flow, capture the soul of this quiet surrender.",
+          "text": "Suspended upside down, his calm {b3} gives away the truth, he isn't suffering, he's {b4}, gaining a new {b1} through stillness. Neptune, planet of dreams, depth, and sacrifice, and Water's {b2} flow, capture the soul of this quiet surrender.",
           "blanks": [
             {
               "key": "b1",
@@ -336,12 +291,20 @@
             {
               "key": "b2",
               "answer": "unstoppable"
+            },
+            {
+              "key": "b3",
+              "answer": "expression"
+            },
+            {
+              "key": "b4",
+              "answer": "meditating"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "doodle",
+            "gargoyle",
+            "unicycle"
           ]
         }
       ]

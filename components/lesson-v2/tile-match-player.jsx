@@ -18,7 +18,13 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
   const rightOrder = useMemo(() => seededShuffle(round.pairs, `${round.id}-right`), [round]);
   const [matched, setMatched] = useState(() => new Set());
   const [selected, setSelected] = useState({ left: null, right: null });
-  const [shaking, setShaking] = useState(() => new Set());
+  // { left, right } like `selected`, not a flat Set of the two mismatched
+  // keys - every pair's image and text tile share one key, so a flat Set
+  // shook BOTH occurrences of a key once it appeared on either side (tap
+  // the wrong text, and its own real image lit up too, alongside whatever
+  // you actually tapped). Keyed per side the same way `selected` already
+  // is, so only the two tiles actually tapped ever shake.
+  const [shaking, setShaking] = useState({ left: null, right: null });
   const skipResolverRef = useRef(null);
   const continueRef = useRef(null);
   const missedRef = useRef(false);
@@ -66,21 +72,21 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
       return;
     }
     missedRef.current = true;
-    setShaking(new Set([next.left, next.right]));
+    setShaking(next);
     setSelected(next);
     window.setTimeout(() => {
-      setShaking(new Set());
+      setShaking({ left: null, right: null });
       setSelected({ left: null, right: null });
     }, REJECT_MS);
   }
 
   function tapLeft(key) {
-    if (matched.has(key) || shaking.size) return;
+    if (matched.has(key) || shaking.left != null) return;
     attempt({ left: key, right: selected.right });
   }
 
   function tapRight(key) {
-    if (matched.has(key) || shaking.size) return;
+    if (matched.has(key) || shaking.left != null) return;
     attempt({ left: selected.left, right: key });
   }
 
@@ -89,7 +95,7 @@ export default function TileMatchPlayer({ round, roundNumber, totalRounds, onDon
       "tile-match-tile",
       matched.has(key) ? "is-matched" : "",
       selected[side] === key ? "is-selected" : "",
-      shaking.has(key) ? "is-shaking" : "",
+      shaking[side] === key ? "is-shaking" : "",
     ]
       .filter(Boolean)
       .join(" ");

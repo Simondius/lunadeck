@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_13_death-n1-r115",
+          "id": "major_13_death-n1-r107",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "trampoline",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "seesaw",
               "correct": false
             }
           ]
@@ -72,52 +72,7 @@
               "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.6,
-                  "x1": 0.33,
-                  "y1": 0.82
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_13_death-n2-r258",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "scorpio",
-              "name": "Scorpio",
-              "text": "Scorpio: intensity and transformation, a comfort with what lies beneath the surface as what no longer has life is shed.",
-              "rects": [
-                {
-                  "x0": 0.41,
-                  "y0": 0.105,
-                  "x1": 0.58,
-                  "y1": 0.22
-                }
-              ]
-            },
-            {
-              "key": "scythe",
-              "name": "Scythe",
-              "text": "The scythe he carries: the clean, necessary cut, clearing what is no longer viable to make room for new blood.",
-              "rects": [
-                {
-                  "x0": 0.02,
-                  "y0": 0.24,
-                  "x1": 0.32,
-                  "y1": 0.52
-                }
-              ]
-            },
-            {
-              "key": "rising_sun",
-              "name": "Rising sun",
-              "text": "A sun rising behind the brush at his feet: the vital, organic process that follows every ending, new life taking root.",
-              "rects": [
-                {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.6,
                   "x1": 0.33,
                   "y1": 0.82
@@ -153,7 +108,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_13_death-n3-r117",
+          "id": "major_13_death-n3-r108",
           "words": [
             {
               "text": "the sickle",
@@ -168,11 +123,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "pogo stick",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "wheelbarrow",
               "correct": false
             }
           ]
@@ -183,7 +138,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_13_death-n4-r121",
+          "id": "major_13_death-n4-r112",
           "words": [
             {
               "text": "mystery",
@@ -225,7 +180,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_13_death-n5-r122",
+          "id": "major_13_death-n5-r113",
           "type": "swipe",
           "cards": [
             {
@@ -261,11 +216,11 @@
               "isMatch": false
             },
             {
-              "text": "Trusts that the path appears once you take the step",
+              "text": "What falls apart was already unstable; the collapse just makes it visible",
               "isMatch": false
             },
             {
-              "text": "Approaches life with a beginner's mind",
+              "text": "Not purely bad",
               "isMatch": false
             }
           ]
@@ -276,63 +231,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_13_death-n6-r123",
+          "id": "major_13_death-n6-r114",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Not an ending",
           "options": [
             "Not an ending",
-            "Nonconformist, revolutionary energy",
-            "Says yes to the unknown instead of playing it safe",
-            "What goes up comes around"
+            "What goes up comes around",
+            "Was originally a recipe card before the printer got confused",
+            "Grants one wish, but only on a leap year"
           ]
         },
         {
-          "id": "major_13_death-n6-r124",
+          "id": "major_13_death-n6-r115",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "What no longer has life in it needs to be released, like dead leaves feeding the roots",
           "options": [
             "What no longer has life in it needs to be released, like dead leaves feeding the roots",
             "A turning point; you're at a hinge between one cycle ending and another beginning",
-            "Fortune and misfortune are both just transitions to learn from",
-            "Stay balanced at the center, even as things spin around you"
+            "Means you should immediately reorganize your sock drawer",
+            "Is actually just the Nine of Cups wearing a costume"
           ]
         },
         {
-          "id": "major_13_death-n6-r125",
+          "id": "major_13_death-n6-r116",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Endings free up room for something essential to grow",
           "options": [
             "Endings free up room for something essential to grow",
-            "Everything is connected",
             "Suspended, upside down, but calm",
-            "A new perspective comes from surrendering, not struggling"
+            "Requires a permit from the local moon council",
+            "Only true if read aloud in a haunted house"
           ]
         },
         {
-          "id": "major_13_death-n6-r126",
+          "id": "major_13_death-n6-r117",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Intense, magnetic, and a little uncomfortable",
           "options": [
             "Intense, magnetic, and a little uncomfortable",
-            "Pause and let go instead of forcing the next move",
-            "Meditative stillness that deepens awareness",
-            "Sometimes you sacrifice something now to gain something better later"
+            "A new perspective comes from surrendering, not struggling",
+            "Was drawn upside down by a cat walking across the deck",
+            "Comes with a money-back guarantee if you dislike your future"
           ]
         },
         {
-          "id": "major_13_death-n6-r127",
+          "id": "major_13_death-n6-r118",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Look beneath the surface for what actually needs to go",
           "options": [
             "Look beneath the surface for what actually needs to go",
             "Sudden, unexpected change",
-            "What falls apart was already unstable; the collapse just makes it visible",
-            "The point isn't the falling"
+            "Its meaning changes depending on what you had for breakfast",
+            "Doubles as a coaster in a pinch"
           ]
         }
       ]
@@ -341,23 +296,19 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_13_death-n7-r128",
+          "id": "major_13_death-n7-r119",
           "type": "cloze",
-          "text": "Scorpio belongs to November, when decay feeds new growth just as falling leaves fertilize the roots beneath them. Sitting between {b1} and death, Scorpio is magnetic and intense, aware that reaching what's essential means releasing what no longer has life in it. Death carries the same message: not an ending sealed shut, but an organic process that clears space for fresh blood and new {b2}.",
+          "text": "Sitting between {b1} and death, Scorpio is magnetic and intense, aware that reaching what's essential means releasing what no longer has life in it.",
           "blanks": [
             {
               "key": "b1",
               "answer": "life"
-            },
-            {
-              "key": "b2",
-              "answer": "beginnings"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "parsnip",
+            "typewriter",
+            "postcard"
           ]
         }
       ]

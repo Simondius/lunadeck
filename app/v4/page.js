@@ -90,7 +90,13 @@ export default function V4Path() {
           const unitKey = `u${unit.unit}`;
           const shut = collapsed.has(unitKey);
           const steps = stepsForUnit(unit);
-          const cardKey = SECTIONS.find((s) => s.slug === unit.cardSlug)?.data.cardKey;
+          // An array even though every unit today has exactly one focus
+          // card (0084) - a unit covering several cards is coming later,
+          // and both the banner's own image row and its subheading below
+          // already read naturally as "one name/thumbnail per focus card"
+          // rather than needing a rewrite once that data shows up.
+          const focusCards = SECTIONS.filter((s) => s.slug === unit.cardSlug).map((s) => s.data);
+          const cardKey = focusCards[0]?.cardKey;
           const keywordVariant = makeKeywordVariantTracker();
           const peaks = peaksForUnit(index + 1, steps.length);
           const peaksByLocalIndex = new Map(peaks.map((p) => [p.localIndex, p.side]));
@@ -104,14 +110,25 @@ export default function V4Path() {
                 aria-expanded={!shut}
                 aria-controls={`v4-${unitKey}-steps`}
               >
-                {/* The number shown is this unit's position in the path
-                    (UNITS' own array order), not its stored `unit:` id -
-                    Simon's call: the learner should see sequential unit
-                    numbers regardless of how the path itself is ordered
-                    internally (0073's own reorder, and any reorder after
-                    it), not the original 1-8 identifiers with gaps. */}
-                <span className="trail-unit-index">Unit {unitPosition + 1}</span>
-                <span className="trail-unit-name">{unit.title}</span>
+                {/* Narrative title, then which card the unit is actually
+                    about (0084: "narrative title / subheading: is the
+                    focus card") - the pun already carries the character,
+                    so the sequential "Unit N" label this replaced wasn't
+                    telling the reader anything the pun and the card name
+                    together don't already say. A row of thumbnails, one
+                    per focus card, for the same forward-compatibility
+                    reason as focusCards itself above. */}
+                <span className="trail-unit-thumbs" aria-hidden="true">
+                  {focusCards.map((card) => (
+                    <img key={card.cardKey} src={masterForKey(card.cardKey)} alt="" />
+                  ))}
+                </span>
+                <span className="trail-unit-text">
+                  <span className="trail-unit-name">{unit.title}</span>
+                  <span className="trail-unit-focus">
+                    {focusCards.map((c) => c.cardName).join(" & ")}
+                  </span>
+                </span>
                 <span className="trail-chevron" aria-hidden="true" />
               </button>
 

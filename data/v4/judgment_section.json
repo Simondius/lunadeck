@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_20_judgment-n1-r214",
+          "id": "major_20_judgment-n1-r199",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "telescope",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "magnet",
               "correct": false
             }
           ]
@@ -68,54 +68,9 @@
               "text": "Bodies rising with arms outstretched from their graves: the dead reborn, healed and called back to life.",
               "rects": [
                 {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.58,
-                  "x1": 1.0,
-                  "y1": 0.86
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_20_judgment-n2-r272",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "pluto",
-              "name": "Pluto",
-              "text": "Pluto: transformation through death and rebirth, releasing old schemes to reach healing.",
-              "rects": [
-                {
-                  "x0": 0.44,
-                  "y0": 0.09,
-                  "x1": 0.58,
-                  "y1": 0.19
-                }
-              ]
-            },
-            {
-              "key": "trumpet",
-              "name": "Angel's trumpet",
-              "text": "The golden trumpet sounding from above: the call to rise, our true vocation and voice being summoned.",
-              "rects": [
-                {
-                  "x0": 0.36,
-                  "y0": 0.33,
-                  "x1": 0.64,
-                  "y1": 0.58
-                }
-              ]
-            },
-            {
-              "key": "rising_figures",
-              "name": "Rising figures",
-              "text": "Bodies rising with arms outstretched from their graves: the dead reborn, healed and called back to life.",
-              "rects": [
-                {
-                  "x0": 0.0,
-                  "y0": 0.58,
-                  "x1": 1.0,
+                  "x1": 1,
                   "y1": 0.86
                 }
               ]
@@ -149,18 +104,18 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_20_judgment-n3-r216",
+          "id": "major_20_judgment-n3-r200",
           "words": [
             {
               "text": "rebirth",
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "seashell",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "pinecone",
               "correct": false
             }
           ]
@@ -171,7 +126,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_20_judgment-n4-r220",
+          "id": "major_20_judgment-n4-r204",
           "words": [
             {
               "text": "vocation",
@@ -205,7 +160,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_20_judgment-n5-r221",
+          "id": "major_20_judgment-n5-r205",
           "type": "swipe",
           "cards": [
             {
@@ -229,23 +184,23 @@
               "isMatch": true
             },
             {
-              "text": "Beginning and ending in one",
+              "text": "Determined forward motion",
               "isMatch": false
             },
             {
-              "text": "Travels light, takes chances with levity",
+              "text": "Pulled by two forces that need aligning, not fighting, to move you forward",
               "isMatch": false
             },
             {
-              "text": "On the edge of the precipice, but calm rather than afraid of the void",
+              "text": "Success comes from uniting intuition with rational drive",
               "isMatch": false
             },
             {
-              "text": "Trusts that the path appears once you take the step",
+              "text": "What's hidden becomes visible in the dark, if you're willing to look",
               "isMatch": false
             },
             {
-              "text": "Approaches life with a beginner's mind",
+              "text": "Pure, uncomplicated joy",
               "isMatch": false
             }
           ]
@@ -256,63 +211,61 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_20_judgment-n6-r222",
+          "id": "major_20_judgment-n6-r206",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A calling being answered",
           "options": [
             "A calling being answered",
-            "Nonconformist, revolutionary energy",
-            "Says yes to the unknown instead of playing it safe",
-            "Determined forward motion"
+            "Ready to act the instant the moment calls for it",
+            "Was actually meant for the person sitting behind you",
+            "Comes with batteries not included"
           ]
         },
         {
-          "id": "major_20_judgment-n6-r223",
+          "id": "major_20_judgment-n6-r207",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Rebirth requires passing through an ending first",
           "options": [
             "Rebirth requires passing through an ending first",
-            "Pulled by two forces that need aligning, not fighting, to move you forward",
-            "Success comes from uniting intuition with rational drive",
-            "Emotion is the fuel, not the obstacle, for this journey"
+            "Sets clear boundaries and claims space without apology",
+            "Only works if the room is exactly 72 degrees",
+            "Is a rerun of a card you already drew last week"
           ]
         },
         {
-          "id": "major_20_judgment-n6-r224",
+          "id": "major_20_judgment-n6-r208",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Letting go of what no longer belongs to you, to make room for healing",
           "options": [
             "Letting go of what no longer belongs to you, to make room for healing",
-            "A strong start",
-            "Real strength is gentle",
-            "Taming the wilder instincts with calm rather than domination"
+            "Suspended, upside down, but calm",
+            "Grants temporary immunity from bad decisions",
+            "Its meaning resets every time someone sneezes nearby"
           ]
         },
         {
-          "id": "major_20_judgment-n6-r225",
+          "id": "major_20_judgment-n6-r209",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A reckoning — reviewing the past honestly before moving forward",
           "options": [
             "A reckoning — reviewing the past honestly before moving forward",
-            "Courage means acting honestly, not acting fearlessly",
-            "Generosity and warmth are forms of power too",
-            "Connection and relating to others, not standing above them"
+            "A new perspective comes from surrendering, not struggling",
+            "Was shuffled in from a completely different deck by accident",
+            "Requires a subscription to unlock the second half of its meaning"
           ]
         },
         {
-          "id": "major_20_judgment-n6-r226",
+          "id": "major_20_judgment-n6-r210",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Your voice, finally ready to be used",
           "options": [
             "Your voice, finally ready to be used",
-            "What goes up comes around",
-            "A turning point; you're at a hinge between one cycle ending and another beginning",
-            "Fortune and misfortune are both just transitions to learn from"
+            "The journey matters more than the destination right now"
           ]
         }
       ]
@@ -321,9 +274,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_20_judgment-n7-r227",
+          "id": "major_20_judgment-n7-r211",
           "type": "cloze",
-          "text": "Pluto, planet of the underworld, governs death, resurrection, and deep transformation, fitting for Judgment, the second-to-last Major Arcana card yet arguably the true conclusion of the Fool's journey. Here we find our real calling and true voice, but only by first passing through endings, rebirths, and {b2} that reach into our depths. Pluto's guidance is to release old patterns and anything that no longer belongs, making room for {b1}.",
+          "text": "Here we find our real calling and true voice, but only by first passing through endings, rebirths, and {b2} that reach into our depths. Pluto's guidance is to release old patterns and anything that no longer belongs, making room for {b1}.",
           "blanks": [
             {
               "key": "b1",
@@ -335,9 +288,9 @@
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "mustard",
+            "ketchup",
+            "mayonnaise"
           ]
         }
       ]

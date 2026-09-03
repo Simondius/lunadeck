@@ -38,9 +38,7 @@ export default function CardPage({ card, nodeIds, lesson }) {
         {lesson ? (
           <Link className="card-lesson" href={lesson.href}>
             Learn this card now
-            <span>
-              {lesson.unitName} · Section {lesson.section}
-            </span>
+            <span>{lesson.unitName}</span>
           </Link>
         ) : null}
       </main>

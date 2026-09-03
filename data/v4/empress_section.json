@@ -138,7 +138,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "postcard",
               "correct": false
             },
             {
@@ -195,44 +195,68 @@
       "id": "node-2",
       "rounds": [
         {
-          "id": "n2-r1",
-          "words": [
+          "id": "major_03_empress-n2-r1",
+          "type": "zone",
+          "elements": [
             {
-              "text": "love",
-              "correct": true
+              "key": "venus",
+              "name": "Venus",
+              "text": "Venus: love, pleasure, beauty and harmony expressed through relationship.",
+              "rects": [
+                {
+                  "x0": 0.44,
+                  "y0": 0.115,
+                  "x1": 0.56,
+                  "y1": 0.19
+                }
+              ]
             },
             {
-              "text": "purple",
-              "correct": false
+              "key": "scepter",
+              "name": "Scepter",
+              "text": "Scepter: her authority as Mother Earth, life given shape and grown into the world.",
+              "rects": [
+                {
+                  "x0": 0.26,
+                  "y0": 0.18,
+                  "x1": 0.37,
+                  "y1": 0.83
+                }
+              ]
             },
             {
-              "text": "harmony",
-              "correct": true
-            },
-            {
-              "text": "spaghetti",
-              "correct": false
+              "key": "pomegranates",
+              "name": "Pomegranates",
+              "text": "Pomegranates among the fronds: fertility and abundance, life ripening in every direction.",
+              "rects": [
+                {
+                  "x0": 0.0,
+                  "y0": 0.18,
+                  "x1": 0.2,
+                  "y1": 0.85
+                }
+              ]
             }
           ]
         },
         {
-          "id": "n2-r2",
-          "words": [
+          "id": "major_03_empress-n2-r2",
+          "type": "tilematch",
+          "pairs": [
             {
-              "text": "harmony",
-              "correct": true
+              "key": "venus",
+              "text": "Love, pleasure, beauty and harmony expressed through relationship.",
+              "image": "/assets/cards/cardelements/major_03_empress_element_venus.png"
             },
             {
-              "text": "spaghetti",
-              "correct": false
+              "key": "scepter",
+              "text": "Her authority as Mother Earth, life given shape and grown into the world.",
+              "image": "/assets/cards/cardelements/major_03_empress_element_scepter.png"
             },
             {
-              "text": "beauty",
-              "correct": true
-            },
-            {
-              "text": "Wednesday",
-              "correct": false
+              "key": "pomegranates",
+              "text": "Fertility and abundance, life ripening in every direction.",
+              "image": "/assets/cards/cardelements/major_03_empress_element_pomegranates.png"
             }
           ]
         }
@@ -252,7 +276,7 @@
             }
           ],
           "distractors": [
-            "Wednesday"
+            "beanie"
           ]
         },
         {
@@ -506,11 +530,11 @@
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "poncho",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "stapler",
               "correct": false
             }
           ]

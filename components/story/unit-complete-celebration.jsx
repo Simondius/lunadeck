@@ -138,10 +138,11 @@ export default function UnitCompleteCelebration({ cardKey, cardName, unitNumber,
       );
     }
 
-    const params = new URLSearchParams({
-      unlock: cardKey,
-      next: nextHref,
-    });
+    // nextHref is undefined for the course's very last unit (0082) - a
+    // literal `next=undefined` would otherwise land in the query, which
+    // deck-screen.jsx would read back as a truthy (if broken) href.
+    const params = new URLSearchParams({ unlock: cardKey });
+    if (nextHref) params.set("next", nextHref);
     router.push(`/deck?${params.toString()}`);
   }
 

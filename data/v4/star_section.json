@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_17_star-n1-r172",
+          "id": "major_17_star-n1-r160",
           "tutorial": true,
           "words": [
             {
@@ -18,11 +18,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "green",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "orange",
               "correct": false
             }
           ]
@@ -34,51 +34,6 @@
       "rounds": [
         {
           "id": "major_17_star-n2-r173",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "aquarius",
-              "name": "Aquarius",
-              "text": "Aquarius: idealistic, nonconformist vision, moving to its own rhythm toward hope.",
-              "rects": [
-                {
-                  "x0": 0.4,
-                  "y0": 0.1,
-                  "x1": 0.62,
-                  "y1": 0.2
-                }
-              ]
-            },
-            {
-              "key": "star_halo",
-              "name": "Star halo",
-              "text": "The eight-pointed star crowning her: the light seen at the end of the tunnel, hope made luminous.",
-              "rects": [
-                {
-                  "x0": 0.32,
-                  "y0": 0.17,
-                  "x1": 0.66,
-                  "y1": 0.36
-                }
-              ]
-            },
-            {
-              "key": "vessel",
-              "name": "Vessel",
-              "text": "The vessel raised in her hand: an open-handed gift poured out into the world, faith offered without needing anything back.",
-              "rects": [
-                {
-                  "x0": 0.63,
-                  "y0": 0.33,
-                  "x1": 0.83,
-                  "y1": 0.45
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_17_star-n2-r266",
           "type": "zone",
           "elements": [
             {
@@ -149,7 +104,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_17_star-n3-r174",
+          "id": "major_17_star-n3-r161",
           "words": [
             {
               "text": "hope",
@@ -160,11 +115,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "yellow",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "turquoise",
               "correct": false
             }
           ]
@@ -175,7 +130,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_17_star-n4-r178",
+          "id": "major_17_star-n4-r165",
           "words": [
             {
               "text": "community",
@@ -209,7 +164,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_17_star-n5-r179",
+          "id": "major_17_star-n5-r166",
           "type": "swipe",
           "cards": [
             {
@@ -245,11 +200,11 @@
               "isMatch": false
             },
             {
-              "text": "Nourish, protect, and grow whatever you're tending",
+              "text": "Not purely bad",
               "isMatch": false
             },
             {
-              "text": "A reminder to love and care for yourself first",
+              "text": "A full cycle completed",
               "isMatch": false
             }
           ]
@@ -260,63 +215,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_17_star-n6-r180",
+          "id": "major_17_star-n6-r167",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Hope returning after the storm",
           "options": [
             "Hope returning after the storm",
-            "Pleasure, beauty, and the body are not indulgences",
-            "Abundance that comes from allowing things to flourish, not forcing them",
-            "A bridge between the everyday and the sacred"
+            "What goes up comes around",
+            "Is a trick question with no correct interpretation",
+            "Means you owe the deck a favor"
           ]
         },
         {
-          "id": "major_17_star-n6-r181",
+          "id": "major_17_star-n6-r168",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "An act of giving that seems small but nourishes something larger",
           "options": [
             "An act of giving that seems small but nourishes something larger",
-            "When reality feels shaky, lean on faith or tradition to steady it",
-            "The message arrives through a mentor, teacher, or trusted structure",
-            "Spiritual truth doesn't have to abandon the pleasures of daily life"
+            "A turning point; you're at a hinge between one cycle ending and another beginning",
+            "Has to be read backwards while standing on one foot",
+            "Was actually meant for the person sitting behind you"
           ]
         },
         {
-          "id": "major_17_star-n6-r182",
+          "id": "major_17_star-n6-r169",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Renewal comes through shared, communal feeling, not isolation",
           "options": [
             "Renewal comes through shared, communal feeling, not isolation",
-            "Holding something divine within an ordinary, grounded life",
-            "Real strength is gentle",
-            "Taming the wilder instincts with calm rather than domination"
+            "A mirror moment",
+            "Comes with batteries not included",
+            "Only works if the room is exactly 72 degrees"
           ]
         },
         {
-          "id": "major_17_star-n6-r183",
+          "id": "major_17_star-n6-r170",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Staying open and receptive to life, rather than guarded",
           "options": [
             "Staying open and receptive to life, rather than guarded",
-            "Courage means acting honestly, not acting fearlessly",
-            "Generosity and warmth are forms of power too",
-            "Connection and relating to others, not standing above them"
+            "Acting because it's simply right, not because a rulebook says so",
+            "Is a rerun of a card you already drew last week",
+            "Grants temporary immunity from bad decisions"
           ]
         },
         {
-          "id": "major_17_star-n6-r184",
+          "id": "major_17_star-n6-r171",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A quietly nonconformist light",
           "options": [
             "A quietly nonconformist light",
-            "What goes up comes around",
-            "A turning point; you're at a hinge between one cycle ending and another beginning",
-            "Fortune and misfortune are both just transitions to learn from"
+            "The journey matters more than the destination right now",
+            "Its meaning resets every time someone sneezes nearby",
+            "Was shuffled in from a completely different deck by accident"
           ]
         }
       ]
@@ -325,9 +280,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_17_star-n7-r185",
+          "id": "major_17_star-n7-r172",
           "type": "cloze",
-          "text": "A woman pours water onto both earth and river, an act that feeds the ground while also serving something purely ideal, {b1}, and shared intention. Aquarius carries a double {b2}: airy and lucid, yet emotionally tied to Water. Ruled by Uranus, the only planet spinning on its side, Aquarius marches to its own rhythm, valuing collective good over individual will. In the Star, that uniqueness becomes hope itself, an openness to life and nature.",
+          "text": "A woman pours water onto both earth and river, an act that feeds the ground while also serving something purely ideal, {b1}, and shared intention. Aquarius carries a double {b2}: airy and lucid, yet {b3} tied to Water.",
           "blanks": [
             {
               "key": "b1",
@@ -336,12 +291,16 @@
             {
               "key": "b2",
               "answer": "nature"
+            },
+            {
+              "key": "b3",
+              "answer": "emotionally"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "harmonica",
+            "bagpipes",
+            "xylophone"
           ]
         }
       ]

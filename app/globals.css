@@ -232,11 +232,13 @@ a { color: inherit; text-decoration: none; }
    is the control that folds the unit, so it is styled as one thing you press
    rather than a box with controls loose inside it. */
 .trail-unit {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
   position: relative;
   margin: 40px 0 26px;
-  padding: 14px 42px 15px 16px;
+  padding: 12px 42px 12px 12px;
   border-radius: 14px;
   background: var(--panel);
   border: 1px solid var(--accent-a30);
@@ -273,13 +275,38 @@ a { color: inherit; text-decoration: none; }
 
 .trail-steps { list-style: none; margin: 0; padding: 0; }
 
-.trail-unit-index {
-  display: block;
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-  margin-bottom: 5px;
+/* One thumbnail per focus card (0084) - flex-wrap rather than a fixed
+   count so a future multi-card unit just adds more images instead of
+   needing new layout rules. Shrinks to fit two or three before it ever
+   wraps to a second row, since .trail-unit itself doesn't grow with it. */
+.trail-unit-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 44px;
+  flex: none;
+}
+
+.trail-unit-thumbs img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  border: 1px solid var(--accent-a30);
+}
+
+/* Two-up: each thumbnail halves to keep the row at 44px wide overall. */
+.trail-unit-thumbs img:not(:only-child) {
+  width: 20px;
+  height: 20px;
+}
+
+.trail-unit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
 }
 
 .trail-unit-name {
@@ -288,6 +315,15 @@ a { color: inherit; text-decoration: none; }
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.015em;
+}
+
+.trail-unit-focus {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 /* A section. --x is set per node to wind the trail down the screen. */

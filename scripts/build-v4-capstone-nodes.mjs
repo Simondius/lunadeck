@@ -43,7 +43,7 @@ function choice(card, prompt, correct, wrongOptions) {
 const NODES = {
   fool: {
     id: "capstone-fool",
-    label: "Mini Capstone",
+    label: "Alignment Check",
     rounds: [
       plain("fool", ["speed", "play"], ["creation", "partnership"]),
       cloze(
@@ -78,7 +78,7 @@ const NODES = {
   },
   lovers: {
     id: "capstone-lovers",
-    label: "Mini Capstone",
+    label: "Alignment Check",
     rounds: [
       plain("lovers", ["choice", "possibility"], ["levity", "nourishment"]),
       cloze(
@@ -113,7 +113,7 @@ const NODES = {
   },
   empress: {
     id: "capstone-empress",
-    label: "Mini Capstone",
+    label: "Alignment Check",
     rounds: [
       plain("empress", ["love", "beauty"], ["intuition", "partnership"]),
       cloze(

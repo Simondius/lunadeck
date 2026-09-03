@@ -1,7 +1,7 @@
 {
   "fool": {
     "id": "capstone-fool",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
         "id": "cap-r1",
@@ -115,7 +115,7 @@
   },
   "lovers": {
     "id": "capstone-lovers",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
         "id": "cap-r7",
@@ -229,7 +229,7 @@
   },
   "empress": {
     "id": "capstone-empress",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
         "id": "cap-r13",
@@ -343,10 +343,10 @@
   },
   "high_priestess": {
     "id": "major_02_high_priestess-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_02_high_priestess-cap-r4",
+        "id": "major_02_high_priestess-cap-r3",
         "cardKey": "major_02_high_priestess",
         "cardName": "The High Priestess",
         "words": [
@@ -363,13 +363,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "Sunday",
+            "correct": false
+          },
+          {
+            "text": "Monday",
+            "correct": false
+          },
+          {
+            "text": "Friday",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_02_high_priestess-cap-r5",
+        "id": "major_02_high_priestess-cap-r4",
         "type": "cloze",
         "cardKey": "major_02_high_priestess",
         "cardName": "The High Priestess",
@@ -381,12 +389,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "banana",
+          "spaghetti"
         ]
       },
       {
-        "id": "major_02_high_priestess-cap-r6",
+        "id": "major_02_high_priestess-cap-r5",
         "type": "choice",
         "cardKey": "major_02_high_priestess",
         "cardName": "The High Priestess",
@@ -394,18 +402,18 @@
         "correct": "Her power is in receiving and being, not in acting",
         "options": [
           "Her power is in receiving and being, not in acting",
-          "Solitude here is productive, not lonely",
-          "A lantern lighting the path one careful step at a time"
+          "Determined forward motion",
+          "The card is legally required to agree with your horoscope"
         ]
       }
     ]
   },
   "hierophant": {
     "id": "major_05_hierophant-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_05_hierophant-cap-r20",
+        "id": "major_05_hierophant-cap-r18",
         "cardKey": "major_05_hierophant",
         "cardName": "The Hierophant",
         "words": [
@@ -422,13 +430,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "umbrella",
+            "correct": false
+          },
+          {
+            "text": "bicycle",
+            "correct": false
+          },
+          {
+            "text": "broccoli",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_05_hierophant-cap-r21",
+        "id": "major_05_hierophant-cap-r19",
         "type": "cloze",
         "cardKey": "major_05_hierophant",
         "cardName": "The Hierophant",
@@ -440,12 +456,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "ladder",
+          "green"
         ]
       },
       {
-        "id": "major_05_hierophant-cap-r22",
+        "id": "major_05_hierophant-cap-r20",
         "type": "choice",
         "cardKey": "major_05_hierophant",
         "cardName": "The Hierophant",
@@ -453,18 +469,18 @@
         "correct": "When reality feels shaky, lean on faith or tradition to steady it",
         "options": [
           "When reality feels shaky, lean on faith or tradition to steady it",
-          "A real choice stands in front of you",
-          "Two paths, both valid"
+          "Hope returning after the storm",
+          "Was printed by mistake and means nothing at all"
         ]
       }
     ]
   },
   "chariot": {
     "id": "major_07_chariot-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_07_chariot-cap-r34",
+        "id": "major_07_chariot-cap-r31",
         "cardKey": "major_07_chariot",
         "cardName": "The Chariot",
         "words": [
@@ -481,13 +497,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "tambourine",
+            "correct": false
+          },
+          {
+            "text": "harmonica",
+            "correct": false
+          },
+          {
+            "text": "bagpipes",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_07_chariot-cap-r35",
+        "id": "major_07_chariot-cap-r32",
         "type": "cloze",
         "cardKey": "major_07_chariot",
         "cardName": "The Chariot",
@@ -499,12 +523,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "xylophone",
+          "pretzel"
         ]
       },
       {
-        "id": "major_07_chariot-cap-r36",
+        "id": "major_07_chariot-cap-r33",
         "type": "choice",
         "cardKey": "major_07_chariot",
         "cardName": "The Chariot",
@@ -512,18 +536,18 @@
         "correct": "Pulled by two forces that need aligning, not fighting, to move you forward",
         "options": [
           "Pulled by two forces that need aligning, not fighting, to move you forward",
-          "Sees with more than the eyes",
-          "You already have everything you need; success is about using the resources at hand"
+          "A full cycle completed",
+          "Grants temporary immunity from bad decisions"
         ]
       }
     ]
   },
   "strength": {
     "id": "major_08_strength-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_08_strength-cap-r48",
+        "id": "major_08_strength-cap-r44",
         "cardKey": "major_08_strength",
         "cardName": "Strength",
         "words": [
@@ -540,30 +564,42 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "platypus",
+            "correct": false
+          },
+          {
+            "text": "walrus",
+            "correct": false
+          },
+          {
+            "text": "penguin",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_08_strength-cap-r49",
+        "id": "major_08_strength-cap-r45",
         "type": "cloze",
         "cardKey": "major_08_strength",
         "cardName": "Strength",
-        "text": "Real {b1} is gentle — it comes from the heart, not force",
+        "text": "Real {b1} is {b2} — it comes from the heart, not force",
         "blanks": [
           {
             "key": "b1",
             "answer": "strength"
+          },
+          {
+            "key": "b2",
+            "answer": "gentle"
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "octopus",
+          "hedgehog"
         ]
       },
       {
-        "id": "major_08_strength-cap-r50",
+        "id": "major_08_strength-cap-r46",
         "type": "choice",
         "cardKey": "major_08_strength",
         "cardName": "Strength",
@@ -571,18 +607,18 @@
         "correct": "Taming the wilder instincts with calm rather than domination",
         "options": [
           "Taming the wilder instincts with calm rather than domination",
-          "Mother Earth energy",
-          "Something is ready to be born"
+          "True self-expression; showing your real nature without apology",
+          "Requires a permit from the local moon council"
         ]
       }
     ]
   },
   "hermit": {
     "id": "major_09_hermit-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_09_hermit-cap-r62",
+        "id": "major_09_hermit-cap-r57",
         "cardKey": "major_09_hermit",
         "cardName": "The Hermit",
         "words": [
@@ -599,13 +635,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "compass",
+            "correct": false
+          },
+          {
+            "text": "anchor",
+            "correct": false
+          },
+          {
+            "text": "lantern",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_09_hermit-cap-r63",
+        "id": "major_09_hermit-cap-r58",
         "type": "cloze",
         "cardKey": "major_09_hermit",
         "cardName": "The Hermit",
@@ -617,12 +661,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "whistle",
+          "telescope"
         ]
       },
       {
-        "id": "major_09_hermit-cap-r64",
+        "id": "major_09_hermit-cap-r59",
         "type": "choice",
         "cardKey": "major_09_hermit",
         "cardName": "The Hermit",
@@ -630,18 +674,18 @@
         "correct": "A lantern lighting the path one careful step at a time",
         "options": [
           "A lantern lighting the path one careful step at a time",
-          "Lives on the threshold",
-          "Her power is in receiving and being, not in acting"
+          "Sees with more than the eyes",
+          "Only applies to left-handed Tuesdays"
         ]
       }
     ]
   },
   "wheel_of_fortune": {
     "id": "major_10_wheel_of_fortune-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_10_wheel_of_fortune-cap-r76",
+        "id": "major_10_wheel_of_fortune-cap-r70",
         "cardKey": "major_10_wheel_of_fortune",
         "cardName": "The Wheel of Fortune",
         "words": [
@@ -658,30 +702,42 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "marmalade",
+            "correct": false
+          },
+          {
+            "text": "mustard",
+            "correct": false
+          },
+          {
+            "text": "ketchup",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_10_wheel_of_fortune-cap-r77",
+        "id": "major_10_wheel_of_fortune-cap-r71",
         "type": "cloze",
         "cardKey": "major_10_wheel_of_fortune",
         "cardName": "The Wheel of Fortune",
-        "text": "What goes up comes around — nothing here is {b1}, high or low",
+        "text": "What goes up comes around — {b2} here is {b1}, high or low",
         "blanks": [
           {
             "key": "b1",
             "answer": "permanent"
+          },
+          {
+            "key": "b2",
+            "answer": "nothing"
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "mayonnaise",
+          "vinegar"
         ]
       },
       {
-        "id": "major_10_wheel_of_fortune-cap-r78",
+        "id": "major_10_wheel_of_fortune-cap-r72",
         "type": "choice",
         "cardKey": "major_10_wheel_of_fortune",
         "cardName": "The Wheel of Fortune",
@@ -689,18 +745,18 @@
         "correct": "A turning point; you're at a hinge between one cycle ending and another beginning",
         "options": [
           "A turning point; you're at a hinge between one cycle ending and another beginning",
-          "Beginning and ending in one",
-          "Travels light, takes chances with levity"
+          "A bridge between the everyday and the sacred",
+          "Requires a subscription to unlock the second half of its meaning"
         ]
       }
     ]
   },
   "justice": {
     "id": "major_11_justice-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_11_justice-cap-r90",
+        "id": "major_11_justice-cap-r83",
         "cardKey": "major_11_justice",
         "cardName": "Justice",
         "words": [
@@ -717,13 +773,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "toaster",
+            "correct": false
+          },
+          {
+            "text": "blender",
+            "correct": false
+          },
+          {
+            "text": "vacuum",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_11_justice-cap-r91",
+        "id": "major_11_justice-cap-r84",
         "type": "cloze",
         "cardKey": "major_11_justice",
         "cardName": "Justice",
@@ -735,12 +799,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "stapler",
+          "clipboard"
         ]
       },
       {
-        "id": "major_11_justice-cap-r92",
+        "id": "major_11_justice-cap-r85",
         "type": "choice",
         "cardKey": "major_11_justice",
         "cardName": "Justice",
@@ -748,18 +812,18 @@
         "correct": "Acting because it's simply right, not because a rulebook says so",
         "options": [
           "Acting because it's simply right, not because a rulebook says so",
-          "Sees with more than the eyes",
-          "You already have everything you need; success is about using the resources at hand"
+          "Real strength is gentle",
+          "Comes with a money-back guarantee if you dislike your future"
         ]
       }
     ]
   },
   "hanged_man": {
     "id": "major_12_hanged_man-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_12_hanged_man-cap-r104",
+        "id": "major_12_hanged_man-cap-r96",
         "cardKey": "major_12_hanged_man",
         "cardName": "The Hanged Man",
         "words": [
@@ -776,13 +840,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "hiccup",
+            "correct": false
+          },
+          {
+            "text": "yawn",
+            "correct": false
+          },
+          {
+            "text": "sneeze",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_12_hanged_man-cap-r105",
+        "id": "major_12_hanged_man-cap-r97",
         "type": "cloze",
         "cardKey": "major_12_hanged_man",
         "cardName": "The Hanged Man",
@@ -794,12 +866,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "wink",
+          "shrug"
         ]
       },
       {
-        "id": "major_12_hanged_man-cap-r106",
+        "id": "major_12_hanged_man-cap-r98",
         "type": "choice",
         "cardKey": "major_12_hanged_man",
         "cardName": "The Hanged Man",
@@ -807,18 +879,18 @@
         "correct": "A new perspective comes from surrendering, not struggling",
         "options": [
           "A new perspective comes from surrendering, not struggling",
-          "Lives on the threshold",
-          "Her power is in receiving and being, not in acting"
+          "A calling being answered",
+          "Has to be read backwards while standing on one foot"
         ]
       }
     ]
   },
   "death": {
     "id": "major_13_death-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_13_death-cap-r118",
+        "id": "major_13_death-cap-r109",
         "cardKey": "major_13_death",
         "cardName": "Death",
         "words": [
@@ -835,30 +907,42 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "cauliflower",
+            "correct": false
+          },
+          {
+            "text": "artichoke",
+            "correct": false
+          },
+          {
+            "text": "eggplant",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_13_death-cap-r119",
+        "id": "major_13_death-cap-r110",
         "type": "cloze",
         "cardKey": "major_13_death",
         "cardName": "Death",
-        "text": "Not an ending — a transformation that clears the way for new {b1}",
+        "text": "Not an ending — a {b2} that clears the way for new {b1}",
         "blanks": [
           {
             "key": "b1",
             "answer": "life"
+          },
+          {
+            "key": "b2",
+            "answer": "transformation"
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "turnip",
+          "radish"
         ]
       },
       {
-        "id": "major_13_death-cap-r120",
+        "id": "major_13_death-cap-r111",
         "type": "choice",
         "cardKey": "major_13_death",
         "cardName": "Death",
@@ -866,18 +950,18 @@
         "correct": "What no longer has life in it needs to be released, like dead leaves feeding the roots",
         "options": [
           "What no longer has life in it needs to be released, like dead leaves feeding the roots",
-          "Beginning and ending in one",
-          "Travels light, takes chances with levity"
+          "What's hidden becomes visible in the dark, if you're willing to look",
+          "Secretly a coupon for one free tarot reading"
         ]
       }
     ]
   },
   "temperance": {
     "id": "major_14_temperance-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_14_temperance-cap-r132",
+        "id": "major_14_temperance-cap-r122",
         "cardKey": "major_14_temperance",
         "cardName": "Temperance",
         "words": [
@@ -894,13 +978,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "snorkel",
+            "correct": false
+          },
+          {
+            "text": "flipper",
+            "correct": false
+          },
+          {
+            "text": "goggles",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_14_temperance-cap-r133",
+        "id": "major_14_temperance-cap-r123",
         "type": "cloze",
         "cardKey": "major_14_temperance",
         "cardName": "Temperance",
@@ -912,12 +1004,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "life raft",
+          "paddle"
         ]
       },
       {
-        "id": "major_14_temperance-cap-r134",
+        "id": "major_14_temperance-cap-r124",
         "type": "choice",
         "cardKey": "major_14_temperance",
         "cardName": "Temperance",
@@ -925,18 +1017,18 @@
         "correct": "Blending different, even opposing, ingredients into something greater than either alone",
         "options": [
           "Blending different, even opposing, ingredients into something greater than either alone",
-          "Lives on the threshold",
-          "Her power is in receiving and being, not in acting"
+          "Hope returning after the storm",
+          "Is void where prohibited"
         ]
       }
     ]
   },
   "devil": {
     "id": "major_15_devil-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_15_devil-cap-r146",
+        "id": "major_15_devil-cap-r135",
         "cardKey": "major_15_devil",
         "cardName": "The Devil",
         "words": [
@@ -953,13 +1045,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "Tuesday",
+            "correct": false
+          },
+          {
+            "text": "Wednesday",
+            "correct": false
+          },
+          {
+            "text": "Thursday",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_15_devil-cap-r147",
+        "id": "major_15_devil-cap-r136",
         "type": "cloze",
         "cardKey": "major_15_devil",
         "cardName": "The Devil",
@@ -971,12 +1071,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "Saturday",
+          "Sunday"
         ]
       },
       {
-        "id": "major_15_devil-cap-r148",
+        "id": "major_15_devil-cap-r137",
         "type": "choice",
         "cardKey": "major_15_devil",
         "cardName": "The Devil",
@@ -984,18 +1084,18 @@
         "correct": "The chains look tight, but they're actually loose enough to remove",
         "options": [
           "The chains look tight, but they're actually loose enough to remove",
-          "A bridge between the everyday and the sacred",
-          "When reality feels shaky, lean on faith or tradition to steady it"
+          "Not an ending",
+          "Only works if the room is exactly 72 degrees"
         ]
       }
     ]
   },
   "tower": {
     "id": "major_16_tower-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_16_tower-cap-r160",
+        "id": "major_16_tower-cap-r148",
         "cardKey": "major_16_tower",
         "cardName": "The Tower",
         "words": [
@@ -1012,13 +1112,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "violin",
+            "correct": false
+          },
+          {
+            "text": "elephant",
+            "correct": false
+          },
+          {
+            "text": "teacup",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_16_tower-cap-r161",
+        "id": "major_16_tower-cap-r149",
         "type": "cloze",
         "cardKey": "major_16_tower",
         "cardName": "The Tower",
@@ -1030,12 +1138,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "pizza",
+          "umbrella"
         ]
       },
       {
-        "id": "major_16_tower-cap-r162",
+        "id": "major_16_tower-cap-r150",
         "type": "choice",
         "cardKey": "major_16_tower",
         "cardName": "The Tower",
@@ -1043,18 +1151,18 @@
         "correct": "What falls apart was already unstable; the collapse just makes it visible",
         "options": [
           "What falls apart was already unstable; the collapse just makes it visible",
-          "Beginning and ending in one",
-          "Travels light, takes chances with levity"
+          "Lives on the threshold",
+          "Means you should immediately reorganize your sock drawer"
         ]
       }
     ]
   },
   "star": {
     "id": "major_17_star-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_17_star-cap-r175",
+        "id": "major_17_star-cap-r162",
         "cardKey": "major_17_star",
         "cardName": "The Star",
         "words": [
@@ -1071,30 +1179,42 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "beige",
+            "correct": false
+          },
+          {
+            "text": "maroon",
+            "correct": false
+          },
+          {
+            "text": "kazoo",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_17_star-cap-r176",
+        "id": "major_17_star-cap-r163",
         "type": "cloze",
         "cardKey": "major_17_star",
         "cardName": "The Star",
-        "text": "{b1} returning after the storm — light visible at the end of the tunnel",
+        "text": "{b1} {b2} after the storm — light visible at the end of the tunnel",
         "blanks": [
           {
             "key": "b1",
             "answer": "hope"
+          },
+          {
+            "key": "b2",
+            "answer": "returning"
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "accordion",
+          "tambourine"
         ]
       },
       {
-        "id": "major_17_star-cap-r177",
+        "id": "major_17_star-cap-r164",
         "type": "choice",
         "cardKey": "major_17_star",
         "cardName": "The Star",
@@ -1102,18 +1222,18 @@
         "correct": "An act of giving that seems small but nourishes something larger",
         "options": [
           "An act of giving that seems small but nourishes something larger",
-          "Mother Earth energy",
-          "Something is ready to be born"
+          "Pure, uncomplicated joy",
+          "Only applies to left-handed Tuesdays"
         ]
       }
     ]
   },
   "moon": {
     "id": "major_18_moon-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_18_moon-cap-r189",
+        "id": "major_18_moon-cap-r175",
         "cardKey": "major_18_moon",
         "cardName": "The Moon",
         "words": [
@@ -1130,30 +1250,42 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "waffle",
+            "correct": false
+          },
+          {
+            "text": "burrito",
+            "correct": false
+          },
+          {
+            "text": "dumpling",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_18_moon-cap-r190",
+        "id": "major_18_moon-cap-r176",
         "type": "cloze",
         "cardKey": "major_18_moon",
         "cardName": "The Moon",
-        "text": "What's hidden {b1} visible in the dark, if you're willing to look",
+        "text": "What's hidden {b1} {b2} in the dark, if you're willing to look",
         "blanks": [
           {
             "key": "b1",
             "answer": "becomes"
+          },
+          {
+            "key": "b2",
+            "answer": "visible"
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "raccoon",
+          "platypus"
         ]
       },
       {
-        "id": "major_18_moon-cap-r191",
+        "id": "major_18_moon-cap-r177",
         "type": "choice",
         "cardKey": "major_18_moon",
         "cardName": "The Moon",
@@ -1161,18 +1293,18 @@
         "correct": "Trust intuition and dreams over what's plainly stated",
         "options": [
           "Trust intuition and dreams over what's plainly stated",
-          "Lives on the threshold",
-          "Her power is in receiving and being, not in acting"
+          "Determined forward motion",
+          "Requires a subscription to unlock the second half of its meaning"
         ]
       }
     ]
   },
   "sun": {
     "id": "major_19_sun-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_19_sun-cap-r203",
+        "id": "major_19_sun-cap-r188",
         "cardKey": "major_19_sun",
         "cardName": "The Sun",
         "words": [
@@ -1189,13 +1321,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "tornado",
+            "correct": false
+          },
+          {
+            "text": "avalanche",
+            "correct": false
+          },
+          {
+            "text": "puddle",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_19_sun-cap-r204",
+        "id": "major_19_sun-cap-r189",
         "type": "cloze",
         "cardKey": "major_19_sun",
         "cardName": "The Sun",
@@ -1207,12 +1347,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "geyser",
+          "compass"
         ]
       },
       {
-        "id": "major_19_sun-cap-r205",
+        "id": "major_19_sun-cap-r190",
         "type": "choice",
         "cardKey": "major_19_sun",
         "cardName": "The Sun",
@@ -1220,18 +1360,18 @@
         "correct": "True self-expression; showing your real nature without apology",
         "options": [
           "True self-expression; showing your real nature without apology",
-          "Sees with more than the eyes",
-          "You already have everything you need; success is about using the resources at hand"
+          "Solitude here is productive, not lonely",
+          "Comes with a money-back guarantee if you dislike your future"
         ]
       }
     ]
   },
   "judgment": {
     "id": "major_20_judgment-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_20_judgment-cap-r217",
+        "id": "major_20_judgment-cap-r201",
         "cardKey": "major_20_judgment",
         "cardName": "Judgment",
         "words": [
@@ -1248,13 +1388,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "jellyfish",
+            "correct": false
+          },
+          {
+            "text": "starfish",
+            "correct": false
+          },
+          {
+            "text": "barnacle",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_20_judgment-cap-r218",
+        "id": "major_20_judgment-cap-r202",
         "type": "cloze",
         "cardKey": "major_20_judgment",
         "cardName": "Judgment",
@@ -1266,12 +1414,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "coral",
+          "marmalade"
         ]
       },
       {
-        "id": "major_20_judgment-cap-r219",
+        "id": "major_20_judgment-cap-r203",
         "type": "choice",
         "cardKey": "major_20_judgment",
         "cardName": "Judgment",
@@ -1279,18 +1427,18 @@
         "correct": "Rebirth requires passing through an ending first",
         "options": [
           "Rebirth requires passing through an ending first",
-          "Beginning and ending in one",
-          "Travels light, takes chances with levity"
+          "Not purely bad",
+          "Has to be read backwards while standing on one foot"
         ]
       }
     ]
   },
   "world": {
     "id": "major_21_world-capstone",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
-        "id": "major_21_world-cap-r231",
+        "id": "major_21_world-cap-r214",
         "cardKey": "major_21_world",
         "cardName": "The World",
         "words": [
@@ -1307,13 +1455,21 @@
             "correct": true
           },
           {
-            "text": "trombone",
+            "text": "kite",
+            "correct": false
+          },
+          {
+            "text": "marble",
+            "correct": false
+          },
+          {
+            "text": "domino",
             "correct": false
           }
         ]
       },
       {
-        "id": "major_21_world-cap-r232",
+        "id": "major_21_world-cap-r215",
         "type": "cloze",
         "cardKey": "major_21_world",
         "cardName": "The World",
@@ -1325,12 +1481,12 @@
           }
         ],
         "distractors": [
-          "cactus",
-          "violin"
+          "jigsaw",
+          "toaster"
         ]
       },
       {
-        "id": "major_21_world-cap-r233",
+        "id": "major_21_world-cap-r216",
         "type": "choice",
         "cardKey": "major_21_world",
         "cardName": "The World",
@@ -1338,15 +1494,14 @@
         "correct": "Achievement and wholeness; everything has come together",
         "options": [
           "Achievement and wholeness; everything has come together",
-          "Mother Earth energy",
-          "Something is ready to be born"
+          "What falls apart was already unstable; the collapse just makes it visible"
         ]
       }
     ]
   },
   "magician": {
     "id": "capstone-magician",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
         "id": "cap-r9001",
@@ -1460,7 +1615,7 @@
   },
   "emperor": {
     "id": "capstone-emperor",
-    "label": "Mini Capstone",
+    "label": "Alignment Check",
     "rounds": [
       {
         "id": "cap-r9007",

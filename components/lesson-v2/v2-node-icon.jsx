@@ -10,7 +10,17 @@
 
 // Shape by mechanic — derived from the node's own round data, not label
 // text, so it holds regardless of how a given section phrases its labels.
+// The one exception is the "Alignment Check" mini capstone (0090, renamed
+// from "Mini Capstone") — it mixes three round types in one node (a
+// plain keyword round first), so shape-by-round-data would otherwise
+// return the generic "circle" every other keyword round already uses,
+// with nothing distinguishing it on the path. Its own node id always
+// contains "capstone" (see data/v4/capstone_nodes.json) — but not at a
+// fixed end: the five original hand-authored cards use "capstone-<slug>"
+// while every card the later generator built uses "<card_key>-capstone",
+// so this checks for the substring rather than either fixed position.
 export function shapeForNode(node) {
+  if (node.id?.includes("capstone")) return "align"; // stars aligning
   const r0 = node.rounds?.[0];
   if (r0?.type === "zone") return "hex";      // card element matching
   if (r0?.type === "cloze") return "square";  // missing words
@@ -101,6 +111,29 @@ export function V2NodeIcon({ shape, variant }) {
           stroke="var(--ink)"
           strokeWidth="2.6"
           strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  if (shape === "align") {
+    // Alignment Check (the mini capstone, 0090) — three stars on one
+    // shared line, growing left to right: coming into alignment.
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M4 9.8 L4.84 11.16 L6.2 12 L4.84 12.84 L4 14.2 L3.16 12.84 L1.8 12 L3.16 11.16 Z"
+          fill="currentColor"
+          opacity="0.45"
+        />
+        <path
+          d="M12 8.8 L13.22 10.78 L15.2 12 L13.22 13.22 L12 15.2 L10.78 13.22 L8.8 12 L10.78 10.78 Z"
+          fill="currentColor"
+          opacity="0.72"
+        />
+        <path
+          d="M20 8.2 L21.44 10.56 L23.8 12 L21.44 13.44 L20 15.8 L18.56 13.44 L16.2 12 L18.56 10.56 Z"
+          fill="currentColor"
         />
       </svg>
     );

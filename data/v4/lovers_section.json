@@ -24,9 +24,9 @@
             }
           ],
           "distractors": [
-            "pizza",
-            "Tuesday",
-            "purple"
+            "jigsaw",
+            "radish",
+            "whistle"
           ],
           "tutorial": true
         },
@@ -49,8 +49,8 @@
             }
           ],
           "distractors": [
-            "teacup",
-            "banana",
+            "croissant",
+            "bagel",
             "ladder"
           ]
         },
@@ -73,8 +73,8 @@
             }
           ],
           "distractors": [
-            "elephant",
-            "Wednesday",
+            "cupcake",
+            "vinegar",
             "exploration"
           ]
         },
@@ -97,7 +97,7 @@
             }
           ],
           "distractors": [
-            "spaghetti",
+            "goggles",
             "reception",
             "unstable"
           ]
@@ -296,7 +296,7 @@
               "correct": true
             },
             {
-              "text": "banana",
+              "text": "jellyfish",
               "correct": false
             },
             {
@@ -304,7 +304,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "yawn",
               "correct": false
             }
           ],
@@ -318,7 +318,7 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "kite",
               "correct": false
             },
             {
@@ -326,7 +326,7 @@
               "correct": true
             },
             {
-              "text": "elephant",
+              "text": "coral",
               "correct": false
             }
           ]
@@ -382,7 +382,7 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "blender",
               "correct": false
             },
             {
@@ -390,7 +390,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "hiccup",
               "correct": false
             }
           ]
@@ -403,7 +403,7 @@
               "correct": true
             },
             {
-              "text": "spaghetti",
+              "text": "thumbtack",
               "correct": false
             },
             {
@@ -411,7 +411,7 @@
               "correct": true
             },
             {
-              "text": "Wednesday",
+              "text": "life raft",
               "correct": false
             }
           ]
@@ -432,7 +432,7 @@
             }
           ],
           "distractors": [
-            "banana"
+            "turnip"
           ]
         },
         {
@@ -446,7 +446,7 @@
             }
           ],
           "distractors": [
-            "Tuesday"
+            "unicycle"
           ]
         },
         {
@@ -460,7 +460,7 @@
             }
           ],
           "distractors": [
-            "elephant"
+            "geyser"
           ]
         },
         {
@@ -575,15 +575,15 @@
               "correct": true
             },
             {
-              "text": "broccoli",
+              "text": "biscuit",
               "correct": false
             },
             {
-              "text": "Thursday",
+              "text": "compass",
               "correct": false
             },
             {
-              "text": "umbrella",
+              "text": "scarf",
               "correct": false
             }
           ]
@@ -604,15 +604,15 @@
               "correct": true
             },
             {
-              "text": "bicycle",
+              "text": "buoy",
               "correct": false
             },
             {
-              "text": "green",
+              "text": "thermostat",
               "correct": false
             },
             {
-              "text": "Friday",
+              "text": "shrug",
               "correct": false
             }
           ]
@@ -946,8 +946,8 @@
             }
           ],
           "distractors": [
-            "pizza",
-            "teacup",
+            "galoshes",
+            "mustard",
             "exploration",
             "reception"
           ]

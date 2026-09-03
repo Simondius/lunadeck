@@ -6,7 +6,7 @@
       "id": "node-1",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n1-r73",
+          "id": "major_10_wheel_of_fortune-n1-r68",
           "tutorial": true,
           "words": [
             {
@@ -22,11 +22,11 @@
               "correct": true
             },
             {
-              "text": "Tuesday",
+              "text": "jellyfish",
               "correct": false
             },
             {
-              "text": "banana",
+              "text": "starfish",
               "correct": false
             }
           ]
@@ -59,52 +59,7 @@
               "text": "The red figure tumbling down the wheel's rim: misfortune as just one passing phase, not a permanent fate.",
               "rects": [
                 {
-                  "x0": 0.0,
-                  "y0": 0.28,
-                  "x1": 0.28,
-                  "y1": 0.68
-                }
-              ]
-            },
-            {
-              "key": "angel_figure",
-              "name": "Rising angel figure",
-              "text": "The winged figure ascending on the opposite side: fortune's rise mirroring the fall, the wheel's constant turning.",
-              "rects": [
-                {
-                  "x0": 0.58,
-                  "y0": 0.24,
-                  "x1": 0.98,
-                  "y1": 0.82
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "major_10_wheel_of_fortune-n2-r252",
-          "type": "zone",
-          "elements": [
-            {
-              "key": "jupiter",
-              "name": "Jupiter",
-              "text": "Jupiter: expansion, luck, and abundance, the guiding, generous energy that can tip into excess if unchecked.",
-              "rects": [
-                {
-                  "x0": 0.44,
-                  "y0": 0.11,
-                  "x1": 0.56,
-                  "y1": 0.21
-                }
-              ]
-            },
-            {
-              "key": "devil_figure",
-              "name": "Falling devil figure",
-              "text": "The red figure tumbling down the wheel's rim: misfortune as just one passing phase, not a permanent fate.",
-              "rects": [
-                {
-                  "x0": 0.0,
+                  "x0": 0,
                   "y0": 0.28,
                   "x1": 0.28,
                   "y1": 0.68
@@ -153,7 +108,7 @@
       "id": "node-3",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n3-r75",
+          "id": "major_10_wheel_of_fortune-n3-r69",
           "words": [
             {
               "text": "destiny",
@@ -168,11 +123,11 @@
               "correct": true
             },
             {
-              "text": "purple",
+              "text": "barnacle",
               "correct": false
             },
             {
-              "text": "spaghetti",
+              "text": "coral",
               "correct": false
             }
           ]
@@ -183,7 +138,7 @@
       "id": "node-4",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n4-r79",
+          "id": "major_10_wheel_of_fortune-n4-r73",
           "words": [
             {
               "text": "synchronicity",
@@ -225,7 +180,7 @@
       "id": "node-5",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n5-r80",
+          "id": "major_10_wheel_of_fortune-n5-r74",
           "type": "swipe",
           "cards": [
             {
@@ -261,11 +216,11 @@
               "isMatch": false
             },
             {
-              "text": "Trusts that the path appears once you take the step",
+              "text": "What's hidden becomes visible in the dark, if you're willing to look",
               "isMatch": false
             },
             {
-              "text": "Approaches life with a beginner's mind",
+              "text": "A calling being answered",
               "isMatch": false
             }
           ]
@@ -276,63 +231,63 @@
       "id": "node-6",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n6-r81",
+          "id": "major_10_wheel_of_fortune-n6-r75",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "What goes up comes around",
           "options": [
             "What goes up comes around",
-            "Nonconformist, revolutionary energy",
-            "Says yes to the unknown instead of playing it safe",
-            "A real choice stands in front of you"
+            "A real choice stands in front of you",
+            "The card is legally required to agree with your horoscope",
+            "Only works if you're holding it upside down and humming"
           ]
         },
         {
-          "id": "major_10_wheel_of_fortune-n6-r82",
+          "id": "major_10_wheel_of_fortune-n6-r76",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "A turning point; you're at a hinge between one cycle ending and another beginning",
           "options": [
             "A turning point; you're at a hinge between one cycle ending and another beginning",
             "Two paths, both valid",
-            "Choosing with the heart, not just the head",
-            "Holding the masculine and feminine, or two sides of yourself, in balance"
+            "Secretly a coupon for one free tarot reading",
+            "Was originally a recipe card before the printer got confused"
           ]
         },
         {
-          "id": "major_10_wheel_of_fortune-n6-r83",
+          "id": "major_10_wheel_of_fortune-n6-r77",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Fortune and misfortune are both just transitions to learn from",
           "options": [
             "Fortune and misfortune are both just transitions to learn from",
-            "A partnership or union that asks you to listen to more than one voice",
             "Not an ending",
-            "What no longer has life in it needs to be released, like dead leaves feeding the roots"
+            "Grants one wish, but only on a leap year",
+            "Means you should immediately reorganize your sock drawer"
           ]
         },
         {
-          "id": "major_10_wheel_of_fortune-n6-r84",
+          "id": "major_10_wheel_of_fortune-n6-r78",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Stay balanced at the center, even as things spin around you",
           "options": [
             "Stay balanced at the center, even as things spin around you",
-            "Endings free up room for something essential to grow",
-            "Intense, magnetic, and a little uncomfortable",
-            "Look beneath the surface for what actually needs to go"
+            "What no longer has life in it needs to be released, like dead leaves feeding the roots",
+            "Is actually just the Nine of Cups wearing a costume",
+            "Requires a permit from the local moon council"
           ]
         },
         {
-          "id": "major_10_wheel_of_fortune-n6-r85",
+          "id": "major_10_wheel_of_fortune-n6-r79",
           "type": "choice",
           "prompt": "Which of these is true of this card?",
           "correct": "Everything is connected",
           "options": [
             "Everything is connected",
             "Hope returning after the storm",
-            "An act of giving that seems small but nourishes something larger",
-            "Renewal comes through shared, communal feeling, not isolation"
+            "Only true if read aloud in a haunted house",
+            "Was drawn upside down by a cat walking across the deck"
           ]
         }
       ]
@@ -341,9 +296,9 @@
       "id": "node-7",
       "rounds": [
         {
-          "id": "major_10_wheel_of_fortune-n7-r86",
+          "id": "major_10_wheel_of_fortune-n7-r80",
           "type": "cloze",
-          "text": "The Wheel marks a turning point in the journey, the moment personal choice starts shaping {b1}. Fortune and misfortune are simply {b2}, each one closing a cycle and opening another. From here, the Major Arcana takes on a more spiritual tone. Jupiter, its ruling planet, brings expansion, generosity, and guidance, its very name meaning 'guru' in Hindi. Even abundance needs balance, like standing steady atop a turning wheel.",
+          "text": "The Wheel marks a turning point in the journey, the moment personal choice starts shaping {b1}. Fortune and {b3} are simply {b2}, each one closing a cycle and opening another.",
           "blanks": [
             {
               "key": "b1",
@@ -352,12 +307,16 @@
             {
               "key": "b2",
               "answer": "transitions"
+            },
+            {
+              "key": "b3",
+              "answer": "misfortune"
             }
           ],
           "distractors": [
-            "Tuesday",
-            "banana",
-            "purple"
+            "cinnamon",
+            "puzzle",
+            "yo-yo"
           ]
         }
       ]

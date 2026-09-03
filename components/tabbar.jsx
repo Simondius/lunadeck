@@ -27,19 +27,15 @@ export default function TabBar() {
   const pathname = usePathname() ?? "/";
 
   // The lesson screen is full-bleed; the bar would sit over its footer.
-  // v2 and Story are both exempted — v2's drag section has no fixed footer
-  // to collide with, and Story (0048) is meant to keep the bar reachable
-  // rather than go full-bleed like v1/v3's own lesson screens do.
-  if (pathname.includes("/play") && !pathname.startsWith("/v2") && !pathname.startsWith("/story"))
-    return null;
+  // Story is exempted — its narrative nodes (0048, now v4's own narrative
+  // engine) are meant to keep the bar reachable rather than go full-bleed
+  // like v4's own lesson screens do.
+  if (pathname.includes("/play") && !pathname.startsWith("/story")) return null;
 
   return (
     <nav className="tabbar" aria-label="Sections">
       {TABS.map((tab) => {
-        const active =
-          tab.href === "/"
-            ? pathname === "/" || pathname.startsWith("/units")
-            : pathname.startsWith(tab.href);
+        const active = tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href);
         return (
           <Link
             key={tab.href}

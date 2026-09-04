@@ -28,3 +28,6 @@ public/assets/
 
 # Claude Design export — copied into specs/, safe to delete
 design_handoff_lunadeck_violet/
+
+# Figma export - regenerate with npm run export:ui
+exports/

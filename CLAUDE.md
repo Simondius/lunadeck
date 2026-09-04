@@ -86,8 +86,11 @@ The rules below were for `data_curriculum_nodes.csv` and
 files (and `scripts/check_data.py`, which validated them) were removed once
 v4 became the app's only path (0082-0083) — v4's own lesson content lives in
 `data/v4/*.json` instead, edited directly rather than through a CSV pipeline.
-There is currently no automated check standing in `check_data.py`'s place
-for v4's own data; flag this if you're the one who ends up needing one.
+`scripts/check_v4_rounds.mjs` now stands in their place for v4 (`0097`), and
+`npm test` runs it. It checks every round against what its own player actually
+reads, plus every story beat, for the ways either can be unplayable - chiefly
+an answer that is absent from its own options. Run it after touching anything
+under `data/v4/` or `data/story/`.
 
 Rules that still apply to every CSV in `data/`, v1 or not:
 

@@ -4,9 +4,12 @@
 
 ## What already existed
 
-`assets/` is 358 raster files — 78 each of card `master`, `circle`, `avatar`
-and `cardelements`, plus 30 suit/planet/zodiac/element symbols. None of that
-needed exporting; it drags straight in. What had never existed as an image was
+`assets/` is 358 raster files — 78 card `master` renders, 78 `circle` crops, 78
+`avatar` crops, 78 `cardelements`, and 30 suit/planet/zodiac/element symbols.
+(The elements are the odd one out: they cover only the 22 major arcana, three
+or four cut-out symbols each. Their count matching the other three at 78 is a
+coincidence, and I first wrote this note down as "78 each" because of it.)
+None of that needed exporting; it drags straight in. What had never existed as an image was
 the **interface**: the tab bar, the path nodes, the feed row, the round shells.
 All of it is HTML and CSS, so the only way to get a picture of it is to render
 it and take one.

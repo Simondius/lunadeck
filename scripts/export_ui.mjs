@@ -354,6 +354,19 @@ const only = process.argv.includes("--only")
 
 const wanted = (list) => (only ? list.filter((e) => e.name.includes(only)) : list);
 
+// Before clearing anything. The dev server going down between two runs is not
+// hypothetical — it happened, and because the wipe came first, a full set of
+// finished exports was deleted and replaced by thirty connection errors.
+try {
+  const response = await fetch(BASE, { method: "HEAD" });
+  if (!response.ok) throw new Error(`responded ${response.status}`);
+} catch (error) {
+  console.error(`\n  Cannot reach ${BASE} — ${error.message}`);
+  console.error("  Start the dev server first: npm run dev\n");
+  console.error(`  Nothing in ${OUT}/ has been touched.\n`);
+  process.exit(1);
+}
+
 // Only a full run clears the directory. `--only` is for iterating on one
 // entry, and wiping the other 29 files to rewrite a single one is not what
 // anyone means by that.
@@ -446,8 +459,10 @@ if (!only)
       `dark rectangle (#0b0812) behind them and they will look like the app again.`,
       "",
       "The card art is not here, because it never needed exporting: `assets/cards`",
-      "already holds 78 masters, circles, avatars and card elements as PNGs, plus",
-      "30 symbols in `assets/symbols`. Drag those folders in directly.",
+      "already holds 78 card masters, 78 circular crops and 78 avatar crops as",
+      "PNGs, plus 78 cut-out card elements — which cover the 22 major arcana,",
+      "three or four elements each, rather than one per card — and 30 symbols in",
+      "`assets/symbols`. Drag those folders in directly.",
       "",
       "## Files",
       "",

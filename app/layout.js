@@ -42,7 +42,14 @@ export default async function RootLayout({ children }) {
           {/* Lives inside the frame, alongside TabBar, so it pins to the
               device illusion on a wide window rather than floating loose in
               the browser chrome around it — see "desktop framing" above. */}
-          {process.env.NODE_ENV !== "production" ? (
+          {/* Used to gate on NODE_ENV !== "production" — which meant
+              testers, who only ever see the production deployment, never
+              had it at all (not a mobile-specific bug; same on desktop
+              prod). An explicit flag lets it be turned on in production on
+              purpose. Set NEXT_PUBLIC_SHOW_DEV_CONSOLE=true in the Vercel
+              project's Environment Variables (Production) to show it there;
+              leave unset anywhere it should stay hidden. */}
+          {process.env.NEXT_PUBLIC_SHOW_DEV_CONSOLE === "true" ? (
             <DevConsole allNodeIds={allNodeIds} />
           ) : null}
         </div>

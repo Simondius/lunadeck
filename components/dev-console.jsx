@@ -20,6 +20,14 @@ const POSITION_KEY = "lunadeck.devconsole.pos.v1";
 // small fixed icon until restored.
 const MINIMIZED_KEY = "lunadeck.devconsole.minimized.v1";
 
+// Shake-to-open: on a phone the console is otherwise a small "DEV" chip a
+// tester has to go hunting for. A shake is deliberately vigorous, so this
+// only needs to reject one hard jolt (a bump, sitting down) — three jolts in
+// quick succession is a shake, one is an accident.
+const SHAKE_ACCEL_THRESHOLD = 18; // m/s^2 delta between two consecutive readings
+const SHAKE_HITS_NEEDED = 3;
+const SHAKE_WINDOW_MS = 1000;
+
 const MENU = [
   {
     group: "Path",
@@ -166,6 +174,71 @@ export default function DevConsole({ allNodeIds = [] }) {
   }, []);
 
   useEffect(() => subscribeNodeSkip(setSkip), []);
+
+  // Shake-to-open. iOS 13+ only hands out motion data after an explicit,
+  // gesture-triggered permission grant — it can't be requested on mount, only
+  // in direct response to a tap. So on iOS this waits for the very first tap
+  // anywhere on the page, asks then, and starts listening only if granted.
+  // Everywhere else (Android, desktop, older iOS) there's no such gate and it
+  // just starts listening.
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof DeviceMotionEvent === "undefined") {
+      return;
+    }
+
+    let lastAccel = null;
+    let hits = [];
+
+    function onMotion(event) {
+      const a = event.accelerationIncludingGravity || event.acceleration;
+      if (!a || a.x === null || a.x === undefined) return;
+      if (lastAccel) {
+        const delta =
+          Math.abs(a.x - lastAccel.x) +
+          Math.abs(a.y - lastAccel.y) +
+          Math.abs(a.z - lastAccel.z);
+        if (delta > SHAKE_ACCEL_THRESHOLD) {
+          const now = Date.now();
+          hits = [...hits.filter((t) => now - t < SHAKE_WINDOW_MS), now];
+          if (hits.length >= SHAKE_HITS_NEEDED) {
+            hits = [];
+            setMinimizedPersisted(false);
+            setOpen(true);
+            setOpenGroup(null);
+          }
+        }
+      }
+      lastAccel = { x: a.x, y: a.y, z: a.z };
+    }
+
+    function startListening() {
+      window.addEventListener("devicemotion", onMotion);
+    }
+
+    const needsPermission = typeof DeviceMotionEvent.requestPermission === "function";
+
+    if (!needsPermission) {
+      startListening();
+      return () => window.removeEventListener("devicemotion", onMotion);
+    }
+
+    function onFirstTap() {
+      DeviceMotionEvent.requestPermission()
+        .then((state) => {
+          if (state === "granted") startListening();
+        })
+        .catch(() => {
+          // Denied, or the browser lied about supporting it — shake just
+          // won't trigger on this device; the mini DEV button still does.
+        });
+    }
+    window.addEventListener("pointerdown", onFirstTap, { once: true });
+
+    return () => {
+      window.removeEventListener("devicemotion", onMotion);
+      window.removeEventListener("pointerdown", onFirstTap);
+    };
+  }, []);
 
   function setMinimizedPersisted(value) {
     setMinimized(value);

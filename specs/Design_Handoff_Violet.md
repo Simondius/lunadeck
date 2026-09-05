@@ -1,5 +1,46 @@
 # Handoff: Lunadeck — violet system
 
+> **Status — 4 Sep 2026. Read this before the rest.**
+>
+> This is the delivery note for the violet redesign, written in August
+> against the v1 build. It is now **half live and half history**, and the
+> split is clean:
+>
+> - **The design system is current, and still authoritative.** Every token
+>   in the table below matches `:root` in `app/globals.css` exactly, and the
+>   type scale, radii, spacing steps, accent-contrast rule and asset paths
+>   govern every screen in the app today. Nothing in *Design tokens* has
+>   been superseded.
+> - **Everything from *Screens* onward describes a build that no longer
+>   exists.** v1, v2 and v3 were removed on 3 Sep (`0082`) and v4 is the
+>   app's only path. The routes, the eight A/B/C exercise formats and the
+>   four-tab bar those sections instruct against are all gone.
+>
+> Those sections are kept rather than deleted, because they are the design
+> reasoning behind screens that do still exist in changed form — and
+> rewriting them to describe v4 would invent a handoff nobody delivered.
+> **Read them as a record of what was asked for in August, not as
+> instructions to follow.** Each says inline where it no longer holds.
+
+### What actually shipped
+
+| this document says | the app today |
+| --- | --- |
+| §1 Path — `app/page.js`, a serpentine of ten unit stops with `.stop-art` progress rings | `app/page.js` re-exports `app/v4/page.js`: one continuous winding scroll of **27 units** across 22 card sections, each unit a run of `.trail-step` node icons under its own heading, with the unit's character portrait. No `.stop` rule survives in `globals.css`. |
+| §2 Unit detail — `app/units/[unit]/page.js` | **Route removed** (`0082`). v4 has no per-unit page; the path itself is the only index. |
+| §3 Lesson session — `app/units/[unit]/play/session.jsx`, formats A1–A7 / B / C | **Route and all eight formats removed.** v4 plays at `app/v4/play/[section]/[node]` with six formats: the untagged keyword pair, plus `zone`, `cloze`, `choice`, `tilematch` and `swipe` (`components/lesson-v2/node-session.jsx`). |
+| §4 Deck tab, *new route, e.g. `app/deck/page.js`* | **Shipped**, at exactly that path, plus `app/deck/[card]` for a single card. |
+| §5 Daily draw, *new route, e.g. `app/draw/page.js`* | **No Draw tab.** The daily draw lives inside the Reading tab (`app/reader`), beside the three-card spread. |
+| §6 Section / unit complete | Superseded by v4's own node-complete celebration and the two-screen card-unlock ceremony (`0076`), plus a mid-unit Alignment Check ceremony (`0093`). |
+| four-tab bar: Path / Deck / Trials / Draw | **Five tabs: Path / Deck / Guide / Reading / Social**, Guide centre and accented. Trials was never built — `Spec_Challenge_Tab.pdf` is still in `specs/` for when it is. Draw folded into Reading. |
+| the four additions the build *has no UI for* — per-unit progress, streak + overall progress, Deck tab, bottom bar | **Two and a half of four.** The Deck tab and the bottom bar shipped, as did the streak counter (on Social and Friends) and the in-lesson segmented progress row. **Still not built:** progress rings on the path, and the overall curriculum progress bar — `.overall` and `.overall-fill` are still in `globals.css` with no consumer. |
+| progress is not persisted at all | **It is** — `lib/progress.js`, `localStorage` key `lunadeck.progress.v1`. |
+
+Two whole features arrived after this handoff and are not in it at all: the
+**Guide** tab, a live reading with a physical deck and a camera scan
+(`0042`–`0044`), and **Story mode**, the narrative half of v4
+(`0048`–`0056`).
+
 ## Overview
 
 A visual redesign of the Lunadeck prototype (github.com/LousyBones/lunadeck, branch `main`). Structure and curriculum logic are unchanged: same routes, same eight exercise formats, same CSV-driven data. What changes is the surface — a deeper ink base, a violet accent replacing the gold, colder muted greys, card art carrying more visual weight — plus four additions the current build has no UI for:
@@ -13,7 +54,8 @@ Also newly designed: the Daily Draw tab, the three symbol formats (A4, A5, A7), 
 
 ## About the design files
 
-`Lunadeck Current.dc.html` in this bundle is a **design reference**, not production code. It renders every screen as a fixed-width panel in one page so they can be compared side by side; the markup inside it is inline-styled and not meant to be copied.
+`Lunadeck Current.dc.html` in this bundle — committed as
+`specs/design/Lunadeck_Violet_Reference.dc.html` — is a **design reference**, not production code. It renders every screen as a fixed-width panel in one page so they can be compared side by side; the markup inside it is inline-styled and not meant to be copied.
 
 The exception is `globals.css` — that one **is** meant to be used. It is a drop-in replacement for `app/globals.css` that keeps every existing class name, so the current components keep working after the swap. Implement everything else by editing the existing Next.js components as described below.
 
@@ -57,6 +99,13 @@ Accent contrast rule: on a filled `--accent` surface use `--accent-ink` (`#f7f2f
 
 ### 1. Path (`app/page.js`)
 
+> **Partly superseded.** The route is still `app/page.js`, but it re-exports
+> v4's path, and almost nothing below describes what is on it. The `.stop`
+> constellation gave way to one continuous scroll of `.trail-step` icons; the
+> masthead, standfirst, streak pill and `.overall` progress bar are not on the
+> path at all — the masthead and standfirst ended up on the Deck screen, and
+> the streak pill on Social and Friends.
+
 Purpose: pick up where you left off; see the ten units and how far you are.
 
 Layout: `.shell.starfield`, 26px 22px top/side padding, bottom padding `--tabbar + 26px`.
@@ -72,6 +121,10 @@ Alternative home explored in the design file as 2b (editorial list with a "now p
 
 ### 2. Unit detail (`app/units/[unit]/page.js`)
 
+> **Superseded — the route no longer exists** (`0082`). Kept for the argument
+> in its first line, which v4 still honours: node-level detail is not
+> learner-facing.
+
 Purpose: see a unit's arc and resume the right section.
 
 The important change: **the flat list of 57 nodes becomes 8 section rows.** Node-level detail (format code, node id, distractor tier) stops being learner-facing; it belongs in a debug view.
@@ -85,6 +138,14 @@ The important change: **the flat list of 57 nodes becomes 8 section rows.** Node
 - `.start` is now fixed to the bottom above the tab bar — `"Resume Section 5"`.
 
 ### 3. Lesson session (`app/units/[unit]/play/session.jsx`)
+
+> **Superseded — the route and all eight formats are gone** (`0082`). v4 plays
+> at `app/v4/play/[section]/[node]`; its six formats are in the table at the
+> top. What survived of the topbar below is the `✕` and the segmented
+> `.progress` row, in `components/lesson-v2/round-player.jsx`. What did not:
+> the hint counter and the `.footer-meta` node id — v4's rounds carry no
+> hints. The four per-format subsections below describe exercises the app no
+> longer has.
 
 Topbar becomes `✕ · segmented progress · hint count`. `.progress` is a flex row of one `<span>` per step in the section with `.is-done` on completed ones — replaces the single `.progress-fill` bar. The hint control shows remaining hints (`"HINT · 2"`) and, when unavailable, stays legible at `--faint` rather than fading to 30% opacity.
 
@@ -109,11 +170,19 @@ Two columns of `.tile`, left images (100/150) with mono uppercase name labels, r
 
 ### 4. Deck tab (new route, e.g. `app/deck/page.js`)
 
+> **Shipped**, at that path. A card's meaning opens at `app/deck/[card]`
+> rather than inline.
+
 Purpose: see collection completeness; reread a card you know.
 
 `"Your deck"` + `32 / 78` (Fraunces 22px, accent over `--muted`), a one-line standfirst, then `.filters` chips (All / Majors / Cups / Wands / Swords / Pentacles; `.is-active` filled accent). Per group: `.suit-head` mono 10px 0.16em accent with an accent hairline under it, then `.collection` — a 5-column grid of `.slot` circles. Known cards are circle crops with a 1px accent ring; unknown are `.slot.is-empty`, dashed, showing the card's number in mono. Tapping a known slot opens its meaning (reuse the reveal copy from `data_card_descriptions.csv`).
 
 ### 5. Daily draw (new route, e.g. `app/draw/page.js`)
+
+> **Superseded as a route.** There is no `app/draw` and no Draw tab: the daily
+> draw lives inside the Reading tab (`app/reader`), which also deals a
+> three-card spread. The mechanic below — one card a night, keeps the streak
+> alive, no curriculum progress — is what shipped.
 
 Purpose: one card a night; keeps the streak alive without curriculum progress.
 
@@ -122,6 +191,11 @@ Radial violet wash at the top plus starfield. `"Tonight's draw"` with the date i
 Note: reversed draws should use `reversed_reading_notes`; the design shows the upright case.
 
 ### 6. Section complete / unit recap complete
+
+> **Superseded.** v4 ends a node on its own celebration, and a card's first
+> teaching unit on a two-screen unlock ceremony (`0076`), with an Alignment
+> Check ceremony mid-unit (`0093`). The section/unit split below belongs to
+> v1's curriculum shape.
 
 `.complete` container with a top radial violet wash. Eyebrow (`"SECTION 5 COMPLETE"`), `.complete-title` Fraunces 33px (two lines, e.g. "The Empress / is yours"), `.complete-body` max 30ch stating exercises and misses. Then either `.complete-card` (172px card art, accent ring, 60px glow) for a single card earned, or `.earned` — a 4-column grid of the unit's eight circles — for the unit recap. `.scoreboard`: three `.score` tiles (nights, cards, XP) with the middle one `.is-accent`. Section view ends with the eight-tick section strip; unit view ends with `.unlock` — next unit's icon, `"UNIT 2 UNLOCKED"`, name, and counts. Footer: `.action` primary plus `.action-quiet` secondary.
 
@@ -133,7 +207,10 @@ Unchanged from the current build, except where noted:
 - **Format B**: no retry; answering locks both buttons and reveals. False rounds still show the donor card screen afterwards.
 - **Format C**: tap left, tap right; wrong pair flashes red 500ms and clears the selection; no continue button until the board is clear.
 - **New**: rings, progress ticks and the streak pill animate only via `transition` on `box-shadow`/`width`. Everything is disabled under `prefers-reduced-motion` by the rule at the bottom of `globals.css`.
-- Tab bar: Path / Deck / Trials / Draw. Trials is not designed yet — link it to a placeholder.
+- ~~Tab bar: Path / Deck / Trials / Draw. Trials is not designed yet — link it
+  to a placeholder.~~ **Shipped as five tabs: Path / Deck / Guide / Reading /
+  Social**, Guide centre and accented. Trials was never built and Draw folded
+  into Reading; see `components/tabbar.jsx`, which records why.
 
 ## State
 
@@ -145,7 +222,20 @@ No new session state inside a round. New persisted values the redesign assumes:
 - `xp` — the `+N XP` line on reveals and the scoreboard
 - `hintsRemaining` per section — the topbar hint counter
 
-None exist in the repo today (progress is not persisted at all), so this is the one piece of real backend work the redesign implies.
+~~None exist in the repo today (progress is not persisted at all), so this is
+the one piece of real backend work the redesign implies.~~
+
+**Built.** `lib/progress.js` persists to `localStorage` under
+`lunadeck.progress.v1`, and `lib/progress.test.js` covers it. The names
+differ from the wish-list above:
+
+| the redesign asked for | what exists |
+| --- | --- |
+| `nodesCompleteByUnit`, `nodesCompleteBySection` | `completedNodeIds`, a flat list counted per unit or section as needed (plus `missedNodeIds`) |
+| `knownCardKeys` | `knownCardKeys(progress, sections)`, derived rather than stored |
+| `streakDays`, `lastDrawDate` | `streakDays`, `lastPlayedDate`, `dailyDraw`, `drawnCardKeys`, `reversedCardKeys` |
+| `xp` | `xp` |
+| `hintsRemaining` per section | `hintsBySection` |
 
 ## Assets
 
@@ -155,14 +245,25 @@ All from the repo, no new art:
 - `assets/cards/master/{card_key}_MASTER.png` — candidates, references, draw, completion
 - `assets/symbols/{Type}_{name}_MASTER.png` — A4/A5/A7 plates (white-plate art; do not tint)
 
-Icons are CSS shapes, not files. Copy comes from `data_unit_metadata.csv`, `data_card_keywords.csv`, `data_card_talking_points.csv`, `data_symbol_significance.csv`.
+Icons are CSS shapes, not files. Copy comes from `data_card_keywords.csv`,
+`data_card_talking_points.csv` and `data_symbol_significance.csv` — all three
+still in `data/`. `data_unit_metadata.csv` was also listed here; it was deleted
+with v1 (`0082`), and v4's own lesson copy lives in `data/v4/*.json`.
 
 ## Files
 
-- `globals.css` — drop-in replacement for `app/globals.css`
-- `Lunadeck Current.dc.html` — the visual reference (turn 3 = new screens, turn 2 = redesigned core, turn 1 = current build for comparison)
+- `globals.css` — drop-in replacement for `app/globals.css`. Applied in
+  `313e50c`; `app/globals.css` has moved on a long way since, but the tokens
+  are untouched.
+- `Lunadeck Current.dc.html` — the visual reference (turn 3 = new screens,
+  turn 2 = redesigned core, turn 1 = current build for comparison). In the
+  repo as `specs/design/Lunadeck_Violet_Reference.dc.html`.
 
 ## Suggested order
+
+> **Done, and then some.** All seven steps were carried out; steps 4 and 5
+> named routes that have since been removed with v1 (`0082`). Kept as the
+> record of how the redesign was sequenced.
 
 1. Swap `globals.css`. The app should still render, in violet, with the old flat markup.
 2. Add `.tabbar` to `app/layout.js`; add the two new routes as stubs.

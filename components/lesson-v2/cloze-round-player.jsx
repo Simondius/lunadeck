@@ -3,7 +3,7 @@
 import { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import TutorialGhost from "./tutorial-ghost";
-import { Inspector } from "@/components/lesson/options";
+import { Inspector } from "./inspector";
 import { masterForKey, seededShuffle } from "@/lib/rounds";
 import { consumeTutorialSlot } from "@/lib/tutorial-gate";
 

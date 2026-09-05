@@ -3026,110 +3026,11 @@ div.reference-art, div.reference-symbol { cursor: default; }
   box-shadow: 0 0 8px 2px rgba(230, 230, 238, 0.7);
 }
 
-/* --- candidate grids ------------------------------------------------ */
+/* --- wrong-answer shake ---------------------------------------------- */
 
-.grid { display: grid; gap: 12px; }
-.grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
-
-.grid-3 > .option-image:nth-child(3),
-.grid-3 > .option-symbol:nth-child(3) {
-  grid-column: 1 / -1;
-  width: calc(50% - 6px);
-  margin: 0 auto;
-}
-
-/* Selection is a box-shadow ring, not a border, so nothing reflows and
-   the card art keeps its full bleed. */
-.option {
-  position: relative;
-  padding: 0;
-  border: none;
-  border-radius: 12px;
-  background: rgba(242, 237, 227, 0.03);
-  box-shadow: 0 0 0 1px rgba(242, 237, 227, 0.14);
-  color: var(--parchment);
-  font-family: var(--body);
-  overflow: hidden;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-  transition: box-shadow 140ms ease, opacity 140ms ease;
-}
-
-.option-image { aspect-ratio: 100 / 171; }
-
-.option-image img,
-.option-symbol img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-}
-
-.option-image img { object-fit: cover; }
-.option-symbol { aspect-ratio: 1 / 1; background: #fff; }
-.option-symbol img { object-fit: contain; }
-
-.option-name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 8px 6px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-transform: uppercase;
-  background: linear-gradient(to top, rgba(8, 6, 14, 0.92), transparent);
-}
-
-.option-text {
-  text-align: left;
-  padding: 15px 40px 15px 15px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  grid-column: 1 / -1;
-}
-
-.option-binary { padding: 18px; font-size: 16px; font-weight: 500; text-align: center; }
-.binary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-.option.is-selected {
-  background: var(--accent-a12);
-  box-shadow: 0 0 0 2px var(--accent), 0 10px 28px rgba(143, 82, 196, 0.22);
-}
-
-.option.is-correct {
-  background: rgba(107, 191, 123, 0.1);
-  box-shadow: 0 0 0 2px var(--good);
-}
-
-.option.is-eliminated {
-  opacity: 0.32;
-  filter: grayscale(1);
-  cursor: default;
-  box-shadow: 0 0 0 1px rgba(242, 237, 227, 0.06);
-}
-
-.option.is-locked { opacity: 0.45; cursor: default; }
-
-.badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.badge-wrong { background: var(--bad); color: #fff; }
-.badge-right { background: var(--good); color: var(--ink); }
-
+/* Used by tile-match-player.jsx on the two tiles actually tapped. It sat
+   under the v1 option grids until those went (0098); the keyframe is its
+   own, distinct from choice-option-shake. */
 .is-shaking { animation: shake 380ms ease; }
 
 @keyframes shake {
@@ -3139,71 +3040,6 @@ div.reference-art, div.reference-symbol { cursor: default; }
   60% { transform: translateX(-4px); }
   80% { transform: translateX(3px); }
 }
-
-/* --- board matching ------------------------------------------------- */
-
-.board { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.board-column { display: flex; flex-direction: column; gap: 10px; }
-
-.tile {
-  border: none;
-  border-radius: 10px;
-  background: var(--panel);
-  box-shadow: 0 0 0 1px rgba(242, 237, 227, 0.12);
-  color: var(--parchment);
-  font-family: var(--body);
-  padding: 0;
-  cursor: pointer;
-  overflow: hidden;
-  transition: box-shadow 120ms ease;
-}
-
-.tile-image { position: relative; aspect-ratio: 100 / 150; }
-
-.tile-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.tile-name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 7px 4px;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-transform: uppercase;
-  background: linear-gradient(to top, rgba(8, 6, 14, 0.94), transparent);
-}
-
-.tile-text {
-  aspect-ratio: 100 / 150;
-  padding: 12px;
-  font-size: 11.5px;
-  line-height: 1.5;
-  text-align: left;
-  overflow-y: auto;
-  color: #e6e0d4;
-}
-
-.tile.is-selected {
-  box-shadow: 0 0 0 2px var(--accent), 0 8px 22px rgba(143, 82, 196, 0.2);
-}
-
-.tile.is-eliminated { box-shadow: 0 0 0 2px var(--bad); }
-
-/* Matched pairs leave a marked empty slot instead of vanishing, so the
-   board reads as progress rather than a hole. */
-.tile.is-matched {
-  visibility: visible;
-  background: rgba(143, 82, 196, 0.05);
-  box-shadow: none;
-  border: 1px dashed var(--accent-a30);
-  color: transparent;
-  cursor: default;
-}
-
-.tile.is-matched img, .tile.is-matched .tile-name { visibility: hidden; }
 
 .spec-note {
   font-family: var(--mono);
@@ -3264,20 +3100,6 @@ div.reference-art, div.reference-symbol { cursor: default; }
 .reveal.is-symbol strong { color: var(--accent-bright); }
 .reveal.is-symbol .reveal-xp { color: #a08cc0; }
 
-.footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Opaque up to just above the button, then a short fade. At 66% the fade
-     began level with the button's own top edge, so a fourth option scrolled
-     underneath showed through it as ghost text behind the label — the screen
-     read as broken rather than as scrollable. The fade still says "there is
-     more below"; it just does it above the button instead of behind it. */
-  background: linear-gradient(to top, var(--ink) 82%, transparent);
-  padding: 20px;
-}
-
 .action {
   display: block;
   width: 100%;
@@ -3314,14 +3136,6 @@ div.reference-art, div.reference-symbol { cursor: default; }
   letter-spacing: 0.08em;
   color: var(--muted-warm);
   cursor: pointer;
-}
-
-.footer-hold {
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-  margin: 0;
-  padding: 15px;
 }
 
 .footer-meta {

@@ -5,6 +5,28 @@ import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
 import BugReportDialog from "@/components/bug-report-dialog";
 
+// Screenshot capture lives here, not in BugReportDialog, and runs to
+// completion BEFORE the dialog is ever mounted (0098: "the screenshot
+// should be taken before the dialog"). It used to run inside the dialog's
+// own effect, which meant html2canvas rasterized the dialog itself mid-open
+// - the very first tester report came back showing "Capturing
+// screenshot..." and "Where: unknown" baked into the image, because the
+// dialog was already in the DOM (in its own loading state) by the time the
+// capture actually ran. Capturing here and only opening the dialog once it
+// settles means there is nothing to photograph but the screen the tester
+// was actually looking at.
+async function captureAppScreenshot() {
+  const html2canvas = (await import("html2canvas")).default;
+  const target = document.querySelector(".app-frame") || document.body;
+  return html2canvas(target, {
+    backgroundColor: null,
+    logging: false,
+    // Keep the file small - this rides in a JSON POST body and then a
+    // GitHub commit, not a place to spend full device pixel ratio.
+    scale: Math.min(window.devicePixelRatio || 1, 1.5),
+  });
+}
+
 // A floating, draggable debug overlay — deliberately styled as tooling, not
 // app UI, so it never reads as part of Lunadeck itself. Menu items are
 // grouped so more groups can be added later without reshaping this.
@@ -160,7 +182,30 @@ export default function DevConsole({ allNodeIds = [] }) {
   // without the accordion menu ever opening, and stays open regardless of
   // what the accordion is doing underneath it.
   const [showBugReport, setShowBugReport] = useState(false);
+  // Settled (not "capturing") before the dialog ever mounts - see
+  // captureAppScreenshot() above.
+  const [bugScreenshot, setBugScreenshot] = useState(null);
+  const [bugScreenshotStatus, setBugScreenshotStatus] = useState("idle"); // idle | capturing | ready | failed
   const drag = useRef(null);
+
+  // Captures the screenshot to completion, THEN opens the dialog - not the
+  // other way around. A brief pause between the tap/shake and the dialog
+  // appearing is the trade-off for the dialog never being able to
+  // photograph its own loading state.
+  async function openBugReport() {
+    setBugScreenshotStatus("capturing");
+    setBugScreenshot(null);
+    try {
+      const canvas = await captureAppScreenshot();
+      setBugScreenshot(canvas.toDataURL("image/png"));
+      setBugScreenshotStatus("ready");
+    } catch (err) {
+      console.error("[bug-report] screenshot failed", err);
+      setBugScreenshotStatus("failed");
+    } finally {
+      setShowBugReport(true);
+    }
+  }
 
   // Room the console has to leave for its wings right now.
   const wings = skip ? SKIP_WING : 0;
@@ -212,7 +257,7 @@ export default function DevConsole({ allNodeIds = [] }) {
             // into Report Bug, per Simon: shake is the tester's shortcut
             // past hunting for the small DEV chip AND past the menu.
             setMinimizedPersisted(false);
-            setShowBugReport(true);
+            openBugReport();
           }
         }
       }
@@ -359,7 +404,7 @@ export default function DevConsole({ allNodeIds = [] }) {
             type="button"
             className="dev-console-report-bug"
             onClick={() => {
-              setShowBugReport(true);
+              openBugReport();
               setOpen(false);
               setOpenGroup(null);
             }}
@@ -436,7 +481,20 @@ export default function DevConsole({ allNodeIds = [] }) {
         </button>
       ) : null}
       {showBugReport ? (
-        <BugReportDialog onClose={() => setShowBugReport(false)} />
+        <BugReportDialog
+          screenshot={bugScreenshot}
+          screenshotStatus={bugScreenshotStatus}
+          onClose={() => setShowBugReport(false)}
+          onSubmitted={() => {
+            // Filed successfully - per Simon, the console should tidy
+            // itself away afterward rather than leave the tester staring
+            // at an open dev menu (0098: "after bug submitted then
+            // minimize the dev console"). Cancel/X close the dialog only;
+            // this path is submit-success only.
+            setShowBugReport(false);
+            setMinimizedPersisted(true);
+          }}
+        />
       ) : null}
     </div>
   );

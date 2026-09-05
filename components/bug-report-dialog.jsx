@@ -13,6 +13,10 @@ import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
 // that route's own comment for why (short version: Claude's sandbox can
 // read committed files here without a device link, but can't call the
 // Issues API the same way).
+//
+// The screenshot itself is captured by the parent (DevConsole), not here,
+// and finishes BEFORE this dialog is ever mounted — see
+// captureAppScreenshot()/openBugReport() in dev-console.jsx for why.
 
 const REPORTER_KEY = "lunadeck.reporter.v1";
 const REPORTERS = ["Tia", "Simon", "Other"];
@@ -34,11 +38,9 @@ function rememberReporter(name) {
   }
 }
 
-export default function BugReportDialog({ onClose }) {
+export default function BugReportDialog({ onClose, onSubmitted, screenshot, screenshotStatus }) {
   const [reporter, setReporter] = useState("");
   const [text, setText] = useState("");
-  const [screenshot, setScreenshot] = useState(null); // data URL, or null while capturing/unavailable
-  const [screenshotStatus, setScreenshotStatus] = useState("capturing"); // capturing | ready | failed
   const [where, setWhere] = useState("");
   const [listening, setListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
@@ -64,37 +66,6 @@ export default function BugReportDialog({ onClose }) {
       setWhere(current?.label || window.location.pathname);
     });
     unsubscribe();
-  }, []);
-
-  // Screenshot: html2canvas rasterizes the DOM as currently rendered. This
-  // is an approximation of what's on screen, not a true pixel capture (it
-  // can't see anything outside the page - browser chrome, OS overlays), but
-  // it's what a tester was looking at when the report opened, dependency-free
-  // otherwise (no getDisplayMedia permission prompt to fight through).
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const html2canvas = (await import("html2canvas")).default;
-        const target = document.querySelector(".app-frame") || document.body;
-        const canvas = await html2canvas(target, {
-          backgroundColor: null,
-          logging: false,
-          // Keep the file small — this rides in a JSON POST body and then a
-          // GitHub commit, not a place to spend full device pixel ratio.
-          scale: Math.min(window.devicePixelRatio || 1, 1.5),
-        });
-        if (cancelled) return;
-        setScreenshot(canvas.toDataURL("image/png"));
-        setScreenshotStatus("ready");
-      } catch (err) {
-        console.error("[bug-report] screenshot failed", err);
-        if (!cancelled) setScreenshotStatus("failed");
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
   }, []);
 
   useEffect(() => {
@@ -161,7 +132,9 @@ export default function BugReportDialog({ onClose }) {
       }
       rememberReporter(reporter || "Other");
       setDone(true);
-      setTimeout(onClose, 1100);
+      // Filed successfully - this closes AND minimizes the console (see
+      // dev-console.jsx's onSubmitted). Cancel/X still just close it.
+      setTimeout(onSubmitted || onClose, 1100);
     } catch (err) {
       console.error("[bug-report] submit failed", err);
       setError("Couldn't reach the server. Check your connection and try again.");
@@ -211,7 +184,16 @@ export default function BugReportDialog({ onClose }) {
               id="bug-report-reporter"
               className="bug-report-select"
               value={reporter}
-              onChange={(event) => setReporter(event.target.value)}
+              onChange={(event) => {
+                const value = event.target.value;
+                setReporter(value);
+                // Remember it the moment it's picked, not only after a
+                // successful submit (0098: "it did not remember my
+                // previous name") - a failed or abandoned first attempt
+                // used to lose the choice entirely, since nothing was
+                // written to storage until the report actually filed.
+                rememberReporter(value);
+              }}
               disabled={submitting}
             >
               <option value="" disabled>

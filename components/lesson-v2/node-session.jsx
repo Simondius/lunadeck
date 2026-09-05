@@ -114,8 +114,13 @@ export default function NodeSession({
           setMainIndex(mainIndex - 1);
         }
       },
+      // Read by the bug-report dialog (components/bug-report-dialog.jsx) as
+      // "where the tester was" - purely descriptive, nothing reads this to
+      // drive behaviour, so it's fine that it's a plain string and not kept
+      // perfectly in sync with every stage transition above.
+      label: `${cardName} \u2014 Node ${nodeNumber} of ${totalNodes}`,
     });
-  }, [stage, mainIndex, reviewIndex, reviewQueue, node.rounds.length]);
+  }, [stage, mainIndex, reviewIndex, reviewQueue, node.rounds.length, cardName, nodeNumber, totalNodes]);
 
   function handleRoundDone({ missed, noReview }) {
     if (stage === "review") {

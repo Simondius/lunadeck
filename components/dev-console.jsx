@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
+import BugReportDialog from "@/components/bug-report-dialog";
 
 // A floating, draggable debug overlay — deliberately styled as tooling, not
 // app UI, so it never reads as part of Lunadeck itself. Menu items are
@@ -154,6 +155,11 @@ export default function DevConsole({ allNodeIds = [] }) {
   // lib/dev-console-bridge.js. The < > buttons only render then; there's
   // nothing to skip through on any other screen.
   const [skip, setSkip] = useState(null);
+  // Full-screen dialog (components/bug-report-dialog.jsx), independent of
+  // `open`/`openGroup` above - it can be launched straight from a shake
+  // without the accordion menu ever opening, and stays open regardless of
+  // what the accordion is doing underneath it.
+  const [showBugReport, setShowBugReport] = useState(false);
   const drag = useRef(null);
 
   // Room the console has to leave for its wings right now.
@@ -202,9 +208,11 @@ export default function DevConsole({ allNodeIds = [] }) {
           hits = [...hits.filter((t) => now - t < SHAKE_WINDOW_MS), now];
           if (hits.length >= SHAKE_HITS_NEEDED) {
             hits = [];
+            // "Same as tapping the icon" (unminimize) plus going straight
+            // into Report Bug, per Simon: shake is the tester's shortcut
+            // past hunting for the small DEV chip AND past the menu.
             setMinimizedPersisted(false);
-            setOpen(true);
-            setOpenGroup(null);
+            setShowBugReport(true);
           }
         }
       }
@@ -347,6 +355,17 @@ export default function DevConsole({ allNodeIds = [] }) {
               ✕
             </button>
           </div>
+          <button
+            type="button"
+            className="dev-console-report-bug"
+            onClick={() => {
+              setShowBugReport(true);
+              setOpen(false);
+              setOpenGroup(null);
+            }}
+          >
+            Report a bug
+          </button>
           {MENU.map((group) => {
             const expanded = openGroup === group.group;
             return (
@@ -415,6 +434,9 @@ export default function DevConsole({ allNodeIds = [] }) {
         >
           ›
         </button>
+      ) : null}
+      {showBugReport ? (
+        <BugReportDialog onClose={() => setShowBugReport(false)} />
       ) : null}
     </div>
   );

@@ -6559,3 +6559,194 @@ body.is-revealing { overflow: hidden; }
   white-space: nowrap;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* Always-visible entry point into the bug-report dialog, sitting above the
+   accordion groups rather than inside one - it isn't an instant action like
+   "Unlock all", it opens a whole flow, so it doesn't belong in MENU's
+   data-driven action list (components/dev-console.jsx). */
+.dev-console-report-bug {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e4e4ea;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-console-report-bug:hover,
+.dev-console-report-bug:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- the bug report dialog (components/bug-report-dialog.jsx) ------- */
+/* Same dark/monospace tooling palette as .dev-console itself - this is a
+   full flow, not a menu, so it gets its own scrim rather than living inside
+   .dev-console-menu's small popover. Higher z-index than .dev-console
+   (9999) so it sits above the FAB it was opened from. */
+
+.bug-report-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px;
+}
+
+.bug-report-panel {
+  width: 100%;
+  max-width: 420px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 14px;
+  background: #232328;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px 14px 10px 10px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.bug-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bug-report-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #e4e4ea;
+}
+
+.bug-report-done {
+  padding: 24px 4px;
+  color: #e4e4ea;
+  font-family: var(--body);
+  font-size: 14px;
+  text-align: center;
+}
+
+.bug-report-screenshot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bug-report-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.bug-report-meta {
+  padding: 4px 2px;
+  color: #9a9aa2;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.bug-report-label {
+  display: block;
+  margin: 10px 0 4px;
+  color: #75757d;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bug-report-select,
+.bug-report-textarea {
+  width: 100%;
+  padding: 8px;
+  background: #18181c;
+  color: #e4e4ea;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+}
+
+.bug-report-textarea {
+  resize: vertical;
+}
+
+.bug-report-mic {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e4e4ea;
+  font-family: var(--body);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.bug-report-mic.is-listening {
+  background: rgba(220, 90, 90, 0.25);
+  border-color: rgba(220, 90, 90, 0.5);
+}
+
+.bug-report-error {
+  margin-top: 8px;
+  color: #e88;
+  font-family: var(--body);
+  font-size: 12px;
+}
+
+.bug-report-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.bug-report-cancel,
+.bug-report-submit {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.bug-report-cancel {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e4e4ea;
+}
+
+.bug-report-submit {
+  background: #e4e4ea;
+  border: 1px solid #e4e4ea;
+  color: #18181c;
+}
+
+.bug-report-submit:disabled,
+.bug-report-cancel:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

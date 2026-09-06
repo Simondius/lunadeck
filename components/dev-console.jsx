@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
 import BugReportDialog from "@/components/bug-report-dialog";
@@ -411,6 +412,16 @@ export default function DevConsole({ allNodeIds = [] }) {
           >
             Report a bug
           </button>
+          <Link
+            href="/v4"
+            className="dev-console-report-bug"
+            onClick={() => {
+              setOpen(false);
+              setOpenGroup(null);
+            }}
+          >
+            Open Path (legacy)
+          </Link>
           {MENU.map((group) => {
             const expanded = openGroup === group.group;
             return (

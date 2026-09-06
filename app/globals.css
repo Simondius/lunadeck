@@ -6750,3 +6750,347 @@ body.is-revealing { overflow: hidden; }
   opacity: 0.5;
   cursor: default;
 }
+
+/* ============================================================
+   Journey mode — global animation library (0100-journey-mode-scaffold)
+   ============================================================
+   Simon's own brief: "implement standard global animations library...
+   that way when I say 'make the text shimmer more' we are changing a
+   global style, not screen by screen." Every Journey screen composes
+   these tokens/keyframes/classes rather than defining its own — a later
+   note like "make the text shimmer more" should mean editing this block
+   alone, never hunting through per-unit files. Unit content (data/journey/)
+   should never define its own animation timing or colour. */
+
+:root {
+  --journey-gold: #d9b25c;
+  --journey-gold-bright: #f3d98a;
+  --journey-gold-dim: #a67f34;
+  --journey-silver: #c7cdd6;
+  --journey-silver-bright: #eef1f5;
+  --journey-ink: #0d0b14;
+  --journey-parchment: #f2ede3;
+  --journey-wrong: #d64545;
+}
+
+/* ---------- Stage & backgrounds ----------
+   Placeholder gradients stand in for the mock art until the real
+   illustrations (Drive: "06.09.26 Onboarding Mocks") are imported into
+   assets/journey/ — same honest-placeholder move Story mode made for its
+   own missing location art (docs/decisions/0048). Swap the background
+   value here, or add a SceneImage layer, without touching any beat. */
+.journey-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--journey-ink);
+  color: var(--journey-parchment);
+  font-family: var(--body);
+}
+
+.journey-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 400ms ease;
+}
+
+.journey-bg.is-mossy-ground {
+  background:
+    radial-gradient(120% 90% at 50% 15%, rgba(90, 130, 95, 0.35), transparent 60%),
+    linear-gradient(175deg, #1c2418 0%, #10160d 55%, #070a06 100%);
+}
+
+.journey-bg.is-nightwall {
+  background:
+    radial-gradient(60% 40% at 25% 20%, rgba(120, 150, 200, 0.28), transparent 65%),
+    linear-gradient(190deg, #16223c 0%, #0d1526 55%, #070a12 100%);
+}
+
+.journey-bg.is-card-glow {
+  background:
+    radial-gradient(35% 30% at 50% 45%, rgba(217, 178, 92, 0.35), transparent 70%),
+    linear-gradient(200deg, #131028 0%, #0a0816 60%, #05040c 100%);
+}
+
+.journey-bg.is-void {
+  background: #000;
+}
+
+.journey-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 24px 20px calc(28px + env(safe-area-inset-bottom));
+}
+
+/* ---------- Text system ----------
+   Two variants, chosen by the beat's own `style` field, never per-screen:
+   "action" (something is happening — *Thud*, "Oops, dropped them..") and
+   "narrative" (a character speaking). */
+.journey-text-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.journey-text {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.45;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* Action text: straight, swipes left-to-right via a clip-path wipe. */
+@keyframes journey-swipe-reveal {
+  from { clip-path: inset(0 100% -20% -20%); }
+  to   { clip-path: inset(0 0 -20% -20%); }
+}
+.journey-text.is-action {
+  font-style: normal;
+  animation: journey-swipe-reveal 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Narrative text: italic, slides+fades in from the right. No dust. */
+@keyframes journey-narrative-in {
+  from { transform: translateX(28px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.journey-text.is-narrative {
+  font-style: italic;
+  animation: journey-narrative-in 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Gold/silver dust band that sweeps over action text as it swipes in,
+   0.5s, then one 0.3s sparkle once the swipe has fully landed. Both are
+   separate absolutely-positioned layers over .journey-text-wrap so the
+   text itself never needs its own clipping tricks for the dust. */
+.journey-dust {
+  position: absolute;
+  inset: -25% -12%;
+  pointer-events: none;
+  opacity: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 30%, var(--journey-gold-bright), transparent),
+    radial-gradient(1.2px 1.2px at 28% 70%, var(--journey-silver-bright), transparent),
+    radial-gradient(1.4px 1.4px at 46% 20%, var(--journey-gold), transparent),
+    radial-gradient(1.1px 1.1px at 63% 65%, var(--journey-silver), transparent),
+    radial-gradient(1.6px 1.6px at 78% 35%, var(--journey-gold-bright), transparent),
+    radial-gradient(1.2px 1.2px at 92% 55%, var(--journey-silver-bright), transparent);
+  mix-blend-mode: screen;
+}
+@keyframes journey-dust-band {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.journey-text-wrap.is-action .journey-dust {
+  animation: journey-dust-band 0.5s ease-out forwards;
+}
+
+.journey-sparkle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.journey-sparkle span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--journey-gold-bright);
+  box-shadow: 0 0 6px 1px var(--journey-gold-bright);
+  opacity: 0;
+  transform: scale(0.2);
+}
+.journey-sparkle span:nth-child(1) { top: 10%; left: 18%; }
+.journey-sparkle span:nth-child(2) { top: 60%; left: 42%; background: var(--journey-silver-bright); box-shadow: 0 0 6px 1px var(--journey-silver-bright); }
+.journey-sparkle span:nth-child(3) { top: 30%; left: 68%; }
+.journey-sparkle span:nth-child(4) { top: 75%; left: 86%; background: var(--journey-silver-bright); box-shadow: 0 0 6px 1px var(--journey-silver-bright); }
+@keyframes journey-sparkle-pop {
+  0%   { transform: scale(0.2); opacity: 0; }
+  45%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.6); opacity: 0; }
+}
+.journey-text-wrap.is-sparkling .journey-sparkle span {
+  animation: journey-sparkle-pop 0.3s ease-out forwards;
+}
+.journey-text-wrap.is-sparkling .journey-sparkle span:nth-child(2) { animation-delay: 40ms; }
+.journey-text-wrap.is-sparkling .journey-sparkle span:nth-child(3) { animation-delay: 80ms; }
+.journey-text-wrap.is-sparkling .journey-sparkle span:nth-child(4) { animation-delay: 30ms; }
+
+/* ---------- Cards ----------
+   Whenever a card is visible it idles with a slight living wobble
+   (Simon: "shake slightly like it is alive, similar to how the cards
+   appeared on the path"). Distinct from .is-wrong's shake below, which is
+   a one-shot response to a bad tap, not a resting state. */
+@keyframes journey-card-breathe {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25%      { transform: rotate(-0.6deg) translateY(-2px); }
+  50%      { transform: rotate(0.35deg) translateY(0); }
+  75%      { transform: rotate(-0.3deg) translateY(1px); }
+}
+.journey-card {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+  animation: journey-card-breathe 4.6s ease-in-out infinite;
+  transform-origin: 50% 88%;
+}
+.journey-card img,
+.journey-card .art-pending {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+}
+
+/* ---------- Choice / keyword buttons ----------
+   Tap-only (Simon: "keyword selection should be tap"). One state machine,
+   shared by every round that presents 2-4 options with exactly one
+   correct answer:
+     correct tap  -> punch (0.2s) -> gold-sweep (0.3s) -> golden "selected"
+                     hue (persists) -> every other option independently
+                     disintegrates (0.2-0.6s each, JS picks the duration) ->
+                     beat advances once the slowest one finishes.
+     incorrect tap -> red + 0.3s shake -> reverts, stays tappable. */
+.journey-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journey-choice {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(242, 237, 227, 0.22);
+  background: rgba(18, 15, 26, 0.6);
+  color: var(--journey-parchment);
+  font-family: var(--body);
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes journey-choice-punch {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+.journey-choice.is-correct-punch {
+  animation: journey-choice-punch 0.2s ease-out;
+}
+
+.journey-choice-sweep {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.journey-choice-sweep::after {
+  content: "";
+  position: absolute;
+  inset: -60% -60%;
+  background: linear-gradient(100deg, transparent 30%, rgba(217, 178, 92, 0.85) 50%, transparent 70%);
+  transform: translateX(-100%);
+}
+@keyframes journey-gold-sweep {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.journey-choice.is-sweeping .journey-choice-sweep::after {
+  animation: journey-gold-sweep 0.3s ease-out forwards;
+}
+
+.journey-choice.is-selected {
+  background: linear-gradient(160deg, var(--journey-gold-bright), var(--journey-gold-dim));
+  border-color: var(--journey-gold-bright);
+  color: #2b220c;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(217, 178, 92, 0.5);
+}
+
+@keyframes journey-choice-shake-wrong {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(5px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(3px); }
+}
+.journey-choice.is-wrong {
+  background: rgba(214, 69, 69, 0.85);
+  border-color: var(--journey-wrong);
+  color: #fff;
+  animation: journey-choice-shake-wrong 0.3s ease-in-out;
+}
+
+/* Duration is set inline per-button (0.2-0.6s, chosen in JS) so every
+   distractor disintegrates on its own independent timer rather than in
+   lockstep. */
+@keyframes journey-choice-disintegrate {
+  0%   { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+  100% { opacity: 0; transform: scale(0.85) translateY(6px); filter: blur(3px); }
+}
+.journey-choice.is-disintegrating {
+  animation-name: journey-choice-disintegrate;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+/* ---------- Tap to continue ----------
+   Mounted for the whole tappable beat; opacity is what shows/hides it, so
+   fade timing lives entirely here (Simon: fades in over 0.5s once 1s has
+   passed with no tap; disappears - not lingers - the instant they tap). */
+.journey-tap-hint {
+  align-self: center;
+  margin-top: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(13, 11, 20, 0.72);
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: rgba(242, 237, 227, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+.journey-tap-hint.is-visible {
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+/* prefers-reduced-motion: every Journey animation still runs to
+   completion (the correct-answer sequence gates real progress - it can't
+   just vanish), but durations compress to near-instant so nothing spins
+   or shakes for longer than a state change takes to register. */
+@media (prefers-reduced-motion: reduce) {
+  .journey-card,
+  .journey-text.is-action,
+  .journey-text.is-narrative,
+  .journey-text-wrap.is-action .journey-dust,
+  .journey-text-wrap.is-sparkling .journey-sparkle span,
+  .journey-choice.is-correct-punch,
+  .journey-choice.is-sweeping .journey-choice-sweep::after,
+  .journey-choice.is-wrong,
+  .journey-choice.is-disintegrating {
+    animation-duration: 1ms !important;
+  }
+}

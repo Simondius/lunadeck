@@ -43,6 +43,19 @@ function prefersReducedMotion() {
 // card art); `cardKey` falls back to the shared deck's master art via
 // lib/rounds.js for units that don't have their own card crop yet.
 //
+// `captionPosition` (optional, "high" or unset) overrides where a plain
+// image-background beat's caption sits. The base .journey-caption position
+// (~70% down) was measured against Fool's own mocks, whose scenes put their
+// subject up top and leave the LOWER portion of the frame empty (a stone
+// wall, open ground). Magician's road-scene beats are the opposite - empty
+// sky at the top, the farmer/cart/horses lower down - and its own mocks put
+// the caption up in that sky, around a quarter of the way down (Simon,
+// 0906 follow-up: "in the pngs the text is higher in the sky... in the code
+// it is lower and less readable"). One hardcoded percentage can't serve
+// both compositions, so this is per-beat rather than a single global
+// number - set `captionPosition: "high"` on any beat whose own background
+// has its empty space at the top instead of the bottom.
+//
 // Every passive beat shows a "tap to continue" hint after 1s of no action
 // (useTapHint) - the choice beats don't, since the required action there is
 // tapping a specific option, not tapping anywhere.
@@ -58,16 +71,31 @@ export default function JourneyPlayer({ unit, onComplete }) {
   // fade out and 0.1s fade in so it looks intentional." The flash was the
   // next beat's background image not being decoded yet the instant `bg`
   // swaps - .journey-bg has nothing to paint for a beat, so .journey-stage's
-  // own solid ink fill shows through underneath it. Two changes fix this
-  // together: this phase state drives a brief opacity fade on the whole
-  // stage around every beat change (see .journey-stage.is-transitioning in
-  // globals.css) so any remaining latency reads as a deliberate dip to
-  // black rather than a glitch, and the effect below preloads every beat's
-  // image up front so there normally isn't any latency left to hide.
-  // `phase === "out"` also doubles as a debounce - changeBeat no-ops on a
-  // repeat tap mid-fade instead of racing two beat changes.
-  const [phase, setPhase] = useState("in");
+  // own solid ink fill shows through underneath it.
+  //
+  // Simon's later 0906 follow-up corrected this first pass on two counts:
+  // (1) fading the WHOLE stage meant the background re-faded even between
+  // two consecutive beats that share the exact same `bg` (every road-scene
+  // dialogue beat in magician.js, for instance) - a visible flash-to-black
+  // for art that was never actually changing. (2) 0.1s read as an abrupt
+  // cut rather than the smooth dissolve he wanted; asked for 0.3s each way.
+  // So this is now two independent phases instead of one: `scenePhase`
+  // fades ONLY `.journey-bg` (see its own .is-transitioning rule in
+  // globals.css), and only gets engaged when the upcoming beat's `bg`
+  // actually differs from the current one - otherwise the image just sits
+  // there, untouched, while the beat changes underneath it. `textPhase`
+  // fades `.journey-caption` and runs on every beat change, since the text
+  // (or choice options) is what's actually changing then. The card layer
+  // needs no fade of its own - `cardArt` never changes value within a unit,
+  // so React never remounts/reloads that <img> across beats regardless.
+  //
+  // Both still share one timer/duration (300ms): `textPhase` doubles as the
+  // debounce (it always toggles, so a repeat tap mid-transition is a no-op
+  // the same way the single `phase` used to be).
+  const [scenePhase, setScenePhase] = useState("in");
+  const [textPhase, setTextPhase] = useState("in");
   const transitionTimer = useRef(null);
+  const TRANSITION_MS = 300;
 
   useEffect(() => {
     return () => {
@@ -75,18 +103,22 @@ export default function JourneyPlayer({ unit, onComplete }) {
     };
   }, []);
 
-  function changeBeat(updateIndex) {
-    if (phase === "out") return;
+  function changeBeat(newIndex) {
+    if (textPhase === "out") return;
+    const nextBg = unit.beats[newIndex]?.bg;
+    const sceneChanges = nextBg !== beat.bg;
     dismissHint();
     if (prefersReducedMotion()) {
-      updateIndex();
+      setIndex(newIndex);
       return;
     }
-    setPhase("out");
+    setTextPhase("out");
+    if (sceneChanges) setScenePhase("out");
     transitionTimer.current = setTimeout(() => {
-      updateIndex();
-      setPhase("in");
-    }, 100);
+      setIndex(newIndex);
+      setTextPhase("in");
+      if (sceneChanges) setScenePhase("in");
+    }, TRANSITION_MS);
   }
 
   // Every beat's background image, fetched as soon as the player mounts
@@ -128,14 +160,14 @@ export default function JourneyPlayer({ unit, onComplete }) {
   useEffect(() => {
     return registerNodeSkip({
       onNext() {
-        changeBeat(() => setIndex((i) => Math.min(i + 1, unit.beats.length - 1)));
+        changeBeat(Math.min(index + 1, unit.beats.length - 1));
       },
       onPrev() {
-        changeBeat(() => setIndex((i) => Math.max(i - 1, 0)));
+        changeBeat(Math.max(index - 1, 0));
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unit.beats.length]);
+  }, [unit.beats.length, index]);
 
   function advance() {
     if (isLast) {
@@ -145,7 +177,7 @@ export default function JourneyPlayer({ unit, onComplete }) {
       onComplete();
       return;
     }
-    changeBeat(() => setIndex((current) => current + 1));
+    changeBeat(index + 1);
   }
 
   const cardSrc = beat.cardArt || (beat.cardKey ? masterForKey(beat.cardKey) : null);
@@ -158,13 +190,15 @@ export default function JourneyPlayer({ unit, onComplete }) {
 
   return (
     <div
-      className={`journey-stage${phase === "out" ? " is-transitioning" : ""}`}
+      className="journey-stage"
       onClick={isPassive ? advance : undefined}
       role={isPassive ? "button" : undefined}
       tabIndex={isPassive ? 0 : undefined}
     >
       <div
-        className={bgIsImage ? "journey-bg" : `journey-bg is-${beat.bg}`}
+        className={`${bgIsImage ? "journey-bg" : `journey-bg is-${beat.bg}`}${
+          scenePhase === "out" ? " is-transitioning" : ""
+        }`}
         style={bgIsImage ? { backgroundImage: `url(${beat.bg})` } : undefined}
         aria-hidden="true"
       />
@@ -226,6 +260,8 @@ export default function JourneyPlayer({ unit, onComplete }) {
       <div
         className={`journey-caption${isCentered ? " is-centered" : ""}${
           cardSrc ? " is-below-card" : ""
+        }${beat.captionPosition === "high" ? " is-high" : ""}${
+          textPhase === "out" ? " is-transitioning" : ""
         }`}
       >
         {beat.text ? <JourneyText variant={beat.textStyle}>{beat.text}</JourneyText> : null}

@@ -6807,23 +6807,6 @@ body.is-revealing { overflow: hidden; }
   background: var(--journey-ink);
   color: var(--journey-parchment);
   font-family: var(--body);
-  /* Simon (0906 follow-up): "there is a black screen for a fraction of a
-     second in between transitions... do a 0.1s fade out and 0.1s fade in
-     so it looks intentional." journey-player.jsx toggles is-transitioning
-     for 100ms around every beat change (tap-to-advance, a choice resolving,
-     the dev console's skip arrows) - fading the WHOLE stage rather than
-     just .journey-bg means the caption/card swapping at the same instant
-     is covered too, not just the background image. pointer-events: none
-     while faded out is what makes changeBeat's own "ignore a repeat tap
-     mid-fade" guard actually stick - without it a fast double-tap could
-     still reach this element's onClick underneath the fade. */
-  transition: opacity 100ms ease;
-  opacity: 1;
-}
-
-.journey-stage.is-transitioning {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .journey-bg {
@@ -6846,7 +6829,22 @@ body.is-revealing { overflow: hidden; }
      foreground entirely (dense foliage measured at 85-100% down the
      source image - squarely inside the band `center` was cutting off). */
   background-position: center bottom;
-  transition: opacity 400ms ease;
+  /* Simon (0906 follow-up): the original single fade lived on .journey-stage
+     and re-triggered on EVERY beat change, including two consecutive beats
+     that share the same `bg` - the art doesn't change then, so fading it
+     out and back in just to reveal the identical pixels underneath was a
+     visible, pointless flash ("when the background is the same, don't
+     refresh the image"). journey-player.jsx now only toggles
+     is-transitioning on THIS element when `bg` is actually different from
+     the previous beat's - the rest of the time it just sits still while
+     the caption changes underneath. Also bumped 0.1s -> 0.3s each way
+     ("add a 0.3s fade out and 0.3s fade in"), same request. */
+  transition: opacity 300ms ease;
+  opacity: 1;
+}
+
+.journey-bg.is-transitioning {
+  opacity: 0;
 }
 
 .journey-bg.is-mossy-ground {
@@ -6871,13 +6869,17 @@ body.is-revealing { overflow: hidden; }
   background: #000;
 }
 
-/* Anchored at roughly the same proportional height the mocks' own baked
-   captions sat at (~68-70% down a 707x1541 frame), not flex-end-of-the-
-   viewport - those aren't the same thing once the tab bar/safe areas are
-   in play, and pinning to the literal bottom edge is what made the
-   Journey home screen read as blank (0100 follow-up). Beats with no card
-   and a plain void background (just "*Thud*") use `.is-centered` instead
-   - the mocks show that one dead-center, not down at this line. */
+/* Anchored at roughly the same proportional height Fool's own mocks put
+   their baked captions at (~68-70% down a 707x1541 frame - Fool's scenes
+   put their subject up top and leave the ground/wall below it empty), not
+   flex-end-of-the-viewport - those aren't the same thing once the tab
+   bar/safe areas are in play, and pinning to the literal bottom edge is
+   what made the Journey home screen read as blank (0100 follow-up). Beats
+   with no card and a plain void background (just "*Thud*") use
+   `.is-centered` instead - the mocks show that one dead-center, not down at
+   this line. A unit whose scenes put their empty space at the TOP instead
+   (Magician's road-scene beats) sets `captionPosition: "high"` to get
+   `.is-high` below instead of this default. */
 .journey-caption {
   position: absolute;
   z-index: 1;
@@ -6898,6 +6900,29 @@ body.is-revealing { overflow: hidden; }
      tap-hint/choice buttons below keep their existing width, but the text
      runs inside it now center within that width. */
   text-align: center;
+  /* Simon (0906 follow-up): "add a 0.3s fade out and 0.3s fade in to smooth
+     the transitions between scenes" - journey-player.jsx toggles
+     is-transitioning here on every beat change (unlike .journey-bg, which
+     only toggles when the art itself changes - see that class's own
+     comment). `bottom: 0` above means the tap-hint's own `position:
+     absolute; bottom: ...` still pins correctly to this box's bottom edge
+     regardless of which `top` variant is active. */
+  transition: opacity 300ms ease;
+  opacity: 1;
+}
+
+.journey-caption.is-transitioning {
+  opacity: 0;
+}
+
+/* Magician's road-scene beats (data/journey/units/magician.js sets
+   `captionPosition: "high"` on each) - see journey-player.jsx's own comment
+   on that field for why one hardcoded `top` can't serve every unit's
+   compositions. ~22% down lands the caption in the same open-sky band the
+   mocks themselves use (measured directly off the source screens: the
+   caption ink sits at roughly 24-31% down a 711x1538 frame). */
+.journey-caption.is-high {
+  top: 21%;
 }
 
 .journey-caption.is-centered {

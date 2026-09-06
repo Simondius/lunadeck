@@ -46,6 +46,13 @@
 // narration, so nothing here is "action"; the three preliminary guess-the-
 // word rounds omit textStyle entirely, matching how fool.js's own equivalent
 // rounds (options: adventure/pain/fortune, etc.) leave it unset too.
+//
+// captionPosition: "high" on every road-scene beat (Simon, 0906 follow-up):
+// unlike Fool's scenes, this unit's road backgrounds put their empty space
+// at the TOP (open sky) rather than the bottom, and the mocks put the
+// caption up there to match - see journey-player.jsx's own comment on this
+// field for the measurement and why it's per-beat rather than a global CSS
+// change.
 
 const BG = "/assets/journey/magician/backgrounds";
 const CARD = "/assets/journey/magician/card-face.png";
@@ -61,24 +68,28 @@ export const magician = {
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Guys, come on..”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Ah! hey stranger, you heading into town?”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Sorry about the blockage, Milly here saw a butterfly..”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Honestly, i'm at a loss for what to do..”",
     },
@@ -140,42 +151,49 @@ export const magician = {
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "I get the feeling you're a resourceful person..",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "With a lot of willpower..",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "You must have manifested this meeting!",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Haha, comforted by a stranger..”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Well, if its all the same to you..”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“Take Molly and grab a sack..”",
     },
     {
       kind: "line",
       bg: `${BG}/road-scene.jpg`,
+      captionPosition: "high",
       textStyle: "narrative",
       text: "“We'll ditch the cart and ride into town.”",
     },

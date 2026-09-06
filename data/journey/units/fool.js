@@ -26,6 +26,13 @@
 
 const BG = "/assets/journey/fool/backgrounds";
 const CARD = "/assets/journey/fool/card-face.png";
+// Shared, unit-agnostic asset: the tarot deck's own card-back design glowing
+// in a starfield, used by every unit's reveal beat. Simon dropped Magician's
+// raw mocks in 0906 and its own "screen 6" (card-back glow) turned out to be
+// pixel-identical to this file - it's the deck's card back, not art specific
+// to any one card - so it moved here (out of assets/journey/fool/) rather
+// than shipping two copies of the same 191KB image.
+const SHARED = "/assets/journey/shared";
 
 export const fool = {
   slug: "fool",
@@ -147,7 +154,7 @@ export const fool = {
     // background to reveal an actual, live CARD (the same card-face.png
     // every other beat uses) scaling/fading in on top - see
     // .journey-reveal* in app/globals.css for the timed sequence.
-    { kind: "line", bg: `${BG}/reveal-glow.jpg`, cardArt: CARD, revealCard: true },
+    { kind: "line", bg: `${SHARED}/card-back-reveal.jpg`, cardArt: CARD, revealCard: true },
     {
       kind: "line",
       bg: `${BG}/calling-me-stupid.jpg`,

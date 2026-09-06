@@ -5,6 +5,7 @@ import Link from "next/link";
 import { unlockAll, reset } from "@/lib/progress";
 import { subscribeNodeSkip } from "@/lib/dev-console-bridge";
 import BugReportDialog from "@/components/bug-report-dialog";
+import { UNITS } from "@/data/journey/units";
 
 // Screenshot capture lives here, not in BugReportDialog, and runs to
 // completion BEFORE the dialog is ever mounted (0098: "the screenshot
@@ -68,6 +69,26 @@ const MENU = [
             run: () => reset(),
           },
         ],
+      },
+    ],
+  },
+  {
+    // Simon (0906): "add a section in the dev console to skip to next
+    // narrative section. Journey > 1. Fool 2. Magician etc" - generated from
+    // UNITS (data/journey/units/index.js) rather than hand-listed, so a
+    // tester can jump straight into any unit's player without playing
+    // through the ones before it, and every future unit added to UNITS
+    // shows up here for free. These are links, not run() actions - the
+    // first thing MENU ever needed that wasn't a fire-and-close button
+    // (see the action.href branch in the render below).
+    group: "Journey",
+    subgroups: [
+      {
+        label: "Jump to unit",
+        actions: UNITS.map((unit, index) => ({
+          label: `${index + 1}. ${unit.cardName}`,
+          href: `/journey/play/${unit.slug}`,
+        })),
       },
     ],
   },
@@ -439,17 +460,32 @@ export default function DevConsole({ allNodeIds = [] }) {
                 ? group.subgroups.map((subgroup) => (
                 <div key={subgroup.label} className="dev-console-subgroup">
                   <span className="dev-console-subgroup-label">{subgroup.label}</span>
-                  {subgroup.actions.map((action) => (
-                    <button
-                      key={action.label}
-                      type="button"
-                      role="menuitem"
-                      className="dev-console-action"
-                      onClick={() => runAction(action)}
-                    >
-                      {action.label}
-                    </button>
-                  ))}
+                  {subgroup.actions.map((action) =>
+                    action.href ? (
+                      <Link
+                        key={action.label}
+                        href={action.href}
+                        role="menuitem"
+                        className="dev-console-action"
+                        onClick={() => {
+                          setOpen(false);
+                          setOpenGroup(null);
+                        }}
+                      >
+                        {action.label}
+                      </Link>
+                    ) : (
+                      <button
+                        key={action.label}
+                        type="button"
+                        role="menuitem"
+                        className="dev-console-action"
+                        onClick={() => runAction(action)}
+                      >
+                        {action.label}
+                      </button>
+                    )
+                  )}
                 </div>
                   ))
                 : null}

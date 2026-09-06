@@ -10,10 +10,19 @@
 // the card art is cropped once, from screen 10, and reused via `cardArt`
 // everywhere the card appears).
 //
-// beat.textStyle: "action" is reserved for true sound-effect/event lines
-// written with asterisks in the script (only "*Thud*" qualifies here) -
-// per Simon's brief, everything else is "narrative" (italic), including
-// lines that describe an event in plain words ("Oops, dropped them..").
+// beat.textStyle: Simon's own brief draws the line on MEANING, not on
+// punctuation - "text that describes something that is happening" is
+// action (straight, swipes left-to-right with the gold/silver dust band
+// then sparkles), "eg thud" was one example of that, not the whole rule.
+// "text that is narrative" (spoken lines, and reflective/expository
+// narration) swipes in from the right, italic. An earlier pass here
+// narrowed "action" to only asterisk-marked lines and reclassified every
+// other line - including "Oops, dropped them.." itself, an event
+// happening in plain words - as narrative; that was a misreading Simon
+// corrected (0906), not a deliberate exception. So: quoted dialogue and
+// reflective/expository narration stay "narrative"; a line that
+// describes an in-scene event happening (Thud, dropping the cards) is
+// "action".
 
 const BG = "/assets/journey/fool/backgrounds";
 const CARD = "/assets/journey/fool/card-face.png";
@@ -22,12 +31,23 @@ export const fool = {
   slug: "fool",
   cardKey: "major_00_fool",
   cardName: "The Fool",
+  // The two images the new Journey home screen (components/journey/
+  // journey-home-screen.jsx) stacks as its "two cards" preview, per
+  // Simon's 0906 spec: `cardFace` is the card being taught (same art
+  // every in-player beat uses via `cardArt`), `previewBg` is "a single
+  // visual from the current stage of the story" - for now that's just
+  // this unit's own scene, since there's no beat-level progress tracking
+  // yet (lib/journey-progress.js only knows whole-unit completion) - once
+  // that exists, this is where "which scene the reader last saw" logic
+  // replaces the flat pick.
+  cardFace: CARD,
+  previewBg: `${BG}/neighbour-daughter.jpg`,
   beats: [
     { kind: "line", bg: "void", textStyle: "action", text: "*Thud*" },
     {
       kind: "line",
       bg: `${BG}/dropped-cards.jpg`,
-      textStyle: "narrative",
+      textStyle: "action",
       text: "Oops, dropped them..",
     },
     {
@@ -118,7 +138,16 @@ export const fool = {
         { key: "leap-of-faith-2", label: "leap of faith", correct: true },
       ],
     },
-    { kind: "line", bg: `${BG}/reveal-glow.jpg` },
+    // Simon (0906): "after this step it should animate to reveal the
+    // fool" - the mock's own reveal-glow screen is a static illustration
+    // (the glowing card is baked into the background art, not a live
+    // element), so there's no isolated "card back" asset to flip between
+    // faces of. journey-player.jsx's revealCard handling instead lets
+    // this beat's glow play out as normal, then flashes and dims the
+    // background to reveal an actual, live CARD (the same card-face.png
+    // every other beat uses) scaling/fading in on top - see
+    // .journey-reveal* in app/globals.css for the timed sequence.
+    { kind: "line", bg: `${BG}/reveal-glow.jpg`, cardArt: CARD, revealCard: true },
     {
       kind: "line",
       bg: `${BG}/calling-me-stupid.jpg`,

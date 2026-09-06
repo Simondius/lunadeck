@@ -6787,6 +6787,23 @@ body.is-revealing { overflow: hidden; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* Horizontal centering for whatever sits in normal flow here (the card,
+     when one's present) - global design rule (0906): anything placed in
+     leftover space, on either axis, centers in it rather than pinning to
+     an edge. .journey-bg stays absolute/full-bleed regardless. */
+  align-items: center;
+  /* isolate: forces this element to be its own stacking context, so
+     .journey-bg's z-index:-1 (added the same round as the flex refactor
+     above) stays scoped to INSIDE .journey-stage - behind the now-flow-
+     based card/caption, same as intended - instead of escaping to
+     whatever ancestor stacking context is actually nearest (position:
+     relative alone doesn't create one). Without this, that negative
+     z-index buried the background image entirely behind .journey-stage's
+     own solid background-color on every image-backed beat (Simon's 0906
+     report, "we've lost images") - the void/card-glow/etc. keyword
+     backgrounds never showed the bug because they're just flat color,
+     indistinguishable from the black hiding behind them. */
+  isolation: isolate;
   background: var(--journey-ink);
   color: var(--journey-parchment);
   font-family: var(--body);
@@ -6795,8 +6812,23 @@ body.is-revealing { overflow: hidden; }
 .journey-bg {
   position: absolute;
   inset: 0;
+  /* Everything else here (the card, the caption-below-card) is normal
+     flow now, not absolutely positioned - z-index:-1 is what keeps this
+     layer behind them regardless, since "positioned, painted after flow
+     content" no longer applies once they aren't positioned themselves. */
+  z-index: -1;
   background-size: cover;
-  background-position: center;
+  /* Bottom, not center: these images are all much taller/narrower than a
+     phone screen (~0.46 wide:tall vs. the phone's ~0.65-0.7), so `cover`
+     always crops a big vertical slice out. The mocks put their story
+     content - characters, wall, foreground plants - in the lower 2/3-3/4
+     of the frame and leave the top third or so as plain atmospheric sky,
+     so anchoring to the bottom crops into that expendable empty sky
+     instead of into the foreground detail. `center` was cropping roughly
+     equal amounts off both ends, which was enough to erase the plant
+     foreground entirely (dense foliage measured at 85-100% down the
+     source image - squarely inside the band `center` was cutting off). */
+  background-position: center bottom;
   transition: opacity 400ms ease;
 }
 
@@ -6822,15 +6854,62 @@ body.is-revealing { overflow: hidden; }
   background: #000;
 }
 
-.journey-content {
-  position: relative;
+/* Anchored at roughly the same proportional height the mocks' own baked
+   captions sat at (~68-70% down a 707x1541 frame), not flex-end-of-the-
+   viewport - those aren't the same thing once the tab bar/safe areas are
+   in play, and pinning to the literal bottom edge is what made the
+   Journey home screen read as blank (0100 follow-up). Beats with no card
+   and a plain void background (just "*Thud*") use `.is-centered` instead
+   - the mocks show that one dead-center, not down at this line. */
+.journey-caption {
+  position: absolute;
   z-index: 1;
-  flex: 1;
+  left: 0;
+  right: 0;
+  top: 70%;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 18px;
-  padding: 24px 20px calc(28px + env(safe-area-inset-bottom));
+  padding: 0 20px calc(28px + env(safe-area-inset-bottom));
+  overflow: hidden;
+  /* The mocks render every caption as a horizontally-centered block, both
+     single-line and wrapped multi-line (verified directly against the
+     source screens - e.g. "Can you give me a" / "reading?" sits centered
+     as two lines, not ragged-left). text-align (not align-items) is what
+     centers it: .journey-text-wrap stays a full-width flex child so the
+     tap-hint/choice buttons below keep their existing width, but the text
+     runs inside it now center within that width. */
+  text-align: center;
+}
+
+.journey-caption.is-centered {
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Any beat with a card (.journey-card sits above this in normal flow now -
+   see that class's own comment) gets this instead of the fixed top:70%
+   base rule: the caption becomes a flex:1 sibling that just takes
+   whatever vertical space is actually left under the card and centers
+   its own content (text + buttons) inside that space, rather than a
+   fixed-position box that assumed a specific card height. Horizontal
+   layout of the buttons themselves is unchanged here (still full-width,
+   stretched to this box's width) - that's the separate pill-button
+   restyle Simon asked for after this, not part of the vertical-centering
+   fix. */
+.journey-caption.is-below-card {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: center;
 }
 
 /* ---------- Text system ----------
@@ -6841,6 +6920,24 @@ body.is-revealing { overflow: hidden; }
   position: relative;
   display: inline-block;
   max-width: 100%;
+}
+
+/* ---------- Legibility scrim (global style guide) ----------
+   Simon's rule (0906 follow-up): ANY text sitting directly on top of
+   image art - not just this one caption - gets a soft translucent black
+   box behind it, because a text-shadow alone isn't enough once the art
+   underneath is bright or busy (the choice/unlock buttons already do
+   this with their own solid button background; plain caption text was
+   the one place relying on text-shadow only). This class is the one
+   shared answer - anywhere else Journey (or another image-backed screen)
+   puts text over art, reuse `.journey-scrim` rather than adding a new
+   one-off background, same reasoning as the animation library above:
+   one edit here should be able to change every case at once. */
+.journey-scrim {
+  display: inline-block;
+  background: rgba(10, 8, 16, 0.55);
+  padding: 3px 12px;
+  border-radius: 8px;
 }
 
 .journey-text {
@@ -6940,32 +7037,142 @@ body.is-revealing { overflow: hidden; }
   50%      { transform: rotate(0.35deg) translateY(0); }
   75%      { transform: rotate(-0.3deg) translateY(1px); }
 }
+/* Positioned to match where the mocks themselves place the card (roughly
+   7%-72% down a 707x1541 frame, 6%-94% across) - not centered in whatever
+   space is left below it. Width comes from the left/right insets; height
+   used to be unconstrained (auto from the image's own aspect ratio against
+   that width), which is exactly what broke on any viewport shorter/wider
+   than a tall phone (0906 report: on a squarer/landscape-ish window the
+   same width produces a much taller card in absolute px, since height
+   scales with width - tall enough to land on top of the caption text and
+   the choice buttons below it). max-height on the <img> itself, in dvh
+   (viewport-relative, so it isn't at the mercy of this element's own auto
+   height resolving it), caps that: the browser then shrinks WIDTH to match
+   once height hits the cap, preserving the art's aspect ratio rather than
+   stretching or cropping it - see the img rule below.
+
+   0906 follow-up: the card is normal flow now, not absolutely positioned -
+   a fixed top:% + independently-absolutely-positioned caption is exactly
+   what produced the uneven, sometimes-overlapping gap between them
+   (neither one knew where the other actually ended). As a flex child of
+   .journey-stage (column direction), the card just takes its own natural
+   size at the top and the caption-below-card sibling gets whatever is
+   left - see .journey-caption.is-below-card below. `align-items: center`
+   (inherited from .journey-stage) centers it horizontally since its width
+   is less than 100%; `display:flex` + `justify-content:center` here
+   additionally re-centers the ART inside the card's own box for the case
+   where max-height (below) leaves it narrower than that box. */
 .journey-card {
-  display: block;
-  width: 100%;
-  max-width: 280px;
-  margin: 0 auto;
+  position: relative;
+  flex: 0 0 auto;
+  width: 88%;
+  margin: 0;
+  margin-top: 7dvh;
+  display: flex;
+  justify-content: center;
   border-radius: 14px;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
   animation: journey-card-breathe 4.6s ease-in-out infinite;
   transform-origin: 50% 88%;
 }
+
+/* Choice beats get a visibly smaller card than a plain reveal/unlock
+   (measured from the mock screens: ~66% width vs. the default's ~88%),
+   scaled up 20% again per Simon's 0906 follow-up (66% * 1.2 = 79.2%,
+   48dvh * 1.2 = 57.6dvh on the art below) - it no longer has to leave
+   room for a fixed-position caption underneath it (that's the whole
+   point of the flow-based layout above), so there's no reason left to
+   keep it as small as the original overlap fix needed. */
+.journey-card.is-compact {
+  width: 79.2%;
+  margin-top: 3.6dvh;
+}
 .journey-card img,
 .journey-card .art-pending {
   display: block;
   width: 100%;
+  /* Keeps the art from outgrowing the space the flex layout actually
+     leaves it, on any viewport shape - not load-bearing for the
+     card/caption overlap anymore (flex now guarantees that), but still
+     worth keeping so an extreme aspect ratio can't make the card alone
+     push the caption below off-screen. */
+  max-height: 58dvh;
+  object-fit: contain;
   border-radius: 14px;
 }
+.journey-card.is-compact img,
+.journey-card.is-compact .art-pending {
+  max-height: 57.6dvh;
+}
 
-/* ---------- Journey home (app/journey/page.js) ----------
-   A normal `.shell` page, not the beat player's full-bleed stage - see
-   that file's own comment for why. Just a heading before the unit list. */
-.journey-home-title {
-  margin: 0 0 18px;
-  font-family: var(--body);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--parchment);
+/* ---------- Card-back reveal (the reveal-glow beat) ----------
+   Simon (0906): "after this step it should animate to reveal the fool."
+   The mock's reveal-glow screen bakes its glowing card into the
+   illustration itself - there's no separate card-back asset to flip -
+   so instead: let that glow image play as this beat's ordinary
+   background for a moment, then flash + dim it out while the real,
+   live card (card-face.png, same asset every other beat uses) scales
+   and fades in on top. Three pieces, timed by animation-delay off a
+   shared start (the group mounts when this beat becomes active):
+     0.00s-0.85s  the glow background alone (already just .journey-bg)
+     0.85s-1.45s  .journey-reveal-flash bursts and fades
+     1.00s-1.50s  .journey-reveal-veil dims the busy background to ink
+     1.05s-1.65s  .journey-reveal-card-in scales/fades the real card in
+   `display: contents` keeps the outer wrapper from becoming its own
+   flex item in .journey-stage (it would otherwise add an extra, empty
+   box alongside the card); the flash/veil are `position: fixed` so they
+   cover the whole screen regardless of where the (small, card-sized)
+   wrapper would otherwise sit in flow. */
+.journey-reveal {
+  display: contents;
+}
+
+.journey-reveal-flash,
+.journey-reveal-veil {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.journey-reveal-flash {
+  background: radial-gradient(
+    45% 35% at 50% 42%,
+    rgba(255, 250, 235, 0.95),
+    rgba(217, 178, 92, 0.55) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  animation: journey-reveal-flash 0.6s ease-out 0.85s both;
+}
+
+@keyframes journey-reveal-flash {
+  0%   { opacity: 0; transform: scale(0.6); }
+  35%  { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+
+.journey-reveal-veil {
+  background: var(--journey-ink);
+  opacity: 0;
+  animation: journey-reveal-veil-in 0.5s ease-out 1s both;
+}
+
+@keyframes journey-reveal-veil-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.journey-reveal-card-in {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.72);
+  animation: journey-reveal-card-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 1.05s both;
+}
+
+@keyframes journey-reveal-card-in {
+  from { opacity: 0; transform: scale(0.72); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* ---------- Choice / keyword buttons ----------
@@ -6980,14 +7187,27 @@ body.is-revealing { overflow: hidden; }
 .journey-choices {
   display: flex;
   flex-direction: column;
+  /* Buttons size to their own text (Simon: "the width of the button is
+     the width of the text plus some margin", matching the mocks' narrow
+     pill shape) rather than the old full-bleed bars - center is what
+     makes that possible: a flex column's default cross-axis behaviour is
+     stretch, which is exactly what was forcing every button to the
+     caption's full width regardless of its own padding/width rules. */
+  align-items: center;
   gap: 10px;
 }
 
 .journey-choice {
   position: relative;
   overflow: hidden;
-  padding: 13px 18px;
-  border-radius: 12px;
+  /* align-self (not just the parent's align-items above) because the
+     unlock beat's own "Continue to your deck" button isn't inside
+     .journey-choices at all - it's a direct child of .journey-caption,
+     which has the same stretch-by-default problem. Putting the fix here
+     covers both cases from one rule instead of two. */
+  align-self: center;
+  padding: 13px 26px;
+  border-radius: 999px;
   border: 1px solid rgba(242, 237, 227, 0.22);
   background: rgba(18, 15, 26, 0.6);
   color: var(--journey-parchment);
@@ -7069,9 +7289,21 @@ body.is-revealing { overflow: hidden; }
    Mounted for the whole tappable beat; opacity is what shows/hides it, so
    fade timing lives entirely here (Simon: fades in over 0.5s once 1s has
    passed with no tap; disappears - not lingers - the instant they tap). */
+/* Pinned to the literal bottom of the screen (Simon's 0906 follow-up)
+   rather than sitting in normal flow right under the caption text - as a
+   flex child it used to land at a different height on every beat
+   depending on how many lines the caption text itself wrapped to.
+   .journey-caption is already `position: absolute` with `bottom: 0`
+   (see its own comment above), so this positions against the same
+   safe-area-aware box the caption's own bottom padding is measured from,
+   just independent of the text's own height. Centered horizontally via
+   left:50%+translateX rather than width:100%+text-align, since this is
+   a pill-shaped span sized to its own content, not a full-width block. */
 .journey-tap-hint {
-  align-self: center;
-  margin-top: 4px;
+  position: absolute;
+  left: 50%;
+  bottom: calc(28px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
   padding: 5px 12px;
   border-radius: 999px;
   background: rgba(13, 11, 20, 0.72);
@@ -7088,12 +7320,156 @@ body.is-revealing { overflow: hidden; }
   transition: opacity 500ms ease;
 }
 
+/* Always-visible way out of the full-bleed player, back to the home/
+   preview screen below (Simon's 0906 follow-up: entering the player is
+   now only ever via that screen's "Continue Journey" button, so this is
+   the only way back out of it). Positioned/z-indexed explicitly rather
+   than relying on DOM order against .journey-card and .journey-caption -
+   both of those are `position: relative` now too, and stacking order
+   among same-z-index positioned siblings is tree order, not who's "on
+   top" visually - this just guarantees the X always wins regardless of
+   where those land on a given beat. */
+.journey-exit {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  left: calc(16px + env(safe-area-inset-left));
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(13, 11, 20, 0.65);
+  border: 1px solid rgba(242, 237, 227, 0.24);
+  color: var(--journey-parchment);
+  font-family: var(--body);
+  font-size: 20px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* ---------- Home / preview screen ----------
+   Lands on the JOURNEY tab (components/tabbar.jsx) instead of the old
+   straight-to-player redirect. Two overlapping cards - the unit's current-
+   stage scene behind the card being taught - plus one "Continue Journey"
+   button, which is the only door into the full-bleed player
+   (journey-player.jsx's .journey-exit is the only way back out of it, to
+   this same screen). Unlike .journey-stage this sits in the ordinary
+   .shell layout (tab bar stays visible - it isn't a "/journey/play/..."
+   route), so it uses the app's normal centering approach rather than
+   the player's flex-stage one. */
+.shell.journey-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - var(--tabbar));
+  text-align: center;
+}
+
+/* Sized/offset so the back (scene) card stays at least 70% visible past
+   the front (face) card (Simon's 0906 follow-up - the first version of
+   this had them overlapping by more than half). Both cards are the same
+   size (width % of the stack, aspect-ratio 0.62 each); the face card is
+   offset by a fraction of its OWN box (58% across, 46% down - see the
+   card-width/height math in this comment's own commit) rather than a
+   percentage of the stack, which is what makes the spread predictable
+   regardless of the stack's own responsive width:
+     overlap = (1 - 0.58) * (1 - 0.46) = 0.227 of the scene card's area
+     => ~77% of the scene card stays visible. */
+.journey-home-stack {
+  position: relative;
+  width: min(68%, 260px);
+  aspect-ratio: 0.74;
+  margin: 0 0 32px;
+}
+
+.journey-home-card {
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 0.62;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(242, 237, 227, 0.14);
+}
+
+.journey-home-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The "current stage of the story" visual - sits behind, upper-left.
+   Position is plain top/left (not transform), which matters for the
+   face card below - see its own comment. */
+.journey-home-card-scene {
+  top: 0;
+  left: 0;
+  transform: rotate(-4deg);
+}
+
+/* The card being taught - sits in front, offset down-right by 58%/46% of
+   its own size (see .journey-home-stack's comment for the visibility
+   math), overlapping the scene card only at that one corner. Breathes
+   like every other on-screen card (Simon: "whenever a card is visible it
+   should shake slightly like it is alive") - it needs its OWN breathe
+   keyframes rather than the shared .journey-card animation, because a
+   CSS `animation` overwrites the whole `transform` property on every
+   tick, not just the parts a keyframe mentions: reusing journey-card-
+   breathe here would silently erase this card's constant 3deg tilt for
+   the entire (infinite) animation, snapping it upright. Position is
+   top/left (not transform) for the same reason, in reverse - so the
+   breathing animation's own transform swaps never touch this card's
+   place in the stack. */
+.journey-home-card-face {
+  top: 30%;
+  left: 32%;
+  z-index: 1;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(217, 178, 92, 0.45);
+  animation: journey-home-card-face-breathe 4.6s ease-in-out infinite;
+}
+
+@keyframes journey-home-card-face-breathe {
+  0%, 100% { transform: rotate(3deg) translateY(0); }
+  25%      { transform: rotate(2.4deg) translateY(-2px); }
+  50%      { transform: rotate(3.35deg) translateY(0); }
+  75%      { transform: rotate(2.7deg) translateY(1px); }
+}
+
+.journey-home-caption {
+  margin: 0 0 22px;
+  font-family: var(--body);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--journey-parchment);
+}
+
+.journey-home-continue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: linear-gradient(160deg, var(--journey-gold-bright), var(--journey-gold-dim));
+  color: #2b220c;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(217, 178, 92, 0.35);
+}
+
 /* prefers-reduced-motion: every Journey animation still runs to
    completion (the correct-answer sequence gates real progress - it can't
    just vanish), but durations compress to near-instant so nothing spins
    or shakes for longer than a state change takes to register. */
 @media (prefers-reduced-motion: reduce) {
   .journey-card,
+  .journey-home-card-face,
   .journey-text.is-action,
   .journey-text.is-narrative,
   .journey-text-wrap.is-action .journey-dust,
@@ -7101,7 +7477,21 @@ body.is-revealing { overflow: hidden; }
   .journey-choice.is-correct-punch,
   .journey-choice.is-sweeping .journey-choice-sweep::after,
   .journey-choice.is-wrong,
-  .journey-choice.is-disintegrating {
+  .journey-choice.is-disintegrating,
+  .journey-reveal-flash,
+  .journey-reveal-veil,
+  .journey-reveal-card-in {
     animation-duration: 1ms !important;
+  }
+
+  /* These three specifically also use animation-delay to stagger a
+     sequence (flash -> dim -> card-in) - without zeroing that too, a
+     reduced-motion reader would sit on a blank-ish screen for ~1s before
+     a 1ms "instant" reveal, which is a worse experience than just having
+     the card appear right away. */
+  .journey-reveal-flash,
+  .journey-reveal-veil,
+  .journey-reveal-card-in {
+    animation-delay: 0ms !important;
   }
 }

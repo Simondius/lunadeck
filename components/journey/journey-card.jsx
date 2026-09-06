@@ -12,9 +12,9 @@ import SceneImage from "@/components/story/scene-image";
 // max-width, the drop shadow); SceneImage's own <img>/.art-pending element
 // is styled as its child via ".journey-card img, .journey-card .art-pending"
 // in app/globals.css, so SceneImage itself gets no className here.
-export default function JourneyCard({ src, alt, initial }) {
+export default function JourneyCard({ src, alt, initial, compact }) {
   return (
-    <div className="journey-card">
+    <div className={`journey-card${compact ? " is-compact" : ""}`}>
       <SceneImage src={src} alt={alt || ""} initial={initial} />
     </div>
   );

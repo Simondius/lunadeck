@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 // a physical deck already in your hands, so it is the one that most wants to be
 // reachable with a thumb rather than at the end of a row.
 const TABS = [
-  { href: "/", label: "PATH", glyph: "" },
+  { href: "/", label: "JOURNEY", glyph: "" },
   { href: "/deck", label: "DECK", glyph: " is-deck" },
   { href: "/guide", label: "GUIDE", glyph: " is-guide", primary: true },
   // The daily draw lives inside this tab, so there is no separate Draw tab.

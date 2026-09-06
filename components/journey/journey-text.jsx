@@ -30,7 +30,9 @@ export default function JourneyText({ variant = "narrative", children }) {
         sparkling ? " is-sparkling" : ""
       }`}
     >
-      <p className={`journey-text${isAction ? " is-action" : " is-narrative"}`}>
+      <p
+        className={`journey-text journey-scrim${isAction ? " is-action" : " is-narrative"}`}
+      >
         {children}
       </p>
       {isAction ? <span className="journey-dust" aria-hidden="true" /> : null}

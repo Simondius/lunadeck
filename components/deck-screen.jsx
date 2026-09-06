@@ -5,6 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useProgress } from "@/components/use-progress";
 import { knownCardKeys } from "@/lib/progress";
+import { knownCardKeys as journeyKnownCardKeys } from "@/lib/journey-progress";
+import { UNITS as JOURNEY_UNITS } from "@/data/journey/units";
 import { FLYER_ID } from "@/lib/unit-unlock-flyer";
 
 // Cards this browser has already watched unlock once - separate from
@@ -87,7 +89,41 @@ export default function DeckScreen({ groups, sections }) {
   // the Path tab, shown only once the unlock/level-up animation lands.
   const [arrowTarget, setArrowTarget] = useState(null);
 
-  const known = useMemo(() => knownCardKeys(progress, sections), [progress, sections]);
+  // Union of the two progress stores: lib/progress.js (the legacy Path/v4
+  // course - a card is known once its teaching section is finished) and
+  // lib/journey-progress.js (Journey - a card is known once its unit is
+  // finished). They're deliberately separate stores (see that file's own
+  // comment), so a card the reader just earned via Journey wouldn't
+  // otherwise show up here at all - the slot would stay permanently
+  // greyed even right after journey-play-screen.jsx's own unlock
+  // celebration played on it (Simon's 0906 report: cards not
+  // colourising once earned).
+  //
+  // journeyKnownCardKeys() reads localStorage directly - unlike
+  // useProgress() (a useSyncExternalStore hook with its own
+  // getServerSnapshot for the legacy store), it has no SSR-safe snapshot,
+  // so it can only be read after mount: reading it straight into the
+  // `known` memo below ran it during the CLIENT'S OWN FIRST render too
+  // (the hydration pass), which does have access to localStorage, while
+  // the server render obviously doesn't - two different outputs for the
+  // same render, which is exactly what React's hydration mismatch check
+  // exists to catch (Simon's 0906 report right after: a hydration error
+  // in the console). journeyKnown starts as an empty Set (matching what
+  // the server rendered) and only picks up the real value in an effect,
+  // i.e. strictly after hydration has already reconciled - the same
+  // "server and first client render agree, real data arrives in a
+  // follow-up commit" split useProgress() gets for free from
+  // useSyncExternalStore.
+  const [journeyKnown, setJourneyKnown] = useState(() => new Set());
+  useEffect(() => {
+    setJourneyKnown(new Set(journeyKnownCardKeys(JOURNEY_UNITS)));
+  }, []);
+
+  const known = useMemo(() => {
+    const set = knownCardKeys(progress, sections);
+    for (const key of journeyKnown) set.add(key);
+    return set;
+  }, [progress, sections, journeyKnown]);
   const total = groups.reduce((n, g) => n + g.cards.length, 0);
   const shown = filter === "all" ? groups : groups.filter((g) => g.id === filter);
 

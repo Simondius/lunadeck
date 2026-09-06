@@ -6957,6 +6957,17 @@ body.is-revealing { overflow: hidden; }
   border-radius: 14px;
 }
 
+/* ---------- Journey home (app/journey/page.js) ----------
+   A normal `.shell` page, not the beat player's full-bleed stage - see
+   that file's own comment for why. Just a heading before the unit list. */
+.journey-home-title {
+  margin: 0 0 18px;
+  font-family: var(--body);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--parchment);
+}
+
 /* ---------- Choice / keyword buttons ----------
    Tap-only (Simon: "keyword selection should be tap"). One state machine,
    shared by every round that presents 2-4 options with exactly one

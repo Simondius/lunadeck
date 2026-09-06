@@ -105,6 +105,15 @@ Rules that still apply to every CSV in `data/`, v1 or not:
 - Asset files: `{card_key}_{MASTER|circle|avatar}.png`
 - Pipe (`|`) is the in-cell list delimiter across all CSVs
 
+## Deployment
+
+Hosting is currently a workaround: Vercel is connected to a mirror repo
+(`Simondius/lunadeck`), not this one, because Vercel won't let a
+Collaborator (Simon) connect a personal-account repo it doesn't own — only
+the Owner (Tia) can. If Tia (or her Claude) is trying to fix this properly,
+**read `docs/vercel-ci-handoff-for-tia.md` first** — it has the exact steps
+and the reasoning, so it doesn't need reconstructing from a chat log.
+
 ## Recording decisions
 
 Non-obvious choices — why a card sits in a particular unit, why a distractor

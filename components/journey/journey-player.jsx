@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { masterForKey } from "@/lib/rounds";
 import { registerNodeSkip } from "@/lib/dev-console-bridge";
@@ -9,6 +9,11 @@ import { useTapHint } from "./use-tap-hint";
 import JourneyText from "./journey-text";
 import JourneyCard from "./journey-card";
 import JourneyChoiceGroup from "./journey-choice-group";
+
+function prefersReducedMotion() {
+  if (typeof window === "undefined" || !window.matchMedia) return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 // Plays one Journey unit (data/journey/units/*.js) beat by beat.
 //
@@ -48,6 +53,57 @@ export default function JourneyPlayer({ unit, onComplete }) {
   const isPassive = beat.kind === "line";
   const [hintVisible, dismissHint] = useTapHint(index);
 
+  // Simon (0906 follow-up): "there is a black screen for a fraction of a
+  // second in between transitions... whenever we transition we do a 0.1s
+  // fade out and 0.1s fade in so it looks intentional." The flash was the
+  // next beat's background image not being decoded yet the instant `bg`
+  // swaps - .journey-bg has nothing to paint for a beat, so .journey-stage's
+  // own solid ink fill shows through underneath it. Two changes fix this
+  // together: this phase state drives a brief opacity fade on the whole
+  // stage around every beat change (see .journey-stage.is-transitioning in
+  // globals.css) so any remaining latency reads as a deliberate dip to
+  // black rather than a glitch, and the effect below preloads every beat's
+  // image up front so there normally isn't any latency left to hide.
+  // `phase === "out"` also doubles as a debounce - changeBeat no-ops on a
+  // repeat tap mid-fade instead of racing two beat changes.
+  const [phase, setPhase] = useState("in");
+  const transitionTimer = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    };
+  }, []);
+
+  function changeBeat(updateIndex) {
+    if (phase === "out") return;
+    dismissHint();
+    if (prefersReducedMotion()) {
+      updateIndex();
+      return;
+    }
+    setPhase("out");
+    transitionTimer.current = setTimeout(() => {
+      updateIndex();
+      setPhase("in");
+    }, 100);
+  }
+
+  // Every beat's background image, fetched as soon as the player mounts
+  // rather than only when the reader actually reaches that beat - these are
+  // small, already-optimized crops (docs/decisions/0100), so warming the
+  // browser cache for all of them up front is cheap and means the fade
+  // above almost never has real network latency left to mask.
+  useEffect(() => {
+    const urls = unit.beats
+      .map((b) => b.bg)
+      .filter((bg) => typeof bg === "string" && bg.startsWith("/"));
+    for (const src of new Set(urls)) {
+      const img = new Image();
+      img.src = src;
+    }
+  }, [unit]);
+
   // Simon (0906): the very first time ever, the JOURNEY tab should skip
   // straight to this full-bleed player rather than the home/preview
   // screen (journey-home-screen.jsx) - every visit after that first one
@@ -72,24 +128,24 @@ export default function JourneyPlayer({ unit, onComplete }) {
   useEffect(() => {
     return registerNodeSkip({
       onNext() {
-        dismissHint();
-        setIndex((i) => Math.min(i + 1, unit.beats.length - 1));
+        changeBeat(() => setIndex((i) => Math.min(i + 1, unit.beats.length - 1)));
       },
       onPrev() {
-        dismissHint();
-        setIndex((i) => Math.max(i - 1, 0));
+        changeBeat(() => setIndex((i) => Math.max(i - 1, 0)));
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [unit.beats.length]);
 
   function advance() {
-    dismissHint();
     if (isLast) {
+      // Leaving the player entirely (on to the deck), not moving to another
+      // beat within it - no fade, same as before.
+      dismissHint();
       onComplete();
       return;
     }
-    setIndex((current) => current + 1);
+    changeBeat(() => setIndex((current) => current + 1));
   }
 
   const cardSrc = beat.cardArt || (beat.cardKey ? masterForKey(beat.cardKey) : null);
@@ -102,7 +158,7 @@ export default function JourneyPlayer({ unit, onComplete }) {
 
   return (
     <div
-      className="journey-stage"
+      className={`journey-stage${phase === "out" ? " is-transitioning" : ""}`}
       onClick={isPassive ? advance : undefined}
       role={isPassive ? "button" : undefined}
       tabIndex={isPassive ? 0 : undefined}

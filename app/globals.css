@@ -6807,6 +6807,23 @@ body.is-revealing { overflow: hidden; }
   background: var(--journey-ink);
   color: var(--journey-parchment);
   font-family: var(--body);
+  /* Simon (0906 follow-up): "there is a black screen for a fraction of a
+     second in between transitions... do a 0.1s fade out and 0.1s fade in
+     so it looks intentional." journey-player.jsx toggles is-transitioning
+     for 100ms around every beat change (tap-to-advance, a choice resolving,
+     the dev console's skip arrows) - fading the WHOLE stage rather than
+     just .journey-bg means the caption/card swapping at the same instant
+     is covered too, not just the background image. pointer-events: none
+     while faded out is what makes changeBeat's own "ignore a repeat tap
+     mid-fade" guard actually stick - without it a fast double-tap could
+     still reach this element's onClick underneath the fade. */
+  transition: opacity 100ms ease;
+  opacity: 1;
+}
+
+.journey-stage.is-transitioning {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .journey-bg {
